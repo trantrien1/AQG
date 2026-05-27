@@ -1,0 +1,336 @@
+{
+  "metadata": {
+    "source": "Toán rời rạc 1 - 2016-compressed-pages-7.pdf",
+    "parsed_from_pdf": true,
+    "num_chunks": 7,
+    "num_units": 7,
+    "chunking_mode": "chunked",
+    "extraction_mode": "plain_text",
+    "total_chars": 4153,
+    "long_document": {
+      "total_chars": 4153,
+      "num_units": 7,
+      "max_unit_chars": 1578,
+      "is_long": false,
+      "is_too_long": false,
+      "long_doc_chars": 30000,
+      "too_long_chars": 120000,
+      "warning": null,
+      "document_type": "general_math_document",
+      "source": "Toán rời rạc 1 - 2016-compressed-pages-7.pdf",
+      "requires_user_selection": false,
+      "skills_used": [
+        "document-classification",
+        "long-document-detection"
+      ],
+      "steps": [
+        "skipped: document below long-document threshold"
+      ],
+      "sections": [],
+      "selected_units": []
+    },
+    "clean_contexts": {
+      "available": true,
+      "num_contexts": 7,
+      "dataset_fingerprint": "fd08a444977b1c1a"
+    },
+    "clean_contexts_payload": {
+      "source": "Toán rời rạc 1 - 2016-compressed-pages-7.pdf",
+      "dataset_fingerprint": "fd08a444977b1c1a",
+      "builder": "chunk_context_builder",
+      "llm_enabled": true,
+      "num_contexts": 7
+    }
+  },
+  "pdf_000": {
+    "topic": "51. Hãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:",
+    "pages": [
+      1
+    ],
+    "context": "Title: 51. Hãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:\n\nKey formulas:\n- a0 = 6, a1 = 9, an = 7an-1 - 12an-2 với n2 b) Tìm hệ thức truy hồi để tính số các xâu nhị phân độ dài n, bắt đầu bằng số 0 và c) Tính số xâu nhị phân thỏa mãn điều kiện ở câu b với n = 7.\n- a0 = 8, a1 = 7, an = -an-1 + 12an-2 với n2 b) Tìm hệ thức truy hồi để tính số các xâu nhị phân độ dài n, kết thúc bằng số 0 và c) Tính số xâu nhị phân thỏa mãn điều kiện ở câu b với n = 6.\n- a) an = 3an-1 với a0 =2.\n- b) an = -4an-1 - 4an-2 c) an = 14an-1 - 49an-2 với n2 và a0 =3 và a1 = 35.\n- a) an = an-1 + 2 với a0 =3.\n- b) an = -4an-1 - 4an-2 với n2 và a0 =0 và a1 =1.\n- c) an = 13an-1 - 22an-2 với n2 và a0 =3 và a1 = 15.\n- a) an = an-1 + 2n + 3 với a0 =4.\n\nQuestionable skills:\n- nhận diện định nghĩa/công thức\n- suy luận với ký hiệu toán\n\nSource quote candidates:\n- a0 = 6, a1 = 9, an = 7an-1 - 12an-2 với n2\n- a0 = 8, a1 = 7, an = -an-1 + 12an-2 với n2\n- Hãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:\n- an = 3an-1 với a0 =2.\n- an = -4an-1 - 4an-2\n- an = 14an-1 - 49an-2 với n2 và a0 =3 và a1 = 35.\n- an = an-1 + 2 với a0 =3.\n- an = -4an-1 - 4an-2 với n2 và a0 =0 và a1 =1.\n\nClean context text:\na0 = 6, a1 = 9, an = 7an-1 - 12an-2 với n≥2; a0 = 8, a1 = 7, an = -an-1 + 12an-2 với n≥2; an = 3an-1 với a0 =2; an = -4an-1 - 4an-2; an = 14an-1 - 49an-2 với n≥2 và a0 =3 và a1 = 35; an = an-1 + 2 với a0 =3; an = -4an-1 - 4an-2 với n≥2 và a0 =0 và a1 =1; an = 13an-1 - 22an-2 với n≥2 và a0 =3 và a1 = 15; an = an-1 + 2n + 3 với a0 =4; an = -6an-1 - 9an-2 với n≥2 và a0 =3 và a1 =-3.",
+    "raw_context": "46. \na0 = 6, a1 = 9, an = 7an-1 - 12an-2 với n2 \nb) Tìm hệ thức truy hồi để tính số các xâu nhị phân độ dài n, bắt đầu bằng số 0 và \nc) Tính số xâu nhị phân thỏa mãn điều kiện ở câu b với n = 7.\n\n47. \na0 = 8, a1 = 7, an = -an-1 + 12an-2 với n2 \nb) Tìm hệ thức truy hồi để tính số các xâu nhị phân độ dài n, kết thúc bằng số 0 và \nc) Tính số xâu nhị phân thỏa mãn điều kiện ở câu b với n = 6. \n48. Hãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây: \na) an = 3an-1 với a0 =2. \nb) an = -4an-1 - 4an-2 \nc) an = 14an-1 - 49an-2 với n2 và a0 =3 và a1 = 35. \n49. Hãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:\n\na) an = an-1 + 2 \nvới a0 =3.\n\nb) an = -4an-1 - 4an-2 với n2 và a0 =0 và a1 =1.\n\nc) an = 13an-1 - 22an-2 với n2 và a0 =3 và a1 = 15. \n50. Hãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:\n\na) an = an-1 + 2n + 3 với a0 =4.\n\nb) an = -6an-1 - 9an-2 \nvới n2 và a0 =3 và a1 =-3.",
+    "clean_context": {
+      "chunk_id": "pdf_000",
+      "title": "51. Hãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:",
+      "topic": "51. Hãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:",
+      "subtopics": [],
+      "clean_text": "a0 = 6, a1 = 9, an = 7an-1 - 12an-2 với n≥2; a0 = 8, a1 = 7, an = -an-1 + 12an-2 với n≥2; an = 3an-1 với a0 =2; an = -4an-1 - 4an-2; an = 14an-1 - 49an-2 với n≥2 và a0 =3 và a1 = 35; an = an-1 + 2 với a0 =3; an = -4an-1 - 4an-2 với n≥2 và a0 =0 và a1 =1; an = 13an-1 - 22an-2 với n≥2 và a0 =3 và a1 = 15; an = an-1 + 2n + 3 với a0 =4; an = -6an-1 - 9an-2 với n≥2 và a0 =3 và a1 =-3.",
+      "key_definitions": [],
+      "key_formulas": [
+        "a0 = 6, a1 = 9, an = 7an-1 - 12an-2 với n2 b) Tìm hệ thức truy hồi để tính số các xâu nhị phân độ dài n, bắt đầu bằng số 0 và c) Tính số xâu nhị phân thỏa mãn điều kiện ở câu b với n = 7.",
+        "a0 = 8, a1 = 7, an = -an-1 + 12an-2 với n2 b) Tìm hệ thức truy hồi để tính số các xâu nhị phân độ dài n, kết thúc bằng số 0 và c) Tính số xâu nhị phân thỏa mãn điều kiện ở câu b với n = 6.",
+        "a) an = 3an-1 với a0 =2.",
+        "b) an = -4an-1 - 4an-2 c) an = 14an-1 - 49an-2 với n2 và a0 =3 và a1 = 35.",
+        "a) an = an-1 + 2 với a0 =3.",
+        "b) an = -4an-1 - 4an-2 với n2 và a0 =0 và a1 =1.",
+        "c) an = 13an-1 - 22an-2 với n2 và a0 =3 và a1 = 15.",
+        "a) an = an-1 + 2n + 3 với a0 =4."
+      ],
+      "key_theorems": [],
+      "worked_examples": [],
+      "questionable_skills": [
+        "nhận diện định nghĩa/công thức",
+        "suy luận với ký hiệu toán"
+      ],
+      "misconceptions": [],
+      "math_objects": [],
+      "source_spans": [
+        "a0 = 6, a1 = 9, an = 7an-1 - 12an-2 với n2",
+        "a0 = 8, a1 = 7, an = -an-1 + 12an-2 với n2",
+        "Hãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:",
+        "an = 3an-1 với a0 =2.",
+        "an = -4an-1 - 4an-2",
+        "an = 14an-1 - 49an-2 với n2 và a0 =3 và a1 = 35.",
+        "an = an-1 + 2 với a0 =3.",
+        "an = -4an-1 - 4an-2 với n2 và a0 =0 và a1 =1."
+      ],
+      "quality": {
+        "is_usable": true,
+        "noise_level": "low",
+        "math_density": 1.0,
+        "generation_value": 1.0
+      }
+    }
+  },
+  "pdf_001": {
+    "topic": "53. Hãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:",
+    "pages": [
+      1
+    ],
+    "context": "Title: 53. Hãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:\n\nKey formulas:\n- b) an = 14an-1 - 49an-2 với n2 và a0 =3 và a1 = 35.\n- c) an = 2an-1 + an-2 - 2an-3 với n3 và a0 =3 và a1 =6, a2 =0.\n- b) an = -13an-1 - 22an-2 với n2 và a0 =3 và a1 = 15.\n\nQuestionable skills:\n- nhận diện định nghĩa/công thức\n- suy luận với ký hiệu toán\n\nSource quote candidates:\n- Hãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:\n- b) an = 14an-1 - 49an-2 với n≥2 và a0 =3 và a1 = 35.\n- c) an = 2an-1 + an-2 - 2an-3 với n≥3 và a0 =3 và a1 =6, a2 =0.\n- b) an = -13an-1 - 22an-2 với n≥2 và a0 =3 và a1 = 15.\n\nClean context text:\nHãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:\nb) an = 14an-1 - 49an-2 với n≥2 và a0 =3 và a1 = 35.\nc) an = 2an-1 + an-2 - 2an-3 với n≥3 và a0 =3 và a1 =6, a2 =0.\nb) an = -13an-1 - 22an-2 với n≥2 và a0 =3 và a1 = 15.",
+    "raw_context": "51. Hãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:\n\nb) an = 14an-1 - 49an-2 với n2 và a0 =3 và a1 = 35. \nc) an = 2an-1 + an-2 - 2an-3 với n3 và a0 =3 và a1 =6, a2 =0. \n52. Hãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:\n\nb) an = -13an-1 - 22an-2 với n2 và a0 =3 và a1 = 15.",
+    "clean_context": {
+      "chunk_id": "pdf_001",
+      "title": "53. Hãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:",
+      "topic": "53. Hãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:",
+      "subtopics": [],
+      "clean_text": "Hãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:\nb) an = 14an-1 - 49an-2 với n≥2 và a0 =3 và a1 = 35.\nc) an = 2an-1 + an-2 - 2an-3 với n≥3 và a0 =3 và a1 =6, a2 =0.\nb) an = -13an-1 - 22an-2 với n≥2 và a0 =3 và a1 = 15.",
+      "key_definitions": [],
+      "key_formulas": [
+        "b) an = 14an-1 - 49an-2 với n2 và a0 =3 và a1 = 35.",
+        "c) an = 2an-1 + an-2 - 2an-3 với n3 và a0 =3 và a1 =6, a2 =0.",
+        "b) an = -13an-1 - 22an-2 với n2 và a0 =3 và a1 = 15."
+      ],
+      "key_theorems": [],
+      "worked_examples": [],
+      "questionable_skills": [
+        "nhận diện định nghĩa/công thức",
+        "suy luận với ký hiệu toán"
+      ],
+      "misconceptions": [],
+      "math_objects": [],
+      "source_spans": [
+        "Hãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:",
+        "b) an = 14an-1 - 49an-2 với n≥2 và a0 =3 và a1 = 35.",
+        "c) an = 2an-1 + an-2 - 2an-3 với n≥3 và a0 =3 và a1 =6, a2 =0.",
+        "b) an = -13an-1 - 22an-2 với n≥2 và a0 =3 và a1 = 15."
+      ],
+      "quality": {
+        "is_usable": true,
+        "noise_level": "low",
+        "math_density": 1.0,
+        "generation_value": 0.81
+      }
+    }
+  },
+  "pdf_002": {
+    "topic": "54. Phương trình",
+    "pages": [
+      1,
+      2
+    ],
+    "context": "Title: 54. Phương trình\n\nKey formulas:\n- a) an = -4an-1 - 4an-2\n- b) an = 2an-1 + an-2 - 2an-3 với n3 và a0 =3 và a1 =6, a2 =0.\n- c) an = 7an-2 + 6an-3 với n3 và a0 =9 và a1 =10, a2 =32.\n\nQuestionable skills:\n- nhận diện định nghĩa/công thức\n- suy luận với ký hiệu toán\n\nSource quote candidates:\n- Hãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:\n- a) an = -4an-1 - 4an-2\n- b) an = 2an-1 + an-2 - 2an-3 với n3 và a0 =3 và a1 =6, a2 =0.\n- c) an = 7an-2 + 6an-3 với n3 và a0 =9 và a1 =10, a2 =32.\n\nClean context text:\nHãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:\n\na) an = -4an-1 - 4an-2\nb) an = 2an-1 + an-2 - 2an-3 với n3 và a0 =3 và a1 =6, a2 =0.\nc) an = 7an-2 + 6an-3 với n3 và a0 =9 và a1 =10, a2 =32.",
+    "raw_context": "53. Hãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:\n\na) an = -4an-1 - 4an-2 \nb) an = 2an-1 + an-2 - 2an-3 với n3 và a0 =3 và a1 =6, a2 =0. \nc) an = 7an-2 + 6an-3 với n3 và a0 =9 và a1 =10, a2 =32.",
+    "clean_context": {
+      "chunk_id": "pdf_002",
+      "title": "54. Phương trình",
+      "topic": "54. Phương trình",
+      "subtopics": [],
+      "clean_text": "Hãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:\n\na) an = -4an-1 - 4an-2\nb) an = 2an-1 + an-2 - 2an-3 với n3 và a0 =3 và a1 =6, a2 =0.\nc) an = 7an-2 + 6an-3 với n3 và a0 =9 và a1 =10, a2 =32.",
+      "key_definitions": [],
+      "key_formulas": [
+        "a) an = -4an-1 - 4an-2",
+        "b) an = 2an-1 + an-2 - 2an-3 với n3 và a0 =3 và a1 =6, a2 =0.",
+        "c) an = 7an-2 + 6an-3 với n3 và a0 =9 và a1 =10, a2 =32."
+      ],
+      "key_theorems": [],
+      "worked_examples": [],
+      "questionable_skills": [
+        "nhận diện định nghĩa/công thức",
+        "suy luận với ký hiệu toán"
+      ],
+      "misconceptions": [],
+      "math_objects": [],
+      "source_spans": [
+        "Hãy tìm nghiệm của công thức truy hồi với điều kiện đầu dưới đây:",
+        "a) an = -4an-1 - 4an-2",
+        "b) an = 2an-1 + an-2 - 2an-3 với n3 và a0 =3 và a1 =6, a2 =0.",
+        "c) an = 7an-2 + 6an-3 với n3 và a0 =9 và a1 =10, a2 =32."
+      ],
+      "quality": {
+        "is_usable": true,
+        "noise_level": "low",
+        "math_density": 1.0,
+        "generation_value": 0.77
+      }
+    }
+  },
+  "pdf_003": {
+    "topic": "55. Hãy tìm tất cả các số tự nhiên có 7 chữ số thỏa mãn:",
+    "pages": [
+      2
+    ],
+    "context": "Title: 55. Hãy tìm tất cả các số tự nhiên có 7 chữ số thỏa mãn:\n\nKey formulas:\n- x1 + x2 + x3 + x4 + x5 +x6 = 24 có bao nhiêu nghiệm nguyên không âm sao cho a) xi  2 với i=1, 2, 3, 4, 5, 6?\n\nQuestionable skills:\n- suy luận với ký hiệu toán\n\nMath objects:\n- phương trình\n\nSource quote candidates:\n- x1 + x2 + x3 + x4 + x5 +x6 = 24 có bao nhiêu nghiệm nguyên không âm sao cho a) xi  2 với i=1, 2, 3, 4, 5, 6?\n- b) 1 x1  5 và x3 8?\n- c) 1 x1  5 và 3 x2  7?\n\nClean context text:\nx1 + x2 + x3 + x4 + x5 + x6 = 24 có bao nhiêu nghiệm nguyên không âm sao cho a) xi  2 với i=1, 2, 3, 4, 5, 6? b) 1 x1  5 và x3 8? c) 1 x1  5 và 3 x2  7?",
+    "raw_context": "54. Phương trình\n\nx1 + x2 + x3 + x4 + x5 +x6 = 24 \ncó bao nhiêu nghiệm nguyên không âm sao cho \na) xi  2 với i=1, 2, 3, 4, 5, 6?\n\nb) 1 x1  5 và x3 8? \nc) 1 x1  5 và 3 x2  7?\n\nd) 1 x1  5 và 3 x2  7 và x3 8?",
+    "clean_context": {
+      "chunk_id": "pdf_003",
+      "title": "55. Hãy tìm tất cả các số tự nhiên có 7 chữ số thỏa mãn:",
+      "topic": "55. Hãy tìm tất cả các số tự nhiên có 7 chữ số thỏa mãn:",
+      "subtopics": [],
+      "clean_text": "x1 + x2 + x3 + x4 + x5 + x6 = 24 có bao nhiêu nghiệm nguyên không âm sao cho a) xi  2 với i=1, 2, 3, 4, 5, 6? b) 1 x1  5 và x3 8? c) 1 x1  5 và 3 x2  7?",
+      "key_definitions": [],
+      "key_formulas": [
+        "x1 + x2 + x3 + x4 + x5 +x6 = 24 có bao nhiêu nghiệm nguyên không âm sao cho a) xi  2 với i=1, 2, 3, 4, 5, 6?"
+      ],
+      "key_theorems": [],
+      "worked_examples": [],
+      "questionable_skills": [
+        "suy luận với ký hiệu toán"
+      ],
+      "misconceptions": [],
+      "math_objects": [
+        "phương trình"
+      ],
+      "source_spans": [
+        "x1 + x2 + x3 + x4 + x5 +x6 = 24 có bao nhiêu nghiệm nguyên không âm sao cho a) xi  2 với i=1, 2, 3, 4, 5, 6?",
+        "b) 1 x1  5 và x3 8?",
+        "c) 1 x1  5 và 3 x2  7?"
+      ],
+      "quality": {
+        "is_usable": true,
+        "noise_level": "medium",
+        "math_density": 1.0,
+        "generation_value": 0.37
+      }
+    }
+  },
+  "pdf_004": {
+    "topic": "56. Hãy tìm tất cả các số tự nhiên có 9 chữ số thỏa mãn:",
+    "pages": [
+      2
+    ],
+    "context": "Title: 56. Hãy tìm tất cả các số tự nhiên có 9 chữ số thỏa mãn:\n\nSource quote candidates:\n- Hãy tìm tất cả các số tự nhiên có 7 chữ số thỏa mãn: a) Số có 7 chữ số tạo thành một số thuận nghịch; b) Số có 7 chữ số tạo thành một số thuận nghịch và có tất cả các chữ số đều khác 0; c) Số có 7 chữ số có tổng các chữ số là 18;\n\nClean context text:\nHãy tìm tất cả các số tự nhiên có 7 chữ số thỏa mãn: a) Số có 7 chữ số tạo thành một số thuận nghịch; b) Số có 7 chữ số tạo thành một số thuận nghịch và có tất cả các chữ số đều khác 0; c) Số có 7 chữ số có tổng các chữ số là 18;",
+    "raw_context": "55. Hãy tìm tất cả các số tự nhiên có 7 chữ số thỏa mãn: \na) Số có 7 chữ số tạo thành một số thuận nghịch; \nb) Số có 7 chữ số tạo thành một số thuận nghịch và có tất cả các chữ số đều khác \n0; \nc) Số có 7 chữ số có tổng các chữ số là 18;",
+    "clean_context": {
+      "chunk_id": "pdf_004",
+      "title": "56. Hãy tìm tất cả các số tự nhiên có 9 chữ số thỏa mãn:",
+      "topic": "56. Hãy tìm tất cả các số tự nhiên có 9 chữ số thỏa mãn:",
+      "subtopics": [],
+      "clean_text": "Hãy tìm tất cả các số tự nhiên có 7 chữ số thỏa mãn: a) Số có 7 chữ số tạo thành một số thuận nghịch; b) Số có 7 chữ số tạo thành một số thuận nghịch và có tất cả các chữ số đều khác 0; c) Số có 7 chữ số có tổng các chữ số là 18;",
+      "key_definitions": [],
+      "key_formulas": [],
+      "key_theorems": [],
+      "worked_examples": [],
+      "questionable_skills": [],
+      "misconceptions": [],
+      "math_objects": [],
+      "source_spans": [
+        "Hãy tìm tất cả các số tự nhiên có 7 chữ số thỏa mãn: a) Số có 7 chữ số tạo thành một số thuận nghịch; b) Số có 7 chữ số tạo thành một số thuận nghịch và có tất cả các chữ số đều khác 0; c) Số có 7 chữ số có tổng các chữ số là 18;"
+      ],
+      "quality": {
+        "is_usable": true,
+        "noise_level": "low",
+        "math_density": 0.35,
+        "generation_value": 0.29
+      }
+    }
+  },
+  "pdf_005": {
+    "topic": "Số tự nhiên và hệ thức truy hồi",
+    "pages": [
+      2,
+      3
+    ],
+    "context": "Title: Ví dụ về số tự nhiên và hệ thức truy hồi\n\nTopic: Số tự nhiên và hệ thức truy hồi\n\nKey formulas:\n- b) Giải hệ thức truy hồi an = 2an-1 + an-2 - 2an-3 với n3 và a0 =3 và a1 =6, a2 =0.\n- b) Giải hệ thức truy hồi an = 7an-2 + 6an-3 với n3 và a0 =9 và a1 =10, a2 =32.\n\nWorked examples:\n- Ví dụ 1231407869 là hợp lệ, 120987045608 là\n- Ví dụ 1231407869 là hợp lệ, 12098704568 là\n- b) Áp dụng thuật toán nhánh cận giải bài toán cái túi dưới đây, chỉ rõ kết quả theo mỗi bước thực hiện của thuật toán?\n\nQuestionable skills:\n- tính toán theo ví dụ\n- suy luận với ký hiệu toán\n\nMath objects:\n- phương trình\n\nSource quote candidates:\n- Hãy tìm tất cả các số tự nhiên có 9 chữ số thỏa mãn: a) Số có 9 chữ số tạo thành một số thuận nghịch; b) Số có 9 chữ số tạo thành một số thuận nghịch và có tất cả các chữ số đều khác 0; c) Số có 7 chữ số có tổng các chữ số là 19.\n- Hãy tìm tất cả các số tự nhiên có 10 chữ số thỏa mãn: a) Số có 10 chữ số tạo thành một số thuận nghịch; b) Số có 10 chữ số tạo thành một số thuận nghịch và có tất cả các chữ số đều khác 0; c) Số có 10 chữ số có tổng các chữ số là 18.\n- Một hệ thống máy tính coi một xâu các chữ số hệ thập phân là một từ mã hợp lệ nếu nó chứa một số chẵn chữ số 1. Ví dụ 1231407869 là hợp lệ, 120987045608 là\n- b) Giải hệ thức truy hồi an = 2an-1 + an-2 - 2an-3 với n≥3 và a0 =3 và a1 =6, a2 =0.\n- b) Giải hệ thức truy hồi an = 7an-2 + 6an-3 với n≥3 và a0 =9 và a1 =10, a2 =32.\n- b) Áp dụng thuật toán nhánh cận giải bài toán cái túi dưới đây, chỉ rõ kết quả theo mỗi bước thực hiện của thuật toán?\n\nClean context text:\nHãy tìm tất cả các số tự nhiên có 9 chữ số thỏa mãn: a) Số có 9 chữ số tạo thành một số thuận nghịch; b) Số có 9 chữ số tạo thành một số thuận nghịch và có tất cả các chữ số đều khác 0; c) Số có 7 chữ số có tổng các chữ số là 19. Hãy tìm tất cả các số tự nhiên có 10 chữ số thỏa mãn: a) Số có 10 chữ số tạo thành một số thuận nghịch; b) Số có 10 chữ số tạo thành một số thuận nghịch và có tất cả các chữ số đều khác 0; c) Số có 10 chữ số có tổng các chữ số là 18. Một hệ thống máy tính coi một xâu các chữ số hệ thập phân là một từ mã hợp lệ nếu nó chứa một số chẵn chữ số 1. Ví dụ 1231407869 là hợp lệ, 120987045608 là b) Giải hệ thức truy hồi an = 2an-1 + an-2 - 2an-3 với n≥3 và a0 =3 và a1 =6, a2 =0. b) Giải hệ thức truy hồi an = 7an-2 + 6an-3 với n≥3 và a0 =9 và a1 =10, a2 =32. b) Áp dụng thuật toán nhánh cận giải bài toán cái túi dưới đây, chỉ rõ kết quả theo mỗi bước thực hiện của thuật toán?",
+    "raw_context": "56. Hãy tìm tất cả các số tự nhiên có 9 chữ số thỏa mãn: \na) Số có 9 chữ số tạo thành một số thuận nghịch; \nb) Số có 9 chữ số tạo thành một số thuận nghịch và có tất cả các chữ số đều khác \n0; \nc) Số có 7 chữ số có tổng các chữ số là 19; \n57. Hãy tìm tất cả các số tự nhiên có 10 chữ số thỏa mãn: \na) Số có 10 chữ số tạo thành một số thuận nghịch; \nb) Số có 10 chữ số tạo thành một số thuận nghịch và có tất cả các chữ số đều khác \n0; \nc) Số có 10 chữ số có tổng các chữ số là 18. \n58. \nkhông có k số 1 liên tiếp? \nnhất một dãy k số 1 liên tiếp? \n59. \nkhông có k số 0 liên tiếp? \nnhất một dãy k số 0 liên tiếp?\n\n60.\n\na) Một hệ thống máy tính coi một xâu các chữ số hệ thập phân là một từ mã hợp lệ \nnếu nó chứa một số chẵn chữ số 1. Ví dụ 1231407869 là hợp lệ, 120987045608 là \nb) Giải hệ thức truy hồi an = 2an-1 + an-2 - 2an-3 với n3 và a0 =3 và a1 =6, a2 =0. \n61. Phương trình \n\n\n\n\n\n\nx\nx\nx\nx\nx\nx\ncó bao nhiêu nghiệm nguyên không âm \nthỏa mãn \na) x1  1, x2  2, x3  3, x4 4, x5 5 , x6  6? \nb) 2 x1 7, 4 x2 8; x3  5? \n62. \n a) Một hệ thống máy tính coi một xâu các chữ số hệ thập phân là một từ mã hợp \nlệ nếu nó chứa một số lẻ chữ số 0. Ví dụ 1231407869 là hợp lệ, 12098704568 là \n b) Giải hệ thức truy hồi an = 7an-2 + 6an-3 với n3 và a0 =9 và a1 =10, a2 =32. \n63. Phương trình \n\n\n\n\n\n\nx\nx\nx\nx\nx\nx\ncó bao nhiêu nghiệm nguyên không âm thỏa \nmãn \nc) x1  1, x2  2, x3  3, x4 4, x5 5 , x6  6? \nb) 1 x1 6, 4 x2 9; x3  4? \n64. \nb) Áp dụng thuật toán nhánh cận giải bài toán cái túi dưới đây, chỉ rõ kết quả theo \nmỗi bước thực hiện của thuật toán?",
+    "clean_context": {
+      "chunk_id": "pdf_005",
+      "title": "Ví dụ về số tự nhiên và hệ thức truy hồi",
+      "topic": "Số tự nhiên và hệ thức truy hồi",
+      "subtopics": [],
+      "clean_text": "Hãy tìm tất cả các số tự nhiên có 9 chữ số thỏa mãn: a) Số có 9 chữ số tạo thành một số thuận nghịch; b) Số có 9 chữ số tạo thành một số thuận nghịch và có tất cả các chữ số đều khác 0; c) Số có 7 chữ số có tổng các chữ số là 19. Hãy tìm tất cả các số tự nhiên có 10 chữ số thỏa mãn: a) Số có 10 chữ số tạo thành một số thuận nghịch; b) Số có 10 chữ số tạo thành một số thuận nghịch và có tất cả các chữ số đều khác 0; c) Số có 10 chữ số có tổng các chữ số là 18. Một hệ thống máy tính coi một xâu các chữ số hệ thập phân là một từ mã hợp lệ nếu nó chứa một số chẵn chữ số 1. Ví dụ 1231407869 là hợp lệ, 120987045608 là b) Giải hệ thức truy hồi an = 2an-1 + an-2 - 2an-3 với n≥3 và a0 =3 và a1 =6, a2 =0. b) Giải hệ thức truy hồi an = 7an-2 + 6an-3 với n≥3 và a0 =9 và a1 =10, a2 =32. b) Áp dụng thuật toán nhánh cận giải bài toán cái túi dưới đây, chỉ rõ kết quả theo mỗi bước thực hiện của thuật toán?",
+      "key_definitions": [],
+      "key_formulas": [
+        "b) Giải hệ thức truy hồi an = 2an-1 + an-2 - 2an-3 với n3 và a0 =3 và a1 =6, a2 =0.",
+        "b) Giải hệ thức truy hồi an = 7an-2 + 6an-3 với n3 và a0 =9 và a1 =10, a2 =32."
+      ],
+      "key_theorems": [],
+      "worked_examples": [
+        "Ví dụ 1231407869 là hợp lệ, 120987045608 là",
+        "Ví dụ 1231407869 là hợp lệ, 12098704568 là",
+        "b) Áp dụng thuật toán nhánh cận giải bài toán cái túi dưới đây, chỉ rõ kết quả theo mỗi bước thực hiện của thuật toán?"
+      ],
+      "questionable_skills": [
+        "tính toán theo ví dụ",
+        "suy luận với ký hiệu toán"
+      ],
+      "misconceptions": [],
+      "math_objects": [
+        "phương trình"
+      ],
+      "source_spans": [
+        "Hãy tìm tất cả các số tự nhiên có 9 chữ số thỏa mãn: a) Số có 9 chữ số tạo thành một số thuận nghịch; b) Số có 9 chữ số tạo thành một số thuận nghịch và có tất cả các chữ số đều khác 0; c) Số có 7 chữ số có tổng các chữ số là 19.",
+        "Hãy tìm tất cả các số tự nhiên có 10 chữ số thỏa mãn: a) Số có 10 chữ số tạo thành một số thuận nghịch; b) Số có 10 chữ số tạo thành một số thuận nghịch và có tất cả các chữ số đều khác 0; c) Số có 10 chữ số có tổng các chữ số là 18.",
+        "Một hệ thống máy tính coi một xâu các chữ số hệ thập phân là một từ mã hợp lệ nếu nó chứa một số chẵn chữ số 1. Ví dụ 1231407869 là hợp lệ, 120987045608 là",
+        "b) Giải hệ thức truy hồi an = 2an-1 + an-2 - 2an-3 với n≥3 và a0 =3 và a1 =6, a2 =0.",
+        "b) Giải hệ thức truy hồi an = 7an-2 + 6an-3 với n≥3 và a0 =9 và a1 =10, a2 =32.",
+        "b) Áp dụng thuật toán nhánh cận giải bài toán cái túi dưới đây, chỉ rõ kết quả theo mỗi bước thực hiện của thuật toán?"
+      ],
+      "quality": {
+        "is_usable": true,
+        "noise_level": "low",
+        "math_density": 0.0,
+        "generation_value": 0.0
+      }
+    }
+  },
+  "pdf_006": {
+    "topic": "Bài toán cái túi dưới đây, chỉ rõ kết quả theo mỗi bước thực hiện của thuật toán?",
+    "pages": [
+      3,
+      4
+    ],
+    "context": "Title: Bài toán cái túi dưới đây, chỉ rõ kết quả theo mỗi bước thực hiện của thuật toán?\n\nWorked examples:\n- b) Áp dụng thuật toán nhánh cận giải bài toán cái túi dưới đây, chỉ rõ kết quả theo mỗi bước thực hiện của thuật toán?\n- Giải bài toán người du lịch với ma trận chi phí như sau:\n\nMath objects:\n- ma trận\n\nSource quote candidates:\n- Áp dụng thuật toán nhánh cận giải bài toán cái túi dưới đây, chỉ rõ kết quả theo mỗi bước thực hiện của thuật toán?\n- Giải bài toán người du lịch với ma trận chi phí như sau:\n-               4,3,2,1, 1,0, j x x x x x x x x x j\n\nClean context text:\nÁp dụng thuật toán nhánh cận giải bài toán cái túi dưới đây, chỉ rõ kết quả theo mỗi bước thực hiện của thuật toán? Giải bài toán người du lịch với ma trận chi phí như sau:",
+    "raw_context": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n.4,3,2,1\n,\n1,0\n,\nj\nx\nx\nx\nx\nx\nx\nx\nx\nx\nj\n\n65. \nb) Áp dụng thuật toán nhánh cận giải bài toán cái túi dưới đây, chỉ rõ kết quả theo \nmỗi bước thực hiện của thuật toán?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4,3,2,1\n,\n1,0\n,\nj\nx\nx\nx\nx\nx\nx\nx\nx\nx\nj\n\n66. \nb) Áp dụng thuật toán nhánh cận giải bài toán cái túi dưới đây, chỉ rõ kết quả theo \nmỗi bước thực hiện của thuật toán?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.\n,\n2,1\n,\n1,0\n\nj\nx\nx\nx\nx\nx\nx\nx\nx\nx\nx\nx\nx\nx\nx\nx\nx\nx\nx\nx\nx\nx\nj\n\n67. Giải bài toán người du lịch với ma trận chi phí như sau:\n\n\n\n\n\n\n\n\n68. Giải bài toán người du lịch với ma trận chi phí như sau:\n\n\n\n\n\n\n",
+    "clean_context": {
+      "chunk_id": "pdf_006",
+      "title": "Bài toán cái túi dưới đây, chỉ rõ kết quả theo mỗi bước thực hiện của thuật toán?",
+      "topic": "Bài toán cái túi dưới đây, chỉ rõ kết quả theo mỗi bước thực hiện của thuật toán?",
+      "subtopics": [],
+      "clean_text": "Áp dụng thuật toán nhánh cận giải bài toán cái túi dưới đây, chỉ rõ kết quả theo mỗi bước thực hiện của thuật toán? Giải bài toán người du lịch với ma trận chi phí như sau:",
+      "key_definitions": [],
+      "key_formulas": [],
+      "key_theorems": [],
+      "worked_examples": [
+        "b) Áp dụng thuật toán nhánh cận giải bài toán cái túi dưới đây, chỉ rõ kết quả theo mỗi bước thực hiện của thuật toán?",
+        "Giải bài toán người du lịch với ma trận chi phí như sau:"
+      ],
+      "questionable_skills": [],
+      "misconceptions": [],
+      "math_objects": [
+        "ma trận"
+      ],
+      "source_spans": [
+        "Áp dụng thuật toán nhánh cận giải bài toán cái túi dưới đây, chỉ rõ kết quả theo mỗi bước thực hiện của thuật toán?",
+        "Giải bài toán người du lịch với ma trận chi phí như sau:",
+        "              4,3,2,1, 1,0, j x x x x x x x x x j"
+      ],
+      "quality": {
+        "is_usable": true,
+        "noise_level": "low",
+        "math_density": 1.0,
+        "generation_value": 0.48
+      }
+    }
+  }
+}
