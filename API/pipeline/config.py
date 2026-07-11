@@ -12,7 +12,9 @@ def _load_dotenv():
     if not env_path.exists():
         return
     try:
-        for line in env_path.read_text(encoding='utf-8').splitlines():
+        # utf-8-sig: bỏ qua BOM nếu editor (VS Code/PowerShell) lưu kèm —
+        # BOM dính vào key của dòng đầu làm biến đó bị bỏ qua trong im lặng.
+        for line in env_path.read_text(encoding='utf-8-sig').splitlines():
             line = line.strip()
             if not line or line.startswith('#') or '=' not in line:
                 continue
@@ -54,8 +56,13 @@ OPENROUTER_SITE_NAME = os.getenv('OPENROUTER_SITE_NAME', '')
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY', '')
 OPENAI_BASE_URL = os.getenv('OPENAI_BASE_URL', '').strip()
 OPENAI_COMPATIBLE_BASE_URL = os.getenv('OPENAI_COMPATIBLE_BASE_URL', '').strip()
-NINEROUTER_API_KEY = os.getenv('NINEROUTER_API_KEY', '')
-NINEROUTER_BASE_URL = os.getenv('NINEROUTER_BASE_URL', 'http://127.0.0.1:20128/v1').strip()
+NINEROUTER_API_KEY = os.getenv('NINEROUTER_API_KEY') or os.getenv('NINEROUTER_KEY', '')
+NINEROUTER_URL = os.getenv('NINEROUTER_URL', '').strip().rstrip('/')
+NINEROUTER_BASE_URL = (
+    os.getenv('NINEROUTER_BASE_URL')
+    or ((NINEROUTER_URL + '/v1') if NINEROUTER_URL else '')
+    or 'http://127.0.0.1:20128/v1'
+).strip().rstrip('/')
 
 
 # ==== MODELS ====
@@ -77,8 +84,8 @@ NINEROUTER_JUDGE_MODEL = (
 )
 NINEROUTER_EMBEDDING_MODEL = (
     os.getenv('NINEROUTER_EMBEDDING_MODEL')
-    or os.getenv('OPENAI_EMBEDDING_MODEL')
-    or 'text-embedding-3-small'
+    or os.getenv('AQG_EMBEDDING_MODEL')
+    or ''
 )
 GENERATOR_MODEL = (
     os.getenv('AQG_GENERATOR_MODEL')
@@ -147,20 +154,45 @@ GEN_TEMPERATURE = float(os.getenv('AQG_GEN_TEMPERATURE', '0.45'))
 GEN_MAX_TOKENS = int(os.getenv('AQG_GEN_MAX_TOKENS', '1800'))
 LLM_TIMEOUT_SECONDS = float(os.getenv('AQG_LLM_TIMEOUT_SECONDS', '180'))
 LLM_RETRIES = int(os.getenv('AQG_LLM_RETRIES', '1'))
+# Ngân sách retry RIÊNG cho lỗi throttle tạm thời (gateway trả 400/429 kèm
+# '(reset after Ns)' khi rate-limit ảnh). Tách khỏi LLM_RETRIES để không nhầm
+# với lỗi modality/config thật.
+LLM_THROTTLE_RETRIES = int(os.getenv('AQG_LLM_THROTTLE_RETRIES', '6'))
 DEFAULT_GENERATION_MODE = os.getenv('AQG_GENERATION_MODE', 'fast').strip().lower() or 'fast'
+DEFAULT_SKILL_MODE = os.getenv(
+    'AQG_SKILL_MODE',
+    os.getenv('AQG_GENERATION_MODE', 'prompt'),
+).strip().lower() or 'prompt'
+if DEFAULT_SKILL_MODE in {'skills', 'skill', 'with-skills', 'with_skills', 'prompt+skills', 'advanced'}:
+    DEFAULT_SKILL_MODE = 'skills'
+else:
+    DEFAULT_SKILL_MODE = 'prompt'
+USE_SKILLS_DEFAULT = DEFAULT_SKILL_MODE == 'skills'
 
 
 # ==== PIPELINE PARAMS ====
-NUM_SAMPLES_PER_SLOT = 3
+NUM_SAMPLES_PER_SLOT = 5
 FAST_NUM_SAMPLES_PER_SLOT = int(os.getenv('AQG_FAST_NUM_SAMPLES_PER_SLOT', '1'))
 NUM_REPAIR_ATTEMPTS = 2
-QUALITY_THRESHOLD = 0.45
+QUALITY_THRESHOLD = 0.55
 NLI_PROB_MARGIN = 0.1
-DISTRACTOR_SIMILARITY_THRESHOLD = 0.8
+DISTRACTOR_SIMILARITY_THRESHOLD = 0.7
 QUESTION_DEDUP_THRESHOLD = 0.8
 GROUNDING_THRESHOLD = 0.4
 NUMERIC_TOLERANCE = 1e-6
 NUMERIC_CROSSCHECK_POINTS = 5
+
+# ==== QUOTE / GROUNDING STRICTNESS ====
+# When strict (legacy), the rule validator hard-rejects a candidate whenever the
+# source quote does not literally contain the exact formula family / concrete
+# numbers used in the question (see rule_validator._missing_required_concept_support).
+# On theory-only source chunks (definitions, general rules) this rejects almost
+# every computational question the LLM writes from a legitimate worked example.
+#
+# Default is LENIENT: quote relevance is still enforced via token overlap
+# (_quote_relevant_to_question), but the brittle formula-family gate is treated
+# as a soft signal only. Set AQG_QUOTE_RELEVANCE_STRICT=1 to restore legacy gate.
+QUOTE_RELEVANCE_STRICT = os.getenv('AQG_QUOTE_RELEVANCE_STRICT', '0').lower() in ('1', 'true', 'yes')
 GENERATION_CONTEXT_MAX_CHARS = int(os.getenv('AQG_GENERATION_CONTEXT_MAX_CHARS', '1500'))
 GENERATION_CONTEXT_EXPANDED_MAX_CHARS = int(os.getenv('AQG_GENERATION_CONTEXT_EXPANDED_MAX_CHARS', '3500'))
 DISTRACTOR_CONTEXT_MAX_CHARS = 1500
@@ -172,27 +204,85 @@ FAST_ACCEPT_ANSWER_MAX_CHARS = int(os.getenv('AQG_FAST_ACCEPT_ANSWER_MAX_CHARS',
 FAST_ACCEPT_CONCEPTUAL_ANSWER_MAX_CHARS = int(os.getenv('AQG_FAST_ACCEPT_CONCEPTUAL_ANSWER_MAX_CHARS', '260'))
 FAST_ACCEPT_HEURISTIC_QUALITY = 0.86
 FAST_BATCH_ENABLED = os.getenv('AQG_FAST_BATCH_ENABLED', '1').lower() in ('1', 'true', 'yes')
-FAST_BATCH_SIZE = int(os.getenv('AQG_FAST_BATCH_SIZE', '5'))
+FAST_BATCH_SIZE = int(os.getenv('AQG_FAST_BATCH_SIZE', '3'))
 FAST_BATCH_CONTEXT_CHARS = int(os.getenv('AQG_FAST_BATCH_CONTEXT_CHARS', '700'))
 FAST_BATCH_MAX_TOKENS = int(os.getenv('AQG_FAST_BATCH_MAX_TOKENS', '7000'))
 FAST_PARALLEL_WORKERS = int(os.getenv('AQG_FAST_PARALLEL_WORKERS', '4'))
-FAST_PLAN_SLOT_MULTIPLIER = float(os.getenv('AQG_FAST_PLAN_SLOT_MULTIPLIER', '2.0'))
+
+# Slots are independent, and each per-slot pipeline is dominated by LLM network
+# I/O (writer → distractor → verifier → critic → refine). Processing several
+# slots concurrently gives a near-linear latency reduction on the quality-first
+# runtime without changing the per-slot pipeline or its quality gates.
+#
+# Default 1 = strictly sequential (byte-for-byte the previous behavior; fully
+# deterministic). Set AQG_PARALLEL_SLOT_WORKERS>1 to trade run-to-run accepted-set
+# determinism for wall-clock speed (recommended 3-4 for slow reasoning models).
+PARALLEL_SLOT_WORKERS = max(1, int(os.getenv('AQG_PARALLEL_SLOT_WORKERS', '1')))
+# Internal generation slot pool.  Default to the requested question count; set
+# AQG_GENERATION_SLOT_POOL_MULTIPLIER or AQG_GENERATION_SLOT_POOL_MIN only when
+# deliberately over-planning for difficult source documents.
+GENERATION_SLOT_POOL_MIN = int(os.getenv('AQG_GENERATION_SLOT_POOL_MIN', '0'))
+GENERATION_SLOT_POOL_MULTIPLIER = float(os.getenv(
+    'AQG_GENERATION_SLOT_POOL_MULTIPLIER',
+    os.getenv('AQG_FAST_PLAN_SLOT_MULTIPLIER', '1.0'),
+))
+# Backward-compatible alias for old internal callers/scripts.
+FAST_PLAN_SLOT_MULTIPLIER = GENERATION_SLOT_POOL_MULTIPLIER
 
 # Bound retry blast radius per slot.  The total job cap is optional: set
 # AQG_MAX_JOB_ATTEMPT_MULTIPLIER > 0 to cap total slot-attempts at
 # target * multiplier.  The default 0 means no global cap; generation stops
 # when enough questions are accepted, all slots exhaust MAX_SLOT_ATTEMPTS, or
 # the user cancels the job.
-MAX_SLOT_ATTEMPTS = int(os.getenv('AQG_MAX_SLOT_ATTEMPTS', '3'))
+MAX_SLOT_ATTEMPTS = int(os.getenv('AQG_MAX_SLOT_ATTEMPTS', '2'))
 MAX_JOB_ATTEMPT_MULTIPLIER = int(os.getenv('AQG_MAX_JOB_ATTEMPT_MULTIPLIER', '0'))
 
 
-# ==== DETERMINISM & COST ====
+# ==== DETERMINISM ====
 DETERMINISTIC_SEED = int(os.getenv('AQG_SEED', '42'))
-# 0 means unlimited. Set AQG_TOKEN_BUDGET / AQG_CALL_BUDGET > 0 only when
-# you explicitly want a hard stop.
-COST_BUDGET_TOKENS = int(os.getenv('AQG_TOKEN_BUDGET', '0'))
-COST_BUDGET_CALLS = int(os.getenv('AQG_CALL_BUDGET', '0'))
+
+
+# ==== DIRECT PDF MODE ====
+# Direct_PDF_Mode gửi thẳng file PDF tới Generation_Model thay vì chia chunk.
+DIRECT_PDF_MODE_DEFAULT = os.getenv('AQG_DIRECT_PDF_MODE', '0') in ('1', 'true', 'yes')
+PDF_PAGE_LIMIT = int(os.getenv('AQG_PDF_PAGE_LIMIT', '30'))
+PDF_SIZE_LIMIT = int(os.getenv('AQG_PDF_SIZE_LIMIT', str(20 * 1024 * 1024)))  # 20MB
+# Chiến lược đính kèm PDF cho Direct_PDF_Mode:
+#   'file'     — gửi PDF base64 dạng part file (cần provider hỗ trợ file input).
+#   'file_url' — gửi nguyên file PDF base64 nhưng bọc trong part image_url
+#                (data:application/pdf;base64,...). Format của gateway chat2api:
+#                mọi loại file đều đi qua image_url với mime tương ứng.
+#   'image'    — render mỗi trang PDF thành ảnh PNG, gửi dạng image_url (cần vision).
+#                Dùng cho gateway chỉ hỗ trợ ảnh (vd 9router local chặn file PDF).
+PDF_ATTACH_MODE = os.getenv('AQG_PDF_ATTACH_MODE', 'image').strip().lower() or 'image'
+PDF_IMAGE_DPI = int(os.getenv('AQG_PDF_IMAGE_DPI', '120'))
+# Số trang tối đa render thành ảnh và gửi trong MỘT request (tách khỏi
+# PDF_PAGE_LIMIT dùng cho ingestion). Provider vision giới hạn số ảnh/request
+# (Claude ~100). Với tài liệu dài, ~30 trang đầu đủ để sinh & kiểm 20 câu.
+PDF_IMAGE_MAX_PAGES = int(os.getenv('AQG_PDF_IMAGE_MAX_PAGES', '30'))
+# Ngân sách token cho mỗi MCQ khi sinh trực tiếp từ PDF (stem + 4 options +
+# explanation + detailed_solution). Dùng để scale max_tokens theo số câu yêu cầu.
+DIRECT_PDF_TOKENS_PER_QUESTION = int(os.getenv('AQG_DIRECT_PDF_TOKENS_PER_QUESTION', '2600'))
+# Two-pass self-review: sau khi sinh nháp, cho model tự rà soát & sửa (số học,
+# đáp án đúng nằm trong options, source_quote khớp đề) trước khi parse cuối.
+DIRECT_PDF_SELF_REVIEW = os.getenv('AQG_DIRECT_PDF_SELF_REVIEW', '1') in ('1', 'true', 'yes')
+DIRECT_PDF_REVIEW_ROUNDS = int(os.getenv('AQG_DIRECT_PDF_REVIEW_ROUNDS', '1'))
+# Khi số câu yêu cầu lớn, sinh theo lô nhỏ (tránh model từ chối/cắt cụt khi phải
+# sinh quá nhiều câu mới cùng lúc, nhất là tài liệu nhiều bài tập mẫu).
+DIRECT_PDF_BATCH_SIZE = int(os.getenv('AQG_DIRECT_PDF_BATCH_SIZE', '6'))
+# Kiểm chứng số học bằng SymPy (tái dùng pipeline.verifier): loại câu có
+# verifier_payload chứng minh SAI. Câu không kiểm được (type=none) vẫn giữ.
+DIRECT_PDF_VERIFY = os.getenv('AQG_DIRECT_PDF_VERIFY', '1') in ('1', 'true', 'yes')
+# Kiến trúc multi-agent cho Direct_PDF_Mode (Writer -> Distractor -> Verifier ->
+# Critic -> Formatter), mỗi agent gọi vision với các trang PDF làm context. Khi
+# tắt (=0) dùng lại generator đơn khối cũ (một prompt lớn + self-review).
+DIRECT_PDF_MULTI_AGENT = os.getenv('AQG_DIRECT_PDF_MULTI_AGENT', '1') in ('1', 'true', 'yes')
+# Số slot đệm (mỗi slot có thể thử lại tối đa MAX_SLOT_ATTEMPTS lần).
+DIRECT_PDF_MA_MAX_TOKENS = int(os.getenv('AQG_DIRECT_PDF_MA_MAX_TOKENS', '2600'))
+# Số slot chạy SONG SONG mỗi wave trong Direct_PDF multi-agent (1 = tuần tự).
+# chat2api throttle theo giờ; call_llm_with_pdf đã tự đợi khi 429 nên 3 luồng
+# vẫn an toàn — nếu gặp 429 dày, hạ xuống 2 hoặc 1.
+DIRECT_PDF_PARALLEL_SLOTS = int(os.getenv('AQG_DIRECT_PDF_PARALLEL_SLOTS', '3'))
 
 
 # ==== SUBJECT ====
@@ -201,16 +291,19 @@ DEFAULT_SUBJECT = 'Toán'
 
 
 # ==== DIFFICULTY DISTRIBUTION ====
+# Phân bố cho chế độ "mixed". Nghiêng về Vận dụng/Vận dụng cao vì phân bố cũ
+# (25/35/30/10) cho ra đề quá dễ. Các preset easy/medium/hard riêng lẻ
+# (web/jobs.py _DIFFICULTY_TARGETS) giữ nguyên.
 DEFAULT_DIFFICULTY_DISTRIBUTION = [
-    {'cognitive_level': 'Nhận biết',    'difficulty_target': 0.30, 'fraction': 0.25},
-    {'cognitive_level': 'Thông hiểu',   'difficulty_target': 0.50, 'fraction': 0.35},
-    {'cognitive_level': 'Vận dụng',     'difficulty_target': 0.70, 'fraction': 0.30},
-    {'cognitive_level': 'Vận dụng cao', 'difficulty_target': 0.85, 'fraction': 0.10},
+    {'cognitive_level': 'Nhận biết',    'difficulty_target': 0.30, 'fraction': 0.10},
+    {'cognitive_level': 'Thông hiểu',   'difficulty_target': 0.50, 'fraction': 0.25},
+    {'cognitive_level': 'Vận dụng',     'difficulty_target': 0.70, 'fraction': 0.40},
+    {'cognitive_level': 'Vận dụng cao', 'difficulty_target': 0.85, 'fraction': 0.25},
 ]
 
 
 # ==== META-PATTERNS (4 trừu tượng — chỉ làm fallback khi LLM planner không
-# infer được pattern_id). PlannerAgent (pipeline/slot_inference.py) là chủ lực
+# infer được pattern_id). Direct_PDF_Mode tự rải Bloom theo yêu cầu đầu vào.
 # sinh pattern_id specific từ context — KHÔNG hardcode list dạng bài.
 QUESTION_PATTERNS = [
     {'id': 'computation', 'keywords': []},

@@ -42,9 +42,19 @@ def _read_result(job_id: str, runs_root: Optional[Path] = None) -> Optional[Dict
         return None
     try:
         with path.open('r', encoding='utf-8') as f:
-            return json.load(f)
+            result = json.load(f)
     except (OSError, json.JSONDecodeError):
         return None
+    if not result.get('rejected'):
+        debug_path = root / job_id / 'debug_rejected.json'
+        try:
+            with debug_path.open('r', encoding='utf-8') as f:
+                debug = json.load(f)
+            if isinstance(debug.get('rejected'), list):
+                result['rejected'] = debug.get('rejected') or []
+        except (OSError, json.JSONDecodeError):
+            pass
+    return result
 
 
 def _avg(values: Iterable[float]) -> Optional[float]:

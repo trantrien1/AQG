@@ -4,6 +4,49 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Dict, Iterable, List
 
+AGENT_SKILLS: Dict[str, List[str]] = {
+    'question_writer': [
+        'question-writing',
+        'bloom-taxonomy-alignment',
+        'verifier-hint-authoring',
+        'source-grounding',
+    ],
+    'distractor': ['distractor-generation'],
+    'verifier': ['answer-validation'],
+    'critic': ['source-grounding', 'rubric-critique', 'curriculum-alignment'],
+    'formatter': ['output-formatting'],
+}
+
+AGENT_DISPLAY_NAMES: Dict[str, str] = {
+    'question_writer': 'QuestionWriterAgent',
+    'distractor': 'DistractorAgent',
+    'verifier': 'VerifierAgent',
+    'critic': 'CriticAgent',
+    'formatter': 'FormatterAgent',
+}
+
+def normalize_skill_mode(value: str | None) -> str:
+    """Normalize user-facing skill mode names.
+
+    Legacy generation modes are accepted only as aliases so old scripts keep
+    running: `fast` means prompt-only, `advanced` means prompt+skills.
+    """
+    raw = (value or '').strip().lower()
+    if raw in {'skills', 'skill', 'with-skills', 'with_skills', 'prompt+skills', 'advanced'}:
+        return 'skills'
+    return 'prompt'
+
+def use_skills_for_mode(value: str | None) -> bool:
+    return normalize_skill_mode(value) == 'skills'
+
+def skills_for_agent(agent_name: str, use_skills: bool = True) -> List[str]:
+    if not use_skills:
+        return []
+    return list(AGENT_SKILLS.get(agent_name, []))
+
+def display_agent_name(agent_name: str) -> str:
+    return AGENT_DISPLAY_NAMES.get(agent_name, agent_name)
+
 
 def list_skill_metadata(root: Path | None = None) -> List[Dict[str, str]]:
     """Read SKILL.md frontmatter without requiring a YAML dependency."""

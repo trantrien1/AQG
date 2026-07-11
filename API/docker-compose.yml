@@ -1,0 +1,42 @@
+services:
+  backend:
+    build: .
+    image: aied-mcq-backend
+    ports:
+      # 8080 host đã bị container kiro-go (project khác) giữ -> dùng 8082,
+      # frontend trỏ theo qua NEXT_PUBLIC_API_URL trong web/frontend/.env.local
+      - "8082:8080"
+    env_file:
+      - .env
+    environment:
+      # chat2api chạy trên máy host; trong container 127.0.0.1 là chính container
+      OPENAI_COMPATIBLE_BASE_URL: http://host.docker.internal:5005/v1
+      DATABASE_URL: postgresql://aqg:${POSTGRES_PASSWORD:-aqg}@db:5432/aqg
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./runs:/app/runs
+      - ./data:/app/data
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    # Chỉ lưu users + sessions cho đăng nhập; jobs/banks vẫn là file trong runs/, data/
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: aqg
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-aqg}
+      POSTGRES_DB: aqg
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aqg -d aqg"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+
+volumes:
+  pgdata:

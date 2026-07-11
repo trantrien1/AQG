@@ -27,6 +27,8 @@ from __future__ import annotations
 import re
 from typing import Any, Dict, List, Optional
 
+from .parsing import trim_unclosed_math
+
 
 _STEP_HEADERS = (
     'Xác định yêu cầu bài toán',
@@ -53,7 +55,8 @@ def _short(text: str, max_len: int = 220) -> str:
     cut = s.rfind('.', 0, max_len)
     if cut < max_len * 0.6:
         cut = max_len
-    return s[:cut + 1].rstrip()
+    # Cắt có thể rơi giữa \( ... \) -> bỏ span TeX cụt để KaTeX không lỗi.
+    return trim_unclosed_math(s[:cut + 1].rstrip())
 
 
 def _build_steps(explanation: str) -> List[Dict[str, str]]:

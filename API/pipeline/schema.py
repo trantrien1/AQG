@@ -8,7 +8,7 @@ import uuid
 from typing import Any, Dict, List
 
 from . import difficulty as diff_mod
-from .parsing import _sympy_to_natural
+from .parsing import _sympy_to_natural, trim_unclosed_math
 
 
 # ==== Output Cleaner ====
@@ -73,7 +73,9 @@ def _clean_display_text(text: str, max_len: int = 280) -> str:
             cut = max_len
         s = s[:cut + 1].rstrip()
 
-    return s.strip()
+    # 4. Cắt có thể rơi giữa công thức \( ... -> bỏ span TeX cụt để KaTeX
+    # không render thô/đỏ phần dở dang.
+    return trim_unclosed_math(s.strip())
 
 
 def _clean_option_text(text: str) -> str:
@@ -342,11 +344,31 @@ def to_question_record(slot: Dict[str, Any],
             'critic_skipped': candidate.get('_critic_skipped'),
         },
 
+        'agent_trace': candidate.get('_agent_trace') or [],
+        'quality_trace': candidate.get('_quality_trace') or {
+            'before_refiner': candidate.get('_quality_before_refiner'),
+            'after_refiner': candidate.get('_quality'),
+            'verifier_pass': verification.get('verified'),
+            'critic_score': candidate.get('_quality'),
+            'grounding_score': candidate.get('_grounding'),
+            'reject_reasons': [],
+        },
+
+        # verified=False không loại câu nhưng phải vào hàng duyệt tay: đa số
+        # là verifier_hint viết lệch (câu vẫn đúng), song một tỉ lệ nhỏ là LLM
+        # tính sai thật -> người dùng cần nhìn lại trước khi dùng.
+        'review_status': ('needs_revision'
+                          if verification.get('verified') is False
+                          else 'pending_review'),
         'review': {
             'human_reviewed': False,
             'reviewed_by': None,
             'review_notes': None,
-            'status': 'pending_review',
+            'status': ('needs_revision'
+                       if verification.get('verified') is False
+                       else 'pending_review'),
+            **({'issues': ['verifier_numeric_mismatch']}
+               if verification.get('verified') is False else {}),
         },
 
         'tags': [slot.get('topic', ''), slot['question_pattern']],

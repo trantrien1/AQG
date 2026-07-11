@@ -33,8 +33,8 @@ class FormatterAgent(BaseAgent):
     - `needs_revision` nếu verifier lỗi hoặc quality/grounding sát ngưỡng
     """
 
-    def __init__(self):
-        super().__init__('formatter', skills=['output-formatting'])
+    def __init__(self, use_skills: bool = True):
+        super().__init__('formatter', use_skills=use_skills)
 
     def run(self, request: Union[FormatAcceptedRequest,
                                   FormatRejectedRequest]) -> FormatResponse:
@@ -84,6 +84,18 @@ class FormatterAgent(BaseAgent):
                 rec['review_status'] = status
                 rec.setdefault('review', {})['status'] = status
 
+            # verified=False không loại câu (mismatch thường do hint viết lệch)
+            # nhưng PHẢI vào hàng duyệt tay: một tỉ lệ nhỏ là LLM tính sai thật
+            # và không option nào đúng. Không cap quality — câu đúng mà hint
+            # lệch vẫn giữ điểm để xếp hạng công bằng.
+            if verification.get('verified') is False:
+                rec['review_status'] = 'needs_revision'
+                rec.setdefault('review', {})['status'] = 'needs_revision'
+                rev_issues = list(rec['review'].get('issues') or [])
+                if 'verifier_numeric_mismatch' not in rev_issues:
+                    rev_issues.append('verifier_numeric_mismatch')
+                rec['review']['issues'] = rev_issues
+
             # Smart-Study explanation block (deterministic v1; respects
             # `requires_detailed_solution` from the user's customization).
             gc_dict = (request.slot.get('_generation_config') or {})
@@ -91,6 +103,25 @@ class FormatterAgent(BaseAgent):
                 gc_dict.get('requires_detailed_solution', True)
                 if gc_dict else True
             )
+            if not bool(gc_dict.get('include_explanation', True) if gc_dict else True):
+                # Người dùng tắt giải thích: record chỉ giữ đề + phương án +
+                # đáp án. Explanation ngắn của writer chỉ phục vụ kiểm định
+                # nội bộ (verifier/critic), không đưa ra ngoài.
+                rec['explanation_correct'] = ''
+                rec['explanation_per_distractor'] = {}
+                rec['hint'] = ''
+                rec['short_explanation'] = ''
+                rec['detailed_solution'] = {'steps': [], 'final_answer': ''}
+                rec['why_correct'] = ''
+                rec['why_others_wrong'] = []
+                record_issues = validate_record(rec)
+                if record_issues:
+                    rec.setdefault('review', {})['status'] = 'needs_revision'
+                    rec['review_status'] = 'needs_revision'
+                    rec.setdefault('review', {})['issues'] = (
+                        list(rec.get('review', {}).get('issues') or []) + record_issues
+                    )
+                return FormatResponse(record=rec, is_rejected=False)
             try:
                 explanation_block = build_explanation(
                     rec, cand,
@@ -150,6 +181,8 @@ class FormatterAgent(BaseAgent):
             r['reject_reason_code'] = primary.get('reason_code', 'unknown')
             r['reject_reason_stage'] = primary.get('stage', '')
             r['reject_reason_action'] = primary.get('action')
+            if getattr(sr, 'rejected_candidates', None):
+                r['rejected_candidates'] = list(sr.rejected_candidates)[-8:]
             return FormatResponse(record=r, is_rejected=True)
 
         raise TypeError(f'FormatterAgent: unsupported request type {type(request)}')

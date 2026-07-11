@@ -43,7 +43,6 @@ REASON_CODES = (
     'customization_mismatch',
     'explanation_low_quality',
     'max_attempts_exceeded',
-    'budget_exceeded',
     'cancelled',
     'orchestrator_error',
     'writer_empty',
@@ -75,7 +74,6 @@ CONTEXT_REPAIRABLE_CODES = {
 
 TERMINAL_CODES = {
     'max_attempts_exceeded',
-    'budget_exceeded',
     'cancelled',
     'orchestrator_error',
 }
@@ -134,7 +132,6 @@ def make(
 # Order matters — first match wins. More specific patterns first.
 _HEURISTIC_PATTERNS = [
     ('cancelled', ('cancelled', 'cancel requested')),
-    ('budget_exceeded', ('budget exceeded', 'budgetexceeded')),
     ('max_attempts_exceeded', ('max attempt', 'attempts exceeded', 'exhausted')),
     ('multi_answer', ('multi_answer', 'multi-answer', 'cũng được verifier xác nhận')),
     ('verifier_failed', ('verifier=false', 'verifier failed', 'verifier error')),
@@ -149,7 +146,7 @@ _HEURISTIC_PATTERNS = [
     ('grounding_low', ('grounding=', 'grounding ', 'grounding<', 'grounding low')),
     ('context_too_noisy', ('context_too_noisy', 'too noisy', 'high noise', 'context noise')),
     ('context_missing', ('context_missing', 'no candidate passed filters', 'no source slot', 'missing doc_id')),
-    ('quality_low', ('quality=', 'final gate: quality', 'quality<', 'quality_low')),
+    ('quality_low', ('quality=', 'final gate: quality', 'quality<', 'quality_low', 'slot_topic_mismatch')),
     ('format_error', ('final formatted sanity', 'format_error', 'option_text_sanity')),
     ('customization_mismatch', ('customization', 'user_instruction_alignment', 'focus_topic')),
     ('explanation_low_quality', ('explanation_low_quality', 'detailed_solution missing')),

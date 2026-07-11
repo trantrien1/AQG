@@ -1,6 +1,6 @@
 """Deterministic MCQ rule validation.
 
-This module is the non-LLM formatting/schema gate used by Fast Mode before any
+This module is the non-LLM formatting/schema gate used by the prompt pipeline before any
 symbolic verifier or optional judge. It validates the candidate shape that the
 generator emits and the final record shape that the formatter persists.
 """
@@ -9,6 +9,8 @@ from __future__ import annotations
 import re
 import unicodedata
 from typing import Any, Dict, Iterable, List, Optional
+
+from . import config as cfg
 
 
 VALID_KEYS = {'A', 'B', 'C', 'D'}
@@ -29,6 +31,21 @@ def _is_choice_label(text: Any) -> bool:
 def _stem_contains_options(stem: str) -> bool:
     one_line = re.sub(r'\s+', ' ', stem or '')
     return re.search(r'\bA[.)]\s+.+\bB[.)]\s+.+\bC[.)]\s+.+\bD[.)]\s+', one_line) is not None
+
+
+# Đề MCQ hợp lệ phải thật sự HỎI: có dấu ? hoặc từ khóa mệnh lệnh/nghi vấn.
+# Bắt lớp lỗi "đề cụt" — writer sinh đủ dữ kiện nhưng thiếu câu hỏi cuối,
+# học sinh không biết cần tính gì (đã gặp thực tế ở Direct_PDF).
+_QUESTION_MARKERS = (
+    '?', 'bao nhiêu', 'tính ', 'tìm ', 'hỏi ', 'hãy ', 'xác định',
+    'là gì', 'bằng', 'chọn ', 'khẳng định nào', 'mệnh đề nào',
+    'phương án nào', 'kết quả nào', 'giá trị nào', 'đáp án nào',
+)
+
+
+def _stem_asks_question(stem: str) -> bool:
+    low = re.sub(r'\s+', ' ', str(stem or '')).lower()
+    return any(marker in low for marker in _QUESTION_MARKERS)
 
 
 def candidate_options(candidate: Dict[str, Any]) -> List[str]:
@@ -64,6 +81,8 @@ def validate_candidate(candidate: Dict[str, Any], slot: Optional[Dict[str, Any]]
         issues.append('stem_contains_embedded_options')
     elif len(stem) > 700:
         issues.append(f'stem_too_long:{len(stem)}')
+    elif not _stem_asks_question(stem):
+        issues.append('stem_missing_question')
 
     if not answer:
         issues.append('empty_answer')
@@ -98,6 +117,7 @@ def validate_candidate(candidate: Dict[str, Any], slot: Optional[Dict[str, Any]]
     elif len(explanation) > 1400:
         issues.append(f'explanation_too_long:{len(explanation)}')
     issues.extend(_trivial_stem_issues(candidate, slot))
+    issues.extend(_slot_topic_alignment_issues(candidate, slot))
 
     source_quote = str(candidate.get('source_quote_text') or '').strip()
     if not source_quote:
@@ -127,7 +147,7 @@ def validate_candidate(candidate: Dict[str, Any], slot: Optional[Dict[str, Any]]
 
 
 def validate_solution_quality(candidate: Dict[str, Any], slot: Optional[Dict[str, Any]] = None) -> List[str]:
-    """Fast Mode solution-depth gate; skipped for legacy writer candidates."""
+    """Prompt-pipeline solution-depth gate; skipped for legacy writer candidates."""
     if not isinstance(candidate, dict):
         return []
     if not candidate.get('_fast_full_mcq') and 'detailed_solution' not in candidate:
@@ -228,6 +248,43 @@ def _trivial_stem_issues(candidate: Dict[str, Any], slot: Optional[Dict[str, Any
         return ['question_too_trivial:bare_one_step_integral']
     return []
 
+def _slot_topic_alignment_issues(candidate: Dict[str, Any], slot: Optional[Dict[str, Any]]) -> List[str]:
+    slot = slot or {}
+    topic_text = ' '.join([
+        str(slot.get('topic') or ''),
+        str(slot.get('skill') or ''),
+        str(slot.get('question_pattern') or slot.get('meta_pattern') or ''),
+    ])
+    topic_fold = _fold(topic_text)
+    if 'tich phan' not in topic_fold and '\\int' not in topic_text and '∫' not in topic_text:
+        return []
+
+    qa_text = ' '.join([
+        str(candidate.get('question_text') or ''),
+        str(candidate.get('answer_text') or ''),
+        str(candidate.get('answer_explanation_text') or ''),
+        str(candidate.get('source_quote_text') or ''),
+    ])
+    qa_fold = _fold(qa_text)
+    if _has_integral_signal(qa_text):
+        return []
+    if _has_accumulation_signal(qa_fold):
+        return []
+    return ['slot_topic_mismatch:missing_integral_support']
+
+def _has_accumulation_signal(folded_text: str) -> bool:
+    return bool(
+        any(term in folded_text for term in (
+            'van toc', 'toc do', 'luu luong', 'dien luong', 'muc nuoc',
+            'quang duong', 'dien tich hinh phang', 'hinh phang gioi han',
+            'ham so lien tuc', 'nguyen ham', 'dao ham', 'bien thien theo thoi gian',
+        ))
+        and any(term in folded_text for term in (
+            'ham so', 'f(x)', 'f(t)', 'v(t)', 'q(t)', "f'", "q'", "v'",
+            'theo thoi gian', 'tren doan', 'doan [', 'cong thuc',
+        ))
+    )
+
 
 def _distractor_rationale_issues(candidate: Dict[str, Any]) -> List[str]:
     if not candidate.get('_fast_full_mcq'):
@@ -282,8 +339,23 @@ def _source_quote_issues(candidate: Dict[str, Any], slot: Optional[Dict[str, Any
     if not quote:
         return []
     issues: List[str] = []
-    if re.match(r'(?i)^\s*(topic|chunk type|context type|title)\s*:', quote):
+    if re.match(r'(?i)^\s*(topic|chunk type|context type|title|summary)\s*:', quote):
         issues.append('quote_mismatch:source_quote_is_metadata')
+    elif re.search(r'(?i)\b(chunk type|use note|anti-copy note|questionable skills)\s*:', quote):
+        issues.append('quote_mismatch:source_quote_is_metadata')
+    elif 'picture text' in _fold(quote):
+        issues.append('quote_mismatch:source_quote_is_metadata')
+    elif 'he thong bai tap' in _fold(quote):
+        issues.append('quote_mismatch:source_quote_is_metadata')
+    elif _quote_is_generic_heading(quote):
+        issues.append('quote_mismatch:source_quote_is_metadata')
+    qa_text = ' '.join([
+        str(candidate.get('question_text') or ''),
+        str(candidate.get('answer_text') or ''),
+        str(candidate.get('answer_explanation_text') or ''),
+    ])
+    if _missing_required_concept_support(quote, qa_text):
+        issues.append('quote_mismatch:source_quote_not_relevant')
     exercise_context = str((slot or {}).get('source_chunk_type') or '').lower() == 'exercise'
     if not exercise_context and not _quote_relevant_to_question(quote, candidate):
         issues.append('quote_mismatch:source_quote_not_relevant')
@@ -291,13 +363,36 @@ def _source_quote_issues(candidate: Dict[str, Any], slot: Optional[Dict[str, Any
         issues.append('duplicate_question:source_quote_is_existing_exercise')
     return issues
 
+def _quote_is_generic_heading(quote: str) -> bool:
+    folded = _fold(quote)
+    if 'formula-not-decoded' in folded:
+        return True
+    has_supporting_math = bool(re.search(
+        r'(?:\\int|∫|=|\\frac|frac|\\ln|ln\s*\||cos|sin|e\^|x\^|\d|c\s+la\s+hang\s+so)',
+        quote,
+        re.I,
+    ))
+    heading_hits = sum(
+        1 for term in (
+            'chuyen de', 'bai', 'nguyen ham tich phan',
+            'nguyen ham cua mot so ham so', 'tinh chat co ban',
+            'khai niem tich phan',
+        )
+        if term in folded
+    )
+    if heading_hits and not has_supporting_math and len(_content_token_list(quote)) <= 8:
+        return True
+    if heading_hits < 2:
+        return False
+    return not has_supporting_math
+
 def _looks_like_source_exercise(text: str) -> bool:
     folded = _fold(text)
     return bool(
         re.search(r'\b(?:cau|bai|question|exercise)\s*\d+[\.:)]?', folded)
         or re.search(
             r'\b(?:chon|dap an|phuong an|trac nghiem|hoi|bao nhieu|'
-            r'khang dinh|dung sai)\b',
+            r'khang dinh|dung sai|loi giai|context|page)\b',
             folded,
         )
     )
@@ -334,9 +429,28 @@ def _has_integral_signal(text: str) -> bool:
 
 
 def _missing_required_concept_support(quote: str, qa_text: str) -> bool:
-    """Reject generic quote overlap that misses the tested math concept."""
+    """Reject generic quote overlap that misses the tested math concept.
+
+    Legacy (strict) behavior: hard-reject whenever the quote does not literally
+    contain the exact formula family / concrete numbers used in the question.
+    This is far too aggressive on theory-only chunks, where a legitimate
+    computational question is written from a general rule the quote states.
+
+    Lenient (default): this brittle gate is disabled and topical relevance is
+    instead enforced by token overlap in `_quote_relevant_to_question`.
+    Set AQG_QUOTE_RELEVANCE_STRICT=1 to restore the legacy gate.
+    """
+    if not cfg.QUOTE_RELEVANCE_STRICT:
+        return False
+
     q_fold = _fold(quote)
     qa_fold = _fold(qa_text)
+
+    required_family = _required_formula_family(qa_text)
+    if required_family and not _quote_supports_formula_family(quote, required_family):
+        return True
+    if _specific_math_needs_quote_support(quote, qa_text):
+        return True
 
     if _has_integral_signal(qa_text):
         quote_supports_integral = (
@@ -348,6 +462,96 @@ def _missing_required_concept_support(quote: str, qa_text: str) -> bool:
             return True
 
     return False
+
+def _specific_math_needs_quote_support(quote: str, qa_text: str) -> bool:
+    """Reject invented concrete examples when the quote is only a broad rule/heading."""
+    raw_q = str(quote or '')
+    raw_qa = str(qa_text or '')
+    q_fold = _fold(raw_q)
+    qa_fold = _fold(raw_qa)
+    q_compact = re.sub(r'\s+', '', q_fold)
+    qa_compact = re.sub(r'\s+', '', qa_fold)
+
+    domain_groups = [
+        ('motion', ('gia toc', 'van toc', 'quang duong', 'chuyen dong', 'vi tri')),
+        ('population', ('dan so', 'tang truong', 'mo hinh dan so')),
+        ('area', ('dien tich', 'hinh phang', 'duong cong', 'do thi')),
+    ]
+    for _, terms in domain_groups:
+        if any(term in qa_fold for term in terms) and not any(term in q_fold for term in terms):
+            return True
+
+    qa_numbers = set(re.findall(r'(?<![a-zA-Z])-?\d+(?:[.,]\d+)?', raw_qa))
+    qa_numbers = {n.replace(',', '.') for n in qa_numbers if n.replace(',', '.') not in {'0', '1'}}
+    if qa_numbers:
+        quote_numbers = {n.replace(',', '.') for n in re.findall(r'(?<![a-zA-Z])-?\d+(?:[.,]\d+)?', raw_q)}
+        quote_supports_linearity = (
+            any(term in q_fold for term in ('tong', 'hieu', 'tuyen tinh'))
+            and any(term in qa_compact for term in ('f(x)', 'g(x)', 'fx', 'gx'))
+        )
+        if not quote_supports_linearity and not qa_numbers & quote_numbers:
+            return True
+
+    formula_heads = re.findall(
+        r'([A-Za-z]\s*\([^)]*\)\s*=\s*[^,.;\s]+)',
+        raw_qa,
+    )
+    if formula_heads:
+        compact_quote = re.sub(r'\s+', '', raw_q).lower()
+        for formula in formula_heads[:3]:
+            if re.sub(r'\s+', '', formula).lower() in compact_quote:
+                return False
+        if '=' not in raw_q and not any(ch in q_compact for ch in ('dao', 'nguyenham')):
+            return True
+
+    if 'f(x)<=0' in qa_compact or 'f(x)\u22640' in qa_compact or 'khongduong' in qa_compact:
+        return not any(term in q_compact for term in ('f(x)<=0', 'f(x)\u22640', 'khongduong', 'am', 'duoitruchoanh'))
+
+    return False
+
+def _required_formula_family(qa_text: str) -> str:
+    raw = str(qa_text or '')
+    folded = _fold(raw)
+    compact = re.sub(r'\s+', '', folded)
+    if re.search(r'x\s*\^\s*\{?\s*n\s*\}?|x\^n|x\s+m[uũ]?', folded, re.I):
+        return 'power_xn'
+    if re.search(r'(?:\\frac\s*\{?1\}?\s*\{?x\}?|1\s*/\s*x)', raw) or 'ln|x|' in compact:
+        return 'reciprocal_x'
+    if re.search(r'e\s*\^\s*\{?\s*x\s*\}?|e\^x', raw, re.I) or 'e^x' in compact:
+        return 'exp_ex'
+    if 'cos' in folded:
+        return 'trig_cos'
+    if 'sin' in folded:
+        return 'trig_sin'
+    if 'f(x)+c' in compact or ('vai tro' in folded and re.search(r'\bc\b', folded)):
+        return 'constant_c'
+    if 'can duoi' in folded or re.search(r'\\int\s*_\s*\{?a\}?\s*\^\s*\{?b\}?', raw):
+        return 'integral_bounds'
+    return ''
+
+def _quote_supports_formula_family(quote: str, family: str) -> bool:
+    raw = str(quote or '')
+    folded = _fold(raw)
+    compact = re.sub(r'\s+', '', folded)
+    if family == 'power_xn':
+        return bool(re.search(r'x\s*\^\s*\{?\s*n\s*\}?|x\^n|luy\s+thua', folded, re.I))
+    if family == 'reciprocal_x':
+        return bool(re.search(r'(?:\\frac\s*\{?1\}?\s*\{?x\}?|1\s*/\s*x|ln\s*\|?x)', raw, re.I)) or 'ln|x|' in compact
+    if family == 'exp_ex':
+        return bool(re.search(r'e\s*\^\s*\{?\s*x\s*\}?|e\^x', raw, re.I)) or 'ham so mu' in folded
+    if family == 'trig_cos':
+        return 'cos' in folded
+    if family == 'trig_sin':
+        return 'sin' in folded
+    if family == 'constant_c':
+        return bool(re.search(r'\bc\b', folded)) and ('hang so' in folded or 'hangso' in compact)
+    if family == 'integral_bounds':
+        return (
+            'can duoi' in folded
+            or 'canduoi' in compact
+            or bool(re.search(r'\\int\s*_\s*\{?a\}?\s*\^\s*\{?b\}?|∫\s*a\s*b', raw, re.I))
+        )
+    return True
 
 
 def _content_tokens(text: str) -> set[str]:
@@ -397,6 +601,39 @@ def validate_record(record: Dict[str, Any]) -> List[str]:
         issues.append('answer_key_missing')
     if not str(record.get('stem') or '').strip():
         issues.append('empty_stem')
+
+    source = record.get('source') if isinstance(record.get('source'), dict) else {}
+    quote = str(source.get('quote') or '').strip()
+    if not quote:
+        issues.append('empty_source_quote')
+    elif len(quote) > 350:
+        issues.append(f'source_quote_too_long:{len(quote)}')
+    elif re.match(r'(?i)^\s*(topic|chunk type|context type|title|summary)\s*:', quote):
+        issues.append('quote_mismatch:source_quote_is_metadata')
+    elif re.search(r'(?i)\b(chunk type|use note|anti-copy note|questionable skills)\s*:', quote):
+        issues.append('quote_mismatch:source_quote_is_metadata')
+    elif 'picture text' in _fold(quote):
+        issues.append('quote_mismatch:source_quote_is_metadata')
+    elif 'he thong bai tap' in _fold(quote):
+        issues.append('quote_mismatch:source_quote_is_metadata')
+    elif _quote_is_generic_heading(quote):
+        issues.append('quote_mismatch:source_quote_is_metadata')
+    elif _looks_like_source_exercise(quote):
+        issues.append('duplicate_question:source_quote_is_existing_exercise')
+    else:
+        answer_text = ''
+        for opt in options:
+            if isinstance(opt, dict) and opt.get('key') == answer_key:
+                answer_text = str(opt.get('text') or '')
+                break
+        qa_text = ' '.join([
+            str(record.get('stem') or ''),
+            answer_text,
+            str(record.get('explanation_correct') or ''),
+            str(record.get('short_explanation') or ''),
+        ])
+        if _missing_required_concept_support(quote, qa_text):
+            issues.append('quote_mismatch:source_quote_not_relevant')
 
     seen = set()
     for opt in options:

@@ -248,11 +248,23 @@ def apply_to_slot(slot: Dict[str, Any], gc: GenerationConfig) -> Dict[str, Any]:
     """Attach the generation config to a slot so downstream agents see it.
 
     Slots are dicts; we put the config under `_generation_config` and also
-    propagate `requires_computation` / `focus_topics` to fields the existing
-    Planner/Writer/Distractor already understand.
+    propagate Bloom/difficulty, `requires_computation`, and topic hints to
+    fields the existing Planner/Writer/Distractor already understand.
     """
     out = dict(slot)
     out['_generation_config'] = gc.to_dict()
+    mapped = DIFFICULTY_TO_BLOOM.get(gc.difficulty)
+    if mapped:
+        level, target = mapped
+        if level != 'mixed':
+            out['cognitive_level'] = level
+            out['difficulty_target'] = target
+            if level in {'Vận dụng', 'Vận dụng cao'}:
+                pattern = str(out.get('question_pattern') or '').lower()
+                if pattern in {'', 'conceptual', 'theory', 'multiple_choice'}:
+                    next_pattern = 'reasoning' if level == 'Vận dụng cao' else 'application'
+                    out['question_pattern'] = next_pattern
+                    out['meta_pattern'] = next_pattern
     if gc.requires_computation:
         # Force computation pattern unless already explicitly conceptual
         pattern = str(out.get('question_pattern', '')).lower()

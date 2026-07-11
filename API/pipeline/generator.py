@@ -443,9 +443,13 @@ Quy tắc bắt buộc:
 '''
 
 class QuestionGenerator:
-    def __init__(self, model_name: Optional[str] = None):
+    def __init__(self, model_name: Optional[str] = None,
+                 skill_instructions: str = ''):
         self.model = model_name or cfg.GENERATOR_MODEL
         self.system_prompt = cfg.SYSTEM_PROMPT
+        skill_instructions = (skill_instructions or '').strip()
+        if skill_instructions:
+            self.system_prompt += f'\n\nKỸ NĂNG ÁP DỤNG:\n{skill_instructions}'
 
     def _build_user_prompt(self, slot: Dict[str, Any], context: str) -> str:
         topic = slot.get('topic', '')
@@ -456,7 +460,7 @@ class QuestionGenerator:
         )
         glossary = _extract_prompt_glossary(prompt_context)
 
-        # Ưu tiên misconception do PlannerAgent (LLM) suy luận từ context;
+        # Ưu tiên misconception được truyền trong slot;
         # fallback về distractor_bank khi inference rỗng.
         inferred = slot.get('inferred_misconceptions') or []
         if inferred:
@@ -567,14 +571,18 @@ Rules:
 '''
 
 class BatchQuestionGenerator:
-    """Generate multiple full MCQs in one LLM call for Fast Mode."""
+    """Generate multiple full MCQs in one LLM call for the prompt pipeline."""
 
-    def __init__(self, model_name: Optional[str] = None):
+    def __init__(self, model_name: Optional[str] = None,
+                 skill_instructions: str = ''):
         self.model = model_name or cfg.GENERATOR_MODEL
         self.system_prompt = (
             'Ban la chuyen gia ra de Toan. Sinh MCQ chat luong cao tu clean context. '
             'Uu tien dung Toan, mot dap an dung duy nhat, distractor hop ly, JSON dung schema.'
         )
+        skill_instructions = (skill_instructions or '').strip()
+        if skill_instructions:
+            self.system_prompt += f'\n\nKỸ NĂNG ÁP DỤNG:\n{skill_instructions}'
 
     def _slot_payload(self, slot: Dict[str, Any], context: str) -> Dict[str, Any]:
         prompt_context = trim_context_for_generation(

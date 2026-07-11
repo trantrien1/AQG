@@ -831,7 +831,17 @@ def _verify_numeric_eval(payload: Dict[str, Any]) -> VerificationResult:
     """payload: {expr, expected_numeric, [tolerance=1e-6]}."""
     sympy = _sympy()
     try:
-        expr_text = str(payload['expr'])
+        expr_raw = payload.get('expr')
+        if expr_raw is None:
+            for alias in ('expression', 'formula', 'value_expr', 'calc',
+                          'computation'):
+                if payload.get(alias) is not None:
+                    expr_raw = payload[alias]
+                    break
+        if expr_raw is None:
+            return VerificationResult(verified=None, engine='numeric_eval',
+                                      detail='missing expr')
+        expr_text = str(expr_raw)
         names = set(re.findall(r'\b([A-Za-z_][A-Za-z0-9_]*)\b', expr_text))
         local = {
             'integrate': sympy.integrate,
@@ -977,12 +987,32 @@ def _coerce_claim(distractor_text: str, original_claim: Any) -> Any:
         return distractor_text
     if isinstance(original_claim, int):
         try: return int(float(distractor_text.strip()))
-        except Exception: return distractor_text
+        except Exception:
+            value = _numeric_from_display_text(distractor_text)
+            return value if value is not None else distractor_text
     if isinstance(original_claim, float):
         try: return float(distractor_text.strip())
-        except Exception: return distractor_text
+        except Exception:
+            value = _numeric_from_display_text(distractor_text)
+            return value if value is not None else distractor_text
     # str / sympy expression
     return distractor_text.strip()
+
+
+def _numeric_from_display_text(text: str):
+    """Đọc giá trị số từ option hiển thị dạng LaTeX (\\(\\frac{81}{10}\\pi\\)...).
+
+    float() trần chỉ ăn chuỗi số thuần nên trước đây mọi distractor dạng phân
+    số/π đều coerce fail -> verify_distractor trả None -> check multi_answer bị
+    vô hiệu, distractor trùng GIÁ TRỊ đáp án (khác cách viết) lọt ra đề. Tái
+    dùng parser LaTeX->số của VerifierAgent; import cục bộ để tránh vòng import
+    (agents.verifier_agent import ngược module này lúc load).
+    """
+    try:
+        from .agents.verifier_agent import _expected_from_answer
+        return _expected_from_answer(text)
+    except Exception:
+        return None
 
 
 def verify_distractor(hint: Dict[str, Any], distractor_text: str) -> Optional[bool]:

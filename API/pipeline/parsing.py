@@ -66,7 +66,14 @@ _JSON_LATEX_BACKSLASH_RE = re.compile(
     r'(?<!\\)\\(?=(?:frac|sqrt|binom|int|sum|prod|lim|sin|cos|tan|cot|sec|csc|'
     r'log|ln|exp|left|right|cdot|times|mathrm|text|operatorname|[(),;!]))'
 )
-_INLINE_MATH_RE = re.compile(r'(\\\(.+?\\\)|\$\$.+?\$\$|\$(?!\$).+?\$)', re.DOTALL)
+# Model hay escape thừa backslash của delimiter trong JSON ("\\\\(" thay vì
+# "\\(") -> text sau json.loads chứa "\\(", KaTeX không nhận và để sót
+# backslash mồ côi trong math span. Thu gọn mọi run >=2 backslash đứng ngay
+# trước ( ) [ ] về đúng một dấu \.
+_EXTRA_DELIM_BACKSLASH_RE = re.compile(r'\\{2,}(?=[()\[\]])')
+_DISPLAY_MATH_RE = re.compile(r'(\\\[[\s\S]+?\\\]|\$\$[\s\S]+?\$\$)', re.DOTALL)
+_INLINE_MATH_RE = re.compile(r'(\\\(.+?\\\)|\$(?!\$).+?\$)', re.DOTALL)
+_INNER_MATH_DELIMITER_RE = re.compile(r'\\[()\[\]]|\$\$?')
 _LATEX_COMMAND_RE = re.compile(
     r'\\(?:frac|sqrt|binom|int|sum|prod|lim|sin|cos|tan|cot|sec|csc|log|ln|exp)\b'
 )
@@ -132,6 +139,91 @@ def _inline_math(expr: str) -> str:
         return s
     return rf'\({s}\)'
 
+def _repair_math_inner(expr: str) -> str:
+    s = str(expr or '')
+    s = _INNER_MATH_DELIMITER_RE.sub('', s)
+    s = re.sub(r'\\,\s*(d[A-Za-z])', r'\\,\1', s)
+    # Backslash mồ côi cuối span (tàn dư của delimiter escape thừa) làm KaTeX
+    # báo parse error cả span — cắt bỏ.
+    s = re.sub(r'\\+\s*$', '', s)
+    return s
+
+def _repair_math_span(expr: str) -> str:
+    s = str(expr or '')
+    if s.startswith(r'\[') and s.endswith(r'\]'):
+        return rf'\[{_repair_math_inner(s[2:-2])}\]'
+    if s.startswith('$$') and s.endswith('$$'):
+        return f'$${_repair_math_inner(s[2:-2])}$$'
+    if s.startswith(r'\(') and s.endswith(r'\)'):
+        return rf'\({_repair_math_inner(s[2:-2])}\)'
+    if s.startswith('$') and s.endswith('$'):
+        return rf'\({_repair_math_inner(s[1:-1])}\)'
+    return s
+
+def normalize_latex_escapes(text: str) -> str:
+    """Thu gọn backslash escape thừa trước delimiter toán: '\\\\(' -> '\\('.
+
+    Dùng cho text đã qua json.loads mà model escape quá tay. Idempotent.
+    """
+    if not text:
+        return text
+    return _EXTRA_DELIM_BACKSLASH_RE.sub(r'\\', str(text))
+
+
+def trim_unclosed_math(text: str) -> str:
+    """Cắt bỏ math span mở '\\(' mà không có '\\)' đóng phía sau.
+
+    Thường do bước cap độ dài cắt ngang giữa công thức — phần TeX cụt sẽ
+    hiện thô/đỏ trên KaTeX nên bỏ hẳn span dở còn hơn giữ.
+    """
+    if not text:
+        return text
+    s = str(text)
+    while True:
+        last_open = s.rfind(r'\(')
+        if last_open == -1 or s.find(r'\)', last_open + 2) != -1:
+            break
+        s = s[:last_open].rstrip()
+    # Backslash mồ côi cuối chuỗi (tàn dư delimiter bị cắt/escape thừa).
+    return re.sub(r'\\+$', '', s).rstrip()
+
+
+def drop_orphan_math_closers(text: str) -> str:
+    """Bỏ '\\)' mồ côi — không có '\\(' mở tương ứng phía trước.
+
+    Model đôi khi đóng span hai lần ('...\\frac{x^2}{4}\\)\\)'); inline math
+    không lồng nhau nên mọi '\\)' gặp lúc depth=0 chắc chắn là rác hiển thị
+    (KaTeX không render, học sinh thấy '\\)' thô trong đề).
+    """
+    if not text or r'\)' not in str(text):
+        return text
+    s = str(text)
+    out: list[str] = []
+    depth = 0
+    i = 0
+    n = len(s)
+    while i < n:
+        two = s[i:i + 2]
+        if two == r'\(':
+            depth += 1
+            out.append(two)
+            i += 2
+        elif two == r'\)':
+            if depth > 0:
+                depth -= 1
+                out.append(two)
+            i += 2
+        else:
+            out.append(s[i])
+            i += 1
+    return ''.join(out)
+
+
+def _repair_nested_math_delimiters(text: str) -> str:
+    s = str(text or '')
+    s = _DISPLAY_MATH_RE.sub(lambda m: _repair_math_span(m.group(0)), s)
+    return _INLINE_MATH_RE.sub(lambda m: _repair_math_span(m.group(0)), s)
+
 def _looks_like_whole_math(text: str) -> bool:
     s = (text or '').strip()
     if not s or len(s) > 160:
@@ -163,14 +255,19 @@ def normalize_display_math(text: str) -> str:
     """
     if not text:
         return text
-    s = str(text).replace('**', '^')
+    s = _EXTRA_DELIM_BACKSLASH_RE.sub(r'\\', str(text).replace('**', '^'))
+    s = _repair_nested_math_delimiters(s)
+    # '\)' đóng thừa nằm NGOÀI span (vd '...x^2\)\)') — regex span ở trên không
+    # đụng tới nên phải quét riêng sau khi các span hợp lệ đã được sửa.
+    s = drop_orphan_math_closers(s)
     placeholders: list[str] = []
 
-    def stash(expr: str) -> str:
-        placeholders.append(_inline_math(expr))
+    def stash(expr: str, *, preserve_math_span: bool = False) -> str:
+        placeholders.append(_repair_math_span(expr) if preserve_math_span else _inline_math(expr))
         return f'@@MATH{len(placeholders) - 1}@@'
 
-    s = _INLINE_MATH_RE.sub(lambda m: stash(m.group(0)), s)
+    s = _DISPLAY_MATH_RE.sub(lambda m: stash(m.group(0), preserve_math_span=True), s)
+    s = _INLINE_MATH_RE.sub(lambda m: stash(m.group(0), preserve_math_span=True), s)
 
     plain_patterns = [
         r'\bsqrt\s*\(\s*[^()]+?\s*\)\s*=\s*[-+]?\d+(?:[.,]\d+)?',
@@ -191,6 +288,7 @@ def normalize_display_math(text: str) -> str:
         r'\\frac\s*\{[^{}]+?\}\s*\{[^{}]+?\}',
         r'\\sqrt\s*\{[^{}]+?\}',
         r'\\binom\s*\{[^{}]+?\}\s*\{[^{}]+?\}',
+        r'\\int\b[^,.;:\n]+?d[A-Za-z]\s*=\s*[-+]?\d+(?:[.,]\d+)?',
         r'\\int\b[^,.;:\n]+?d[A-Za-z]',
     ]
     for pattern in latex_patterns:
@@ -215,7 +313,7 @@ def normalize_display_math(text: str) -> str:
 
     for i, expr in enumerate(placeholders):
         s = s.replace(f'@@MATH{i}@@', expr)
-    return re.sub(r'\s+', ' ', s).strip()
+    return _repair_nested_math_delimiters(re.sub(r'\s+', ' ', s).strip())
 
 def sympy_to_natural(text: str) -> str:
     return normalize_display_math(text)

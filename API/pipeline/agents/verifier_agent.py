@@ -15,6 +15,11 @@ from ..verifier import verify, verify_distractor, VerificationResult, _natural_t
 from ..filter import option_text_sanity_issues, repair_option_texts, validate_distractors
 from ..rule_validator import first_issue_code, validate_candidate
 
+_QUOTE_REPAIR_CODES = {
+    'quote_mismatch:source_quote_not_relevant',
+    'quote_mismatch:source_quote_is_metadata',
+}
+
 def _expected_from_answer(answer_text: str):
     """Best-effort numeric claim extraction for verifier payloads missing expected."""
     if not answer_text:
@@ -23,14 +28,58 @@ def _expected_from_answer(answer_text: str):
     if '=' in text:
         text = text.split('=')[-1]
     text = text.replace('−', '-')
+
+    # Vietnamese thousands-grouping: "600.000" / "1.234.567" use '.' as the
+    # thousands separator, not a decimal point. Two-or-more dot-groups of
+    # exactly 3 digits are unambiguous; a single group is only collapsed when
+    # a currency/scale word confirms it (otherwise "600.000" would misread as
+    # the float 600.0 instead of 600000, causing a spurious verifier mismatch).
+    # Must run BEFORE stripping \text{...}, since the currency word (e.g.
+    # "đồng") is often itself inside a \text{} unit wrapper.
+    def _collapse_vn_thousands(m: 're.Match') -> str:
+        return m.group(0).replace('.', '')
+    text = re.sub(r'\b\d{1,3}(?:\.\d{3}){2,}\b', _collapse_vn_thousands, text)
+    if re.search(r'(?i)đồng|vnd|nghìn|triệu', text):
+        text = re.sub(r'\b\d{1,3}\.\d{3}\b', _collapse_vn_thousands, text)
+
+    # Strip LaTeX text-mode wrappers (unit labels like \text{m}, \text{đồng})
+    # entirely before any other cleanup. Otherwise the generic char-strip below
+    # keeps ASCII letters (it only removes non-alnum chars), so leftover
+    # command names like "text" leak into the string and break sympy parsing
+    # — the previous fallback regex then grabbed only a numerator, e.g. reading
+    # "\frac{352}{3}\,\text{m}" as 352 instead of 352/3.
+    # Consume the unit's exponent together with the wrapper: "\text{m}^3"
+    # must not leave a dangling "^3" that later attaches to the number
+    # (e.g. "128 m^3" misreading as 128**3).
     text = re.sub(
-        r'\\d?frac\s*\{\s*([-+]?\d+(?:\.\d+)?)\s*\}\s*\{\s*([-+]?\d+(?:\.\d+)?)\s*\}',
+        r'\\(?:text|mathrm|operatorname|mbox)\s*\{[^{}]*\}'
+        r'(?:\s*\^\s*(?:\{\s*\d+\s*\}|\d+))?',
+        ' ', text)
+    text = re.sub(r'\\(?:,|;|!|quad|qquad)', ' ', text)
+
+    # \pi → pi với phép nhân tường minh ("432\pi" nghĩa là 432*π). Nếu không,
+    # \dfrac{432\pi}{5} rơi xuống fallback và bị đọc thành 432 thay vì
+    # 432π/5 ≈ 271.43 → answer_text_mismatch reject oan câu đúng. Nhân tường
+    # minh cả khi \pi đứng sau '}' hoặc ')' ("\frac{81}{10}\pi" = (81/10)*π —
+    # thiếu thì sympify fail, fallback đọc thành 81).
+    text = re.sub(r'([\d)}])\s*\\pi\b', r'\1*pi', text)
+    text = re.sub(r'\\pi\b', 'pi', text)
+
+    _num = r'[-+]?(?:\d+(?:\.\d+)?(?:\*pi)?|pi)'
+    text = re.sub(
+        r'\\d?frac\s*\{\s*(' + _num + r')\s*\}\s*\{\s*(' + _num + r')\s*\}',
         r'(\1)/(\2)',
         text,
     )
     text = re.sub(r'(?<=\d),(?=\d)', '.', text)
-    text = re.sub(r'\b(?:cm2|cm²|cm|m2|m²|m|đơn vị|units?)\b', '', text, flags=re.I)
+    text = re.sub(
+        r'\b(?:[cdk]?m|mm)(?:\s*\^\s*\{?\s*\d\s*\}?|[²³23])?(?![A-Za-z0-9])',
+        ' ', text, flags=re.I)
+    text = re.sub(r'\b(?:đơn vị|units?)\b', ' ', text, flags=re.I)
     text = re.sub(r'[^0-9A-Za-z_+\-*/().^ ]+', ' ', text).strip()
+    # Any unit stripped above may still orphan its exponent (" ^2" from
+    # "s^2", "km/h^2"...) — drop it, otherwise it binds to the number.
+    text = re.sub(r'(?<=[\d).])\s+\^\s*\d+(?:\.\d+)?', ' ', text).strip()
     if not text:
         return None
     try:
@@ -140,6 +189,116 @@ def _solution_text(candidate: Dict[str, Any]) -> str:
             if isinstance(step, dict):
                 parts.append(str(step.get('content') or ''))
     return '\n'.join(parts)
+
+def _fold_for_quote(text: str) -> str:
+    import unicodedata
+    text = (text or '').replace('Đ', 'D').replace('đ', 'd')
+    norm = unicodedata.normalize('NFKD', text)
+    return ''.join(ch for ch in norm if not unicodedata.combining(ch)).lower()
+
+def _quote_tokens(text: str) -> set[str]:
+    stop = {
+        'topic', 'title', 'chunk', 'type', 'context', 'clean', 'source',
+        'quote', 'candidates', 'relevant', 'formulas', 'definitions',
+        'theorems', 'worked', 'examples', 'note', 'use', 'anti', 'copy',
+        'cau', 'bai', 'hoi', 'chon', 'dap', 'phuong', 'an', 'mot', 'cac',
+        'trong', 'sau', 'voi', 'duoc', 'tinh', 'tim', 'la', 'co', 'cho',
+    }
+    folded = _fold_for_quote(text)
+    return {
+        t for t in re.findall(r'[a-z0-9]{3,}', folded)
+        if t not in stop
+    }
+
+def _looks_like_metadata_quote(line: str) -> bool:
+    return bool(re.match(
+        r'(?i)^\s*(?:topic|title|summary|chunk type|use note|anti-copy note|'
+        r'clean context text|source quote candidates|relevant formulas|'
+        r'key definitions|key theorems|worked examples)\s*:',
+        line or '',
+    ) or re.search(
+        r'(?i)\b(?:chunk type|use note|anti-copy note|questionable skills)\s*:',
+        line or '',
+    ) or 'he thong bai tap' in _fold_for_quote(line)
+        or 'picture text' in _fold_for_quote(line))
+
+def _looks_like_old_exercise_quote(line: str) -> bool:
+    folded = _fold_for_quote(line)
+    return bool(
+        re.search(r'\b(?:cau|bai|question|exercise)\s*\d+[\.:)]?', folded)
+        or re.search(
+            r'\b(?:chon|dap an|phuong an|trac nghiem|hoi|bao nhieu|'
+            r'khang dinh|dung sai|loi giai|context|page)\b',
+            folded,
+        )
+    )
+
+def _context_quote_candidates(context: str) -> list[str]:
+    out: list[str] = []
+    seen: set[str] = set()
+    raw_lines = re.split(r'[\n\r]+', context or '')
+    for raw in raw_lines:
+        line = re.sub(r'^\s*[-*•]\s*', '', str(raw or '').strip())
+        line = re.sub(r'\s+', ' ', line).strip()
+        if not line or len(line) < 15 or len(line) > 260:
+            continue
+        if _looks_like_metadata_quote(line) or _looks_like_old_exercise_quote(line):
+            continue
+        key = _fold_for_quote(line)
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(line)
+    return out[:80]
+
+def _repair_source_quote_from_context(
+    candidate: Dict[str, Any],
+    slot: Dict[str, Any],
+    context: str,
+) -> tuple[bool, list[str]]:
+    if not context:
+        return False, []
+    original = str(candidate.get('source_quote_text') or '').strip()
+    qa_text = ' '.join([
+        str(candidate.get('question_text') or ''),
+        str(candidate.get('answer_text') or ''),
+        str(candidate.get('answer_explanation_text') or ''),
+        _solution_text(candidate),
+        str(slot.get('topic') or ''),
+        str(slot.get('skill') or ''),
+    ])
+    qa_tokens = _quote_tokens(qa_text)
+    if not qa_tokens:
+        return False, []
+
+    current_issues = validate_candidate(candidate, slot)
+    best: tuple[int, int, str, list[str]] | None = None
+    for quote in _context_quote_candidates(context):
+        if quote == original:
+            continue
+        quote_tokens = _quote_tokens(quote)
+        overlap = len(quote_tokens & qa_tokens)
+        has_math = 1 if re.search(r'(?:\\int|∫||\uf0f2|=|\^|\d)', quote) else 0
+        if overlap < 1 and not has_math:
+            continue
+        trial = copy.copy(candidate)
+        trial['source_quote_text'] = quote
+        issues = validate_candidate(trial, slot)
+        if any(issue in _QUOTE_REPAIR_CODES for issue in issues):
+            continue
+        score = overlap * 10 + has_math * 3 - len(issues) * 20
+        item = (score, overlap, quote, issues)
+        if best is None or item[:2] > best[:2]:
+            best = item
+
+    if best is None:
+        return False, current_issues
+    _score, _overlap, quote, issues = best
+    if len(issues) > len(current_issues):
+        return False, current_issues
+    candidate['source_quote_text'] = quote
+    candidate['_source_quote_repaired'] = True
+    return True, issues
 
 def _solution_supports_value(candidate: Dict[str, Any], expected) -> bool:
     detailed = candidate.get('detailed_solution')
@@ -302,6 +461,15 @@ def _normalize_hint_schema(hint: Dict[str, Any]) -> Dict[str, Any]:
     elif t == 'probability':
         if 'formula' not in payload and 'expr' in payload:
             payload['formula'] = payload['expr']
+    elif t == 'numeric_eval':
+        # Model hay dùng alias khác 'expr' -> map về đúng key, tránh KeyError
+        # khiến verifier fallback và formatter cap quality oan.
+        if payload.get('expr') is None:
+            for alias in ('expression', 'formula', 'value_expr', 'calc',
+                          'computation'):
+                if payload.get(alias) is not None:
+                    payload['expr'] = payload[alias]
+                    break
     elif t == 'analytic_geometry':
         op = payload.get('operation')
         aliases = {
@@ -324,10 +492,8 @@ class VerifierAgent(BaseAgent):
     3. Distractor validator — unique / length_balance / anti_pattern / visual
     """
 
-    def __init__(self):
-        super().__init__('verifier', skills=[
-            'answer-validation',
-        ])
+    def __init__(self, use_skills: bool = True):
+        super().__init__('verifier', use_skills=use_skills)
 
     def run(self, request: VerifyRequest) -> VerifyResponse:
         # Làm việc trên bản copy để tránh race condition với CriticAgent
@@ -337,6 +503,18 @@ class VerifierAgent(BaseAgent):
         ]
         rule_issues = validate_candidate(c, request.slot)
         annotations: Dict[str, Any] = {'_rule_validator': {'issues': rule_issues}}
+        if any(issue in _QUOTE_REPAIR_CODES for issue in rule_issues):
+            repaired, repaired_issues = _repair_source_quote_from_context(
+                c, request.slot, request.context,
+            )
+            if repaired:
+                annotations['_source_quote_repaired'] = True
+                annotations.setdefault('_candidate_patch', {})['source_quote_text'] = c.get('source_quote_text', '')
+                annotations['_rule_validator'] = {
+                    'issues': repaired_issues,
+                    'repaired_from': rule_issues,
+                }
+                rule_issues = repaired_issues
         if rule_issues:
             code = first_issue_code(rule_issues)
             return VerifyResponse(
@@ -357,11 +535,11 @@ class VerifierAgent(BaseAgent):
             'numeric_crosscheck_points': v_result.numeric_crosscheck_points,
         }
 
-        if v_result.verified is False:
-            return VerifyResponse(
-                annotations=annotations, rejected=True,
-                reject_reason=f'verifier=False ({v_result.engine}: {v_result.detail[:80]})',
-            )
+        # verified=False KHÔNG reject: LLM hiếm khi sai phép tính, mismatch ở
+        # đây thường do verifier_hint (expr/expected_numeric) viết lệch câu hỏi
+        # hoặc đáp án bị làm tròn → reject sẽ loại oan câu đúng. Giữ annotation
+        # _verification.verified=False để Critic và bước chọn ứng viên (ưu tiên
+        # verified=True) tự cân nhắc.
         if not _answer_text_matches_verifier(
             hint.get('type', 'none'),
             c.get('answer_text', ''),

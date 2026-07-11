@@ -1,20 +1,12 @@
-"""Filter pipeline (mục 14 — distractor validator + dedup).
-
-Pipeline cho 1 slot:
-    candidates → verify (mục 11) → grounding (mục 16) → quality
-    → distractor validator → NLI → dedup
-    → trả về top 1 đã pass tất cả.
-"""
+﻿"""Distractor and option validators reused by Direct_PDF_Mode."""
 from __future__ import annotations
 
 import math
 from typing import Any, Dict, List, Optional
 
 from . import config as cfg
-from . import grounding as gj
 from .iwf_checker import run_iwf_checks
 from .schema import _clean_option_text, _is_option_text_complete
-from .verifier import verify, verify_distractor, VerificationResult
 from .llm_client import get_embeddings
 
 
@@ -27,10 +19,10 @@ def _cosine(a: List[float], b: List[float]) -> float:
     return dot / (na * nb) if na > 0 and nb > 0 else 0.0
 
 
-# ==== Distractor validator (mục 14) ====
+# ==== Distractor validator (má»¥c 14) ====
 
 def _check_unique_answer(response: Dict[str, Any]) -> bool:
-    """Đáp án không trùng với distractor nào."""
+    """ÄÃ¡p Ã¡n khÃ´ng trÃ¹ng vá»›i distractor nÃ o."""
     ans = response['answer_text'].strip().lower()
     for d in response['distractors']:
         if d['distractor_text'].strip().lower() == ans:
@@ -39,11 +31,11 @@ def _check_unique_answer(response: Dict[str, Any]) -> bool:
 
 
 def _check_length_balance(response: Dict[str, Any]) -> bool:
-    """Tỉ số dài/ngắn nhất giữa các phương án không quá 3.5×.
+    """Tá»‰ sá»‘ dÃ i/ngáº¯n nháº¥t giá»¯a cÃ¡c phÆ°Æ¡ng Ã¡n khÃ´ng quÃ¡ 3.5Ã—.
 
-    Math distractors khác độ dài tự nhiên (số ngắn vs công thức dài). Chỉ
-    catch extreme imbalance — đáp án dài gấp nhiều lần distractor là smell
-    của "giveaway" (học sinh đoán đáp án dài nhất)."""
+    Math distractors khÃ¡c Ä‘á»™ dÃ i tá»± nhiÃªn (sá»‘ ngáº¯n vs cÃ´ng thá»©c dÃ i). Chá»‰
+    catch extreme imbalance â€” Ä‘Ã¡p Ã¡n dÃ i gáº¥p nhiá»u láº§n distractor lÃ  smell
+    cá»§a "giveaway" (há»c sinh Ä‘oÃ¡n Ä‘Ã¡p Ã¡n dÃ i nháº¥t)."""
     options = [response['answer_text']] + [d['distractor_text'] for d in response['distractors']]
     lens = [len(o.strip()) for o in options if o and o.strip()]
     if len(lens) < 4:
@@ -55,9 +47,9 @@ def _check_length_balance(response: Dict[str, Any]) -> bool:
 
 
 def _check_anti_pattern(response: Dict[str, Any]) -> bool:
-    """Cấm 'Tất cả đều đúng' / 'Không có đáp án nào' trong distractor."""
-    bad = ['tất cả các phương án', 'không có phương án', 'all of the above',
-           'none of the above', 'tất cả đáp án']
+    """Cáº¥m 'Táº¥t cáº£ Ä‘á»u Ä‘Ãºng' / 'KhÃ´ng cÃ³ Ä‘Ã¡p Ã¡n nÃ o' trong distractor."""
+    bad = ['táº¥t cáº£ cÃ¡c phÆ°Æ¡ng Ã¡n', 'khÃ´ng cÃ³ phÆ°Æ¡ng Ã¡n', 'all of the above',
+           'none of the above', 'táº¥t cáº£ Ä‘Ã¡p Ã¡n']
     for d in response['distractors']:
         t = d['distractor_text'].lower()
         if any(b in t for b in bad):
@@ -67,25 +59,25 @@ def _check_anti_pattern(response: Dict[str, Any]) -> bool:
 
 import re as _re
 
-# Bộ rule: keyword trong stem → expected visual type.
-# Nếu stem chứa keyword mà visual không phải type tương ứng → reject.
+# Bá»™ rule: keyword trong stem â†’ expected visual type.
+# Náº¿u stem chá»©a keyword mÃ  visual khÃ´ng pháº£i type tÆ°Æ¡ng á»©ng â†’ reject.
 _VISUAL_REF_RULES = [
-    (_re.compile(r'\bbảng\s+chân\s+(lý|trị)\b', _re.I),                'truth_table'),
-    (_re.compile(r'\bbảng\s+(sau|trên|dưới|đã\s+cho)\b', _re.I),       'truth_table'),
-    (_re.compile(r'\bma\s+trận\s+(sau|trên|đã\s+cho|nào)\b', _re.I),   'matrix'),
-    (_re.compile(r'\b(đồ\s+thị|graph)\s+(sau|trên|đã\s+cho|nào|với\s+các)\b', _re.I),
+    (_re.compile(r'\bbáº£ng\s+chÃ¢n\s+(lÃ½|trá»‹)\b', _re.I),                'truth_table'),
+    (_re.compile(r'\bbáº£ng\s+(sau|trÃªn|dÆ°á»›i|Ä‘Ã£\s+cho)\b', _re.I),       'truth_table'),
+    (_re.compile(r'\bma\s+tráº­n\s+(sau|trÃªn|Ä‘Ã£\s+cho|nÃ o)\b', _re.I),   'matrix'),
+    (_re.compile(r'\b(Ä‘á»“\s+thá»‹|graph)\s+(sau|trÃªn|Ä‘Ã£\s+cho|nÃ o|vá»›i\s+cÃ¡c)\b', _re.I),
                                                                        'graph_network'),
-    (_re.compile(r'\b(số\s+đỉnh|số\s+cạnh|bậc\s+đỉnh)\b.{0,30}\b(sau|trên|đã\s+cho)\b',
+    (_re.compile(r'\b(sá»‘\s+Ä‘á»‰nh|sá»‘\s+cáº¡nh|báº­c\s+Ä‘á»‰nh)\b.{0,30}\b(sau|trÃªn|Ä‘Ã£\s+cho)\b',
                 _re.I | _re.S),                                        'graph_network'),
-    (_re.compile(r'\bcây\s+(sau|trên|đã\s+cho|nào)\b', _re.I),         'tree'),
-    (_re.compile(r'\b(sơ\s+đồ\s+venn|biểu\s+đồ\s+venn)\b', _re.I),     'venn_diagram'),
-    (_re.compile(r'\b(dựa\s+vào|theo|quan\s+sát|xem)\s+hình\b', _re.I),'function_graph'),
+    (_re.compile(r'\bcÃ¢y\s+(sau|trÃªn|Ä‘Ã£\s+cho|nÃ o)\b', _re.I),         'tree'),
+    (_re.compile(r'\b(sÆ¡\s+Ä‘á»“\s+venn|biá»ƒu\s+Ä‘á»“\s+venn)\b', _re.I),     'venn_diagram'),
+    (_re.compile(r'\b(dá»±a\s+vÃ o|theo|quan\s+sÃ¡t|xem)\s+hÃ¬nh\b', _re.I),'function_graph'),
 ]
 
 
 def _expected_visual_type(stem: str) -> Optional[str]:
-    """Trả về type visual mà stem đang yêu cầu (nếu có); None nếu stem không
-    cần visual."""
+    """Tráº£ vá» type visual mÃ  stem Ä‘ang yÃªu cáº§u (náº¿u cÃ³); None náº¿u stem khÃ´ng
+    cáº§n visual."""
     for pat, vt in _VISUAL_REF_RULES:
         if pat.search(stem):
             return vt
@@ -93,10 +85,10 @@ def _expected_visual_type(stem: str) -> Optional[str]:
 
 
 def _check_visual_consistency(response: Dict[str, Any]) -> bool:
-    """Stem-ref ↔ visual type phải khớp.
-    - Stem yêu cầu type T mà visual=None → fail
-    - Stem yêu cầu type T mà visual.type ≠ T → fail
-    - Stem KHÔNG yêu cầu nhưng visual có → OK (extra info)
+    """Stem-ref â†” visual type pháº£i khá»›p.
+    - Stem yÃªu cáº§u type T mÃ  visual=None â†’ fail
+    - Stem yÃªu cáº§u type T mÃ  visual.type â‰  T â†’ fail
+    - Stem KHÃ”NG yÃªu cáº§u nhÆ°ng visual cÃ³ â†’ OK (extra info)
     """
     stem = response.get('question_text', '')
     expected = _expected_visual_type(stem)
@@ -111,7 +103,7 @@ def _check_visual_consistency(response: Dict[str, Any]) -> bool:
 
 
 def _check_visual_spec_valid(response: Dict[str, Any]) -> bool:
-    """Visual spec internal consistency: kiểm các trường bắt buộc theo type."""
+    """Visual spec internal consistency: kiá»ƒm cÃ¡c trÆ°á»ng báº¯t buá»™c theo type."""
     visual = response.get('visual')
     if not visual:
         return True
@@ -122,7 +114,7 @@ def _check_visual_spec_valid(response: Dict[str, Any]) -> bool:
         rows = spec.get('rows') or []
         if not vars_ or not rows:
             return False
-        # mỗi row có đủ keys cho variables
+        # má»—i row cÃ³ Ä‘á»§ keys cho variables
         for r in rows:
             if not isinstance(r, dict):
                 return False
@@ -143,7 +135,7 @@ def _check_visual_spec_valid(response: Dict[str, Any]) -> bool:
     if t == 'venn_diagram':
         sets = spec.get('sets') or []
         return len(sets) >= 1
-    return True   # type lạ, không validate sâu
+    return True   # type láº¡, khÃ´ng validate sÃ¢u
 
 
 def _check_display_syntax(response: Dict[str, Any]) -> bool:
@@ -159,7 +151,7 @@ def _stem_contains_embedded_options(stem: str) -> bool:
 
 def _normalize_option_compare(text: str) -> str:
     text = _clean_option_text(text or '').lower()
-    text = text.replace('−', '-').replace('·', '*')
+    text = text.replace('âˆ’', '-').replace('Â·', '*')
     text = _re.sub(r'\s+', ' ', text)
     text = _re.sub(r'[.;:,\s]+$', '', text)
     return text.strip()
@@ -200,11 +192,11 @@ def _salvage_option_text(text: str, max_len: int = 180) -> str:
 
     # Last numeric value or compact math expression is often the actual option.
     candidates.extend(_re.findall(
-        r'[-+−]?\d+(?:[.,]\d+)?(?:\s*/\s*[-+−]?\d+(?:[.,]\d+)?)?',
+        r'[-+âˆ’]?\d+(?:[.,]\d+)?(?:\s*/\s*[-+âˆ’]?\d+(?:[.,]\d+)?)?',
         raw,
     ))
     candidates.extend(_re.findall(
-        r'(?:C|P)\s*\([^)]{1,60}\)|[A-Za-zÀ-ỹĐđ]\w*(?:\s*[+\-−*/^]\s*[A-Za-zÀ-ỹĐđ0-9().]+)+',
+        r'(?:C|P)\s*\([^)]{1,60}\)|[A-Za-zÃ€-á»¹ÄÄ‘]\w*(?:\s*[+\-âˆ’*/^]\s*[A-Za-zÃ€-á»¹ÄÄ‘0-9().]+)+',
         raw,
     ))
 
@@ -214,7 +206,7 @@ def _salvage_option_text(text: str, max_len: int = 180) -> str:
             return fixed
     return s
 
-_NUMERIC_OPTION_RE = r'[-+−]?\d+(?:[.,]\d+)?(?:\s*/\s*[-+−]?\d+(?:[.,]\d+)?)?'
+_NUMERIC_OPTION_RE = r'[-+âˆ’]?\d+(?:[.,]\d+)?(?:\s*/\s*[-+âˆ’]?\d+(?:[.,]\d+)?)?'
 
 def _is_plain_numeric_option(text: str) -> bool:
     compact = _re.sub(r'\s+', '', str(text or ''))
@@ -256,7 +248,7 @@ def repair_option_texts(response: Dict[str, Any]) -> List[str]:
 
 def option_text_sanity_issues(response: Dict[str, Any]) -> List[str]:
     trailing_bad = (
-        ' nê', ' nên', ' vì', ' do', ' bằng', ' là', ' ra', ' thì',
+        ' nÃª', ' nÃªn', ' vÃ¬', ' do', ' báº±ng', ' lÃ ', ' ra', ' thÃ¬',
         'therefore', 'because',
     )
     labelled = [('answer', _clean_option_text(response.get('answer_text', '')))]
@@ -288,7 +280,7 @@ def _check_option_text_sanity(response: Dict[str, Any]) -> bool:
 
 
 def _check_distractor_similarity(response: Dict[str, Any]) -> bool:
-    """Distractor không quá giống nhau (cosine < threshold)."""
+    """Distractor khÃ´ng quÃ¡ giá»‘ng nhau (cosine < threshold)."""
     texts = [d['distractor_text'] for d in response['distractors']]
     if len(texts) < 2:
         return True
@@ -301,15 +293,15 @@ def _check_distractor_similarity(response: Dict[str, Any]) -> bool:
 
 
 def validate_distractors(response: Dict[str, Any], skip_embedding: bool = False) -> Dict[str, Any]:
-    """Trả về dict các check pass/fail.
+    """Tráº£ vá» dict cÃ¡c check pass/fail.
 
-    Triết lý (theo user feedback): heuristic rules KHÔNG override agent judgment.
-    - HARD checks (reject nếu fail): unique_answer, anti_pattern, display_syntax,
+    Triáº¿t lÃ½ (theo user feedback): heuristic rules KHÃ”NG override agent judgment.
+    - HARD checks (reject náº¿u fail): unique_answer, anti_pattern, display_syntax,
       visual_consistency, visual_spec_valid, iwf_no_duplicate_distractor,
-      iwf_distractor_min_length. Đây là correctness/format basics.
-    - SOFT checks (chỉ warning, KHÔNG đưa vào all_passed): length_balance,
+      iwf_distractor_min_length. ÄÃ¢y lÃ  correctness/format basics.
+    - SOFT checks (chá»‰ warning, KHÃ”NG Ä‘Æ°a vÃ o all_passed): length_balance,
       iwf_format_consistency, iwf_numeric_scale, iwf_no_absolute_terms.
-      Multi-trait CriticAgent (distractor_plausibility) là gate thực sự.
+      Multi-trait CriticAgent (distractor_plausibility) lÃ  gate thá»±c sá»±.
     """
     iwf = run_iwf_checks(response)
 
@@ -342,182 +334,8 @@ def validate_distractors(response: Dict[str, Any], skip_embedding: bool = False)
         except Exception:
             checks['distractor_diversity'] = True
 
-    # all_passed chỉ tính HARD checks (soft checks chỉ là annotation)
+    # all_passed chá»‰ tÃ­nh HARD checks (soft checks chá»‰ lÃ  annotation)
     checks['all_passed'] = all(v for k, v in hard_checks.items())
     return checks
 
 
-# ==== NLI filter (mục 14) ====
-
-def filter_by_nli(responses: List[Dict[str, Any]], context: str,
-                  margin: float = cfg.NLI_PROB_MARGIN) -> List[Dict[str, Any]]:
-    out = []
-    for r in responses:
-        q = r['question_text']
-        ans_claim = f'"{r["answer_text"]}" là đáp án đúng cho câu hỏi: "{q}"'
-        ans_prob = gj.judge_nli(context, ans_claim)
-        r['_answer_prob'] = ans_prob
-        ok = True
-        for d in r['distractors']:
-            d_claim = f'"{d["distractor_text"]}" là đáp án đúng cho câu hỏi: "{q}"'
-            d_prob = gj.judge_nli(context, d_claim)
-            d['_distractor_prob'] = d_prob
-            if ans_prob - d_prob <= margin:
-                ok = False
-        if ok:
-            out.append(r)
-    return out
-
-
-# ==== Dedup by question embedding ====
-
-def dedupe_questions(responses: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    if not responses:
-        return []
-    texts = [r['question_text'] + '\n' + r['answer_text'] for r in responses]
-    try:
-        embs = get_embeddings(texts)
-    except Exception:
-        return responses
-    kept_idx = [0]
-    for i in range(1, len(responses)):
-        if all(_cosine(embs[i], embs[j]) < cfg.QUESTION_DEDUP_THRESHOLD for j in kept_idx):
-            kept_idx.append(i)
-    return [responses[i] for i in kept_idx]
-
-
-# ==== Pipeline 1 slot ====
-
-def filter_for_slot(candidates: List[Dict[str, Any]],
-                    context: str,
-                    slot: Dict[str, Any],
-                    use_nli: bool = True,
-                    reject_log: Optional[List[str]] = None) -> Optional[Dict[str, Any]]:
-    """Trả về candidate tốt nhất sau khi qua verifier + grounding + validator + (NLI).
-    None nếu không có candidate nào pass.
-    `reject_log` (nếu truyền) sẽ được append với reason của từng candidate fail."""
-    scored = []
-    for c in candidates:
-        # 1. Symbolic verifier
-        hint = c.get('verifier_hint', {})
-        v_result: VerificationResult = verify(hint)
-        c['_verification'] = {
-            'verified': v_result.verified,
-            'engine': v_result.engine,
-            'detail': v_result.detail,
-            'numeric_crosscheck_points': v_result.numeric_crosscheck_points,
-        }
-        if v_result.verified is False:
-            c['_reject_reason'] = f'verifier=False ({v_result.engine}: {v_result.detail[:80]})'
-            if reject_log is not None:
-                reject_log.append(c.get('_reject_reason', 'unknown'))
-            continue
-
-        # Verifier ran but threw an exception (bad payload from LLM) → tag for needs_revision.
-        # Phân biệt: engine='none' = không có verifier applicable (OK); engine!=none = verifier
-        # đã thử nhưng lỗi parse → candidate không đủ tin cậy để vào pending_review.
-        if v_result.verified is None and v_result.engine != 'none':
-            c['_verifier_errored'] = True
-
-        # 1b. Verifier UNIQUENESS — check không có distractor nào cũng đúng
-        if v_result.verified is True:
-            multi_answer = False
-            for d in c.get('distractors', []):
-                d_verified = verify_distractor(hint, d['distractor_text'])
-                if d_verified is True:
-                    multi_answer = True
-                    c['_reject_reason'] = (
-                        f'multi_answer: distractor "{d["distractor_text"][:40]}" '
-                        f'cũng được verifier xác nhận đúng'
-                    )
-                    break
-            if multi_answer:
-                if reject_log is not None:
-                    reject_log.append(c.get('_reject_reason', 'unknown'))
-                continue
-
-        # 2. Distractor validator
-        repairs = repair_option_texts(c)
-        if repairs:
-            c['_option_text_repairs'] = repairs
-        checks = validate_distractors(c, skip_embedding=True)
-        c['_validator'] = checks
-        if not checks['all_passed']:
-            failed = [k for k, v in checks.items() if not v and k != 'all_passed']
-            detail = ''
-            if 'option_text_sanity' in failed:
-                detail = f' issues={option_text_sanity_issues(c)}'
-            c['_reject_reason'] = f'distractor_validator failed: {failed}{detail}'
-            if reject_log is not None:
-                reject_log.append(c.get('_reject_reason', 'unknown'))
-            continue
-
-        unsupported = gj.unsupported_stem_numbers(context, c)
-        if unsupported:
-            c['_grounding'] = 0.0
-            c['_unsupported_stem_numbers'] = unsupported
-            c['_reject_reason'] = f'unsupported stem numbers: {unsupported}'
-            if reject_log is not None:
-                reject_log.append(c.get('_reject_reason', 'unknown'))
-            continue
-
-        contradiction = gj.directional_contradiction(context, c)
-        if contradiction:
-            c['_grounding'] = 0.0
-            c['_local_contradiction'] = contradiction
-            c['_reject_reason'] = f'local contradiction: {contradiction}'
-            if reject_log is not None:
-                reject_log.append(c.get('_reject_reason', 'unknown'))
-            continue
-
-        # 3. Grounding (kiểm cả quote nằm trong context)
-        try:
-            g = gj.judge_grounding(context, c)
-            c['_grounding'] = g
-            if g < cfg.GROUNDING_THRESHOLD:
-                in_ctx = c.get('_quote_in_context')
-                c['_reject_reason'] = (
-                    f'grounding={g:.2f} < {cfg.GROUNDING_THRESHOLD}'
-                    + ('' if in_ctx else ' (quote KHÔNG nằm trong context)')
-                )
-                if reject_log is not None:
-                    reject_log.append(c.get('_reject_reason', 'unknown'))
-                continue
-        except Exception as e:
-            c['_grounding'] = None
-            print(f'    grounding error: {e}')
-
-        # 4. Quality
-        try:
-            q = gj.judge_quality(slot.get('topic', ''), slot['cognitive_level'], c)
-            c['_quality'] = q
-            if q < cfg.QUALITY_THRESHOLD:
-                c['_reject_reason'] = f'quality={q:.2f} < {cfg.QUALITY_THRESHOLD}'
-                if reject_log is not None:
-                    reject_log.append(c.get('_reject_reason', 'unknown'))
-                continue
-        except Exception:
-            c['_quality'] = 0.5
-
-        scored.append(c)
-
-    if not scored:
-        return None
-
-    # 5. NLI filter (đắt — chỉ chạy nếu cần và còn candidate)
-    if use_nli and len(scored) > 1:
-        try:
-            scored = filter_by_nli(scored, context)
-        except Exception as e:
-            print(f'    NLI error: {e}')
-
-    if not scored:
-        return None
-
-    # 6. Sort: verified=True → engine='none' (no verifier) → verifier errored
-    scored.sort(key=lambda r: (
-        0 if r['_verification']['verified'] is True else (2 if r.get('_verifier_errored') else 1),
-        -(r.get('_quality') or 0),
-        -(r.get('_grounding') or 0),
-    ))
-    return scored[0]

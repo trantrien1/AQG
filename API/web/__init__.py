@@ -1,10 +1,14 @@
-"""FastAPI backend cho web_new frontend.
+"""FastAPI backend for the bundled Next.js frontend.
 
-Kiến trúc tối giản:
-- State lưu trên filesystem ở `runs/<job_id>/`
-- Một worker thread duy nhất per job (background task) cho generate
-- Polling-based status (GET /job/:id/status đọc status.json)
+Minimal architecture:
+- State is stored on the filesystem at `runs/<job_id>/`
+- One background worker per job handles generation
+- Polling-based status via `GET /job/:id/status`
 
-Run:
+Run backend:
     python -m uvicorn web.app:app --host 127.0.0.1 --port 8080 --reload
+
+Run frontend:
+    cd web/frontend
+    npm run dev
 """

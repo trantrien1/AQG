@@ -4,6 +4,7 @@ from __future__ import annotations
 from typing import Any, Dict, List, Optional
 
 from ..skills.registry import (
+    skills_for_agent,
     get_skill_instructions,
     get_skill_metadata,
     validate_skill_references,
@@ -13,9 +14,13 @@ from ..skills.registry import (
 class BaseAgent:
     """Interface chung. Mỗi agent có tên, nhận message, trả message."""
 
-    def __init__(self, name: str, skills: Optional[List[str]] = None):
+    def __init__(self, name: str, skills: Optional[List[str]] = None,
+                 use_skills: bool = True):
         self.name = name
-        self.skills = skills or []
+        self.use_skills = use_skills
+        self.skills = list(skills) if skills is not None else skills_for_agent(
+            name, use_skills=use_skills,
+        )
 
     def skill_metadata(self) -> List[Dict[str, str]]:
         return [get_skill_metadata(name) for name in self.skills]

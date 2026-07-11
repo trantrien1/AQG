@@ -1,6 +1,6 @@
 ---
 name: bloom-taxonomy-alignment
-description: Align MCQ planning, writing, critique, and refinement with the requested Bloom cognitive level using Vietnamese labels. Use in PlannerAgent, QuestionWriterAgent, CriticAgent, and RefinerAgent whenever cognitive level matters.
+description: Align direct PDF question writing and critique with the requested Bloom cognitive level using Vietnamese labels. Use in PdfWriterAgent and PdfCriticAgent whenever cognitive level matters.
 ---
 
 # Bloom Taxonomy Alignment

@@ -1,12 +1,12 @@
 """Filesystem-based job store.
 
 Layout per job at `runs/<job_id>/`:
-    meta.json     — JobMeta (status, pdf_name, num_chunks, created_at, ...)
+    meta.json     — JobMeta (status, pdf_name, created_at, ...)
     source.pdf    — uploaded PDF (binary)
-    chunks.json   — IngestionAgent output (dataset shape)
     config.json   — JobConfig
     status.json   — runtime status updated by progress callback
-    result.json   — final {questions, rejected, metadata}
+    result.json   — final compact {questions, metadata}
+    debug_rejected.json — rejected/debug records for troubleshooting
     errors.log    — append-only error trace from background task
 
 All writes go through `_atomic_write` to prevent half-written files
@@ -51,7 +51,20 @@ def _atomic_write(path: Path, payload: Any) -> None:
     try:
         with os.fdopen(fd, 'w', encoding='utf-8') as f:
             json.dump(payload, f, indent=2, ensure_ascii=False)
-        os.replace(tmp, path)
+        # On Windows, os.replace can briefly fail with WinError 5 if another
+        # process has the target open while the web UI is polling status.json.
+        # Retrying preserves atomic writes without surfacing transient locks.
+        last_exc: Optional[OSError] = None
+        for attempt in range(6):
+            try:
+                os.replace(tmp, path)
+                last_exc = None
+                break
+            except PermissionError as exc:
+                last_exc = exc
+                time.sleep(0.05 * (attempt + 1))
+        if last_exc is not None:
+            raise last_exc
     except Exception:
         try:
             os.unlink(tmp)
@@ -143,60 +156,12 @@ def list_jobs() -> List[Dict[str, Any]]:
 
 
 # ----------------------------------------------------------------------
-# Chunks
-# ----------------------------------------------------------------------
-
-def save_chunks(job_id: str, dataset: Dict[str, Any]) -> None:
-    with _lock_for(job_id):
-        _atomic_write(job_dir(job_id) / 'chunks.json', dataset)
-
-
-def get_chunks(job_id: str) -> Optional[Dict[str, Any]]:
-    return _read_json(job_dir(job_id) / 'chunks.json')
-
-
-def save_clean_contexts(job_id: str, payload: Dict[str, Any]) -> None:
-    with _lock_for(job_id):
-        _atomic_write(job_dir(job_id) / 'clean_contexts.json', payload)
-
-
-def get_clean_contexts(job_id: str) -> Optional[Dict[str, Any]]:
-    return _read_json(job_dir(job_id) / 'clean_contexts.json')
-
-
-def clear_contexts(job_id: str) -> None:
-    with _lock_for(job_id):
-        p = job_dir(job_id) / 'clean_contexts.json'
-        if p.exists():
-            try:
-                p.unlink()
-            except OSError:
-                pass
-
-
-def delete_chunk(job_id: str, doc_id: str) -> bool:
-    with _lock_for(job_id):
-        dataset = _read_json(job_dir(job_id) / 'chunks.json')
-        if not dataset or doc_id not in dataset or doc_id == 'metadata':
-            return False
-        dataset.pop(doc_id, None)
-        _atomic_write(job_dir(job_id) / 'chunks.json', dataset)
-        contexts = _read_json(job_dir(job_id) / 'clean_contexts.json')
-        if contexts and doc_id in contexts:
-            contexts.pop(doc_id, None)
-            meta = contexts.get('metadata') if isinstance(contexts.get('metadata'), dict) else {}
-            meta['num_contexts'] = max(0, len(contexts) - 1)
-            contexts['metadata'] = meta
-            _atomic_write(job_dir(job_id) / 'clean_contexts.json', contexts)
-        return True
-
-
-# ----------------------------------------------------------------------
 # Config
 # ----------------------------------------------------------------------
 
 DEFAULT_CONFIG: Dict[str, Any] = {
-    'mode': 'fast',
+    'mode': 'Direct_PDF_Mode',
+    'direct_pdf': True,
     'num_questions': 12,
     'bloom_level': 'mixed',
     'include_explanation': True,
@@ -234,33 +199,48 @@ def save_config(job_id: str, config: Dict[str, Any]) -> Dict[str, Any]:
         _atomic_write(job_dir(job_id) / 'config.json', merged)
         return merged
 
-# ----------------------------------------------------------------------
-# Plan review
-# ----------------------------------------------------------------------
 
-def save_plan(job_id: str, plan: Dict[str, Any],
-              status: str = 'draft') -> Dict[str, Any]:
-    """Persist a user-reviewable generation plan."""
-    payload = dict(plan or {})
-    payload['plan_status'] = status
-    payload['updated_at'] = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
+# ----------------------------------------------------------------------
+# Prepare phase (two-step upload: /prepare khi chọn file, /start khi bấm Generate)
+# ----------------------------------------------------------------------
+#
+# prepare.json — trạng thái tiền xử lý chạy nền lúc người dùng còn đang chọn
+#   config: {status: preparing|ready|error, attachments_ready, num_pages,
+#            outline, error}. Tách khỏi status.json để không giẫm lên flow
+#   generate (status.json vẫn thuộc về vòng đời sinh câu hỏi).
+# attachments_cache.json — các trang PDF đã render (list content part), để
+#   generation dùng lại thay vì render lần nữa.
+
+def write_prepare(job_id: str, payload: Dict[str, Any]) -> None:
     with _lock_for(job_id):
-        _atomic_write(job_dir(job_id) / 'plan.json', payload)
+        _atomic_write(job_dir(job_id) / 'prepare.json', payload)
+
+
+def update_prepare(job_id: str, **fields: Any) -> Dict[str, Any]:
+    with _lock_for(job_id):
+        payload = _read_json(job_dir(job_id) / 'prepare.json') or {}
+        payload.update(fields)
+        _atomic_write(job_dir(job_id) / 'prepare.json', payload)
         return payload
 
-def get_plan(job_id: str) -> Optional[Dict[str, Any]]:
-    return _read_json(job_dir(job_id) / 'plan.json')
 
-def confirm_plan(job_id: str) -> Optional[Dict[str, Any]]:
-    with _lock_for(job_id):
-        plan = _read_json(job_dir(job_id) / 'plan.json')
-        if not plan:
-            return None
-        plan['plan_status'] = 'confirmed'
-        plan['confirmed_at'] = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
-        plan['updated_at'] = plan['confirmed_at']
-        _atomic_write(job_dir(job_id) / 'plan.json', plan)
-        return plan
+def get_prepare(job_id: str) -> Optional[Dict[str, Any]]:
+    return _read_json(job_dir(job_id) / 'prepare.json')
+
+
+def save_attachments_cache(job_id: str, parts: List[Dict[str, Any]]) -> None:
+    # Không đi qua _lock_for: file có thể vài chục MB (ảnh base64), giữ lock
+    # lâu sẽ chặn polling status. Chỉ ghi một lần từ thread prepare nên atomic
+    # write là đủ.
+    _atomic_write(job_dir(job_id) / 'attachments_cache.json', {'parts': parts})
+
+
+def load_attachments_cache(job_id: str) -> Optional[List[Dict[str, Any]]]:
+    payload = _read_json(job_dir(job_id) / 'attachments_cache.json')
+    parts = (payload or {}).get('parts')
+    if isinstance(parts, list) and parts:
+        return parts
+    return None
 
 
 # ----------------------------------------------------------------------
@@ -300,7 +280,7 @@ def clear_cancel(job_id: str) -> None:
 
 def clear_result(job_id: str) -> None:
     with _lock_for(job_id):
-        for name in ('result.json', 'export.json'):
+        for name in ('result.json', 'export.json', 'debug_rejected.json'):
             p = job_dir(job_id) / name
             if p.exists():
                 try:
@@ -338,6 +318,28 @@ def save_result(job_id: str, result: Dict[str, Any]) -> None:
 def get_result(job_id: str) -> Optional[Dict[str, Any]]:
     return _read_json(job_dir(job_id) / 'result.json')
 
+def save_debug_rejected(job_id: str, rejected: List[Dict[str, Any]],
+                        summary: Optional[Dict[str, Any]] = None) -> None:
+    with _lock_for(job_id):
+        _atomic_write(job_dir(job_id) / 'debug_rejected.json', {
+            'summary': summary or {},
+            'rejected': rejected or [],
+        })
+
+def get_debug_rejected(job_id: str) -> List[Dict[str, Any]]:
+    payload = _read_json(job_dir(job_id) / 'debug_rejected.json')
+    if payload and isinstance(payload.get('rejected'), list):
+        return payload.get('rejected') or []
+    result = _read_json(job_dir(job_id) / 'result.json') or {}
+    rejected = result.get('rejected')
+    return rejected if isinstance(rejected, list) else []
+
+def get_debug_reject_summary(job_id: str) -> Dict[str, Any]:
+    payload = _read_json(job_dir(job_id) / 'debug_rejected.json')
+    if payload and isinstance(payload.get('summary'), dict):
+        return payload.get('summary') or {}
+    return {}
+
 
 def update_question_review(job_id: str, question_id: str,
                             review_status: str) -> bool:
@@ -346,15 +348,54 @@ def update_question_review(job_id: str, question_id: str,
         result = _read_json(job_dir(job_id) / 'result.json')
         if not result:
             return False
-        for section in ('questions', 'rejected'):
-            for q in result.get(section, []):
-                if q.get('question_id') == question_id:
-                    q['review_status'] = review_status
-                    q.setdefault('review', {})['status'] = review_status
-                    q['review']['human_reviewed'] = True
-                    _atomic_write(job_dir(job_id) / 'result.json', result)
-                    return True
+        for q in result.get('questions', []):
+            if q.get('question_id') == question_id:
+                q['review_status'] = review_status
+                q.setdefault('review', {})['status'] = review_status
+                q['review']['human_reviewed'] = True
+                _atomic_write(job_dir(job_id) / 'result.json', result)
+                return True
         return False
+
+
+# ----------------------------------------------------------------------
+# Question feedback (RLHF-style: user 👍/👎 + lý do, dùng để sinh lại)
+# ----------------------------------------------------------------------
+
+def get_feedback(job_id: str) -> List[Dict[str, Any]]:
+    payload = _read_json(job_dir(job_id) / 'feedback.json')
+    items = (payload or {}).get('items')
+    return items if isinstance(items, list) else []
+
+
+def save_feedback_entry(job_id: str, entry: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Upsert một entry feedback theo question_id. Trả danh sách mới."""
+    with _lock_for(job_id):
+        payload = _read_json(job_dir(job_id) / 'feedback.json') or {}
+        items = payload.get('items')
+        if not isinstance(items, list):
+            items = []
+        qid = entry.get('question_id')
+        items = [it for it in items
+                 if isinstance(it, dict) and it.get('question_id') != qid]
+        items.append(entry)
+        _atomic_write(job_dir(job_id) / 'feedback.json', {'items': items})
+        return items
+
+
+def delete_feedback_entry(job_id: str, question_id: str) -> bool:
+    """Xoá feedback của một câu. Trả True nếu có entry bị xoá."""
+    with _lock_for(job_id):
+        payload = _read_json(job_dir(job_id) / 'feedback.json') or {}
+        items = payload.get('items')
+        if not isinstance(items, list):
+            return False
+        kept = [it for it in items
+                if isinstance(it, dict) and it.get('question_id') != question_id]
+        if len(kept) == len(items):
+            return False
+        _atomic_write(job_dir(job_id) / 'feedback.json', {'items': kept})
+        return True
 
 
 # ----------------------------------------------------------------------

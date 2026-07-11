@@ -1,0 +1,87 @@
+# Stack production cho VPS: Caddy (HTTPS) + frontend + backend + Postgres + chat2api.
+#
+# Cách dùng (trên VPS Linux đã cài Docker):
+#   1. Copy thư mục API/ lên VPS (kèm file .env — file này không nằm trong git)
+#   2. Sửa domain trong Caddyfile (DNS A record đã trỏ về IP VPS)
+#   3. docker compose -f docker-compose.prod.yml up -d --build
+#   4. Nạp/renew token chat2api: ssh -L 5005:127.0.0.1:5005 <vps> rồi mở http://127.0.0.1:5005/tokens
+#
+# Frontend và backend cùng domain (Caddy route /api/* sang backend) nên không cần CORS.
+services:
+  caddy:
+    image: caddy:2
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - frontend
+      - backend
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./web/frontend
+      args:
+        # Nướng vào bundle lúc build: gọi API qua đường /api cùng domain.
+        NEXT_PUBLIC_API_URL: /api
+    image: aied-mcq-frontend
+    restart: unless-stopped
+
+  backend:
+    build: .
+    image: aied-mcq-backend
+    env_file:
+      - .env
+    environment:
+      OPENAI_COMPATIBLE_BASE_URL: http://chat2api:5005/v1
+      DATABASE_URL: postgresql://aqg:${POSTGRES_PASSWORD:-aqg}@db:5432/aqg
+    volumes:
+      - ./runs:/app/runs
+      - ./data:/app/data
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    # Chỉ lưu users + sessions cho đăng nhập; jobs/banks vẫn là file trong runs/, data/
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: aqg
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-aqg}
+      POSTGRES_DB: aqg
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aqg -d aqg"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+
+  chat2api:
+    # Máy dev Windows đang chạy image build tay `chat2api:local`; trên VPS dùng
+    # image upstream (hoặc build lại từ source của bạn nếu source đã chỉnh sửa).
+    # Token ChatGPT hết hạn ~10 ngày — cần renew định kỳ qua /tokens (SSH tunnel).
+    image: lanqian528/chat2api:latest
+    environment:
+      CHATGPT_BASE_URL: https://chatgpt.com
+      SCHEDULED_REFRESH: "false"
+      # Key mà backend phải trình khi gọi — trùng OPENAI_API_KEY trong .env
+      AUTHORIZATION: ${OPENAI_API_KEY:-sk-chat2api-local}
+      TZ: Asia/Ho_Chi_Minh
+    ports:
+      # Chỉ bind localhost của VPS — truy cập UI /tokens bằng SSH tunnel, không public.
+      - "127.0.0.1:5005:5005"
+    volumes:
+      - ./chat2api-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  caddy_data:
+  caddy_config:
+  pgdata:

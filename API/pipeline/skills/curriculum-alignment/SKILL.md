@@ -1,6 +1,6 @@
 ---
 name: curriculum-alignment
-description: Check whether a generated question matches the blueprint topic, skill, knowledge component, difficulty target, and requested Bloom level. Use in CriticAgent and RefinerAgent during quality gating.
+description: Check whether a generated question matches the requested topic, skill, difficulty target, and Bloom level. Use in PdfCriticAgent during quality gating.
 ---
 
 # Curriculum Alignment
