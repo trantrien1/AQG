@@ -1,15 +1,23 @@
-# Đổi aqg.example.com thành domain của bạn (DNS đã trỏ về IP VPS).
-# Caddy tự xin và gia hạn chứng chỉ HTTPS (Let's Encrypt).
-#
-# Chưa có domain? Thay dòng đầu bằng `:80` để chạy HTTP qua IP:
-#   :80 {
-aqg.example.com {
+# aqg.id.vn — Caddy tự xin và gia hạn chứng chỉ HTTPS (Let's Encrypt)
+# ngay khi DNS A record của domain trỏ về IP VPS.
+aqg.id.vn {
 	# API backend: /api/* -> backend (bỏ prefix /api vì route backend nằm ở gốc)
 	handle_path /api/* {
 		reverse_proxy backend:8080
 	}
 
 	# Còn lại: frontend Next.js
+	handle {
+		reverse_proxy frontend:3000
+	}
+}
+
+# Vẫn cho truy cập trực tiếp bằng IP qua HTTP (dự phòng khi DNS trục trặc).
+:80 {
+	handle_path /api/* {
+		reverse_proxy backend:8080
+	}
+
 	handle {
 		reverse_proxy frontend:3000
 	}
