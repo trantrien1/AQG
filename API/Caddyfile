@@ -1,6 +1,6 @@
-# aqg.id.vn — Caddy tự xin và gia hạn chứng chỉ HTTPS (Let's Encrypt)
+# aqg6767.online — Caddy tự xin và gia hạn chứng chỉ HTTPS (Let's Encrypt)
 # ngay khi DNS A record của domain trỏ về IP VPS.
-aqg.id.vn {
+aqg6767.online {
 	# API backend: /api/* -> backend (bỏ prefix /api vì route backend nằm ở gốc)
 	handle_path /api/* {
 		reverse_proxy backend:8080
