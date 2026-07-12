@@ -377,6 +377,9 @@ class DirectPdfResult:
     verify_failures: int = 0
     error_code: Optional[str] = None
     error_message: Optional[str] = None
+    # Câu bị loại kèm lý do (stem/options nếu dựng được) — web lưu vào
+    # debug_rejected.json cho tab "Từ chối"; monolith cũ không điền field này.
+    rejected: List[Dict[str, Any]] = field(default_factory=list)
 
 
 def _bloom_lines(bloom_distribution: Optional[List[Dict[str, Any]]]) -> str:

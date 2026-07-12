@@ -130,9 +130,6 @@ export default function UploadPage() {
       <div className="flex w-full max-w-2xl flex-col gap-8">
         <div className="text-center">
           <h1 className="text-3xl font-bold tracking-tight">Tải lên PDF</h1>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Sinh câu hỏi trực tiếp từ tài liệu, không qua bước chia chunk.
-          </p>
         </div>
 
         <form onSubmit={onSubmit} className="flex flex-col gap-5">

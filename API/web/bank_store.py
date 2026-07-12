@@ -183,7 +183,9 @@ def _load_embedding(value: Any) -> Optional[List[float]]:
 
 
 def _embedding_for_text(text: str) -> Tuple[Optional[List[float]], Optional[str]]:
-    if not cfg.has_llm_api_key():
+    # GEMINI_API_KEY tự bật đường embedding Gemini (get_embeddings ưu tiên nó),
+    # nên không đòi hỏi key của provider chat trong trường hợp đó.
+    if not getattr(cfg, 'GEMINI_API_KEY', '') and not cfg.has_llm_api_key():
         return None, cfg.missing_llm_api_key_message()
     try:
         embeddings = get_embeddings([text])
@@ -192,6 +194,44 @@ def _embedding_for_text(text: str) -> Tuple[Optional[List[float]], Optional[str]
     if not embeddings:
         return None, 'embedding provider returned no vector'
     return [float(v) for v in embeddings[0]], None
+
+
+def _backfill_embeddings(
+    conn: sqlite3.Connection,
+    rows: List[Dict[str, Any]],
+    max_rows: int = 200,
+) -> None:
+    """Bù embedding cho các câu lưu từ trước khi cấu hình embedding provider.
+
+    Chạy best-effort ngay trước khi so trùng: câu cũ thiếu vector làm semantic
+    check phải rơi về LLM so từng cặp (rất chậm). Lỗi ở đây không chặn việc so
+    trùng — chỉ bỏ qua.
+    """
+    missing = [
+        row for row in rows
+        if _load_embedding(row.get('embedding_json')) is None
+        and str(row.get('semantic_text') or '').strip()
+    ][:max_rows]
+    if not missing:
+        return
+    try:
+        vectors = get_embeddings([row['semantic_text'] for row in missing])
+    except Exception:
+        return
+    if len(vectors) != len(missing):
+        return
+    now = _now()
+    for row, vector in zip(missing, vectors):
+        if not vector:
+            continue
+        encoded = json.dumps([float(v) for v in vector], ensure_ascii=False)
+        row['embedding_json'] = encoded
+        conn.execute(
+            'UPDATE bank_questions SET embedding_json = ?, updated_at = ? '
+            'WHERE bank_question_id = ?',
+            (encoded, now, row.get('bank_question_id')),
+        )
+    conn.commit()
 
 
 def _llm_semantic_score(new_text: str, existing_text: str) -> Tuple[float, Optional[str]]:
@@ -312,7 +352,10 @@ def find_duplicates(
 
     duplicates: List[Dict[str, Any]] = []
     with _connect() as conn:
-        for existing in _existing_questions(conn, bank_id):
+        existing_rows = _existing_questions(conn, bank_id)
+        if embedding is not None:
+            _backfill_embeddings(conn, existing_rows)
+        for existing in existing_rows:
             reasons: List[Dict[str, Any]] = []
             existing_stem = existing.get('stem_norm') or ''
             exact = summary['stem_norm'] == existing_stem and bool(existing_stem)

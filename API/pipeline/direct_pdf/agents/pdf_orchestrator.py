@@ -29,9 +29,69 @@ from ...agents.messages import (
 )
 from ...llm_client import BudgetExceeded, NonRetryableLLMError, PdfUnsupportedError
 from ...rule_validator import validate_record
+from ... import reject as reject_mod
+from ... import schema as schema_mod
 from ...schema import record_option_text_issues
 
 ProgressCallback = Callable[[Dict[str, Any]], None]
+
+# Số record bị loại tối đa giữ lại cho UI — tránh phình debug_rejected.json
+# khi model fail hàng loạt.
+_MAX_REJECTED_RECORDS = 80
+
+# reason_code mặc định theo stage khi message không khớp heuristic nào.
+_STAGE_DEFAULT_CODE = {
+    'writer': 'writer_empty',
+    'distractor': 'bad_distractors',
+    'verifier': 'verifier_failed',
+    'critic': 'quality_low',
+    'format': 'format_error',
+    'dedup': 'duplicate',
+    'orchestrator': 'orchestrator_error',
+}
+
+
+def _rejected_record(
+    slot: Dict[str, Any],
+    stage: str,
+    message: str,
+    code: Optional[str] = None,
+    cand: Optional[Dict[str, Any]] = None,
+    record: Optional[Dict[str, Any]] = None,
+) -> Dict[str, Any]:
+    """Dựng record câu bị loại cho tab "Từ chối" trên web.
+
+    Ưu tiên record formatter (đủ stem/options/answer_key); chưa format được thì
+    thử dựng từ candidate; tệ nhất là entry chỉ có lý do (UI vẫn hiển thị).
+    """
+    message = str(message or '')[:500]
+    if code is None:
+        code = reject_mod.classify(message)
+        if code == 'unknown':
+            code = _STAGE_DEFAULT_CODE.get(stage, 'unknown')
+    out: Dict[str, Any] = {}
+    if record:
+        out = dict(record)
+    elif cand:
+        try:
+            out = schema_mod.to_question_record(dict(slot), dict(cand))
+        except Exception:
+            out = {'stem': str(cand.get('stem') or '')}
+    out.setdefault('stem', '')
+    slot_id = slot.get('slot_id')
+    out.update({
+        'question_id': f'rej_{slot_id}_{stage}',
+        'blueprint_slot_id': slot_id,
+        'cognitive_level': out.get('cognitive_level') or slot.get('cognitive_level'),
+        'review_status': 'rejected',
+        'reject_reason': message,
+        'reject_reason_code': code,
+        'reject_reason_stage': stage,
+        'reject_log': [reject_mod.make(code, stage=stage, message=message,
+                                       slot_id=slot_id)],
+        'attempts': 1,
+    })
+    return out
 
 
 def _stem_key(text: Any) -> str:
@@ -170,10 +230,11 @@ class DirectPdfOrchestrator:
         slot: Dict[str, Any],
         attachment_parts: List[Dict[str, Any]],
         avoid_stems: List[str],
-    ) -> Tuple[Optional[Dict[str, Any]], int, int]:
-        """Trả (candidate hoặc None, parse_errors, verify_failures)."""
+    ) -> Tuple[Optional[Dict[str, Any]], int, int, List[Dict[str, Any]]]:
+        """Trả (candidate hoặc None, parse_errors, verify_failures, rejects)."""
         parse_errors = 0
         verify_failures = 0
+        rejects: List[Dict[str, Any]] = []
 
         w_resp = self.writer.run(PdfWriteRequest(
             attachment_parts=attachment_parts, slot=slot,
@@ -182,7 +243,11 @@ class DirectPdfOrchestrator:
         if not w_resp.candidates:
             print(f'    [pdf-slot {slot.get("slot_id")}] writer 0 candidates; '
                   f'errors={w_resp.errors}')
-            return None, parse_errors + 1, verify_failures
+            rejects.append(_rejected_record(
+                slot, 'writer',
+                f'Writer không sinh được câu hỏi hợp lệ (errors={w_resp.errors})',
+            ))
+            return None, parse_errors + 1, verify_failures, rejects
 
         scored: List[Dict[str, Any]] = []
         for cand in w_resp.candidates:
@@ -193,6 +258,12 @@ class DirectPdfOrchestrator:
             if d_resp.error or len(d_resp.distractors) != 3:
                 print(f'    [pdf-slot {slot.get("slot_id")}] distractor drop: '
                       f'error={d_resp.error} n={len(d_resp.distractors)}')
+                rejects.append(_rejected_record(
+                    slot, 'distractor',
+                    f'Không tạo đủ 3 phương án nhiễu đạt chuẩn '
+                    f'(error={d_resp.error}, n={len(d_resp.distractors)})',
+                    cand=cand,
+                ))
                 parse_errors += 1
                 continue
             cand['distractors'] = d_resp.distractors
@@ -205,6 +276,9 @@ class DirectPdfOrchestrator:
             if v_resp.rejected:
                 print(f'    [pdf-slot {slot.get("slot_id")}] verifier reject: '
                       f'{v_resp.reject_reason}')
+                rejects.append(_rejected_record(
+                    slot, 'verifier', v_resp.reject_reason or '', cand=cand,
+                ))
                 # Reject vì claim số học sai -> tính verify_failures.
                 if 'verifier=false' in (v_resp.reject_reason or '').lower():
                     verify_failures += 1
@@ -231,12 +305,15 @@ class DirectPdfOrchestrator:
             if cr_resp.rejected:
                 print(f'    [pdf-slot {slot.get("slot_id")}] critic reject: '
                       f'{cr_resp.reject_reason}')
+                rejects.append(_rejected_record(
+                    slot, 'critic', cr_resp.reject_reason or '', cand=cand,
+                ))
                 parse_errors += 1
                 continue
             scored.append(cand)
 
         if not scored:
-            return None, parse_errors, verify_failures
+            return None, parse_errors, verify_failures, rejects
 
         # Chọn tốt nhất: ưu tiên verified, rồi _quality, rồi _grounding.
         def _key(c: Dict[str, Any]):
@@ -244,7 +321,7 @@ class DirectPdfOrchestrator:
             return (verified, c.get('_quality') or 0.0, c.get('_grounding') or 0.0)
 
         best = max(scored, key=_key)
-        return best, parse_errors, verify_failures
+        return best, parse_errors, verify_failures, rejects
 
     def generate(
         self,
@@ -293,6 +370,8 @@ class DirectPdfOrchestrator:
         seen: set = set()
         parse_errors = 0
         verify_failures = 0
+        # Gom record câu bị loại (mọi stage) — chỉ append ở thread chính.
+        rejected_records: List[Dict[str, Any]] = []
         # RLHF: câu đã có sẵn (giữ lại từ lượt trước) hoặc bị chê — không lặp lại.
         seed_avoid = [str(s) for s in (seed_avoid_stems or [])
                       if str(s or '').strip()]
@@ -387,14 +466,19 @@ class DirectPdfOrchestrator:
 
                 for slot, fut in wave:
                     try:
-                        cand, pe, vf = fut.result()
+                        cand, pe, vf, slot_rejects = fut.result()
                     except (BudgetExceeded, NonRetryableLLMError,
                             PdfUnsupportedError):
                         # `with pool` sẽ đợi các slot đang bay xong rồi raise.
                         raise
-                    except Exception:
+                    except Exception as exc:
                         _release_outcome(slot)
                         empty_streak += 1
+                        if len(rejected_records) < _MAX_REJECTED_RECORDS:
+                            rejected_records.append(_rejected_record(
+                                slot, 'orchestrator',
+                                f'Slot lỗi bất ngờ: {exc}',
+                            ))
                         _emit(
                             stage='slot_error',
                             slot_id=slot.get('slot_id'),
@@ -408,6 +492,9 @@ class DirectPdfOrchestrator:
 
                     parse_errors += pe
                     verify_failures += vf
+                    room = _MAX_REJECTED_RECORDS - len(rejected_records)
+                    if room > 0 and slot_rejects:
+                        rejected_records.extend(slot_rejects[:room])
 
                     record = None
                     if cand is not None:
@@ -426,6 +513,12 @@ class DirectPdfOrchestrator:
                         issues.extend(validate_record(fmt.record))
                         if issues:
                             print(f'    [pdf-format] record dropped, issues={issues}')
+                            if len(rejected_records) < _MAX_REJECTED_RECORDS:
+                                rejected_records.append(_rejected_record(
+                                    slot, 'format',
+                                    f'Định dạng không đạt: {issues}',
+                                    record=fmt.record,
+                                ))
                             parse_errors += 1
                         else:
                             record = fmt.record
@@ -453,6 +546,12 @@ class DirectPdfOrchestrator:
                     if key and key in seen:
                         _release_outcome(slot)
                         empty_streak += 1
+                        if len(rejected_records) < _MAX_REJECTED_RECORDS:
+                            rejected_records.append(_rejected_record(
+                                slot, 'dedup',
+                                'Trùng với câu đã được chấp nhận trong cùng lượt sinh',
+                                record=record,
+                            ))
                         _emit(
                             stage='slot_duplicate',
                             slot_id=slot.get('slot_id'),
@@ -498,4 +597,5 @@ class DirectPdfOrchestrator:
             verify_failures=verify_failures,
             error_code=None,
             error_message=None,
+            rejected=rejected_records,
         )

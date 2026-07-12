@@ -42,6 +42,7 @@ import {
   submitQuestionFeedback,
   downloadJobExport,
   type DuplicateCheckResponse,
+  type AddToBankResponse,
   type FeedbackRating,
   type Question,
   type QuestionBank,
@@ -633,6 +634,18 @@ function GenerateMoreDialog({
   )
 }
 
+const DUPLICATE_REASON_LABELS: Record<string, string> = {
+  exact_stem: "Trùng nguyên văn",
+  near_stem: "Đề bài gần giống",
+  same_answer_similar_stem: "Cùng đáp án, đề tương tự",
+  same_source_pages: "Cùng trang nguồn",
+  semantic: "Trùng ý nghĩa",
+}
+
+function duplicateReasonLabel(type: string): string {
+  return DUPLICATE_REASON_LABELS[type] ?? type
+}
+
 function AddToBankDialog({
   open, onOpenChange, questions, jobId,
 }: {
@@ -648,6 +661,7 @@ function AddToBankDialog({
   const [checking, setChecking] = React.useState(false)
   const [adding, setAdding] = React.useState(false)
   const [checkResult, setCheckResult] = React.useState<DuplicateCheckResponse | null>(null)
+  const [addResult, setAddResult] = React.useState<AddToBankResponse | null>(null)
   const [message, setMessage] = React.useState("")
   const [error, setError] = React.useState("")
 
@@ -677,15 +691,20 @@ function AddToBankDialog({
     setChecking(true)
     setError("")
     setMessage("")
+    setAddResult(null)
     try {
       const targetBankId = await resolveBank()
-      if (!targetBankId) throw new Error("Select or create a bank first")
+      if (!targetBankId) throw new Error("Chọn hoặc tạo một ngân hàng trước.")
       const result = await checkBankDuplicates(targetBankId, questions)
       setCheckResult(result)
       const duplicateCount = result.results.filter((item) => item.duplicates.length > 0).length
-      setMessage(`${duplicateCount}/${questions.length} possible duplicates`)
+      setMessage(
+        duplicateCount > 0
+          ? `Phát hiện ${duplicateCount}/${questions.length} câu có khả năng trùng với ngân hàng (chi tiết bên dưới).`
+          : `Không phát hiện câu trùng — ${questions.length} câu đều mới so với ngân hàng.`,
+      )
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Duplicate check failed")
+      setError(err instanceof Error ? err.message : "Kiểm tra trùng thất bại")
     } finally {
       setChecking(false)
     }
@@ -696,16 +715,20 @@ function AddToBankDialog({
     setError("")
     try {
       const targetBankId = await resolveBank()
-      if (!targetBankId) throw new Error("Select or create a bank first")
+      if (!targetBankId) throw new Error("Chọn hoặc tạo một ngân hàng trước.")
       const result = await addQuestionsToBank(targetBankId, {
         questions,
         sourceJobId: jobId,
         duplicateAction,
       })
-      setMessage(`Added ${result.added.length}, skipped ${result.skipped.length}, replaced ${result.replaced.length}`)
+      const parts = [`Đã thêm ${result.added.length} câu`]
+      if (result.skipped.length > 0) parts.push(`bỏ qua ${result.skipped.length} câu trùng`)
+      if (result.replaced.length > 0) parts.push(`thay thế ${result.replaced.length} câu cũ`)
+      setMessage(parts.join(", ") + ".")
+      setAddResult(result)
       setCheckResult(null)
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Add failed")
+      setError(err instanceof Error ? err.message : "Thêm vào ngân hàng thất bại")
     } finally {
       setAdding(false)
     }
@@ -717,48 +740,60 @@ function AddToBankDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-xl">
         <DialogHeader>
-          <DialogTitle>Add to bank</DialogTitle>
-          <DialogDescription>{questions.length} accepted questions</DialogDescription>
+          <DialogTitle>Thêm vào ngân hàng câu hỏi</DialogTitle>
+          <DialogDescription>{questions.length} câu đã chấp nhận sẽ được thêm.</DialogDescription>
         </DialogHeader>
 
         <div className="flex flex-col gap-4">
           <div className="grid gap-2 sm:grid-cols-2">
             <label className="flex flex-col gap-1 text-sm">
-              <span className="text-xs text-muted-foreground">Existing bank</span>
+              <span className="text-xs text-muted-foreground">Ngân hàng có sẵn</span>
               <select
                 value={bankId}
                 onChange={(event) => setBankId(event.target.value)}
                 className="h-9 rounded-md border bg-background px-3 text-sm"
               >
-                <option value="">Select bank</option>
+                <option value="">Chọn ngân hàng</option>
                 {banks.map((bank) => (
                   <option key={bank.bank_id} value={bank.bank_id}>{bank.name}</option>
                 ))}
               </select>
             </label>
             <label className="flex flex-col gap-1 text-sm">
-              <span className="text-xs text-muted-foreground">New bank</span>
-              <Input value={newBankName} onChange={(event) => setNewBankName(event.target.value)} placeholder="Create new" />
+              <span className="text-xs text-muted-foreground">Hoặc tạo mới</span>
+              <Input value={newBankName} onChange={(event) => setNewBankName(event.target.value)} placeholder="Tên ngân hàng mới" />
             </label>
           </div>
 
           <label className="flex flex-col gap-1 text-sm">
-            <span className="text-xs text-muted-foreground">Duplicate action</span>
+            <span className="text-xs text-muted-foreground">Khi gặp câu trùng</span>
             <select
               value={duplicateAction}
               onChange={(event) => setDuplicateAction(event.target.value as "skip" | "replace" | "force")}
               className="h-9 rounded-md border bg-background px-3 text-sm"
             >
-              <option value="skip">Skip duplicates</option>
-              <option value="replace">Replace duplicates</option>
-              <option value="force">Still add</option>
+              <option value="skip">Bỏ qua câu trùng (khuyên dùng)</option>
+              <option value="replace">Thay câu cũ bằng câu mới</option>
+              <option value="force">Vẫn thêm dù trùng</option>
             </select>
           </label>
 
-          {message && <p className="text-sm text-muted-foreground">{message}</p>}
+          {message && (
+            <p className={cn(
+              "rounded-md border px-3 py-2 text-sm",
+              addResult
+                ? "border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-300"
+                : "text-muted-foreground",
+            )}>
+              {message}
+            </p>
+          )}
           {error && <p className="text-sm text-destructive">{error}</p>}
-          {checkResult && !checkResult.semantic_enabled && (
-            <p className="text-xs text-amber-700">Embedding semantic check is unavailable; fallback checks are being used.</p>
+          {(checkResult ?? addResult) && !(checkResult ?? addResult)!.semantic_enabled && (
+            <p className="text-xs text-amber-700 dark:text-amber-500">
+              Chưa bật so trùng theo ý nghĩa (cần GEMINI_API_KEY trong .env) — hiện chỉ so trùng
+              theo văn bản nên câu diễn đạt khác đi có thể lọt.
+            </p>
           )}
           {checkResult && duplicateCount > 0 && (
             <div className="max-h-56 overflow-auto rounded-md border">
@@ -768,7 +803,26 @@ function AddToBankDialog({
                   <div className="mt-1 flex flex-wrap gap-1">
                     {item.duplicates[0]?.reasons.map((reason) => (
                       <Badge key={`${reason.type}-${reason.score}`} variant="outline">
-                        {reason.type} {Math.round(reason.score * 100)}%
+                        {duplicateReasonLabel(reason.type)} {Math.round(reason.score * 100)}%
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+          {addResult && addResult.skipped.length > 0 && (
+            <div className="max-h-56 overflow-auto rounded-md border">
+              <p className="border-b bg-muted/60 px-3 py-2 text-xs font-medium text-muted-foreground">
+                Các câu bị bỏ qua vì trùng với câu đã có trong ngân hàng:
+              </p>
+              {addResult.skipped.slice(0, 8).map((item, idx) => (
+                <div key={item.question_id ?? `skip-${idx}`} className="border-b p-3 last:border-b-0">
+                  <p className="line-clamp-2 text-sm">{item.stem}</p>
+                  <div className="mt-1 flex flex-wrap gap-1">
+                    {item.duplicates[0]?.reasons.map((reason) => (
+                      <Badge key={`${reason.type}-${reason.score}`} variant="outline" className="border-amber-300 text-amber-700 dark:text-amber-500">
+                        {duplicateReasonLabel(reason.type)} {Math.round(reason.score * 100)}%
                       </Badge>
                     ))}
                   </div>
@@ -781,11 +835,11 @@ function AddToBankDialog({
         <DialogFooter>
           <Button variant="outline" onClick={handleCheck} disabled={checking || adding || questions.length === 0}>
             {checking && <Loader2Icon className="mr-2 size-4 animate-spin" />}
-            Check duplicates
+            Kiểm tra trùng trước
           </Button>
           <Button onClick={handleAdd} disabled={checking || adding || questions.length === 0}>
             {adding && <Loader2Icon className="mr-2 size-4 animate-spin" />}
-            Add
+            {adding ? "Đang thêm..." : "Thêm vào ngân hàng"}
           </Button>
         </DialogFooter>
       </DialogContent>
@@ -1079,7 +1133,7 @@ export default function QuestionsPage() {
             disabled={questions.length === 0}
           >
             <LibraryIcon className="size-4" />
-            Add to bank
+            Thêm vào ngân hàng
           </Button>
 
           <button

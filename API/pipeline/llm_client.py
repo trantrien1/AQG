@@ -293,6 +293,10 @@ def call_llm_with_pdf(system: str, user_content: list,
 
 
 def get_embeddings(texts):
+    # Gemini được ưu tiên khi có key: provider chat (vd chat2api) thường không
+    # có endpoint embeddings, còn bắt trùng ngân hàng câu hỏi thì cần vector.
+    if getattr(cfg, 'GEMINI_API_KEY', ''):
+        return _gemini_embeddings(list(texts))
     if not cfg.has_llm_api_key():
         raise RuntimeError(cfg.missing_llm_api_key_message())
     if cfg.LLM_PROVIDER == '9router':
@@ -309,6 +313,48 @@ def get_embeddings(texts):
     client = _get_client()
     resp = client.embeddings.create(model=cfg.EMBEDDING_MODEL, input=texts)
     return [item.embedding for item in resp.data]
+
+
+def _gemini_embeddings(texts):
+    """Embedding qua Google Generative Language API (batchEmbedContents).
+
+    Batch tối đa 100 text/request theo giới hạn API; texts dài hơn được cắt lô.
+    """
+    import httpx
+
+    model = cfg.GEMINI_EMBEDDING_MODEL or 'gemini-embedding-001'
+    url = (
+        'https://generativelanguage.googleapis.com/v1beta/'
+        f'models/{model}:batchEmbedContents'
+    )
+    out = []
+    for start in range(0, len(texts), 100):
+        chunk = texts[start:start + 100]
+        payload = {
+            'requests': [
+                {
+                    'model': f'models/{model}',
+                    'content': {'parts': [{'text': str(t or ' ')[:8000]}]},
+                }
+                for t in chunk
+            ]
+        }
+        resp = httpx.post(
+            url,
+            json=payload,
+            headers={'x-goog-api-key': cfg.GEMINI_API_KEY},
+            timeout=30.0,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        embeddings = data.get('embeddings') or []
+        if len(embeddings) != len(chunk):
+            raise RuntimeError(
+                f'Gemini embeddings: expected {len(chunk)} vectors, '
+                f'got {len(embeddings)}'
+            )
+        out.extend([e.get('values') or [] for e in embeddings])
+    return out
 
 
 def _resolve_9router_embedding_model() -> str:

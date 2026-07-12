@@ -4,7 +4,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react"
 import { useParams, useRouter } from "next/navigation"
 import { AlertTriangleIcon, CheckCircleIcon, Loader2Icon, RotateCcwIcon, XCircleIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { getJobConfig, pollJobStatus, startGenerate, type JobConfig, type JobStatus } from "@/lib/api"
 
 type Phase = "loading" | "running" | "done" | "error"
@@ -97,7 +97,7 @@ export default function GeneratePage() {
       <div className="max-w-3xl">
         <h1 className="text-2xl font-bold tracking-tight">Sinh câu hỏi từ PDF</h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          Job <code className="rounded bg-muted px-1 py-0.5 text-xs">{id}</code> chạy bằng Direct_PDF_Mode.
+          Job <code className="rounded bg-muted px-1 py-0.5 text-xs">{id}</code>
         </p>
       </div>
 
@@ -106,9 +106,6 @@ export default function GeneratePage() {
           <CardTitle>
             {phase === "running" ? "Đang sinh câu hỏi" : phase === "done" ? "Hoàn thành" : "Lỗi"}
           </CardTitle>
-          <CardDescription>
-            Hệ thống gửi trực tiếp PDF cho mô hình và lưu kết quả vào job hiện tại.
-          </CardDescription>
         </CardHeader>
         <CardContent>
           {phase === "running" && (

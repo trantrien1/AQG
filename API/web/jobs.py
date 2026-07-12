@@ -473,7 +473,9 @@ def run_direct_generation(job_id: str) -> None:
         },
         'questions': public_questions,
     }
-    store.save_debug_rejected(job_id, [], reject_mod.summarize([]))
+    rejected_records = list(getattr(result, 'rejected', None) or [])
+    store.save_debug_rejected(
+        job_id, rejected_records, reject_mod.summarize(rejected_records))
     store.save_result(job_id, payload)
 
     no_questions = accepted_count == 0
@@ -651,7 +653,9 @@ def _run_incremental_generation(
         'generated_new': len(new_questions),
     }
     metadata.update(meta_extra)
-    store.save_debug_rejected(job_id, [], reject_mod.summarize([]))
+    rejected_records = list(getattr(result, 'rejected', None) or [])
+    store.save_debug_rejected(
+        job_id, rejected_records, reject_mod.summarize(rejected_records))
     store.save_result(job_id, {'metadata': metadata, 'questions': merged})
 
     message = finish_message(len(new_questions))

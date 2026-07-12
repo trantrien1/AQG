@@ -100,7 +100,7 @@ def test_generate_parallel_runs_slots_concurrently(monkeypatch):
         time.sleep(0.25)
         with lock:
             active['now'] -= 1
-        return _fake_candidate(slot['slot_id']), 0, 0
+        return _fake_candidate(slot['slot_id']), 0, 0, []
 
     orch = _make_orchestrator(monkeypatch, fake_process, parallel=3)
     t0 = time.monotonic()
@@ -127,7 +127,7 @@ def test_generate_parallel_khong_sinh_thua_cau(monkeypatch):
     def fake_process(slot, parts, avoid):
         with lock:
             calls['n'] += 1
-        return _fake_candidate(slot['slot_id']), 0, 0
+        return _fake_candidate(slot['slot_id']), 0, 0, []
 
     orch = _make_orchestrator(monkeypatch, fake_process, parallel=3)
     result = orch.generate(
@@ -150,8 +150,8 @@ def test_generate_parallel_retry_khi_slot_fail_va_giu_cdr(monkeypatch):
         with lock:
             if outcome.get('code') == 'CDR1' and not state['cdr1_failed']:
                 state['cdr1_failed'] = True
-                return None, 1, 0
-        return _fake_candidate(slot['slot_id']), 0, 0
+                return None, 1, 0, []
+        return _fake_candidate(slot['slot_id']), 0, 0, []
 
     orch = _make_orchestrator(monkeypatch, fake_process, parallel=2)
     result = orch.generate(
@@ -174,7 +174,7 @@ def test_generate_parallel_dedup_van_chan_cau_trung(monkeypatch):
             n = calls['n']
         # 2 call đầu trả trùng nhau, các call sau unique
         tag = 'dup' if n <= 2 else f'u{n}'
-        return _fake_candidate(tag), 0, 0
+        return _fake_candidate(tag), 0, 0, []
 
     orch = _make_orchestrator(monkeypatch, fake_process, parallel=2)
     result = orch.generate(
@@ -188,7 +188,7 @@ def test_generate_parallel_dedup_van_chan_cau_trung(monkeypatch):
 
 def test_generate_parallel_dung_som_khi_empty_streak(monkeypatch):
     def fake_process(slot, parts, avoid):
-        return None, 1, 0
+        return None, 1, 0, []
 
     orch = _make_orchestrator(monkeypatch, fake_process, parallel=3)
     result = orch.generate(
@@ -199,6 +199,28 @@ def test_generate_parallel_dung_som_khi_empty_streak(monkeypatch):
     assert result.is_partial
 
 
+def test_generate_parallel_thu_thap_cau_bi_tu_choi(monkeypatch):
+    """Câu bị loại (kèm lý do) phải nằm trong result.rejected cho tab Từ chối."""
+    from pipeline.direct_pdf.agents.pdf_orchestrator import _rejected_record
+
+    def fake_process(slot, parts, avoid):
+        rej = _rejected_record(slot, 'critic', 'quality=0.2 — câu mơ hồ')
+        return None, 1, 0, [rej]
+
+    orch = _make_orchestrator(monkeypatch, fake_process, parallel=2)
+    result = orch.generate(
+        pdf_path='unused.pdf', requested_count=2, model='gpt-4o',
+        attachment_parts=FAKE_PARTS,
+    )
+    assert result.accepted_count == 0
+    assert result.rejected, 'rejects từ _process_slot phải được gom lại'
+    r = result.rejected[0]
+    assert r['review_status'] == 'rejected'
+    assert r['reject_reason_code'] == 'quality_low'
+    assert r['reject_reason_stage'] == 'critic'
+    assert r['reject_log'] and r['reject_log'][0]['reason_code'] == 'quality_low'
+
+
 def test_generate_parallel_progress_events_tu_thread_chinh(monkeypatch):
     """Mọi progress event phải phát từ thread chính (jobs.py không cần khoá)."""
     main_thread = threading.get_ident()
@@ -206,7 +228,7 @@ def test_generate_parallel_progress_events_tu_thread_chinh(monkeypatch):
     events: List[str] = []
 
     def fake_process(slot, parts, avoid):
-        return _fake_candidate(slot['slot_id']), 0, 0
+        return _fake_candidate(slot['slot_id']), 0, 0, []
 
     def on_progress(event: Dict[str, Any]) -> None:
         event_threads.append(threading.get_ident())

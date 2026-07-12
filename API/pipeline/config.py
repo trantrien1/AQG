@@ -64,6 +64,13 @@ NINEROUTER_BASE_URL = (
     or 'http://127.0.0.1:20128/v1'
 ).strip().rstrip('/')
 
+# Gemini CHỈ dùng cho embedding (bắt trùng ngân hàng câu hỏi). Cần khi provider
+# chat không có endpoint embeddings (vd chat2api trả 404 'Gateway is disabled').
+# Đặt GEMINI_API_KEY là embedding tự chuyển sang Gemini, bất kể provider chat.
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', '').strip()
+GEMINI_EMBEDDING_MODEL = os.getenv(
+    'GEMINI_EMBEDDING_MODEL', 'gemini-embedding-001').strip()
+
 
 # ==== MODELS ====
 OPENROUTER_GENERATOR_MODEL = os.getenv('OPENROUTER_GENERATOR_MODEL', 'openai/gpt-4o-mini')
