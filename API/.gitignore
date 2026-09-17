@@ -20,3 +20,9 @@ pdftest/_*.py
 .vscode/
 # Paper đang chờ nộp lại ARR — không đưa lên repo public
 conference-latex-template/
+# Tài liệu Word gốc để dựng dataset (có bản quyền, tên thư mục chứa số điện thoại)
+dataset/**/*.docx
+dataset/GT12*/
+# Dataset đã dựng (nguyên văn sách) chỉ đưa lên HF dạng riêng tư
+dataset/export/
+node_modules/
