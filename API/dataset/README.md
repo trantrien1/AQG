@@ -27,8 +27,10 @@ Dataset gồm **1.430 câu trắc nghiệm** Giải tích 12 (chương Nguyên h
 và Ứng dụng), được tách từ 16 file Word. Mỗi câu có 4 phương án, đáp án, và lời
 giải chi tiết nếu tài liệu có. Toàn bộ công thức ở dạng LaTeX.
 
-Có **1.284 câu dùng được ngay** (`usable = true`): đủ 4 phương án, đáp án chắc
-chắn, không thiếu công thức, không trùng. Trong số đó, 1.118 câu có lời giải.
+Có **1.171 câu dùng được ngay** (`usable = true`): giải được hoàn toàn bằng chữ,
+đủ 4 phương án, đáp án chắc chắn, không thiếu công thức, không trùng. Trong số
+đó, 1.014 câu có lời giải. Câu cần nhìn hình vẫn nằm trong file (kèm ảnh) nhưng
+có `usable = false`, để dành cho mô hình đọc được ảnh.
 
 ## Định dạng
 
@@ -37,10 +39,10 @@ Mỗi dòng của `questions.jsonl` là một câu:
 ```json
 {
   "id": "int_1000",
-  "question": "Cho hàm số $y=f(x)=ax^{3}+bx^{2}+cx+d$ ... Tính giá trị $H=f(4)-f(2)$?",
+  "question": "Cho hàm số $y=f(x)=ax^{3}+bx^{2}+cx+d$ ... đồ thị hàm số $y=f'(x)$ cho bởi hình vẽ bên. Tính giá trị $H=f(4)-f(2)$?\n![hình](images/int_1000_36dadc435a.png)",
   "choices": ["A. $H=45$", "B. $H=64$", "C. $H=51$", "D. $H=58$"],
   "answer": "D",
-  "solution": "![hình](images/int_1000_36dadc435a.png)\nTheo bài ra ...",
+  "solution": "Theo bài ra ...",
   "topic": "Ứng dụng tích phân",
   "subtopic": "Diện tích hình phẳng có đồ thị",
   "difficulty": null,
@@ -48,9 +50,9 @@ Mỗi dòng của `questions.jsonl` là một câu:
   "source": {"file": "14  P2  UD tinh DT co do thi  tr319  tr350.docx", "question_number": 1},
   "answer_source": "chon",
   "images": ["images/int_1000_36dadc435a.png"],
-  "flags": [],
+  "flags": ["figure_in_question"],
   "duplicate_of": null,
-  "usable": true
+  "usable": false
 }
 ```
 
@@ -76,10 +78,13 @@ Mỗi dòng của `questions.jsonl` là một câu:
 | `duplicate_choices` | 11 | có (tài liệu gốc có hai phương án giống nhau) |
 | `formula_missing` | 6 | có (công thức Equation Editor 3.0 chưa chuyển được) |
 | `answer_conflict_red_*` | 5 | có ("Chọn X" khác chữ cái tô đỏ) |
+| `figure_in_question` | 114 | có (đề hoặc phương án có hình, hoặc nhắc "như hình vẽ"; hình vẽ bằng shape của Word không xuất được thành ảnh) |
+| `figure_in_solution` | 10 | có (lời giải dựa vào hình) |
+| `figure_removed_from_solution` | 30 | không (hình chỉ minh hoạ trong lời giải, đã bỏ) |
 | `no_choices` | 2 | có |
 
-Phân bố câu `usable`: Tích phân 562, Ứng dụng tích phân 300, Nguyên hàm 264, đề kiểm
-tra tổng hợp 158. Đáp án A/B/C/D lần lượt 342/339/303/300.
+Phân bố câu `usable`: Tích phân 555, Nguyên hàm 264, Ứng dụng tích phân 203, đề kiểm
+tra tổng hợp 149. Đáp án A/B/C/D lần lượt 313/302/281/275.
 
 ## Cách dựng
 
@@ -107,6 +112,9 @@ npm install katex@0.16 && node dataset/tools/check_latex.js dataset/export/quest
 - Đáp án và lời giải lấy nguyên từ tài liệu, **chưa được kiểm chứng độc lập**. Tài
   liệu gốc có lỗi đánh máy (ví dụ hai phương án giống nhau).
 - Câu trùng chỉ được phát hiện khi trùng nguyên văn; câu gần giống vẫn còn.
+- Ở phần đề kiểm tra, hình trôi nổi đôi khi được Word neo vào câu liền trước (vd
+  hình của câu 16 nằm trong câu 15). Muốn dùng các câu có hình cho mô hình đọc
+  ảnh thì cần kiểm tra lại vị trí hình bằng tay.
 - Một số lời giải mô tả bảng biến thiên hoặc bảng xét dấu bằng bảng Word; nội dung
   bảng được giữ ở dạng chữ nên có thể khó đọc.
 

@@ -367,7 +367,36 @@ def export_image(reader: DocxReader, media_name: str, out_dir: Path, stem: str) 
 # ---------------------------------------------------------------------------
 
 BLOCKING_FLAGS = ('no_answer', 'no_choices', 'formula_missing', 'duplicate',
-                  'duplicate_choices')
+                  'duplicate_choices', 'figure_in_question', 'figure_in_solution')
+
+# Chữ nhắc tới hình: hình vẽ bằng shape của Word không xuất được thành ảnh nên
+# đề vẫn nhắc "như hình vẽ" dù không có ảnh nào.
+RE_FIGURE_REF = re.compile(
+    r'hình\s*vẽ|hình\s*bên|như\s*hình|trên\s*hình|trong\s*hình|hình\s*dưới'
+    r'|hình\s*sau|hình\s*minh\s*họa|đồ\s*thị\s*(?:như|ở|trong|bên)'
+    r'|(?:cho|có)\s*bởi\s*hình|miền\s*tô|phần\s*tô|gạch\s*chéo|hình\s*\d',
+    re.I)
+RE_IMAGE_MD = re.compile(r'!\[hình\]\([^)]*\)\n?')
+
+
+def apply_figure_policy(item: Dict) -> None:
+    """Chỉ giữ câu giải được bằng chữ.
+
+    - Đề/phương án có hình hoặc nhắc tới hình: gắn ``figure_in_question``.
+    - Lời giải nhắc tới hình: gắn ``figure_in_solution``.
+    - Lời giải có hình minh hoạ nhưng không nhắc tới: bỏ hình, giữ câu.
+    Bản ghi vẫn giữ nguyên hình trong ``images`` để dùng cho mô hình đọc ảnh.
+    """
+    stem = item['question'] + '\n' + '\n'.join(item['choices'])
+    if RE_IMAGE_MD.search(stem) or RE_FIGURE_REF.search(stem):
+        item['flags'].append('figure_in_question')
+        return
+    solution = item['solution']
+    if RE_FIGURE_REF.search(solution):
+        item['flags'].append('figure_in_solution')
+    elif RE_IMAGE_MD.search(solution):
+        item['solution'] = RE_IMAGE_MD.sub('', solution).strip()
+        item['flags'].append('figure_removed_from_solution')
 
 
 def is_usable(item: Dict) -> bool:
@@ -432,6 +461,7 @@ def build(src: Path, out: Path, id_prefix: str) -> Dict:
             item.data['choices'] = [sub(c) for c in item.data['choices']]
             item.data['solution'] = sub(item.data['solution'])
             item.data['images'] = [f'images/{v}' for v in mapping.values()]
+            apply_figure_policy(item.data)
             items.append(item.data)
             kept += 1
         report['files'].append({

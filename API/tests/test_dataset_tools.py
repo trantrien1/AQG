@@ -207,3 +207,33 @@ def test_duplicates_marked_across_files():
     bd.mark_duplicates([a, b])
     assert a['duplicate_of'] is None
     assert b['duplicate_of'] == 'x1' and 'duplicate' in b['flags']
+
+
+def _item(question, solution='', choices=None):
+    return {'question': question, 'choices': choices or ['A. 1', 'B. 2', 'C. 3', 'D. 4'],
+            'solution': solution, 'flags': []}
+
+
+def test_figure_in_question_blocks_item():
+    img = _item('Tính diện tích.\n![hình](images/a.png)')
+    ref = _item('Cho đồ thị như hình vẽ. Tính $S$.')  # hình vẽ bằng shape, không có ảnh
+    for it in (img, ref):
+        bd.apply_figure_policy(it)
+        it.update(answer='A', duplicate_of=None)
+        assert 'figure_in_question' in it['flags']
+        assert not bd.is_usable(it)
+
+
+def test_illustration_only_in_solution_is_stripped():
+    it = _item(r'Tính $\int_0^1 x\,dx$.', '![hình](images/b.png)\nTa có kết quả.')
+    bd.apply_figure_policy(it)
+    it['answer'] = 'A'
+    assert it['solution'] == 'Ta có kết quả.'
+    assert it['flags'] == ['figure_removed_from_solution']
+    assert bd.is_usable(it)
+
+
+def test_solution_relying_on_figure_blocks_item():
+    it = _item('Tính $S$.', 'Từ hình vẽ ta có $S=2$.')
+    bd.apply_figure_policy(it)
+    assert it['flags'] == ['figure_in_solution']
