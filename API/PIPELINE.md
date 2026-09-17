@@ -102,7 +102,7 @@ tránh chạy mãi khi model đang gặp sự cố.
 |---|-------|-------|----------|----------|
 | 1 | **Writer** | gpt-4o | LLM đọc PDF | Soạn đề, đáp án, lời giải, trích dẫn nguồn |
 | 2 | **Distractor** | gpt-4o | LLM đọc PDF | 3 phương án nhiễu theo lối "chọn lỗi trước" |
-| 3a | **Independent Verifier** | gpt-4o-mini | LLM chỉ đọc ĐỀ BÀI | Giải lại bài toán từ đầu, không thấy đáp án |
+| 3a | **Independent Verifier** | gpt-4o-mini, hoặc hội đồng nhiều model khác họ | LLM chỉ đọc ĐỀ BÀI | Giải lại bài toán từ đầu, không thấy đáp án |
 | 3b | **Verifier** | — | Tất định (SymPy) | Đối chiếu các nguồn tính toán, ra 1 trong 5 trạng thái |
 | 4 | **Critic** | gpt-4o-mini | LLM đọc PDF | Chấm bám nguồn + 6 tiêu chí chất lượng |
 | 5 | **Formatter** | — | Tất định | Đóng gói bản ghi cuối, quyết trạng thái duyệt |
@@ -176,6 +176,24 @@ mã hoá đúng cách hiểu sai đó, hai bên khớp nhau và câu sai vẫn �
 Đợt đo trên 4 tài liệu cho thấy điều này xảy ra thật: trong 4 câu có đáp án sai,
 tầng kiểm chứng bắt được 2 và **xác nhận nhầm 2**. Hai thứ đem so không phải hai
 *nguồn* độc lập, mà là hai *sản phẩm* của một nguồn.
+
+**Hội đồng giải độc lập khác họ.** Một tác nhân giải lại cùng họ với model đã
+viết câu hỏi vẫn có thể sai *cùng kiểu*: ở phản ví dụ tiếp tuyến–mặt cầu, nó
+giải ra đúng giá trị sai mà đáp án ghi. Vì vậy bước này có thể chạy nhiều model
+thuộc các họ khác nhau (mỗi model trên một máy chủ riêng, cùng chỉ đọc đề bài),
+và gộp kết quả theo hai luật cố ý không đối xứng:
+
+- *xác nhận* đòi **mọi** thành viên (hoặc ít nhất k thành viên, tuỳ cấu hình)
+  cùng ra giá trị của đáp án, và không thành viên nào ra giá trị khác;
+- *gắn cờ* chỉ cần **một** thành viên ra một giá trị dứt khoát khác đáp án — câu
+  khi đó chuyển người duyệt, kể cả khi hội đồng không đạt đồng thuận.
+
+Nhãn "đã kiểm chứng độc lập" là một lời hứa với người dùng, còn một cờ thừa chỉ
+tốn một lượt duyệt tay. Mỗi lần chạy ghi lại họ của từng model và cảnh báo khi
+mọi thành viên cùng họ với model sinh câu hỏi. Khi một thành viên **không chạy
+được** (hết thời gian chờ, máy chủ lỗi), câu được đánh dấu *kiểm chứng chưa
+trọn* và đếm riêng — không bị gộp vào nhóm "không kiểm được bằng máy"; còn lỗi
+cấu hình (sai khoá truy cập, hết hạn mức) thì dừng cả lượt chạy.
 
 **Verifier** — hoàn toàn tất định, không gọi LLM. Kỹ thuật:
 

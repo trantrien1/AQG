@@ -244,6 +244,34 @@ INDEPENDENT_VERIFIER_TEMPERATURE = float(
 # tốt hơn nhưng tốn token; đề bài vốn đã tự chứa nên mặc định KHÔNG gửi.
 INDEPENDENT_VERIFIER_SEES_DOCUMENT = os.getenv(
     'AQG_INDEPENDENT_VERIFIER_SEES_DOCUMENT', '0') in ('1', 'true', 'yes')
+# Hội đồng giải độc lập. Mỗi phần tử là 'model' (gọi qua client mặc định) hoặc
+# 'model@base_url' (một endpoint OpenAI-compatible riêng, vd server vLLM thứ hai
+# trên cùng GPU). Rỗng = một tác nhân duy nhất INDEPENDENT_VERIFIER_MODEL trên
+# client mặc định — đúng hành vi của mọi run cũ.
+#   AQG_INDEPENDENT_SOLVERS=microsoft/phi-4@http://127.0.0.1:8001/v1
+# Thành viên KHÁC HỌ với generator là điểm mấu chốt: hai model cùng họ dễ sai
+# cùng một kiểu nên việc chúng khớp nhau không loại được lỗi tương quan.
+INDEPENDENT_SOLVERS = [
+    s.strip() for s in os.getenv('AQG_INDEPENDENT_SOLVERS', '').split(',')
+    if s.strip()
+]
+# Key cho các endpoint riêng của hội đồng; rỗng thì dùng key của client chính.
+INDEPENDENT_API_KEY = os.getenv('AQG_INDEPENDENT_API_KEY', '').strip()
+# Luật đồng thuận để cấp INDEPENDENTLY_VERIFIED:
+#   'all' — mọi thành viên phải cùng ra giá trị (mặc định, chặt nhất),
+#   'k'   — một số nguyên: cần ít nhất k thành viên cùng ra giá trị.
+# Luật gắn cờ thì KHÔNG đổi theo tham số này: chỉ cần một thành viên ra giá trị
+# dứt khoát khác key là câu phải qua mắt người.
+INDEPENDENT_CONSENSUS = (
+    os.getenv('AQG_INDEPENDENT_CONSENSUS', 'all').strip().lower() or 'all')
+# 1 = từ chối chạy nếu MỌI solver cùng họ với generator (mặc định chỉ cảnh báo
+# và ghi vào manifest).
+INDEPENDENT_REQUIRE_CROSS_FAMILY = os.getenv(
+    'AQG_INDEPENDENT_REQUIRE_CROSS_FAMILY', '0') in ('1', 'true', 'yes')
+# Commit snapshot của trọng số khi tự host (vd JSON {"Qwen/...": "<sha>"}).
+# Model qua API đóng không ghim được snapshot — manifest ghi đó là một lỗ hổng
+# tái lập.
+MODEL_REVISIONS = os.getenv('AQG_MODEL_REVISIONS', '').strip()
 # Xử lý câu bị tính toán độc lập bác bỏ:
 #   'review' — giữ lại nhưng bắt buộc chuyển sang duyệt tay (mặc định),
 #   'reject' — loại khỏi kết quả trả về.
@@ -350,6 +378,12 @@ OPENROUTER_REQUIRE_NATIVE_PDF = os.getenv(
 # PDF_PAGE_LIMIT dùng cho ingestion). Provider vision giới hạn số ảnh/request
 # (Claude ~100). Với tài liệu dài, ~30 trang đầu đủ để sinh & kiểm 20 câu.
 PDF_IMAGE_MAX_PAGES = int(os.getenv('AQG_PDF_IMAGE_MAX_PAGES', '30'))
+# Đặt các trang tài liệu TRƯỚC prompt trong message user. Server tự host (vLLM)
+# cache KV theo tiền tố: tài liệu đứng trước thì mọi lời gọi của cùng một tài
+# liệu (Writer, Distractor, Critic, mọi câu) dùng chung phần tính sẵn, thay vì
+# tính lại hàng chục nghìn token ảnh mỗi lần. Mặc định 0 giữ đúng bố cục prompt
+# của các run đã báo cáo.
+ATTACHMENTS_FIRST = os.getenv('AQG_ATTACHMENTS_FIRST', '0') in ('1', 'true', 'yes')
 # Ngân sách token cho mỗi MCQ khi sinh trực tiếp từ PDF (stem + 4 options +
 # explanation + detailed_solution). Dùng để scale max_tokens theo số câu yêu cầu.
 DIRECT_PDF_TOKENS_PER_QUESTION = int(os.getenv('AQG_DIRECT_PDF_TOKENS_PER_QUESTION', '2600'))

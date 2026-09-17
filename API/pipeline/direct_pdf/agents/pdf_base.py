@@ -29,7 +29,13 @@ class PdfAwareAgent(BaseAgent):
                   attachment_parts: List[Dict[str, Any]],
                   max_tokens: int,
                   model: Optional[str] = None) -> str:
-        content = [{'type': 'text', 'text': prompt_text}] + list(attachment_parts)
+        text_part = [{'type': 'text', 'text': prompt_text}]
+        if getattr(cfg, 'ATTACHMENTS_FIRST', False):
+            # Tài liệu đứng trước ⇒ tiền tố giống hệt nhau qua mọi lời gọi của
+            # cùng tài liệu, server tự host dùng lại KV cache đã tính.
+            content = list(attachment_parts) + text_part
+        else:
+            content = text_part + list(attachment_parts)
         return call_llm_with_pdf(
             system=cfg.SYSTEM_PROMPT,
             user_content=content,

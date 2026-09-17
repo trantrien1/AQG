@@ -346,6 +346,31 @@ def _get_client():
     return _client
 
 
+_endpoint_clients: Dict[tuple, Any] = {}
+_endpoint_lock = threading.Lock()
+
+
+def _get_endpoint_client(base_url: str, api_key: str = ''):
+    """Client cho một endpoint OpenAI-compatible KHÁC endpoint chính.
+
+    Dùng cho hội đồng giải độc lập: mỗi thành viên có thể nằm trên một server
+    riêng (vd server vLLM thứ hai chạy model khác họ). Cache theo (url, key) để
+    mọi slot song song dùng chung connection pool.
+    """
+    key = (base_url.rstrip('/'), api_key)
+    with _endpoint_lock:
+        client = _endpoint_clients.get(key)
+        if client is None:
+            from openai import OpenAI
+            client = OpenAI(
+                base_url=key[0],
+                api_key=api_key or cfg.active_llm_api_key() or 'EMPTY',
+                timeout=cfg.LLM_TIMEOUT_SECONDS,
+            )
+            _endpoint_clients[key] = client
+    return client
+
+
 def _response_text_or_raise(resp) -> str:
     """Lấy text từ response, ném lỗi KÈM thông báo của nhà cung cấp nếu rỗng.
 
@@ -371,18 +396,25 @@ def _response_text_or_raise(resp) -> str:
 def call_llm(system: str, user: str, model: str = None,
              temperature: float = cfg.GEN_TEMPERATURE,
              max_tokens: int = cfg.GEN_MAX_TOKENS,
-             retries: int = cfg.LLM_RETRIES) -> str:
-    """Gọi LLM với retry + usage tracking."""
+             retries: int = cfg.LLM_RETRIES,
+             base_url: Optional[str] = None,
+             api_key: Optional[str] = None) -> str:
+    """Gọi LLM với retry + usage tracking.
+
+    ``base_url`` (tuỳ chọn) chuyển lời gọi sang một endpoint OpenAI-compatible
+    riêng thay vì provider chính; ``api_key`` là key của endpoint đó.
+    """
     tracker = get_tracker()
     tracker.check()
     model = model or cfg.GENERATOR_MODEL
-    if not cfg.has_llm_api_key():
+    if not base_url and not cfg.has_llm_api_key():
         raise RuntimeError(cfg.missing_llm_api_key_message())
     last_err = None
     retries = max(1, int(retries or 1))
     for attempt in range(retries):
         try:
-            client = _get_client()
+            client = (_get_endpoint_client(base_url, api_key or '')
+                      if base_url else _get_client())
             tracker.add(calls=1)
             resp = client.chat.completions.create(
                 model=model,

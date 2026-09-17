@@ -63,16 +63,32 @@ class IndependentTarget:
     stated_answer: str = ''
     #: Giá trị số đọc được từ ``stated_answer``.
     stated_value: Optional[float] = None
-    #: 'llm_resolver' | 'disabled' | 'unavailable' | 'not_applicable'
+    #: 'llm_resolver' | 'panel' | 'disabled' | 'unavailable' | 'error'
+    #: | 'not_applicable'. 'error' = lời gọi model KHÔNG chạy được (timeout,
+    #: 5xx...) — khác 'unavailable' (model trả lời nhưng không dùng được). Gộp
+    #: hai thứ này từng làm câu gặp lỗi hạ tầng bị đếm là "không kiểm được".
     source: str = 'disabled'
     detail: str = ''
     #: Model đã dùng — ghi lại để biết mục tiêu có khác họ model với Writer không.
     model: str = ''
+    #: Họ model (xem `pipeline.model_family`).
+    family: str = ''
     prompt_version: str = INDEPENDENT_PROMPT_VERSION
     errors: List[str] = field(default_factory=list)
+    # ---- Hội đồng (chỉ có khi gộp từ nhiều thành viên) ----
+    #: Kết quả từng thành viên (dict), theo thứ tự cấu hình.
+    panel: List[Dict[str, Any]] = field(default_factory=list)
+    #: Giá trị của MỌI thành viên có kết quả dứt khoát — tầng phân xử dùng để
+    #: phát hiện bất đồng kể cả khi chưa đạt đồng thuận.
+    definite_values: List[float] = field(default_factory=list)
+    #: Luật đồng thuận đã áp ('all' hoặc số k) và số thành viên cùng giá trị.
+    consensus_rule: str = ''
+    agreeing: int = 0
+    #: Có thành viên nào không chạy được (lỗi hạ tầng) không.
+    incomplete: bool = False
 
     def to_dict(self) -> Dict[str, Any]:
-        return {
+        out = {
             'attempted': self.attempted,
             'definite': self.definite,
             'derivation': self.derivation,
@@ -83,9 +99,19 @@ class IndependentTarget:
             'source': self.source,
             'detail': self.detail[:300],
             'model': self.model,
+            'family': self.family,
             'prompt_version': self.prompt_version,
             'errors': [str(e)[:160] for e in self.errors[:3]],
+            'incomplete': self.incomplete,
         }
+        if self.panel:
+            out.update({
+                'panel': [dict(m) for m in self.panel],
+                'definite_values': list(self.definite_values),
+                'consensus_rule': self.consensus_rule,
+                'agreeing': self.agreeing,
+            })
+        return out
 
 
 # ============ Đánh giá biểu thức (thuần SymPy, không LLM) ============
@@ -286,13 +312,21 @@ def build_independent_target(
     call_fn: Callable[[str, str], str],
     model: str = '',
     givens: str = '',
+    reraise: tuple = (),
 ) -> IndependentTarget:
     """Chạy tác nhân độc lập rồi đánh giá kết quả bằng SymPy.
 
     ``call_fn(system, user) -> str`` được tiêm từ ngoài vào để module này không
     phụ thuộc trực tiếp vào LLM client (test chạy được với một hàm giả).
+
+    ``reraise`` là các loại lỗi phải nổi lên cho người gọi (sai key, hết hạn
+    mức...). Trước đây mọi lỗi đều bị nuốt ở đây, nên một đợt 401 biến hàng loạt
+    câu thành "không kiểm chứng được" trong khi thực ra cơ chế không hề chạy.
+    Lỗi còn lại (timeout, 5xx) được ghi ``source='error'`` để đếm riêng.
     """
-    target = IndependentTarget(attempted=True, source='llm_resolver', model=model)
+    from .model_family import model_family
+    target = IndependentTarget(attempted=True, source='llm_resolver', model=model,
+                               family=model_family(model) if model else '')
     if not str(stem or '').strip():
         target.source = 'unavailable'
         target.detail = 'stem rỗng'
@@ -301,7 +335,10 @@ def build_independent_target(
     try:
         raw = call_fn(_INDEPENDENT_SYSTEM, build_independent_prompt(stem, givens=givens))
     except Exception as exc:
-        target.source = 'unavailable'
+        if reraise and isinstance(exc, reraise):
+            raise
+        target.source = 'error'
+        target.incomplete = True
         target.detail = f'gọi model thất bại: {exc}'
         target.errors.append(str(exc))
         return target
@@ -363,6 +400,104 @@ def build_independent_target(
 
 def disabled_target(reason: str = 'independent verification disabled') -> IndependentTarget:
     return IndependentTarget(attempted=False, source='disabled', detail=reason)
+
+
+# ============ Hội đồng nhiều solver ============
+
+def consensus_size(rule: Any, n_members: int) -> int:
+    """Số thành viên phải cùng giá trị theo luật ``rule`` ('all' hoặc số k)."""
+    n = max(1, int(n_members))
+    text = str(rule if rule is not None else 'all').strip().lower()
+    if text in ('', 'all'):
+        return n
+    try:
+        k = int(text)
+    except ValueError:
+        return n
+    return max(1, min(k, n))
+
+
+def aggregate_panel(
+    members: List[IndependentTarget],
+    consensus: Any = 'all',
+) -> IndependentTarget:
+    """Gộp kết quả của nhiều solver độc lập thành MỘT mục tiêu.
+
+    Đồng thuận (``definite=True``) khi có một cụm giá trị trùng nhau đạt đủ
+    ``consensus_size`` thành viên và không có cụm nào khác lớn bằng nó. Cụm đó
+    tính là có suy dẫn khi ít nhất một thành viên của nó nộp một phép tính thật
+    (không phải hằng số trần): CAS đã chạy lại được một con đường tới giá trị,
+    các thành viên còn lại xác nhận giá trị đó từ nguồn khác.
+
+    Giá trị dứt khoát của MỌI thành viên được giữ trong ``definite_values`` để
+    tầng phân xử bắt được bất đồng ngay cả khi không đạt đồng thuận — luật gắn
+    cờ nhạy hơn luật xác nhận là có chủ đích.
+
+    Một thành viên thì trả lại chính nó (hành vi cũ, không đổi shape dữ liệu).
+    """
+    members = [m for m in members if m is not None]
+    if not members:
+        return disabled_target('hội đồng giải độc lập rỗng')
+    if len(members) == 1:
+        single = members[0]
+        single.definite_values = (
+            [single.value] if single.definite and single.value is not None else [])
+        single.agreeing = 1 if single.definite else 0
+        single.consensus_rule = str(consensus)
+        return single
+
+    n = len(members)
+    k = consensus_size(consensus, n)
+    definite = [m for m in members if m.definite and m.value is not None]
+    clusters: List[List[IndependentTarget]] = []
+    for m in definite:
+        for cluster in clusters:
+            if values_agree(m.value, cluster[0].value):
+                cluster.append(m)
+                break
+        else:
+            clusters.append([m])
+    best = max(clusters, key=len) if clusters else []
+    families = []
+    for m in members:
+        if m.family and m.family not in families:
+            families.append(m.family)
+
+    agg = IndependentTarget(
+        attempted=any(m.attempted for m in members),
+        source='panel',
+        model='+'.join(m.model or '?' for m in members),
+        family='+'.join(families),
+        panel=[m.to_dict() for m in members],
+        definite_values=[float(m.value) for m in definite],
+        consensus_rule=str(consensus),
+        agreeing=len(best),
+        incomplete=any(m.incomplete or m.source == 'error' for m in members),
+        errors=[e for m in members for e in m.errors][:3],
+    )
+    values_text = ', '.join(
+        f'{(m.model or "?").rsplit("/", 1)[-1]}={_fmt(m.value)}' for m in definite)
+    tied = sum(1 for c in clusters if len(c) == len(best)) > 1
+    if best and len(best) >= k and not tied:
+        head = next((m for m in best if m.derivation), best[0])
+        agg.definite = True
+        agg.value = float(head.value)
+        agg.expression = head.expression
+        agg.stated_answer = head.stated_answer
+        agg.stated_value = head.stated_value
+        agg.derivation = any(m.derivation for m in best)
+        agg.detail = (f'{len(best)}/{n} solver cùng cho {_fmt(head.value)}'
+                      + (f' ({values_text})' if len(definite) > len(best) else ''))
+        if not agg.derivation:
+            agg.detail += '; không thành viên nào nộp phép tính thật'
+        return agg
+
+    agg.definite = False
+    reason = ('các cụm giá trị hoà nhau' if tied and best
+              else f'{len(best)}/{n} đồng ý, cần {k}')
+    agg.detail = (f'hội đồng chưa đồng thuận ({reason})'
+                  + (f'; giá trị dứt khoát: {values_text}' if values_text else ''))
+    return agg
 
 
 def _first_json_object(text: Any) -> Optional[Dict[str, Any]]:

@@ -79,7 +79,8 @@ def test_builder_only_receives_the_stem():
     chữ ký hàm chứ không âm thầm rò rỉ."""
     import inspect
     params = set(inspect.signature(build_independent_target).parameters)
-    assert params == {'stem', 'call_fn', 'model', 'givens'}
+    # `reraise` chỉ chọn loại lỗi hạ tầng được nổi lên — không mang dữ liệu câu.
+    assert params == {'stem', 'call_fn', 'model', 'givens', 'reraise'}
 
 
 # ---- Builder với call_fn giả ----
@@ -142,7 +143,9 @@ def test_builder_survives_model_failure():
     target = build_independent_target('Tính gì đó.', call_fn=_boom)
     assert target.attempted is True
     assert target.definite is False
-    assert target.source == 'unavailable'
+    # Lỗi gọi model là lỗi HẠ TẦNG, không phải "model trả lời vô dụng".
+    assert target.source == 'error'
+    assert target.incomplete is True
     assert target.errors
 
 

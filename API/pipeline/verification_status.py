@@ -30,7 +30,7 @@ from typing import Any, Dict, List, Optional
 
 # Tăng khi luật phân xử hoặc engine kiểm chứng đổi hành vi — ghi vào run
 # manifest để một run cũ luôn truy được đúng phiên bản verifier đã chấm nó.
-VERIFIER_VERSION = '2.0.0'
+VERIFIER_VERSION = '2.1.0'
 
 
 class VerificationStatus:
@@ -95,6 +95,10 @@ class Adjudication:
     needs_human_review: bool = False
     #: True khi đủ bằng chứng độc lập để cho phép sửa key tự động.
     independent_support: bool = False
+    #: True khi ít nhất một solver độc lập KHÔNG chạy được (lỗi hạ tầng).
+    #: Trạng thái khi đó phản ánh bằng chứng còn lại, không phải bản chất câu
+    #: hỏi — đếm riêng để không lẫn với "câu không kiểm chứng được".
+    verification_incomplete: bool = False
 
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -103,6 +107,7 @@ class Adjudication:
             'sources': list(self.sources),
             'needs_human_review': self.needs_human_review,
             'independent_support': self.independent_support,
+            'verification_incomplete': self.verification_incomplete,
             'label_vi': STATUS_LABELS_VI.get(self.status, self.status),
             'label_en': STATUS_LABELS_EN.get(self.status, self.status),
         }
@@ -148,7 +153,57 @@ def adjudicate(
     4. Không có mục tiêu độc lập dứt khoát:
        writer True → CONSISTENCY_CONFIRMED, writer False → MISMATCH,
        writer None/none → NON_VERIFIABLE.
+
+    Với HỘI ĐỒNG nhiều solver (``independent.definite_values`` có giá trị của
+    từng thành viên), luật xác nhận và luật gắn cờ cố ý không đối xứng:
+
+    * xác nhận (luật 2) còn đòi KHÔNG thành viên dứt khoát nào lệch key;
+    * gắn cờ chỉ cần MỘT thành viên dứt khoát lệch key — kể cả khi hội đồng
+      không đạt đồng thuận, câu vẫn thành MISMATCH thay vì rơi về luật 4.
+
+    Lý do: nhãn "đã kiểm chứng độc lập" là lời hứa với người dùng, còn một cờ
+    thừa chỉ tốn một lượt duyệt tay.
+
+    ``verification_incomplete`` bật khi có solver không chạy được; trạng thái
+    giữ nguyên theo bằng chứng còn lại.
     """
+    adj = _adjudicate(
+        writer_verified=writer_verified,
+        writer_engine=writer_engine,
+        independent=independent,
+        keyed_value=keyed_value,
+        distractor_values=distractor_values,
+        multi_answer_options=multi_answer_options,
+    )
+    if independent is not None and (
+            getattr(independent, 'incomplete', False)
+            or getattr(independent, 'source', '') == 'error'):
+        adj.verification_incomplete = True
+    return adj
+
+
+def _dissenting(values: List[Any], keyed_value: Optional[float]) -> List[float]:
+    """Giá trị dứt khoát của các thành viên KHÔNG khớp key."""
+    if keyed_value is None:
+        return []
+    out: List[float] = []
+    for value in values or []:
+        if value is None:
+            continue
+        if not _values_agree(value, keyed_value):
+            out.append(float(value))
+    return out
+
+
+def _adjudicate(
+    *,
+    writer_verified: Optional[bool],
+    writer_engine: str,
+    independent: Optional[Any],
+    keyed_value: Optional[float],
+    distractor_values: Optional[List[Optional[float]]],
+    multi_answer_options: Optional[List[str]],
+) -> Adjudication:
     sources: List[str] = []
     if writer_engine and writer_engine != 'none' and writer_verified is not None:
         sources.append('writer_expression')
@@ -157,6 +212,8 @@ def adjudicate(
     independent_value = getattr(independent, 'value', None)
     if independent is not None and getattr(independent, 'attempted', False):
         sources.append('independent_target')
+    dissent = _dissenting(
+        list(getattr(independent, 'definite_values', None) or []), keyed_value)
 
     # --- 1. Nhiều đáp án đúng ---
     if multi_answer_options:
@@ -195,6 +252,19 @@ def adjudicate(
                         sources=sources,
                         needs_human_review=True,
                     )
+            if dissent:
+                # Đủ đồng thuận theo luật k-trên-n, nhưng vẫn có thành viên dứt
+                # khoát ra giá trị khác: không đủ để hứa "đã kiểm chứng".
+                return Adjudication(
+                    status=VerificationStatus.MISMATCH,
+                    detail=(
+                        f'hội đồng đa số cho {_fmt(independent_value)} khớp key '
+                        f'nhưng có solver cho '
+                        + ', '.join(_fmt(v) for v in dissent[:3])
+                    ),
+                    sources=sources,
+                    needs_human_review=True,
+                )
             return Adjudication(
                 status=VerificationStatus.INDEPENDENTLY_VERIFIED,
                 detail=(
@@ -251,6 +321,19 @@ def adjudicate(
         )
 
     # --- 4. Không có bằng chứng độc lập dứt khoát ---
+    if dissent:
+        # Hội đồng không đồng thuận nhưng ít nhất một solver giải ra giá trị
+        # khác key — đúng loại tín hiệu mà lỗi sai-nhất-quán để lại.
+        return Adjudication(
+            status=VerificationStatus.MISMATCH,
+            detail=(
+                f'hội đồng chưa đồng thuận; solver cho '
+                + ', '.join(_fmt(v) for v in dissent[:3])
+                + f' trong khi key là {_fmt(keyed_value)}'
+            ),
+            sources=sources,
+            needs_human_review=True,
+        )
     extra = ''
     if independent is not None and getattr(independent, 'attempted', False):
         extra = str(getattr(independent, 'detail', '') or '')[:120]

@@ -65,7 +65,9 @@ def run_cell(pdf_path: str, out_json: str, n: int, arm: str, seed: int) -> int:
     from pipeline import config as cfg
     from pipeline.direct_pdf.generator import DirectPdfQuestionGenerator
     from pipeline.llm_client import get_tracker, reset_tracker
-    from pipeline.run_manifest import build_manifest, reproducibility_gaps
+    from pipeline.run_manifest import (
+        build_manifest, reproducibility_gaps, validity_warnings,
+    )
 
     if not cfg.has_llm_api_key():
         print(f'Missing LLM key: {cfg.missing_llm_api_key_message()}')
@@ -85,11 +87,21 @@ def run_cell(pdf_path: str, out_json: str, n: int, arm: str, seed: int) -> int:
 
     reset_tracker()
     t0 = time.time()
+
+    def _progress(event: Dict[str, Any]) -> None:
+        # Một dòng mỗi câu được nhận: đủ để theo dõi từ xa (vd notebook Colab)
+        # mà không làm log phình.
+        if event.get('stage') in ('question_accepted', 'generation_finished'):
+            print(f"[cell] {event.get('stage')} {event.get('accepted')}/"
+                  f"{event.get('target')} sau {event.get('attempted')} lượt "
+                  f"({time.time() - t0:.0f}s)", flush=True)
+
     try:
         result = DirectPdfQuestionGenerator(model=cfg.GENERATOR_MODEL).generate(
             pdf_path=pdf_path,
             requested_count=n,
             bloom_distribution=[dict(x) for x in cfg.DEFAULT_DIFFICULTY_DISTRIBUTION],
+            progress_callback=_progress,
         )
     except ProviderQuotaExhausted as exc:
         # Hết hạn mức tài khoản: các ô còn lại cũng sẽ hết. Báo mã riêng để
@@ -125,6 +137,7 @@ def run_cell(pdf_path: str, out_json: str, n: int, arm: str, seed: int) -> int:
     }, ensure_ascii=False, indent=2), encoding='utf-8')
 
     manifest.notes['reproducibility_gaps'] = reproducibility_gaps(manifest)
+    manifest.notes['validity_warnings'] = validity_warnings(manifest)
     manifest.write(out.with_suffix('.manifest.json'))
 
     print(f'[cell] arm={arm} seed={seed} {os.path.basename(pdf_path)}: '
@@ -195,6 +208,8 @@ def aggregate(out_dir: Path, ground_truth_path: Optional[str]) -> Dict[str, Any]
                 'code': (manifest or {}).get('code'),
                 'reproducibility_gaps':
                     ((manifest or {}).get('notes') or {}).get('reproducibility_gaps'),
+                'validity_warnings':
+                    ((manifest or {}).get('notes') or {}).get('validity_warnings'),
             } if manifest else None,
         })
 
@@ -252,6 +267,13 @@ def _by_arm(cells: List[Dict[str, Any]]) -> Dict[str, Any]:
         for cell in arm_cells:
             for status, count in cell['metrics']['verification']['status_distribution'].items():
                 status_totals[status] = status_totals.get(status, 0) + count
+        incomplete = sum(c['metrics']['verification'].get('verification_incomplete', 0)
+                         for c in arm_cells)
+        dissent = sum(c['metrics']['verification'].get('panel_dissent', 0)
+                      for c in arm_cells)
+        independence = sorted({
+            str(((c.get('manifest') or {}).get('models') or {}).get('independence'))
+            for c in arm_cells})
         correct = [c['metrics']['correctness'] for c in arm_cells]
         labelled = sum(c.get('labelled', 0) for c in correct)
         out[arm] = {
@@ -262,6 +284,10 @@ def _by_arm(cells: List[Dict[str, Any]]) -> Dict[str, Any]:
             'total_candidates': candidates,
             'admission_rate': round(delivered / candidates, 4) if candidates else None,
             'status_totals': status_totals,
+            # Câu có solver độc lập không chạy được — không phải 'không kiểm được'.
+            'verification_incomplete': incomplete,
+            'panel_dissent': dissent,
+            'independence': independence,
             'tokens_per_delivered': (
                 round(sum(tokens) / delivered, 1) if tokens and delivered else None),
             'seconds_per_delivered': (
@@ -354,6 +380,13 @@ def write_markdown(summary: Dict[str, Any], out_dir: Path) -> None:
             f"{row['tokens_per_delivered']} | {row['seconds_per_delivered']} |"
         )
 
+    lines += ['', '## Độc lập của kiểm chứng', '']
+    for arm in order:
+        row = summary['by_arm'][arm]
+        lines.append(
+            f"- `{arm}`: mức độc lập {', '.join(row.get('independence') or ['?'])}; "
+            f"{row.get('verification_incomplete', 0)} câu có solver không chạy được; "
+            f"{row.get('panel_dissent', 0)} câu hội đồng bất đồng")
     lines += ['', '## Correctness (chỉ khi có nhãn ngoài)', '']
     any_labels = False
     for arm in order:

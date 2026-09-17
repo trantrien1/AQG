@@ -396,6 +396,10 @@ def to_question_record(slot: Dict[str, Any],
             'evidence_sources': verification.get('sources') or [],
             'independent': verification.get('independent') or {},
             'needs_human_review': bool(verification.get('needs_human_review')),
+            # Có solver độc lập không chạy được (lỗi hạ tầng) — tách khỏi
+            # "không kiểm chứng được" khi đếm.
+            'verification_incomplete': bool(
+                verification.get('verification_incomplete')),
             'verifier_version': verification.get('verifier_version'),
             # Nguyên văn hint đã chạy — cần để audit lại một câu sai sau này.
             'verifier_hint': verification.get('verifier_hint'),

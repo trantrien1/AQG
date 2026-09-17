@@ -428,6 +428,12 @@ class DirectPdfOrchestrator:
 
         # 1. Build attachment MỘT LẦN — trừ khi caller đã đưa sẵn các trang
         # render từ bước /prepare (chạy nền lúc người dùng chọn config).
+        # Solver độc lập cùng họ với generator thì lỗi tương quan không bị loại
+        # trừ: cảnh báo (hoặc dừng nếu cấu hình bắt buộc khác họ) trước khi tốn
+        # lời gọi nào.
+        if ablation.is_enabled(ablation.INDEPENDENT_VERIFICATION):
+            self.independent.check_independence(self.model)
+
         _emit(stage='preparing_pdf', accepted=0, attempted=0, target=requested_count)
         if not attachment_parts:
             try:

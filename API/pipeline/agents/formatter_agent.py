@@ -19,6 +19,7 @@ from .. import reject as reject_mod
 from ..explanation import build as build_explanation
 from ..rule_validator import validate_record
 from ..schema import to_question_record, reject_record
+from ..verification_status import VerificationStatus
 
 
 class FormatterAgent(BaseAgent):
@@ -94,6 +95,21 @@ class FormatterAgent(BaseAgent):
                 rev_issues = list(rec['review'].get('issues') or [])
                 if 'verifier_numeric_mismatch' not in rev_issues:
                     rev_issues.append('verifier_numeric_mismatch')
+                rec['review']['issues'] = rev_issues
+
+            # MISMATCH/REFUTED do kiểm chứng độc lập (biểu thức Writer vẫn khớp
+            # key) cũng phải vào hàng duyệt tay. Nhánh chất lượng phía trên từng
+            # ghi đè trạng thái schema đã đặt thành 'pending_review', nên các câu
+            # bị solver độc lập bác chỉ mang cờ trong `verification` mà không
+            # hiện trong hàng duyệt.
+            ver_status = verification.get('status')
+            if ver_status in VerificationStatus.NEEDS_HUMAN:
+                rec['review_status'] = 'needs_revision'
+                rec.setdefault('review', {})['status'] = 'needs_revision'
+                rev_issues = list(rec['review'].get('issues') or [])
+                code = f'independent_verification_{ver_status}'
+                if code not in rev_issues:
+                    rev_issues.append(code)
                 rec['review']['issues'] = rev_issues
 
             # Smart-Study explanation block (deterministic v1; respects

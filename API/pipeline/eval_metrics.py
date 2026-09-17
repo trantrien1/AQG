@@ -88,6 +88,16 @@ def _status(record: Dict[str, Any]) -> str:
     return VerificationStatus.NON_VERIFIABLE
 
 
+def _panel_dissent(record: Dict[str, Any]) -> bool:
+    independent = _verification(record).get('independent') or {}
+    values = independent.get('definite_values') or []
+    if len(independent.get('panel') or []) < 2 or not values:
+        return False
+    first = values[0]
+    return any(abs(float(v) - float(first)) > max(1e-6, abs(float(first)) * 1e-4)
+               for v in values[1:])
+
+
 def _mean(values: Iterable[Any]) -> Optional[float]:
     nums = [float(v) for v in values if isinstance(v, (int, float))]
     return round(sum(nums) / len(nums), 4) if nums else None
@@ -184,6 +194,16 @@ def compute_metrics(
         'verifier_hint_errored': sum(
             1 for q in questions if _verification(q).get('verifier_errored')
         ),
+        # Câu mà ít nhất một solver độc lập KHÔNG chạy được (timeout, 5xx).
+        # Trạng thái của chúng phản ánh bằng chứng còn lại chứ không phải bản
+        # chất câu hỏi, nên phải báo riêng.
+        'verification_incomplete': sum(
+            1 for q in questions
+            if _verification(q).get('verification_incomplete')
+            or (_verification(q).get('independent') or {}).get('source') == 'error'
+        ),
+        # Hội đồng: bao nhiêu câu có các solver ra giá trị dứt khoát KHÁC NHAU.
+        'panel_dissent': sum(1 for q in questions if _panel_dissent(q)),
     }
 
     # ---- Correctness (cần nhãn ngoài) ----

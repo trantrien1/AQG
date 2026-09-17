@@ -200,6 +200,10 @@ def test_manifest_names_its_own_reproducibility_gaps():
     manifest.generation['parallel_slots'] = 1
     manifest.code = {'commit': 'abc', 'dirty': False}
     manifest.documents = [{'sha256': 'x'}]
+    manifest.models['revisions'] = {}
+    assert any('snapshot' in g for g in reproducibility_gaps(manifest))
+
+    manifest.models['revisions'] = {manifest.models['generator']: 'deadbeef'}
     assert reproducibility_gaps(manifest) == []
 
 
