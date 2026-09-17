@@ -341,7 +341,6 @@ def finalize(raw: RawQuestion, topic: str, subtopic: str, source: str) -> Item:
         'topic': topic,
         'subtopic': subtopic,
         'difficulty': None,
-        'difficulty_source': None,
         'section': raw.section,
         'source': {'file': source, 'question_number': raw.number},
         'answer_source': answer_from,
@@ -389,7 +388,6 @@ BLOCKING_FLAGS = ('no_answer', 'no_choices', 'formula_missing', 'duplicate',
 
 DIFFICULTY_NAMES = {'NB': 'Nhận biết', 'TH': 'Thông hiểu',
                     'VD': 'Vận dụng', 'VDC': 'Vận dụng cao'}
-DIFFICULTY_SOURCE = 'claude-opus-5 (chưa có giáo viên xác nhận)'
 
 
 def _read_tsv(path: Path) -> List[Dict[str, str]]:
@@ -426,7 +424,6 @@ def apply_labels(items: List[Dict], labels_dir: Path) -> List[str]:
         it = target(row)
         if it is not None:
             it['difficulty'] = DIFFICULTY_NAMES[row['level']]
-            it['difficulty_source'] = DIFFICULTY_SOURCE
     for row in _read_tsv(labels_dir / 'review.tsv'):
         it = target(row)
         if it is not None:

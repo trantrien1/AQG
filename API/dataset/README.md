@@ -46,8 +46,7 @@ Mỗi dòng của `questions.jsonl` là một câu:
   "solution": "Theo bài ra ...",
   "topic": "Ứng dụng tích phân",
   "subtopic": "Diện tích hình phẳng có đồ thị",
-  "difficulty": "Vận dụng",
-  "difficulty_source": "claude-opus-5 (chưa có giáo viên xác nhận)",
+  "difficulty": null,
   "section": "ỨNG DỤNG DIỆN TÍCH CÓ ĐỒ THỊ ĐẠO HÀM",
   "source": {"file": "14  P2  UD tinh DT co do thi  tr319  tr350.docx", "question_number": 1},
   "answer_source": "chon",
@@ -68,7 +67,6 @@ Mỗi dòng của `questions.jsonl` là một câu:
 | `topic`, `subtopic` | Chủ đề theo chương/file |
 | `section` | Tiêu đề mục gần nhất trong tài liệu, ví dụ "DẠNG 2: ÁP DỤNG TRỰC TIẾP BẢNG NGUYÊN HÀM" |
 | `difficulty` | Một trong bốn mức Nhận biết / Thông hiểu / Vận dụng / Vận dụng cao; `null` với câu chưa gán (các câu không `usable`) |
-| `difficulty_source` | Ai gán nhãn độ khó |
 | `review_note` | Ghi chú rà soát tay, có ở câu bị loại vì sai đáp án hoặc đề hỏng |
 | `answer_source` | `chon`: lấy từ dòng "Chọn X" trong lời giải. `red_mark`: lấy từ chữ cái phương án tô đỏ (cách đánh dấu đáp án ở phần đề kiểm tra) |
 | `flags` | Các vấn đề phát hiện được (bảng dưới) |

@@ -277,7 +277,6 @@ def test_labels_set_difficulty_and_block_reviewed_items(tmp_path):
     it = _labeled(tmp_path)
     assert bd.apply_labels([it], tmp_path) == []
     assert it['difficulty'] == 'Vận dụng cao'
-    assert it['difficulty_source'].startswith('claude')
     assert it['review_note'] == 'đáp án đúng là B'
     assert not bd.is_usable(it)
 
