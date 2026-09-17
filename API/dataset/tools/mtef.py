@@ -654,8 +654,23 @@ class _Latex:
         if 16 <= sel <= 22:
             op = {16: r'\sum', 17: r'\prod', 18: r'\coprod', 19: r'\bigcup',
                   20: r'\bigcap'}.get(sel)
+            # Ký tự toán tử thật trong mẫu thắng tên mẫu (tác giả có thể dùng
+            # khuôn tổng nhưng thay ký tự thành ∫).
+            glyph = _join([self.node(c) for c in chars]).strip()
+            if not chars and sel in (21, 22) and len(slots) == 4:
+                # tmINTOP/tmSUMOP: ký tự toán tử nằm ở ô thứ tư
+                glyph = self.node(slots[3]).strip()
+                slots = slots[:3]
+            if glyph in (r'\int', r'\iint', r'\iiint', r'\oint'):
+                return self._bigop(glyph, slots, limits=True)
+            if glyph in ('|', r'\mid'):
+                # dấu gạch thế cận: F(x)|_a^b
+                lower = self.node(slots[1]) if len(slots) > 1 else ''
+                upper = self.node(slots[2]) if len(slots) > 2 else ''
+                main = self.node(slots[0]) if slots else ''
+                return r'%s\Big|_{%s}^{%s}' % (main, lower, upper)
             if op is None:
-                op = _join([self.node(c) for c in chars]) or r'\sum'
+                op = glyph or r'\sum'
             return self._bigop(op, slots, limits=sel in (16, 17, 18, 19, 20, 22))
         if sel == 23:  # lim
             out = slot(0)

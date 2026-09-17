@@ -1,0 +1,76 @@
+id	file	question_number	flag	note
+int_0038	3	38	source_corrupted	phương án D là rác (biểu thức không liên quan)
+int_0075	3	75	segmentation_error	"Câu 76." nằm giữa đoạn, bị gộp vào lời giải câu 75
+int_0094	3	95	key_suspect	lời giải ra sin4x/8 nhưng phương án D ghi cos4x/8 (lỗi đánh máy phương án)
+int_0107	3	108	key_suspect	lời giải ra sin, đáp án D ghi cos (lỗi đánh máy)
+int_0226	4	73	source_corrupted	phương án A là rác (chép nhầm lời giải câu khác)
+int_0249	5	12	key_wrong	∫e^x(1+x)dx = xe^x + C, không phương án nào đúng; đáp án B sai
+int_0309	6	36	source_corrupted	đề ghi "giá trị thực của $AD$" (công thức hỏng) và lời giải bị cắt, dính rác
+int_0321	6	48	source_corrupted	đề lấy cận [-2;2] nhưng lời giải tính trên [-2;0]; hàm có điểm gián đoạn x=1 trong đoạn
+int_0322	6	49	key_wrong	tính đúng ra -15a/2 - ln2; lời giải ghi -15a/16 - ln2 (= phương án D) nhưng đáp án là C
+int_0326	6	53	source_corrupted	đề ghi x^3+ax+2=0 (0 nghiệm dương), lời giải dùng x^3+ax-2=0 (1 nghiệm) -> đáp án chỉ đúng với lời giải
+int_0338	6	65	segmentation_error	đầu đề dính câu "Nhận xét: Không thể dùng máy tính..." của câu trước
+int_0353	6	80	source_corrupted	đề dính rác "a=2,b=-3"
+int_0390	6	117	source_corrupted	đề hỏng (dính công thức "-cot π/3 + cot π/4", thiếu điều kiện m ∈ (0;2017))
+int_0395	6	122	source_corrupted	đề thiếu dạng kết quả π(π/a - 1/b) - 1
+int_0402	6	129	source_corrupted	đề dính rác "z+|z|^2 i - 1 - 3/4 i = 0"
+int_0408	6	135	key_wrong	I2 = 4/3 ln2 - 1/3 ln5 nên b=4/3, c=1/3, b/c=4 (D); sách chọn B (-4) do sai dấu c
+int_0409	6	136	source_corrupted	cận trong đề (π/3) khác cận trong biểu thức (π/6), "bx sin" hỏng
+int_0416	6	143	segmentation_error	đầu đề dính công thức của câu khác
+int_0429	7	12	key_suspect	lời giải ra (a-b)(b-1)/..., phương án C ghi (a-1)(b-1)/...
+int_0455	7	38	key_wrong	giá trị đúng ln(1+√2) = ln((3+3√2)/3); phương án C ghi (3+2√3)/3
+int_0489	7	72	source_corrupted	đề hỏi "Tính tổng m" (hỏng, ý là S=a+b+c)
+int_0518	7	101	key_wrong	I = (4√2-2)/3 + 1/2 = (8√2-1)/6, không phương án nào đúng; sách chọn B
+int_0520	7	103	source_corrupted	đề ghi cận 0..1 (ln x không xác định tại 0), lời giải dùng 1..e
+int_0539	7	122	source_corrupted	cận trong đề (-1..1/2) khác cận trong lời giải (1/2..7/2)
+int_0544	8	1	source_corrupted	lời giải coi sin(ax) như sin x; đáp án chỉ đúng khi a=1
+int_0560	8	17	source_corrupted	cận trong đề (0..π/4) khác lời giải (π/3..π/2)
+int_0580	8	37	key_wrong	2a+b = 10 không có trong phương án; phương án C (đáp án) là rác "A(1;-2;1)"
+int_0607	8	64	key_wrong	I = e^2/4 + 3/4 nên 2a-3b = -7/4; lời giải cộng sai ra b=5/4 -> đáp án C (-13/4) sai
+int_0616	9	6	key_wrong	GTLN của G trên [-1;1] là G(1)=0, không có trong phương án; đáp án C (-5/6) là GTNN
+int_0655	10	2	source_corrupted	chỉ cho f(0)=1 nhưng hỏi f(3) ở khoảng khác, hằng số C2 không xác định (đề thiếu dữ kiện; câu int_0656 là bản đúng)
+int_0665	10	12	source_corrupted	phương án D là rác "f(0).f(2)=1"
+int_0702	10	49	segmentation_error	cuối lời giải dính công thức của câu sau
+int_0703	10	50	segmentation_error	đề/phương án/lời giải bị trộn (nội dung nằm trong bảng Word) -> loại
+int_0704	10	51	segmentation_error	đề/phương án/lời giải bị trộn (nội dung nằm trong bảng Word) -> loại
+int_0705	10	52	segmentation_error	đề/phương án/lời giải bị trộn (nội dung nằm trong bảng Word) -> loại
+int_0706	10	53	segmentation_error	đề/phương án/lời giải bị trộn (nội dung nằm trong bảng Word) -> loại
+int_0707	10	54	segmentation_error	đề/phương án/lời giải bị trộn (nội dung nằm trong bảng Word) -> loại
+int_0708	10	55	segmentation_error	đề/phương án/lời giải bị trộn (nội dung nằm trong bảng Word) -> loại
+int_0711	10	58	segmentation_error	đề/phương án/lời giải bị trộn (nội dung nằm trong bảng Word) -> loại
+int_0712	10	59	segmentation_error	đề/phương án/lời giải bị trộn (nội dung nằm trong bảng Word) -> loại
+int_0714	10	61	segmentation_error	đề/phương án/lời giải bị trộn (nội dung nằm trong bảng Word) -> loại
+int_0715	10	62	segmentation_error	đề/phương án/lời giải bị trộn (nội dung nằm trong bảng Word) -> loại
+int_0750	10	97	source_corrupted	lời giải ghi "Đề ban đầu bị sai ... nên tôi đã sửa lại đề"; đề thiếu "ℝ"
+int_0751	10	98	segmentation_error	đầu đề dính câu cuối lời giải của câu trước ("Suy ra 4∫...")
+int_0800	11	147	key_wrong	2I = ∫_0^{π/2}(sin x + cos x)dx = 2 nên I = 1 (B); sách chọn D (-1)
+int_0807	11	154	source_corrupted	lời giải ghi "Chọn C" nhưng tính ra y=4x-2 (D, trùng đáp án)
+int_0826	11	173	source_corrupted	đề ghi "f(0).f(2018-x)=1" (ý là f(x)); phương án D thiếu "I="
+int_0846	12	193	source_corrupted	phương án D là số rác (-1761)
+int_0858	12	205	key_wrong	1 = f(0) + I nên I = 0 (B), lời giải cũng ra 0; sách chọn C
+int_0876	13	2	figure_implicit	đề nhắc "như hình vẽ bên" nhưng không bị lọc -> kiểm tra chuẩn hoá Unicode (NFC)
+int_0902	13	28	key_wrong	lời giải ra k = ln(9/2) (A); sách chọn B
+int_0918	13	44	key_wrong	công thức diện tích đúng là ∫|f-g|dx (B); sách chọn D
+int_0934	13	60	source_corrupted	đề (hàm bậc ba có tham số m) không khớp lời giải (dùng y=x^2)
+int_0971	13	98	figure_implicit	cần hình (S1, S2 trên đồ thị) nhưng đề không nói "hình vẽ" -> loại
+int_1049	15	7	key_wrong	V = pi*int_{-5}^{5}(9-9x^2/25)dx = 60pi (A), lời giải cũng ra 60pi; sách chọn D
+int_1053	15	11	key_wrong	V = 12pi*int sqrt(1-x^2) = 6pi^2 (B); sách chọn D (6pi)
+int_1057	15	15	source_corrupted	phương án B là rác "-18=a.(-6)^2"
+int_1062	15	20	key_wrong	V = pi*int_0^2 (4x^2 - x^4)dx (B); sách chọn A (bình phương hiệu, sai)
+int_1140	17	12	key_wrong	tia lửa bắn lên chịu gia tốc -9,8 nên h = 37,5 - 30,625 = 6,875 m (D); sách cộng gia tốc -> C (vô lý vật lý)
+int_1159	17	31	source_corrupted	lời giải dính rác "M(1/6+t;5/6+t;13/6+t)" và "(P)."
+int_1161	17	33	key_wrong	bỏ quên v(0)=10; đúng S = 216 + 60 = 276 m (C); sách chọn D
+int_1193	18	2	source_corrupted	phương án D là rác "F(x)" (được chọn làm đáp án); đáp án thật ln^4x/4 không có
+int_1202	18	11	source_corrupted	phương án A là rác "ΔCEF"
+int_1207	18	16	source_corrupted	đề và phương án C bị trộn công thức câu khác
+int_1211	18	20	segmentation_error	lời giải chỉ là tiêu đề "ĐỀ KIỂM TRA 279"
+int_1224	18	13	source_corrupted	phương án C (đáp án) ghi "2 < max > 3", ý là 2 < max < 3
+int_1244	18	13	source_corrupted	f chỉ cho f(0)=1 nhưng hỏi f(3) ở khoảng x>1/2, hằng số không xác định (thiếu f(1))
+int_1265	18	14	source_corrupted	đề nói "nguyên hàm của f có dạng ax^2+bx+ln|2x+1|+c" nhưng dạng đó là của f
+int_1288	18	17	source_corrupted	đề (đạo hàm của sin2x) không khớp phương án (sin(x/3-2)) -> loại
+int_1321	18	10	key_wrong	quay quanh Oy, V = pi*int_0^1 (y - y^4)dy = 3pi/10 (B); sách chọn A
+int_1355	18	7	key_wrong	V = 4pi*int_0^1 (x-1)^2 e^{2x}dx = pi(e^2-5) (C); sách chọn D
+int_1378	18	6	source_corrupted	đề ghi f'(x)=... nhưng đáp án tính như tốc độ doanh thu là f(x)=12x^5+... (C khớp cách hiểu đó)
+int_1394	18	5	segmentation_error	lời giải là toàn bộ "Câu 7" (tích phân I_{n+1}) bị nuốt -> câu 7 bị mất
+int_1419	18	9	key_wrong	hệ số x^6 của (5x-1)^6/30 là 5^6/30 = 3125/6 (D); sách chọn B
+int_1429	18	19	source_corrupted	giả thiết mâu thuẫn, ra I = int f^2 = -18 < 0 -> loại

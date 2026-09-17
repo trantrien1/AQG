@@ -57,6 +57,13 @@ def test_definite_integral_with_limits():
     assert latex(integral) == r'\int_{0}^{1} x\mathrm{d}x'
 
 
+def test_integral_drawn_with_custom_operator_template():
+    # tmINTOP: không có ký tự trong mẫu, toán tử nằm ở ô thứ tư
+    op = tmpl(21, 0x30, null_line(), line(char('0', FN_NUM)),
+              line(char('1', FN_NUM)), line(char('∫', FN_SYM)))
+    assert latex(op) == r'\int\limits_{0}^{1}'
+
+
 def test_absolute_value_uses_private_bar_glyphs():
     bars = tmpl(4, 3, line(char('x')),
                 char('\uec07', FN_EXPAND), char('\uec08', FN_EXPAND))
@@ -237,3 +244,46 @@ def test_solution_relying_on_figure_blocks_item():
     it = _item('Tính $S$.', 'Từ hình vẽ ta có $S=2$.')
     bd.apply_figure_policy(it)
     assert it['flags'] == ['figure_in_solution']
+
+
+def test_decomposed_vietnamese_still_matches_figure_reference():
+    import unicodedata
+    it = _item(bd.clean(unicodedata.normalize('NFD', 'Cho đồ thị như hình vẽ bên.')))
+    bd.apply_figure_policy(it)
+    assert it['flags'] == ['figure_in_question']
+
+
+def test_next_exam_header_is_dropped_from_solution():
+    paras = _paras('Câu 9. Đề', 'A. 1 B. 2 C. 3 D. 4',
+                   'ĐỀ KIỂM TRA 279 (đề gồm 02 trang)', red={1: ['A']})
+    item = bd.finalize(bd.segment(paras)[0], 't', 's', 'f').data
+    assert item['solution'] == ''
+    assert 'no_solution' in item['flags']
+
+
+def _labeled(tmp_path, qnum='5'):
+    (tmp_path / 'difficulty.tsv').write_text(
+        'id\tfile\tquestion_number\tlevel\nq1\t3\t%s\tVDC\n' % qnum, encoding='utf-8')
+    (tmp_path / 'review.tsv').write_text(
+        'id\tfile\tquestion_number\tflag\tnote\nq1\t3\t%s\tkey_wrong\tđáp án đúng là B\n'
+        % qnum, encoding='utf-8')
+    it = _item('Đề')
+    it.update(id='q1', answer='A', difficulty=None,
+              source={'file': '3  NH.docx', 'question_number': 5})
+    return it
+
+
+def test_labels_set_difficulty_and_block_reviewed_items(tmp_path):
+    it = _labeled(tmp_path)
+    assert bd.apply_labels([it], tmp_path) == []
+    assert it['difficulty'] == 'Vận dụng cao'
+    assert it['difficulty_source'].startswith('claude')
+    assert it['review_note'] == 'đáp án đúng là B'
+    assert not bd.is_usable(it)
+
+
+def test_labels_skipped_when_id_points_to_another_question(tmp_path):
+    it = _labeled(tmp_path, qnum='6')
+    warnings = bd.apply_labels([it], tmp_path)
+    assert len(warnings) == 2
+    assert it['difficulty'] is None and it['flags'] == []

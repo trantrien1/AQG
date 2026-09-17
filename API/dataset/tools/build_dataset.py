@@ -6,7 +6,9 @@ Mỗi câu hỏi ra một dòng JSON:
 
     {"id": "int_0001", "question": "...", "choices": ["A. ...", ...],
      "answer": "B", "solution": "...", "topic": "Nguyên hàm",
-     "subtopic": "Nguyên hàm từng phần", "difficulty": null, ...}
+     "subtopic": "Nguyên hàm từng phần", "difficulty": "Vận dụng", ...}
+
+Độ khó và các lỗi phát hiện khi rà soát bằng tay lấy từ ``dataset/labels``.
 
 Công thức MathType được chuyển sang LaTeX đặt trong ``$...$``. Hình vẽ được
 chép ra ``<out>/images/`` và thay bằng ``![hình](images/<tên>)`` trong chữ.
@@ -21,6 +23,7 @@ Cấu trúc tài liệu nhận dạng được:
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import io
 import json
@@ -28,6 +31,7 @@ import os
 import posixpath
 import re
 import sys
+import unicodedata
 from collections import Counter
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -70,6 +74,9 @@ RE_IMAGE = re.compile(r'\[\[HÌNH:([^\]]+)\]\]')
 # hoặc sau dấu chấm/ngoặc đóng ("...$.A. 3").
 RE_OPTION_MARK = re.compile(r'(?:(?<=[\s\x00\x01.\]])|^)([A-D])\s*[.)]\s*')
 RE_LEADING_IMAGES = re.compile(r'^(?:\s*\[\[HÌNH:[^\]]+\]\])+\s*')
+# Tiêu đề của đề kế tiếp trong file đề kiểm tra, bị dính vào câu cuối đề trước.
+RE_EXAM_HEADER = re.compile(r'^\s*ĐỀ\s+KIỂM\s+TRA\s+\d+.*$', re.M)
+OMML_MARK = '[[OMML]]'
 
 
 # ---------------------------------------------------------------------------
@@ -90,6 +97,9 @@ def _mask_math(text: str) -> Tuple[str, List[str]]:
 
 
 def clean(text: str) -> str:
+    # Word l\u01b0u l\u1eabn d\u1ea5u t\u1ed5 h\u1ee3p ("a" + d\u1ea5u s\u1eafc) v\u00e0 d\u1ea5u d\u1ef1ng s\u1eb5n; \u0111\u01b0a v\u1ec1 NFC \u0111\u1ec3
+    # regex ti\u1ebfng Vi\u1ec7t (vd. "h\u00ecnh v\u1ebd") kh\u1edbp \u0111\u01b0\u1ee3c.
+    text = unicodedata.normalize('NFC', text)
     text = text.replace('\t', ' ').replace('\u00a0', ' ')
     text = re.sub(r'[ ]{2,}', ' ', text)
     text = re.sub(r' *\n *', '\n', text)
@@ -307,12 +317,14 @@ def finalize(raw: RawQuestion, topic: str, subtopic: str, source: str) -> Item:
     if answer is None:
         problems.append('no_answer')
 
-    solution = clean('\n'.join(solution_lines))
+    solution = clean(RE_EXAM_HEADER.sub('', '\n'.join(solution_lines)))
     stem = clean(stem)
     if not solution:
         problems.append('no_solution')
     if raw.eq_failed:
         problems.append('formula_missing')
+    if any(OMML_MARK in part for part in (stem, *choices, solution)):
+        problems.append('omml_unconverted')
     if len(choices) == 4 and len(set(choices)) < 4:
         problems.append('duplicate_choices')
 
@@ -329,11 +341,13 @@ def finalize(raw: RawQuestion, topic: str, subtopic: str, source: str) -> Item:
         'topic': topic,
         'subtopic': subtopic,
         'difficulty': None,
+        'difficulty_source': None,
         'section': raw.section,
         'source': {'file': source, 'question_number': raw.number},
         'answer_source': answer_from,
         'images': images,
         'flags': problems,
+        'review_note': None,
     }
     return Item(data, problems)
 
@@ -367,7 +381,58 @@ def export_image(reader: DocxReader, media_name: str, out_dir: Path, stem: str) 
 # ---------------------------------------------------------------------------
 
 BLOCKING_FLAGS = ('no_answer', 'no_choices', 'formula_missing', 'duplicate',
-                  'duplicate_choices', 'figure_in_question', 'figure_in_solution')
+                  'duplicate_choices', 'figure_in_question', 'figure_in_solution',
+                  'omml_unconverted',
+                  # từ rà soát thủ công (dataset/labels/review.tsv)
+                  'key_wrong', 'key_suspect', 'source_corrupted',
+                  'segmentation_error', 'figure_implicit')
+
+DIFFICULTY_NAMES = {'NB': 'Nhận biết', 'TH': 'Thông hiểu',
+                    'VD': 'Vận dụng', 'VDC': 'Vận dụng cao'}
+DIFFICULTY_SOURCE = 'claude-opus-5 (chưa có giáo viên xác nhận)'
+
+
+def _read_tsv(path: Path) -> List[Dict[str, str]]:
+    if not path.exists():
+        return []
+    with open(path, encoding='utf-8', newline='') as fh:
+        return list(csv.DictReader(fh, delimiter='\t'))
+
+
+def apply_labels(items: List[Dict], labels_dir: Path) -> List[str]:
+    """Gắn độ khó và cờ rà soát thủ công theo ``id``.
+
+    Mỗi dòng nhãn ghi kèm số file và số câu; nếu không khớp với bản ghi (id bị
+    lệch do đổi cách tách câu) thì bỏ qua dòng đó và trả về cảnh báo.
+    """
+    by_id = {it['id']: it for it in items}
+    warnings: List[str] = []
+
+    def target(row: Dict[str, str]) -> Optional[Dict]:
+        it = by_id.get(row['id'])
+        if it is None:
+            warnings.append(f"{row['id']}: không có trong dataset")
+            return None
+        src = it['source']
+        if (src['file'].split()[0] != row['file']
+                or str(src['question_number']) != row['question_number']):
+            warnings.append(f"{row['id']}: nhãn ghi file {row['file']} câu "
+                            f"{row['question_number']}, bản ghi là "
+                            f"{src['file'].split()[0]} câu {src['question_number']}")
+            return None
+        return it
+
+    for row in _read_tsv(labels_dir / 'difficulty.tsv'):
+        it = target(row)
+        if it is not None:
+            it['difficulty'] = DIFFICULTY_NAMES[row['level']]
+            it['difficulty_source'] = DIFFICULTY_SOURCE
+    for row in _read_tsv(labels_dir / 'review.tsv'):
+        it = target(row)
+        if it is not None:
+            it['flags'].append(row['flag'])
+            it['review_note'] = row['note']
+    return warnings
 
 # Chữ nhắc tới hình: hình vẽ bằng shape của Word không xuất được thành ảnh nên
 # đề vẫn nhắc "như hình vẽ" dù không có ảnh nào.
@@ -426,7 +491,8 @@ def mark_duplicates(items: List[Dict]) -> None:
             it['duplicate_of'] = None
 
 
-def build(src: Path, out: Path, id_prefix: str) -> Dict:
+def build(src: Path, out: Path, id_prefix: str,
+          labels_dir: Optional[Path] = None) -> Dict:
     files = sorted(src.glob('*.docx'), key=lambda f: int(f.name.split()[0]))
     img_dir = out / 'images'
     img_dir.mkdir(parents=True, exist_ok=True)
@@ -471,6 +537,7 @@ def build(src: Path, out: Path, id_prefix: str) -> Dict:
             'equations_failed': reader.stats.eq_failed,
         })
     mark_duplicates(items)
+    report['label_warnings'] = apply_labels(items, labels_dir) if labels_dir else []
     report['flags'] = Counter()
     for it in items:
         report['flags'].update(it['flags'])
@@ -481,6 +548,8 @@ def build(src: Path, out: Path, id_prefix: str) -> Dict:
             fh.write(json.dumps(it, ensure_ascii=False) + '\n')
     report['total'] = len(items)
     report['usable'] = sum(1 for it in items if is_usable(it))
+    report['difficulty'] = dict(Counter(
+        it['difficulty'] for it in items if it['usable']))
     report['flags'] = dict(report['flags'])
     with open(out / 'build_report.json', 'w', encoding='utf-8') as fh:
         json.dump(report, fh, ensure_ascii=False, indent=2)
@@ -493,8 +562,11 @@ def main() -> None:
     ap.add_argument('--src', required=True, help='thư mục chứa các file .docx')
     ap.add_argument('--out', default='dataset/export')
     ap.add_argument('--id-prefix', default='int')
+    ap.add_argument('--labels', default='dataset/labels',
+                    help='thư mục chứa difficulty.tsv và review.tsv')
     args = ap.parse_args()
-    report = build(Path(args.src), Path(args.out), args.id_prefix)
+    report = build(Path(args.src), Path(args.out), args.id_prefix,
+                   Path(args.labels))
     print(json.dumps(report, ensure_ascii=False, indent=2))
 
 
