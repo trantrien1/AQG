@@ -1,0 +1,35 @@
+{
+ "model": "anthropic/claude-haiku-4.5",
+ "pdf": "pdftest/file_3_trang_61-90.pdf",
+ "requested": 1,
+ "delivered": 1,
+ "rejected": 2,
+ "attempted": 3,
+ "error_code": null,
+ "duration_seconds": 278.4,
+ "cost": {
+  "tokens": 569548,
+  "calls": 11
+ },
+ "issue_counts": {},
+ "status_counts": {
+  "consistency_confirmed": 1
+ },
+ "bloom_counts": {
+  "Vận dụng": 1
+ },
+ "per_question": [
+  {
+   "id": "q_2026_e00b0d3f",
+   "bloom": "Vận dụng",
+   "status": "consistency_confirmed",
+   "machine_checked": true,
+   "independent": false,
+   "derivation": false,
+   "review": "pending_review",
+   "issues": [],
+   "stem_len": 410,
+   "stem_tail": "ồng/m². Tính tổng chi phí để trồng hoa trên toàn bộ phần đất được giới hạn bởi parabol đó."
+  }
+ ]
+}

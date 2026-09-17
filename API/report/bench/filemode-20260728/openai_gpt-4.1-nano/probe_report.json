@@ -1,0 +1,74 @@
+{
+ "model": "openai/gpt-4.1-nano",
+ "pdf": "pdftest/file_3_trang_61-90.pdf",
+ "requested": 20,
+ "delivered": 4,
+ "rejected": 42,
+ "attempted": 46,
+ "error_code": null,
+ "duration_seconds": 1456.1,
+ "cost": {
+  "tokens": 6542482,
+  "calls": 158
+ },
+ "issue_counts": {},
+ "status_counts": {
+  "consistency_confirmed": 2,
+  "non_verifiable": 2
+ },
+ "bloom_counts": {
+  "Thông hiểu": 1,
+  "Vận dụng cao": 1,
+  "Nhận biết": 2
+ },
+ "per_question": [
+  {
+   "id": "q_2026_d632a5ef",
+   "bloom": "Thông hiểu",
+   "status": "consistency_confirmed",
+   "machine_checked": true,
+   "independent": false,
+   "derivation": false,
+   "review": "pending_review",
+   "issues": [],
+   "stem_len": 291,
+   "stem_tail": "uãng đường vật đi được trong 4 giây đó. Biết rằng vận tốc trong 3 giây cuối cùng là 4 m/s."
+  },
+  {
+   "id": "q_2026_fa6d7a0a",
+   "bloom": "Vận dụng cao",
+   "status": "non_verifiable",
+   "machine_checked": false,
+   "independent": false,
+   "derivation": false,
+   "review": "pending_review",
+   "issues": [],
+   "stem_len": 248,
+   "stem_tail": "xoay tạo thành khi quay hình này quanh trục Ox là bao nhiêu (làm tròn đến hàng phần mười)?"
+  },
+  {
+   "id": "q_2026_50febe68",
+   "bloom": "Nhận biết",
+   "status": "consistency_confirmed",
+   "machine_checked": true,
+   "independent": false,
+   "derivation": false,
+   "review": "pending_review",
+   "issues": [],
+   "stem_len": 238,
+   "stem_tail": "4 m/s, và trong 1 giờ đầu, vận tốc là 10 m/s. Tính quãng đường vật đi được trong 4 giờ đó."
+  },
+  {
+   "id": "q_2026_0f5a1c24",
+   "bloom": "Nhận biết",
+   "status": "non_verifiable",
+   "machine_checked": false,
+   "independent": false,
+   "derivation": false,
+   "review": "pending_review",
+   "issues": [],
+   "stem_len": 336,
+   "stem_tail": "ần theo hàm số v(t) = -\\(\\frac{3}{2}\\)t + 6. Tính quãng đường vật đi được trong 4 giây đó."
+  }
+ ]
+}

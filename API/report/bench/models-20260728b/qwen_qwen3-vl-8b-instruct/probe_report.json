@@ -1,0 +1,35 @@
+{
+ "model": "qwen/qwen3-vl-8b-instruct",
+ "pdf": "pdftest/file_3_trang_61-90.pdf",
+ "requested": 20,
+ "delivered": 1,
+ "rejected": 45,
+ "attempted": 46,
+ "error_code": null,
+ "duration_seconds": 1681.0,
+ "cost": {
+  "tokens": 3628688,
+  "calls": 117
+ },
+ "issue_counts": {},
+ "status_counts": {
+  "non_verifiable": 1
+ },
+ "bloom_counts": {
+  "Vận dụng cao": 1
+ },
+ "per_question": [
+  {
+   "id": "q_2026_e8fe5e8a",
+   "bloom": "Vận dụng cao",
+   "status": "non_verifiable",
+   "machine_checked": false,
+   "independent": false,
+   "derivation": false,
+   "review": "pending_review",
+   "issues": [],
+   "stem_len": 480,
+   "stem_tail": "huyển được trong 6 giờ là \\(\\frac{a}{b}\\), với \\((a,b)=1\\). Khi đó \\(a-b\\) bằng bao nhiêu?"
+  }
+ ]
+}

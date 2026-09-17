@@ -1,0 +1,26 @@
+{
+  "question": "Trong mặt phẳng cho hình vuông \(ABCD\) cạnh \(2\sqrt{2}\), phía ngoài hình vuông vẽ thêm bốn nửa đường tròn nhận các cạnh của hình vuông làm đường kính. Quãng đường đi được trong 6 giờ là bao nhiêu?",
+  "answer": "\\(S \\approx 8\\pi\\)",
+  "explanation": "Quãng đường đi được là tổng diện tích các phần tròn quay quanh các cạnh của hình vuông, tính bằng tích phân diện tích các hình tròn quay, dựa trên bán kính các đường tròn và thời gian quay.",
+  "detailed_solution": {
+    "steps": [
+      {"title": "Bước 1", "content": "Xác định bán kính các đường tròn nhận các cạnh của hình vuông: bán kính \(r = \\frac{2\sqrt{2}}{2} = \\sqrt{2}\)."},
+      {"title": "Bước 2", "content": "Tính diện tích của một hình tròn quay quanh trục của cạnh: diện tích phần tròn quay là \\(2\\pi r h\\), trong đó chiều dài quỹ đạo là \\(2\\pi r\\), thời gian quay là 6 giờ."},
+      {"title": "Bước 3", "content": "Tính tổng quãng đường đi: \\(S = 4 \\times 2\\pi r \\times \\text{thời gian quay trong 6 giờ} = 4 \\times 2\\pi \\sqrt{2} \\times 6 = 8\\pi \\times \\sqrt{2} \\times 6 = 8\\pi \\times 6 \\times \\sqrt{2} = 48\\pi \\sqrt{2}.")},
+      {"title": "Bước 4", "content": "Rút gọn và đưa ra kết luận: quãng đường đi được trong 6 giờ là \\(S \\approx 8\\pi\\)."}
+    ],
+    "final_answer": "\\(S \\approx 8\\pi\\)"
+  },
+  "why_correct": "Vì quãng đường đi là tổng diện tích các vòng quay của bốn nửa đường tròn nhận các cạnh của hình vuông, tính bằng công thức vòng tròn quay, dựa trên chiều dài quỹ đạo và thời gian quay.",
+  "source_quote": "Trong đó, quãng đường đi được trong 6 giờ là tổng diện tích các phần tròn quay quanh các cạnh của hình vuông.",
+  "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+  },
+  "verifier_payload": {
+    "type": "none",
+    "payload": {}
+  },
+  "distractors": []
+}

@@ -1,0 +1,444 @@
+{
+  "run": "20260724-b1 (post-fix: sqrt parser + numeric_eval key recovery)",
+  "methodology": "Cross-family LLM-as-judge: Claude Opus 4.8 chấm câu do GPT-4o sinh (critic nội bộ GPT-4o-mini). MỖI đáp án được kiểm ĐỘC LẬP bằng SymPy (audit_all37.py). 1 rater, automatic evaluation — KHÔNG phải human study.",
+  "criteria_pass_counts": {
+    "n": 37,
+    "a_unique_correct": 35,
+    "b_grounded": 37,
+    "c_nontrivial": 31,
+    "d_understanding": 34,
+    "all_four_pass": 29
+  },
+  "criteria_pass_rates": {
+    "a_unique_correct": 0.946,
+    "b_grounded": 1.0,
+    "c_nontrivial": 0.838,
+    "d_understanding": 0.919,
+    "all_four_pass": 0.784
+  },
+  "answer_not_unique_or_wrong_ids": [
+    5,
+    36
+  ],
+  "wrong_key_caught_verified_false": [
+    5
+  ],
+  "blind_spot_wrong_key_passed_verified_true": [],
+  "fix_b_recovered_ids": [
+    29,
+    32,
+    33
+  ],
+  "uniqueness_flaw_ids": [
+    36
+  ],
+  "per_question": [
+    {
+      "gidx": 1,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 0,
+        "d_understanding": 1
+      },
+      "all4": 0,
+      "note": "f=F', f(3)=49 đúng; hiểu quan hệ nguyên hàm-đạo hàm; tính đơn giản"
+    },
+    {
+      "gidx": 2,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "v từ gia tốc, v(3)=55 đúng"
+    },
+    {
+      "gidx": 3,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "N(4)=78, giải hệ a,b (stem hơi thiếu câu hỏi tường minh)"
+    },
+    {
+      "gidx": 4,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "V(4)=128, tìm a=3 rồi tích phân"
+    },
+    {
+      "gidx": 5,
+      "criteria": {
+        "a_unique_correct": 0,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 0,
+      "note": "SAI KEY: đúng 28/3, key 16/3 (không có trong options); verifier BẮT verified=False"
+    },
+    {
+      "gidx": 6,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "R(1500)=675050 đúng"
+    },
+    {
+      "gidx": 7,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "V(5)=225, tìm b=6"
+    },
+    {
+      "gidx": 8,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "V(6)=354"
+    },
+    {
+      "gidx": 9,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "24π, tìm k rồi ∫; v>0 nên |v|=v hợp lệ"
+    },
+    {
+      "gidx": 10,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 0,
+        "d_understanding": 0
+      },
+      "all4": 0,
+      "note": "Nhận biết: nguyên hàm 5cosx-3; recall (no verifier, đúng)"
+    },
+    {
+      "gidx": 11,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "17+12√6, dừng khi v=0; đáp án dạng căn (Fix A liên quan)"
+    },
+    {
+      "gidx": 12,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "quãng đường phanh 54"
+    },
+    {
+      "gidx": 13,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "diện tích 32/3"
+    },
+    {
+      "gidx": 14,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "diện tích parabol 16"
+    },
+    {
+      "gidx": 15,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 0,
+        "d_understanding": 1
+      },
+      "all4": 0,
+      "note": "S=2/3·d·h rồi ×L; plug công thức, ít bước"
+    },
+    {
+      "gidx": 16,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "điện lượng 3+π"
+    },
+    {
+      "gidx": 17,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "h=5 đúng NHƯNG đề/lời giải lộn xộn (stem cắt, bước 4-5 tự sửa); clarity kém"
+    },
+    {
+      "gidx": 18,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "B(6)=384, tìm a=46"
+    },
+    {
+      "gidx": 19,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "60 ml, tìm k=4"
+    },
+    {
+      "gidx": 20,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 0,
+        "d_understanding": 0
+      },
+      "all4": 0,
+      "note": "Nhận biết: định nghĩa cận dưới; recall thuần (no verifier)"
+    },
+    {
+      "gidx": 21,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 0,
+        "d_understanding": 0
+      },
+      "all4": 0,
+      "note": "Nhận biết: S=2/3 dh plug số; recall+thế"
+    },
+    {
+      "gidx": 22,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "16/3, parabola đỉnh I(1,4); needs_revision do bloom nhưng ĐÚNG"
+    },
+    {
+      "gidx": 23,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "diện tích cổng 20"
+    },
+    {
+      "gidx": 24,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "605/2: tìm x* min marginal rồi C(75)"
+    },
+    {
+      "gidx": 25,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "228: tìm a rồi C(60)"
+    },
+    {
+      "gidx": 26,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "thể tích hầm 672/5 (thiết diện parabol)"
+    },
+    {
+      "gidx": 27,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "7136/45 (stem cắt nhưng giải/đáp đúng)"
+    },
+    {
+      "gidx": 28,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "108π/5 tròn xoay y=ax²"
+    },
+    {
+      "gidx": 29,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "284π/3 tròn xoay từ đường tròn; Fix B recovered — SymPy xác nhận ĐÚNG"
+    },
+    {
+      "gidx": 30,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "diện tích cổng 20"
+    },
+    {
+      "gidx": 31,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "9/2 diện tích giữa 2 đường cong"
+    },
+    {
+      "gidx": 32,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "774π/5; Fix B recovered — SymPy ĐÚNG"
+    },
+    {
+      "gidx": 33,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "252π/5; Fix B recovered — SymPy ĐÚNG"
+    },
+    {
+      "gidx": 34,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "96π/5 tròn xoay"
+    },
+    {
+      "gidx": 35,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "a=3/5 khinh khí cầu"
+    },
+    {
+      "gidx": 36,
+      "criteria": {
+        "a_unique_correct": 0,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 0,
+      "note": "KHÔNG DUY NHẤT: key a=-1/3 ĐÚNG nhưng a=2 (option D) cũng cho V=1944π/5; multi_answer check bỏ sót vì hint numeric_eval chỉ tính 1 nghiệm"
+    },
+    {
+      "gidx": 37,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 0,
+        "d_understanding": 1
+      },
+      "all4": 0,
+      "note": "Nhận biết: diện tích ∫3x²=26; cần tích phân nhưng đơn giản"
+    }
+  ]
+}

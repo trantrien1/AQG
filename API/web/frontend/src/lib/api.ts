@@ -151,7 +151,30 @@ export interface Question {
   verification?: {
     engine?: string
     method?: string
+    /**
+     * Cờ HẸP: biểu thức kiểm chứng do tác nhân viết đề khai có khớp đáp án hay
+     * không. KHÔNG đọc là "đáp án đúng" — kết luận nằm ở `status`.
+     */
     verified?: boolean | null
+    /** independently_verified | consistency_confirmed | mismatch | non_verifiable | refuted */
+    status?: string
+    status_label_vi?: string
+    status_label_en?: string
+    machine_checked?: boolean
+    machine_verifiable?: boolean
+    question_kind?: "computational" | "conceptual"
+    needs_human_review?: boolean
+    evidence_sources?: string[]
+    independent?: {
+      attempted?: boolean
+      definite?: boolean
+      value?: number | null
+      expression?: string
+      source?: string
+      detail?: string
+      model?: string
+    }
+    verifier_version?: string
     numeric_crosscheck_points?: number
     detail?: string
     verified_at?: string

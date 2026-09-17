@@ -1,0 +1,406 @@
+{
+  "methodology": "Cross-family LLM-as-judge: Claude Opus 4.8 chấm câu do GPT-4o sinh (Critic nội bộ là GPT-4o-mini, khác họ judge). Mỗi câu được đọc thủ công; tính đúng đáp án kiểm bằng SymPy độc lập. 1 rater, automatic evaluation — KHÔNG phải human study.",
+  "criteria_pass_counts": {
+    "n": 34,
+    "a_unique_correct": 31,
+    "b_grounded": 34,
+    "c_nontrivial": 27,
+    "d_understanding": 29,
+    "all_four_pass": 24
+  },
+  "criteria_pass_rates": {
+    "a_unique_correct": 0.912,
+    "b_grounded": 1.0,
+    "c_nontrivial": 0.794,
+    "d_understanding": 0.853,
+    "all_four_pass": 0.706
+  },
+  "wrong_answer_ids": [
+    2,
+    10,
+    31
+  ],
+  "verifier_missed_ids": [
+    2,
+    31
+  ],
+  "verifier_caught_ids": [
+    10
+  ],
+  "per_question": [
+    {
+      "id": 1,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 0,
+        "d_understanding": 0
+      },
+      "all4": 0,
+      "note": "Nhận biết: nhớ công thức ∫cos=sin; đúng nhưng tầm thường/recall"
+    },
+    {
+      "id": 2,
+      "criteria": {
+        "a_unique_correct": 0,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 0,
+      "note": "SAI ĐÁP ÁN: đúng=12, key=14 (không có trong 4 đáp án); verifier LỌT (expr tự khớp sai)"
+    },
+    {
+      "id": 3,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "F(5)=351/2 đúng; nhiều bước, tốt"
+    },
+    {
+      "id": 4,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "h(5)=1045/4 đúng; phải tìm a trước, tốt"
+    },
+    {
+      "id": 5,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "quãng đường phanh=54 đúng"
+    },
+    {
+      "id": 6,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "∫=33 đúng"
+    },
+    {
+      "id": 7,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "C(60)=422 đúng (ca key-repaired, giờ nhất quán)"
+    },
+    {
+      "id": 8,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "V(5)=89 đúng"
+    },
+    {
+      "id": 9,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "diện tích=27 đúng; giải hệ tìm m,n, tốt"
+    },
+    {
+      "id": 10,
+      "criteria": {
+        "a_unique_correct": 0,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 0,
+      "note": "SAI ĐÁP ÁN: avg đúng=56.67, key=29 (không có đáp án); verifier BẮT (needs_revision)"
+    },
+    {
+      "id": 11,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "d=12 đúng; Vận dụng cao, tốt"
+    },
+    {
+      "id": 12,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "V=768 đúng (lăng trụ, không π)"
+    },
+    {
+      "id": 13,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 0,
+        "d_understanding": 0
+      },
+      "all4": 0,
+      "note": "Nhận biết: nhớ định nghĩa tích phân; đúng nhưng recall"
+    },
+    {
+      "id": 14,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 0,
+        "d_understanding": 1
+      },
+      "all4": 0,
+      "note": "∫=36 đúng; thế số đơn giản, borderline trivial"
+    },
+    {
+      "id": 15,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 0,
+        "d_understanding": 0
+      },
+      "all4": 0,
+      "note": "Nhận biết: nhớ công thức S=2/3 dh; recall"
+    },
+    {
+      "id": 16,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "V=80 đúng; quote hơi lệch (parabol khác) nhưng cùng khái niệm"
+    },
+    {
+      "id": 17,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "V=40 đúng; option 96π là bẫy revolution tốt"
+    },
+    {
+      "id": 18,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "C(75)=675/2 đúng"
+    },
+    {
+      "id": 19,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "s=98/3 đúng"
+    },
+    {
+      "id": 20,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "V=320/3; đề hơi mơ hồ quan hệ d–h thiết diện nhưng chấp nhận được"
+    },
+    {
+      "id": 21,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "V=56 đúng"
+    },
+    {
+      "id": 22,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "k=3/50000 đúng; bài ngược, Vận dụng cao tốt"
+    },
+    {
+      "id": 23,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 0,
+        "d_understanding": 0
+      },
+      "all4": 0,
+      "note": "Nhận biết: thế số vào S=2/3 dh; recall+plug"
+    },
+    {
+      "id": 24,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "diễn giải ý nghĩa M'(t); kiểm tra hiểu đạo hàm-tốc độ"
+    },
+    {
+      "id": 25,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "504π/5 ĐÚNG (SymPy); needs_revision do π-form false flag"
+    },
+    {
+      "id": 26,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "168π/5 ĐÚNG (SymPy); π-form false flag"
+    },
+    {
+      "id": 27,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "diện tích 32/3 đúng; giữa 2 đường cong, tốt"
+    },
+    {
+      "id": 28,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "446π/15 ĐÚNG (SymPy); π-form false flag"
+    },
+    {
+      "id": 29,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "64400π ĐÚNG (SymPy); quote lệch số (1600π) nhưng khái niệm ok"
+    },
+    {
+      "id": 30,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "464π/5 ĐÚNG (SymPy); π-form false flag"
+    },
+    {
+      "id": 31,
+      "criteria": {
+        "a_unique_correct": 0,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 0,
+      "note": "SAI ĐÁP ÁN: đúng=1296π/5, key=864π/5 (không có đáp án); verifier LỌT"
+    },
+    {
+      "id": 32,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "m=9/4 đúng; bài ngược Vận dụng cao, tốt"
+    },
+    {
+      "id": 33,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 0,
+        "d_understanding": 0
+      },
+      "all4": 0,
+      "note": "Nhận biết: nhớ công thức thể tích tròn xoay; recall"
+    },
+    {
+      "id": 34,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 0,
+        "d_understanding": 1
+      },
+      "all4": 0,
+      "note": "2178π/5 ĐÚNG (SymPy); Nhận biết nhưng cần tích phân, không quá trivial"
+    }
+  ]
+}

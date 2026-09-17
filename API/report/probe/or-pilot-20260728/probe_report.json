@@ -1,0 +1,110 @@
+{
+ "model": "openai/gpt-4o-mini",
+ "pdf": "pdftest/file_3_trang_61-90.pdf",
+ "requested": 10,
+ "delivered": 7,
+ "rejected": 11,
+ "error_code": null,
+ "duration_seconds": 483.5,
+ "cost": {
+  "tokens": 8805510,
+  "calls": 69
+ },
+ "issue_counts": {},
+ "status_counts": {
+  "consistency_confirmed": 3,
+  "mismatch": 2,
+  "non_verifiable": 2
+ },
+ "bloom_counts": {
+  "Vận dụng": 3,
+  "Thông hiểu": 3,
+  "Vận dụng cao": 1
+ },
+ "per_question": [
+  {
+   "id": "q_2026_b0f90b92",
+   "bloom": "Vận dụng",
+   "status": "consistency_confirmed",
+   "machine_checked": true,
+   "independent": false,
+   "derivation": false,
+   "review": "pending_review",
+   "issues": [],
+   "stem_len": 307,
+   "stem_tail": "được trong 1 giờ 30 phút kể từ lúc bắt đầu chạy (kết quả làm tròn đến 2 chữ số thập phân)."
+  },
+  {
+   "id": "q_2026_a7fe7cab",
+   "bloom": "Thông hiểu",
+   "status": "mismatch",
+   "machine_checked": false,
+   "independent": false,
+   "derivation": false,
+   "review": "needs_revision",
+   "issues": [],
+   "stem_len": 382,
+   "stem_tail": " gian còn lại vật chuyển động chậm dần. Tính quãng đường \\(S\\) mà vật đi được trong 4 giờ."
+  },
+  {
+   "id": "q_2026_3f9c0454",
+   "bloom": "Vận dụng cao",
+   "status": "consistency_confirmed",
+   "machine_checked": true,
+   "independent": false,
+   "derivation": false,
+   "review": "pending_review",
+   "issues": [],
+   "stem_len": 528,
+   "stem_tail": "ho biết giá trị của \\(a - b\\) nếu \\(S = \\frac{a}{b}\\) với \\(a, b\\) là các số nguyên dương."
+  },
+  {
+   "id": "q_2026_9d798085",
+   "bloom": "Vận dụng",
+   "status": "non_verifiable",
+   "machine_checked": false,
+   "independent": false,
+   "derivation": false,
+   "review": "needs_revision",
+   "issues": [],
+   "stem_len": 378,
+   "stem_tail": "ian còn lại vật chuyển động chậm dần. Tính quãng đường \\( S \\) mà vật đi được trong 5 giờ."
+  },
+  {
+   "id": "q_2026_edfc4bab",
+   "bloom": "Thông hiểu",
+   "status": "mismatch",
+   "machine_checked": false,
+   "independent": false,
+   "derivation": false,
+   "review": "needs_revision",
+   "issues": [],
+   "stem_len": 364,
+   "stem_tail": " gian còn lại vật chuyển động chậm dần. Tính quãng đường \\(S\\) mà vật đi được trong 5 giờ."
+  },
+  {
+   "id": "q_2026_ab8ab6a7",
+   "bloom": "Thông hiểu",
+   "status": "non_verifiable",
+   "machine_checked": false,
+   "independent": false,
+   "derivation": false,
+   "review": "needs_revision",
+   "issues": [],
+   "stem_len": 385,
+   "stem_tail": "t phát, khinh khí cầu đã ở độ cao 530 m. Hãy tính độ cao tối đa của khinh khí cầu khi bay."
+  },
+  {
+   "id": "q_2026_bb9a8830",
+   "bloom": "Vận dụng",
+   "status": "consistency_confirmed",
+   "machine_checked": true,
+   "independent": false,
+   "derivation": false,
+   "review": "pending_review",
+   "issues": [],
+   "stem_len": 434,
+   "stem_tail": "số góc bằng \\( \\frac{1}{4} \\). Tính quãng đường \\( S \\) mà vật di chuyển được trong 6 giờ."
+  }
+ ]
+}

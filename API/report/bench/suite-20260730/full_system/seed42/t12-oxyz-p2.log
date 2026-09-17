@@ -1,0 +1,12 @@
+    [pdf-slot direct_pdf_1] writer 0 candidates; errors=["Expecting ',' delimiter: line 4 column 345 (char 597)"]
+    [pdf-slot direct_pdf_4] writer 0 candidates; errors=["Expecting ',' delimiter: line 4 column 183 (char 516)"]
+    [pdf-slot direct_pdf_5] critic reject: answer_uniqueness=0.15 (nghi đa đáp án)
+    [pdf-slot direct_pdf_3] critic reject: error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Distractor \(-2\) nhất quán với lỗi bỏ điều kiện, nhưng distractor \(11,5\) có phần mô tả lỗi mâu thuẫn và không tạo ra đúng giá trị ghi ở phương án.)
+    [pdf-slot direct_pdf_8] writer 0 candidates; errors=["Expecting ',' delimiter: line 1 column 839 (char 838)"]
+    [pdf-slot direct_pdf_6] writer 0 candidates; errors=["Expecting ',' delimiter: line 4 column 258 (char 524)"]
+    [pdf-slot direct_pdf_10] writer 0 candidates; errors=["Expecting ',' delimiter: line 4 column 147 (char 340)"]
+    [pdf-slot direct_pdf_14] writer 0 candidates; errors=["Expecting ':' delimiter: line 1 column 1907 (char 1906)"]
+    [pdf-slot direct_pdf_12] verifier reject: answer_text_mismatch: đáp án key \(0\) không khớp giá trị 18.0 mà engine tính ra
+    [pdf-slot direct_pdf_20] mismatch: biểu thức của Writer khớp key (1.34164) nhưng tính toán độc lập cho 2.23607
+    [pdf-slot direct_pdf_18] mismatch: biểu thức của Writer khớp key (-5) nhưng tính toán độc lập cho 5
+[cell] arm=full_system seed=42 t12-oxyz-p2.pdf: delivered=12/12 rejected=9 tokens=218279 542s

@@ -1,0 +1,133 @@
+{
+  "per_pdf": [
+    {
+      "pdf": "file_1_trang_1-31.pdf",
+      "requested": 10,
+      "generated": 10,
+      "generation_error": null,
+      "generation_seconds": 30.4,
+      "cost": {
+        "tokens": 5662,
+        "calls": 1
+      },
+      "gate_pass": 6,
+      "gate_pass_rate": 0.6,
+      "pass_clean": 6,
+      "pass_clean_rate": 0.6,
+      "verdict_distribution": {
+        "pass": 6,
+        "rule:quality_low": 2,
+        "rule:explanation_low_quality": 1,
+        "rule:duplicate": 1
+      },
+      "verified_true": 3,
+      "verified_false": 0,
+      "verified_none": 7,
+      "hint_type_distribution": {
+        "none": 4,
+        "numeric_eval": 6
+      }
+    },
+    {
+      "pdf": "file_2_trang_31-61.pdf",
+      "requested": 10,
+      "generated": 10,
+      "generation_error": null,
+      "generation_seconds": 30.3,
+      "cost": {
+        "tokens": 6937,
+        "calls": 1
+      },
+      "gate_pass": 6,
+      "gate_pass_rate": 0.6,
+      "pass_clean": 6,
+      "pass_clean_rate": 0.6,
+      "verdict_distribution": {
+        "pass": 6,
+        "rule:quality_low": 2,
+        "rule:duplicate": 1,
+        "rule:explanation_low_quality": 1
+      },
+      "verified_true": 5,
+      "verified_false": 0,
+      "verified_none": 5,
+      "hint_type_distribution": {
+        "none": 1,
+        "numeric_eval": 9
+      }
+    },
+    {
+      "pdf": "file_3_trang_61-90.pdf",
+      "requested": 10,
+      "generated": 10,
+      "generation_error": null,
+      "generation_seconds": 32.0,
+      "cost": {
+        "tokens": 9232,
+        "calls": 1
+      },
+      "gate_pass": 8,
+      "gate_pass_rate": 0.8,
+      "pass_clean": 8,
+      "pass_clean_rate": 0.8,
+      "verdict_distribution": {
+        "pass": 8,
+        "rule:duplicate": 2
+      },
+      "verified_true": 6,
+      "verified_false": 0,
+      "verified_none": 4,
+      "hint_type_distribution": {
+        "none": 2,
+        "numeric_eval": 8
+      }
+    },
+    {
+      "pdf": "file_4_trang_91-het.pdf",
+      "requested": 10,
+      "generated": 4,
+      "generation_error": null,
+      "generation_seconds": 21.7,
+      "cost": {
+        "tokens": 5972,
+        "calls": 1
+      },
+      "gate_pass": 4,
+      "gate_pass_rate": 1.0,
+      "pass_clean": 4,
+      "pass_clean_rate": 1.0,
+      "verdict_distribution": {
+        "pass": 4
+      },
+      "verified_true": 3,
+      "verified_false": 0,
+      "verified_none": 1,
+      "hint_type_distribution": {
+        "none": 1,
+        "numeric_eval": 3
+      }
+    }
+  ],
+  "totals": {
+    "pdfs": 4,
+    "requested": 40,
+    "generated": 34,
+    "graded": 34,
+    "gate_pass": 24,
+    "gate_pass_rate": 0.7059,
+    "pass_clean": 24,
+    "pass_clean_rate": 0.7059,
+    "verdict_distribution": {
+      "pass": 24,
+      "rule:quality_low": 4,
+      "rule:explanation_low_quality": 2,
+      "rule:duplicate": 4
+    },
+    "verified_true": 17,
+    "verified_false": 0,
+    "verified_none": 17,
+    "cost_tokens": 27803,
+    "cost_calls": 4,
+    "generation_seconds": 114.4
+  }
+}

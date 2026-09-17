@@ -1,0 +1,8 @@
+    [pdf-slot direct_pdf_1] writer 0 candidates; errors=["Expecting ',' delimiter: line 4 column 130 (char 334)"]
+    [pdf-slot direct_pdf_0] writer 0 candidates; errors=["Expecting ',' delimiter: line 4 column 151 (char 523)"]
+    [pdf-slot direct_pdf_4] critic reject: error_distractor_consistency=0.25 (lỗi mô tả không khớp giá trị distractor/đáp án) (Hai distractor \(-8\) và \(2\) không được suy ra hoàn toàn đúng theo chuỗi lỗi mô tả, còn distractor \(32\) mâu thuẫn rõ với phép tính trong phần giải thích lỗi)
+    [pdf-slot direct_pdf_9] critic reject: error_distractor_consistency=0.25 (lỗi mô tả không khớp giá trị distractor/đáp án) (Một số mô tả chuỗi lỗi không thực sự dẫn tới đúng số distractor (đặc biệt phương án 36 và 30), dù phần giải thích đáp án đúng vẫn nhất quán.)
+    [pdf-slot direct_pdf_10] verifier reject: multi_answer: distractor "\(-4\cdot 2^{\frac{2}{5}}\)" cũng được verifier xác nhận đúng
+    [pdf-slot direct_pdf_12] verifier reject: answer_text_mismatch: đáp án key \(2\) không khớp giá trị 2.1213203435596424 mà engine tính ra
+    [pdf-slot direct_pdf_17] writer 0 candidates; errors=["Expecting ',' delimiter: line 26 column 232 (char 1557)"]
+[cell] arm=full_system seed=42 t12-daoham-p1.pdf: delivered=12/12 rejected=7 tokens=196379 503s

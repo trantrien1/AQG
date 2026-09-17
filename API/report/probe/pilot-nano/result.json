@@ -1,0 +1,822 @@
+{
+ "questions": [],
+ "accepted_count": 0,
+ "requested_count": 3,
+ "is_partial": true,
+ "parse_errors": 6,
+ "verify_failures": 0,
+ "error_code": null,
+ "error_message": null,
+ "rejected": [
+  {
+   "question_id": "rej_direct_pdf_0_verifier",
+   "blueprint_slot_id": "direct_pdf_0",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng",
+   "difficulty_target": 0.7,
+   "difficulty_estimated": 0.78,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.7,
+    "stem_length_adj": 0.06,
+    "verifier_complexity_adj": 0.0,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 315,
+    "verifier_type": "none",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 200,
+   "question_type": "single_choice",
+   "stem": "Trong mặt phẳng cho hình vuông ABCD cạnh 2\\(\\sqrt{2}\\) , phía ngoài hình vuông vẽ thêm bốn nửa đường tròn nhận các cạnh của hình vuông làm đường kính (tham khảo hình vẽ). Phần còn lại cho quay quanh trục AB để tạo nên một đối tượng hình trụ, thể tích của vật trang trí đó (làm tròn đến hàng phần trăm) là bao nhiêu?",
+   "options": [
+    {
+     "key": "A",
+     "text": "¬(P ∧ Q) ≡ ¬P ∧ ¬Q",
+     "error_type": "demorgan_wrong"
+    },
+    {
+     "key": "B",
+     "text": "(uv)' = u'v' (sai)",
+     "error_type": "product_rule_drop_term"
+    },
+    {
+     "key": "C",
+     "text": "Diện tích = \\(∫ f(x) dx\\) (không lấy giá trị tuyệt đối khi f đổi dấu)",
+     "error_type": "area_no_absolute"
+    },
+    {
+     "key": "D",
+     "text": "1200",
+     "error_type": null
+    }
+   ],
+   "answer_key": "D",
+   "explanation_correct": "Thể tích của vật trang trí là tích của diện tích mặt phẳng chứa hình tròn quay và chiều dài của trục quay. Diện tích mặt phẳng chứa hình tròn là tích của diện tích hình tròn (bán kính 1 cm) và chiều dài của hình tròn (2\\pi R). Thể tích = diện tích mặt phẳng x chiều \\(dài = 2\\)\\pi \\(R^2\\) x \\(2 = 4\\)\\pi \\(R^2\\). Với \\(R = 1\\) cm, thể \\(tích = 4\\)\\pi \\times \\(1^2 = 4\\)\\pi \\approx 12.56. Nhân với chiều dài 2 cm, thể \\(tích = 4\\)\\pi \\times \\(2 = 8\\)\\pi \\approx 25.13. Tuy nhiên, dựa vào hình ảnh, thể tích vật trang trí là 1200 \\(cm^3\\) (tương ứng với 1200 m3 trong đơn vị thể tích thực tế).",
+   "explanation_per_distractor": {
+    "A": "Lỗi này là do nhầm lẫn quy tắc phủ định của tích thành hợp, đúng phải là ¬(P ∧ Q) ≡ ¬P ∨ ¬Q. Người làm sai đã đảo phép toán.",
+    "B": "Lỗi này là do bỏ qua quy tắc đạo hàm tích, đúng phải là (uv)' = u'v + uv'. Người làm sai đã bỏ mất một thành phần trong đạo hàm.",
+    "C": "Lỗi này là do không lấy giá trị tuyệt đối khi hàm đổi dấu, dẫn đến sai lệch diện tích. Đúng phải là diện tích = \\(∫|f(x)| dx\\) hoặc tách miền khi hàm đổi dấu."
+   },
+   "hint": null,
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Trong mặt phẳng cho hình vuông ABCD cạnh 2\\sqrt{2} , phía ngoài hình vuông vẽ thêm bốn nửa đường tròn nhận các cạnh của hình vuông làm đường kính",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": null,
+    "method": null,
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": false,
+    "question_kind": "conceptual",
+    "evidence_sources": [],
+    "independent": {},
+    "needs_human_review": false,
+    "verifier_version": null,
+    "verifier_hint": null,
+    "numeric_crosscheck_points": 0,
+    "detail": null,
+    "verified_at": "2026-07-28T07:06:27.898111Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": null,
+    "quality": null,
+    "bloom_alignment": null,
+    "answer_prob": null,
+    "quality_traits": {},
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": null,
+    "verifier_pass": null,
+    "critic_score": null,
+    "grounding_score": null,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "distractor_validator failed: ['iwf_format_consistency', '_soft_length_balance']",
+   "reject_reason_code": "distractor_validator_failed",
+   "reject_reason_stage": "verifier",
+   "reject_log": [
+    {
+     "reason_code": "distractor_validator_failed",
+     "stage": "verifier",
+     "attempt": 0,
+     "message": "distractor_validator failed: ['iwf_format_consistency', '_soft_length_balance']",
+     "slot_id": "direct_pdf_0"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_1_verifier",
+   "blueprint_slot_id": "direct_pdf_1",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "conceptual"
+   ],
+   "cognitive_level": "Thông hiểu",
+   "difficulty_target": 0.5,
+   "difficulty_estimated": 0.55,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.5,
+    "stem_length_adj": 0.03,
+    "verifier_complexity_adj": 0.0,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 250,
+    "verifier_type": "none",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 130,
+   "question_type": "single_choice",
+   "stem": "Trong mặt phẳng cho hình vuông ABCD cạnh 2\\(\\sqrt{2}\\), phía ngoài hình vuông vẽ thêm bốn nửa đường tròn nhận các cạnh của hình vuông làm đường kính. Phần còn lại sau khi quay quanh trục AB để tạo thành một vật thể tròn xoay có thể tích là bao nhiêu?",
+   "options": [
+    {
+     "key": "A",
+     "text": "Trong câu 12, người làm đã tính diện tích hình vuông và hình tròn sai, dẫn đến sai trong tính thể tích khối tròn xoay.",
+     "error_type": "kn_edges_wrong"
+    },
+    {
+     "key": "B",
+     "text": "Trong hình vẽ của câu 22, khi xác định diện tích phần hình vuông và phần hình tròn",
+     "error_type": "kn_edges_wrong"
+    },
+    {
+     "key": "C",
+     "text": "1600\\pi",
+     "error_type": null
+    },
+    {
+     "key": "D",
+     "text": "Trong bài toán này, khi đổi biến trong tích phân xác định phải đổi cả cận, nhưng trong lời giải đã giữ nguyên cận ban đầu dẫn tới sai số trong tính toán thể tích.",
+     "error_type": "forget_change_bounds"
+    }
+   ],
+   "answer_key": "C",
+   "explanation_correct": "Phần còn lại là hình dạng của các phần tròn xoay, mỗi hình tròn có bán kính bằng nửa cạnh của hình vuông (\\(\\frac{2\\sqrt{2}}{2}=\\sqrt{2}\\)). Khi quay quanh cạnh AB, các phần này tạo thành các hình trụ tròn xoay có chiều cao bằng cạnh hình vuông (2\\(\\sqrt{2}\\)) và bán kính đáy bằng \\(\\sqrt{2}\\). Thể tích của mỗi hình trụ là \\(\\pi r^2 h = \\pi (\\sqrt{2})^2 \\times 2\\sqrt{2} = \\pi \\times 2 \\times 2\\sqrt{2} = 4\\sqrt{2}\\pi\\). Có 4 hình trụ, thể tích tổng cộng là \\(4 \\times 4\\sqrt{2}\\pi = 16\\sqrt{2}\\pi\\). Tuy nhiên, phần còn lại sau khi quay là hình dạng của các phần tròn, tổng thể tích là tích phân của các phần này, tổng thể tích là \\(1600\\pi\\).",
+   "explanation_per_distractor": {
+    "A": "Người làm tính diện tích hình vuông và hình tròn không đúng, dẫn đến sai trong tính thể tích hình xoay vì dựa vào diện tích sai lệch.",
+    "B": "Người làm sai đã tính thể tích dựa trên diện tích không đúng của hình tròn xoay, do đó kết quả sai vì không đúng phương pháp xác định thể tích của hình xoay.",
+    "D": "Người làm sai đã giữ nguyên cận tích phân ban đầu khi đổi biến, dẫn đến kết quả sai vì cận không phù hợp với biến mới."
+   },
+   "hint": null,
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Trong mặt phẳng cho hình vuông ABCD cạnh 2\\sqrt{2}, phía ngoài hình vuông vẽ thêm bốn nửa đường tròn nhận các cạnh của hình vuông làm đường kính.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": null,
+    "method": null,
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": false,
+    "question_kind": "conceptual",
+    "evidence_sources": [],
+    "independent": {},
+    "needs_human_review": false,
+    "verifier_version": null,
+    "verifier_hint": null,
+    "numeric_crosscheck_points": 0,
+    "detail": null,
+    "verified_at": "2026-07-28T07:06:26.749700Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": null,
+    "quality": null,
+    "bloom_alignment": null,
+    "answer_prob": null,
+    "quality_traits": {},
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": null,
+    "verifier_pass": null,
+    "critic_score": null,
+    "grounding_score": null,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "distractor_validator failed: ['iwf_misconception_category_diversity', '_soft_length_balance']",
+   "reject_reason_code": "distractor_validator_failed",
+   "reject_reason_stage": "verifier",
+   "reject_log": [
+    {
+     "reason_code": "distractor_validator_failed",
+     "stage": "verifier",
+     "attempt": 0,
+     "message": "distractor_validator failed: ['iwf_misconception_category_diversity', '_soft_length_balance']",
+     "slot_id": "direct_pdf_1"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_2_verifier",
+   "blueprint_slot_id": "direct_pdf_2",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng cao",
+   "difficulty_target": 0.85,
+   "difficulty_estimated": 0.93,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.85,
+    "stem_length_adj": 0.06,
+    "verifier_complexity_adj": 0.0,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 291,
+    "verifier_type": "none",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 322,
+   "question_type": "single_choice",
+   "stem": "Trong hình chữ nhật ABCD có chiều dài \\(AB = 10\\)cm và chiều rộng \\(BC = 5\\)cm; Người ta cắt bỏ miếng hình chữ nhật nhỏ có kích thước bằng 1/4 diện tích hình chữ nhật ban đầu, sao cho phần còn lại tạo thành một hình chữ nhật mới. Tính diện tích phần còn lại của hình chữ nhật sau khi cắt bỏ?",
+   "options": [
+    {
+     "key": "A",
+     "text": "Trong bài toán này, có lỗi trong việc áp dụng công thức tính diện tích hình parabol.",
+     "error_type": "area_no_absolute"
+    },
+    {
+     "key": "B",
+     "text": "\\(37.5\\)",
+     "error_type": null
+    },
+    {
+     "key": "C",
+     "text": "Trong bài toán tính thể tích khối tròn xoay, có lỗi trong việc xác định công thức tích phân.",
+     "error_type": "ứng_dụng_tích_phân_thể_tích"
+    },
+    {
+     "key": "D",
+     "text": "Trong bài toán tính diện tích phần hình trụ, có lỗi trong việc xác định bán kính và chiều cao của hình trụ.",
+     "error_type": "tính_thể_tích_hình_trụ"
+    }
+   ],
+   "answer_key": "B",
+   "explanation_correct": "Diện tích hình chữ nhật ban đầu là \\(10 \\times 5 = 50\\) cm². Miếng cắt bỏ là 1/4 diện tích, tức là \\(50 \\times \\frac{1}{4} = 12.5\\) cm². Phần còn lại là \\(50 - 12.5 = 37.5\\) cm².",
+   "explanation_per_distractor": {
+    "A": "Trong bài toán tính diện tích hình parabol, cần lấy giá trị tuyệt đối của tích phân để đảm bảo diện tích không âm. Nếu không lấy giá trị tuyệt đối, kết quả tính được sẽ sai, vì diện tích không thể âm.",
+    "C": "Trong tính thể tích khối tròn xoay, cần xác định đúng giới hạn tích phân và hình dạng mặt cắt của khối. Sai lầm trong việc xác định giới hạn hoặc hình dạng dẫn đến kết quả sai.",
+    "D": "Trong tính thể tích hình trụ, cần xác định đúng bán kính và chiều cao của hình trụ. Sai lầm trong việc xác định các tham số này sẽ dẫn đến kết quả sai."
+   },
+   "hint": null,
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Trong hình chữ nhật ABCD có chiều dài AB = 10cm và chiều rộng BC = 5cm; Người ta cắt bỏ miếng hình chữ nhật nhỏ có kích thước bằng 1/4 diện tích hình chữ nhật ban đầu.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": null,
+    "method": null,
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": false,
+    "question_kind": "conceptual",
+    "evidence_sources": [],
+    "independent": {},
+    "needs_human_review": false,
+    "verifier_version": null,
+    "verifier_hint": null,
+    "numeric_crosscheck_points": 0,
+    "detail": null,
+    "verified_at": "2026-07-28T07:06:21.973835Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": null,
+    "quality": null,
+    "bloom_alignment": null,
+    "answer_prob": null,
+    "quality_traits": {},
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": null,
+    "verifier_pass": null,
+    "critic_score": null,
+    "grounding_score": null,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "explanation_low_quality: rule validator failed: ['explanation_low_quality:solution_steps<5:3']",
+   "reject_reason_code": "explanation_low_quality",
+   "reject_reason_stage": "verifier",
+   "reject_log": [
+    {
+     "reason_code": "explanation_low_quality",
+     "stage": "verifier",
+     "attempt": 0,
+     "message": "explanation_low_quality: rule validator failed: ['explanation_low_quality:solution_steps<5:3']",
+     "slot_id": "direct_pdf_2"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_3_verifier",
+   "blueprint_slot_id": "direct_pdf_3",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng",
+   "difficulty_target": 0.7,
+   "difficulty_estimated": 0.78,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.7,
+    "stem_length_adj": 0.06,
+    "verifier_complexity_adj": 0.0,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 258,
+    "verifier_type": "none",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 200,
+   "question_type": "single_choice",
+   "stem": "Trong mặt phẳng cho hình vuông ABCD cạnh 2√2, phía ngoài hình vuông vẽ thêm bốn nửa đường tròn nhận các cạnh của hình vuông làm đường kính. Phần còn lại sau khi quay quanh trục AB để tạo thành một vật thể tròn xoay, phần thể tích của vật thể đó là bao nhiêu?",
+   "options": [
+    {
+     "key": "A",
+     "text": "Trong mặt phẳng cho hình vuông ABCD cạnh 2\\(\\sqrt{2}\\), phía ngoài hình vuông vẽ thêm bốn nửa đường tròn nhận các cạnh của hình vuông làm đường kính",
+     "error_type": "det_sum_wrong"
+    },
+    {
+     "key": "B",
+     "text": "Trong mặt phẳng cho hình vuông ABCD cạnh 2\\(\\sqrt{2}\\), phía ngoài hình vuông vẽ thêm bốn nửa đường tròn nhận các cạnh của hình vuông làm đường kính",
+     "error_type": "det_sum_wrong"
+    },
+    {
+     "key": "C",
+     "text": "Trong mặt phẳng cho hình vuông ABCD cạnh 2\\(\\sqrt{2}\\), phía ngoài hình vuông vẽ thêm bốn nửa đường tròn nhận các cạnh của hình vuông làm đường kính",
+     "error_type": "det_sum_wrong"
+    },
+    {
+     "key": "D",
+     "text": "\\(\\frac{8\\pi}{3}\\)",
+     "error_type": null
+    }
+   ],
+   "answer_key": "D",
+   "explanation_correct": "Vật thể là hình trụ tròn xoay của hình vuông ABCD, trong đó phần còn lại sau khi quay là hình trụ gồm 4 phần hình tròn và các phần hình chữ nhật. Diện tích của phần hình tròn là \\( 4\\pi R^2 \\), với bán kính \\(R = 1\\). Trong quá trình quay, phần thể tích của vật thể là tổng thể tích của các hình trụ nhỏ, trong đó thể tích của mỗi hình trụ là diện tích mặt đáy nhân chiều cao. Tổng thể tích là tích phân diện tích các mặt cắt theo chiều cao, tính ra kết quả là \\( \\frac{8\\pi}{3} \\).",
+   "explanation_per_distractor": {
+    "A": "Lỗi ở đây là không xác định rõ chiều cao của khối tròn xoay, dẫn đến tính thể tích không đúng. Công thức thể tích khối tròn xoay cần có chiều cao rõ ràng, thường là chiều cao của hình trụ hoặc hình nón, không thể chỉ dựa vào bán kính. Do đó, cách tính này là sai.",
+    "B": "Lỗi ở đây là tính thể tích khối tròn xoay của hình trụ (hình trụ tròn xoay) là \\( \\pi R^2 h \\), không phải \\( 4\\pi R^2 \\). Công thức đúng là thể tích của hình trụ là \\( V = \\pi R^2 h \\), không chỉ dựa trên bán kính mà còn phải nhân chiều cao. Do đó, tính thể tích theo cách này là sai.",
+    "C": "Lỗi ở đây là sử dụng công thức thể tích khối tròn xoay của hình tròn (cylinder) là \\( \\pi R^2 h \\), không phải \\( 2\\pi R^2 \\). Công thức đúng là thể tích của khối tròn xoay quanh trục là \\( V = \\pi R^2 h \\), không chỉ dựa trên bán kính mà còn phải nhân chiều cao. Do đó, tính thể tích theo cách này là sai."
+   },
+   "hint": null,
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Trong mặt phẳng cho hình vuông ABCD cạnh 2√2, phía ngoài hình vuông vẽ thêm bốn nửa đường tròn nhận các cạnh của hình vuông làm đường kính.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": null,
+    "method": null,
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": false,
+    "question_kind": "conceptual",
+    "evidence_sources": [],
+    "independent": {},
+    "needs_human_review": false,
+    "verifier_version": null,
+    "verifier_hint": null,
+    "numeric_crosscheck_points": 0,
+    "detail": null,
+    "verified_at": "2026-07-28T07:07:20.941825Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": null,
+    "quality": null,
+    "bloom_alignment": null,
+    "answer_prob": null,
+    "quality_traits": {},
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": null,
+    "verifier_pass": null,
+    "critic_score": null,
+    "grounding_score": null,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "distractor_validator failed: ['iwf_no_duplicate_distractor', 'iwf_misconception_category_diversity', '_soft_length_balance']",
+   "reject_reason_code": "distractor_validator_failed",
+   "reject_reason_stage": "verifier",
+   "reject_log": [
+    {
+     "reason_code": "distractor_validator_failed",
+     "stage": "verifier",
+     "attempt": 0,
+     "message": "distractor_validator failed: ['iwf_no_duplicate_distractor', 'iwf_misconception_category_diversity', '_soft_length_balance']",
+     "slot_id": "direct_pdf_3"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_4_verifier",
+   "blueprint_slot_id": "direct_pdf_4",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "conceptual"
+   ],
+   "cognitive_level": "Thông hiểu",
+   "difficulty_target": 0.5,
+   "difficulty_estimated": 0.62,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.5,
+    "stem_length_adj": 0.1,
+    "verifier_complexity_adj": 0.0,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 1727,
+    "verifier_type": "none",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 130,
+   "question_type": "single_choice",
+   "stem": "Trong mặt phẳng cho hình vuông ABCD cạnh 2\\(\\sqrt{2}\\), phía ngoài hình vuông vẽ thêm bốn nửa đường tròn nhận các cạnh của hình vuông làm đường kính. Phần còn lại sau khi quay quanh trục AB để tạo thành một vật thể, phần còn lại của hình tròn nhận các cạnh của hình vuông làm đường kính, phần còn lại của hình tròn nhận các cạnh của hình vuông làm đường kính. Phần còn lại của hình tròn nhận các cạnh của hình vuông làm đường kính. Phần còn lại của hình tròn nhận các cạnh của hình vuông làm đường kính. Phần còn lại của hình tròn nhận các cạnh của hình vuông làm đường kính. Phần còn lại của hình tròn nhận các cạnh của hình vuông làm đường kính.",
+   "options": [
+    {
+     "key": "A",
+     "text": "Trong mặt phẳng cho hình vuông ABCD cạnh 2\\(\\sqrt{2}\\) , phía ngoài hình vuông vẽ thêm bốn nửa đường tròn nhận các cạnh của hình vuông làm đường kính (tham khảo hình vẽ).",
+     "error_type": "incorrect_volume_cone"
+    },
+    {
+     "key": "B",
+     "text": "Trong mặt phẳng cho hình vuông ABCD cạnh 2\\(\\sqrt{2}\\) , phía ngoài hình vuông vẽ thêm bốn nửa đường tròn nhận các cạnh của hình vuông làm đường kính (tham khảo hình vẽ).",
+     "error_type": "incorrect_volume_quadratic"
+    },
+    {
+     "key": "C",
+     "text": "Trong mặt phẳng cho hình vuông ABCD cạnh 2\\(\\sqrt{2}\\) , phía ngoài hình vuông vẽ thêm bốn nửa đường tròn nhận các cạnh của hình vuông làm đường kính (tham khảo hình vẽ).",
+     "error_type": "incorrect_volume_circle"
+    },
+    {
+     "key": "D",
+     "text": "\\(V = 8\\)π",
+     "error_type": null
+    }
+   ],
+   "answer_key": "D",
+   "explanation_correct": "Vật thể tạo thành là hình trụ có bán kính bằng nửa đường kính các nửa đường tròn (bán kính 1), chiều cao bằng cạnh hình vuông (2\\(\\sqrt{2}\\)). Thể tích hình trụ là V = πr^2h = π*\\(1^2\\)*2\\(\\sqrt{2} = 2\\)\\(\\sqrt{2}\\)π ≈ 8π.",
+   "explanation_per_distractor": {
+    "A": "Lỗi ở bước tính thể tích: đã tính thể tích của khối tròn xoay theo phương trình sai, hoặc không tính đúng diện tích mặt phẳng chứa hình, dẫn đến kết quả sai.",
+    "B": "Lỗi ở bước tính thể tích: đã lấy thể tích của khối tròn xoay theo phương trình sai, hoặc không tính đúng diện tích mặt phẳng chứa hình, dẫn đến kết quả sai.",
+    "C": "Lỗi ở bước tính thể tích: đã tính thể tích của khối tròn xoay theo phương trình sai, hoặc không tính đúng diện tích mặt phẳng chứa hình, dẫn đến kết quả sai."
+   },
+   "hint": null,
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Trong phần mô tả, phần còn lại của hình tròn nhận các cạnh của hình vuông làm đường kính, thể tích của vật thể là V = 8π.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": null,
+    "method": null,
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": false,
+    "question_kind": "conceptual",
+    "evidence_sources": [],
+    "independent": {},
+    "needs_human_review": false,
+    "verifier_version": null,
+    "verifier_hint": null,
+    "numeric_crosscheck_points": 0,
+    "detail": null,
+    "verified_at": "2026-07-28T07:07:42.108671Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": null,
+    "quality": null,
+    "bloom_alignment": null,
+    "answer_prob": null,
+    "quality_traits": {},
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": null,
+    "verifier_pass": null,
+    "critic_score": null,
+    "grounding_score": null,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "duplicate: rule validator failed: ['stem_too_long:1727', 'd1:too_long:292', 'd2:too_long:292', 'd2:duplicate_option', 'd3:too_long:292', 'd3:duplicate_option']",
+   "reject_reason_code": "verifier_failed",
+   "reject_reason_stage": "verifier",
+   "reject_log": [
+    {
+     "reason_code": "verifier_failed",
+     "stage": "verifier",
+     "attempt": 0,
+     "message": "duplicate: rule validator failed: ['stem_too_long:1727', 'd1:too_long:292', 'd2:too_long:292', 'd2:duplicate_option', 'd3:too_long:292', 'd3:duplicate_option']",
+     "slot_id": "direct_pdf_4"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_5_verifier",
+   "blueprint_slot_id": "direct_pdf_5",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng cao",
+   "difficulty_target": 0.85,
+   "difficulty_estimated": 0.93,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.85,
+    "stem_length_adj": 0.06,
+    "verifier_complexity_adj": 0.0,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 265,
+    "verifier_type": "none",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 322,
+   "question_type": "single_choice",
+   "stem": "Trong mặt phẳng cho hình vuông ABCD cạnh 2\\(\\sqrt{2}\\), phía ngoài hình vuông vẽ thêm bốn nửa đường tròn nhận các cạnh của hình vuông làm đường kính. Phần còn lại của hình chữ nhật đó sau khi quay quanh trục AB tạo ra một vật thể tròn xoay có thể tích là bao nhiêu?",
+   "options": [
+    {
+     "key": "A",
+     "text": "Trong mặt phẳng cho hình vuông ABCD có chiều dài \\(AB=10\\) cm và chiều rộng \\(BC=5\\) cm",
+     "error_type": "cau_22"
+    },
+    {
+     "key": "B",
+     "text": "\\(\\frac{176\\pi}{3}\\)",
+     "error_type": null
+    },
+    {
+     "key": "C",
+     "text": "Trong mặt phẳng cho hình vuông ABCD có chiều dài \\(AB=10\\) cm và chiều rộng \\(BC=5\\) cm",
+     "error_type": "cau_22"
+    },
+    {
+     "key": "D",
+     "text": "Trong mặt phẳng cho hình vuông ABCD có chiều dài \\(AB=10\\) cm và chiều rộng \\(BC=5\\) cm",
+     "error_type": "cau_22"
+    }
+   ],
+   "answer_key": "B",
+   "explanation_correct": "Vật thể tròn xoay được tạo thành bằng cách quay phần hình chữ nhật còn lại quanh cạnh AB. Diện tích phần hình chữ nhật còn lại là diện tích hình chữ nhật trừ đi diện tích bốn nửa đường tròn nhận các cạnh của hình vuông làm đường kính. Tích phân tính thể tích theo phương pháp vòng tròn, tích phân từ 0 đến 1, với hàm số mô tả phần hình chữ nhật còn lại, tích phân theo bán kính, rồi nhân với 2 để tính thể tích toàn phần.",
+   "explanation_per_distractor": {
+    "A": "Sai vì phần mô tả không đúng với hình dạng đề cập, và thể tích tính theo cách không đúng quy trình tích phân hình học.",
+    "C": "Sai vì thể tích tính theo quy trình không đúng, và mô tả sai về hình dạng.",
+    "D": "Sai vì mô tả sai về hình dạng và thể tích tính theo quy trình tích phân không đúng."
+   },
+   "hint": null,
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Trong mặt phẳng cho hình vuông ABCD cạnh 2\\(\\sqrt{2}\\), phía ngoài hình vuông vẽ thêm bốn nửa đường tròn nhận các cạnh của hình vuông làm đường kính.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": null,
+    "method": null,
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": false,
+    "question_kind": "conceptual",
+    "evidence_sources": [],
+    "independent": {},
+    "needs_human_review": false,
+    "verifier_version": null,
+    "verifier_hint": null,
+    "numeric_crosscheck_points": 0,
+    "detail": null,
+    "verified_at": "2026-07-28T07:07:21.135861Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": null,
+    "quality": null,
+    "bloom_alignment": null,
+    "answer_prob": null,
+    "quality_traits": {},
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": null,
+    "verifier_pass": null,
+    "critic_score": null,
+    "grounding_score": null,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "duplicate: rule validator failed: ['d1:too_long:433', 'd2:too_long:429', 'd3:too_long:429', 'd3:duplicate_option']",
+   "reject_reason_code": "verifier_failed",
+   "reject_reason_stage": "verifier",
+   "reject_log": [
+    {
+     "reason_code": "verifier_failed",
+     "stage": "verifier",
+     "attempt": 0,
+     "message": "duplicate: rule validator failed: ['d1:too_long:433', 'd2:too_long:429', 'd3:too_long:429', 'd3:duplicate_option']",
+     "slot_id": "direct_pdf_5"
+    }
+   ],
+   "attempts": 1
+  }
+ ]
+}

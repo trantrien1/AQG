@@ -1,0 +1,1730 @@
+{
+  "metadata": {
+    "bench": "suite",
+    "arm": "full_system",
+    "seed": 43,
+    "source_pdf": "pdftest/file_3_trang_61-90.pdf",
+    "source_pdf_name": "file_3_trang_61-90.pdf",
+    "requested_questions": 8,
+    "accepted_questions": 8,
+    "is_partial": false,
+    "parse_errors": 2,
+    "verify_failures": 0,
+    "error_code": null,
+    "error_message": null,
+    "cost": {
+      "tokens": 140464,
+      "calls": 34
+    },
+    "duration_seconds": 279.4028995037079,
+    "generated_at": "2026-07-26T04:33:56.008416+00:00"
+  },
+  "questions": [
+    {
+      "question_id": "q_2026_d55dff89",
+      "blueprint_slot_id": "direct_pdf_0",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Nhận biết",
+      "difficulty_target": 0.3,
+      "difficulty_estimated": 0.27,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.3,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 106,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 40,
+      "question_type": "single_choice",
+      "stem": "Một hình parabol có độ dài đáy \\(d=6\\) và chiều cao \\(h=4\\). Diện tích của hình parabol đó bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(20\\)",
+          "error_type": "confuse_perimeter_area"
+        },
+        {
+          "key": "B",
+          "text": "\\(24\\)",
+          "error_type": "parabola_area_missing_two_thirds_factor"
+        },
+        {
+          "key": "C",
+          "text": "\\(12\\)",
+          "error_type": "parabola_area_use_triangle_formula"
+        },
+        {
+          "key": "D",
+          "text": "\\(16\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Áp dụng công thức diện tích hình parabol theo đáy và chiều cao, thay các giá trị đã biết vào ta được kết quả đúng là 16.",
+      "explanation_per_distractor": {
+        "A": "Học sinh nhầm diện tích với chu vi nên tính tổng các cạnh theo công thức chu vi hình có đáy và chiều cao: \\(S=2(d+h)=2(6+4)=20\\). Sai vì đại lượng cần tìm là diện tích hình parabol, không phải chu vi.",
+        "B": "Học sinh nhớ gần đúng công thức diện tích parabol nhưng bỏ qua hệ số điều chỉnh, dùng \\(S=dh\\). Thay số được \\(S=6\\cdot4=24\\). Sai vì diện tích hình parabol theo đáy và chiều cao phải có hệ số phù hợp, không thể lấy trực tiếp tích đáy với chiều cao.",
+        "C": "Học sinh áp dụng sai công thức diện tích tam giác thay cho công thức diện tích hình parabol, lấy \\(S=\\frac{1}{2}dh\\). Thay \\(d=6, h=4\\) được \\(S=\\frac{1}{2}\\cdot6\\cdot4=12\\). Sai vì diện tích hình parabol không bằng một nửa tích đáy và chiều cao."
+      },
+      "hint": "Áp dụng công thức diện tích hình parabol theo đáy và chiều cao, thay các giá trị đã biết vào ta được kết quả đúng là 16.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Diện tích của hình parabol có đáy là d và chiều cao h là S = 2/3 dh",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "value": 16.0,
+          "expression": "2/3*6*4",
+          "stated_answer": "16",
+          "stated_value": 16.0,
+          "source": "llm_resolver",
+          "detail": "2/3*6*4 = 16",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "2/3*6*4",
+            "expected_numeric": 24
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 16, khớp đáp án key",
+        "verified_at": "2026-07-26T04:30:03.486271Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9416666666666665,
+        "bloom_alignment": 0.95,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài ngắn gọn, xác định rõ hai dữ kiện đáy và chiều cao cùng yêu cầu tính diện tích."
+          },
+          "cognitive_depth": {
+            "score": 0.9,
+            "rationale": "Bài chỉ yêu cầu nhận biết và thay số vào công thức đã cho, phù hợp mức độ nhận biết."
+          },
+          "bloom_alignment": {
+            "score": 0.95,
+            "rationale": "Thao tác chính là nhớ công thức và áp dụng trực tiếp nên đúng với mức Bloom Nhận biết."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đại diện cho những lỗi phổ biến như dùng chu vi, dùng công thức tam giác hoặc quên hệ số."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có giá trị \\(16\\) thỏa công thức \\(S=\\\\frac{2}{3}\\\\cdot6\\\\cdot4\\), các phương án còn lại đều sai."
+          },
+          "error_distractor_consistency": {
+            "score": 0.95,
+            "rationale": "Các chuỗi lỗi được mô tả đều dẫn đúng đến các giá trị distractor và phần giải thích phù hợp với đáp án \\(16\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9416666666666665,
+        "verifier_pass": true,
+        "critic_score": 0.9416666666666665,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Áp dụng công thức diện tích hình parabol theo đáy và chiều cao, thay các giá trị đã biết vào ta được kết quả đúng là 16.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Nhận biết công thức diện tích hình parabol: \\(S=\\frac{2}{3}dh\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Thay \\(d=6\\), \\(h=4\\) vào công thức: \\(S=\\frac{2}{3}\\cdot6\\cdot4=16\\)."
+          }
+        ],
+        "final_answer": "\\(16\\)"
+      },
+      "why_correct": "Công thức được áp dụng trực tiếp với đúng hai dữ kiện đáy và chiều cao đã cho nên chỉ thu được một giá trị diện tích xác định.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Học sinh nhầm diện tích với chu vi nên tính tổng các cạnh theo công thức chu vi hình có đáy và chiều cao: \\(S=2(d+h)=2(6+4)=20\\). Sai vì đại lượng cần tìm là diện tích hình parabol, không phải chu vi."
+        },
+        {
+          "option": "B",
+          "reason": "Học sinh nhớ gần đúng công thức diện tích parabol nhưng bỏ qua hệ số điều chỉnh, dùng \\(S=dh\\). Thay số được \\(S=6\\cdot4=24\\). Sai vì diện tích hình parabol theo đáy và chiều cao phải có hệ số phù hợp, không thể lấy trực"
+        },
+        {
+          "option": "C",
+          "reason": "Học sinh áp dụng sai công thức diện tích tam giác thay cho công thức diện tích hình parabol, lấy \\(S=\\frac{1}{2}dh\\). Thay \\(d=6, h=4\\) được \\(S=\\frac{1}{2}\\cdot6\\cdot4=12\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_16363304",
+      "blueprint_slot_id": "direct_pdf_1",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.53,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 313,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Tại một nhà máy, tổng chi phí sản xuất \\(x\\) tấn sản phẩm A trong một tháng là \\(C(x)\\) (triệu đồng). Biết chi phí cận biên của nhà máy là \\(C'(x)=5-0,06x+0,00072x^2\\) với \\(0\\le x\\le150\\) và chi phí cố định \\(C(0)=30\\). Hỏi khi sản xuất \\(50\\) tấn sản phẩm A thì tổng chi phí \\(C(50)\\) bằng bao nhiêu triệu đồng?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(265\\)",
+          "error_type": "fixed_cost_added_twice"
+        },
+        {
+          "key": "B",
+          "text": "\\(220\\)",
+          "error_type": "integral_coefficient_wrong"
+        },
+        {
+          "key": "C",
+          "text": "\\(235\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(205\\)",
+          "error_type": "missing_constant_C"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Vì \\(C'(x)\\) là tốc độ thay đổi của chi phí nên cần tìm phần chi phí tăng thêm bằng tích phân của \\(C'(x)\\) từ \\(0\\) đến \\(50\\), sau đó cộng với chi phí ban đầu \\(C(0)\\).",
+      "explanation_per_distractor": {
+        "A": "Làm sai bằng cách tính đúng phần chi phí tăng thêm \\(\\int_0^{50}C'(x)\\,dx=205\\) nhưng cộng thêm chi phí cố định \\(C(0)=30\\) hai lần. Khi đó nhận được \\(205+30+30=265\\) triệu đồng. Sai vì chi phí cố định chỉ được cộng một lần khi tính \\(C(50)\\).",
+        "B": "Làm sai bằng cách lấy nguyên hàm của số hạng \\(0,00072x^2\\) thành \\(0,00072x^3\\), quên chia cho \\(3\\). Khi đó phần chi phí tăng thêm được tính là \\(5x-0,03x^2+0,00072x^3\\big|_0^{50}=250-75+90=265\\), rồi do nhầm xử lý hệ số cố định nên lấy \\(265-45=220\\). Sai vì nguyên hàm của \\(0,00072x^2\\) phải là \\(0,00024x^3\\).",
+        "D": "Làm sai bằng cách tìm nguyên hàm của \\(C'(x)\\) rồi lấy \\(C(50)=\\int_0^{50}(5-0,06x+0,00072x^2)\\,dx\\) mà không cộng hằng số do chi phí cố định. Tính được \\(5x-0,03x^2+0,00024x^3\\big|_0^{50}=250-75+30=205\\). Sai vì đã bỏ mất phần \\(C(0)=30\\)."
+      },
+      "hint": "Vì \\(C'(x)\\) là tốc độ thay đổi của chi phí nên cần tìm phần chi phí tăng thêm bằng tích phân của \\(C'(x)\\) từ \\(0\\) đến",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Giả sử chi phí cận biên (tính theo triệu đồng trên tấn) của nhà máy được ước lượng bởi công thức \\(C'(x)=5-0,06x+0,00072\\)",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "value": 235.0,
+          "expression": "30+integrate(5-0.06*x+0.00072*x**2, (x, 0, 50))",
+          "stated_answer": "235",
+          "stated_value": 235.0,
+          "source": "llm_resolver",
+          "detail": "30+integrate(5-0.06*x+0.00072*x**2, (x, 0, 50)) = 235",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "30+integrate(5-0.06*x+0.00072*x**2,(x,0,50))",
+            "expected_numeric": 265
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 235, khớp đáp án key",
+        "verified_at": "2026-07-26T04:30:11.242372Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.8999999999999999,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 1.0,
+            "rationale": "Đề bài nêu rõ đại lượng, miền xác định, dữ kiện chi phí cận biên và yêu cầu tính duy nhất \\(C(50)\\)."
+          },
+          "cognitive_depth": {
+            "score": 0.8,
+            "rationale": "Bài yêu cầu vận dụng mối liên hệ giữa đạo hàm chi phí cận biên và tích phân để tìm chi phí, phù hợp mức Thông hiểu."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là hiểu và áp dụng công thức đã học, không đòi hỏi phân tích hay đánh giá phức tạp."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai tương ứng với những lỗi thường gặp như quên hằng số, sai nguyên hàm và cộng chi phí cố định nhiều lần."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(235\\) là kết quả đúng vì \\(\\int_0^{50}C'(x)dx=205\\) và \\(C(50)=205+30=235\\)."
+          },
+          "error_distractor_consistency": {
+            "score": 0.8,
+            "rationale": "Mô tả lỗi của các distractor nhìn chung khớp với cách tạo ra giá trị sai, nhưng distractor \\(220\\) có chuỗi biến đổi trung gian hơi gượng và không hoàn toàn tự nhiên."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8999999999999999,
+        "verifier_pass": true,
+        "critic_score": 0.8999999999999999,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Vì \\(C'(x)\\) là tốc độ thay đổi của chi phí nên cần tìm phần chi phí tăng thêm bằng tích phân của \\(C'(x)\\) từ \\(0\\) đến \\(50\\), sau đó cộng với chi phí ban đầu \\(C(0)\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Ta có \\(C(50)-C(0)=\\int_0^{50}C'(x)\\,dx=\\int_0^{50}(5-0,06x+0,00072x^2)\\,dx\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Tìm nguyên hàm: \\(\\int(5-0,06x+0,00072x^2)\\,dx=5x-0,03x^2+0,00024x^3\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tính phần chi phí tăng thêm: \\(C(50)-C(0)=5\\cdot50-0,03\\cdot50^2+0,00024\\cdot50^3=250-75+30=205\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Do \\(C(0)=30\\), suy ra \\(C(50)=30+205=235\\) (triệu đồng)."
+          }
+        ],
+        "final_answer": "\\(235\\)"
+      },
+      "why_correct": "Kết quả được xác định duy nhất vì tổng chi phí tại \\(50\\) tấn bằng chi phí cố định ban đầu cộng với phần chi phí tích lũy từ tốc độ biến thiên chi phí trên đoạn \\([0;50]\\).",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Làm sai bằng cách tính đúng phần chi phí tăng thêm \\(\\int_0^{50}C'(x)\\,dx=205\\) nhưng cộng thêm chi phí cố định \\(C(0)=30\\) hai lần. Khi đó nhận được \\(205+30+30=265\\) triệu đồng."
+        },
+        {
+          "option": "B",
+          "reason": "Làm sai bằng cách lấy nguyên hàm của số hạng \\(0,00072x^2\\) thành \\(0,00072x^3\\), quên chia cho \\(3\\). Khi đó phần chi phí tăng thêm được tính là \\(5x-0,03x^2+0,00072x^3\\big|_0^{50}=250-75+90=265\\), rồi do nhầm xử lý hệ s"
+        },
+        {
+          "option": "D",
+          "reason": "Làm sai bằng cách tìm nguyên hàm của \\(C'(x)\\) rồi lấy \\(C(50)=\\int_0^{50}(5-0,06x+0,00072x^2)\\,dx\\) mà không cộng hằng số do chi phí cố định. Tính được \\(5x-0,03x^2+0,00024x^3\\big|_0^{50}=250-75+30=205\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_8c95c958",
+      "blueprint_slot_id": "direct_pdf_2",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.53,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 279,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Một bác thợ xây bơm nước vào bể chứa. Gọi \\(h(t)\\) là thể tích nước trong bể sau \\(t\\) phút, biết \\(h(0)=0\\) và tốc độ bơm được cho bởi \\(h'(t)=at^2+bt+6\\). Sau 2 phút bể có \\(44\\,m^3\\) nước, sau 4 phút bể có \\(176\\,m^3\\) nước. Hỏi sau 5 phút thể tích nước trong bể là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{1895}{4}\\,m^3\\)",
+          "error_type": "antiderivative_power_missing_denominator"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{1145}{4}\\,m^3\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(305\\,m^3\\)",
+          "error_type": "omit_initial_term_in_volume_equations"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{1169}{4}\\,m^3\\)",
+          "error_type": "initial_condition_confused_with_derivative_value"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Từ dữ kiện thể tích tại hai thời điểm, ta lập hệ phương trình để tìm \\(a,b\\), sau đó lấy nguyên hàm của \\(h'(t)\\) và tính \\(h(5)\\).",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: khi lấy nguyên hàm của \\(h'(t)=\\frac{9}{4}t^2+13t+6\\), bỏ qua hệ số chia do nguyên hàm lũy thừa. Thay vì \\(\\int \\frac{9}{4}t^2dt=\\frac{9}{4}\\cdot\\frac{t^3}{3}\\), tính sai thành \\(\\frac{9}{4}t^3\\). Khi đó dùng \\(h(t)=\\frac{9}{4}t^3+\\frac{13}{2}t^2+6t\\), suy ra \\(h(5)=\\frac{9}{4}\\cdot125+\\frac{13}{2}\\cdot25+30=\\frac{1895}{4}\\,m^3\\).",
+        "C": "Sai lầm: khi lập phương trình từ dữ kiện thể tích, bỏ qua phần \\(6t\\) trong nguyên hàm của \\(h'(t)=at^2+bt+6\\). Khi đó dùng \\(h(t)=\\frac{a t^3}{3}+\\frac{b t^2}{2}\\), ta có hệ \\(\\frac{8a}{3}+2b=44\\), \\(\\frac{64a}{3}+8b=176\\), suy ra \\(a=0, b=22\\). Sau đó tính sai theo mô hình này: \\(h(5)=\\frac{22\\cdot25}{2}+30=305\\,m^3\\). Sai vì đã bỏ mất lượng nước tạo ra bởi tốc độ bơm không đổi \\(6\\).",
+        "D": "Sai lầm: nhầm điều kiện ban đầu \\(h(0)=0\\) với giá trị \\(h'(0)=6\\), nên sau khi tìm đúng nguyên hàm \\(h(t)=\\frac{3}{4}t^3+\\frac{13}{2}t^2+6t+C\\) lại lấy sai hằng số tích phân là \\(C=6\\). Khi đó \\(h(5)=\\frac{1145}{4}+6=\\frac{1169}{4}\\,m^3\\). Sai vì \\(C\\) phải được xác định từ \\(h(0)=0\\), không phải từ \\(h'(0)=6\\)."
+      },
+      "hint": "Từ dữ kiện thể tích tại hai thời điểm, ta lập hệ phương trình để tìm \\(a,b\\), sau đó lấy nguyên hàm của \\(h'(t)\\) và tính",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Cho   2 h t at bt    6 2 và ban đầu bể không có nước.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "value": 286.25,
+          "expression": "((9/4)*5**3/3+13*5**2/2+6*5)",
+          "stated_answer": "1145/4",
+          "stated_value": 286.25,
+          "source": "llm_resolver",
+          "detail": "((9/4)*5**3/3+13*5**2/2+6*5) = 286.25",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "3*125/4+13*25/2+30",
+            "expected_numeric": 292.25
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 286.25, khớp đáp án key",
+        "verified_at": "2026-07-26T04:30:26.230475Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9,
+        "bloom_alignment": 0.78,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề nêu rõ hàm thể tích, điều kiện ban đầu, tốc độ bơm và hai dữ kiện đủ để xác định tham số rồi hỏi một đại lượng duy nhất."
+          },
+          "cognitive_depth": {
+            "score": 0.72,
+            "rationale": "Học sinh cần thiết lập hệ từ tích phân và tính toán tham số thay vì chỉ áp dụng công thức trực tiếp, phù hợp mức vận dụng nhẹ hơn là thông hiểu."
+          },
+          "bloom_alignment": {
+            "score": 0.78,
+            "rationale": "Yêu cầu thực tế cần hiểu mối liên hệ giữa đạo hàm, nguyên hàm và điều kiện thể tích, nhưng thao tác chủ yếu vẫn là áp dụng quy trình quen thuộc."
+          },
+          "distractor_plausibility": {
+            "score": 0.92,
+            "rationale": "Các phương án sai đều gắn với lỗi nguyên hàm, lập phương trình hoặc hằng số tích phân thường gặp và dùng cùng ngữ cảnh tính toán."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(\\frac{1145}{4}m^3\\) thỏa mãn mô hình sau khi giải đúng tham số và dùng \\(h(0)=0\\), các phương án còn lại đều phát sinh từ sai lầm."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Ba chuỗi lỗi mô tả đều dẫn đúng đến các giá trị distractor tương ứng và phần giải thích không mâu thuẫn với đáp án đã cho."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9,
+        "verifier_pass": true,
+        "critic_score": 0.9,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ dữ kiện thể tích tại hai thời điểm, ta lập hệ phương trình để tìm \\(a,b\\), sau đó lấy nguyên hàm của \\(h'(t)\\) và tính \\(h(5)\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì \\(h(0)=0\\) nên \\(h(t)=\\int_0^t (au^2+bu+6)\\,du=\\frac{a}{3}t^3+\\frac{b}{2}t^2+6t\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Thay \\(h(2)=44\\) và \\(h(4)=176\\) ta được hệ: \\(\\frac{8a}{3}+2b+12=44\\), \\(\\frac{64a}{3}+8b+24=176\\). Rút gọn thành \\(\\frac{4a}{3}+b=16\\), \\(\\frac{8a}{3}+b=19\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Lấy phương trình thứ hai trừ phương trình thứ nhất: \\(\\frac{4a}{3}=3\\), suy ra \\(a=\\frac{9}{4}\\). Thay vào \\(\\frac{4a}{3}+b=16\\) được \\(b=13\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Khi đó \\(h(t)=\\frac{3}{4}t^3+\\frac{13}{2}t^2+6t\\). Tính tại \\(t=5\\): \\(h(5)=\\frac{3}{4}\\cdot125+\\frac{13}{2}\\cdot25+30=\\frac{1145}{4}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{1145}{4}\\,m^3\\)"
+      },
+      "why_correct": "Chỉ có giá trị \\(\\frac{1145}{4}\\,m^3\\) thỏa mãn đồng thời mô hình tốc độ bơm và hai điều kiện thể tích đã cho.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: khi lấy nguyên hàm của \\(h'(t)=\\frac{9}{4}t^2+13t+6\\), bỏ qua hệ số chia do nguyên hàm lũy thừa. Thay vì \\(\\int \\frac{9}{4}t^2dt=\\frac{9}{4}\\cdot\\frac{t^3}{3}\\), tính sai thành \\(\\frac{9}{4}t^3\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: khi lập phương trình từ dữ kiện thể tích, bỏ qua phần \\(6t\\) trong nguyên hàm của \\(h'(t)=at^2+bt+6\\). Khi đó dùng \\(h(t)=\\frac{a t^3}{3}+\\frac{b t^2}{2}\\), ta có hệ \\(\\frac{8a}{3}+2b=44\\),"
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: nhầm điều kiện ban đầu \\(h(0)=0\\) với giá trị \\(h'(0)=6\\), nên sau khi tìm đúng nguyên hàm \\(h(t)=\\frac{3}{4}t^3+\\frac{13}{2}t^2+6t+C\\) lại lấy sai hằng số tích phân là \\(C=6\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_f46cdfe7",
+      "blueprint_slot_id": "direct_pdf_3",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 365,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một cổng vòm có mặt cắt ngang là một phần của parabol. Chọn hệ trục tọa độ sao cho mặt đất là trục hoành và trục đối xứng của cổng là trục tung. Biết đỉnh của cổng có tọa độ \\(I(0;5)\\), hai chân cổng tiếp xúc với mặt đất tại hai điểm có hoành độ \\(-3\\) và \\(3\\). Cổng có chiều dài \\(4\\,m\\) theo phương vuông góc với mặt cắt. Tính thể tích không gian bên trong cổng.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(100\\,m^3\\)",
+          "error_type": "symmetric_interval_error"
+        },
+        {
+          "key": "B",
+          "text": "\\(60\\,m^3\\)",
+          "error_type": "parabola_coefficient_error"
+        },
+        {
+          "key": "C",
+          "text": "\\(20\\,m^3\\)",
+          "error_type": "omit_length_factor"
+        },
+        {
+          "key": "D",
+          "text": "\\(80\\,m^3\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Từ các điều kiện hình học cần tìm phương trình parabol trước, sau đó tính diện tích mặt cắt bằng tích phân rồi nhân với chiều dài cổng để được thể tích.",
+      "explanation_per_distractor": {
+        "A": "Sai khi khai thác tính đối xứng của parabol: chỉ tính phần bên phải rồi nhân đôi nhưng lấy nhầm giới hạn từ \\(0\\) đến \\(3\\): \\(S=2\\int_0^3\\left(5-\\frac{5}{9}x^2\\right)dx=25\\,m^2\\). Sau đó nhân với chiều dài cổng \\(4\\,m\\) được \\(V=100\\,m^3\\), nên kết quả sai.",
+        "B": "Sai khi lập phương trình parabol: từ đỉnh \\(I(0;5)\\) và hai chân tại \\(x=\\pm3\\), đáng lẽ có \\(y=5-\\frac{5}{9}x^2\\), nhưng nhầm thành \\(y=5-\\frac{10}{9}x^2\\). Khi đó diện tích mặt cắt bị tính sai: \\(S=\\int_{-3}^{3}\\left(5-\\frac{10}{9}x^2\\right)dx=15\\,m^2\\), rồi nhân chiều dài \\(4\\,m\\) được \\(V=60\\,m^3\\).",
+        "C": "Làm sai ở bước chuyển từ diện tích mặt cắt sang thể tích: tính đúng diện tích mặt cắt \\(S=\\int_{-3}^{3}\\left(5-\\frac{5}{9}x^2\\right)dx=20\\,m^2\\) nhưng quên nhân với chiều dài cổng \\(4\\,m\\), nên kết luận sai \\(V=S=20\\,m^3\\)."
+      },
+      "hint": "Từ các điều kiện hình học cần tìm phương trình parabol trước, sau đó tính diện tích mặt cắt bằng tích phân rồi nhân với c",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Parabol \\(P:y=ax^2+bx+c, a\\ne0\\) có đỉnh C\\((0;3)\\), đi qua hai điểm A\\((-2;0)\\) và B\\((2;0)\\) nên có hệ phương trình",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "value": 80.0,
+          "expression": "4*integrate(5-5*x**2/9, (x, -3, 3))",
+          "stated_answer": "80",
+          "stated_value": 80.0,
+          "source": "llm_resolver",
+          "detail": "4*integrate(5-5*x**2/9, (x, -3, 3)) = 80",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "20*4",
+            "expected_numeric": 100
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 80, khớp đáp án key",
+        "verified_at": "2026-07-26T04:31:17.643118Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.92,
+        "quality": 0.9333333333333332,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.96,
+            "rationale": "Đề bài nêu rõ hệ trục, đỉnh, giao điểm mặt đất, chiều dài và yêu cầu tính thể tích nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.86,
+            "rationale": "Học sinh phải kết hợp xác định hàm parabol, tính tích phân diện tích và suy ra thể tích thay vì chỉ áp dụng công thức đơn giản."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Yêu cầu giải quyết một tình huống hình học mới bằng quy trình tích phân quen thuộc phù hợp mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi thường gặp khi lập parabol, tính tích phân hoặc đổi từ diện tích sang thể tích."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ phương án 80 m^3 phù hợp với phương trình parabol và phép tính thể tích, các phương án còn lại đều xuất phát từ sai sót."
+          },
+          "error_distractor_consistency": {
+            "score": 0.98,
+            "rationale": "Các chuỗi lỗi mô tả dẫn đúng tới các giá trị 20, 60, 100 m^3 và phần giải thích không mâu thuẫn với đáp án 80 m^3."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9333333333333332,
+        "verifier_pass": true,
+        "critic_score": 0.9333333333333332,
+        "grounding_score": 0.92,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ các điều kiện hình học cần tìm phương trình parabol trước, sau đó tính diện tích mặt cắt bằng tích phân rồi nhân với chiều dài cổng để được thể tích.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Gọi phương trình parabol là \\(y=ax^2+bx+c\\). Vì đỉnh là \\(I(0;5)\\) nên \\(c=5\\) và trục đối xứng là trục tung nên \\(b=0\\). Do đó \\(y=ax^2+5\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Parabol đi qua điểm \\((3;0)\\), nên \\(0=9a+5\\), suy ra \\(a=-\\frac{5}{9}\\). Vậy phương trình mặt cắt là \\(y=-\\frac{5}{9}x^2+5\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Diện tích mặt cắt ngang của cổng là \\(S=\\int_{-3}^{3}\\left(-\\frac{5}{9}x^2+5\\right)dx\\). Do hàm số chẵn nên \\(S=2\\int_0^3\\left(-\\frac{5}{9}x^2+5\\right)dx\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Tính tích phân: \\(S=2\\left[-\\frac{5}{27}x^3+5x\\right]_0^3=2(-5+15)=20\\,m^2\\). Thể tích cổng là \\(V=S\\cdot4=20\\cdot4=80\\,m^3\\)."
+          }
+        ],
+        "final_answer": "\\(80\\,m^3\\)"
+      },
+      "why_correct": "Điều kiện đỉnh và giao điểm với mặt đất xác định duy nhất phương trình parabol, diện tích mặt cắt được tính bằng tích phân và thể tích bằng diện tích mặt cắt nhân chiều dài nên kết quả chỉ có một giá trị đúng.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai khi khai thác tính đối xứng của parabol: chỉ tính phần bên phải rồi nhân đôi nhưng lấy nhầm giới hạn từ \\(0\\) đến \\(3\\): \\(S=2\\int_0^3\\left(5-\\frac{5}{9}x^2\\right)dx=25\\,m^2\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sai khi lập phương trình parabol: từ đỉnh \\(I(0;5)\\) và hai chân tại \\(x=\\pm3\\), đáng lẽ có \\(y=5-\\frac{5}{9}x^2\\), nhưng nhầm thành \\(y=5-\\frac{10}{9}x^2\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Làm sai ở bước chuyển từ diện tích mặt cắt sang thể tích: tính đúng diện tích mặt cắt \\(S=\\int_{-3}^{3}\\left(5-\\frac{5}{9}x^2\\right)dx=20\\,m^2\\) nhưng quên nhân với chiều dài cổng \\(4\\,m\\), nên kết luận sai"
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_328d9e8c",
+      "blueprint_slot_id": "direct_pdf_5",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 310,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một chất điểm chuyển động trong 4 giây đầu tiên với vận tốc \\(v(t)\\) (m/s) là một phần của đường parabol có đỉnh \\(I(3;12)\\), trục đối xứng song song với trục tung và đồ thị đi qua điểm \\(A(0;3)\\). Biết vận tốc luôn không âm trong khoảng thời gian xét. Tính quãng đường chất điểm đi được trong 4 giây đầu tiên.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(27\\)",
+          "error_type": "wrong_integral_bounds"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{116}{3}\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{80}{3}\\)",
+          "error_type": "drop_constant_term_in_velocity"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{164}{3}\\)",
+          "error_type": "vertex_constant_confusion"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Cần xác định phương trình vận tốc từ điều kiện đỉnh và điểm đi qua, sau đó lấy tích phân vận tốc trên khoảng thời gian chuyển động để tính quãng đường.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: lấy sai khoảng thời gian tích phân, cho rằng cần tính quãng đường chỉ đến thời điểm ứng với hoành độ đỉnh của parabol là \\(t=3\\). Khi đó vẫn dùng \\(v(t)=-t^2+6t+3\\) nhưng tính \\(S=\\int_0^3(-t^2+6t+3)\\,dt=\\left(-\\frac{t^3}{3}+3t^2+3t\\right)_0^3=27\\). Kết quả sai vì đề yêu cầu trong 4 giây đầu tiên.",
+        "C": "Sai lầm: sau khi tìm dạng parabol từ đỉnh \\(I(3;12)\\), học sinh viết nhầm \\(v(t)=-t^2+6t\\), bỏ mất hằng số \\(+3\\) cần có từ điều kiện đi qua \\(A(0;3)\\). Khi đó \\(S=\\int_0^4(-t^2+6t)\\,dt=\\left(-\\frac{t^3}{3}+3t^2\\right)_0^4=\\frac{80}{3}\\). Sai vì phương trình vận tốc không thỏa mãn \\(v(0)=3\\).",
+        "D": "Sai lầm: dùng tung độ đỉnh \\(12\\) làm số hạng tự do khi viết phương trình parabol, suy ra nhầm \\(v(t)=-t^2+6t+12\\) thay vì xác định từ điểm \\(A(0;3)\\). Khi đó tính \\(S=\\int_0^4(-t^2+6t+12)\\,dt=\\left(-\\frac{t^3}{3}+3t^2+12t\\right)_0^4=\\frac{164}{3}\\). Sai vì đã bỏ qua điều kiện đồ thị đi qua \\(A(0;3)\\)."
+      },
+      "hint": "Cần xác định phương trình vận tốc từ điều kiện đỉnh và điểm đi qua, sau đó lấy tích phân vận tốc trên khoảng thời gian ch",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Trong khoảng thời gian từ 3 đến 8 giây đồ thị \\(v(t)\\) là một Parabol đi qua các điểm",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": false,
+          "value": null,
+          "expression": "integrate(12-(x-3)**2, (x, 0, 4))",
+          "stated_answer": "47",
+          "stated_value": 47.0,
+          "source": "llm_resolver",
+          "detail": "tác nhân độc lập tự mâu thuẫn: biểu thức cho 38.6667 nhưng đáp án tự khai là 47",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "116/3",
+            "expected_numeric": 26.666666666666668
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (tác nhân độc lập tự mâu thuẫn: biểu thức cho 38.6667 nhưng đáp án tự khai là 47)",
+        "verified_at": "2026-07-26T04:31:36.878370Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.9333333333333332,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề nêu rõ điều kiện xác định parabol vận tốc, khoảng thời gian cần xét và yêu cầu tính quãng đường."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu phối hợp dựng phương trình parabol, kiểm tra điều kiện vận tốc và thực hiện tích phân chứ không chỉ áp dụng công thức trực tiếp."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác giải quyết vấn đề mới bằng cách vận dụng kiến thức tích phân và hàm parabol đúng với mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều xuất phát từ lỗi thường gặp như sai cận tích phân, nhầm tung độ đỉnh và bỏ hệ số tự do."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(\\frac{116}{3}\\) thu được khi xác định đúng \\(v(t)=-t^2+6t+3\\) và tích phân trên đoạn \\([0,4]\\)."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Mỗi chuỗi lỗi mô tả đều dẫn đúng đến giá trị distractor tương ứng và phần giải thích nhất quán với đáp án đúng."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9333333333333332,
+        "verifier_pass": true,
+        "critic_score": 0.9333333333333332,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Cần xác định phương trình vận tốc từ điều kiện đỉnh và điểm đi qua, sau đó lấy tích phân vận tốc trên khoảng thời gian chuyển động để tính quãng đường.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì parabol có đỉnh \\(I(3;12)\\), phương trình vận tốc có dạng \\(v(t)=a(t-3)^2+12\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Thay điểm \\(A(0;3)\\) vào phương trình ta có \\(3=9a+12\\), suy ra \\(a=-1\\). Do đó \\(v(t)=-(t-3)^2+12=-t^2+6t+3\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Quãng đường trong 4 giây đầu tiên được tính bởi \\(S=\\int_0^4(-t^2+6t+3)dt\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Tính tích phân: \\(S=\\left(-\\frac{t^3}{3}+3t^2+3t\\right)\\big|_0^4=-\\frac{64}{3}+48+12=\\frac{116}{3}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{116}{3}\\)"
+      },
+      "why_correct": "Điều kiện đỉnh và điểm đi qua xác định duy nhất parabol vận tốc, còn quãng đường được tính bằng tích phân vận tốc trên đúng khoảng thời gian yêu cầu nên chỉ có kết quả này thỏa mãn.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: lấy sai khoảng thời gian tích phân, cho rằng cần tính quãng đường chỉ đến thời điểm ứng với hoành độ đỉnh của parabol là \\(t=3\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: sau khi tìm dạng parabol từ đỉnh \\(I(3;12)\\), học sinh viết nhầm \\(v(t)=-t^2+6t\\), bỏ mất hằng số \\(+3\\) cần có từ điều kiện đi qua \\(A(0;3)\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: dùng tung độ đỉnh \\(12\\) làm số hạng tự do khi viết phương trình parabol, suy ra nhầm \\(v(t)=-t^2+6t+12\\) thay vì xác định từ điểm \\(A(0;3)\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_5ab06cea",
+      "blueprint_slot_id": "direct_pdf_6",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 336,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một đường hầm mô hình có chiều dài \\(6\\) m. Khi cắt đường hầm bởi mặt phẳng vuông góc với đáy tại vị trí cách lối vào \\(t\\) m \\((0\\le t\\le 6)\\), thiết diện là một hình parabol có chiều cao \\(h(t)=5-\\frac{t}{2}\\) m. Biết độ dài đáy của mỗi thiết diện luôn gấp đôi chiều cao của parabol. Tính thể tích phần không gian bên trong đường hầm.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(344\\,\\text{m}^3\\)",
+          "error_type": "height_function_sign_error"
+        },
+        {
+          "key": "B",
+          "text": "\\(78\\,\\text{m}^3\\)",
+          "error_type": "parabolic_segment_area_wrong_coefficient"
+        },
+        {
+          "key": "C",
+          "text": "\\(104\\,\\text{m}^3\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(104\\pi\\,\\text{m}^3\\)",
+          "error_type": "volume_missing_pi"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Từ điều kiện đáy gấp đôi chiều cao, diện tích một thiết diện parabol được suy ra theo công thức diện tích hình parabol. Sau đó lấy tích phân diện tích thiết diện theo chiều dài đường hầm để tính thể tích.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là đọc nhầm công thức chiều cao thành \\(h(t)=5+\\frac{t}{2}\\) thay vì \\(h(t)=5-\\frac{t}{2}\\). Khi đó người làm sai tính \\(V=\\frac{4}{3}\\int_0^6\\left(5+ rac{t}{2} ight)^2dt=\\frac{4}{3}\\cdot258=344\\), nên thu được \\(344\\,\\text{m}^3\\). Sai vì chiều cao thiết diện phải giảm dần khi khoảng cách từ lối vào tăng.",
+        "B": "Sai lầm là dùng công thức diện tích hình parabol sai thành \\(S=\\frac{1}{2}dh\\) thay vì \\(S=\\frac{2}{3}dh\\). Vì đáy \\(d=2h\\), người làm sai có \\(S=h^2\\), rồi tính \\(V=\\int_0^6\\left(5-\\frac{t}{2} ight)^2dt=78\\). Sai vì hệ số diện tích của đoạn parabol không phải \\(\\frac{1}{2}\\).",
+        "D": "Sai lầm là coi thể tích khối đường hầm giống thể tích khối tròn xoay và tự thêm hệ số \\(\\pi\\). Từ diện tích thiết diện đúng \\(S(t)=\\frac{4}{3}h(t)^2\\), người làm sai tính \\(V=\\pi\\int_0^6 S(t)dt=\\pi\\cdot104\\), nên thu được \\(104\\pi\\,\\text{m}^3\\). Sai vì đây là tích phân thể tích theo thiết diện parabol, không phải công thức khối tròn xoay."
+      },
+      "hint": "Từ điều kiện đáy gấp đôi chiều cao, diện tích một thiết diện parabol được suy ra theo công thức diện tích hình parabol.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Diện tích của hình parabol có đáy là d và chiều cao h là \\(S=\\frac{2}{3}dh\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "value": 104.0,
+          "expression": "integrate((4/3)*(5-x/2)**2, (x, 0, 6))",
+          "stated_answer": "104",
+          "stated_value": 104.0,
+          "source": "llm_resolver",
+          "detail": "integrate((4/3)*(5-x/2)**2, (x, 0, 6)) = 104",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "4/3*2*(5**3-2**3)/3",
+            "expected_numeric": 344
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 104, khớp đáp án key",
+        "verified_at": "2026-07-26T04:32:40.153311Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.93,
+        "quality": 0.9366666666666665,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.96,
+            "rationale": "Đề bài nêu đầy đủ chiều dài, chiều cao thiết diện, quan hệ đáy - chiều cao và yêu cầu tính thể tích nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.86,
+            "rationale": "Bài yêu cầu kết hợp công thức diện tích parabol với thiết lập và tính tích phân thể tích, phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là áp dụng công thức đã biết vào tình huống mới rồi thực hiện tính toán nên đúng mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đại diện cho lỗi thêm pi, sai hệ số diện tích parabol và sai dấu hàm chiều cao, đều là lỗi có tính chẩn đoán."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ phương án 104 m^3 khớp với công thức diện tích parabol và tích phân thể tích, các phương án còn lại đều sai."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Ba chuỗi lỗi được mô tả đều dẫn đúng đến các giá trị distractor tương ứng và phần giải thích không mâu thuẫn với đáp án 104 m^3."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9366666666666665,
+        "verifier_pass": true,
+        "critic_score": 0.9366666666666665,
+        "grounding_score": 0.93,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ điều kiện đáy gấp đôi chiều cao, diện tích một thiết diện parabol được suy ra theo công thức diện tích hình parabol. Sau đó lấy tích phân diện tích thiết diện theo chiều dài đường hầm để tính thể tích.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Với một thiết diện có chiều cao \\(h(t)\\), độ dài đáy là \\(d=2h(t)\\). Theo công thức diện tích hình parabol, ta có \\(S(t)=\\frac{2}{3}d h(t)=\\frac{2}{3}\\cdot 2h(t)\\cdot h(t)=\\frac{4}{3}h^2(t)\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Thay \\(h(t)=5-\\frac{t}{2}\\), diện tích thiết diện tại vị trí \\(t\\) là \\(S(t)=\\frac{4}{3}\\left(5-\\frac{t}{2}\\right)^2\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thể tích đường hầm được tính bằng tích phân theo chiều dài: \\(V=\\int_0^6 S(t)\\,dt=\\frac{4}{3}\\int_0^6\\left(5-\\frac{t}{2}\\right)^2dt\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Đặt \\(u=5-\\frac{t}{2}\\), khi \\(t=0\\) thì \\(u=5\\), khi \\(t=6\\) thì \\(u=2\\), và \\(dt=-2du\\). Do đó \\(\\int_0^6\\left(5-\\frac{t}{2}\\right)^2dt=2\\int_2^5u^2du=2\\left[\\frac{u^3}{3}\\right]_2^5=78\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Suy ra \\(V=\\frac{4}{3}\\cdot78=104\\). Vậy thể tích phần không gian bên trong đường hầm là \\(104\\,\\text{m}^3\\)."
+          }
+        ],
+        "final_answer": "\\(104\\,\\text{m}^3\\)"
+      },
+      "why_correct": "Kết quả được suy ra từ việc xác định diện tích từng thiết diện parabol rồi tích phân theo chiều dài đường hầm; các bước đều dựa trên dữ kiện đã cho nên thể tích là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm là đọc nhầm công thức chiều cao thành \\(h(t)=5+\\frac{t}{2}\\) thay vì \\(h(t)=5-\\frac{t}{2}\\). Khi đó người làm sai tính \\(V=\\frac{4}{3}\\int_0^6\\left(5+ rac{t}{2} ight)^2dt=\\frac{4}{3}\\cdot258=344\\), nên thu được"
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm là dùng công thức diện tích hình parabol sai thành \\(S=\\frac{1}{2}dh\\) thay vì \\(S=\\frac{2}{3}dh\\). Vì đáy \\(d=2h\\), người làm sai có \\(S=h^2\\), rồi tính \\(V=\\int_0^6\\left(5-\\frac{t}{2} ight)^2dt=78\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm là coi thể tích khối đường hầm giống thể tích khối tròn xoay và tự thêm hệ số \\(\\pi\\). Từ diện tích thiết diện đúng \\(S(t)=\\frac{4}{3}h(t)^2\\), người làm sai tính \\(V=\\pi\\int_0^6 S(t)dt=\\pi\\cdot104\\), nên thu được"
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_0d7e2ae6",
+      "blueprint_slot_id": "direct_pdf_7",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 352,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một đường hầm mô hình có các thiết diện vuông góc với đáy là các hình parabol. Tại vị trí cách lối vào một khoảng \\(x\\) (cm), chiều cao của thiết diện là \\(h(x)=5-\\frac{x^2}{5}\\) (cm), và mỗi thiết diện có độ dài đáy gấp đôi chiều cao. Biết đường hầm kết thúc tại vị trí thiết diện có chiều cao bằng \\(0\\). Tính thể tích không gian bên trong đường hầm.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{800}{9}\\text{ cm}^3\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{200}{3}\\text{ cm}^3\\)",
+          "error_type": "wrong_parabola_area_formula"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{4600}{9}\\text{ cm}^3\\)",
+          "error_type": "wrong_domain"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{200}{9}\\text{ cm}^3\\)",
+          "error_type": "wrong_area_dimension"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Trước hết tìm chiều dài mô hình bằng cách giải điều kiện thiết diện cuối có chiều cao bằng 0. Sau đó dùng công thức diện tích thiết diện parabol theo đáy và chiều cao, rồi lấy tích phân theo chiều dài để tính thể tích.",
+      "explanation_per_distractor": {
+        "B": "Sai lầm: coi thiết diện parabol như một tam giác có cùng đáy và chiều cao. Học sinh dùng công thức sai \\(S=\\frac{1}{2}dh\\), với \\(d=2h(x)\\), nên lấy \\(S=h(x)^2\\) thay vì công thức diện tích parabol \\(S=\\frac{2}{3}dh=\\frac{4}{3}h(x)^2\\). Khi đó thể tích tính sai là \\(V=\\int_0^5\\left(5-\\frac{x^2}{5}\\right)^2dx=\\frac{200}{3}\\text{ cm}^3\\), nên thu được giá trị này.",
+        "C": "Sai lầm: bỏ qua điều kiện thiết diện cuối có chiều cao bằng \\(0\\), nên xác định sai miền tích phân. Thay vì giải \\(5-\\frac{x^2}{5}=0\\) để được cận đúng \\(x=5\\), học sinh tự lấy cận từ \\(0\\) đến \\(10\\). Khi đó tính \\(V=\\int_0^{10}\\frac{4}{3}\\left(5-\\frac{x^2}{5}\\right)^2dx=\\frac{4600}{9}\\text{ cm}^3\\), tạo ra đáp án sai này.",
+        "D": "Sai lầm: nhầm diện tích thiết diện tỉ lệ với chiều cao thay vì bình phương chiều cao. Học sinh dùng \\(S(x)=\\frac{4}{3}h(x)\\) thay cho \\(S(x)=\\frac{4}{3}h(x)^2\\). Vì vậy tính \\(V=\\int_0^5\\frac{4}{3}\\left(5-\\frac{x^2}{5}\\right)dx=\\frac{200}{9}\\text{ cm}^3\\), dẫn đến kết quả sai này."
+      },
+      "hint": "Trước hết tìm chiều dài mô hình bằng cách giải điều kiện thiết diện cuối có chiều cao bằng 0.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Diện tích của hình parabol có đáy là d và chiều cao h là 2 . 3 S dh =",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "value": 88.88888888888889,
+          "expression": "integrate((4/3)*(5-x**2/5)**2, (x, 0, 5))",
+          "stated_answer": "800/9",
+          "stated_value": 88.88888888888889,
+          "source": "llm_resolver",
+          "detail": "integrate((4/3)*(5-x**2/5)**2, (x, 0, 5)) = 88.8889",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "800/9",
+            "expected_numeric": 511.1111111111111
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 88.8889, khớp đáp án key",
+        "verified_at": "2026-07-26T04:32:43.760933Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9333333333333332,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài nêu rõ hàm chiều cao, quan hệ đáy - chiều cao và điều kiện xác định chiều dài nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Học sinh phải kết hợp xác định cận, lập diện tích thiết diện và tính tích phân chứ không chỉ áp dụng công thức đơn lẻ."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Yêu cầu thực hiện quy trình giải một bài toán ứng dụng tích phân theo dữ kiện mới phù hợp mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến như dùng sai công thức diện tích parabol, sai bậc phụ thuộc và sai cận tích phân."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ phương án \\(\\\\frac{800}{9}\\\\text{ cm}^3\\) thu được khi dùng đúng diện tích parabol và đúng miền tích phân từ \\(0\\) đến \\(5\\)."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Mỗi chuỗi lỗi mô tả đều dẫn đúng đến giá trị distractor tương ứng và phần giải thích đáp án nhất quán với đáp án đúng."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9333333333333332,
+        "verifier_pass": true,
+        "critic_score": 0.9333333333333332,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Trước hết tìm chiều dài mô hình bằng cách giải điều kiện thiết diện cuối có chiều cao bằng 0. Sau đó dùng công thức diện tích thiết diện parabol theo đáy và chiều cao, rồi lấy tích phân theo chiều dài để tính thể tích.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Tìm vị trí cuối của đường hầm bằng điều kiện \\(h(x)=0\\): \\(5-\\frac{x^2}{5}=0\\Rightarrow x^2=25\\Rightarrow x=5\\). Vậy cần tính trên đoạn \\(0\\le x\\le5\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Vì độ dài đáy của mỗi thiết diện gấp đôi chiều cao nên \\(d=2h\\). Theo công thức diện tích hình parabol, diện tích thiết diện tại vị trí \\(x\\) là \\(S(x)=\\frac{2}{3}dh=\\frac{2}{3}\\cdot2h^2=\\frac{4}{3}h^2\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thay \\(h(x)=5-\\frac{x^2}{5}\\) vào biểu thức diện tích: \\(S(x)=\\frac{4}{3}\\left(5-\\frac{x^2}{5}\\right)^2\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Thể tích đường hầm là \\(V=\\int_0^5 S(x)\\,dx=\\frac{4}{3}\\int_0^5\\left(5-\\frac{x^2}{5}\\right)^2dx\\). Khai triển biểu thức: \\(\\left(5-\\frac{x^2}{5}\\right)^2=25-2x^2+\\frac{x^4}{25}\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Tính tích phân: \\(V=\\frac{4}{3}\\left[25x-\\frac{2x^3}{3}+\\frac{x^5}{125}\\right]_0^5=\\frac{4}{3}\\left(125-\\frac{250}{3}+5\\right)=\\frac{4}{3}\\cdot\\frac{200}{3}=\\frac{800}{9}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{800}{9}\\text{ cm}^3\\)"
+      },
+      "why_correct": "Giá trị này thu được từ đúng quy trình: xác định cận bằng điều kiện hình học, lập diện tích thiết diện parabol và tích phân theo chiều dài. Các bước đều xuất phát từ dữ kiện đề bài nên kết quả là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Sai lầm: coi thiết diện parabol như một tam giác có cùng đáy và chiều cao. Học sinh dùng công thức sai \\(S=\\frac{1}{2}dh\\), với \\(d=2h(x)\\), nên lấy \\(S=h(x)^2\\) thay vì công thức diện tích parabol"
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: bỏ qua điều kiện thiết diện cuối có chiều cao bằng \\(0\\), nên xác định sai miền tích phân. Thay vì giải \\(5-\\frac{x^2}{5}=0\\) để được cận đúng \\(x=5\\), học sinh tự lấy cận từ \\(0\\) đến \\(10\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: nhầm diện tích thiết diện tỉ lệ với chiều cao thay vì bình phương chiều cao. Học sinh dùng \\(S(x)=\\frac{4}{3}h(x)\\) thay cho \\(S(x)=\\frac{4}{3}h(x)^2\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_a5ca8182",
+      "blueprint_slot_id": "direct_pdf_9",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.88,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 330,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Một chất điểm bắt đầu chuyển động thẳng đều với vận tốc ban đầu \\(v_0\\) trong \\(4\\) giây. Sau đó chất điểm giảm tốc với vận tốc được mô tả bởi \\(v(t)=-\\frac{5}{2}t+v_0+10\\) với \\(t\\ge4\\) cho đến khi dừng hẳn. Biết tổng quãng đường chất điểm đi được từ lúc bắt đầu đến khi dừng hẳn là \\(80\\,\\text{m}\\). Tìm vận tốc ban đầu \\(v_0\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(10\\,\\text{m/s}\\)",
+          "error_type": "wrong_average_velocity_in_deceleration"
+        },
+        {
+          "key": "B",
+          "text": "\\(20\\,\\text{m/s}\\)",
+          "error_type": "ignore_uniform_motion_segment"
+        },
+        {
+          "key": "C",
+          "text": "\\(10(\\sqrt{5}-1)\\,\\text{m/s}\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(-10(1+\\sqrt{5})\\,\\text{m/s}\\)",
+          "error_type": "wrong_quadratic_root_selection"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Cần xác định thời điểm dừng từ phương trình vận tốc, sau đó lập phương trình quãng đường gồm đoạn chuyển động đều và đoạn giảm tốc. Giải phương trình thu được giá trị dương duy nhất của \\(v_0\\).",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: khi tính quãng đường trong giai đoạn giảm tốc, coi vận tốc trung bình bằng \\(v_0\\) thay vì \\(\\frac{v_0+0}{2}=\\frac{v_0}{2}\\). Do đó lấy quãng đường giảm tốc là \\(S_2=(t_d-4)v_0\\). Vì \\(t_d-4=\\frac{2}{5}v_0\\), phương trình sai là \\(80=4v_0+\\frac{2}{5}v_0^2\\). Giải được nghiệm dương \\(v_0=10\\,\\text{m/s}\\). Sai vì đã tính sai diện tích tam giác vận tốc.",
+        "B": "Sai lầm: chỉ xét quãng đường ở giai đoạn giảm tốc và bỏ qua 4 giây đầu chuyển động thẳng đều. Khi đó quãng đường được lấy là diện tích tam giác dưới đồ thị vận tốc từ lúc giảm tốc đến khi dừng: \\(S=\\frac{1}{2}(t_d-4)v_0\\). Với \\(t_d=\\frac{2}{5}(v_0+10)\\) thì \\(t_d-4=\\frac{2}{5}v_0\\), suy ra \\(80=\\frac{1}{2}\\cdot\\frac{2}{5}v_0^2=\\frac{1}{5}v_0^2\\), nên \\(v_0=20\\,\\text{m/s}\\).",
+        "D": "Sai lầm: sau khi lập đúng phương trình \\(v_0^2+20v_0-400=0\\), giải phương trình bậc hai được hai nghiệm \\(v_0=-10+10\\sqrt{5}\\) và \\(v_0=-10-10\\sqrt{5}\\). Người làm chọn nhầm nghiệm âm thứ hai làm vận tốc ban đầu nên thu được \\(-10(1+\\sqrt{5})\\,\\text{m/s}\\). Sai vì vận tốc ban đầu của chất điểm phải phù hợp với chuyển động theo đề bài và không thể nhận giá trị âm."
+      },
+      "hint": "Cần xác định thời điểm dừng từ phương trình vận tốc, sau đó lập phương trình quãng đường gồm đoạn chuyển động đều và đoạn",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Quãng đường chất điểm đi được kể từ lúc chuyển động đến khi dừng hẳn là 80m.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "value": 12.360679774997896,
+          "expression": "sqrt(500)-10",
+          "stated_answer": "10*sqrt(5)-10",
+          "stated_value": 12.360679774997896,
+          "source": "llm_resolver",
+          "detail": "sqrt(500)-10 = 12.3607",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "10*(sqrt(5)-1)",
+            "expected_numeric": -32.3606797749979
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 12.3607, khớp đáp án key",
+        "verified_at": "2026-07-26T04:33:56.002122Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.8583333333333333,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.5,
+            "rationale": ""
+          },
+          "cognitive_depth": {
+            "score": 0.9,
+            "rationale": "Bài yêu cầu kết hợp lập thời điểm dừng, thiết lập quãng đường theo hai giai đoạn và giải phương trình nên phù hợp mức vận dụng cao."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là vận dụng mô hình tích phân vận tốc và xử lý phương trình để giải quyết tình huống mới, phù hợp với mức Vận dụng cao."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi thường gặp như bỏ đoạn chuyển động đều, sai vận tốc trung bình khi giảm tốc và chọn sai nghiệm."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Phương trình quãng đường cho đúng một nghiệm dương \\(v_0=10(\\sqrt{5}-1)\\), các nghiệm hoặc giá trị còn lại không thỏa điều kiện vận tốc ban đầu."
+          },
+          "error_distractor_consistency": {
+            "score": 0.95,
+            "rationale": "Chuỗi lỗi mô tả dẫn đúng đến các giá trị distractor đã cho và phần giải thích đáp án không mâu thuẫn với đáp án đúng."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8583333333333333,
+        "verifier_pass": true,
+        "critic_score": 0.8583333333333333,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Cần xác định thời điểm dừng từ phương trình vận tốc, sau đó lập phương trình quãng đường gồm đoạn chuyển động đều và đoạn giảm tốc. Giải phương trình thu được giá trị dương duy nhất của \\(v_0\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Trong \\(4\\) giây đầu, chất điểm chuyển động đều nên quãng đường đi được là \\(S_1=4v_0\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Thời điểm chất điểm dừng hẳn là \\(t=k\\) thỏa mãn \\(v(k)=0\\), nên \\(-\\frac{5}{2}k+v_0+10=0\\), suy ra \\(k=\\frac{2}{5}(v_0+10)\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Trong giai đoạn giảm tốc, đồ thị vận tốc theo thời gian là đoạn thẳng từ điểm có vận tốc \\(v_0\\) đến điểm có vận tốc \\(0\\). Thời gian giảm tốc là \\(k-4=\\frac{2}{5}v_0\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Quãng đường ở giai đoạn giảm tốc bằng diện tích tam giác dưới đồ thị vận tốc: \\(S_2=\\frac{1}{2}v_0\\cdot\\frac{2}{5}v_0=\\frac{v_0^2}{5}\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Theo đề bài, \\(S_1+S_2=80\\), do đó \\(4v_0+\\frac{v_0^2}{5}=80\\). Nhân hai vế với \\(5\\) được \\(v_0^2+20v_0-400=0\\)."
+          },
+          {
+            "title": "Bước 6",
+            "content": "Chọn đáp án C: \\(10(\\sqrt{5}-1)\\,\\text{m/s}\\)."
+          }
+        ],
+        "final_answer": "\\(10(\\sqrt{5}-1)\\,\\text{m/s}\\)"
+      },
+      "why_correct": "Phương trình tổng quãng đường dẫn đến phương trình bậc hai có hai nghiệm nhưng chỉ nghiệm dương phù hợp với ý nghĩa vận tốc ban đầu, nên đáp án là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: khi tính quãng đường trong giai đoạn giảm tốc, coi vận tốc trung bình bằng \\(v_0\\) thay vì \\(\\frac{v_0+0}{2}=\\frac{v_0}{2}\\). Do đó lấy quãng đường giảm tốc là \\(S_2=(t_d-4)v_0\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm: chỉ xét quãng đường ở giai đoạn giảm tốc và bỏ qua 4 giây đầu chuyển động thẳng đều. Khi đó quãng đường được lấy là diện tích tam giác dưới đồ thị vận tốc từ lúc giảm tốc đến khi dừng: \\(S=\\frac{1}{2}(t_d-4)v_0\\)"
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: sau khi lập đúng phương trình \\(v_0^2+20v_0-400=0\\), giải phương trình bậc hai được hai nghiệm \\(v_0=-10+10\\sqrt{5}\\) và \\(v_0=-10-10\\sqrt{5}\\)."
+        }
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_4_writer",
+      "blueprint_slot_id": "direct_pdf_4",
+      "cognitive_level": "Vận dụng",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 26 column 280 (char 1601)\"])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 26 column 280 (char 1601)\"])",
+          "slot_id": "direct_pdf_4"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_8_writer",
+      "blueprint_slot_id": "direct_pdf_8",
+      "cognitive_level": "Vận dụng cao",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 4 column 290 (char 644)\"])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 4 column 290 (char 644)\"])",
+          "slot_id": "direct_pdf_8"
+        }
+      ],
+      "attempts": 1
+    }
+  ]
+}

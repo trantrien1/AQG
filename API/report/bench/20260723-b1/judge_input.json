@@ -1,0 +1,614 @@
+[
+  {
+    "id": 1,
+    "qid": "q_2026_2b1f1bb2",
+    "pdf": "file_1_trang_1-31.pdf",
+    "bloom": "Nhận biết",
+    "stem": "Một nguyên hàm của hàm số \\(f(x)=\\cos x\\) là hàm số nào?",
+    "options": {
+      "A": "\\(-\\sin x+C\\)",
+      "B": "\\(x\\cos x+C\\)",
+      "C": "\\(\\cos x+C\\)",
+      "D": "\\(\\sin x+C\\)"
+    },
+    "answer_key": "D",
+    "source_quote": "cos d sin xx x C",
+    "solution": "Bước 1: Nhận dạng hàm cần tìm nguyên hàm là \\(f(x)=\\cos x\\). | Bước 2: Dùng công thức nguyên hàm cơ bản: \\(\\int \\cos x\\,dx=\\sin x+C\\), với \\(C\\) là hằng số.",
+    "verifier": "none/verified=None",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 2,
+    "qid": "q_2026_0629ed46",
+    "pdf": "file_1_trang_1-31.pdf",
+    "bloom": "Thông hiểu",
+    "stem": "Một xe máy bắt đầu tăng tốc tại thời điểm \\(t=0\\). Gia tốc của xe tại thời điểm \\(t\\) giây được cho bởi \\(a(t)=6t-3\\, (m/s^2)\\). Biết vận tốc ban đầu của xe là \\(5\\,m/s\\). Tính quãng đường xe đi được trong \\(2\\) giây đầu tiên.",
+    "options": {
+      "A": "\\(20\\,m\\)",
+      "B": "\\(26\\,m\\)",
+      "C": "\\(14\\,m\\)",
+      "D": "\\(2\\,m\\)"
+    },
+    "answer_key": "C",
+    "source_quote": "Gọi s(t) là quãng đường xe ô tô đi được trong t giây kể từ lúc hãm phanh.",
+    "solution": "Bước 1: Ta có \\(v(t)=\\int(6t-3)dt=3t^2-3t+C\\). | Bước 2: Dùng điều kiện vận tốc ban đầu \\(v(0)=5\\), suy ra \\(C=5\\). Do đó \\(v(t)=3t^2-3t+5\\). | Bước 3: Quãng đường đi được là một nguyên hàm của vận tốc: \\(s(t)=\\int(3t^2-3t+5)dt=t^3-t^2+5t+C_1\\). Vì \\(s(0)=0\\) nên \\(C_1=0\\). | Bước 4: Tại \\(t=2\\), quãng đường là \\(s(2)=2^3-2^2+5\\cdot2=8-4+10=14\\).",
+    "verifier": "numeric_eval/verified=True",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 3,
+    "qid": "q_2026_67579522",
+    "pdf": "file_1_trang_1-31.pdf",
+    "bloom": "Thông hiểu",
+    "stem": "Cho hàm số \\(f(x)=3x^2+5x\\) trên ℝ và \\(F(x)\\) là một nguyên hàm của \\(f(x)\\). Biết \\(F(2)=6\\). Tính giá trị \\(F(5)\\).",
+    "options": {
+      "A": "\\(\\frac{375}{2}\\)",
+      "B": "\\(\\frac{351}{2}\\)",
+      "C": "\\(45\\)",
+      "D": "\\(\\frac{399}{2}\\)"
+    },
+    "answer_key": "B",
+    "source_quote": "Để tìm họ các nguyên hàm (gọi tắt là tìm nguyên hàm) của hàm số f(x) trên K, ta chỉ cần tìm một nguyên hàm F(x) của f(x) trên K",
+    "solution": "Bước 1: Vì \\(F'(x)=f(x)=3x^2+5x\\), ta lấy nguyên hàm từng phần: \\(F(x)=\\int(3x^2+5x)dx=x^3+\\frac{5}{2}x^2+C\\). | Bước 2: Dùng điều kiện \\(F(2)=6\\): \\(2^3+\\frac{5}{2}\\cdot2^2+C=6\\), suy ra \\(8+10+C=6\\), nên \\(C=-12\\). | Bước 3: Thay \\(C=-12\\) vào biểu thức nguyên hàm: \\(F(x)=x^3+\\frac{5}{2}x^2-12\\). | Bước 4: Tính \\(F(5)=5^3+\\frac{5}{2}\\cdot5^2-12=125+\\frac{125}{2}-12=\\frac{351}{2}\\).",
+    "verifier": "numeric_eval/verified=True",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 4,
+    "qid": "q_2026_d2d1d839",
+    "pdf": "file_1_trang_1-31.pdf",
+    "bloom": "Vận dụng",
+    "stem": "Một bể chứa nước ban đầu có \\(10\\) m³ nước. Tốc độ thay đổi thể tích nước trong bể tại thời điểm \\(t\\) giây được cho bởi \\(h'(t)=at^2+6t+4\\) (m³/giây), trong đó \\(a\\) là một hằng số. Biết rằng sau \\(2\\) giây, thể tích nước trong bể là \\(40\\) m³. Hỏi sau \\(5\\) giây kể từ lúc bắt đầu bơm, thể tích nước trong bể là bao nhiêu?",
+    "options": {
+      "A": "\\(\\frac{1005}{4}\\) m³",
+      "B": "\\(\\frac{815}{2}\\) m³",
+      "C": "\\(\\frac{595}{4}\\) m³",
+      "D": "\\(\\frac{1045}{4}\\) m³"
+    },
+    "answer_key": "D",
+    "source_quote": "Để tìm họ các nguyên hàm (gọi tắt là tìm nguyên hàm) của hàm số f(x) trên K, ta chỉ cần tìm một nguyên hàm F(x) của f(x)",
+    "solution": "Bước 1: Vì \\(h'(t)=at^2+6t+4\\), ta lấy nguyên hàm để tìm thể tích: \\(h(t)=\\frac{a}{3}t^3+3t^2+4t+C\\). | Bước 2: Do ban đầu bể có \\(10\\) m³ nước nên \\(h(0)=10\\), suy ra \\(C=10\\). Thay điều kiện \\(h(2)=40\\): \\(\\frac{8a}{3}+3\\cdot4+4\\cdot2+10=40\\). | Bước 3: Biến đổi phương trình tìm được: \\(\\frac{8a}{3}+30=40\\), nên \\(\\frac{8a}{3}=10\\) và \\(a=\\frac{15}{4}\\). | Bước 4: Thay \\(a=\\frac{15}{4}\\) vào hàm thể tích rồi tính tại \\(t=5\\): \\(h(5)=\\frac{15}{4}\\cdot\\frac{125}{3}+3\\cdot25+4\\cdot5+10=\\frac{1045}{4}\\).",
+    "verifier": "numeric_eval/verified=True",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 5,
+    "qid": "q_2026_25c59fc6",
+    "pdf": "file_2_trang_31-61.pdf",
+    "bloom": "Thông hiểu",
+    "stem": "Một ô tô đang chuyển động với vận tốc thay đổi theo thời gian \\(t\\) (giây) sau khi bắt đầu phanh bởi công thức \\(v(t)=-3t+18\\) (m/s). Hỏi quãng đường ô tô đi được từ lúc bắt đầu phanh đến khi dừng hẳn là bao nhiêu mét?",
+    "options": {
+      "A": "\\(324\\,\\text{m}\\)",
+      "B": "\\(108\\,\\text{m}\\)",
+      "C": "\\(54\\,\\text{m}\\)",
+      "D": "\\(162\\,\\text{m}\\)"
+    },
+    "answer_key": "C",
+    "source_quote": "Nếu F x  là một nguyên hàm của f x  trên đoạn   a b; thì hiệu số F(b)-F(a)",
+    "solution": "Bước 1: Xe dừng hẳn khi vận tốc bằng 0 nên giải phương trình \\(-3t+18=0\\), suy ra \\(t=6\\) giây. | Bước 2: Quãng đường xe đi được trong thời gian từ \\(0\\) đến \\(6\\) giây là \\(S=\\int_0^6(-3t+18)\\,dt\\). | Bước 3: Tính tích phân: \\(S=\\left(-\\frac{3t^2}{2}+18t\\right)\\big|_0^6=\\left(-\\frac{3\\cdot6^2}{2}+18\\cdot6\\right)-0=54\\).",
+    "verifier": "numeric_eval/verified=True",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 6,
+    "qid": "q_2026_52803a2f",
+    "pdf": "file_2_trang_31-61.pdf",
+    "bloom": "Thông hiểu",
+    "stem": "Cho hàm số \\(f(x)\\) liên tục trên đoạn \\([1;4]\\). Biết một nguyên hàm của \\(f(x)\\) là \\(F(x)=x^3-3x^2+5x\\). Tính giá trị của tích phân \\(I=\\int_{1}^{4} f(x)\\,dx\\).",
+    "options": {
+      "A": "\\(39\\)",
+      "B": "\\(29\\)",
+      "C": "\\(-33\\)",
+      "D": "\\(33\\)"
+    },
+    "answer_key": "D",
+    "source_quote": "Nếu hàm số y=f(x) liên tục và không âm trên đoạn [a;b], thì diện tích S của hình thang cong giới hạn bởi đồ thị hàm số y=f(x), trục hoành và hai đường thẳng x=a, x=b",
+    "solution": "Bước 1: Nhận biết rằng cần dùng nguyên hàm đã cho để tính tích phân xác định, với \\(F(x)=x^3-3x^2+5x\\). | Bước 2: Tính giá trị tại cận trên: \\(F(4)=4^3-3\\cdot4^2+5\\cdot4=64-48+20=36\\). | Bước 3: Tính giá trị tại cận dưới: \\(F(1)=1^3-3\\cdot1^2+5\\cdot1=1-3+5=3\\). | Bước 4: Lấy hiệu hai giá trị đã tìm được: \\(I=F(4)-F(1)=36-3=33\\).",
+    "verifier": "numeric_eval/verified=True",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 7,
+    "qid": "q_2026_470c1b88",
+    "pdf": "file_2_trang_31-61.pdf",
+    "bloom": "Vận dụng",
+    "stem": "Tại một nhà máy, gọi \\(C(x)\\) là tổng chi phí (triệu đồng) để sản xuất \\(x\\) tấn sản phẩm trong một tháng. Biết chi phí cận biên được mô hình hóa bởi \\(C'(x)=-\\frac{x^2}{1000}+\\frac{x}{10}+a\\) với \\(0\\le x\\le 100\\). Biết rằng tại mức sản xuất \\(20\\) tấn thì chi phí cận biên là \\(6\\) triệu đồng/tấn và chi phí cố định là \\(C(0)=50\\) triệu đồng.",
+    "options": {
+      "A": "\\(408\\) triệu đồng",
+      "B": "\\(422\\) triệu đồng",
+      "C": "\\(458\\) triệu đồng",
+      "D": "\\(372\\) triệu đồng"
+    },
+    "answer_key": "B",
+    "source_quote": "Gọi C(x) là tổng chi phí (tính theo triệu đồng) để sản xuất x tấn sản phẩm A trong một tháng. Khi đó, đạo hàm C'(x), gọi là chi phí cận biên",
+    "solution": "Bước 1: Thay \\(x=20\\) vào công thức chi phí cận biên: \\(C'(20)=-\\frac{20^2}{1000}+\\frac{20}{10}+a=6\\). Suy ra \\(-\\frac{400}{1000}+2+a=6\\), nên \\(a=\\frac{22}{5}\\). | Bước 2: Khi đó \\(C'(x)=-\\frac{x^2}{1000}+\\frac{x}{10}+\\frac{22}{5}\\). Phần chi phí tăng thêm khi sản xuất từ \\(0\\) đến \\(60\\) tấn là \\(C(60)-C(0)=\\int_0^{60}\\left(-\\frac{x^2}{1000}+\\frac{x}{10}+\\frac{22}{5}\\right)dx\\). | Bước 3: Tính nguyên hàm: \\(\\int\\left(-\\frac{x^2}{1000}+\\frac{x}{10}+\\frac{22}{5}\\right)dx=-\\frac{x^3}{3000}+\\frac{x^2}{20}+\\frac{22x}{5}\\). | Bước 4: Thay cận \\(0\\) và \\(60\\): \\(C(60)-C(0)=-\\frac{60^3}{3000}+\\frac{60^2}{20}+\\frac{22\\cdot60}{5}= -72+180+264=372\\). Do \\(C(0)=50\\), ta có \\(C(60)=372+50=422\\). | Bước 5: Kiểm tra lại phép tính: từ \\(a=\\frac{22}{5}\\), giá trị hằng số trong tích phân là \\(4,4\\), nên phần hằng số đóng góp là \\(4,4\\times60=264\\). Tổng chi phí là \\( -72+180+264+50=422\\) triệu đồng.",
+    "verifier": "numeric_eval/verified=True",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 8,
+    "qid": "q_2026_8a08ff27",
+    "pdf": "file_2_trang_31-61.pdf",
+    "bloom": "Vận dụng",
+    "stem": "Một bể chứa nước có thể tích nước tại thời điểm \\(t\\) phút là \\(V(t)\\) (đơn vị \\(m^3\\)). Tốc độ thay đổi thể tích nước trong bể được mô hình hóa bởi \\(V'(t)=3t^2-6t+5\\). Biết rằng sau 2 phút kể từ lúc bắt đầu bơm, thể tích nước trong bể là \\(20m^3\\). Hỏi thể tích nước trong bể sau 5 phút là bao nhiêu?",
+    "options": {
+      "A": "\\(95m^3\\)",
+      "B": "\\(26m^3\\)",
+      "C": "\\(89m^3\\)",
+      "D": "\\(75m^3\\)"
+    },
+    "answer_key": "C",
+    "source_quote": "Nếu hàm số \\(y=f(x)\\) liên tục và không âm trên đoạn \\([a;b]\\), thì diện tích S của hình thang cong giới hạn bởi đồ thị hàm số",
+    "solution": "Bước 1: Vì \\(V'(t)=3t^2-6t+5\\), nên \\(V(t)=\\int(3t^2-6t+5)dt=t^3-3t^2+5t+C\\). | Bước 2: Dùng điều kiện \\(V(2)=20\\): \\(2^3-3\\cdot2^2+5\\cdot2+C=20\\), suy ra \\(8-12+10+C=20\\), nên \\(C=14\\). | Bước 3: Thay \\(C=14\\), ta có \\(V(t)=t^3-3t^2+5t+14\\). Đây là hàm thể tích cần dùng để tính tại thời điểm yêu cầu. | Bước 4: Tính \\(V(5)=5^3-3\\cdot5^2+5\\cdot5+14=125-75+25+14=89\\). Vậy thể tích nước sau 5 phút là \\(89m^3\\).",
+    "verifier": "numeric_eval/verified=True",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 9,
+    "qid": "q_2026_20478eab",
+    "pdf": "file_2_trang_31-61.pdf",
+    "bloom": "Vận dụng",
+    "stem": "Một khu đất có mặt cắt vuông góc được giới hạn bởi đồ thị hàm số \\(y=f(x)\\), trục hoành và hai đường thẳng \\(x=1\\), \\(x=4\\). Biết \\(f(x)=x^2+mx+n\\) với \\(f(1)=6\\) và \\(f(4)=15\\). Hãy tính diện tích phần khu đất đó.",
+    "options": {
+      "A": "\\(27\\)",
+      "B": "\\(69\\)",
+      "C": "\\(\\frac{63}{2}\\)",
+      "D": "\\(\\frac{100}{3}\\)"
+    },
+    "answer_key": "A",
+    "source_quote": "Nếu hàm số y fx    liên tục và không âm trên đoạn   a b; , thì diện tích S của hình thang cong giới hạn bởi đồ thị hàm số y fx",
+    "solution": "Bước 1: Từ \\(f(x)=x^2+mx+n\\), ta có \\(f(1)=1+m+n=6\\) nên \\(m+n=5\\). Đồng thời \\(f(4)=16+4m+n=15\\) nên \\(4m+n=-1\\). | Bước 2: Giải hệ phương trình \\(m+n=5\\), \\(4m+n=-1\\), lấy phương trình thứ hai trừ phương trình thứ nhất được \\(3m=-6\\), suy ra \\(m=-2\\), và \\(n=7\\). Vậy \\(f(x)=x^2-2x+7\\). | Bước 3: Vì \\(f(x)=x^2-2x+7=(x-1)^2+6>0\\) trên đoạn \\([1;4]\\), diện tích cần tìm là \\(S=\\int_1^4(x^2-2x+7)\\,dx\\). | Bước 4: Tính nguyên hàm: \\(\\int(x^2-2x+7)\\,dx=\\frac{x^3}{3}-x^2+7x\\). Do đó \\(S=\\left(\\frac{x^3}{3}-x^2+7x\\right)\bigg|_1^4\\). | Bước 5: Thay cận: \\(S=(\\frac{64}{3}-16+28)-(\\frac{1}{3}-1+7)=\\frac{100}{3}-\\frac{19}{3}=27\\).",
+    "verifier": "numeric_eval/verified=True",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 10,
+    "qid": "q_2026_1e7b754a",
+    "pdf": "file_2_trang_31-61.pdf",
+    "bloom": "Vận dụng",
+    "stem": "Trong một thí nghiệm truyền nhiệt, nhiệt độ của một bình tại thời điểm \\(t\\) giờ được ký hiệu là \\(T(t)\\). Tốc độ thay đổi nhiệt độ của bình được mô hình hóa bởi \\(T'(t)=3t^2+at+5\\) (độ C/giờ), với \\(0\\le t\\le 4\\). Biết nhiệt độ ban đầu của bình là \\(T(0)=20\\) độ C và sau 2 giờ nhiệt độ đạt \\(46\\) độ C. Hãy tính nhiệt độ trung bình của bình trong khoảng thời gian từ 0 đến 4 giờ.",
+    "options": {
+      "A": "\\(24,67\\)",
+      "B": "\\(98\\)",
+      "C": "\\(29\\)",
+      "D": "\\(34,67\\)"
+    },
+    "answer_key": "C",
+    "source_quote": "Nếu hàm số y=f(x) liên tục và không âm trên đoạn [a;b] thì tích phân là diện tích S của hình thang cong giới hạn bởi đồ thị.",
+    "solution": "Bước 1: Vì \\(T'(t)=3t^2+at+5\\) nên độ tăng nhiệt độ từ thời điểm 0 đến \\(t\\) được tính bởi \\(T(t)-T(0)=\\int_0^t(3x^2+ax+5)dx\\). | Bước 2: Dùng điều kiện \\(T(2)=46\\) và \\(T(0)=20\\), ta có \\(26=\\int_0^2(3x^2+ax+5)dx=\\left(x^3+\\frac{a}{2}x^2+5x\\right)_0^2=8+2a+10\\), suy ra \\(a=4\\). | Bước 3: Thay \\(a=4\\), ta có \\(T'(t)=3t^2+4t+5\\). Do đó \\(T(t)=\\int(3t^2+4t+5)dt=t^3+2t^2+5t+C\\). | Bước 4: Từ \\(T(0)=20\\) suy ra \\(C=20\\), nên \\(T(t)=t^3+2t^2+5t+20\\). Nhiệt độ trung bình trên \\([0,4]\\) là \\(\\frac{1}{4}\\int_0^4(t^3+2t^2+5t+20)dt=\\frac{1}{4}\\left(\\frac{4^4}{4}+\\frac{2\\cdot4^3}{3}+\\frac{5\\cdot4^2}{2}+80\\right)=29\\).",
+    "verifier": "numeric_eval/verified=False",
+    "review_status": "needs_revision"
+  },
+  {
+    "id": 11,
+    "qid": "q_2026_7de37f66",
+    "pdf": "file_2_trang_31-61.pdf",
+    "bloom": "Vận dụng cao",
+    "stem": "Một đường hầm có dạng hình lăng trụ với chiều dài \\(15\\,\\mathrm{m}\\). Mặt cắt vuông góc với chiều dài là một miền phẳng giới hạn bởi một cung parabol và mặt đất. Biết chiều cao lớn nhất của mặt cắt là \\(4\\,\\mathrm{m}\\), thể tích phần rỗng của đường hầm là \\(480\\,\\mathrm{m^3}\\). Giả sử mặt cắt parabol có dạng \\(y=4-kx^2\\), với hai giao điểm của parabol với mặt đất cách nhau một khoảng \\(d\\).",
+    "options": {
+      "A": "\\(12\\,\\mathrm{m}\\)",
+      "B": "\\(6\\,\\mathrm{m}\\)",
+      "C": "\\(16\\,\\mathrm{m}\\)",
+      "D": "\\(9\\,\\mathrm{m}\\)"
+    },
+    "answer_key": "A",
+    "source_quote": "Nếu hàm số y=f(x) liên tục và không âm trên đoạn [a;b], thì diện tích S của hình thang cong giới hạn bởi đồ thị hàm số y=f(x)",
+    "solution": "Bước 1: Gọi nửa chiều rộng mặt cắt là \\(a\\), khi đó hai giao điểm của parabol với mặt đất là \\((-a,0)\\) và \\((a,0)\\), nên \\(d=2a\\). Vì đỉnh parabol có độ cao \\(4\\), ta có dạng \\(y=4-kx^2\\). | Bước 2: Thay điều kiện \\(y(a)=0\\) vào phương trình parabol: \\(4-ka^2=0\\), suy ra \\(k=\\frac{4}{a^2}\\). Do đó hàm mô tả mặt cắt là \\(y=4-\\frac{4x^2}{a^2}\\). | Bước 3: Diện tích mặt cắt được tính bởi tích phân: \\(S=\\int_{-a}^{a}\\left(4-\\frac{4x^2}{a^2}\\right)dx\\). Biến đổi biểu thức: \\(S=8a-\\frac{4}{a^2}\\cdot\\frac{2a^3}{3}=8a-\\frac{8a}{3}=\\frac{16a}{3}\\). | Bước 4: Từ thể tích lăng trụ: \\(V=15S=480\\), suy ra \\(S=32\\). Vì vậy \\(\\frac{16a}{3}=32\\), nên \\(a=6\\). | Bước 5: Chiều rộng mặt cắt là \\(d=2a=2\\cdot6=12\\). Vậy đường hầm có bề rộng \\(12\\,\\mathrm{m}\\).",
+    "verifier": "numeric_eval/verified=True",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 12,
+    "qid": "q_2026_850afc9e",
+    "pdf": "file_2_trang_31-61.pdf",
+    "bloom": "Vận dụng cao",
+    "stem": "Một bể chứa nước dạng lăng trụ có chiều dài \\(12\\,\\mathrm{m}\\). Mặt cắt vuông góc với chiều dài của bể là miền phẳng giới hạn bởi trục hoành và một cung parabol có phương trình \\(y=12-ax^2\\) với \\(a>0\\). Biết chiều cao lớn nhất của mặt cắt là \\(12\\,\\mathrm{m}\\) và bề rộng đáy của mặt cắt là \\(8\\,\\mathrm{m}\\). Tính thể tích của bể.",
+    "options": {
+      "A": "\\(64\\,\\mathrm{m}^3\\)",
+      "B": "\\(864\\,\\mathrm{m}^3\\)",
+      "C": "\\(1152\\,\\mathrm{m}^3\\)",
+      "D": "\\(768\\,\\mathrm{m}^3\\)"
+    },
+    "answer_key": "D",
+    "source_quote": "Nếu hàm số \\(y=f(x)\\) liên tục và không âm trên đoạn \u001ba;b\u001d, thì diện tích S của hình thang cong giới hạn bởi đồ thị hàm số \\(y=f(x)\\), trục hoành và hai đường thẳng",
+    "solution": "Bước 1: Đỉnh parabol nằm tại \\(x=0\\) nên độ cao lớn nhất là \\(y(0)=12\\), phù hợp với dữ kiện. Gọi hai giao điểm của parabol với trục hoành là \\(x=-4\\) và \\(x=4\\) vì bề rộng đáy là \\(8\\,\\mathrm{m}\\). | Bước 2: Thay \\(x=4\\), \\(y=0\\) vào phương trình \\(y=12-ax^2\\), ta được \\(0=12-16a\\), suy ra \\(a=\\frac{3}{4}\\). Vậy phương trình mặt cắt là \\(y=12-\\frac{3}{4}x^2\\). | Bước 3: Diện tích mặt cắt được tính bằng tích phân: \\(S=\\int_{-4}^{4}\\left(12-\\frac{3}{4}x^2\\right)dx\\). Do hàm số đối xứng qua trục tung, ta biến đổi thành \\(S=2\\int_{0}^{4}\\left(12-\\frac{3}{4}x^2\\right)dx\\). | Bước 4: Tính tích phân: \\(S=2\\left(12x-\\frac{x^3}{4}\\right)\\bigg|_0^4=2(48-16)=64\\,\\mathrm{m}^2\\). | Bước 5: Thể tích bể bằng diện tích mặt cắt nhân với chiều dài lăng trụ: \\(V=64\\cdot12=768\\,\\mathrm{m}^3\\).",
+    "verifier": "numeric_eval/verified=True",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 13,
+    "qid": "q_2026_d7b86f1f",
+    "pdf": "file_2_trang_31-61.pdf",
+    "bloom": "Nhận biết",
+    "stem": "Cho biết hàm số \\(f(x)=3x^2-2x+5\\) liên tục trên đoạn \\([1;3]\\). Giá trị của tích phân \\(\\int_{1}^{3} f(x)\\,dx\\) được tính bằng hiệu nào sau đây theo định nghĩa tích phân, nếu \\(F(x)\\) là một nguyên hàm của \\(f(x)\\)?",
+    "options": {
+      "A": "\\(F(1)-F(3)\\)",
+      "B": "\\(F(3)-F(1)\\)",
+      "C": "\\(F(3)\\)",
+      "D": "\\(F(3)-F(1)+2C\\)"
+    },
+    "answer_key": "B",
+    "source_quote": "Định nghĩa tích phân: Cho hàm số f(x) liên tục trên đoạn [a;b]. Nếu F(x) là một nguyên hàm của f(x) trên đoạn [a;b] thì hiệu số F(b)-F(a) được gọi là tích phân",
+    "solution": "Bước 1: Nhận dạng dạng tích phân xác định có cận dưới \\(a=1\\) và cận trên \\(b=3\\). | Bước 2: Áp dụng công thức định nghĩa tích phân: \\(\\int_a^b f(x)\\,dx=F(b)-F(a)\\). | Bước 3: Thay \\(a=1\\), \\(b=3\\) vào công thức, suy ra \\(\\int_1^3 f(x)\\,dx=F(3)-F(1)\\).",
+    "verifier": "none/verified=None",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 14,
+    "qid": "q_2026_ccb4bf8d",
+    "pdf": "file_2_trang_31-61.pdf",
+    "bloom": "Nhận biết",
+    "stem": "Cho hàm số \\(f(x)\\) liên tục trên đoạn \\([3;6]\\). Biết \\(F(x)=x^2+3x\\) là một nguyên hàm của \\(f(x)\\) trên đoạn này. Giá trị của tích phân \\(\\int_{3}^{6} f(x)\\,dx\\) bằng bao nhiêu?",
+    "options": {
+      "A": "\\(36\\)",
+      "B": "\\(\\frac{207}{2}\\)",
+      "C": "\\(-36\\)",
+      "D": "\\(54\\)"
+    },
+    "answer_key": "A",
+    "source_quote": "Nếu F(x) là một nguyên hàm của f(x) trên đoạn [a;b] thì hiệu số F(b)-F(a) được gọi là tích phân của hàm số f(x) từ a đến b",
+    "solution": "Bước 1: Vì \\(F(x)\\) là một nguyên hàm của \\(f(x)\\), ta dùng công thức \\(\\int_{3}^{6} f(x)\\,dx=F(6)-F(3)\\). | Bước 2: Tính các giá trị của nguyên hàm: \\(F(6)=6^2+3\\cdot6=54\\), \\(F(3)=3^2+3\\cdot3=18\\). | Bước 3: Lấy hiệu hai giá trị: \\(F(6)-F(3)=54-18=36\\).",
+    "verifier": "numeric_eval/verified=True",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 15,
+    "qid": "q_2026_e82df16b",
+    "pdf": "file_3_trang_61-90.pdf",
+    "bloom": "Nhận biết",
+    "stem": "Một hình parabol có đáy dài \\(d\\) và chiều cao \\(h\\). Công thức tính diện tích hình parabol này là công thức nào?",
+    "options": {
+      "A": "\\(S=dh\\)",
+      "B": "\\(S=\\frac{1}{2}dh\\)",
+      "C": "\\(S=\\frac{3}{2}dh\\)",
+      "D": "\\(S=\\frac{2}{3}dh\\)"
+    },
+    "answer_key": "D",
+    "source_quote": "Diện tích của hình parabol có đáy là d và chiều cao h là 2 . 3 S dh",
+    "solution": "Bước 1: Nhận dạng dạng bài: cần xác định công thức diện tích của một hình parabol khi biết đáy \\(d\\) và chiều cao \\(h\\). | Bước 2: Đối chiếu công thức trong tài liệu, diện tích hình parabol được cho bởi \\(S=\\frac{2}{3}dh\\).",
+    "verifier": "none/verified=None",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 16,
+    "qid": "q_2026_ca5e6bc8",
+    "pdf": "file_3_trang_61-90.pdf",
+    "bloom": "Thông hiểu",
+    "stem": "Một lều trại có mặt cắt vuông góc với chiều dài là một miền phẳng giới hạn bởi một parabol đối xứng qua trục tung và mặt đất. Biết đỉnh của parabol cách mặt đất \\(5\\) m, hai điểm parabol cắt mặt đất cách nhau \\(6\\) m. Chiều dài của lều là \\(4\\) m. Tính thể tích không gian bên trong lều.",
+    "options": {
+      "A": "\\(120\\,\\text{m}^3\\)",
+      "B": "\\(160\\,\\text{m}^3\\)",
+      "C": "\\(80\\,\\text{m}^3\\)",
+      "D": "\\(20\\,\\text{m}^3\\)"
+    },
+    "answer_key": "C",
+    "source_quote": "Parabol \\(P\\): y=ax²+bx+c, a≠0 có đỉnh C(0;3), đi qua hai điểm A(−2;0) và B(2;0)",
+    "solution": "Bước 1: Gọi phương trình parabol là \\(y=ax^2+c\\). Vì đỉnh là \\((0;5)\\) nên \\(c=5\\). Hai điểm cắt mặt đất cách nhau \\(6\\) m nên có tọa độ \\((-3;0)\\) và \\((3;0)\\). | Bước 2: Thay điểm \\((3;0)\\) vào phương trình ta có \\(0=9a+5\\), suy ra \\(a=-\\frac{5}{9}\\). Vậy phương trình thiết diện là \\(y=5-\\frac{5}{9}x^2\\). | Bước 3: Diện tích thiết diện là \\(S=\\int_{-3}^{3}\\left(5-\\frac{5}{9}x^2\\right)dx=\\left(5x-\\frac{5}{27}x^3\\right)\\bigg|_{-3}^{3}=20\\). | Bước 4: Thể tích lều bằng diện tích thiết diện nhân với chiều dài: \\(V=4S=4\\cdot20=80\\).",
+    "verifier": "numeric_eval/verified=True",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 17,
+    "qid": "q_2026_73b81279",
+    "pdf": "file_3_trang_61-90.pdf",
+    "bloom": "Thông hiểu",
+    "stem": "Một mái vòm có dạng một lăng trụ parabol dài \\(5\\,\\text{m}\\). Mặt cắt vuông góc với chiều dài là phần hình phẳng giới hạn bởi parabol \\(y=ax^2+3\\) và trục hoành, biết parabol đi qua điểm \\(M(2;0)\\). Tính thể tích không gian bên trong mái vòm.",
+    "options": {
+      "A": "\\(96\\pi\\,\\text{m}^3\\)",
+      "B": "\\(40\\,\\text{m}^3\\)",
+      "C": "\\(8\\,\\text{m}^3\\)",
+      "D": "\\(70\\,\\text{m}^3\\)"
+    },
+    "answer_key": "B",
+    "source_quote": "Suy ra \\(P:y=-\\frac{3}{4}x^2+3\\).",
+    "solution": "Bước 1: Vì parabol có dạng \\(y=ax^2+3\\) và đi qua \\(M(2;0)\\) nên \\(0=4a+3\\), suy ra \\(a=-\\frac{3}{4}\\). Do đó phương trình parabol là \\(y=-\\frac{3}{4}x^2+3\\). | Bước 2: Tìm giao điểm của parabol với trục hoành: \\(-\\frac{3}{4}x^2+3=0\\Rightarrow x^2=4\\), nên hai cận của miền cần tính là \\(x=-2\\) và \\(x=2\\). | Bước 3: Diện tích mặt cắt của mái vòm là \\(S=\\int_{-2}^{2}\\left(-\\frac{3}{4}x^2+3\\right)dx=\\left(-\\frac{x^3}{4}+3x\\right)\\Big|_{-2}^{2}=8\\,\\text{m}^2\\). | Bước 4: Thể tích mái vòm bằng diện tích mặt cắt nhân chiều dài: \\(V=S\\cdot5=8\\cdot5=40\\,\\text{m}^3\\).",
+    "verifier": "numeric_eval/verified=True",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 18,
+    "qid": "q_2026_1689bcd2",
+    "pdf": "file_3_trang_61-90.pdf",
+    "bloom": "Vận dụng",
+    "stem": "Tại một nhà máy, tổng chi phí \\(C(x)\\) (tính theo triệu đồng) để sản xuất \\(x\\) tấn sản phẩm A trong một tháng có chi phí cận biên \\(C'(x)=5-0,06x+0,00072x^2\\), với \\(0\\le x\\le150\\). Biết chi phí cố định khi chưa sản xuất là \\(C(0)=30\\) triệu đồng. Hỏi khi nhà máy sản xuất \\(75\\) tấn sản phẩm A thì tổng chi phí là bao nhiêu triệu đồng?",
+    "options": {
+      "A": "\\(\\frac{705}{2}\\)",
+      "B": "\\(\\frac{615}{2}\\)",
+      "C": "\\(\\frac{555}{2}\\)",
+      "D": "\\(\\frac{675}{2}\\)"
+    },
+    "answer_key": "D",
+    "source_quote": "Giả sử chi phí cận biên (tính theo triệu đồng trên tấn) của nhà máy được ước lượng bởi công thức",
+    "solution": "Bước 1: Vì \\(C'(x)=5-0,06x+0,00072x^2\\), ta tìm hàm chi phí bằng cách lấy nguyên hàm: \\(C(x)=5x-0,03x^2+0,00024x^3+k\\). | Bước 2: Dùng điều kiện \\(C(0)=30\\): \\(5\\cdot0-0,03\\cdot0^2+0,00024\\cdot0^3+k=30\\), suy ra \\(k=30\\). Do đó \\(C(x)=5x-0,03x^2+0,00024x^3+30\\). | Bước 3: Thay \\(x=75\\) vào biểu thức chi phí: \\(C(75)=5\\cdot75-0,03\\cdot75^2+0,00024\\cdot75^3+30\\). | Bước 4: Tính từng phần: \\(375-168,75+101,25+30=337,5\\). Đổi về dạng phân số: \\(337,5=\\frac{675}{2}\\).",
+    "verifier": "numeric_eval/verified=True",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 19,
+    "qid": "q_2026_aed259f6",
+    "pdf": "file_3_trang_61-90.pdf",
+    "bloom": "Vận dụng",
+    "stem": "Một chất điểm bắt đầu chuyển động với gia tốc phụ thuộc thời gian \\(a(t)=3t^2+2t\\,(\\text{m/s}^2)\\). Biết vận tốc của chất điểm tại thời điểm \\(t=2\\) giây là \\(25\\,\\text{m/s}\\). Tính quãng đường chất điểm đi được trong \\(2\\) giây đầu tiên.",
+    "options": {
+      "A": "\\(\\frac{98}{3}\\,\\text{m}\\)",
+      "B": "\\(\\frac{20}{3}\\,\\text{m}\\)",
+      "C": "\\(\\frac{170}{3}\\,\\text{m}\\)",
+      "D": "\\(\\frac{58}{3}\\,\\text{m}\\)"
+    },
+    "answer_key": "A",
+    "source_quote": "Một chất điểm đang chuyển động với vận tốc \\(v_0=16(m/s)\\) thì tăng tốc với gia tốc \\(a(t)=3t^2+t(m/s^2)\\).",
+    "solution": "Bước 1: Vì \\(a(t)=v'(t)\\) nên lấy nguyên hàm ta được \\(v(t)=\\int(3t^2+2t)dt=t^3+t^2+C\\). | Bước 2: Dùng điều kiện \\(v(2)=25\\), ta có \\(2^3+2^2+C=25\\), suy ra \\(12+C=25\\) và \\(C=13\\). Vậy \\(v(t)=t^3+t^2+13\\). | Bước 3: Quãng đường trong \\(2\\) giây đầu là tích phân của vận tốc: \\(S=\\int_0^2(t^3+t^2+13)dt\\). | Bước 4: Tính tích phân: \\(S=\\left(\\frac{t^4}{4}+\\frac{t^3}{3}+13t\\right)_0^2=\\frac{16}{4}+\\frac{8}{3}+26=\\frac{98}{3}\\).",
+    "verifier": "numeric_eval/verified=True",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 20,
+    "qid": "q_2026_d6aafbeb",
+    "pdf": "file_3_trang_61-90.pdf",
+    "bloom": "Vận dụng",
+    "stem": "Một đường hầm mô hình dài \\(6\\,\\text{m}\\) có các thiết diện vuông góc với chiều dài là các hình parabol. Gọi \\(x\\,(\\text{m})\\) là khoảng cách từ một đầu hầm đến thiết diện đang xét, với \\(0\\le x\\le 6\\). Biết chiều cao \\(h(x)\\) của thiết diện thay đổi theo một quy luật parabol, đạt lớn nhất \\(5\\,\\text{m}\\) tại giữa hầm và bằng \\(0\\,\\text{m}\\) ở hai đầu hầm.",
+    "options": {
+      "A": "\\(80\\,\\text{m}^3\\)",
+      "B": "\\(\\frac{920}{3}\\,\\text{m}^3\\)",
+      "C": "\\(\\frac{320}{3}\\,\\text{m}^3\\)",
+      "D": "\\(160\\,\\text{m}^3\\)"
+    },
+    "answer_key": "C",
+    "source_quote": "Diện tích của hình parabol có đáy là d và chiều cao h là 2 . 3 S dh",
+    "solution": "Bước 1: Đặt \\(h(x)=a(x-3)^2+5\\) vì chiều cao lớn nhất đạt tại giữa hầm \\(x=3\\). Do hai đầu hầm có chiều cao bằng \\(0\\), ta có \\(0=9a+5\\), suy ra \\(a=-\\frac{5}{9}\\). Vậy \\(h(x)=5-\\frac{5}{9}(x-3)^2\\). | Bước 2: Mỗi thiết diện là một hình parabol có đáy \\(d=2h(x)\\). Diện tích thiết diện là \\(S(x)=\\frac{2}{3}d h(x)=\\frac{4}{3}h(x)^2\\). | Bước 3: Thay hàm chiều cao vào diện tích, ta được \\(S(x)=\\frac{4}{3}\\left(5-\\frac{5}{9}(x-3)^2\\right)^2\\). Cần lấy tích phân diện tích này theo \\(x\\) từ \\(0\\) đến \\(6\\). | Bước 4: Thể tích đường hầm là \\(V=\\int_0^6 \\frac{4}{3}\\left(5-\\frac{5}{9}(x-3)^2\\right)^2dx=\\frac{320}{3}\\).",
+    "verifier": "numeric_eval/verified=True",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 21,
+    "qid": "q_2026_538941dd",
+    "pdf": "file_3_trang_61-90.pdf",
+    "bloom": "Vận dụng",
+    "stem": "Một đường hầm mô hình dài \\(6\\,\\text{m}\\). Khi cắt vuông góc với chiều dài tại vị trí cách lối vào \\(x\\,\\text{m}\\), thiết diện là một hình parabol có độ dài đáy gấp đôi chiều cao. Biết chiều cao thiết diện ở lối vào là \\(4\\,\\text{m}\\), ở cuối đường hầm là \\(1\\,\\text{m}\\), và chiều cao thay đổi tuyến tính theo \\(x\\). Tính thể tích không gian bên trong đường hầm.",
+    "options": {
+      "A": "\\(56\\pi\\,\\text{m}^3\\)",
+      "B": "\\(56\\,\\text{m}^3\\)",
+      "C": "\\(\\frac{224}{3}\\,\\text{m}^3\\)",
+      "D": "\\(42\\,\\text{m}^3\\)"
+    },
+    "answer_key": "B",
+    "source_quote": "Diện tích của hình parabol có đáy là d và chiều cao h là S=\\frac{2}{3}dh",
+    "solution": "Bước 1: Vì chiều cao thay đổi tuyến tính, đặt \\(h(x)=ax+b\\). Ta có \\(h(0)=4\\), \\(h(6)=1\\), nên \\(b=4\\) và \\(6a+4=1\\Rightarrow a=-\\frac{1}{2}\\). Do đó \\(h(x)=4-\\frac{x}{2}\\). | Bước 2: Với thiết diện parabol có đáy \\(d\\) và chiều cao \\(h\\), đề bài cho \\(d=2h\\). Áp dụng công thức diện tích thiết diện: \\(S=\\frac{2}{3}dh\\), suy ra \\(S(x)=\\frac{2}{3}\\cdot 2h(x)\\cdot h(x)=\\frac{4}{3}\\left(4-\\frac{x}{2}\\right)^2\\). | Bước 3: Thể tích đường hầm được tính bằng tích phân các diện tích thiết diện theo chiều dài: \\(V=\\int_0^6 S(x)\\,dx=\\int_0^6\\frac{4}{3}\\left(4-\\frac{x}{2}\\right)^2dx\\). | Bước 4: Đặt \\(u=4-\\frac{x}{2}\\), khi \\(x=0\\) thì \\(u=4\\), khi \\(x=6\\) thì \\(u=1\\). Khi đó \\(V=\\frac{8}{3}\\int_1^4u^2du=\\frac{8}{3}\\cdot\\frac{4^3-1^3}{3}=\\frac{8}{9}\\cdot63=56\\).",
+    "verifier": "numeric_eval/verified=True",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 22,
+    "qid": "q_2026_4bcb2796",
+    "pdf": "file_3_trang_61-90.pdf",
+    "bloom": "Vận dụng cao",
+    "stem": "Tại một nhà máy, gọi \\(C(x)\\) (triệu đồng) là tổng chi phí sản xuất \\(x\\) tấn sản phẩm trong một tháng. Biết \\(C(0)=30\\) và chi phí cận biên của nhà máy có dạng \\(C'(x)=5-0,05x+kx^2\\) với \\(0\\le x\\le 50\\). Biết rằng khi sản xuất \\(50\\) tấn sản phẩm thì tổng chi phí là \\(220\\) triệu đồng. Giá trị của tham số \\(k\\) bằng bao nhiêu?",
+    "options": {
+      "A": "\\(\\frac{297}{50000}\\)",
+      "B": "\\(\\frac{39}{50000}\\)",
+      "C": "\\(\\frac{1}{500}\\)",
+      "D": "\\(\\frac{3}{50000}\\)"
+    },
+    "answer_key": "D",
+    "source_quote": "Giả sử chi phí cận biên (tính theo triệu đồng trên tấn) của nhà máy được ước lượng bởi công thức",
+    "solution": "Bước 1: Từ ý nghĩa của chi phí cận biên, ta có \\(C(50)-C(0)=\\int_0^{50}C'(x)\\,dx\\). Vì \\(C(0)=30\\) nên \\(C(50)-30=\\int_0^{50}(5-0,05x+kx^2)\\,dx\\). | Bước 2: Tính từng phần của tích phân: \\(\\int_0^{50}5\\,dx=250\\), \\(\\int_0^{50}0,05x\\,dx=0,025x^2\\big|_0^{50}=62,5\\), và \\(\\int_0^{50}kx^2\\,dx=\\frac{kx^3}{3}\\big|_0^{50}=\\frac{125000k}{3}\\). | Bước 3: Suy ra \\(C(50)-30=250-62,5+\\frac{125000k}{3}=187,5+\\frac{125000k}{3}\\). | Bước 4: Theo đề bài \\(C(50)=220\\), nên \\(220-30=187,5+\\frac{125000k}{3}\\). Do đó \\(190=187,5+\\frac{125000k}{3}\\). | Bước 5: Giải phương trình tham số: \\(2,5=\\frac{125000k}{3}\\Rightarrow k=\\frac{2,5\\cdot3}{125000}=\\frac{3}{50000}\\).",
+    "verifier": "numeric_eval/verified=True",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 23,
+    "qid": "q_2026_8e4cb57c",
+    "pdf": "file_3_trang_61-90.pdf",
+    "bloom": "Nhận biết",
+    "stem": "Một hình phẳng giới hạn bởi một parabol có độ dài đáy \\(d=10\\,\\text{cm}\\) và chiều cao \\(h=3\\,\\text{cm}\\). Diện tích của hình parabol này bằng bao nhiêu?",
+    "options": {
+      "A": "\\(30\\,\\text{cm}^2\\)",
+      "B": "\\(20\\,\\text{cm}^2\\)",
+      "C": "\\(15\\,\\text{cm}^2\\)",
+      "D": "\\(26\\,\\text{cm}^2\\)"
+    },
+    "answer_key": "B",
+    "source_quote": "Diện tích của hình parabol có đáy là d và chiều cao h là 2 . 3 S dh =",
+    "solution": "Bước 1: Dùng công thức diện tích hình parabol: \\(S=\\frac{2}{3}dh\\). | Bước 2: Thay \\(d=10\\), \\(h=3\\) vào công thức: \\(S=\\frac{2}{3}\\cdot10\\cdot3=20\\).",
+    "verifier": "numeric_eval/verified=True",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 24,
+    "qid": "q_2026_e0186d6d",
+    "pdf": "file_3_trang_61-90.pdf",
+    "bloom": "Nhận biết",
+    "stem": "Trong mô hình theo dõi tiến độ xây dựng, gọi \\(M(t)\\) là số ngày công được tính đến hết ngày thứ \\(t\\). Đại lượng \\(M'(t)\\) biểu diễn đại lượng nào?",
+    "options": {
+      "A": "Thời gian cần thiết để hoàn thành công việc tại thời điểm \\(t\\)",
+      "B": "Số ngày công tăng thêm trong toàn bộ công trình",
+      "C": "Tổng số ngày công đã được tính đến hết ngày thứ \\(t\\)",
+      "D": "Số lượng công nhân được sử dụng tại thời điểm \\(t\\)"
+    },
+    "answer_key": "D",
+    "source_quote": "Trong kinh tế xây dựng, người ta đã biết rằng M '( ) t mt  với m t( ) là số lượng công nhân được sử dụng tại thời điểm t.",
+    "solution": "Bước 1: Xác định ý nghĩa của hàm \\(M(t)\\): đây là tổng số ngày công được tính đến hết ngày thứ \\(t\\), tức là một đại lượng tích lũy theo thời gian. | Bước 2: Dựa vào mối liên hệ trong tài liệu \\(M'(t)=m(t)\\), suy ra \\(M'(t)\\) chính là tốc độ thay đổi của số ngày công, bằng số lượng công nhân được sử dụng tại thời điểm \\(t\\).",
+    "verifier": "none/verified=None",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 25,
+    "qid": "q_2026_61a28194",
+    "pdf": "file_4_trang_91-het.pdf",
+    "bloom": "Thông hiểu",
+    "stem": "Một khối tròn xoay được tạo thành khi quay miền phẳng giới hạn bởi parabol có đỉnh \\(I(0;5)\\), đi qua điểm \\(A(3;2)\\), trục hoành và hai đường thẳng \\(x=-3, x=3\\) quanh trục \\(Ox\\). Tính thể tích của khối tròn xoay đó.",
+    "options": {
+      "A": "\\(\\frac{80\\sqrt{15}\\pi}{3}\\)",
+      "B": "\\(\\frac{336\\pi}{5}\\)",
+      "C": "\\(\\frac{504\\pi}{5}\\)",
+      "D": "\\(\\frac{504}{5}\\)"
+    },
+    "answer_key": "C",
+    "source_quote": "Vậy khối tròn có thể tích là:   2 b N a V f x dx",
+    "solution": "Bước 1: Vì parabol có đỉnh \\(I(0;5)\\) nên có dạng \\(y=ax^2+5\\). Thay điểm \\(A(3;2)\\) vào ta được \\(2=9a+5\\), suy ra \\(a=-\\frac{1}{3}\\). Do đó phương trình parabol là \\(y=5-\\frac{x^2}{3}\\). | Bước 2: Miền quay quanh trục \\(Ox\\) có bán kính tại vị trí \\(x\\) là \\(y=5-\\frac{x^2}{3}\\), với \\(x\\in[-3;3]\\). Vì vậy thể tích được tính bởi \\(V=\\pi\\int_{-3}^{3}\\left(5-\\frac{x^2}{3}\\right)^2dx\\). | Bước 3: Khai triển biểu thức: \\(\\left(5-\\frac{x^2}{3}\\right)^2=25-\\frac{10x^2}{3}+\\frac{x^4}{9}\\). Suy ra \\(V=\\pi\\left(150-60+\\frac{54}{5}\\right)=\\pi\\cdot\\frac{504}{5}\\).",
+    "verifier": "numeric_eval/verified=False",
+    "review_status": "needs_revision"
+  },
+  {
+    "id": 26,
+    "qid": "q_2026_49376343",
+    "pdf": "file_4_trang_91-het.pdf",
+    "bloom": "Thông hiểu",
+    "stem": "Cho miền phẳng giới hạn bởi đồ thị hàm số \\(y=f(x)\\), trục hoành và hai đường thẳng \\(x=0\\), \\(x=2\\). Biết đồ thị \\(f(x)\\) là một parabol có đỉnh \\(I(1;5)\\) và đi qua điểm \\(A(0;2)\\). Khi quay miền phẳng đó quanh trục \\(Ox\\), thể tích khối tròn xoay tạo thành bằng bao nhiêu?",
+    "options": {
+      "A": "\\(\\frac{18\\pi}{5}\\)",
+      "B": "\\(8\\pi\\)",
+      "C": "\\(\\frac{368\\pi}{5}\\)",
+      "D": "\\(\\frac{168\\pi}{5}\\)"
+    },
+    "answer_key": "D",
+    "source_quote": "Quay D quanh trục Ox ta được một hình khối gọi là khối tròn xoay.",
+    "solution": "Bước 1: Vì parabol có đỉnh \\(I(1;5)\\) nên viết được dưới dạng \\(f(x)=a(x-1)^2+5\\). Do đi qua \\(A(0;2)\\) nên \\(2=a(0-1)^2+5\\), suy ra \\(a=-3\\). | Bước 2: Suy ra hàm số của parabol là \\(f(x)=5-3(x-1)^2=-3x^2+6x+2\\). Trên đoạn \\([0;2]\\), miền phẳng được quay quanh trục \\(Ox\\) nên dùng bán kính \\(f(x)\\). | Bước 3: Thể tích khối tròn xoay là \\(V=\\pi\\int_0^2(f(x))^2dx=\\pi\\int_0^2(5-3(x-1)^2)^2dx\\). | Bước 4: Khai triển và tính tích phân: \\(\\int_0^2(5-3(x-1)^2)^2dx=\\int_0^2(9x^4-36x^3+36x^2+12x+4)dx=\\frac{168}{5}\\).",
+    "verifier": "numeric_eval/verified=False",
+    "review_status": "needs_revision"
+  },
+  {
+    "id": 27,
+    "qid": "q_2026_bf282e1c",
+    "pdf": "file_4_trang_91-het.pdf",
+    "bloom": "Vận dụng",
+    "stem": "Một khu vực trồng hoa có dạng hình phẳng giới hạn bởi đồ thị hàm số \\(y=x^2\\), một đường thẳng đi qua hai điểm \\(A(-1;1)\\), \\(B(3;9)\\) và hai đường thẳng \\(x=-1\\), \\(x=3\\). Tính diện tích khu vực trồng hoa đó.",
+    "options": {
+      "A": "\\(\\frac{80}{3}\\)",
+      "B": "\\(\\frac{32}{3}\\)",
+      "C": "\\(9\\)",
+      "D": "\\(\\frac{88}{3}\\)"
+    },
+    "answer_key": "B",
+    "source_quote": "Diện tích S của hình phẳng giới hạn bởi đồ thị hàm số \\(y=f(x)\\), trục hoành và 2 đường thẳng \\(x=a, x=b\\) được tính bởi công thức",
+    "solution": "Bước 1: Gọi đường thẳng cần tìm có dạng \\(y=ax+b\\). Vì đi qua \\(A(-1;1)\\) và \\(B(3;9)\\) nên ta có hệ \\( -a+b=1 \\), \\(3a+b=9\\). Giải hệ được \\(a=2\\), \\(b=3\\), do đó đường thẳng là \\(y=2x+3\\). | Bước 2: Tìm vị trí giao nhau của hai đồ thị: \\(x^2=2x+3\\). Suy ra \\(x^2-2x-3=0\\), nên \\(x=-1\\) hoặc \\(x=3\\), đúng với hai cận của miền cần tính. | Bước 3: Trên đoạn \\([-1;3]\\), lấy \\(x=0\\) thì \\(2x+3=3\\) lớn hơn \\(x^2=0\\), nên diện tích cần tìm là \\(S=\\int_{-1}^{3}(2x+3-x^2)\\,dx\\). | Bước 4: Tính tích phân: \\(S=\\left(x^2+3x-\\frac{x^3}{3}\\right)\\Big|_{-1}^{3}=\\left(9+9-9\\right)-\\left(1-3+\\frac{1}{3}\\right)=9+\\frac{1}{3}=\\frac{32}{3}\\).",
+    "verifier": "numeric_eval/verified=True",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 28,
+    "qid": "q_2026_d30c2435",
+    "pdf": "file_4_trang_91-het.pdf",
+    "bloom": "Vận dụng",
+    "stem": "Một bể chứa nước dạng khối tròn xoay được tạo thành khi quay miền phẳng \\(D\\) giới hạn bởi đồ thị hàm số \\(y=f(x)\\), trục hoành và hai đường thẳng \\(x=1, x=3\\) quanh trục \\(Ox\\). Biết đồ thị \\(y=f(x)\\) là một parabol có đỉnh \\(I(3;5)\\) và đi qua điểm \\(A(1;1)\\). Tính thể tích của bể chứa nước.",
+    "options": {
+      "A": "\\(\\frac{168\\pi}{5}\\)",
+      "B": "\\(\\frac{13406\\pi}{15}\\)",
+      "C": "\\(\\frac{446\\pi}{15}\\)",
+      "D": "\\(\\frac{446}{15}\\)"
+    },
+    "answer_key": "C",
+    "source_quote": "Quay D quanh trục Ox ta được một hình khối gọi là khối tròn xoay.",
+    "solution": "Bước 1: Vì parabol có đỉnh \\(I(3;5)\\), đặt \\(f(x)=a(x-3)^2+5\\). Do đi qua \\(A(1;1)\\) nên \\(1=4a+5\\), suy ra \\(a=-1\\). Vậy \\(f(x)=5-(x-3)^2\\). | Bước 2: Miền phẳng quay quanh trục \\(Ox\\) trên đoạn \\(1\\le x\\le3\\), nên thể tích được tính bởi \\(V=\\pi\\int_1^3\\left(5-(x-3)^2\\right)^2dx\\). | Bước 3: Khai triển biểu thức dưới dấu tích phân: \\(\\left(5-(x-3)^2\\right)^2=(x-3)^4-10(x-3)^2+25\\). Đặt \\(u=x-3\\), khi \\(x=1\\) thì \\(u=-2\\), khi \\(x=3\\) thì \\(u=0\\). | Bước 4: Tính tích phân: \\(\\int_{-2}^{0}(u^4-10u^2+25)du=\\left[\\frac{u^5}{5}-\\frac{10u^3}{3}+25u\\right]_{-2}^{0}=\\frac{446}{15}\\). | Bước 5: Suy ra thể tích bể là \\(V=\\pi\\cdot\\frac{446}{15}=\\frac{446\\pi}{15}\\).",
+    "verifier": "numeric_eval/verified=False",
+    "review_status": "needs_revision"
+  },
+  {
+    "id": 29,
+    "qid": "q_2026_c6c9b06f",
+    "pdf": "file_4_trang_91-het.pdf",
+    "bloom": "Vận dụng",
+    "stem": "Một chiếc trống gỗ có dạng khối tròn xoay. Hai đáy của trống là hai hình tròn bán kính \\(25\\) cm, chiều dài trống là \\(80\\) cm. Mặt phẳng chứa trục cắt mặt xung quanh của trống theo hai đường parabol. Biết thiết diện vuông góc với trục tại trung điểm của trống có diện tích \\(900\\pi\\) cm\\(^2\\). Tính thể tích của chiếc trống.",
+    "options": {
+      "A": "\\(64400\\pi\\)",
+      "B": "\\(64400\\)",
+      "C": "\\(80400\\pi\\)",
+      "D": "\\(\\frac{218000\\pi}{3}\\)"
+    },
+    "answer_key": "A",
+    "source_quote": "Thiết diện vuông góc với trục và cách đều hai đáy là hình tròn có bán kính r có diện tích là \\(1600\\pi\\) cm², nên",
+    "solution": "Bước 1: Đặt trục \\(Ox\\) trùng với trục của trống, gốc tại trung điểm của trống. Vì thiết diện ở giữa có diện tích \\(900\\pi\\) cm\\(^2\\) nên bán kính tại đó là \\(r=\\sqrt{900}=30\\) cm. | Bước 2: Gọi bán kính mặt cắt tại vị trí \\(x\\) là \\(y\\). Do mặt cắt là parabol có đỉnh tại trung điểm trống nên đặt \\(y=ax^2+30\\). Ở hai đầu trống ta có \\(x=\\pm40\\), \\(y=25\\), suy ra \\(25=1600a+30\\), nên \\(a=-\\frac{1}{320}\\). Vậy \\(y=30-\\frac{x^2}{320}\\). | Bước 3: Thể tích trống được tính bằng phương pháp tích phân đĩa: \\(V=\\pi\\int_{-40}^{40}y^2dx=\\pi\\int_{-40}^{40}\\left(30-\\frac{x^2}{320}\\right)^2dx\\). | Bước 4: Khai triển biểu thức dưới dấu tích phân: \\(\\left(30-\\frac{x^2}{320}\\right)^2=900-\\frac{3x^2}{16}+\\frac{x^4}{102400}\\). Do hàm số đối xứng, ta tính trên đoạn \\([0;40]\\): \\(V=2\\pi\\left[900x-\\frac{x^3}{16\\cdot3}+\\frac{x^5}{102400\\cdot5}\\right]_0^{40}\\). | Bước 5: Thay cận: \\(V=2\\pi\\left(36000-\\frac{640",
+    "verifier": "numeric_eval/verified=False",
+    "review_status": "needs_revision"
+  },
+  {
+    "id": 30,
+    "qid": "q_2026_e6318e7a",
+    "pdf": "file_4_trang_91-het.pdf",
+    "bloom": "Vận dụng",
+    "stem": "Một bồn chứa nước có dạng khối tròn xoay. Mặt cắt qua trục của bồn là miền phẳng giới hạn bởi đồ thị hàm số bậc hai \\(y=f(x)\\), trục hoành và hai đường thẳng \\(x=1\\), \\(x=5\\). Biết đồ thị \\(y=f(x)\\) có đỉnh \\(I(3;6)\\) và đi qua điểm \\(A(1;2)\\). Tính thể tích của bồn chứa.",
+    "options": {
+      "A": "\\(\\frac{464\\pi}{5}\\)",
+      "B": "\\(\\frac{1104\\pi}{5}\\)",
+      "C": "\\(\\frac{56\\pi}{3}\\)",
+      "D": "\\(\\frac{464}{5}\\)"
+    },
+    "answer_key": "A",
+    "source_quote": "Quay D quanh trục Ox ta được một hình khối gọi là khối tròn xoay.",
+    "solution": "Bước 1: Vì parabol có đỉnh \\(I(3;6)\\), đặt \\(f(x)=a(x-3)^2+6\\). Do đi qua \\(A(1;2)\\) nên \\(2=4a+6\\), suy ra \\(a=-1\\). Vậy \\(f(x)=6-(x-3)^2\\). | Bước 2: Khi quay miền phẳng quanh trục Ox, thể tích được tính bởi \\(V=\\pi\\int_1^5[f(x)]^2dx\\). Thay hàm số vừa tìm được, ta có \\(V=\\pi\\int_1^5(6-(x-3)^2)^2dx\\). | Bước 3: Đặt \\(t=x-3\\), khi \\(x=1\\) thì \\(t=-2\\), khi \\(x=5\\) thì \\(t=2\\). Khi đó \\(V=\\pi\\int_{-2}^{2}(6-t^2)^2dt=\\pi\\int_{-2}^{2}(36-12t^2+t^4)dt\\). | Bước 4: Tính tích phân: \\(\\int_{-2}^{2}(36-12t^2+t^4)dt=2\\left(36\\cdot2-12\\cdot\\frac{2^3}{3}+\\frac{2^5}{5}\\right)=\\frac{464}{5}\\). Do đó \\(V=\\frac{464\\pi}{5}\\).",
+    "verifier": "numeric_eval/verified=False",
+    "review_status": "needs_revision"
+  },
+  {
+    "id": 31,
+    "qid": "q_2026_ad069084",
+    "pdf": "file_4_trang_91-het.pdf",
+    "bloom": "Vận dụng",
+    "stem": "Một bình trang trí dạng khối tròn xoay được tạo thành khi quay miền phẳng giới hạn bởi đồ thị hàm số \\(y=f(x)\\), trục hoành và hai đường thẳng đi qua hai giao điểm của đồ thị với trục hoành quanh trục \\(Ox\\). Biết đồ thị có dạng \\(f(x)=a-x^2\\) và đi qua điểm \\(M(2;5)\\). Tính thể tích của bình.",
+    "options": {
+      "A": "\\(486\\pi\\)",
+      "B": "\\(\\frac{864}{5}\\)",
+      "C": "\\(\\frac{864\\pi}{5}\\)",
+      "D": "\\(\\frac{1728\\pi}{5}\\)"
+    },
+    "answer_key": "C",
+    "source_quote": "Cho hàm số \\(y=f(x)\\) là hàm số liên tục, không âm trên \\([a;b]\\). Quay D quanh trục Ox ta được một hình khối gọi là khối tròn xoay.",
+    "solution": "Bước 1: Vì đồ thị có dạng \\(f(x)=a-x^2\\) và đi qua \\(M(2;5)\\) nên \\(5=a-2^2\\), suy ra \\(a=9\\). Do đó \\(f(x)=9-x^2\\). | Bước 2: Tìm giao điểm của đồ thị với trục hoành: \\(9-x^2=0\\), suy ra \\(x=\\pm3\\). Miền phẳng cần quay được giới hạn trên đoạn \\([-3;3]\\). | Bước 3: Thể tích khối tròn xoay quanh trục \\(Ox\\) là \\(V=\\pi\\int_{-3}^{3}(9-x^2)^2dx\\). Khai triển biểu thức dưới dấu tích phân: \\((9-x^2)^2=81-18x^2+x^4\\). | Bước 4: Do hàm dưới dấu tích phân là hàm chẵn nên \\(V=2\\pi\\int_0^3(81-18x^2+x^4)dx=2\\pi\\left(81x-6x^3+\\frac{x^5}{5}\\right)\\Big|_0^3\\). | Bước 5: Thay cận được \\(V=2\\pi(243-162+\\frac{243}{5})=2\\pi\\cdot\\frac{432}{5}=\\frac{864\\pi}{5}\\).",
+    "verifier": "numeric_eval/verified=True",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 32,
+    "qid": "q_2026_b47c42ea",
+    "pdf": "file_4_trang_91-het.pdf",
+    "bloom": "Vận dụng cao",
+    "stem": "Một bồn chứa dạng khối tròn xoay được tạo thành khi quay quanh trục \\(Ox\\) miền phẳng \\(D\\) giới hạn bởi đồ thị hàm số \\(y=m-x^2\\), trục hoành và hai điểm giao của đồ thị với trục hoành, trong đó \\(m>0\\). Biết thể tích của bồn chứa là \\(\\frac{81\\pi}{10}\\) (đơn vị thể tích). Giá trị của \\(m\\) bằng bao nhiêu?",
+    "options": {
+      "A": "\\(\\frac{9}{4}\\)",
+      "B": "\\(\\left(\\frac{243}{40}\\right)^{\\frac{2}{3}}\\)",
+      "C": "\\(\\frac{81}{10}\\)",
+      "D": "\\(\\left(\\frac{243\\pi}{32}\\right)^{\\frac{2}{5}}\\)"
+    },
+    "answer_key": "A",
+    "source_quote": "Quay D quanh trục Ox ta được một hình khối gọi là khối tròn xoay.",
+    "solution": "Bước 1: Đồ thị \\(y=m-x^2\\) cắt trục hoành khi \\(m-x^2=0\\), suy ra hai giao điểm có hoành độ \\(x=\\pm\\sqrt{m}\\). Miền phẳng cần quay nằm trên đoạn \\([-\\sqrt{m}\\);\\(\\sqrt{m}\\)]\\\\. | Bước 2: Khi quay quanh trục \\(Ox\\), thể tích khối tròn xoay là \\(V=\\pi\\int_{-\\sqrt{m}}^{\\sqrt{m}}(m-x^2)^2dx\\). Do hàm dưới dấu tích phân là hàm chẵn nên \\(V=2\\pi\\int_0^{\\sqrt{m}}(m^2-2mx^2+x^4)dx\\). | Bước 3: Tính tích phân trung gian: \\(\\int_0^{\\sqrt{m}}(m^2-2mx^2+x^4)dx=m^2\\sqrt{m}-\\frac{2m(\\sqrt{m})^3}{3}+\\frac{(\\sqrt{m})^5}{5}\\). Suy ra biểu thức bằng \\(m^{5/2}\\left(1-\\frac{2}{3}+\\frac{1}{5}\\right)=\\frac{8}{15}m^{5/2}\\). | Bước 4: Thay vào công thức thể tích được \\(V=2\\pi\\cdot\\frac{8}{15}m^{5/2}=\\frac{16\\pi}{15}m^{5/2}\\). Theo đề bài, \\(\\frac{16\\pi}{15}m^{5/2}=\\frac{81\\pi}{10}\\). | Bước 5: Rút gọn phương trình: \\(m^{5/2}=\\frac{81\\cdot15}{10\\cdot16}=\\frac{243}{32}\\). Vì \\(m>0\\), suy ra \\(m=\\left(\\frac{243}{3",
+    "verifier": "numeric_eval/verified=True",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 33,
+    "qid": "q_2026_573ce400",
+    "pdf": "file_4_trang_91-het.pdf",
+    "bloom": "Nhận biết",
+    "stem": "Cho hàm số \\(y=f(x)\\) liên tục, không âm trên đoạn \\([a;b]\\). Miền phẳng giới hạn bởi đồ thị hàm số \\(y=f(x)\\), trục hoành và hai đường thẳng \\(x=a, x=b\\) quay quanh trục \\(Ox\\) tạo thành một khối tròn xoay. Công thức tính thể tích của khối tròn xoay là gì?",
+    "options": {
+      "A": "\\(V=\\int_a^b(f(x))^2dx\\)",
+      "B": "\\(V=\\pi\\int_a^b f(x)dx\\)",
+      "C": "\\(V=\\pi\\int_a^b(f(x))^2dx+C\\)",
+      "D": "\\(V=\\pi\\int_a^b(f(x))^2dx\\)"
+    },
+    "answer_key": "D",
+    "source_quote": "Quay D quanh trục Ox ta được một hình khối gọi là khối tròn xoay. Cắt khối tròn xoay trên bởi mặt phẳng vuông góc với trục Ox",
+    "solution": "Bước 1: Khi cắt khối tròn xoay bởi mặt phẳng vuông góc với trục \\(Ox\\) tại hoành độ \\(x\\), bán kính của thiết diện là \\(f(x)\\). | Bước 2: Diện tích thiết diện là \\(S(x)=\\pi(f(x))^2\\). Lấy tích phân diện tích thiết diện trên đoạn \\([a;b]\\), ta được \\(V=\\int_a^bS(x)dx=\\pi\\int_a^b(f(x))^2dx\\).",
+    "verifier": "none/verified=None",
+    "review_status": "pending_review"
+  },
+  {
+    "id": 34,
+    "qid": "q_2026_23e57960",
+    "pdf": "file_4_trang_91-het.pdf",
+    "bloom": "Nhận biết",
+    "stem": "Cho miền phẳng giới hạn bởi đồ thị hàm số \\(y=3x^2\\), trục hoành và hai đường thẳng \\(x=1\\), \\(x=3\\). Khi quay miền phẳng đó quanh trục \\(Ox\\), thể tích khối tròn xoay tạo thành bằng bao nhiêu?",
+    "options": {
+      "A": "\\(180\\pi\\)",
+      "B": "\\(\\frac{2178\\pi}{5}\\)",
+      "C": "\\(\\frac{2187\\pi}{5}\\)",
+      "D": "\\(26\\pi\\)"
+    },
+    "answer_key": "B",
+    "source_quote": "Cho hàm số y fx    là hàm số liên tục, không âm trên   a b; . Gọi D là hình phẳng giới hạn",
+    "solution": "Bước 1: Áp dụng công thức thể tích khối tròn xoay quanh trục \\(Ox\\): \\(V=\\pi\\int_a^b(f(x))^2dx\\). Ở đây \\(f(x)=3x^2\\), \\(a=1\\), \\(b=3\\), nên \\(V=\\pi\\int_1^3(3x^2)^2dx\\). | Bước 2: Ta có \\(V=9\\pi\\int_1^3x^4dx=9\\pi\\left[\\frac{x^5}{5}\\right]_1^3=9\\pi\\frac{3^5-1^5}{5}=\\frac{2178\\pi}{5}\\).",
+    "verifier": "numeric_eval/verified=False",
+    "review_status": "needs_revision"
+  }
+]

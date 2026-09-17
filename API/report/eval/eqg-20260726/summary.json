@@ -1,0 +1,57 @@
+{
+  "n_items": 2,
+  "model": "gemini-3.6-flash",
+  "rounds": 3,
+  "temperature": 0.3,
+  "by_run": {
+    "A": {
+      "n": 2,
+      "QT": {
+        "mean": 2.0,
+        "pct_2": 100.0,
+        "pct_0": 0.0
+      },
+      "QQ": {
+        "mean": 2.0,
+        "pct_2": 100.0,
+        "pct_0": 0.0
+      },
+      "SQ": {
+        "mean": 2.0,
+        "pct_2": 100.0,
+        "pct_0": 0.0
+      },
+      "DQ": {
+        "mean": 1.5,
+        "pct_2": 50.0,
+        "pct_0": 0.0
+      },
+      "CG": {
+        "mean": 0.5,
+        "pct_2": 0.0,
+        "pct_0": 50.0
+      },
+      "bloom_adherence": {
+        "matched": 1,
+        "n": 2,
+        "pct": 50.0,
+        "confusion": {
+          "Thông hiểu": {
+            "Vận dụng": 1
+          },
+          "Nhận biết": {
+            "Nhận biết": 1
+          }
+        }
+      },
+      "round_stability": {
+        "QT": 100.0,
+        "QQ": 100.0,
+        "SQ": 100.0,
+        "DQ": 50.0,
+        "CG": 100.0,
+        "bloom": 100.0
+      }
+    }
+  }
+}

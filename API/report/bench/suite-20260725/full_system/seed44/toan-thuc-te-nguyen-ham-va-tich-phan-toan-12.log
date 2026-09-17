@@ -1,0 +1,17 @@
+    [pdf-slot direct_pdf_0] writer 0 candidates; errors=["Expecting ',' delimiter: line 4 column 172 (char 287)"]
+    [pdf-slot direct_pdf_2] writer 0 candidates; errors=["Expecting ',' delimiter: line 4 column 141 (char 436)"]
+    [pdf-slot direct_pdf_1] verifier reject: answer_text_mismatch: đáp án key \(31\,m/s\) không khớp giá trị 77.0 mà engine tính ra
+    [pdf-slot direct_pdf_7] writer 0 candidates; errors=["Expecting ',' delimiter: line 4 column 299 (char 661)"]
+    [pdf-slot direct_pdf_6] verifier reject: duplicate: rule validator failed: ['d2:duplicate_option', 'd3:duplicate_option']
+    [pdf-slot direct_pdf_8] verifier reject: answer_text_mismatch: đáp án key \(\frac{274}{3}\) triệu đồng không khớp giá trị 91.33333333333333 mà engine tính ra
+    [pdf-slot direct_pdf_10] writer 0 candidates; errors=["Expecting ',' delimiter: line 27 column 197 (char 1697)"]
+    [pdf-slot direct_pdf_11] refuted: tính toán độc lập cho 10.5556, trùng phương án nhiễu #2 chứ không phải key (21.2222)
+    [pdf-slot direct_pdf_11] critic reject: answer_uniqueness=0.00 (nghi đa đáp án)
+    [pdf-slot direct_pdf_13] verifier reject: multi_answer: distractor "\(150000\) triệu đồng" cũng được verifier xác nhận đúng
+    [pdf-slot direct_pdf_17] writer 0 candidates; errors=["Expecting ',' delimiter: line 4 column 193 (char 600)"]
+    [pdf-slot direct_pdf_15] critic reject: error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Giải thích đáp án đúng nhất quán, nhưng distractor \(411\) không được suy ra đúng từ chuỗi lỗi được mô tả nên tính nhất quán lỗi chưa đạt.)
+    [pdf-slot direct_pdf_16] critic reject: answer_uniqueness=0.10 (nghi đa đáp án)
+    [pdf-slot direct_pdf_20] writer 0 candidates; errors=["Expecting ',' delimiter: line 4 column 241 (char 597)"]
+    [pdf-slot direct_pdf_18] critic reject: error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Hai distractor đầu cho ra đúng giá trị theo chuỗi lỗi mô tả, nhưng distractor \(52m^3\) mâu thuẫn vì từ \(C=12\) phải ra \(56m^3\) chứ không phải \(52m^3\).)
+    [pdf-slot direct_pdf_19] critic reject: answer_uniqueness=0.15 (nghi đa đáp án)
+[cell] arm=full_system seed=44 toan-thuc-te-nguyen-ham-va-tich-phan-toan-12.pdf: delivered=5/8 rejected=16 tokens=437031 448s

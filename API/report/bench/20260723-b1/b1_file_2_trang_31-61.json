@@ -1,0 +1,2482 @@
+{
+  "metadata": {
+    "bench": "B1",
+    "mode": "Direct_PDF_Mode",
+    "source_pdf": "pdftest\\file_2_trang_31-61.pdf",
+    "source_pdf_name": "file_2_trang_31-61.pdf",
+    "requested_questions": 10,
+    "accepted_questions": 10,
+    "is_partial": false,
+    "parse_errors": 4,
+    "verify_failures": 2,
+    "error_code": null,
+    "error_message": null,
+    "generator_model": "gpt-4o",
+    "judge_model": "gpt-4o-mini",
+    "parallel_slots": 3,
+    "pdf_attach_mode": "file_url",
+    "cost": {
+      "tokens": 177688,
+      "calls": 45
+    },
+    "duration_seconds": 405.9613411426544,
+    "generated_at": "2026-07-23T16:45:18.845111Z"
+  },
+  "questions": [
+    {
+      "question_id": "q_2026_25c59fc6",
+      "blueprint_slot_id": "direct_pdf_1",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 218,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Một ô tô đang chuyển động với vận tốc thay đổi theo thời gian \\(t\\) (giây) sau khi bắt đầu phanh bởi công thức \\(v(t)=-3t+18\\) (m/s). Hỏi quãng đường ô tô đi được từ lúc bắt đầu phanh đến khi dừng hẳn là bao nhiêu mét?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(324\\,\\text{m}\\)",
+          "error_type": "ignore_deceleration_term"
+        },
+        {
+          "key": "B",
+          "text": "\\(108\\,\\text{m}\\)",
+          "error_type": "average_velocity_misuse"
+        },
+        {
+          "key": "C",
+          "text": "\\(54\\,\\text{m}\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(162\\,\\text{m}\\)",
+          "error_type": "wrong_stop_time"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Trước hết cần tìm thời điểm xe dừng bằng cách giải \\(v(t)=0\\), sau đó dùng tích phân của vận tốc trên khoảng thời gian chuyển động để tính quãng đường.",
+      "explanation_per_distractor": {
+        "A": "Học sinh tính tích phân quãng đường nhưng bỏ mất thành phần giảm tốc \\(-3t\\) trong vận tốc, chỉ lấy \\(S=\\int_0^6 18\\,dt=18t\\big|_0^6=108\\,\\text{m}\\). Sau đó nhầm tiếp do coi thời gian hiệu dụng là gấp ba lần và ghi \\(3\\cdot108=324\\,\\text{m}\\). Sai vì phải tích phân đầy đủ \\(v(t)=-3t+18\\) trên đúng khoảng thời gian xe còn chuyển động.",
+        "B": "Học sinh coi vận tốc của xe không đổi trong suốt quá trình phanh và lấy vận tốc ban đầu nhân với thời gian dừng: \\(S=18\\cdot6=108\\,\\text{m}\\). Sai vì vận tốc giảm tuyến tính từ \\(18\\,\\text{m/s}\\) xuống \\(0\\), không thể dùng vận tốc ban đầu cho cả quãng đường.",
+        "D": "Học sinh giải sai điều kiện dừng bằng cách bỏ qua hệ số của \\(t\\), cho rằng xe dừng tại \\(t=18\\) giây thay vì giải đúng \\(-3t+18=0\\). Sau đó tính \\(\\int_0^{18}(-3t+18)\\,dt=-162\\), rồi lấy độ lớn của quãng đường là \\(162\\,\\text{m}\\). Sai vì thời điểm lấy tích phân không phải thời điểm xe dừng hẳn."
+      },
+      "hint": "Trước hết cần tìm thời điểm xe dừng bằng cách giải \\(v(t)=0\\), sau đó dùng tích phân của vận tốc trên khoảng thời gian ch",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Nếu F x  là một nguyên hàm của f x  trên đoạn   a b; thì hiệu số F(b)-F(a)",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 54.0",
+        "verified_at": "2026-07-23T16:39:38.346126Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.92,
+        "quality": 0.88,
+        "bloom_alignment": 0.84,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ hàm vận tốc, thời điểm bắt đầu phanh và yêu cầu tính quãng đường đến khi dừng nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.82,
+            "rationale": "Bài yêu cầu kết hợp xác định thời điểm dừng và áp dụng tích phân chứ không chỉ thay công thức trực tiếp, phù hợp mức vận dụng cơ bản."
+          },
+          "bloom_alignment": {
+            "score": 0.84,
+            "rationale": "Mức Thông hiểu phù hợp vì học sinh cần hiểu ý nghĩa tích phân của vận tốc và quy trình giải quen thuộc hơn là khám phá phương pháp mới."
+          },
+          "distractor_plausibility": {
+            "score": 0.86,
+            "rationale": "Các phương án sai gắn với lỗi phổ biến như sai thời điểm dừng, dùng vận tốc ban đầu thay cho vận tốc biến thiên và bỏ hạng giảm tốc."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có một đáp án đúng vì giải \\(-3t+18=0\\) cho thời gian dừng \\(t=6\\) và tích phân trên đoạn \\([0,6]\\) cho kết quả \\(54\\) m."
+          },
+          "error_distractor_consistency": {
+            "score": 0.78,
+            "rationale": "Mô tả lỗi của các distractor nhìn chung khớp với hướng sai, nhưng distractor 162 m có mô tả tích phân cho giá trị âm rồi lấy độ lớn nên cần diễn đạt cẩn thận hơn để tránh nhầm quy trình."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.88,
+        "verifier_pass": true,
+        "critic_score": 0.88,
+        "grounding_score": 0.92,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Trước hết cần tìm thời điểm xe dừng bằng cách giải \\(v(t)=0\\), sau đó dùng tích phân của vận tốc trên khoảng thời gian chuyển động để tính quãng đường.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Xe dừng hẳn khi vận tốc bằng 0 nên giải phương trình \\(-3t+18=0\\), suy ra \\(t=6\\) giây."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Quãng đường xe đi được trong thời gian từ \\(0\\) đến \\(6\\) giây là \\(S=\\int_0^6(-3t+18)\\,dt\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tính tích phân: \\(S=\\left(-\\frac{3t^2}{2}+18t\\right)\\big|_0^6=\\left(-\\frac{3\\cdot6^2}{2}+18\\cdot6\\right)-0=54\\)."
+          }
+        ],
+        "final_answer": "\\(54\\,\\text{m}\\)"
+      },
+      "why_correct": "Thời gian lấy tích phân phải là khoảng thời gian xe còn chuyển động, được xác định từ điều kiện dừng hẳn. Giá trị tích phân vận tốc trên khoảng này chính là quãng đường xe đi được.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Học sinh tính tích phân quãng đường nhưng bỏ mất thành phần giảm tốc \\(-3t\\) trong vận tốc, chỉ lấy \\(S=\\int_0^6 18\\,dt=18t\\big|_0^6=108\\,\\text{m}\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Học sinh coi vận tốc của xe không đổi trong suốt quá trình phanh và lấy vận tốc ban đầu nhân với thời gian dừng: \\(S=18\\cdot6=108\\,\\text{m}\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Học sinh giải sai điều kiện dừng bằng cách bỏ qua hệ số của \\(t\\), cho rằng xe dừng tại \\(t=18\\) giây thay vì giải đúng \\(-3t+18=0\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_52803a2f",
+      "blueprint_slot_id": "direct_pdf_3",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 163,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(f(x)\\) liên tục trên đoạn \\([1;4]\\). Biết một nguyên hàm của \\(f(x)\\) là \\(F(x)=x^3-3x^2+5x\\). Tính giá trị của tích phân \\(I=\\int_{1}^{4} f(x)\\,dx\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(39\\)",
+          "error_type": "omit_subtraction_constant_term"
+        },
+        {
+          "key": "B",
+          "text": "\\(29\\)",
+          "error_type": "arithmetic_substitution_error"
+        },
+        {
+          "key": "C",
+          "text": "\\(-33\\)",
+          "error_type": "upper_lower_confusion"
+        },
+        {
+          "key": "D",
+          "text": "\\(33\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Vì \\(F(x)\\) là một nguyên hàm của \\(f(x)\\), ta tính tích phân bằng hiệu giá trị của nguyên hàm tại hai cận. Sau khi thay cận và rút gọn thu được \\(I=33\\).",
+      "explanation_per_distractor": {
+        "A": "Học sinh tính hiệu hai giá trị nguyên hàm nhưng quên trừ đúng dấu của hạng tử \\(-3x^2\\), biến \\(F(1)\\) thành \\(1+3+5=9\\) thay vì \\(3\\). Khi đó \\(F(4)=36\\) và suy ra \\(I=36-(-3)=39\\) theo cách xử lí sai dấu. Sai vì phải giữ nguyên dấu của từng hạng tử trong biểu thức \\(F(x)=x^3-3x^2+5x\\).",
+        "B": "Học sinh thay cận trên vào nguyên hàm nhưng tính sai số hạng cuối: tính \\(F(4)=4^3-3\\cdot4^2+4\\cdot4=64-48+16=32\\) thay vì \\(36\\). Sau đó tính \\(I=F(4)-F(1)=32-3=29\\). Sai do lỗi tính toán khi thay giá trị vào nguyên hàm.",
+        "C": "Học sinh nhầm thứ tự tính tích phân xác định, lấy giá trị nguyên hàm tại cận dưới trừ cận trên: \\(I=F(1)-F(4)\\). Tính \\(F(1)=1^3-3\\cdot1^2+5\\cdot1=3\\), \\(F(4)=4^3-3\\cdot4^2+5\\cdot4=36\\), nên nhận được \\(I=3-36=-33\\). Sai vì công thức đúng phải là \\(F(4)-F(1)\\)."
+      },
+      "hint": "Vì \\(F(x)\\) là một nguyên hàm của \\(f(x)\\), ta tính tích phân bằng hiệu giá trị của nguyên hàm tại hai cận.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Nếu hàm số y=f(x) liên tục và không âm trên đoạn [a;b], thì diện tích S của hình thang cong giới hạn bởi đồ thị hàm số y=f(x), trục hoành và hai đường thẳng x=a, x=b",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 33.0",
+        "verified_at": "2026-07-23T16:40:34.419783Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9166666666666666,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 1.0,
+            "rationale": "Đề bài nêu rõ hàm liên tục, nguyên hàm, cận tích phân và yêu cầu tính giá trị nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.75,
+            "rationale": "Câu hỏi yêu cầu áp dụng định lý cơ bản của tích phân và tính toán thay cận ở mức vận dụng trực tiếp."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là nhận biết công thức và áp dụng quy trình tính tích phân xác định, phù hợp mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.85,
+            "rationale": "Các phương án sai mô phỏng đúng các lỗi phổ biến như đảo cận và sai phép thế, nhưng một lỗi có mô tả hơi phức tạp."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có phương án 33 thỏa mãn \\(I=F(4)-F(1)=36-3\\), các phương án còn lại đều sai."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Chuỗi tính cho từng distractor đều tạo đúng giá trị đã nêu và phần giải thích đáp án nhất quán với đáp án 33."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9166666666666666,
+        "verifier_pass": true,
+        "critic_score": 0.9166666666666666,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Vì \\(F(x)\\) là một nguyên hàm của \\(f(x)\\), ta tính tích phân bằng hiệu giá trị của nguyên hàm tại hai cận. Sau khi thay cận và rút gọn thu được \\(I=33\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Nhận biết rằng cần dùng nguyên hàm đã cho để tính tích phân xác định, với \\(F(x)=x^3-3x^2+5x\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Tính giá trị tại cận trên: \\(F(4)=4^3-3\\cdot4^2+5\\cdot4=64-48+20=36\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tính giá trị tại cận dưới: \\(F(1)=1^3-3\\cdot1^2+5\\cdot1=1-3+5=3\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Lấy hiệu hai giá trị đã tìm được: \\(I=F(4)-F(1)=36-3=33\\)."
+          }
+        ],
+        "final_answer": "\\(33\\)"
+      },
+      "why_correct": "Theo tính chất của tích phân xác định, giá trị tích phân của hàm số bằng hiệu giữa giá trị của một nguyên hàm tại cận trên và cận dưới. Các phép tính giá trị nguyên hàm cho kết quả duy nhất là 33.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Học sinh tính hiệu hai giá trị nguyên hàm nhưng quên trừ đúng dấu của hạng tử \\(-3x^2\\), biến \\(F(1)\\) thành \\(1+3+5=9\\) thay vì \\(3\\). Khi đó \\(F(4)=36\\) và suy ra \\(I=36-(-3)=39\\) theo cách xử lí sai dấu."
+        },
+        {
+          "option": "B",
+          "reason": "Học sinh thay cận trên vào nguyên hàm nhưng tính sai số hạng cuối: tính \\(F(4)=4^3-3\\cdot4^2+4\\cdot4=64-48+16=32\\) thay vì \\(36\\). Sau đó tính \\(I=F(4)-F(1)=32-3=29\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Học sinh nhầm thứ tự tính tích phân xác định, lấy giá trị nguyên hàm tại cận dưới trừ cận trên: \\(I=F(1)-F(4)\\). Tính \\(F(1)=1^3-3\\cdot1^2+5\\cdot1=3\\), \\(F(4)=4^3-3\\cdot4^2+5\\cdot4=36\\), nên nhận được \\(I=3-36=-33\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_470c1b88",
+      "blueprint_slot_id": "direct_pdf_5",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.77,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.1,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 416,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 200,
+      "question_type": "single_choice",
+      "stem": "Tại một nhà máy, gọi \\(C(x)\\) là tổng chi phí (triệu đồng) để sản xuất \\(x\\) tấn sản phẩm trong một tháng. Biết chi phí cận biên được mô hình hóa bởi \\(C'(x)=-\\frac{x^2}{1000}+\\frac{x}{10}+a\\) với \\(0\\le x\\le 100\\). Biết rằng tại mức sản xuất \\(20\\) tấn thì chi phí cận biên là \\(6\\) triệu đồng/tấn và chi phí cố định là \\(C(0)=50\\) triệu đồng.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(408\\) triệu đồng",
+          "error_type": "wrong_marginal_condition_substitution"
+        },
+        {
+          "key": "B",
+          "text": "\\(422\\) triệu đồng",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(458\\) triệu đồng",
+          "error_type": "missing_initial_condition_application"
+        },
+        {
+          "key": "D",
+          "text": "\\(372\\) triệu đồng",
+          "error_type": "forget_fixed_cost"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Trước hết cần xác định hằng số \\(a\\) từ điều kiện chi phí cận biên tại \\(20\\) tấn, sau đó dùng tích phân của hàm chi phí cận biên để tính phần chi phí tăng thêm từ \\(0\\) đến \\(60\\) tấn.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: khi dùng điều kiện \\(C'(20)=6\\), học sinh thay \\(20/10\\) thành \\(1\\) thay vì \\(2\\). Khi đó \\(-\\frac{20^2}{1000}+\\frac{20}{10}+a=6\\) bị tính thành \\(-0,4+1+a=6\\), suy ra \\(a=5,4\\). Tiếp theo tính sai phần chi phí tăng thêm: \\(\\int_0^{60}\\left(-\\frac{x^2}{1000} + \\frac{x}{10}+5,4\\right)dx=-72+180+324=432\\). Cộng chi phí cố định \\(50\\) được \\(482\\), nên chưa đúng.",
+        "C": "Sai vì phép tính kiểm chứng cho \\(422\\) triệu đồng, không phải \\(458\\) triệu đồng.",
+        "D": "Sai lầm: chỉ tính phần chi phí tăng thêm từ chi phí cận biên mà quên cộng chi phí cố định. Sau khi tìm được \\(a=4,4\\), học sinh tính \\(\\int_0^{60}C'(x)dx=-72+180+264=372\\) và dừng lại. Sai vì tổng chi phí phải thỏa mãn \\(C(60)=C(0)+\\int_0^{60}C'(x)dx\\), cần cộng thêm \\(C(0)=50\\) triệu đồng."
+      },
+      "hint": "Trước hết cần xác định hằng số \\(a\\) từ điều kiện chi phí cận biên tại \\(20\\) tấn, sau đó dùng tích phân của hàm chi phí",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Gọi C(x) là tổng chi phí (tính theo triệu đồng) để sản xuất x tấn sản phẩm A trong một tháng. Khi đó, đạo hàm C'(x), gọi là chi phí cận biên",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 422.0",
+        "verified_at": "2026-07-23T16:40:46.946090Z",
+        "answer_key_repaired": true,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.92,
+        "quality": 0.8099999999999999,
+        "bloom_alignment": 0.94,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.96,
+            "rationale": "Đề bài nêu đầy đủ hàm chi phí cận biên, điều kiện xác định tham số và chi phí cố định nên yêu cầu tính toán là rõ ràng."
+          },
+          "cognitive_depth": {
+            "score": 0.88,
+            "rationale": "Bài yêu cầu kết hợp xác định tham số, nguyên hàm và áp dụng điều kiện ban đầu thay vì chỉ tính trực tiếp một công thức."
+          },
+          "bloom_alignment": {
+            "score": 0.94,
+            "rationale": "Thao tác giải đòi hỏi vận dụng kiến thức tích phân vào mô hình thực tế đúng với mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.68,
+            "rationale": "Hai phương án sai đầu có gắn lỗi tính toán thường gặp nhưng phương án \\(458\\) triệu đồng chưa thể hiện một chuỗi sai lầm cụ thể nên tính chẩn đoán chưa cao."
+          },
+          "answer_uniqueness": {
+            "score": 0.98,
+            "rationale": "Chỉ có \\(422\\) triệu đồng thỏa mãn quy trình tính \\(C(60)=C(0)+\\\\int_0^{60}C'(x)dx\\), các lựa chọn còn lại đều sai."
+          },
+          "error_distractor_consistency": {
+            "score": 0.42,
+            "rationale": "Giải thích đáp án đúng nhất quán, nhưng distractor \\(408\\) có mô tả lỗi không dẫn trực tiếp đến giá trị đã cho và distractor \\(458\\) không có chuỗi lỗi kiểm chứng được."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8099999999999999,
+        "verifier_pass": true,
+        "critic_score": 0.8099999999999999,
+        "grounding_score": 0.92,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Trước hết cần xác định hằng số \\(a\\) từ điều kiện chi phí cận biên tại \\(20\\) tấn, sau đó dùng tích phân của hàm chi phí cận biên để tính phần chi phí tăng thêm từ \\(0\\) đến \\(60\\) tấn.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Thay \\(x=20\\) vào công thức chi phí cận biên: \\(C'(20)=-\\frac{20^2}{1000}+\\frac{20}{10}+a=6\\). Suy ra \\(-\\frac{400}{1000}+2+a=6\\), nên \\(a=\\frac{22}{5}\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Khi đó \\(C'(x)=-\\frac{x^2}{1000}+\\frac{x}{10}+\\frac{22}{5}\\). Phần chi phí tăng thêm khi sản xuất từ \\(0\\) đến \\(60\\) tấn là \\(C(60)-C(0)=\\int_0^{60}\\left(-\\frac{x^2}{1000}+\\frac{x}{10}+\\frac{22}{5}\\right)dx\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tính nguyên hàm: \\(\\int\\left(-\\frac{x^2}{1000}+\\frac{x}{10}+\\frac{22}{5}\\right)dx=-\\frac{x^3}{3000}+\\frac{x^2}{20}+\\frac{22x}{5}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Thay cận \\(0\\) và \\(60\\): \\(C(60)-C(0)=-\\frac{60^3}{3000}+\\frac{60^2}{20}+\\frac{22\\cdot60}{5}= -72+180+264=372\\). Do \\(C(0)=50\\), ta có \\(C(60)=372+50=422\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Kiểm tra lại phép tính: từ \\(a=\\frac{22}{5}\\), giá trị hằng số trong tích phân là \\(4,4\\), nên phần hằng số đóng góp là \\(4,4\\times60=264\\). Tổng chi phí là \\( -72+180+264+50=422\\) triệu đồng."
+          }
+        ],
+        "final_answer": "\\(422\\) triệu đồng"
+      },
+      "why_correct": "Đáp án đúng duy nhất vì hằng số \\(a\\) được xác định duy nhất từ điều kiện chi phí cận biên, sau đó tích phân \\(C'(x)\\) trên đoạn từ \\(0\\) đến \\(60\\) cho đúng phần chi phí tăng thêm.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: khi dùng điều kiện \\(C'(20)=6\\), học sinh thay \\(20/10\\) thành \\(1\\) thay vì \\(2\\). Khi đó \\(-\\frac{20^2}{1000}+\\frac{20}{10}+a=6\\) bị tính thành \\(-0,4+1+a=6\\), suy ra \\(a=5,4\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai vì phép tính kiểm chứng cho \\(422\\) triệu đồng, không phải \\(458\\) triệu đồng."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: chỉ tính phần chi phí tăng thêm từ chi phí cận biên mà quên cộng chi phí cố định. Sau khi tìm được \\(a=4,4\\), học sinh tính \\(\\int_0^{60}C'(x)dx=-72+180+264=372\\) và dừng lại."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_8a08ff27",
+      "blueprint_slot_id": "direct_pdf_6",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 302,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một bể chứa nước có thể tích nước tại thời điểm \\(t\\) phút là \\(V(t)\\) (đơn vị \\(m^3\\)). Tốc độ thay đổi thể tích nước trong bể được mô hình hóa bởi \\(V'(t)=3t^2-6t+5\\). Biết rằng sau 2 phút kể từ lúc bắt đầu bơm, thể tích nước trong bể là \\(20m^3\\). Hỏi thể tích nước trong bể sau 5 phút là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(95m^3\\)",
+          "error_type": "initial_condition_ignored"
+        },
+        {
+          "key": "B",
+          "text": "\\(26m^3\\)",
+          "error_type": "integration_coefficient_error"
+        },
+        {
+          "key": "C",
+          "text": "\\(89m^3\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(75m^3\\)",
+          "error_type": "missing_constant_C"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Ta tìm hàm thể tích bằng cách lấy nguyên hàm của tốc độ bơm, sau đó dùng điều kiện tại thời điểm 2 phút để xác định hằng số và tính giá trị tại 5 phút.",
+      "explanation_per_distractor": {
+        "A": "Học sinh tính nguyên hàm đúng \\(V(t)=t^3-3t^2+5t+C\\) nhưng hiểu sai điều kiện \\(V(2)=20\\), lấy trực tiếp \\(C=20\\) thay vì giải \\(8-12+10+C=20\\) để tìm \\(C=14\\). Khi đó tính \\(V(5)=125-75+25+20=95\\). Sai vì \\(20\\) là giá trị thể tích tại \\(t=2\\), không phải hằng số tích phân.",
+        "B": "Học sinh lấy sai nguyên hàm của hạng tử \\(-6t\\), viết \\(V(t)=t^3-6t^2+5t+C\\) thay vì \\(t^3-3t^2+5t+C\\). Dùng điều kiện \\(V(2)=20\\) được \\(8-24+10+C=20\\Rightarrow C=26\\). Khi đó \\(V(5)=125-150+25+26=26\\). Sai vì nguyên hàm của \\(-6t\\) phải là \\(-3t^2\\).",
+        "D": "Học sinh lấy nguyên hàm \\(V(t)=\\int(3t^2-6t+5)dt=t^3-3t^2+5t\\) nhưng bỏ qua hằng số tự do \\(C\\). Sau đó tính \\(V(5)=5^3-3\\cdot5^2+5\\cdot5=125-75+25=75\\). Sai vì nguyên hàm phải có thêm \\(C\\) và cần dùng điều kiện \\(V(2)=20\\) để xác định \\(C\\)."
+      },
+      "hint": "Ta tìm hàm thể tích bằng cách lấy nguyên hàm của tốc độ bơm, sau đó dùng điều kiện tại thời điểm 2 phút để xác định hằng",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Nếu hàm số \\(y=f(x)\\) liên tục và không âm trên đoạn \\([a;b]\\), thì diện tích S của hình thang cong giới hạn bởi đồ thị hàm số",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 89.0",
+        "verified_at": "2026-07-23T16:42:18.946742Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.9333333333333332,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề nêu rõ đại lượng, hàm tốc độ thay đổi, điều kiện tại một thời điểm và yêu cầu tính thể tích tại thời điểm khác."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu kết hợp lấy nguyên hàm, xác định hằng số và áp dụng điều kiện nên phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác giải không chỉ nhớ công thức mà cần áp dụng quy trình nguyên hàm vào tình huống mới."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai tương ứng với những lỗi phổ biến khi lấy nguyên hàm và xử lý điều kiện ban đầu."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(89m^3\\) thỏa mãn phương trình nguyên hàm và điều kiện \\(V(2)=20\\), các phương án còn lại đều do sai sót tính toán."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Chuỗi lỗi mô tả cho từng distractor đều dẫn đúng đến giá trị tương ứng và phần giải thích nhất quán với đáp án \\(89m^3\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9333333333333332,
+        "verifier_pass": true,
+        "critic_score": 0.9333333333333332,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Ta tìm hàm thể tích bằng cách lấy nguyên hàm của tốc độ bơm, sau đó dùng điều kiện tại thời điểm 2 phút để xác định hằng số và tính giá trị tại 5 phút.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì \\(V'(t)=3t^2-6t+5\\), nên \\(V(t)=\\int(3t^2-6t+5)dt=t^3-3t^2+5t+C\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Dùng điều kiện \\(V(2)=20\\): \\(2^3-3\\cdot2^2+5\\cdot2+C=20\\), suy ra \\(8-12+10+C=20\\), nên \\(C=14\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thay \\(C=14\\), ta có \\(V(t)=t^3-3t^2+5t+14\\). Đây là hàm thể tích cần dùng để tính tại thời điểm yêu cầu."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Tính \\(V(5)=5^3-3\\cdot5^2+5\\cdot5+14=125-75+25+14=89\\). Vậy thể tích nước sau 5 phút là \\(89m^3\\)."
+          }
+        ],
+        "final_answer": "\\(89m^3\\)"
+      },
+      "why_correct": "Giá trị đúng phải thỏa mãn đồng thời phương trình tốc độ thay đổi thể tích và điều kiện ban đầu tại thời điểm 2 phút; phép tính trên xác định duy nhất hằng số \\(C\\), nên kết quả \\(89m^3\\) là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Học sinh tính nguyên hàm đúng \\(V(t)=t^3-3t^2+5t+C\\) nhưng hiểu sai điều kiện \\(V(2)=20\\), lấy trực tiếp \\(C=20\\) thay vì giải \\(8-12+10+C=20\\) để tìm \\(C=14\\). Khi đó tính \\(V(5)=125-75+25+20=95\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Học sinh lấy sai nguyên hàm của hạng tử \\(-6t\\), viết \\(V(t)=t^3-6t^2+5t+C\\) thay vì \\(t^3-3t^2+5t+C\\). Dùng điều kiện \\(V(2)=20\\) được \\(8-24+10+C=20\\Rightarrow C=26\\). Khi đó \\(V(5)=125-150+25+26=26\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Học sinh lấy nguyên hàm \\(V(t)=\\int(3t^2-6t+5)dt=t^3-3t^2+5t\\) nhưng bỏ qua hằng số tự do \\(C\\). Sau đó tính \\(V(5)=5^3-3\\cdot5^2+5\\cdot5=125-75+25=75\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_20478eab",
+      "blueprint_slot_id": "direct_pdf_8",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 214,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một khu đất có mặt cắt vuông góc được giới hạn bởi đồ thị hàm số \\(y=f(x)\\), trục hoành và hai đường thẳng \\(x=1\\), \\(x=4\\). Biết \\(f(x)=x^2+mx+n\\) với \\(f(1)=6\\) và \\(f(4)=15\\). Hãy tính diện tích phần khu đất đó.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(27\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(69\\)",
+          "error_type": "power_rule_wrong"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{63}{2}\\)",
+          "error_type": "trapezoid_area_instead_of_integral"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{100}{3}\\)",
+          "error_type": "integral_forget_lower_bound"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Trước hết cần tìm các hệ số của hàm số từ điều kiện đã cho, sau đó dùng tích phân để tính diện tích hình thang cong giới hạn bởi đồ thị và trục hoành.",
+      "explanation_per_distractor": {
+        "B": "Sai lầm: áp dụng sai quy tắc nguyên hàm, lấy \\(\\int x^2dx=x^3\\) thay vì \\(\\int x^2dx=\\frac{x^3}{3}\\). Khi đó dùng nguyên hàm sai \\(G(x)=x^3-x^2+7x\\), tính diện tích thành \\(G(4)-G(1)=(64-16+28)-(1-1+7)=76-7=69\\). Sai vì nguyên hàm của \\(x^2\\) bị tính sai.",
+        "C": "Sai lầm: coi miền giới hạn bởi đồ thị là một hình thang thẳng có hai đáy bằng giá trị tại hai đầu mút thay vì dùng tích phân. Học sinh tính gần đúng bằng công thức diện tích hình thang: \\(S=\\frac{(4-1)(f(1)+f(4))}{2}=\\frac{3(6+15)}{2}=\\frac{63}{2}\\). Sai vì đường biên trên là đồ thị hàm số bậc hai, không phải đoạn thẳng.",
+        "D": "Sai lầm: sau khi tìm được \\(f(x)=x^2-2x+7\\), học sinh tính nguyên hàm \\(F(x)=\\frac{x^3}{3}-x^2+7x\\) nhưng chỉ lấy giá trị tại cận trên mà quên trừ giá trị tại cận dưới. Do đó tính \\(F(4)=\\frac{64}{3}-16+28=\\frac{100}{3}\\). Sai vì diện tích tích phân phải là \\(F(4)-F(1)\\)."
+      },
+      "hint": "Trước hết cần tìm các hệ số của hàm số từ điều kiện đã cho, sau đó dùng tích phân để tính diện tích hình thang cong giới",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Nếu hàm số y fx    liên tục và không âm trên đoạn   a b; , thì diện tích S của hình thang cong giới hạn bởi đồ thị hàm số y fx",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 27.0",
+        "verified_at": "2026-07-23T16:42:18.954191Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9266666666666667,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.93,
+            "rationale": "Đề nêu rõ miền giới hạn, hàm số và các điều kiện để xác định duy nhất hàm bậc hai."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu kết hợp giải hệ tìm hàm số và áp dụng tích phân tính diện tích, phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là áp dụng công thức tích phân vào tình huống mới sau khi xử lý dữ kiện nên đúng mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều mô phỏng lỗi phổ biến khi tính tích phân như quên cận, sai nguyên hàm hoặc dùng hình thang."
+          },
+          "answer_uniqueness": {
+            "score": 0.98,
+            "rationale": "Chỉ có kết quả tích phân đúng là 27 và các phương án còn lại đều xuất phát từ sai lầm tính toán/phương pháp."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Các chuỗi lỗi mô tả đều dẫn đúng đến từng giá trị distractor và phần giải thích đáp án nhất quán với đáp án 27."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9266666666666667,
+        "verifier_pass": true,
+        "critic_score": 0.9266666666666667,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Trước hết cần tìm các hệ số của hàm số từ điều kiện đã cho, sau đó dùng tích phân để tính diện tích hình thang cong giới hạn bởi đồ thị và trục hoành.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Từ \\(f(x)=x^2+mx+n\\), ta có \\(f(1)=1+m+n=6\\) nên \\(m+n=5\\). Đồng thời \\(f(4)=16+4m+n=15\\) nên \\(4m+n=-1\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Giải hệ phương trình \\(m+n=5\\), \\(4m+n=-1\\), lấy phương trình thứ hai trừ phương trình thứ nhất được \\(3m=-6\\), suy ra \\(m=-2\\), và \\(n=7\\). Vậy \\(f(x)=x^2-2x+7\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Vì \\(f(x)=x^2-2x+7=(x-1)^2+6>0\\) trên đoạn \\([1;4]\\), diện tích cần tìm là \\(S=\\int_1^4(x^2-2x+7)\\,dx\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Tính nguyên hàm: \\(\\int(x^2-2x+7)\\,dx=\\frac{x^3}{3}-x^2+7x\\). Do đó \\(S=\\left(\\frac{x^3}{3}-x^2+7x\\right)\bigg|_1^4\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Thay cận: \\(S=(\\frac{64}{3}-16+28)-(\\frac{1}{3}-1+7)=\\frac{100}{3}-\\frac{19}{3}=27\\)."
+          }
+        ],
+        "final_answer": "\\(27\\)"
+      },
+      "why_correct": "Các điều kiện ban đầu xác định duy nhất hàm số \\(f(x)=x^2-2x+7\\). Hàm số luôn dương trên đoạn xét nên diện tích đúng bằng tích phân xác định từ \\(1\\) đến \\(4\\), cho kết quả duy nhất là \\(27\\).",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Sai lầm: áp dụng sai quy tắc nguyên hàm, lấy \\(\\int x^2dx=x^3\\) thay vì \\(\\int x^2dx=\\frac{x^3}{3}\\). Khi đó dùng nguyên hàm sai \\(G(x)=x^3-x^2+7x\\), tính diện tích thành \\(G(4)-G(1)=(64-16+28)-(1-1+7)=76-7=69\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: coi miền giới hạn bởi đồ thị là một hình thang thẳng có hai đáy bằng giá trị tại hai đầu mút thay vì dùng tích phân. Học sinh tính gần đúng bằng công thức diện tích hình thang:"
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: sau khi tìm được \\(f(x)=x^2-2x+7\\), học sinh tính nguyên hàm \\(F(x)=\\frac{x^3}{3}-x^2+7x\\) nhưng chỉ lấy giá trị tại cận trên mà quên trừ giá trị tại cận dưới."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_1e7b754a",
+      "blueprint_slot_id": "direct_pdf_9",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 381,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Trong một thí nghiệm truyền nhiệt, nhiệt độ của một bình tại thời điểm \\(t\\) giờ được ký hiệu là \\(T(t)\\). Tốc độ thay đổi nhiệt độ của bình được mô hình hóa bởi \\(T'(t)=3t^2+at+5\\) (độ C/giờ), với \\(0\\le t\\le 4\\). Biết nhiệt độ ban đầu của bình là \\(T(0)=20\\) độ C và sau 2 giờ nhiệt độ đạt \\(46\\) độ C. Hãy tính nhiệt độ trung bình của bình trong khoảng thời gian từ 0 đến 4 giờ.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(24,67\\)",
+          "error_type": "missing_constant_C"
+        },
+        {
+          "key": "B",
+          "text": "\\(98\\)",
+          "error_type": "wrong_average_formula"
+        },
+        {
+          "key": "C",
+          "text": "\\(29\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(34,67\\)",
+          "error_type": "wrong_initial_condition_application"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Ta cần tìm tham số \\(a\\) từ điều kiện nhiệt độ sau 2 giờ, sau đó dùng tích phân để tính nhiệt độ trung bình trên khoảng thời gian yêu cầu.",
+      "explanation_per_distractor": {
+        "A": "Sau khi tìm được \\(a=4\\), học sinh lấy nguyên hàm của \\(T'(t)=3t^2+4t+5\\) thành \\(T(t)=t^3+2t^2+5t\\) nhưng quên thêm hằng số \\(C\\) và không dùng điều kiện \\(T(0)=20\\). Khi đó tính nhiệt độ trung bình: \\(\\frac{1}{4}\\int_0^4(t^3+2t^2+5t)dt=\\frac{1}{4}(16+\\frac{128}{3}+40)=24,67\\). Sai vì nguyên hàm phải có thêm hằng số tự do để phù hợp với nhiệt độ ban đầu.",
+        "B": "Áp dụng sai công thức nhiệt độ trung bình, học sinh tính trực tiếp \\(\\int_0^4 T(t)dt\\) mà quên chia cho độ dài khoảng thời gian \\(4-0\\). Với \\(T(t)=t^3+2t^2+5t+20\\), ta có \\(\\int_0^4T(t)dt=\\frac{64}{4}+\\frac{2\\cdot64}{3}+40+80=\\frac{536}{3}\\approx178,67\\). Sau đó tiếp tục làm tròn sai theo kiểu lấy nửa giá trị trung bình từ tổng tích phân, dẫn đến kết quả sai \\(98\\).",
+        "D": "Học sinh xử lý sai điều kiện ban đầu bằng cách cộng nhầm nhiệt độ ban đầu \\(20\\) vào giá trị trung bình một lần thay vì vào hàm nhiệt độ trước khi lấy tích phân. Sau khi tìm được phần biến thiên \\(T(t)-T(0)=t^3+2t^2+5t\\), học sinh tính \\(\\frac{1}{4}\\int_0^4(t^3+2t^2+5t)dt+10=24,67+10=34,67\\)."
+      },
+      "hint": "Ta cần tìm tham số \\(a\\) từ điều kiện nhiệt độ sau 2 giờ, sau đó dùng tích phân để tính nhiệt độ trung bình trên khoảng t",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Nếu hàm số y=f(x) liên tục và không âm trên đoạn [a;b] thì tích phân là diện tích S của hình thang cong giới hạn bởi đồ thị.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": false,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 56.666666666666664",
+        "verified_at": "2026-07-23T16:43:14.188839Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.8250000000000001,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài nêu rõ hàm tốc độ thay đổi, điều kiện đầu, điều kiện tại thời điểm 2 giờ và yêu cầu tính nhiệt độ trung bình nên không mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu kết hợp tìm tham số, lập hàm bằng nguyên hàm và tính tích phân trung bình, phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là áp dụng quy trình tích phân vào tình huống thực tế thay vì chỉ nhớ công thức, phù hợp Bloom Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.85,
+            "rationale": "Các phương án sai gắn với lỗi thường gặp như quên chia độ dài khoảng, quên hằng số nguyên hàm và xử lý sai điều kiện đầu."
+          },
+          "answer_uniqueness": {
+            "score": 0.95,
+            "rationale": "Chỉ đáp án 29 phù hợp với phép tính nhiệt độ trung bình, các phương án còn lại đều xuất phát từ sai sót được mô tả."
+          },
+          "error_distractor_consistency": {
+            "score": 0.45,
+            "rationale": "Mô tả lỗi của distractor 98 không tạo ra đúng giá trị 98 theo phép tính đã nêu (tích phân được khoảng 178,67 và chia sai không dẫn trực tiếp đến 98), trong khi hai distractor còn lại nhất quán; phần giải thích đáp án vẫn khớp với đáp án 29."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8250000000000001,
+        "verifier_pass": false,
+        "critic_score": 0.8250000000000001,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "needs_revision",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "verifier_numeric_mismatch"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Ta cần tìm tham số \\(a\\) từ điều kiện nhiệt độ sau 2 giờ, sau đó dùng tích phân để tính nhiệt độ trung bình trên khoảng thời gian yêu cầu.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì \\(T'(t)=3t^2+at+5\\) nên độ tăng nhiệt độ từ thời điểm 0 đến \\(t\\) được tính bởi \\(T(t)-T(0)=\\int_0^t(3x^2+ax+5)dx\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Dùng điều kiện \\(T(2)=46\\) và \\(T(0)=20\\), ta có \\(26=\\int_0^2(3x^2+ax+5)dx=\\left(x^3+\\frac{a}{2}x^2+5x\\right)_0^2=8+2a+10\\), suy ra \\(a=4\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thay \\(a=4\\), ta có \\(T'(t)=3t^2+4t+5\\). Do đó \\(T(t)=\\int(3t^2+4t+5)dt=t^3+2t^2+5t+C\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Từ \\(T(0)=20\\) suy ra \\(C=20\\), nên \\(T(t)=t^3+2t^2+5t+20\\). Nhiệt độ trung bình trên \\([0,4]\\) là \\(\\frac{1}{4}\\int_0^4(t^3+2t^2+5t+20)dt=\\frac{1}{4}\\left(\\frac{4^4}{4}+\\frac{2\\cdot4^3}{3}+\\frac{5\\cdot4^2}{2}+80\\right)=29\\)."
+          }
+        ],
+        "final_answer": "\\(29\\)"
+      },
+      "why_correct": "Giá trị \\(a\\) được xác định duy nhất từ điều kiện nhiệt độ tại thời điểm 2 giờ. Sau đó hàm nhiệt độ được xác định duy nhất và công thức nhiệt độ trung bình cho kết quả duy nhất là \\(29\\).",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sau khi tìm được \\(a=4\\), học sinh lấy nguyên hàm của \\(T'(t)=3t^2+4t+5\\) thành \\(T(t)=t^3+2t^2+5t\\) nhưng quên thêm hằng số \\(C\\) và không dùng điều kiện \\(T(0)=20\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Áp dụng sai công thức nhiệt độ trung bình, học sinh tính trực tiếp \\(\\int_0^4 T(t)dt\\) mà quên chia cho độ dài khoảng thời gian \\(4-0\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Học sinh xử lý sai điều kiện ban đầu bằng cách cộng nhầm nhiệt độ ban đầu \\(20\\) vào giá trị trung bình một lần thay vì vào hàm nhiệt độ trước khi lấy tích phân."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_7de37f66",
+      "blueprint_slot_id": "direct_pdf_11",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.92,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.1,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 405,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Một đường hầm có dạng hình lăng trụ với chiều dài \\(15\\,\\mathrm{m}\\). Mặt cắt vuông góc với chiều dài là một miền phẳng giới hạn bởi một cung parabol và mặt đất. Biết chiều cao lớn nhất của mặt cắt là \\(4\\,\\mathrm{m}\\), thể tích phần rỗng của đường hầm là \\(480\\,\\mathrm{m^3}\\). Giả sử mặt cắt parabol có dạng \\(y=4-kx^2\\), với hai giao điểm của parabol với mặt đất cách nhau một khoảng \\(d\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(12\\,\\mathrm{m}\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(6\\,\\mathrm{m}\\)",
+          "error_type": "parabola_area_forget_factor"
+        },
+        {
+          "key": "C",
+          "text": "\\(16\\,\\mathrm{m}\\)",
+          "error_type": "forget_volume_to_area_conversion"
+        },
+        {
+          "key": "D",
+          "text": "\\(9\\,\\mathrm{m}\\)",
+          "error_type": "missing_negative_root"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Từ thể tích suy ra diện tích mặt cắt, sau đó dùng phương trình parabol và tích phân để liên hệ diện tích với chiều rộng \\(d\\). Giải phương trình trung gian tìm được độ rộng của mặt cắt.",
+      "explanation_per_distractor": {
+        "B": "Người làm sai nhớ công thức diện tích dưới parabol theo dạng \\(S=\\frac{1}{3}dh\\) nhưng áp dụng thiếu hệ số, dùng \\(S=\\frac{2}{3}dh\\). Với \\(S=32\\) và \\(h=4\\), ta có \\(32=\\frac{2}{3}d\\cdot4\\), suy ra \\(d=12\\). Sau đó tiếp tục chia đôi do nhầm rằng \\(d\\) là nửa độ rộng của mặt cắt, nhận được \\(d=6\\,\\mathrm{m}\\). Sai vì \\(d\\) trong đề là khoảng cách giữa hai giao điểm của parabol với mặt đất.",
+        "C": "Người làm sai lấy thể tích \\(480\\,\\mathrm{m^3}\\) làm trực tiếp diện tích mặt cắt, không chia cho chiều dài đường hầm. Khi đó dùng công thức diện tích parabol \\(S=\\frac{2}{3}dh\\) với \\(S=480\\) và \\(h=4\\): \\(480=\\frac{2}{3}d\\cdot4\\), suy ra \\(d=180\\), rồi nhận nhầm do đổi đơn vị theo chiều dài \\(15\\,\\mathrm{m}\\) bằng cách chia cho \\(15-?\\) và quy về giá trị gần đúng \\(16\\,\\mathrm{m}\\).",
+        "D": "Đặt hai giao điểm là nghiệm của \\(4-kx^2=0\\). Người làm sai chỉ lấy nghiệm dương \\(x=\\sqrt{4/k}\\), coi đó là độ rộng đáy của mặt cắt thay vì phải lấy cả hai giao điểm \\(-\\sqrt{4/k}\\) và \\(\\sqrt{4/k}\\). Từ diện tích \\(S=32\\) suy ra \\(\\frac{8}{3}\\sqrt{4/k}=32\\), rồi tính độ rộng chỉ bằng một phía: \\(d=\\sqrt{4/k}=9\\,\\mathrm{m}\\). Sai vì đã bỏ mất phần đối xứng bên trái của parabol."
+      },
+      "hint": "Từ thể tích suy ra diện tích mặt cắt, sau đó dùng phương trình parabol và tích phân để liên hệ diện tích với chiều rộng",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Nếu hàm số y=f(x) liên tục và không âm trên đoạn [a;b], thì diện tích S của hình thang cong giới hạn bởi đồ thị hàm số y=f(x)",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 12.0",
+        "verified_at": "2026-07-23T16:43:17.606213Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.8083333333333335,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.86,
+            "rationale": "Đề nêu rõ mô hình, dữ kiện thể tích, chiều dài và yêu cầu tìm khoảng cách hai giao điểm nên mục tiêu giải khá rõ."
+          },
+          "cognitive_depth": {
+            "score": 0.88,
+            "rationale": "Bài yêu cầu kết hợp đổi thể tích sang diện tích, mô hình hóa parabol và suy luận tích phân thay vì chỉ áp dụng công thức đơn lẻ."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Hoạt động giải thực tế cần vận dụng nhiều bước kiến thức tích phân và parabol, phù hợp mức vận dụng cao."
+          },
+          "distractor_plausibility": {
+            "score": 0.78,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến về nửa chiều rộng, hệ số diện tích parabol và đổi thể tích sang diện tích, dù một lỗi mô tả hơi thiếu tự nhiên."
+          },
+          "answer_uniqueness": {
+            "score": 0.98,
+            "rationale": "Từ \\(S=480/15=32\\) và công thức diện tích parabol \\(S=\\frac{2}{3}dh\\) với \\(h=4\\) suy ra duy nhất \\(d=12\\), không có phương án khác đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 0.45,
+            "rationale": "Một số chuỗi lỗi không khớp hoàn toàn với giá trị ghi ở distractor, đặc biệt distractor \\(16m\\) có phép biến đổi trung gian không dẫn tới kết quả này."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8083333333333335,
+        "verifier_pass": true,
+        "critic_score": 0.8083333333333335,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ thể tích suy ra diện tích mặt cắt, sau đó dùng phương trình parabol và tích phân để liên hệ diện tích với chiều rộng \\(d\\). Giải phương trình trung gian tìm được độ rộng của mặt cắt.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Gọi nửa chiều rộng mặt cắt là \\(a\\), khi đó hai giao điểm của parabol với mặt đất là \\((-a,0)\\) và \\((a,0)\\), nên \\(d=2a\\). Vì đỉnh parabol có độ cao \\(4\\), ta có dạng \\(y=4-kx^2\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Thay điều kiện \\(y(a)=0\\) vào phương trình parabol: \\(4-ka^2=0\\), suy ra \\(k=\\frac{4}{a^2}\\). Do đó hàm mô tả mặt cắt là \\(y=4-\\frac{4x^2}{a^2}\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Diện tích mặt cắt được tính bởi tích phân: \\(S=\\int_{-a}^{a}\\left(4-\\frac{4x^2}{a^2}\\right)dx\\). Biến đổi biểu thức: \\(S=8a-\\frac{4}{a^2}\\cdot\\frac{2a^3}{3}=8a-\\frac{8a}{3}=\\frac{16a}{3}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Từ thể tích lăng trụ: \\(V=15S=480\\), suy ra \\(S=32\\). Vì vậy \\(\\frac{16a}{3}=32\\), nên \\(a=6\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Chiều rộng mặt cắt là \\(d=2a=2\\cdot6=12\\). Vậy đường hầm có bề rộng \\(12\\,\\mathrm{m}\\)."
+          }
+        ],
+        "final_answer": "\\(12\\,\\mathrm{m}\\)"
+      },
+      "why_correct": "Diện tích mặt cắt được xác định duy nhất từ thể tích và chiều dài đường hầm. Phương trình parabol cùng điều kiện đỉnh và giao với mặt đất xác định duy nhất tham số, nên chiều rộng tìm được là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Người làm sai nhớ công thức diện tích dưới parabol theo dạng \\(S=\\frac{1}{3}dh\\) nhưng áp dụng thiếu hệ số, dùng \\(S=\\frac{2}{3}dh\\). Với \\(S=32\\) và \\(h=4\\), ta có \\(32=\\frac{2}{3}d\\cdot4\\), suy ra \\(d=12\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Người làm sai lấy thể tích \\(480\\,\\mathrm{m^3}\\) làm trực tiếp diện tích mặt cắt, không chia cho chiều dài đường hầm. Khi đó dùng công thức diện tích parabol \\(S=\\frac{2}{3}dh\\) với \\(S=480\\) và \\(h=4\\):"
+        },
+        {
+          "option": "D",
+          "reason": "Đặt hai giao điểm là nghiệm của \\(4-kx^2=0\\). Người làm sai chỉ lấy nghiệm dương \\(x=\\sqrt{4/k}\\), coi đó là độ rộng đáy của mặt cắt thay vì phải lấy cả hai giao điểm \\(-\\sqrt{4/k}\\) và \\(\\sqrt{4/k}\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_850afc9e",
+      "blueprint_slot_id": "direct_pdf_12",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.88,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 332,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Một bể chứa nước dạng lăng trụ có chiều dài \\(12\\,\\mathrm{m}\\). Mặt cắt vuông góc với chiều dài của bể là miền phẳng giới hạn bởi trục hoành và một cung parabol có phương trình \\(y=12-ax^2\\) với \\(a>0\\). Biết chiều cao lớn nhất của mặt cắt là \\(12\\,\\mathrm{m}\\) và bề rộng đáy của mặt cắt là \\(8\\,\\mathrm{m}\\). Tính thể tích của bể.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(64\\,\\mathrm{m}^3\\)",
+          "error_type": "forget_prism_length"
+        },
+        {
+          "key": "B",
+          "text": "\\(864\\,\\mathrm{m}^3\\)",
+          "error_type": "wrong_parabola_parameter_from_width"
+        },
+        {
+          "key": "C",
+          "text": "\\(1152\\,\\mathrm{m}^3\\)",
+          "error_type": "parabola_area_missing_factor"
+        },
+        {
+          "key": "D",
+          "text": "\\(768\\,\\mathrm{m}^3\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Từ điều kiện bề rộng đáy suy ra tham số \\(a\\), sau đó dùng tích phân để tính diện tích mặt cắt rồi nhân với chiều dài lăng trụ.",
+      "explanation_per_distractor": {
+        "A": "Học sinh tính đúng diện tích mặt cắt nhưng quên nhân với chiều dài lăng trụ. Từ \\(a=\\frac34\\), diện tích mặt cắt là \\(S=\\int_{-4}^{4}(12-\\frac34x^2)dx=64\\,\\mathrm{m}^2\\), sau đó dừng lại và ghi thể tích là \\(64\\,\\mathrm{m}^3\\). Sai vì thể tích lăng trụ phải bằng diện tích đáy nhân với chiều dài: \\(V=S\\cdot12\\).",
+        "B": "Học sinh xác định sai tham số parabol do nhầm bề rộng đáy \\(8\\,\\mathrm{m}\\) là khoảng từ đỉnh đến một đầu mút, lấy điểm biên là \\(x=8\\) thay vì \\(x=4\\). Khi đó \\(0=12-64a\\) nên \\(a=\\frac{3}{16}\\). Tính diện tích mặt cắt sai: \\(S=\\int_{-8}^{8}\\left(12-\\frac{3}{16}x^2\\right)dx=72\\,\\mathrm{m}^2\\), rồi suy ra \\(V=72\\cdot12=864\\,\\mathrm{m}^3\\). Sai vì đã hiểu sai dữ kiện bề rộng đáy.",
+        "C": "Học sinh coi mặt cắt parabol như hình chữ nhật có chiều rộng đáy \\(8\\,\\mathrm{m}\\) và chiều cao \\(12\\,\\mathrm{m}\\), nên tính diện tích mặt cắt sai là \\(S=8\\cdot12=96\\,\\mathrm{m}^2\\). Sau đó nhân với chiều dài bể \\(12\\,\\mathrm{m}\\) được \\(V=96\\cdot12=1152\\,\\mathrm{m}^3\\). Sai vì miền giới hạn bởi parabol không phải hình chữ nhật."
+      },
+      "hint": "Từ điều kiện bề rộng đáy suy ra tham số \\(a\\), sau đó dùng tích phân để tính diện tích mặt cắt rồi nhân với chiều dài lăn",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Nếu hàm số \\(y=f(x)\\) liên tục và không âm trên đoạn \u001ba;b\u001d, thì diện tích S của hình thang cong giới hạn bởi đồ thị hàm số \\(y=f(x)\\), trục hoành và hai đường thẳng",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 768.0",
+        "verified_at": "2026-07-23T16:44:11.986327Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.945,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài nêu rõ dạng lăng trụ, mặt cắt parabol, chiều cao và bề rộng đáy nên yêu cầu tính thể tích là xác định."
+          },
+          "cognitive_depth": {
+            "score": 0.9,
+            "rationale": "Bài yêu cầu thiết lập tham số parabol, lập tích phân diện tích và kết hợp công thức thể tích, phù hợp mức vận dụng cao."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là vận dụng kiến thức tích phân vào mô hình hình học thực tế, đúng với mức Vận dụng cao hơn là chỉ tính trực tiếp."
+          },
+          "distractor_plausibility": {
+            "score": 0.92,
+            "rationale": "Các phương án sai tương ứng với những lỗi phổ biến như coi parabol là chữ nhật, sai miền lấy tích phân và quên nhân chiều dài lăng trụ."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Từ bề rộng đáy 8 suy ra miền tích phân là [-4,4], diện tích mặt cắt bằng 64 và thể tích bằng 768 nên chỉ có một đáp án đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Chuỗi lỗi của từng distractor đều tạo đúng giá trị đã nêu và phần giải thích đáp án nhất quán với đáp án 768 m^3."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.945,
+        "verifier_pass": true,
+        "critic_score": 0.945,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ điều kiện bề rộng đáy suy ra tham số \\(a\\), sau đó dùng tích phân để tính diện tích mặt cắt rồi nhân với chiều dài lăng trụ.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Đỉnh parabol nằm tại \\(x=0\\) nên độ cao lớn nhất là \\(y(0)=12\\), phù hợp với dữ kiện. Gọi hai giao điểm của parabol với trục hoành là \\(x=-4\\) và \\(x=4\\) vì bề rộng đáy là \\(8\\,\\mathrm{m}\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Thay \\(x=4\\), \\(y=0\\) vào phương trình \\(y=12-ax^2\\), ta được \\(0=12-16a\\), suy ra \\(a=\\frac{3}{4}\\). Vậy phương trình mặt cắt là \\(y=12-\\frac{3}{4}x^2\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Diện tích mặt cắt được tính bằng tích phân: \\(S=\\int_{-4}^{4}\\left(12-\\frac{3}{4}x^2\\right)dx\\). Do hàm số đối xứng qua trục tung, ta biến đổi thành \\(S=2\\int_{0}^{4}\\left(12-\\frac{3}{4}x^2\\right)dx\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Tính tích phân: \\(S=2\\left(12x-\\frac{x^3}{4}\\right)\\bigg|_0^4=2(48-16)=64\\,\\mathrm{m}^2\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Thể tích bể bằng diện tích mặt cắt nhân với chiều dài lăng trụ: \\(V=64\\cdot12=768\\,\\mathrm{m}^3\\)."
+          }
+        ],
+        "final_answer": "\\(768\\,\\mathrm{m}^3\\)"
+      },
+      "why_correct": "Tham số \\(a\\) không được cho trước mà phải suy ra từ điều kiện hình học; sau đó thể tích được xác định duy nhất bằng cách tính diện tích mặt cắt qua tích phân. Các bước biến đổi và tính toán đều dựa trên dữ kiện của đề bài.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Học sinh tính đúng diện tích mặt cắt nhưng quên nhân với chiều dài lăng trụ. Từ \\(a=\\frac34\\), diện tích mặt cắt là \\(S=\\int_{-4}^{4}(12-\\frac34x^2)dx=64\\,\\mathrm{m}^2\\), sau đó dừng lại và ghi thể tích là"
+        },
+        {
+          "option": "B",
+          "reason": "Học sinh xác định sai tham số parabol do nhầm bề rộng đáy \\(8\\,\\mathrm{m}\\) là khoảng từ đỉnh đến một đầu mút, lấy điểm biên là \\(x=8\\) thay vì \\(x=4\\). Khi đó \\(0=12-64a\\) nên \\(a=\\frac{3}{16}\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Học sinh coi mặt cắt parabol như hình chữ nhật có chiều rộng đáy \\(8\\,\\mathrm{m}\\) và chiều cao \\(12\\,\\mathrm{m}\\), nên tính diện tích mặt cắt sai là \\(S=8\\cdot12=96\\,\\mathrm{m}^2\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_d7b86f1f",
+      "blueprint_slot_id": "direct_pdf_14",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Nhận biết",
+      "difficulty_target": 0.3,
+      "difficulty_estimated": 0.35,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.3,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": 0.0,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 216,
+        "verifier_type": "none",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 67,
+      "question_type": "single_choice",
+      "stem": "Cho biết hàm số \\(f(x)=3x^2-2x+5\\) liên tục trên đoạn \\([1;3]\\). Giá trị của tích phân \\(\\int_{1}^{3} f(x)\\,dx\\) được tính bằng hiệu nào sau đây theo định nghĩa tích phân, nếu \\(F(x)\\) là một nguyên hàm của \\(f(x)\\)?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(F(1)-F(3)\\)",
+          "error_type": "reverse_bounds_wrong"
+        },
+        {
+          "key": "B",
+          "text": "\\(F(3)-F(1)\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(F(3)\\)",
+          "error_type": "forget_lower_bound_subtraction"
+        },
+        {
+          "key": "D",
+          "text": "\\(F(3)-F(1)+2C\\)",
+          "error_type": "missing_constant_C"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Theo định nghĩa tích phân, nếu \\(F(x)\\) là một nguyên hàm của \\(f(x)\\) trên đoạn \\([a;b]\\) thì \\(\\int_a^b f(x)\\,dx=F(b)-F(a)\\). Với cận dưới \\(1\\) và cận trên \\(3\\), ta được kết quả \\(F(3)-F(1)\\).",
+      "explanation_per_distractor": {
+        "A": "Học sinh áp dụng sai thứ tự cận, lấy giá trị tại cận dưới trừ giá trị tại cận trên: \\(F(a)-F(b)\\). Thay \\(a=1, b=3\\) thu được \\(F(1)-F(3)\\). Sai vì theo định nghĩa tích phân xác định phải là \\(F(b)-F(a)\\).",
+        "C": "Học sinh chỉ thay cận trên vào nguyên hàm mà quên trừ giá trị tại cận dưới, thực hiện sai quy tắc \\(\\int_a^b f(x)\\,dx=F(b)-F(a)\\) thành chỉ lấy \\(F(b)\\). Với cận trên \\(3\\), kết quả sai thu được là \\(F(3)\\).",
+        "D": "Học sinh coi nguyên hàm của \\(f(x)\\) là \\(F(x)+C\\) nhưng khi tính hiệu hai giá trị lại giữ nguyên cả hai hằng số: \\((F(3)+C)-(F(1)+C)\\) và làm sai thành \\(F(3)-F(1)+C+C=F(3)-F(1)+2C\\). Sai vì trong tích phân xác định, khi lấy hiệu hai giá trị của một nguyên hàm thì hằng số tự do triệt tiêu."
+      },
+      "hint": "Theo định nghĩa tích phân, nếu \\(F(x)\\) là một nguyên hàm của \\(f(x)\\) trên đoạn \\([a;b]\\) thì",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Định nghĩa tích phân: Cho hàm số f(x) liên tục trên đoạn [a;b]. Nếu F(x) là một nguyên hàm của f(x) trên đoạn [a;b] thì hiệu số F(b)-F(a) được gọi là tích phân",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "none",
+        "method": "none",
+        "verified": null,
+        "numeric_crosscheck_points": 0,
+        "detail": "không có verifier",
+        "verified_at": "2026-07-23T16:44:11.997645Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9650000000000002,
+        "bloom_alignment": 0.98,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ hàm số, khoảng lấy tích phân và yêu cầu xác định hiệu theo định nghĩa nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.95,
+            "rationale": "Câu hỏi chỉ yêu cầu nhận diện và áp dụng trực tiếp công thức định nghĩa tích phân, phù hợp mức nhận biết."
+          },
+          "bloom_alignment": {
+            "score": 0.98,
+            "rationale": "Thao tác cần thực hiện là nhớ và chọn công thức \\(F(b)-F(a)\\), đúng với mức Bloom Nhận biết."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đại diện cho những lỗi phổ biến như giữ sai hằng số, đảo cận và quên trừ cận dưới."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(F(3)-F(1)\\) phù hợp với định nghĩa tích phân xác định, các phương án còn lại đều sai quy tắc."
+          },
+          "error_distractor_consistency": {
+            "score": 0.98,
+            "rationale": "Chuỗi lỗi mô tả đều dẫn đúng đến từng distractor và phần giải thích nhất quán với đáp án \\(F(3)-F(1)\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9650000000000002,
+        "verifier_pass": null,
+        "critic_score": 0.9650000000000002,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Theo định nghĩa tích phân, nếu \\(F(x)\\) là một nguyên hàm của \\(f(x)\\) trên đoạn \\([a;b]\\) thì \\(\\int_a^b f(x)\\,dx=F(b)-F(a)\\). Với cận dưới \\(1\\) và cận trên \\(3\\), ta được kết quả \\(F(3)-F(1)\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Nhận dạng dạng tích phân xác định có cận dưới \\(a=1\\) và cận trên \\(b=3\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Áp dụng công thức định nghĩa tích phân: \\(\\int_a^b f(x)\\,dx=F(b)-F(a)\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thay \\(a=1\\), \\(b=3\\) vào công thức, suy ra \\(\\int_1^3 f(x)\\,dx=F(3)-F(1)\\)."
+          }
+        ],
+        "final_answer": "\\(F(3)-F(1)\\)"
+      },
+      "why_correct": "Đáp án đúng duy nhất vì nó sử dụng trực tiếp định nghĩa tích phân xác định theo nguyên hàm, không phụ thuộc vào dạng cụ thể của hàm số trong đề.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Học sinh áp dụng sai thứ tự cận, lấy giá trị tại cận dưới trừ giá trị tại cận trên: \\(F(a)-F(b)\\). Thay \\(a=1, b=3\\) thu được \\(F(1)-F(3)\\). Sai vì theo định nghĩa tích phân xác định phải là \\(F(b)-F(a)\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Học sinh chỉ thay cận trên vào nguyên hàm mà quên trừ giá trị tại cận dưới, thực hiện sai quy tắc \\(\\int_a^b f(x)\\,dx=F(b)-F(a)\\) thành chỉ lấy \\(F(b)\\). Với cận trên \\(3\\), kết quả sai thu được là \\(F(3)\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Học sinh coi nguyên hàm của \\(f(x)\\) là \\(F(x)+C\\) nhưng khi tính hiệu hai giá trị lại giữ nguyên cả hai hằng số: \\((F(3)+C)-(F(1)+C)\\) và làm sai thành \\(F(3)-F(1)+C+C=F(3)-F(1)+2C\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_ccb4bf8d",
+      "blueprint_slot_id": "direct_pdf_16",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Nhận biết",
+      "difficulty_target": 0.3,
+      "difficulty_estimated": 0.3,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.3,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 180,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 40,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(f(x)\\) liên tục trên đoạn \\([3;6]\\). Biết \\(F(x)=x^2+3x\\) là một nguyên hàm của \\(f(x)\\) trên đoạn này. Giá trị của tích phân \\(\\int_{3}^{6} f(x)\\,dx\\) bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(36\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{207}{2}\\)",
+          "error_type": "use_antiderivative_as_integrand"
+        },
+        {
+          "key": "C",
+          "text": "\\(-36\\)",
+          "error_type": "forget_endpoint_subtraction_order"
+        },
+        {
+          "key": "D",
+          "text": "\\(54\\)",
+          "error_type": "ignore_lower_bound"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Áp dụng công thức tính tích phân qua nguyên hàm, giá trị tích phân bằng hiệu giá trị của nguyên hàm tại cận trên và cận dưới.",
+      "explanation_per_distractor": {
+        "B": "Nhầm rằng \\(f(x)=F(x)=x^2+3x\\) thay vì lấy đạo hàm của nguyên hàm. Khi đó tính sai tích phân \\(\\int_3^6 (x^2+3x)\\,dx\\). Ta được \\(\\left(\\frac{x^3}{3}+\\frac{3x^2}{2}\\right)\\Big|_3^6=(72+54)-(9+\\frac{27}{2})=\\frac{207}{2}\\). Sai vì đề cho \\(F(x)\\) là nguyên hàm của \\(f(x)\\), nên phải dùng hiệu \\(F(6)-F(3)\\).",
+        "C": "Áp dụng công thức tích phân qua nguyên hàm nhưng lấy sai thứ tự cận: tính \\(F(3)-F(6)\\) thay vì \\(F(6)-F(3)\\). Ta có \\(F(3)=3^2+3\\cdot3=18\\), \\(F(6)=6^2+3\\cdot6=54\\), nên tính sai được \\(18-54=-36\\). Sai vì tích phân từ cận dưới đến cận trên phải lấy giá trị nguyên hàm tại cận trên trừ cận dưới.",
+        "D": "Chỉ lấy giá trị của nguyên hàm tại cận trên mà bỏ qua cận dưới: tính \\(F(6)=6^2+3\\cdot6=54\\). Sai vì công thức tích phân xác định yêu cầu tính \\(F(6)-F(3)\\), không chỉ lấy một đầu mút."
+      },
+      "hint": "Áp dụng công thức tính tích phân qua nguyên hàm, giá trị tích phân bằng hiệu giá trị của nguyên hàm tại cận trên và cận d",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Nếu F(x) là một nguyên hàm của f(x) trên đoạn [a;b] thì hiệu số F(b)-F(a) được gọi là tích phân của hàm số f(x) từ a đến b",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 36.0",
+        "verified_at": "2026-07-23T16:45:18.840942Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9333333333333332,
+        "bloom_alignment": 0.95,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ hàm liên tục, nguyên hàm và cận tích phân nên yêu cầu tính toán không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.75,
+            "rationale": "Bài chỉ yêu cầu nhận diện và áp dụng trực tiếp công thức Newton-Leibniz, phù hợp mức nhận biết nhưng ít yêu cầu suy luận."
+          },
+          "bloom_alignment": {
+            "score": 0.95,
+            "rationale": "Thao tác chính là nhớ công thức và thay cận để tính giá trị, đúng với mức Nhận biết."
+          },
+          "distractor_plausibility": {
+            "score": 0.92,
+            "rationale": "Các phương án sai đều mô phỏng lỗi phổ biến khi dùng nguyên hàm như đảo cận, nhầm hàm dưới dấu tích phân hoặc bỏ cận dưới."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(F(6)-F(3)=54-18=36\\) đúng, các phương án còn lại đều xuất phát từ sai sót khác nhau."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Cả ba chuỗi lỗi đều dẫn đúng đến giá trị distractor đã cho và phần giải thích đáp án thống nhất với đáp án \\(36\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9333333333333332,
+        "verifier_pass": true,
+        "critic_score": 0.9333333333333332,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Áp dụng công thức tính tích phân qua nguyên hàm, giá trị tích phân bằng hiệu giá trị của nguyên hàm tại cận trên và cận dưới.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì \\(F(x)\\) là một nguyên hàm của \\(f(x)\\), ta dùng công thức \\(\\int_{3}^{6} f(x)\\,dx=F(6)-F(3)\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Tính các giá trị của nguyên hàm: \\(F(6)=6^2+3\\cdot6=54\\), \\(F(3)=3^2+3\\cdot3=18\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Lấy hiệu hai giá trị: \\(F(6)-F(3)=54-18=36\\)."
+          }
+        ],
+        "final_answer": "\\(36\\)"
+      },
+      "why_correct": "Theo định nghĩa tích phân qua nguyên hàm, chỉ cần lấy giá trị nguyên hàm tại cận trên trừ giá trị nguyên hàm tại cận dưới nên kết quả duy nhất là \\(36\\).",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Nhầm rằng \\(f(x)=F(x)=x^2+3x\\) thay vì lấy đạo hàm của nguyên hàm. Khi đó tính sai tích phân \\(\\int_3^6 (x^2+3x)\\,dx\\). Ta được \\(\\left(\\frac{x^3}{3}+\\frac{3x^2}{2}\\right)\\Big|_3^6=(72+54)-(9+\\frac{27}{2})=\\frac{207}{2}\\)"
+        },
+        {
+          "option": "C",
+          "reason": "Áp dụng công thức tích phân qua nguyên hàm nhưng lấy sai thứ tự cận: tính \\(F(3)-F(6)\\) thay vì \\(F(6)-F(3)\\). Ta có \\(F(3)=3^2+3\\cdot3=18\\), \\(F(6)=6^2+3\\cdot6=54\\), nên tính sai được \\(18-54=-36\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Chỉ lấy giá trị của nguyên hàm tại cận trên mà bỏ qua cận dưới: tính \\(F(6)=6^2+3\\cdot6=54\\). Sai vì công thức tích phân xác định yêu cầu tính \\(F(6)-F(3)\\), không chỉ lấy một đầu mút."
+        }
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "question_id": "rej_direct_pdf_0_verifier",
+      "blueprint_slot_id": "direct_pdf_0",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Nhận biết",
+      "difficulty_target": 0.3,
+      "difficulty_estimated": 0.23,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.3,
+        "stem_length_adj": -0.04,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 44,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 40,
+      "question_type": "single_choice",
+      "stem": "Tính tích phân \\(I=\\int_{1}^{3}(2x+5)\\,dx\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(10\\)",
+          "error_type": "missing_coefficient_in_antiderivative"
+        },
+        {
+          "key": "B",
+          "text": "\\(-18\\)",
+          "error_type": "reverse_bound_subtraction_error"
+        },
+        {
+          "key": "C",
+          "text": "\\(24\\)",
+          "error_type": "upper_bound_only_in_definite_integral"
+        },
+        {
+          "key": "D",
+          "text": "\\(18\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Ta tìm một nguyên hàm của hàm số dưới dấu tích phân rồi áp dụng công thức tính tích phân xác định bằng hiệu giá trị nguyên hàm tại hai cận.",
+      "explanation_per_distractor": {
+        "A": "Làm sai ở bước tìm nguyên hàm: từ \\(\\int(2x+5)dx\\) lấy nguyên hàm sai là \\(F(x)=x^2+x\\) (quên hệ số khi nguyên hàm của \\(5\\) phải là \\(5x\\)). Sau đó tính \\(F(3)-F(1)=(3^2+3)-(1^2+1)=12-2=10\\). Sai vì nguyên hàm được chọn không đúng.",
+        "B": "Làm sai dấu khi tính hiệu giá trị nguyên hàm: dùng \\(F(1)-F(3)\\) thay vì \\(F(3)-F(1)\\). Với \\(F(x)=x^2+5x\\), ta có \\(F(1)-F(3)=(1^2+5\\cdot1)-(3^2+5\\cdot3)=6-24=-18\\). Sai vì đã đảo thứ tự cận trên và cận dưới.",
+        "C": "Làm sai ở bước áp dụng công thức tích phân xác định: tìm nguyên hàm đúng \\(F(x)=x^2+5x\\) nhưng chỉ thay cận trên và lấy \\(F(3)=3^2+5\\cdot3=24\\), bỏ qua việc phải trừ \\(F(1)\\). Sai vì tích phân xác định phải là \\(F(3)-F(1)\\)."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Nếu F(x) là một nguyên hàm của f(x) trên đoạn [a;b] thì hiệu số F(b)-F(a) được gọi là tích phân của hàm số f(x) từ a đến b",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-23T16:39:05.819044Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "quality_low: rule validator failed: ['question_too_trivial:bare_one_step_integral']",
+      "reject_reason_code": "quality_low",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "quality_low",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "quality_low: rule validator failed: ['question_too_trivial:bare_one_step_integral']",
+          "slot_id": "direct_pdf_0"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_2_critic",
+      "blueprint_slot_id": "direct_pdf_2",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 237,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Một ô tô đang chuyển động với vận tốc \\(v(t)=18-3t\\) (m/s) kể từ lúc bắt đầu phanh, trong đó \\(t\\) tính bằng giây. Khi vận tốc bằng \\(0\\) thì xe dừng hẳn. Quãng đường ô tô đi được từ lúc bắt đầu phanh đến khi dừng hẳn bằng bao nhiêu mét?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(108\\text{ m}\\)",
+          "error_type": "initial_velocity_only"
+        },
+        {
+          "key": "B",
+          "text": "\\(54\\text{ m}\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(72\\text{ m}\\)",
+          "error_type": "wrong_integral_sign"
+        },
+        {
+          "key": "D",
+          "text": "\\(36\\text{ m}\\)",
+          "error_type": "half_time_misuse"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Trước hết cần tìm thời điểm xe dừng bằng cách giải phương trình vận tốc bằng 0, sau đó dùng tích phân vận tốc theo thời gian để tính quãng đường.",
+      "explanation_per_distractor": {
+        "A": "Học sinh chỉ lấy vận tốc ban đầu làm vận tốc không đổi trong suốt thời gian phanh: tìm thời điểm dừng \\(18-3t=0\\Rightarrow t=6\\), sau đó tính sai quãng đường bằng công thức chuyển động thẳng đều \\(S=v_0t=18\\cdot6=108\\text{ m}\\). Sai vì vận tốc giảm dần theo thời gian, không giữ nguyên bằng \\(18\\text{ m/s}\\).",
+        "C": "Học sinh mắc lỗi khi lập tích phân quãng đường, đổi dấu hạng tử giảm tốc thành tăng tốc: thay vì tính \\(\\int_0^6(18-3t)dt\\), lại tính \\(\\int_0^6(18+3t)dt\\). Khi đó nhận được \\(18t+\\frac{3t^2}{2}\\Big|_0^6=108+54=162\\text{ m}\\), nên tiếp tục lấy nhầm phần vận tốc giảm do phanh là \\(162-90=72\\text{ m}\\). Sai vì công thức vận tốc đã cho là \\(18-3t\\), không phải vận tốc tăng.",
+        "D": "Học sinh xác định đúng thời điểm dừng \\(t=6\\) nhưng nhầm rằng thời gian phanh hiệu dụng chỉ bằng một nửa thời gian dừng, lấy \\(t=3\\) rồi tính quãng đường bằng tích phân trên khoảng sai: \\(\\int_0^3(18-3t)dt=18t-\\frac{3t^2}{2}\\Big|_0^3=54-13,5=40,5\\text{ m}\\), sau đó làm tròn sai thành \\(36\\text{ m}\\). Sai vì phải lấy toàn bộ khoảng thời gian từ \\(0\\) đến \\(6\\) giây khi xe dừng hẳn."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Quãng đường di chuyển của xe là:",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 54.0",
+        "verified_at": "2026-07-23T16:39:27.955800Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.7533333333333333,
+        "bloom_alignment": 0.85,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ hàm vận tốc, mốc thời gian và yêu cầu tính quãng đường đến khi xe dừng."
+          },
+          "cognitive_depth": {
+            "score": 0.82,
+            "rationale": "Bài yêu cầu kết hợp tìm thời điểm dừng và áp dụng tích phân thay vì chỉ thay công thức đơn giản."
+          },
+          "bloom_alignment": {
+            "score": 0.85,
+            "rationale": "Thao tác giải chủ yếu là hiểu và vận dụng trực tiếp phương pháp đã học nên phù hợp mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.62,
+            "rationale": "Các phương án sai cố gắng mô phỏng lỗi thường gặp nhưng một số lỗi được mô tả chưa tự nhiên."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(54\\\\text{ m}\\) thu được từ tích phân đúng trên khoảng thời gian xe phanh từ 0 đến 6 giây."
+          },
+          "error_distractor_consistency": {
+            "score": 0.25,
+            "rationale": "Giải thích của distractor \\(108\\\\text{ m}\\) nhất quán nhưng các chuỗi lỗi của \\(72\\\\text{ m}\\) và \\(36\\\\text{ m}\\) không thực sự dẫn đúng đến các giá trị đã nêu; phần giải thích đáp án đúng vẫn nhất quán."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.7533333333333333,
+        "verifier_pass": true,
+        "critic_score": 0.7533333333333333,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "error_distractor_consistency=0.25 (lỗi mô tả không khớp giá trị distractor/đáp án) (Giải thích của distractor \\(108\\\\text{ m}\\) nhất quán nhưng các chuỗi lỗi của \\(72\\\\text{ m}\\) và \\(36\\\\text{ m}\\) không thực sự dẫn đúng đến các giá trị đã nêu)",
+      "reject_reason_code": "quality_low",
+      "reject_reason_stage": "critic",
+      "reject_log": [
+        {
+          "reason_code": "quality_low",
+          "stage": "critic",
+          "attempt": 0,
+          "message": "error_distractor_consistency=0.25 (lỗi mô tả không khớp giá trị distractor/đáp án) (Giải thích của distractor \\(108\\\\text{ m}\\) nhất quán nhưng các chuỗi lỗi của \\(72\\\\text{ m}\\) và \\(36\\\\text{ m}\\) không thực sự dẫn đúng đến các giá trị đã nêu)",
+          "slot_id": "direct_pdf_2"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_4_critic",
+      "blueprint_slot_id": "direct_pdf_4",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.53,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 295,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Nhiệt độ tại thời điểm \\(t\\) giờ trong một ngày được mô hình hóa bởi hàm số \\(T(t)=2t^2+at+5\\) trên khoảng thời gian từ \\(0\\) đến \\(4\\) giờ. Biết rằng tại thời điểm \\(t=3\\) giờ thì nhiệt độ là \\(32\\,^{\\circ}C\\). Nhiệt độ trung bình trong khoảng thời gian từ \\(1\\) giờ đến \\(4\\) giờ là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{109}{2}\\)",
+          "error_type": "antiderivative_power_error"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{73}{2}\\)",
+          "error_type": "coefficient_substitution_error"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{159}{2}\\)",
+          "error_type": "average_value_missing_division"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{1517}{18}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Trước hết cần tìm hệ số \\(a\\) từ điều kiện nhiệt độ tại \\(t=3\\), sau đó dùng công thức giá trị trung bình của hàm số trên đoạn để tính tích phân và chia cho độ dài khoảng thời gian.",
+      "explanation_per_distractor": {
+        "A": "Sai ở bước tính nguyên hàm: người làm nhầm \\(\\int 2t^2dt\\) thành \\(2t^3\\) (bỏ qua việc chia cho \\(3\\)), còn các phần khác tính đúng. Khi đó dùng nguyên hàm sai \\(F(t)=2t^3+\\frac{3}{2}t^2+5t\\). Tính trung bình được \\(\\frac{1}{3}(F(4)-F(1))=\\frac{1}{3}(172-\\frac{17}{2})=\\frac{109}{2}\\). Sai vì nguyên hàm của \\(2t^2\\) phải là \\(\\frac{2}{3}t^3\\).",
+        "B": "Sai ở bước tìm hệ số \\(a\\): thay vì tính đúng \\(2\\cdot 3^2=18\\), người làm nhầm thành \\(2\\cdot 3=6\\). Khi đó từ điều kiện \\(T(3)=32\\) có \\(6+3a+5=32\\Rightarrow a=7\\). Suy ra dùng sai hàm \\(T(t)=2t^2+7t+5\\). Tính giá trị trung bình: \\(\\frac{1}{3}\\int_1^4(2t^2+7t+5)dt=\\frac{73}{2}\\). Sai vì đã xác định sai hệ số \\(a\\).",
+        "C": "Sai ở bước áp dụng công thức giá trị trung bình: người làm chỉ tính tích phân mà quên chia cho độ dài đoạn \\([1,4]\\). Sau khi tìm đúng \\(a=3\\), có \\(\\int_1^4(2t^2+3t+5)dt=\\frac{159}{2}\\), nhưng lấy luôn kết quả này làm nhiệt độ trung bình. Sai vì công thức phải là \\(\\frac{1}{4-1}\\int_1^4T(t)dt\\)."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Cho hàm số f(x) liên tục trên đoạn [a;b]. Nếu F(x) là một nguyên hàm của f(x) trên đoạn [a;b] thì hiệu số F(b)-F(a) được gọi là tích phân",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 84.27777777777777",
+        "verified_at": "2026-07-23T16:40:46.937530Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.7416666666666667,
+        "bloom_alignment": 0.85,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài nêu rõ hàm nhiệt độ, điều kiện xác định hệ số và khoảng cần tính giá trị trung bình."
+          },
+          "cognitive_depth": {
+            "score": 0.75,
+            "rationale": "Bài yêu cầu kết hợp tìm tham số và áp dụng công thức tích phân giá trị trung bình, phù hợp mức vận dụng nhẹ hơn là chỉ thông hiểu."
+          },
+          "bloom_alignment": {
+            "score": 0.85,
+            "rationale": "Thao tác giải cần thực hiện quy trình tính toán theo công thức đã học, phù hợp với mức hiểu và áp dụng trực tiếp."
+          },
+          "distractor_plausibility": {
+            "score": 0.95,
+            "rationale": "Các phương án sai gắn với những lỗi tính hệ số, quên chia độ dài khoảng và sai nguyên hàm, đều là lỗi thường gặp."
+          },
+          "answer_uniqueness": {
+            "score": 0.1,
+            "rationale": "Các bước tính đúng cho kết quả \\(53\\), không trùng với đáp án \\(\\frac{1517}{18}\\) hay các distractor nên đáp án được cho là sai."
+          },
+          "error_distractor_consistency": {
+            "score": 0.85,
+            "rationale": "Ba chuỗi lỗi của distractor đều dẫn đúng đến giá trị tương ứng và phần giải thích lỗi nhất quán với các giá trị đó, nhưng phần đáp án đúng và giải thích không khớp vì đáp án số học bị sai."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.7416666666666667,
+        "verifier_pass": true,
+        "critic_score": 0.7416666666666667,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "answer_uniqueness=0.10 (nghi đa đáp án)",
+      "reject_reason_code": "bad_distractors",
+      "reject_reason_stage": "critic",
+      "reject_log": [
+        {
+          "reason_code": "bad_distractors",
+          "stage": "critic",
+          "attempt": 0,
+          "message": "answer_uniqueness=0.10 (nghi đa đáp án)",
+          "slot_id": "direct_pdf_4"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_7_verifier",
+      "blueprint_slot_id": "direct_pdf_7",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 274,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một nhà kính có mặt cắt ngang là phần hình phẳng giới hạn bởi trục hoành và một mái vòm parabol. Chọn hệ trục tọa độ sao cho mái vòm có phương trình dạng \\(y=ax^2+5\\). Biết mái vòm đi qua điểm có tọa độ \\((2;3)\\). Tính diện tích mặt cắt ngang của nhà kính (đơn vị: \\(m^2\\)).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(21\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{22}{3}\\)",
+          "error_type": "wrong_domain"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{40\\sqrt{10}}{3}\\)",
+          "error_type": "integral_coefficient_error"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{10\\sqrt{10}}{3}\\)",
+          "error_type": "missing_symmetry_factor_2"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Từ điều kiện điểm thuộc parabol ta tìm được hệ số của hàm số, sau đó dùng tích phân để tính diện tích hình phẳng giới hạn bởi đồ thị và trục hoành.",
+      "explanation_per_distractor": {
+        "B": "Học sinh bỏ qua việc tìm đúng miền giới hạn của hình phẳng. Từ điểm \\((2;3)\\), tìm được \\(a=-\\frac{1}{2}\\) nên \\(y=-\\frac{1}{2}x^2+5\\). Tuy nhiên, thay vì tìm giao điểm với trục hoành tại \\(x=\\pm\\sqrt{10}\\), học sinh lấy nhầm khoảng giới hạn theo dữ kiện điểm đã cho là từ \\(0\\) đến \\(2\\),",
+        "C": "Học sinh tìm đúng hệ số \\(a=-\\frac{1}{2}\\) và đúng miền \\([-\\sqrt{10},\\sqrt{10}]\\), nhưng khi nguyên hàm của \\(-\\frac{x^2}{2}\\) lại lấy nhầm thành \\(-\\frac{x^3}{3}\\) thay vì \\(-\\frac{x^3}{6}\\). Khi đó tính sai: \\(S=\\left(5x-\\frac{x^3}{3}\\right)_{-\\sqrt{10}}^{\\sqrt{10}}=\\frac{40\\sqrt{10}}{3}\\). Sai vì hệ số trong nguyên hàm của \\(-\\frac{x^2}{2}\\) bị tính gấp đôi.",
+        "D": "Học sinh nhận ra đồ thị đối xứng qua trục tung nhưng quên nhân đôi diện tích của nửa hình. Sau khi tìm được \\(a=-\\frac{1}{2}\\), học sinh tính giao điểm với trục hoành là \\(x=\\pm\\sqrt{10}\\), rồi chỉ lấy nửa bên phải: \\(S=\\int_0^{\\sqrt{10}}\\left(5-\\frac{x^2}{2}\\right)dx=\\left(5x-\\frac{x^3}{6}\\right)_0^{\\sqrt{10}}=5\\sqrt{10}-\\frac{10\\sqrt{10}}{6}=\\frac{10\\sqrt{10}}{3}\\)."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Nếu hàm số y fx = ( ) liên tục và không âm trên đoạn [ a b; ] , thì diện tích S của hình thang cong giới hạn bởi đồ thị hàm số y fx = ( ) , trục hoành và hai đường thẳng x a x b = = , là",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-23T16:41:28.075858Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "verifier=False (answer_text_mismatch: \\(21\\) vs 21.081851067789195)",
+      "reject_reason_code": "verifier_failed",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "verifier_failed",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "verifier=False (answer_text_mismatch: \\(21\\) vs 21.081851067789195)",
+          "slot_id": "direct_pdf_7"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_10_verifier",
+      "blueprint_slot_id": "direct_pdf_10",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 341,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một bể chứa nước ban đầu không có nước. Tốc độ thay đổi thể tích nước trong bể tại thời điểm \\(t\\) phút được mô hình hóa bởi \\(V'(t)=3t^2+at+b\\) \\((m^3/phút)\\), trong đó \\(a,b\\) là các hằng số. Biết sau 2 phút bể có \\(14m^3\\) nước và sau 4 phút bể có \\(88m^3\\) nước. Hỏi sau 6 phút kể từ lúc bắt đầu bơm, thể tích nước trong bể là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(274m^3\\)",
+          "error_type": "missing_constant_C"
+        },
+        {
+          "key": "B",
+          "text": "\\(324m^3\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(276m^3\\)",
+          "error_type": "initial_condition_misuse"
+        },
+        {
+          "key": "D",
+          "text": "\\(288m^3\\)",
+          "error_type": "coefficient_integration_error"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Cần tìm các hằng số trong tốc độ bơm từ hai điều kiện thể tích, sau đó dùng tích phân để tính thể tích tại thời điểm cần hỏi.",
+      "explanation_per_distractor": {
+        "A": "Học sinh lấy nguyên hàm \\(V(t)=t^3+\\frac{a}{2}t^2+bt+C\\) nhưng quên dùng điều kiện ban đầu \\(V(0)=0\\), đồng thời giữ lại một hằng số tự do sai \\(C=4\\). Từ hai điều kiện thể tích vẫn tìm được \\(a=3,b=0\\), sau đó tính \\(V(6)=6^3+\\frac{3}{2}6^2+4=216+54+4=274\\). Sai vì thể tích ban đầu phải làm mất hằng số này.",
+        "C": "Học sinh hiểu sai điều kiện ban đầu và cho rằng bể có sẵn \\(6m^3\\) nước, tức đặt \\(V(0)=6\\) thay vì \\(V(0)=0\\). Với \\(a=3,b=0\\) tìm được từ tốc độ bơm, học sinh tính \\(V(6)=6^3+\\frac{3}{2}6^2+6=216+54+6=276\\). Sai vì đề cho bể ban đầu không có nước.",
+        "D": "Học sinh lấy nguyên hàm sai ở hạng tử đầu: thay vì \\(\\int 3t^2dt=t^3\\), tính nhầm thành \\(\\frac{4}{3}t^3\\). Khi đó dùng đúng hai điều kiện thể tích để suy ra \\(a=3,b=0\\), rồi tính sai \\(V(6)=\\frac{4}{3}6^3+\\frac{3}{2}6^2=288+54=342\\). Giá trị này quá lớn nên cần điều chỉnh do lỗi hệ số; một cách làm sai phổ biến khác là chỉ lấy phần tăng thêm từ hạng tử đầu bị thiếu hệ số, dẫn tới \\(288m^3\\)."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Nếu hàm số \\(y=f(x)\\) liên tục trên đoạn [a;b] thì tích phân biểu thị diện tích S của hình thang cong",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-23T16:42:55.702887Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "verifier=False (answer_text_mismatch: \\(324m^3\\) vs 270.0)",
+      "reject_reason_code": "verifier_failed",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "verifier_failed",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "verifier=False (answer_text_mismatch: \\(324m^3\\) vs 270.0)",
+          "slot_id": "direct_pdf_10"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_13_orchestrator",
+      "blueprint_slot_id": "direct_pdf_13",
+      "cognitive_level": "Vận dụng cao",
+      "review_status": "rejected",
+      "reject_reason": "Slot lỗi bất ngờ: bad character range €-á at position 33",
+      "reject_reason_code": "orchestrator_error",
+      "reject_reason_stage": "orchestrator",
+      "reject_log": [
+        {
+          "reason_code": "orchestrator_error",
+          "stage": "orchestrator",
+          "attempt": 0,
+          "message": "Slot lỗi bất ngờ: bad character range €-á at position 33",
+          "slot_id": "direct_pdf_13"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_15_writer",
+      "blueprint_slot_id": "direct_pdf_15",
+      "cognitive_level": "Nhận biết",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['Invalid \\\\escape: line 2 column 42 (char 43)'])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=['Invalid \\\\escape: line 2 column 42 (char 43)'])",
+          "slot_id": "direct_pdf_15"
+        }
+      ],
+      "attempts": 1
+    }
+  ]
+}

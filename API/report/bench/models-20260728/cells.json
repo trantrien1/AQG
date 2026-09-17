@@ -1,0 +1,125 @@
+[
+ {
+  "model": "qwen/qwen3-vl-8b-instruct",
+  "pdf": "pdftest/file_3_trang_61-90.pdf",
+  "requested": 20,
+  "delivered": 0,
+  "rejected": 6,
+  "error_code": null,
+  "duration_seconds": 107.9,
+  "cost": {
+   "tokens": 339383,
+   "calls": 10
+  },
+  "issue_counts": {},
+  "status_counts": {},
+  "bloom_counts": {},
+  "per_question": [],
+  "wall_seconds": 110.0,
+  "failed": false
+ },
+ {
+  "model": "qwen/qwen3-vl-32b-instruct",
+  "pdf": "pdftest/file_3_trang_61-90.pdf",
+  "requested": 20,
+  "delivered": 0,
+  "rejected": 6,
+  "error_code": null,
+  "duration_seconds": 274.5,
+  "cost": {
+   "tokens": 269444,
+   "calls": 6
+  },
+  "issue_counts": {},
+  "status_counts": {},
+  "bloom_counts": {},
+  "per_question": [],
+  "wall_seconds": 276.7,
+  "failed": false
+ },
+ {
+  "model": "meta-llama/llama-4-scout",
+  "pdf": "pdftest/file_3_trang_61-90.pdf",
+  "requested": 20,
+  "delivered": 1,
+  "rejected": 8,
+  "error_code": null,
+  "duration_seconds": 279.8,
+  "cost": {
+   "tokens": 1674855,
+   "calls": 31
+  },
+  "issue_counts": {},
+  "status_counts": {
+   "mismatch": 1
+  },
+  "bloom_counts": {
+   "Vận dụng cao": 1
+  },
+  "per_question": [
+   {
+    "id": "q_2026_f503742e",
+    "bloom": "Vận dụng cao",
+    "status": "mismatch",
+    "machine_checked": false,
+    "independent": false,
+    "derivation": false,
+    "review": "needs_revision",
+    "issues": [],
+    "stem_len": 163,
+    "stem_tail": "thị vận tốc của vật như hình vẽ bên. Tính quãng đường \\(S\\) mà vật đi được trong 4 giờ đó."
+   }
+  ],
+  "wall_seconds": 282.7,
+  "failed": false
+ },
+ {
+  "model": "openai/gpt-4.1-nano",
+  "pdf": "pdftest/file_3_trang_61-90.pdf",
+  "requested": 20,
+  "delivered": 2,
+  "rejected": 16,
+  "error_code": null,
+  "duration_seconds": 380.3,
+  "cost": {
+   "tokens": 3762019,
+   "calls": 52
+  },
+  "issue_counts": {},
+  "status_counts": {
+   "non_verifiable": 2
+  },
+  "bloom_counts": {
+   "Thông hiểu": 1,
+   "Vận dụng cao": 1
+  },
+  "per_question": [
+   {
+    "id": "q_2026_02e01198",
+    "bloom": "Thông hiểu",
+    "status": "non_verifiable",
+    "machine_checked": false,
+    "independent": false,
+    "derivation": false,
+    "review": "pending_review",
+    "issues": [],
+    "stem_len": 332,
+    "stem_tail": "còn lại này có thể tạo thành hình dạng nào dựa trên các đường cong của các nửa đường tròn?"
+   },
+   {
+    "id": "q_2026_a2c59cdf",
+    "bloom": "Vận dụng cao",
+    "status": "non_verifiable",
+    "machine_checked": false,
+    "independent": false,
+    "derivation": false,
+    "review": "pending_review",
+    "issues": [],
+    "stem_len": 378,
+    "stem_tail": "i tròn xoay. Tính thể tích khối tròn xoay sinh ra khi quay phần còn lại quanh trục \\(AB\\)."
+   }
+  ],
+  "wall_seconds": 382.4,
+  "failed": false
+ }
+]

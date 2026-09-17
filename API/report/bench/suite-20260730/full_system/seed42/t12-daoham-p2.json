@@ -1,0 +1,720 @@
+{
+  "metadata": {
+    "bench": "suite",
+    "arm": "full_system",
+    "seed": 42,
+    "source_pdf": "pdftest/corpus2/t12-daoham-p2.pdf",
+    "source_pdf_name": "t12-daoham-p2.pdf",
+    "requested_questions": 12,
+    "accepted_questions": 0,
+    "is_partial": true,
+    "parse_errors": 6,
+    "verify_failures": 0,
+    "error_code": null,
+    "error_message": null,
+    "cost": {
+      "tokens": 42700,
+      "calls": 16
+    },
+    "duration_seconds": 145.03360557556152,
+    "generated_at": "2026-07-30T12:23:50.568136+00:00"
+  },
+  "questions": [],
+  "rejected": [
+    {
+      "question_id": "rej_direct_pdf_0_verifier",
+      "blueprint_slot_id": "direct_pdf_0",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 289,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một người gửi tiền vào ngân hàng theo hình thức lãi kép: cứ cuối mỗi tháng gửi một khoản tiền cố định \\(m\\) triệu đồng, lãi suất \\(10\\%\\)/tháng. Biết rằng sau 3 tháng tổng số tiền trong tài khoản là \\(\\frac{331}{10}\\) triệu đồng. Hỏi sau 5 tháng người đó có bao nhiêu tiền trong tài khoản?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{8156171}{132600}\\) triệu đồng",
+          "error_type": "arithmetic_sum_wrong"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{662}{11}\\) triệu đồng",
+          "error_type": "ignore_compound_interest_on_interest"
+        },
+        {
+          "key": "C",
+          "text": "\\(-\\frac{61051}{1000}\\) triệu đồng",
+          "error_type": "geometric_sum_wrong"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{61051}{10000}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Áp dụng công thức lãi kép gửi tiền định kỳ cuối tháng trong tài liệu. Trước hết cần tìm khoản gửi mỗi tháng \\(m\\) từ dữ kiện sau 3 tháng, sau đó dùng lại công thức để tính số tiền sau 5 tháng.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: coi tổng tiền sau các tháng là tổng cấp số cộng và áp dụng sai công thức \\(S_n=n(u_1+u_n)\\) thay vì phải chia \\(2\\). Khi đó với các hệ số tăng trưởng \\(1,1.1,1.1^2\\), ta tính sau 3 tháng: \\(33.1=m\\cdot3(1+1.21)=6.63m\\), suy ra \\(m=\\frac{331}{66.3}\\). Sau 5 tháng tiếp tục dùng sai công thức: \\(T_5=m\\cdot5(1+1.1^4)=\\frac{331}{66.3}\\cdot5(1+1.4641)=\\frac{8156171}{132600}\\).",
+        "B": "Sai lầm: bỏ qua việc tiền lãi tiếp tục sinh lãi, thay lãi kép bằng cách tính lãi đơn cho từng khoản gửi. Sau 3 tháng, tổng tiền bị tính sai thành \\(m(1.2+1.1+1)=3.3m\\), nên \\(m=\\frac{33.1}{3.3}\\). Sau 5 tháng, mỗi khoản gửi chỉ được cộng lãi đơn theo số tháng còn lại: \\(T_5=m(1.4+1.3+1.2+1.1+1)=\\frac{33.1}{3.3}\\cdot6=\\frac{662}{11}\\) triệu đồng.",
+        "C": "Sai lầm: dùng công thức tổng cấp số nhân với sai dấu \\(S_n=u_1\\frac{1-q^n}{q-1}\\). Tìm đúng khoản gửi mỗi tháng được \\(m=10\\) triệu đồng, nhưng khi tính sau 5 tháng lại dùng \\(T_5=10\\cdot\\frac{1-1.1^5}{1.1-1}\\). Do \\(1-1.1^5=1-1.61051=-0.61051\\), kết quả nhận được là \\(-6.1051\\cdot10=-\\frac{61051}{1000}\\) triệu đồng. Sai vì mẫu số phải là \\(1-q\\) trong công thức tổng cấp số nhân."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Cứ cuối mỗi tháng gửi vào ngân hàng m triệu, lãi suất kép (tháng hoặc năm). Sau n (tháng hoặc năm) số tiền thu được là bao nhiêu?",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T12:22:56.969480Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "duplicate_question: rule validator failed: ['duplicate_question:source_quote_is_existing_exercise']",
+      "reject_reason_code": "quote_mismatch",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "quote_mismatch",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "duplicate_question: rule validator failed: ['duplicate_question:source_quote_is_existing_exercise']",
+          "slot_id": "direct_pdf_0"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_1_writer",
+      "blueprint_slot_id": "direct_pdf_1",
+      "cognitive_level": "Thông hiểu",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 4 column 374 (char 696)\"])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 4 column 374 (char 696)\"])",
+          "slot_id": "direct_pdf_1"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_2_verifier",
+      "blueprint_slot_id": "direct_pdf_2",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 204,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Một người gửi vào ngân hàng cuối mỗi tháng \\(3\\) triệu đồng, lãi suất kép \\(5\\%\\) mỗi tháng. Sau \\(n\\) tháng, số tiền cả vốn lẫn lãi nhận được là \\(\\frac{3783}{400}\\) triệu đồng. Hỏi \\(n\\) bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(3\\)",
+          "error_type": "wrong_geometric_sum_exponent"
+        },
+        {
+          "key": "B",
+          "text": "\\(4\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(2\\)",
+          "error_type": "wrong_deposit_timing_shift"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{1261}{400}\\)",
+          "error_type": "ignore_compound_interest"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Áp dụng công thức gửi tiền định kì cuối tháng, biến đổi phương trình theo số kì gửi rồi giải phương trình mũ để tìm \\(n\\).",
+      "explanation_per_distractor": {
+        "A": "Áp dụng sai công thức gửi tiền định kì cuối tháng, học sinh biến đổi \\(\\frac{3}{0,05}((1+0,05)^n-1)=\\frac{3783}{400}\\) thành \\( (1,05)^n=\\frac{3783}{400}:60+1=1,157625\\). Sau đó nhận ra \\(1,157625=(1,05)^3\\) nên kết luận \\(n=3\\). Sai vì đã dùng kết quả sau 3 kì gửi thay vì xử lí đúng số tiền tích lũy theo đề bài.",
+        "C": "Học sinh nhầm rằng khoản gửi đầu tiên được hưởng thêm một tháng lãi nên dùng công thức có số mũ lệch một đơn vị: \\(\\frac{3}{0,05}((1,05)^{n+1}-1)=\\frac{3783}{400}\\). Từ đó suy ra \\((1,05)^{n+1}=1,157625=(1,05)^3\\), nên \\(n+1=3\\) và kết luận \\(n=2\\). Sai vì thời điểm gửi tiền cuối mỗi tháng không tạo ra độ lệch này.",
+        "D": "Học sinh bỏ qua lãi kép, chỉ cộng các khoản tiền gửi: \\(3n=\\frac{3783}{400}\\). Giải ra \\(n=\\frac{3783}{400\\cdot3}=\\frac{1261}{400}\\). Sai vì bài toán yêu cầu lãi kép nên mỗi khoản gửi phải được nhân với hệ số tăng trưởng theo thời gian."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Cứ cuối mỗi tháng gửi vào ngân hàng m triệu, lãi suất kép (tháng hoặc năm). Sau n (tháng hoặc năm) số tiền thu được là:",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T12:22:22.920163Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "multi_answer: distractor \"\\(3\\)\" cũng được verifier xác nhận đúng",
+      "reject_reason_code": "multi_answer",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "multi_answer",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "multi_answer: distractor \"\\(3\\)\" cũng được verifier xác nhận đúng",
+          "slot_id": "direct_pdf_2"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_3_verifier",
+      "blueprint_slot_id": "direct_pdf_3",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 258,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một người gửi tiết kiệm một lần với hình thức lãi kép. Sau \\(2\\) kỳ hạn, số tiền cả vốn lẫn lãi tăng từ \\(200\\) triệu đồng lên \\(250\\) triệu đồng. Giữ nguyên lãi suất và kỳ hạn, hỏi sau \\(4\\) kỳ hạn người đó có số tiền cả vốn lẫn lãi là bao nhiêu triệu đồng?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{1125}{4}\\) triệu đồng",
+          "error_type": "wrong_exponent_application"
+        },
+        {
+          "key": "B",
+          "text": "\\(300\\) triệu đồng",
+          "error_type": "confuse_compound_with_linear_growth"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{3125}{16}\\) triệu đồng",
+          "error_type": "wrong_growth_period_factor"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{625}{2}\\) triệu đồng",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Áp dụng công thức lãi kép gửi một lần, trước hết tìm hệ số tăng trưởng sau một kỳ hạn từ dữ kiện sau \\(2\\) kỳ hạn, sau đó tính số tiền sau \\(4\\) kỳ hạn.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là áp dụng sai số mũ khi chuyển từ \\(2\\) kỳ hạn sang \\(4\\) kỳ hạn. Người làm sai tìm hệ số sau \\(2\\) kỳ hạn là \\(\\frac{5}{4}\\), rồi chỉ nhân thêm một lần hệ số này: \\(250\\cdot\\frac{5}{4}=312,5\\) triệu đồng; sau đó lại trừ nhầm phần vốn ban đầu theo dạng cộng dồn lãi đơn: \\(250+\\frac{250}{2}\\cdot\\frac{5}{4}=\\frac{1125}{4}\\) triệu đồng.",
+        "B": "Sai lầm là nhầm lãi kép với tăng trưởng tuyến tính. Người làm sai thấy sau \\(2\\) kỳ hạn tiền tăng \\(250-200=50\\) triệu đồng, nên sau \\(4\\) kỳ hạn cho rằng tăng thêm gấp đôi: \\(200+2\\cdot50=300\\) triệu đồng. Sai vì lãi kép tính lãi trên cả phần lãi đã phát sinh nên phải dùng hệ số nhân.",
+        "C": "Sai lầm là lấy hệ số tăng trưởng sau \\(2\\) kỳ hạn là hệ số của \\(1\\) kỳ hạn. Từ dữ kiện có \\(\\frac{250}{200}=\\frac{5}{4}\\), người làm sai coi \\(\\frac{5}{4}\\) là hệ số tăng trưởng mỗi kỳ hạn rồi tính sau \\(4\\) kỳ: \\(200\\left(\\frac{5}{4}\\right)^4=200\\cdot\\frac{625}{256}=\\frac{3125}{16}\\). Sai vì \\(\\frac{5}{4}\\) là hệ số sau \\(2\\) kỳ hạn, không phải sau \\(1\\) kỳ hạn."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Số tiền lãi không chỉ tính trên số tiền gốc mà còn tính trên số tiền lãi do tiền gốc đó sinh ra thay đổi theo từng định kỳ.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T12:23:36.320680Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "answer_text_mismatch: đáp án key \\(\\frac{625}{2}\\) triệu đồng không khớp giá trị 312.5 mà engine tính ra",
+      "reject_reason_code": "verifier_failed",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "verifier_failed",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "answer_text_mismatch: đáp án key \\(\\frac{625}{2}\\) triệu đồng không khớp giá trị 312.5 mà engine tính ra",
+          "slot_id": "direct_pdf_3"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_4_verifier",
+      "blueprint_slot_id": "direct_pdf_4",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 230,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Một người gửi một khoản tiền \\(T_0=48\\) triệu đồng vào ngân hàng theo hình thức lãi kép với lãi suất không đổi mỗi kỳ. Sau \\(2\\) kỳ, số tiền cả vốn lẫn lãi là \\(75\\) triệu đồng. Hỏi sau \\(3\\) kỳ, người đó nhận được bao nhiêu tiền?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{300}{4}\\) triệu đồng",
+          "error_type": "wrong_exponent_application"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{354}{4}\\) triệu đồng",
+          "error_type": "compound_interest_wrong_base"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{468,75}{4}\\) triệu đồng",
+          "error_type": "wrong_growth_factor"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{375}{4}\\) triệu đồng",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Từ số tiền sau 2 kỳ, ta tìm được hệ số tăng trưởng mỗi kỳ rồi áp dụng tiếp cho kỳ thứ 3. Vì \\(75=48(1+r)^2\\) nên \\(1+r=\\frac{5}{4}\\), do đó số tiền sau 3 kỳ là \\(48\\left(\\frac{5}{4}\\right)^3=\\frac{375}{4}\\).",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: tìm đúng hệ số mỗi kỳ \\(1+r=\\frac{5}{4}\\) nhưng chỉ áp dụng thêm một lần sau số tiền ban đầu theo công thức nhầm \\(T_3=48\\left(\\frac{5}{4}\\right)^2\\). Tính được \\(48\\cdot\\frac{25}{16}=75=\\frac{300}{4}\\) triệu đồng. Sai vì sau 3 kỳ phải nhân hệ số tăng trưởng đủ 3 lần, tức là \\(48\\left(\\frac{5}{4}\\right)^3\\).",
+        "B": "Sai lầm: coi tiền lãi của mỗi kỳ luôn chỉ tính trên số tiền gốc ban đầu (như lãi đơn). Từ \\(75-48=27\\) triệu đồng suy ra mỗi kỳ tăng thêm \\(\\frac{27}{2}\\) triệu đồng, rồi tính sau 3 kỳ: \\(48+3\\cdot\\frac{27}{2}=88,5=\\frac{354}{4}\\) triệu đồng. Sai vì bài toán là lãi kép, tiền lãi kỳ sau phải tính trên cả vốn và lãi của kỳ trước.",
+        "C": "Sai lầm: lấy hệ số tăng trưởng sau 2 kỳ là \\(\\frac{75}{48}=\\frac{25}{16}\\) rồi dùng nhầm hệ số này cho 3 kỳ. Khi đó tính \\(48\\left(\\frac{25}{16}\\right)^2=\\frac{468,75}{4}\\) triệu đồng. Sai vì \\(\\frac{75}{48}\\) là hệ số tăng trưởng của 2 kỳ gộp lại, không phải hệ số tăng trưởng của một kỳ."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Số tiền lãi không chỉ tính trên số tiền gốc mà còn tính trên số tiền lãi do tiền gốc đó sinh ra",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T12:23:37.937331Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "answer_text_mismatch: đáp án key \\(\\frac{375}{4}\\) triệu đồng không khớp giá trị 93.75 mà engine tính ra",
+      "reject_reason_code": "verifier_failed",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "verifier_failed",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "answer_text_mismatch: đáp án key \\(\\frac{375}{4}\\) triệu đồng không khớp giá trị 93.75 mà engine tính ra",
+          "slot_id": "direct_pdf_4"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_5_verifier",
+      "blueprint_slot_id": "direct_pdf_5",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.88,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 306,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Một người gửi một khoản tiền ban đầu \\(T_0=625\\) nghìn đồng vào ngân hàng theo hình thức lãi kép, với lãi suất \\(r=20\\%/kỳ\\). Sau \\(n\\) kỳ hạn, số tiền cả vốn lẫn lãi nhận được là \\(1555\\) nghìn đồng. Biết số kỳ hạn \\(n\\) là số nguyên dương và thỏa mãn công thức lãi kép trong tài liệu, hãy xác định \\(n\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(4\\)",
+          "error_type": "wrong_logarithm_transformation"
+        },
+        {
+          "key": "B",
+          "text": "\\(5\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(5\\)",
+          "error_type": "geometric_growth_rounding_wrong"
+        },
+        {
+          "key": "D",
+          "text": "\\(6\\)",
+          "error_type": "ignore_initial_amount"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Áp dụng mô hình lãi kép, ta lập phương trình theo số kỳ hạn chưa biết rồi biến đổi về cùng cơ số để tìm \\(n\\). Kết quả duy nhất thỏa mãn là \\(n=5\\).",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: khi từ công thức lãi kép \\(1555=625(1+20\\%)^n\\), học sinh lấy logarit nhưng biến đổi sai thành \\(n=\\log_{1.2}(1555-625)\\) thay vì \\(n=\\log_{1.2}\\frac{1555}{625}\\). Khi đó tính được \\(n=\\log_{1.2}(930)\\), làm tròn về số kỳ nguyên gần nhất và chọn \\(n=4\\). Cách này sai vì đã biến phép chia giữa số tiền cuối và số tiền đầu thành phép trừ.",
+        "C": "Sai lầm: học sinh tính gần đúng theo cấp số nhân nhưng làm tròn trung gian: \\(625(1.2)^2=900\\), \\(625(1.2)^3\\approx1080\\), \\(625(1.2)^4\\approx1296\\), \\(625(1.2)^5\\approx1555\\), rồi kết luận theo bước tính gần đúng mà không kiểm tra lại số mũ nguyên duy nhất. Kết quả này trùng với đáp án đúng nên không hợp lệ làm phương án sai; vì vậy cần loại bỏ distractor này.",
+        "D": "Sai lầm: bỏ qua khoản tiền ban đầu \\(T_0=625\\) và áp dụng trực tiếp công thức tăng trưởng theo tỉ lệ với số tiền cuối kỳ: \\(1555=(1+0.2)^n\\). Sau khi biến đổi sai, học sinh ước lượng số mũ cần thiết và lấy \\(n=6\\). Sai vì công thức lãi kép trong tài liệu là \\(T_n=T_0(1+r)^n\\), luôn phải có hệ số tiền gửi ban đầu."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Số tiền lãi không chỉ tính trên số tiền gốc mà còn tính trên số tiền lãi do tiền gốc đó sinh ra thay đổi theo từng định kỳ.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T12:23:50.567577Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "duplicate: rule validator failed: ['d3:duplicate_option']",
+      "reject_reason_code": "verifier_failed",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "verifier_failed",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "duplicate: rule validator failed: ['d3:duplicate_option']",
+          "slot_id": "direct_pdf_5"
+        }
+      ],
+      "attempts": 1
+    }
+  ]
+}

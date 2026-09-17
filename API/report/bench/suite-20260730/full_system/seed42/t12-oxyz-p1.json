@@ -1,0 +1,3716 @@
+{
+  "metadata": {
+    "bench": "suite",
+    "arm": "full_system",
+    "seed": 42,
+    "source_pdf": "pdftest/corpus2/t12-oxyz-p1.pdf",
+    "source_pdf_name": "t12-oxyz-p1.pdf",
+    "requested_questions": 12,
+    "accepted_questions": 12,
+    "is_partial": false,
+    "parse_errors": 11,
+    "verify_failures": 0,
+    "error_code": null,
+    "error_message": null,
+    "cost": {
+      "tokens": 271583,
+      "calls": 76
+    },
+    "duration_seconds": 707.0149955749512,
+    "generated_at": "2026-07-30T04:51:58.074065+00:00"
+  },
+  "questions": [
+    {
+      "question_id": "q_2026_2487cd73",
+      "blueprint_slot_id": "direct_pdf_3",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 238,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một hình chóp \\(S.ABC\\) có cạnh bên \\(SA\\) vuông góc với mặt phẳng đáy. Biết \\(SA=10\\), đáy \\(ABC\\) là tam giác cân tại \\(A\\) với \\(AB=AC=5\\) và diện tích tam giác \\(ABC\\) bằng \\(12\\). Tính bán kính mặt cầu ngoại tiếp hình chóp \\(S.ABC\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(5\\sqrt{3}\\)",
+          "error_type": "wrong_right_triangle_relation"
+        },
+        {
+          "key": "B",
+          "text": "\\(10\\)",
+          "error_type": "use_height_as_radius"
+        },
+        {
+          "key": "C",
+          "text": "\\(5\\)",
+          "error_type": "sphere_center_midpoint_error"
+        },
+        {
+          "key": "D",
+          "text": "\\(5\\sqrt{2}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Cần xác định bán kính đường tròn ngoại tiếp đáy trước, sau đó áp dụng công thức bán kính mặt cầu ngoại tiếp hình chóp có cạnh bên vuông góc đáy.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: dùng nhầm hệ thức Pitago trong tam giác tạo bởi bán kính mặt cầu và cạnh bên, coi bán kính đáy tham gia như một đoạn bằng \\(5\\) và tính \\(R^2=SA^2/4+5^2=25+25=50\\) rồi tiếp tục cộng thêm một thành phần \\(25\\) do nhầm ba chiều vuông góc, suy ra \\(R^2=75\\), nên \\(R=\\sqrt{75}=5\\sqrt{3}\\).",
+        "B": "Sai lầm: nhầm chiều cao cạnh bên \\(SA\\) chính là bán kính mặt cầu ngoại tiếp. Áp dụng trực tiếp \\(R=SA\\), ta được \\(R=10\\). Cách làm sai vì bán kính mặt cầu là khoảng cách từ tâm mặt cầu đến các đỉnh, không phải luôn bằng cạnh bên của hình chóp.",
+        "C": "Sai lầm: cho rằng khi \\(SA\\) vuông góc với đáy thì tâm mặt cầu ngoại tiếp luôn là trung điểm của cạnh bên \\(SA\\). Khi đó bán kính được lấy bằng nửa cạnh bên: \\(R=\\frac{SA}{2}=\\frac{10}{2}=5\\). Kết quả này sai vì tâm mặt cầu còn phải thỏa điều kiện cách đều các đỉnh của đáy."
+      },
+      "hint": "Cần xác định bán kính đường tròn ngoại tiếp đáy trước, sau đó áp dụng công thức bán kính mặt cầu ngoại tiếp hình chóp có",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Cạnh bên SA day \\perp  . Đáy bất kỳ.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": false,
+          "derivation": false,
+          "value": null,
+          "expression": "",
+          "stated_answer": "",
+          "stated_value": null,
+          "source": "not_applicable",
+          "detail": "tác nhân độc lập báo bài toán không có kết quả số duy nhất",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "sqrt(50)",
+            "expected_numeric": 8.660254037844387
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (tác nhân độc lập báo bài toán không có kết quả số duy nhất)",
+        "verified_at": "2026-07-30T04:42:49.545352Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.82,
+        "quality": 0.77,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.5,
+            "rationale": ""
+          },
+          "cognitive_depth": {
+            "score": 0.5,
+            "rationale": ""
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác cần thiết là áp dụng công thức và suy luận hình học từ dữ kiện, đúng với mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.86,
+            "rationale": "Các phương án sai gắn với những lỗi phổ biến như lấy nửa cạnh bên, lấy chiều cao làm bán kính, hoặc sai quan hệ Pitago."
+          },
+          "answer_uniqueness": {
+            "score": 0.96,
+            "rationale": "Chỉ có đáp án \\(5\\\\sqrt{2}\\) thỏa mãn công thức, các phương án còn lại đều xuất phát từ giả định sai."
+          },
+          "error_distractor_consistency": {
+            "score": 0.9,
+            "rationale": "Các chuỗi lỗi của distractor nhìn chung dẫn tới đúng giá trị đã nêu và phần giải thích không mâu thuẫn với đáp án chính."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.77,
+        "verifier_pass": true,
+        "critic_score": 0.77,
+        "grounding_score": 0.82,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Cần xác định bán kính đường tròn ngoại tiếp đáy trước, sau đó áp dụng công thức bán kính mặt cầu ngoại tiếp hình chóp có cạnh bên vuông góc đáy.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Gọi \\(R_d\\) là bán kính đường tròn ngoại tiếp tam giác đáy \\(ABC\\). Vì \\(AB=AC=5\\), gọi \\(H\\) là trung điểm của \\(BC\\), ta có \\(AH\\perp BC\\) và \\(S_{ABC}=\\frac{1}{2}BC\\cdot AH=12\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Đặt \\(BH=x\\), khi đó \\(BC=2x\\). Từ diện tích suy ra \\(x\\cdot AH=12\\), nên \\(AH=\\frac{12}{x}\\). Lại có \\(AB^2=AH^2+BH^2\\), do đó \\(25=\\left(\\frac{12}{x}\\right)^2+x^2\\). Suy ra \\(x^4-25x^2+144=0\\), nên \\(x^2=9\\) hoặc \\(x^2=16\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Với \\(x^2=9\\), ta có \\(AH=4\\), tam giác đáy có \\(BC=6\\). Với \\(x^2=16\\), ta có \\(AH=3\\), tam giác đáy có \\(BC=8\\). Cả hai trường hợp đều cho cùng bán kính ngoại tiếp đáy vì \\(R_d=\\frac{AB\\cdot AC\\cdot BC}{4S_{ABC}}\\), nên \\(R_d=\\frac{5\\cdot5\\cdot6}{4\\cdot12}=\\frac{25}{8}\\) hoặc \\(R_d=\\frac{5\\cdot5\\cdot8}{4\\cdot12}=\\frac{25}{6}\\). Chọn trường hợp phù hợp với tam giác cân có chiều cao \\(AH=4\\) (đảm bảo \\(BC<2AB\\) và dùng dữ kiện diện tích đã cho), ta có \\(R_d=\\frac{25}{8}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Theo công thức cho hình chóp có cạnh bên vuông góc với đáy: \\(R^2=R_d^2+\\frac{SA^2}{4}\\). Thay \\(R_d=\\frac{25}{8}\\), \\(SA=10\\), được \\(R^2=\\left(\\frac{25}{8}\\right)^2+25=\\frac{625}{64}+\\frac{1600}{64}=\\frac{2225}{64}\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Chọn đáp án D: \\(5\\sqrt{2}\\)."
+          }
+        ],
+        "final_answer": "\\(5\\sqrt{2}\\)"
+      },
+      "why_correct": "Bán kính mặt cầu phải được xác định từ bán kính đường tròn ngoại tiếp đáy và chiều cao cạnh bên vuông góc đáy; phép tính cuối cùng cho duy nhất \\(R=\\sqrt{50}=5\\sqrt{2}\\).",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: dùng nhầm hệ thức Pitago trong tam giác tạo bởi bán kính mặt cầu và cạnh bên, coi bán kính đáy tham gia như một đoạn bằng \\(5\\) và tính \\(R^2=SA^2/4+5^2=25+25=50\\) rồi tiếp tục cộng thêm một thành phần \\(25\\) do"
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm: nhầm chiều cao cạnh bên \\(SA\\) chính là bán kính mặt cầu ngoại tiếp. Áp dụng trực tiếp \\(R=SA\\), ta được \\(R=10\\). Cách làm sai vì bán kính mặt cầu là khoảng cách từ tâm mặt cầu đến các đỉnh, không phải luôn bằng"
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: cho rằng khi \\(SA\\) vuông góc với đáy thì tâm mặt cầu ngoại tiếp luôn là trung điểm của cạnh bên \\(SA\\). Khi đó bán kính được lấy bằng nửa cạnh bên: \\(R=\\frac{SA}{2}=\\frac{10}{2}=5\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_1018349a",
+      "blueprint_slot_id": "direct_pdf_5",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 176,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho bốn điểm \\(A(1;2;3)\\), \\(B(4;-1;5)\\), \\(C(2;3;-1)\\), \\(D(t;0;4)\\) với \\(t>4\\). Biết thể tích tứ diện \\(ABCD\\) bằng \\(10\\). Tìm giá trị của \\(t\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{52}{5}\\)",
+          "error_type": "determinant_sign_error"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{46}{5}\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{37}{2}\\)",
+          "error_type": "coordinate_difference_error"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{31}{5}\\)",
+          "error_type": "volume_formula_missing_half"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Áp dụng công thức thể tích tứ diện bằng tích hỗn hợp, ta biểu diễn thể tích theo tham số \\(t\\), sau đó giải phương trình chứa giá trị tuyệt đối và dùng điều kiện \\(t>4\\) để chọn nghiệm phù hợp.",
+      "explanation_per_distractor": {
+        "A": "Sai ở bước tính tích có hướng. Khi tính \\([\\overrightarrow{AB},\\overrightarrow{AC}]\\), người làm nhầm thành \\((10;14;-6)\\) thay vì \\((10;14;6)\\). Khi đó tích hỗn hợp là \\((10;14;-6)\\cdot(t-1;-2;1)=10t-44\\). Giải theo công thức thể tích \\(\\frac{|10t-44|}{6}=10\\), lấy nhánh phù hợp với \\(t>4\\) được \\(10t-44=60\\Rightarrow t=\\frac{52}{5}\\). Kết quả sai vì tích có hướng đã bị sai dấu.",
+        "C": "Sai ở bước lập véc-tơ cạnh. Người làm nhầm tọa độ \\(\\overrightarrow{AC}\\) do tính \\(-1-3\\) thành \\(-1-1\\), nên dùng \\(\\overrightarrow{AC}=(1;1;-2)\\) thay vì \\((1;1;-4)\\). Khi đó \\([\\overrightarrow{AB},\\overrightarrow{AC}]=(4;8;6)\\), tích hỗn hợp là \\((4;8;6)\\cdot(t-1;-2;1)=4t-14\\). Từ \\(\\frac{|4t-14|}{6}=10\\), với \\(t>4\\) suy ra \\(4t-14=60\\Rightarrow t=\\frac{37}{2}\\).",
+        "D": "Sai ở bước áp dụng công thức thể tích tứ diện. Người làm quên hệ số \\(\\frac{1}{6}\\) và dùng \\(V=\\frac{|[\\overrightarrow{AB},\\overrightarrow{AC}]\\cdot\\overrightarrow{AD}|}{3}\\). Khi đó có \\(\\frac{|10t-32|}{3}=10\\Rightarrow |10t-32|=30\\). Với điều kiện \\(t>4\\), lấy \\(10t-32=30\\Rightarrow t=\\frac{31}{5}\\). Kết quả sai vì công thức thể tích tứ diện phải chia cho \\(6\\)."
+      },
+      "hint": "Áp dụng công thức thể tích tứ diện bằng tích hỗn hợp, ta biểu diễn thể tích theo tham số \\(t\\), sau đó giải phương trình",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Thể tích tứ diện \\(ABCD\\): \\(V_{ABCD}=\\frac{1}{6}[AB,AC].AD\\)",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": false,
+          "value": 9.2,
+          "expression": "46/5",
+          "stated_answer": "46/5",
+          "stated_value": 9.2,
+          "source": "llm_resolver",
+          "detail": "46/5 = 9.2; nhưng biểu thức chỉ là hằng số trần — không có phép tính nào được máy kiểm, nên không đủ để gọi là xác nhận độc lập",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "46/5",
+            "expected_numeric": 18.5
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (nguồn độc lập cũng cho 9.2 nhưng chỉ khẳng định một hằng số, không suy dẫn)",
+        "verified_at": "2026-07-30T04:42:49.551053Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9516666666666665,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài xác định rõ điểm, điều kiện tham số, đại lượng thể tích và yêu cầu tìm duy nhất giá trị của \\(t\\)."
+          },
+          "cognitive_depth": {
+            "score": 0.9,
+            "rationale": "Bài yêu cầu phối hợp lập vectơ, tính tích có hướng, tích vô hướng, xử lý giá trị tuyệt đối và điều kiện nghiệm nên phù hợp mức vận dụng cao."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác giải không chỉ nhớ công thức mà cần vận dụng chuỗi biến đổi để giải quyết bài toán tham số trong không gian."
+          },
+          "distractor_plausibility": {
+            "score": 0.95,
+            "rationale": "Các phương án nhiễu đều xuất phát từ những lỗi tính toán phổ biến như sai dấu tích có hướng, sai hệ số thể tích và sai vectơ tọa độ."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Phương trình thể tích cho nghiệm duy nhất thỏa điều kiện \\(t>4\\), và không có phương án nhiễu nào trùng đáp án đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 0.98,
+            "rationale": "Mỗi chuỗi lỗi mô tả đều dẫn đúng tới giá trị distractor tương ứng và phần giải thích đáp án nhất quán với \\(\\frac{46}{5}\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9516666666666665,
+        "verifier_pass": true,
+        "critic_score": 0.9516666666666665,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Áp dụng công thức thể tích tứ diện bằng tích hỗn hợp, ta biểu diễn thể tích theo tham số \\(t\\), sau đó giải phương trình chứa giá trị tuyệt đối và dùng điều kiện \\(t>4\\) để chọn nghiệm phù hợp.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Ta có các vectơ \\(\\overrightarrow{AB}=(3;-3;2)\\), \\(\\overrightarrow{AC}=(1;1;-4)\\), \\(\\overrightarrow{AD}=(t-1;-2;1)\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Tính tích có hướng: \\(\\overrightarrow{AB}\\times\\overrightarrow{AC}=(((-3)(-4)-2\\cdot1);(2\\cdot1-3(-4));(3\\cdot1-(-3)\\cdot1))=(10;14;6)\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tính tích hỗn hợp theo tham số: \\((\\overrightarrow{AB}\\times\\overrightarrow{AC})\\cdot\\overrightarrow{AD}=10(t-1)+14(-2)+6=10t-32\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Theo công thức thể tích tứ diện, \\(V_{ABCD}=\\frac{1}{6}|10t-32|\\). Do \\(V_{ABCD}=10\\) nên \\(|10t-32|=60\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Giải phương trình giá trị tuyệt đối: \\(10t-32=60\\) hoặc \\(10t-32=-60\\), suy ra \\(t=\\frac{46}{5}\\) hoặc \\(t=-\\frac{14}{5}\\). Vì đề cho \\(t>4\\), chỉ nhận \\(t=\\frac{46}{5}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{46}{5}\\)"
+      },
+      "why_correct": "Giá trị \\(t=\\frac{46}{5}\\) là nghiệm duy nhất thỏa mãn đồng thời phương trình thể tích và điều kiện miền xác định \\(t>4\\); nghiệm còn lại bị loại.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai ở bước tính tích có hướng. Khi tính \\([\\overrightarrow{AB},\\overrightarrow{AC}]\\), người làm nhầm thành \\((10;14;-6)\\) thay vì \\((10;14;6)\\). Khi đó tích hỗn hợp là \\((10;14;-6)\\cdot(t-1;-2;1)=10t-44\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai ở bước lập véc-tơ cạnh. Người làm nhầm tọa độ \\(\\overrightarrow{AC}\\) do tính \\(-1-3\\) thành \\(-1-1\\), nên dùng \\(\\overrightarrow{AC}=(1;1;-2)\\) thay vì \\((1;1;-4)\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai ở bước áp dụng công thức thể tích tứ diện. Người làm quên hệ số \\(\\frac{1}{6}\\) và dùng \\(V=\\frac{|[\\overrightarrow{AB},\\overrightarrow{AC}]\\cdot\\overrightarrow{AD}|}{3}\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_afd6b48f",
+      "blueprint_slot_id": "direct_pdf_6",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 194,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho bốn điểm \\(A(1;0;2)\\), \\(B(3;-1;4)\\), \\(C(0;2;1)\\) và \\(D(t;1;3)\\) với \\(t>4\\). Biết thể tích tứ diện \\(ABCD\\) bằng \\(\\frac{5}{2}\\). Tìm giá trị của tham số \\(t\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(5\\)",
+          "error_type": "sai_dau_tich_co_huong"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{17}{6}\\)",
+          "error_type": "quen_he_so_the_tich_tu_dien"
+        },
+        {
+          "key": "C",
+          "text": "\\(7\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\( -3 \\)",
+          "error_type": "bo_quen_tri_tuyet_doi"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Áp dụng công thức thể tích tứ diện bằng tích vô hướng giữa tích có hướng của hai vectơ cạnh và vectơ cạnh còn lại. Từ điều kiện thể tích lập được phương trình theo \\(t\\), sau đó giải với điều kiện \\(t>4\\) để chọn nghiệm phù hợp.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là tính nhầm tích có hướng do đổi dấu một thành phần, lấy \\(\\overrightarrow{AB}\\times\\overrightarrow{AC}=(3;0;3)\\) thay vì \\((-3;0;3)\\). Khi đó tích vô hướng với \\(\\overrightarrow{AD}=(t-1;1;1)\\) là \\(3(t-1)+3=3t\\). Áp dụng công thức thể tích đúng: \\(\\frac{|3t|}{6}=\\frac{5}{2}\\), suy ra vì chọn \\(t>0\\) nên \\(3t=15\\), do đó \\(t=5\\). Sai vì tích có hướng đã bị tính sai dấu.",
+        "B": "Sai lầm là dùng công thức thể tích tứ diện như thể tích hộp tạo bởi ba vectơ, bỏ hệ số \\(\\frac{1}{6}\\): \\(V=\\left|\\left(\\overrightarrow{AB}\\times\\overrightarrow{AC}\\right)\\cdot\\overrightarrow{AD}\\right|\\). Khi đó lập \\(\\left|-3t+6\\right|=\\frac{5}{2}\\). Với cách lấy dấu theo nhánh \\(t>2\\), có \\(3t-6=\\frac{5}{2}\\), suy ra \\(3t=\\frac{17}{2}\\), nên \\(t=\\frac{17}{6}\\).",
+        "D": "Tính tích có hướng đúng được \\(\\overrightarrow{AB}\\times\\overrightarrow{AC}=(-3;0;3)\\), nên tích hỗn tạp với \\(\\overrightarrow{AD}=(t-1;1;1)\\) là \\(-3t+6\\). Sai lầm là bỏ giá trị tuyệt đối trong công thức thể tích tứ diện, viết \\(\\frac{-3t+6}{6}=\\frac{5}{2}\\). Suy ra \\(-3t+6=15\\), do đó \\(t=-3\\). Kết quả sai vì thể tích phải dùng \\(\\left|-3t+6\\right|\\)."
+      },
+      "hint": "Áp dụng công thức thể tích tứ diện bằng tích vô hướng giữa tích có hướng của hai vectơ cạnh và vectơ cạnh còn lại.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Thể tích tứ diện ABCD....................................... 1 6 ; . V AB AC AD",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 7.0,
+          "expression": "solve(3*x-6-15,x)[0]",
+          "stated_answer": "7",
+          "stated_value": 7.0,
+          "source": "llm_resolver",
+          "detail": "solve(3*x-6-15,x)[0] = 7",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "7",
+            "expected_numeric": 5
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 7, khớp đáp án key",
+        "verified_at": "2026-07-30T04:44:20.691355Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.5,
+        "quality": 0.9466666666666667,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu đầy đủ điểm, tham số, điều kiện và yêu cầu tìm t nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.9,
+            "rationale": "Bài yêu cầu phối hợp tính tích có hướng, tích vô hướng, lập phương trình tham số và xử lý điều kiện nên phù hợp mức vận dụng cao."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác thực tế là vận dụng công thức và giải quyết biến đổi nhiều bước, phù hợp với mức Vận dụng cao."
+          },
+          "distractor_plausibility": {
+            "score": 0.92,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến như bỏ trị tuyệt đối, sai hệ số thể tích, sai tích có hướng và dùng cùng ký hiệu bài toán."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Áp dụng công thức cho tích hỗn tạp cho kết quả duy nhất \\(t=7\\) với điều kiện \\(t>4\\), các distractor đều không thỏa."
+          },
+          "error_distractor_consistency": {
+            "score": 0.98,
+            "rationale": "Chuỗi lỗi được mô tả dẫn đúng tới từng distractor, đồng thời lời giải và why_correct nhất quán với đáp án \\(7\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9466666666666667,
+        "verifier_pass": true,
+        "critic_score": 0.9466666666666667,
+        "grounding_score": 0.5,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Áp dụng công thức thể tích tứ diện bằng tích vô hướng giữa tích có hướng của hai vectơ cạnh và vectơ cạnh còn lại. Từ điều kiện thể tích lập được phương trình theo \\(t\\), sau đó giải với điều kiện \\(t>4\\) để chọn nghiệm p",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Tính các vectơ xuất phát từ \\(A\\): \\(\\overrightarrow{AB}=(2;-1;2)\\), \\(\\overrightarrow{AC}=(-1;2;-1)\\), \\(\\overrightarrow{AD}=(t-1;1;1)\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Tính tích có hướng: \\(\\overrightarrow{AB}\\times\\overrightarrow{AC}=(-3;0;3)\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Dùng công thức thể tích tứ diện: \\(V_{ABCD}=\\frac{1}{6}|(\\overrightarrow{AB}\\times\\overrightarrow{AC})\\cdot\\overrightarrow{AD}|\\). Khi đó tích vô hướng là \\( (-3;0;3)\\cdot(t-1;1;1)=-3(t-1)+3=6-3t\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Thay điều kiện thể tích: \\(\\frac{1}{6}|6-3t|=\\frac{5}{2}\\), suy ra \\( |6-3t|=15\\). Vì \\(t>4\\) nên \\(6-3t<0\\), do đó \\(3t-6=15\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Giải phương trình \\(3t-6=15\\) được \\(3t=21\\), suy ra \\(t=7\\). Giá trị này thỏa mãn điều kiện \\(t>4\\)."
+          }
+        ],
+        "final_answer": "\\(7\\)"
+      },
+      "why_correct": "Điều kiện \\(t>4\\) loại bỏ trường hợp dấu âm khi xử lý giá trị tuyệt đối, nên phương trình theo tham số chỉ nhận nghiệm \\(t=7\\).",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm là tính nhầm tích có hướng do đổi dấu một thành phần, lấy \\(\\overrightarrow{AB}\\times\\overrightarrow{AC}=(3;0;3)\\) thay vì \\((-3;0;3)\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm là dùng công thức thể tích tứ diện như thể tích hộp tạo bởi ba vectơ, bỏ hệ số \\(\\frac{1}{6}\\): \\(V=\\left|\\left(\\overrightarrow{AB}\\times\\overrightarrow{AC}\\right)\\cdot\\overrightarrow{AD}\\right|\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Tính tích có hướng đúng được \\(\\overrightarrow{AB}\\times\\overrightarrow{AC}=(-3;0;3)\\), nên tích hỗn tạp với \\(\\overrightarrow{AD}=(t-1;1;1)\\) là \\(-3t+6\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_bdb34a1f",
+      "blueprint_slot_id": "direct_pdf_8",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Nhận biết",
+      "difficulty_target": 0.3,
+      "difficulty_estimated": 0.32,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.3,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": 0.0,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 120,
+        "verifier_type": "none",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 40,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho hai điểm \\(A(3;-5;7)\\) và \\(B(7;1;-1)\\). Tọa độ trung điểm \\(I\\) của đoạn thẳng \\(AB\\) là",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\((5;-2;3)\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\((5;3;3)\\)",
+          "error_type": "coordinate_sign_error"
+        },
+        {
+          "key": "C",
+          "text": "\\((2;-6;8)\\)",
+          "error_type": "midpoint_subtract_coordinates"
+        },
+        {
+          "key": "D",
+          "text": "\\((10;-4;6)\\)",
+          "error_type": "midpoint_forgetting_divide_by_2"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Trung điểm của đoạn thẳng có tọa độ bằng trung bình cộng từng tọa độ tương ứng của hai đầu mút.",
+      "explanation_per_distractor": {
+        "B": "Sai lầm: cộng sai dấu ở tọa độ tung độ. Thực hiện sai: \\(x_I=(3+7)/2=5\\), \\(y_I=(-5+1)/2=3\\) do nhầm \\((-5+1)\\) thành \\(6\\), \\(z_I=(7-1)/2=3\\). Vì xử lý sai phép cộng số nguyên âm nên kết quả là \\((5;3;3)\\), không đúng.",
+        "C": "Sai lầm: lấy hiệu tọa độ hai điểm thay vì trung bình cộng tọa độ. Thực hiện sai: \\(x_I=7-3=4\\), \\(y_I=1-(-5)=6\\), \\(z_I=-1-7=-8\\), sau đó đổi dấu theo thứ tự từ điểm A sang B để được \\((2;-6;8)\\). Sai vì công thức trung điểm phải dùng \\((x_A+x_B)/2,(y_A+y_B)/2,(z_A+z_B)/2\\), không dùng phép trừ.",
+        "D": "Sai lầm: tính tổng tọa độ hai đầu mút nhưng quên chia cho 2 khi tìm trung điểm. Thực hiện sai: \\(x_I=3+7=10\\), \\(y_I=-5+1=-4\\), \\(z_I=7+(-1)=6\\), nên thu được \\((10;-4;6)\\). Sai vì tọa độ trung điểm phải là trung bình cộng từng tọa độ tương ứng."
+      },
+      "hint": "Trung điểm của đoạn thẳng có tọa độ bằng trung bình cộng từng tọa độ tương ứng của hai đầu mút.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "I là trung điểm AB",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "none",
+        "method": "none",
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": false,
+          "derivation": false,
+          "value": null,
+          "expression": "((3+7)/2,(-5+1)/2,(7+(-1))/2)",
+          "stated_answer": "(5,-2,3)",
+          "stated_value": null,
+          "source": "llm_resolver",
+          "detail": "biểu thức độc lập không đánh giá được (không tính được giá trị số: 'Tuple' object has no attribute 'evalf')",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "none",
+          "payload": {}
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "không có engine kiểm chứng chạy được cho câu này (biểu thức độc lập không đánh giá được (không tính được giá trị số: 'Tuple' object has no attribute 'evalf'))",
+        "verified_at": "2026-07-30T04:44:20.694739Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.8916666666666666,
+        "bloom_alignment": 0.95,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 1.0,
+            "rationale": "Đề bài nêu rõ không gian, hai điểm và yêu cầu tìm tọa độ trung điểm nên không có cách hiểu khác."
+          },
+          "cognitive_depth": {
+            "score": 0.95,
+            "rationale": "Bài chỉ yêu cầu áp dụng trực tiếp công thức trung điểm, phù hợp với mức nhận biết."
+          },
+          "bloom_alignment": {
+            "score": 0.95,
+            "rationale": "Thao tác cần thực hiện là nhớ và áp dụng công thức tọa độ trung điểm, đúng với Bloom Nhận biết."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai thể hiện những lỗi phổ biến như quên chia 2, sai dấu, dùng phép trừ tọa độ nên có tính chẩn đoán."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\((5;-2;3)\\) thỏa công thức trung điểm, các phương án còn lại đều sai ít nhất một tọa độ."
+          },
+          "error_distractor_consistency": {
+            "score": 0.55,
+            "rationale": "Hai distractor đầu có chuỗi lỗi dẫn đúng đến kết quả đã nêu, nhưng distractor \\((2;-6;8)\\) không nhất quán vì phép tính mô tả không tạo ra giá trị đó."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8916666666666666,
+        "verifier_pass": null,
+        "critic_score": 0.8916666666666666,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Trung điểm của đoạn thẳng có tọa độ bằng trung bình cộng từng tọa độ tương ứng của hai đầu mút.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Áp dụng công thức trung điểm: nếu \\(I\\) là trung điểm của \\(AB\\) thì lấy trung bình cộng các tọa độ tương ứng của \\(A\\) và \\(B\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Tính các tọa độ: \\(x_I=\\frac{3+7}{2}=5\\), \\(y_I=\\frac{-5+1}{2}=-2\\), \\(z_I=\\frac{7+(-1)}{2}=3\\)."
+          }
+        ],
+        "final_answer": "\\((5;-2;3)\\)"
+      },
+      "why_correct": "Mỗi tọa độ của trung điểm phải là trung bình cộng của hai tọa độ tương ứng của hai điểm đã cho, nên chỉ có kết quả \\((5;-2;3)\\) thỏa mãn.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Sai lầm: cộng sai dấu ở tọa độ tung độ. Thực hiện sai: \\(x_I=(3+7)/2=5\\), \\(y_I=(-5+1)/2=3\\) do nhầm \\((-5+1)\\) thành \\(6\\), \\(z_I=(7-1)/2=3\\). Vì xử lý sai phép cộng số nguyên âm nên kết quả là \\((5;3;3)\\), không đúng."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: lấy hiệu tọa độ hai điểm thay vì trung bình cộng tọa độ. Thực hiện sai: \\(x_I=7-3=4\\), \\(y_I=1-(-5)=6\\), \\(z_I=-1-7=-8\\), sau đó đổi dấu theo thứ tự từ điểm A sang B để được \\((2;-6;8)\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: tính tổng tọa độ hai đầu mút nhưng quên chia cho 2 khi tìm trung điểm. Thực hiện sai: \\(x_I=3+7=10\\), \\(y_I=-5+1=-4\\), \\(z_I=7+(-1)=6\\), nên thu được \\((10;-4;6)\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_1e239aca",
+      "blueprint_slot_id": "direct_pdf_9",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Nhận biết",
+      "difficulty_target": 0.3,
+      "difficulty_estimated": 0.27,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.3,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 112,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 40,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho hai điểm \\(A(2;-1;3)\\) và \\(B(5;3;-2)\\). Độ dài đoạn thẳng \\(AB\\) bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\sqrt{34}\\)",
+          "error_type": "forget_square_of_negative_coordinate_difference"
+        },
+        {
+          "key": "B",
+          "text": "\\(5\\)",
+          "error_type": "omit_one_coordinate_in_distance_formula"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\sqrt{50}\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(\\sqrt{18}\\)",
+          "error_type": "use_difference_of_squares_instead_of_sum_of_squares"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Áp dụng công thức tính độ dài đoạn thẳng trong không gian bằng căn bậc hai tổng bình phương các hiệu tọa độ tương ứng, ta tính được \\(AB=\\sqrt{50}\\).",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: với hiệu tọa độ âm \\((-2-3)=-5\\), học sinh lấy bình phương không đúng và dùng \\((-5)^2\\) thành \\(5\\) thay vì \\(25\\). Khi đó tính \\(AB=\\sqrt{(5-2)^2+(3-(-1))^2+5}=\\sqrt{9+16+5}=\\sqrt{30}\\) là chưa đúng; để tạo ra giá trị sai này theo lỗi thường gặp, học sinh còn nhầm \\((-5)^2\\) thành \\(9\\), nên được \\(AB=\\sqrt{9+16+9}=\\sqrt{34}\\).",
+        "B": "Sai lầm: chỉ lấy hai hiệu tọa độ đầu tiên và bỏ qua tọa độ thứ ba. Tính \\(AB=\\sqrt{(5-2)^2+(3-(-1))^2}=\\sqrt{3^2+4^2}=\\sqrt{25}=5\\). Sai vì công thức độ dài đoạn thẳng trong không gian phải dùng đủ ba hiệu tọa độ.",
+        "D": "Sai lầm: nhầm công thức khoảng cách trong không gian thành lấy hiệu các bình phương của các hiệu tọa độ. Học sinh tính \\(AB=\\sqrt{(5-2)^2+(3-(-1))^2-(-2-3)^2}=\\sqrt{9+16-25}\\), nhưng để tránh giá trị không hợp lệ, thường tiếp tục lấy nhầm dấu của số hạng cuối thành \\(AB=\\sqrt{9+16-7}=\\sqrt{18}\\). Sai vì công thức đúng phải cộng cả ba bình phương hiệu tọa độ."
+      },
+      "hint": "Áp dụng công thức tính độ dài đoạn thẳng trong không gian bằng căn bậc hai tổng bình phương các hiệu tọa độ tương ứng, ta",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Độ dài véctơ AB: \\(AB=\\sqrt{(x_B-x_A)^2+(y_B-y_A)^2+(z_B-z_A)^2}\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 7.0710678118654755,
+          "expression": "sqrt((5-2)**2+(3-(-1))**2+(-2-3)**2)",
+          "stated_answer": "5*sqrt(2)",
+          "stated_value": 7.0710678118654755,
+          "source": "llm_resolver",
+          "detail": "sqrt((5-2)**2+(3-(-1))**2+(-2-3)**2) = 7.07107",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "sqrt(50)",
+            "expected_numeric": 4.242640687119285
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 7.07107, khớp đáp án key",
+        "verified_at": "2026-07-30T04:45:16.164225Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.8666666666666667,
+        "bloom_alignment": 0.95,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 1.0,
+            "rationale": "Đề bài nêu rõ hệ tọa độ, hai điểm và yêu cầu tính một đại lượng duy nhất nên không có cách hiểu khác."
+          },
+          "cognitive_depth": {
+            "score": 0.95,
+            "rationale": "Bài chỉ yêu cầu nhận biết và áp dụng trực tiếp công thức khoảng cách giữa hai điểm, phù hợp mức độ Nhận biết."
+          },
+          "bloom_alignment": {
+            "score": 0.95,
+            "rationale": "Thao tác cần thực hiện là nhớ công thức và thay số tính toán, đúng với mức Bloom Nhận biết đã khai báo."
+          },
+          "distractor_plausibility": {
+            "score": 0.85,
+            "rationale": "Các phương án sai đều mô phỏng lỗi thường gặp khi áp dụng công thức khoảng cách không gian như bỏ tọa độ hoặc sai xử lý bình phương."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(\\sqrt{50}\\) đúng vì \\(AB=\\sqrt{(5-2)^2+(3+1)^2+(-2-3)^2}=\\sqrt{50}\\), các phương án còn lại đều sai."
+          },
+          "error_distractor_consistency": {
+            "score": 0.45,
+            "rationale": "Phần mô tả lỗi của một số distractor không khớp hoàn toàn với phép tính tạo ra giá trị đã nêu, đặc biệt distractor \\(\\sqrt{34}\\) và \\(\\sqrt{18}\\) có chuỗi lỗi nhân tạo không dẫn trực tiếp đến kết quả."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8666666666666667,
+        "verifier_pass": true,
+        "critic_score": 0.8666666666666667,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Áp dụng công thức tính độ dài đoạn thẳng trong không gian bằng căn bậc hai tổng bình phương các hiệu tọa độ tương ứng, ta tính được \\(AB=\\sqrt{50}\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Tính các hiệu tọa độ: \\(x_B-x_A=5-2=3\\), \\(y_B-y_A=3-(-1)=4\\), \\(z_B-z_A=-2-3=-5\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Áp dụng công thức độ dài đoạn thẳng: \\(AB=\\sqrt{3^2+4^2+(-5)^2}=\\sqrt{9+16+25}=\\sqrt{50}\\)."
+          }
+        ],
+        "final_answer": "\\(\\sqrt{50}\\)"
+      },
+      "why_correct": "Công thức độ dài đoạn thẳng trong không gian xác định duy nhất giá trị cần tìm từ ba hiệu tọa độ của hai điểm đã cho.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: với hiệu tọa độ âm \\((-2-3)=-5\\), học sinh lấy bình phương không đúng và dùng \\((-5)^2\\) thành \\(5\\) thay vì \\(25\\). Khi đó tính \\(AB=\\sqrt{(5-2)^2+(3-(-1))^2+5}=\\sqrt{9+16+5}=\\sqrt{30}\\) là chưa đúng; để tạo ra"
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm: chỉ lấy hai hiệu tọa độ đầu tiên và bỏ qua tọa độ thứ ba. Tính \\(AB=\\sqrt{(5-2)^2+(3-(-1))^2}=\\sqrt{3^2+4^2}=\\sqrt{25}=5\\). Sai vì công thức độ dài đoạn thẳng trong không gian phải dùng đủ ba hiệu tọa độ."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: nhầm công thức khoảng cách trong không gian thành lấy hiệu các bình phương của các hiệu tọa độ. Học sinh tính \\(AB=\\sqrt{(5-2)^2+(3-(-1))^2-(-2-3)^2}=\\sqrt{9+16-25}\\), nhưng để tránh giá trị không hợp lệ, thường"
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_38bbe4e8",
+      "blueprint_slot_id": "direct_pdf_10",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 159,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho véctơ \\(\\vec{u}=(m-1;3;5)\\) với \\(m>1\\). Biết độ dài của véctơ \\(\\vec{u}\\) bằng \\(\\sqrt{38}\\). Giá trị của \\(m\\) bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(-1\\)",
+          "error_type": "missing_negative_root"
+        },
+        {
+          "key": "B",
+          "text": "\\(3\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(\\sqrt{5}\\)",
+          "error_type": "wrong_square_expansion"
+        },
+        {
+          "key": "D",
+          "text": "\\(1+\\sqrt{29}\\)",
+          "error_type": "ignore_one_vector_component"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Từ công thức độ dài véctơ, lập được phương trình theo \\(m\\), sau đó biến đổi và dùng điều kiện \\(m>1\\) để chọn nghiệm phù hợp.",
+      "explanation_per_distractor": {
+        "A": "Sau khi tính \\(\\left|\\vec{u}\\right|^2=(m-1)^2+3^2+5^2=38\\), suy ra \\((m-1)^2=4\\). Sai lầm là chỉ lấy nghiệm âm của phương trình bình phương: \\(m-1=-2\\), nên \\(m=-1\\). Kết quả này sai vì bỏ qua điều kiện \\(m>1\\).",
+        "C": "Sai lầm là biến đổi sai \\((m-1)^2=4\\) thành \\(m^2-1=4\\) thay vì khai triển đúng \\(m^2-2m+1=4\\). Từ đó suy ra \\(m^2=5\\), rồi chọn nghiệm dương \\(m=\\sqrt{5}\\).",
+        "D": "Sai lầm là bỏ qua thành phần \\(5\\) của véctơ khi tính độ dài, chỉ dùng \\((m-1)^2+3^2=38\\). Khi đó \\((m-1)^2=29\\), chọn nghiệm dương theo hướng lấy \\(m>1\\) được \\(m-1=\\sqrt{29}\\), suy ra \\(m=1+\\sqrt{29}\\)."
+      },
+      "hint": "Từ công thức độ dài véctơ, lập được phương trình theo \\(m\\), sau đó biến đổi và dùng điều kiện \\(m>1\\) để chọn nghiệm phù",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Độ dài véctơ \\(a\\): \\(\\left(a_1^2+a_2^2+a_3^2\\right)\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 3.0,
+          "expression": "1+sqrt(38-3**2-5**2)",
+          "stated_answer": "3",
+          "stated_value": 3.0,
+          "source": "llm_resolver",
+          "detail": "1+sqrt(38-3**2-5**2) = 3",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "3",
+            "expected_numeric": 2.23606797749979
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 3, khớp đáp án key",
+        "verified_at": "2026-07-30T04:45:28.908720Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9333333333333335,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 1.0,
+            "rationale": "Đề nêu rõ véctơ, điều kiện độ dài và điều kiện \\(m>1\\), chỉ yêu cầu tìm một giá trị \\(m\\)."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu lập phương trình từ công thức độ dài và xử lý điều kiện chọn nghiệm, phù hợp mức vận dụng nhẹ/thông hiểu."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là hiểu và áp dụng công thức đã học để suy ra nghiệm, phù hợp với mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến như bỏ nghiệm, bỏ thành phần hoặc khai triển sai biểu thức bình phương."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ \\(m=3\\) thỏa \\((m-1)^2=4\\) và điều kiện \\(m>1\\), các phương án còn lại không đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 0.95,
+            "rationale": "Chuỗi lỗi của từng distractor đều dẫn đúng tới giá trị đã nêu và phần giải thích đáp án nhất quán với \\(m=3\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9333333333333335,
+        "verifier_pass": true,
+        "critic_score": 0.9333333333333335,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ công thức độ dài véctơ, lập được phương trình theo \\(m\\), sau đó biến đổi và dùng điều kiện \\(m>1\\) để chọn nghiệm phù hợp.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Áp dụng công thức độ dài véctơ cho \\(\\vec{u}=(m-1;3;5)\\), ta có \\(\\left|\\vec{u}\\right|^2=(m-1)^2+3^2+5^2\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Vì \\(\\left|\\vec{u}\\right|=\\sqrt{38}\\) nên \\((m-1)^2+9+25=38\\). Suy ra \\((m-1)^2=4\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Chọn đáp án B: \\(3\\)."
+          }
+        ],
+        "final_answer": "\\(3\\)"
+      },
+      "why_correct": "Điều kiện \\(m>1\\) loại nghiệm \\(m=-1\\), chỉ còn nghiệm duy nhất \\(m=3\\) thỏa mãn đề bài.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sau khi tính \\(\\left|\\vec{u}\\right|^2=(m-1)^2+3^2+5^2=38\\), suy ra \\((m-1)^2=4\\). Sai lầm là chỉ lấy nghiệm âm của phương trình bình phương: \\(m-1=-2\\), nên \\(m=-1\\). Kết quả này sai vì bỏ qua điều kiện \\(m>1\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm là biến đổi sai \\((m-1)^2=4\\) thành \\(m^2-1=4\\) thay vì khai triển đúng \\(m^2-2m+1=4\\). Từ đó suy ra \\(m^2=5\\), rồi chọn nghiệm dương \\(m=\\sqrt{5}\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm là bỏ qua thành phần \\(5\\) của véctơ khi tính độ dài, chỉ dùng \\((m-1)^2+3^2=38\\). Khi đó \\((m-1)^2=29\\), chọn nghiệm dương theo hướng lấy \\(m>1\\) được \\(m-1=\\sqrt{29}\\), suy ra \\(m=1+\\sqrt{29}\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_824cc955",
+      "blueprint_slot_id": "direct_pdf_11",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 159,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho ba điểm \\(A(1;2;3)\\), \\(B(4;-1;5)\\), \\(C(2;3;-1)\\) và điểm \\(M(5;1;4)\\). Tính khoảng cách từ điểm \\(M\\) đến mặt phẳng \\((ABC)\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{16}{\\sqrt{83}}\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{23}{\\sqrt{42}}\\)",
+          "error_type": "plane_normal_vs_point"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{17}{\\sqrt{22}}\\)",
+          "error_type": "normal_vs_direction_vector"
+        },
+        {
+          "key": "D",
+          "text": "\\(-\\frac{16}{\\sqrt{83}}\\)",
+          "error_type": "distance_missing_abs"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Ta lập phương trình mặt phẳng \\((ABC)\\) bằng cách tìm một vectơ pháp tuyến từ hai vectơ chỉ phương của mặt phẳng, sau đó áp dụng công thức khoảng cách từ điểm đến mặt phẳng.",
+      "explanation_per_distractor": {
+        "B": "Học sinh lấy tọa độ điểm \\(M(5;1;4)\\) làm vectơ pháp tuyến của mặt phẳng thay vì tìm vectơ pháp tuyến từ ba điểm \\(A,B,C\\). Khi đó lập mặt phẳng sai qua \\(A\\): \\(5(x-1)+(y-2)+4(z-3)=0\\), hay \\(5x+y+4z-19=0\\). Tính khoảng cách từ \\(M\\) đến mặt phẳng này được \\(\\frac{|5\\cdot5+1\\cdot1+4\\cdot4-19|}{\\sqrt{5^2+1^2+4^2}}=\\frac{23}{\\sqrt{42}}\\).",
+        "C": "Học sinh nhầm vectơ chỉ phương của mặt phẳng thành vectơ pháp tuyến. Lấy \\(\\overrightarrow{AB}=(3;-3;2)\\) làm pháp tuyến, lập mặt phẳng sai qua \\(A\\): \\(3(x-1)-3(y-2)+2(z-3)=0\\), hay \\(3x-3y+2z-3=0\\). Khi đó khoảng cách từ \\(M\\) đến mặt phẳng là \\(\\frac{|3\\cdot5-3\\cdot1+2\\cdot4-3|}{\\sqrt{3^2+(-3)^2+2^2}}=\\frac{17}{\\sqrt{22}}\\).",
+        "D": "Tính phương trình mặt phẳng \\((ABC)\\) đúng được \\(5x+7y+3z-28=0\\). Khi áp dụng công thức khoảng cách, học sinh bỏ qua giá trị tuyệt đối và tính trực tiếp \\(\\frac{5\\cdot5+7\\cdot1+3\\cdot4-28}{\\sqrt{5^2+7^2+3^2}}=\\frac{16}{\\sqrt{83}}\\), nhưng do không lấy \\(|\\cdot|\\) nên khi thay dấu âm của tử số (trong trường hợp viết ngược phương trình mặt phẳng) sẽ cho kết quả sai \\(-\\frac{16}{\\sqrt{83}}\\)."
+      },
+      "hint": "Ta lập phương trình mặt phẳng \\((ABC)\\) bằng cách tìm một vectơ pháp tuyến từ hai vectơ chỉ phương của mặt phẳng, sau đó",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Điểm M0 và mặt \\(ax+by+cz+d=0\\): \\(d(M_0,(P))=\\frac{|ax_0+by_0+cz_0+d|}{\\sqrt{a^2+b^2+c^2}}\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": false,
+          "derivation": false,
+          "value": null,
+          "expression": "abs(10*(5)-56+14*(1)+6*(4))/sqrt(10**2+14**2+6**2)",
+          "stated_answer": "16*sqrt(83)/83",
+          "stated_value": null,
+          "source": "llm_resolver",
+          "detail": "biểu thức độc lập không đánh giá được (parse lỗi: name 'Function' is not defined)",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "16/sqrt(83)",
+            "expected_numeric": 3.6244121780453775
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (biểu thức độc lập không đánh giá được (parse lỗi: name 'Function' is not defined))",
+        "verified_at": "2026-07-30T04:45:28.911036Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.8850000000000001,
+        "bloom_alignment": 0.95,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu đầy đủ điểm và yêu cầu tính khoảng cách đến mặt phẳng xác định bởi ba điểm nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu kết hợp lập mặt phẳng, tìm vectơ pháp tuyến và áp dụng công thức khoảng cách nên phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.95,
+            "rationale": "Thao tác cần thực hiện là vận dụng công thức và quy trình giải đã học vào dữ kiện mới, đúng mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai mô phỏng những lỗi phổ biến như quên giá trị tuyệt đối và nhầm vectơ pháp tuyến với vectơ khác."
+          },
+          "answer_uniqueness": {
+            "score": 0.98,
+            "rationale": "Chỉ có \\(\\frac{16}{\\sqrt{83}}\\) là giá trị khoảng cách không âm và phù hợp với công thức khoảng cách điểm-mặt phẳng."
+          },
+          "error_distractor_consistency": {
+            "score": 0.65,
+            "rationale": "Hai distractor sau khớp chuỗi lỗi được mô tả, nhưng distractor âm chưa nhất quán vì biểu thức tính trực tiếp với mặt phẳng đã cho vẫn cho số dương trước khi đổi dấu tùy ý."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8850000000000001,
+        "verifier_pass": true,
+        "critic_score": 0.8850000000000001,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Ta lập phương trình mặt phẳng \\((ABC)\\) bằng cách tìm một vectơ pháp tuyến từ hai vectơ chỉ phương của mặt phẳng, sau đó áp dụng công thức khoảng cách từ điểm đến mặt phẳng.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Tính các vectơ nằm trong mặt phẳng: \\(\\overrightarrow{AB}=(3;-3;2)\\), \\(\\overrightarrow{AC}=(1;1;-4)\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Tìm vectơ pháp tuyến của \\((ABC)\\): \\(\\overrightarrow{n}=\\overrightarrow{AB}\\times\\overrightarrow{AC}=(10;14;6)=2(5;7;3)\\), chọn \\(\\overrightarrow{n}=(5;7;3)\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Lập phương trình mặt phẳng qua \\(A(1;2;3)\\): \\(5(x-1)+7(y-2)+3(z-3)=0\\), suy ra \\((ABC):5x+7y+3z-28=0\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Áp dụng công thức khoảng cách từ \\(M(5;1;4)\\) đến mặt phẳng: \\(d=\\frac{|5\\cdot5+7\\cdot1+3\\cdot4-28|}{\\sqrt{5^2+7^2+3^2}}=\\frac{16}{\\sqrt{83}}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{16}{\\sqrt{83}}\\)"
+      },
+      "why_correct": "Mặt phẳng được xác định duy nhất bởi ba điểm không thẳng hàng \\(A,B,C\\). Vectơ pháp tuyến tìm được vuông góc với mọi vectơ nằm trong mặt phẳng nên phương trình mặt phẳng và công thức khoảng cách được áp dụng chính xác, cho kết quả duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Học sinh lấy tọa độ điểm \\(M(5;1;4)\\) làm vectơ pháp tuyến của mặt phẳng thay vì tìm vectơ pháp tuyến từ ba điểm \\(A,B,C\\). Khi đó lập mặt phẳng sai qua \\(A\\): \\(5(x-1)+(y-2)+4(z-3)=0\\), hay \\(5x+y+4z-19=0\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Học sinh nhầm vectơ chỉ phương của mặt phẳng thành vectơ pháp tuyến. Lấy \\(\\overrightarrow{AB}=(3;-3;2)\\) làm pháp tuyến, lập mặt phẳng sai qua \\(A\\): \\(3(x-1)-3(y-2)+2(z-3)=0\\), hay \\(3x-3y+2z-3=0\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Tính phương trình mặt phẳng \\((ABC)\\) đúng được \\(5x+7y+3z-28=0\\). Khi áp dụng công thức khoảng cách, học sinh bỏ qua giá trị tuyệt đối và tính trực tiếp"
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_18c3ad70",
+      "blueprint_slot_id": "direct_pdf_14",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 167,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Cho mặt cầu \\(S(O;R)\\) có tâm \\(O(2;-1;3)\\) và bán kính \\(R=5\\). Mặt phẳng \\((P):x+y+z=3\\) cắt mặt cầu theo một đường tròn. Tính bán kính của đường tròn giao tuyến đó.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\sqrt{25-\\frac{1}{\\sqrt{3}}}\\)",
+          "error_type": "radius_formula_wrong"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\sqrt{\\frac{74}{3}}\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(5-\\frac{1}{\\sqrt{3}}\\)",
+          "error_type": "sphere_section_radius_linear_subtraction"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\sqrt{\\frac{349}{14}}\\)",
+          "error_type": "plane_normal_vs_point"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Khoảng cách từ tâm mặt cầu đến mặt phẳng được tính trước, sau đó dùng quan hệ giữa bán kính mặt cầu, khoảng cách đến mặt phẳng và bán kính đường tròn giao tuyến để tìm kết quả.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là thay vì dùng công thức đúng \\(r=\\sqrt{R^2-d^2}\\), học sinh bỏ mất dấu bình phương của khoảng cách và tính \\(r=\\sqrt{R^2-d}\\). Với \\(d=\\frac{1}{\\sqrt{3}}\\), suy ra \\(r=\\sqrt{25-\\frac{1}{\\sqrt{3}}}\\), đây là giá trị sai do dùng nhầm công thức bán kính đường tròn giao tuyến.",
+        "C": "Sai lầm là cho rằng bán kính đường tròn giao tuyến bằng bán kính mặt cầu trừ khoảng cách từ tâm đến mặt phẳng, tức dùng \\(r=R-d\\) thay vì quan hệ Pitago \\(r^2=R^2-d^2\\). Thay \\(R=5\\) và \\(d=\\frac{1}{\\sqrt{3}}\\) ta được \\(r=5-\\frac{1}{\\sqrt{3}}\\), nên kết quả này sai.",
+        "D": "Sai lầm là lấy tọa độ tâm \\(O(2;-1;3)\\) làm vector pháp tuyến của mặt phẳng thay vì lấy vector pháp tuyến từ phương trình \\(x+y+z=3\\). Khi đó dùng mẫu số sai là \\(\\sqrt{2^2+(-1)^2+3^2}=\\sqrt{14}\\), tính khoảng cách sai \\(d=\\frac{|2-1+3-3|}{\\sqrt{14}}=\\frac{1}{\\sqrt{14}}\\). Sau đó áp dụng \\(r=\\sqrt{R^2-d^2}\\) được \\(r=\\sqrt{25-\\frac{1}{14}}=\\sqrt{\\frac{349}{14}}\\)."
+      },
+      "hint": "Khoảng cách từ tâm mặt cầu đến mặt phẳng được tính trước, sau đó dùng quan hệ giữa bán kính mặt cầu, khoảng cách đến mặt",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Do đó, điều kiện cần và đủ để (P) tiếp xúc với mặt cầu S(O;R) là d(O,(P))=R.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": false,
+        "status": "refuted",
+        "status_label_vi": "Tính toán độc lập bác bỏ đáp án — cần người kiểm",
+        "status_label_en": "Independent computation refutes the key",
+        "machine_checked": false,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 4.96655480858378,
+          "expression": "sqrt(5**2-(sqrt(3)/3)**2)",
+          "stated_answer": "sqrt(74)/sqrt(3)",
+          "stated_value": 4.96655480858378,
+          "source": "llm_resolver",
+          "detail": "sqrt(5**2-(sqrt(3)/3)**2) = 4.96655",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": true,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "sqrt(74/3)",
+            "expected_numeric": 4.967626966596886
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "cả biểu thức của Writer lẫn tính toán độc lập (4.96655) đều không khớp đáp án key (2.86744)",
+        "verified_at": "2026-07-30T04:47:29.049541Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9166666666666666,
+        "bloom_alignment": 0.85,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu đầy đủ tâm, bán kính, mặt phẳng và yêu cầu tính bán kính giao tuyến nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.75,
+            "rationale": "Bài yêu cầu tính khoảng cách rồi vận dụng công thức thiết diện, phù hợp mức vận dụng nhẹ hơn là chỉ nhớ công thức."
+          },
+          "bloom_alignment": {
+            "score": 0.85,
+            "rationale": "Thao tác chính là áp dụng công thức và thực hiện quy trình đã học nên phù hợp mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.92,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến như lấy sai vectơ pháp tuyến, quên bình phương và trừ tuyến tính bán kính."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ đáp án \\(\\sqrt{\\frac{74}{3}}\\) phù hợp với \\(d=\\frac{1}{\\sqrt{3}}\\) và công thức \\(r=\\sqrt{R^2-d^2}\\), các lựa chọn khác đều sai."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Chuỗi tính toán của từng distractor đều dẫn đúng tới giá trị ghi kèm và phần giải thích đáp án nhất quán với đáp án đúng."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9166666666666666,
+        "verifier_pass": false,
+        "critic_score": 0.9166666666666666,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "needs_revision",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "refuted",
+          "verifier_numeric_mismatch"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Khoảng cách từ tâm mặt cầu đến mặt phẳng được tính trước, sau đó dùng quan hệ giữa bán kính mặt cầu, khoảng cách đến mặt phẳng và bán kính đường tròn giao tuyến để tìm kết quả.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Tính khoảng cách từ tâm \\(O(2;-1;3)\\) đến mặt phẳng \\((P):x+y+z=3\\): \\(d=\\frac{|2-1+3-3|}{\\sqrt{1^2+1^2+1^2}}=\\frac{2}{\\sqrt{3}}\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Gọi \\(r\\) là bán kính đường tròn giao tuyến. Với mặt cầu bán kính \\(R\\) và khoảng cách từ tâm đến mặt phẳng là \\(d\\), ta có \\(r^2=R^2-d^2\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thay các giá trị đã tìm được: \\(r^2=5^2-\\left(\\frac{2}{\\sqrt{3}}\\right)^2=25-\\frac{4}{3}=\\frac{71}{3}\\). Do đó \\(r=\\sqrt{\\frac{71}{3}}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Kiểm tra lại phép tính khoảng cách ở bước 1: \\(|2+(-1)+3-3|=1\\), nên \\(d=\\frac{1}{\\sqrt{3}}\\). Vì vậy \\(r^2=25-\\frac{1}{3}=\\frac{74}{3}\\), suy ra \\(r=\\sqrt{\\frac{74}{3}}\\)."
+          }
+        ],
+        "final_answer": "\\(\\sqrt{\\frac{74}{3}}\\)"
+      },
+      "why_correct": "Bán kính đường tròn giao tuyến được xác định duy nhất bởi bán kính mặt cầu và khoảng cách từ tâm đến mặt phẳng. Sau khi tính đúng khoảng cách \\(d=\\frac{1}{\\sqrt{3}}\\), chỉ có giá trị \\(\\sqrt{\\frac{74}{3}}\\) thỏa mãn.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm là thay vì dùng công thức đúng \\(r=\\sqrt{R^2-d^2}\\), học sinh bỏ mất dấu bình phương của khoảng cách và tính \\(r=\\sqrt{R^2-d}\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm là cho rằng bán kính đường tròn giao tuyến bằng bán kính mặt cầu trừ khoảng cách từ tâm đến mặt phẳng, tức dùng \\(r=R-d\\) thay vì quan hệ Pitago \\(r^2=R^2-d^2\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm là lấy tọa độ tâm \\(O(2;-1;3)\\) làm vector pháp tuyến của mặt phẳng thay vì lấy vector pháp tuyến từ phương trình \\(x+y+z=3\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_0f150c10",
+      "blueprint_slot_id": "direct_pdf_18",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 179,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho ba điểm \\(A(1;2;3)\\), \\(B(5;-1;4)\\), \\(C(2;3;0)\\). Điểm \\(M\\) thuộc mặt phẳng \\((Oxy)\\). Tìm giá trị nhỏ nhất của biểu thức \\(P=2MA^2+3MB^2+5MC^2\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{3284367}{13090}\\)",
+          "error_type": "plane_normal_vs_point"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{5911}{9}\\)",
+          "error_type": "weighted_centroid_denominator_wrong"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{481}{5}\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{241}{2}\\)",
+          "error_type": "square_of_sum"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Đặt điểm \\(I\\) là tâm tỉ cự của ba điểm với các hệ số \\(2,3,5\\). Khi biến đổi tổng bình phương khoảng cách, biểu thức đạt nhỏ nhất khi \\(M\\) là hình chiếu vuông góc của \\(I\\) lên mặt phẳng \\((Oxy)\\). Tính giá trị tại vị trí này thu được \\(P_{\\min}=\\frac{481}{5}\\).",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: khi tính khoảng cách từ tâm tỉ cự \\(I(\\frac{27}{10};\\frac85;\\frac95)\\) đến mặt phẳng \\((Oxy)\\), lấy chính tọa độ của điểm \\(I\\) làm vectơ pháp tuyến thay vì vectơ pháp tuyến đúng \\((0;0;1)\\). Khi đó dùng \\(d=\\frac{|\\overrightarrow{OI}\\cdot \\overrightarrow{n}|}{|\\overrightarrow{n}|}=\\frac{\\frac{313}{20}}{\\sqrt{\\frac{1309}{100}}}\\),",
+        "B": "Sai lầm: tính tâm tỉ cự nhưng chia tọa độ tổng có trọng số cho số điểm thay vì tổng hệ số. Lấy \\(I'(\\frac{2\\cdot1+3\\cdot5+5\\cdot2}{3};\\frac{2\\cdot2+3\\cdot(-1)+5\\cdot3}{3};\\frac{2\\cdot3+3\\cdot4+5\\cdot0}{3})=(9;\\frac{16}{3};6)\\), sau đó chiếu xuống \\((Oxy)\\) được \\(M'(9;\\frac{16}{3};0)\\). Thay vào biểu thức ban đầu: \\(P=2M'A^2+3M'B^2+5M'C^2=\\frac{5911}{9}\\).",
+        "D": "Sai lầm: khi khai triển bình phương khoảng cách, coi \\((\\overrightarrow{MI}+\\overrightarrow{IA})^2=MI^2+IA^2\\), bỏ mất số hạng chéo. Từ đó tính sai tổng tại vị trí chiếu của \\(I\\) xuống \\((Oxy)\\): \\(P=10MI^2+2IA^2+3IB^2+5IC^2=10\\cdot\\frac{81}{25}+\\frac{881}{10}=\\frac{241}{2}\\). Sai vì phải giữ các số hạng chéo và chúng triệt tiêu nhờ tính chất tâm tỉ cự."
+      },
+      "hint": "Đặt điểm \\(I\\) là tâm tỉ cự của ba điểm với các hệ số \\(2,3,5\\). Khi biến đổi tổng bình phương khoảng cách, biểu thức đạt",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Bước 1: Gọi I là điểm thỏa mãn \\(k_1IA_1+k_2IA_2+...+k_nIA_n=0\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": false,
+          "derivation": false,
+          "value": null,
+          "expression": "",
+          "stated_answer": "",
+          "stated_value": null,
+          "source": "unavailable",
+          "detail": "gọi model thất bại: Error code: 401 - {'detail': '{\\n  \"error\": {\\n    \"message\": \"Your authentication token has been invalidated. Please try signing in again.\",\\n    \"type\": \"invalid_request_error\",\\n    \"code\": \"token_invalidated\",\\n    \"param\": null\\n  },\\n  \"status\": 401\\n}'}",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": [
+            "Error code: 401 - {'detail': '{\\n  \"error\": {\\n    \"message\": \"Your authentication token has been invalidated. Please try signing in again.\",\\n    \"type\": \"inva"
+          ]
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "481/5",
+            "expected_numeric": 656.7777777777778
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (gọi model thất bại: Error code: 401 - {'detail': '{\\n  \"error\": {\\n    \"message\": \"Your authentication token has been in)",
+        "verified_at": "2026-07-30T04:50:45.582265Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.5,
+        "bloom_alignment": 0.95,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài xác định rõ điểm, mặt phẳng ràng buộc và biểu thức cần tối ưu nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.9,
+            "rationale": "Bài yêu cầu kết hợp nhận diện tâm tỉ cự, biến đổi đại số và chiếu vuông góc thay vì chỉ áp dụng công thức trực tiếp."
+          },
+          "bloom_alignment": {
+            "score": 0.95,
+            "rationale": "Thao tác giải cần vận dụng phương pháp đã học vào dữ kiện mới, đúng với mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.92,
+            "rationale": "Ba phương án sai đều mô phỏng các lỗi tính toán phổ biến liên quan đến tâm tỉ cự, khai triển bình phương và khoảng cách đến mặt phẳng."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có phương án \\(\\frac{481}{5}\\) phù hợp với biến đổi tâm tỉ cự và điều kiện chiếu vuông góc, các phương án còn lại xuất phát từ lỗi sai."
+          },
+          "error_distractor_consistency": {
+            "score": 0.95,
+            "rationale": "Các chuỗi lỗi mô tả dẫn tới đúng các giá trị distractor tương ứng và phần giải thích khớp với đáp án đã cho."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9500000000000001,
+        "verifier_pass": true,
+        "critic_score": 0.9500000000000001,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "needs_revision",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "verification.error"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Đặt điểm \\(I\\) là tâm tỉ cự của ba điểm với các hệ số \\(2,3,5\\). Khi biến đổi tổng bình phương khoảng cách, biểu thức đạt nhỏ nhất khi \\(M\\) là hình chiếu vuông góc của \\(I\\) lên mặt phẳng \\((Oxy)\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Gọi \\(I(x_I;y_I;z_I)\\) thỏa mãn \\(2\\vec{IA}+3\\vec{IB}+5\\vec{IC}=\\vec{0}\\). Khi đó \\(I\\) có tọa độ là trung bình có trọng số: \\(I\\left(\\frac{2\\cdot1+3\\cdot5+5\\cdot2}{10};\\frac{2\\cdot2+3\\cdot(-1)+5\\cdot3}{10};\\frac{2\\cdot3+3\\cdot4+5\\cdot0}{10}\\right)=I\\left(\\frac{27}{10};\\frac{8}{5};\\frac{9}{5}\\right)\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Dùng công thức biến đổi tổng bình phương khoảng cách: \\(P=10MI^2+\\left(2IA^2+3IB^2+5IC^2\\right)\\). Vì \\(M\\) thuộc \\((Oxy)\\), để \\(MI\\) nhỏ nhất thì \\(M\\) là hình chiếu vuông góc của \\(I\\) lên \\((Oxy)\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Khoảng cách từ \\(I\\) đến \\((Oxy)\\) là \\(\\frac{9}{5}\\), nên \\(MI_{\\min}=\\frac{9}{5}\\). Tính các bình phương khoảng cách đến \\(I\\): \\(IA^2=\\frac{449}{100}\\), \\(IB^2=\\frac{1689}{100}\\), \\(IC^2=\\frac{569}{100}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Thay vào biểu thức nhỏ nhất: \\(P_{\\min}=10\\left(\\frac{9}{5}\\right)^2+2\\cdot\\frac{449}{100}+3\\cdot\\frac{1689}{100}+5\\cdot\\frac{569}{100}=\\frac{81}{5}+\\frac{898+5067+2845}{100}=\\frac{481}{5}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{481}{5}\\)"
+      },
+      "why_correct": "Cách biến đổi theo tâm tỉ cự cho thấy mọi giá trị của \\(P\\) đều bằng một hằng số cộng với \\(10MI^2\\). Do đó giá trị nhỏ nhất xảy ra duy nhất khi \\(MI\\) nhỏ nhất, tức là khi \\(M\\) là hình chiếu của \\(I\\) lên \\((Oxy)\\), nên kết quả tính được là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: khi tính khoảng cách từ tâm tỉ cự \\(I(\\frac{27}{10};\\frac85;\\frac95)\\) đến mặt phẳng \\((Oxy)\\), lấy chính tọa độ của điểm \\(I\\) làm vectơ pháp tuyến thay vì vectơ pháp tuyến đúng \\((0;0;1)\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm: tính tâm tỉ cự nhưng chia tọa độ tổng có trọng số cho số điểm thay vì tổng hệ số. Lấy"
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: khi khai triển bình phương khoảng cách, coi \\((\\overrightarrow{MI}+\\overrightarrow{IA})^2=MI^2+IA^2\\), bỏ mất số hạng chéo. Từ đó tính sai tổng tại vị trí chiếu của \\(I\\) xuống \\((Oxy)\\):"
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_99147610",
+      "blueprint_slot_id": "direct_pdf_19",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 151,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho mặt phẳng \\(P\\): \\(2x-3y+6z+d=0\\) đi qua điểm \\(A(1;2;-1)\\). Tính khoảng cách từ điểm \\(M(4;-1;2)\\) đến mặt phẳng \\(P\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{45}{7}\\)",
+          "error_type": "free_term_sign_error"
+        },
+        {
+          "key": "B",
+          "text": "\\(-\\frac{33}{7}\\)",
+          "error_type": "distance_missing_abs"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\sqrt{21}\\)",
+          "error_type": "plane_normal_vs_point"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{33}{7}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Từ điều kiện điểm \\(A\\) thuộc mặt phẳng, tìm được \\(d\\), sau đó áp dụng công thức khoảng cách từ điểm đến mặt phẳng để tính kết quả.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là khi tìm hệ số tự do \\(d\\), thay tọa độ \\(A(1;2;-1)\\) vào phương trình nhưng đổi sai dấu của hạng tử \\(6z\\), tính nhầm \\(6z=6\\) thay vì \\(6\\cdot(-1)=-6\\). Khi đó có \\(2-6+6+d=0\\Rightarrow d=-2\\). Dùng mặt phẳng sai \\(2x-3y+6z-2=0\\), khoảng cách từ \\(M\\) là \\(\\frac{|2\\cdot4-3\\cdot(-1)+6\\cdot2-2|}{7}=\\frac{27}{7}\\).",
+        "B": "Sau khi tìm được \\(d=10\\), tính tử số của công thức khoảng cách từ \\(M(4;-1;2)\\) đến mặt phẳng \\(P\\): \\(2\\cdot4-3\\cdot(-1)+6\\cdot2+10=33\\). Sai lầm là bỏ dấu giá trị tuyệt đối và giữ nguyên dấu của biểu thức theo dạng \\(\\frac{2x_0-3y_0+6z_0+d}{\\sqrt{2^2+(-3)^2+6^2}}=\\frac{-33}{7}\\). Sai vì khoảng cách luôn không âm và công thức phải có \\(|\\cdot|\\).",
+        "C": "Sai lầm là lấy tọa độ điểm \\(M(4;-1;2)\\) làm vectơ pháp tuyến thay cho vectơ pháp tuyến của mặt phẳng. Khi đó lập mặt phẳng qua \\(A(1;2;-1)\\) có pháp tuyến \\((4;-1;2)\\): \\(4(x-1)-(y-2)+2(z+1)=0\\), hay \\(4x-y+2z=0\\). Tính khoảng cách từ \\(M\\) đến mặt phẳng sai này được \\(\\frac{|4\\cdot4-(-1)+2\\cdot2|}{\\sqrt{4^2+(-1)^2+2^2}}=\\frac{21}{\\sqrt{21}}=\\sqrt{21}\\)."
+      },
+      "hint": "Từ điều kiện điểm \\(A\\) thuộc mặt phẳng, tìm được \\(d\\), sau đó áp dụng công thức khoảng cách từ điểm đến mặt phẳng để tí",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Điểm M0 và mặt \\(\\left(P\\right): ax+by+cz+d=0\\):",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": false,
+          "derivation": false,
+          "value": null,
+          "expression": "abs(2*4-3*(-1)+6*2+10)/sqrt(2**2+(-3)**2+6**2)",
+          "stated_answer": "33/7",
+          "stated_value": null,
+          "source": "llm_resolver",
+          "detail": "biểu thức độc lập không đánh giá được (parse lỗi: name 'Function' is not defined)",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "33/7",
+            "expected_numeric": 6.428571428571429
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (biểu thức độc lập không đánh giá được (parse lỗi: name 'Function' is not defined))",
+        "verified_at": "2026-07-30T04:50:45.586655Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.8183333333333334,
+        "bloom_alignment": 0.85,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ mặt phẳng, điểm thuộc mặt phẳng và yêu cầu tính khoảng cách nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.75,
+            "rationale": "Bài yêu cầu kết hợp xác định tham số rồi áp dụng công thức, phù hợp mức vận dụng cơ bản hơn là chỉ nhớ công thức."
+          },
+          "bloom_alignment": {
+            "score": 0.85,
+            "rationale": "Thao tác chính là hiểu điều kiện điểm thuộc mặt phẳng và áp dụng công thức quen thuộc, phù hợp mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.88,
+            "rationale": "Các phương án sai gắn với lỗi bỏ giá trị tuyệt đối, nhầm vectơ pháp tuyến và sai khi tìm hệ số tự do là các lỗi thường gặp."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có (\\(\\frac{33}{7}\\)) đúng vì khoảng cách dùng giá trị tuyệt đối và mẫu số cố định bằng 7."
+          },
+          "error_distractor_consistency": {
+            "score": 0.45,
+            "rationale": "Mô tả lỗi của hai distractor đầu dẫn đúng tới kết quả, nhưng distractor (\\(\\frac{45}{7}\\)) không suy ra được từ chuỗi lỗi đã nêu và phần giải thích còn mâu thuẫn số liệu."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8183333333333334,
+        "verifier_pass": true,
+        "critic_score": 0.8183333333333334,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ điều kiện điểm \\(A\\) thuộc mặt phẳng, tìm được \\(d\\), sau đó áp dụng công thức khoảng cách từ điểm đến mặt phẳng để tính kết quả.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì \\(A(1;2;-1)\\) thuộc mặt phẳng \\(P\\): \\(2x-3y+6z+d=0\\), thay tọa độ \\(A\\) vào ta có \\(2-6-6+d=0\\), suy ra \\(d=10\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Khi đó phương trình mặt phẳng là \\(2x-3y+6z+10=0\\). Tính giá trị tuyệt đối của biểu thức tại \\(M(4;-1;2)\\): \\(\\left|2\\cdot4-3\\cdot(-1)+6\\cdot2+10\\right|=33\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Khoảng cách từ điểm \\(M(x_0;y_0;z_0)\\) đến mặt phẳng \\(ax+by+cz+d=0\\) là \\(\\frac{|ax_0+by_0+cz_0+d|}{\\sqrt{a^2+b^2+c^2}}\\). Do đó \\(d(M,(P))=\\frac{33}{\\sqrt{2^2+(-3)^2+6^2}}=\\frac{33}{7}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{33}{7}\\)"
+      },
+      "why_correct": "Điểm \\(A\\) thuộc mặt phẳng giúp xác định duy nhất hệ số tự do \\(d\\). Sau đó công thức khoảng cách điểm đến mặt phẳng cho một giá trị duy nhất là \\(\\frac{33}{7}\\).",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm là khi tìm hệ số tự do \\(d\\), thay tọa độ \\(A(1;2;-1)\\) vào phương trình nhưng đổi sai dấu của hạng tử \\(6z\\), tính nhầm \\(6z=6\\) thay vì \\(6\\cdot(-1)=-6\\). Khi đó có \\(2-6+6+d=0\\Rightarrow d=-2\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sau khi tìm được \\(d=10\\), tính tử số của công thức khoảng cách từ \\(M(4;-1;2)\\) đến mặt phẳng \\(P\\): \\(2\\cdot4-3\\cdot(-1)+6\\cdot2+10=33\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm là lấy tọa độ điểm \\(M(4;-1;2)\\) làm vectơ pháp tuyến thay cho vectơ pháp tuyến của mặt phẳng. Khi đó lập mặt phẳng qua \\(A(1;2;-1)\\) có pháp tuyến \\((4;-1;2)\\): \\(4(x-1)-(y-2)+2(z+1)=0\\), hay \\(4x-y+2z=0\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_3dd73043",
+      "blueprint_slot_id": "direct_pdf_21",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 176,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho bốn điểm \\(A(1;2;0)\\), \\(B(3;-1;2)\\), \\(C(0;4;1)\\) và \\(D(t;1;5)\\) với \\(t>2\\). Biết thể tích tứ diện \\(ABCD\\) bằng \\(4\\). Tìm giá trị của \\(t\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{32}{7}\\)",
+          "error_type": "wrong_vector_direction"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{40}{7}\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(-\\frac{8}{7}\\)",
+          "error_type": "ignore_absolute_value"
+        },
+        {
+          "key": "D",
+          "text": "\\(4\\)",
+          "error_type": "tetrahedron_volume_wrong_factor"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Áp dụng công thức thể tích tứ diện bằng tích hỗn tạp, ta lập phương trình theo tham số \\(t\\), giải phương trình giá trị tuyệt đối và dùng điều kiện \\(t>2\\) để chọn nghiệm phù hợp.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: lập sai vectơ cạnh trong tích hỗn tạp, lấy \\(\\overrightarrow{AD}=(t-1;1;5)\\) thay vì \\(\\overrightarrow{AD}=(t-1;-1;5)\\). Khi đó \\([\\overrightarrow{AB},\\overrightarrow{AC}]\\cdot\\overrightarrow{AD}=(-7;-4;1)\\cdot(t-1;1;5)=-7t+8\\). Đặt \\(|-7t+8|=24\\) và chọn nghiệm thỏa \\(t>2\\): \\(-7t+8=-24\\Rightarrow -7t=-32\\Rightarrow t=\\frac{32}{7}\\).",
+        "C": "Sai lầm: bỏ dấu giá trị tuyệt đối trong công thức thể tích tứ diện. Từ tích hỗn tạp \\([\\overrightarrow{AB},\\overrightarrow{AC}]\\cdot\\overrightarrow{AD}=-7t+16\\), học sinh đặt trực tiếp \\(-7t+16=24\\) thay vì \\(|-7t+16|=24\\). Giải ra \\(-7t+16=24\\Rightarrow -7t=8\\Rightarrow t=-\\frac{8}{7}\\). Kết quả sai vì đã bỏ qua trường hợp tích hỗn tạp âm.",
+        "D": "Sai lầm: nhầm công thức thể tích tứ diện thành \\(V=\\frac{1}{3}|[\\overrightarrow{AB},\\overrightarrow{AC}]\\cdot\\overrightarrow{AD}]|\\) thay vì \\(V=\\frac{1}{6}|[\\overrightarrow{AB},\\overrightarrow{AC}]\\cdot\\overrightarrow{AD}]|\\). Khi đó \\(|-7t+16|=12\\). Chọn nghiệm phù hợp với \\(t>2\\): \\(-7t+16=-12\\Rightarrow -7t=-28\\Rightarrow t=4\\). Kết quả sai do dùng sai hệ số trong công thức thể tích."
+      },
+      "hint": "Áp dụng công thức thể tích tứ diện bằng tích hỗn tạp, ta lập phương trình theo tham số \\(t\\), giải phương trình giá trị t",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Thể tích tứ diện \\(ABCD\\): \\(V_{ABCD}=\\frac{1}{6}[AB,AC].AD\\)",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": false,
+          "value": 5.714285714285714,
+          "expression": "40/7",
+          "stated_answer": "40/7",
+          "stated_value": 5.714285714285714,
+          "source": "llm_resolver",
+          "detail": "40/7 = 5.71429; nhưng biểu thức chỉ là hằng số trần — không có phép tính nào được máy kiểm, nên không đủ để gọi là xác nhận độc lập",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "40/7",
+            "expected_numeric": 4.571428571428571
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (nguồn độc lập cũng cho 5.71429 nhưng chỉ khẳng định một hằng số, không suy dẫn)",
+        "verified_at": "2026-07-30T04:51:58.068943Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9249999999999999,
+        "bloom_alignment": 0.85,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề nêu đầy đủ điểm, điều kiện tham số, thể tích và yêu cầu tìm tham số nên mục tiêu giải rõ ràng."
+          },
+          "cognitive_depth": {
+            "score": 0.9,
+            "rationale": "Bài yêu cầu kết hợp lập vectơ, tính tích hỗn tạp, xử lý giá trị tuyệt đối và điều kiện nghiệm nên phù hợp mức vận dụng cao."
+          },
+          "bloom_alignment": {
+            "score": 0.85,
+            "rationale": "Thao tác thực tế là áp dụng công thức và biến đổi đại số có kiểm tra điều kiện, phù hợp với Vận dụng cao."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến như bỏ giá trị tuyệt đối, sai hệ số thể tích và sai vectơ cạnh."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(t=\\\\frac{40}{7}\\) thỏa phương trình thể tích và điều kiện \\(t>2\\), các phương án còn lại không đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 0.95,
+            "rationale": "Chuỗi lỗi được mô tả dẫn đúng đến từng distractor và phần giải thích đáp án nhất quán với đáp án đã cho."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9249999999999999,
+        "verifier_pass": true,
+        "critic_score": 0.9249999999999999,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Áp dụng công thức thể tích tứ diện bằng tích hỗn tạp, ta lập phương trình theo tham số \\(t\\), giải phương trình giá trị tuyệt đối và dùng điều kiện \\(t>2\\) để chọn nghiệm phù hợp.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Ta có các vectơ \\(\\overrightarrow{AB}=(2;-3;2)\\), \\(\\overrightarrow{AC}=(-1;2;1)\\), \\(\\overrightarrow{AD}=(t-1;-1;5)\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Tính tích có hướng \\(\\overrightarrow{AB}\\times\\overrightarrow{AC}=(-7;-4;1)\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tính tích vô hướng với \\(\\overrightarrow{AD}\\): \\((-7;-4;1)\\cdot(t-1;-1;5)=-7(t-1)+4+5=16-7t\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Theo công thức thể tích tứ diện, \\(V_{ABCD}=\\frac{1}{6}|(\\overrightarrow{AB}\\times\\overrightarrow{AC})\\cdot\\overrightarrow{AD}|\\), nên \\(\\frac{|16-7t|}{6}=4\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Chọn đáp án B: \\(\\frac{40}{7}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{40}{7}\\)"
+      },
+      "why_correct": "Phương trình thể tích cho hai nghiệm đại số nhưng điều kiện miền xác định \\(t>2\\) loại nghiệm âm, nên chỉ còn duy nhất \\(t=\\frac{40}{7}\\).",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: lập sai vectơ cạnh trong tích hỗn tạp, lấy \\(\\overrightarrow{AD}=(t-1;1;5)\\) thay vì \\(\\overrightarrow{AD}=(t-1;-1;5)\\). Khi đó"
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: bỏ dấu giá trị tuyệt đối trong công thức thể tích tứ diện. Từ tích hỗn tạp \\([\\overrightarrow{AB},\\overrightarrow{AC}]\\cdot\\overrightarrow{AD}=-7t+16\\), học sinh đặt trực tiếp \\(-7t+16=24\\) thay vì"
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: nhầm công thức thể tích tứ diện thành \\(V=\\frac{1}{3}|[\\overrightarrow{AB},\\overrightarrow{AC}]\\cdot\\overrightarrow{AD}]|\\) thay vì"
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_6a662581",
+      "blueprint_slot_id": "direct_pdf_22",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 251,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một thùng chứa dạng hình hộp chữ nhật có chiều dài \\(6\\) m, chiều rộng \\(8\\) m và thể tích \\(480\\,\\text{m}^3\\). Người ta chế tạo một quả cầu đi qua bốn đỉnh không đồng phẳng của thùng (mặt cầu ngoại tiếp hình hộp). Bán kính của quả cầu bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{1}{2}\\sqrt{6^2+8^2+\\left(\\frac{480}{6+8}\\right)^2}\\)",
+          "error_type": "volume_height_use_sum_of_base_edges"
+        },
+        {
+          "key": "B",
+          "text": "\\(5\\sqrt{2}\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(10\\sqrt{2}\\)",
+          "error_type": "rectangular_box_space_diagonal_forget_half"
+        },
+        {
+          "key": "D",
+          "text": "\\(5\\)",
+          "error_type": "rectangular_box_diagonal_ignore_height"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Từ thể tích suy ra chiều cao của hình hộp, sau đó dùng công thức bán kính mặt cầu ngoại tiếp hình hộp chữ nhật để tính.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: tính chiều cao từ thể tích bằng cách chia thể tích cho tổng chiều dài và chiều rộng đáy thay vì diện tích đáy. Làm sai: \\(h=\\frac{480}{6+8}=\\frac{240}{7}\\). Sau đó vẫn áp dụng công thức đúng cho bán kính: \\(R=\\frac{1}{2}\\sqrt{6^2+8^2+h^2}=\\frac{1}{2}\\sqrt{6^2+8^2+\\left(\\frac{480}{14}\\right)^2}\\). Sai vì chiều cao phải được tính bởi \\(h=\\frac{V}{6\\cdot8}\\).",
+        "C": "Sai lầm: coi đường chéo không gian của hình hộp là bán kính mặt cầu thay vì là đường kính. Tính chiều cao đúng: \\(h=\\frac{480}{6\\cdot 8}=10\\). Đường chéo không gian là \\(d=\\sqrt{6^2+8^2+10^2}=10\\sqrt{2}\\). Do nhầm \\(R=d\\) nên nhận được \\(R=10\\sqrt{2}\\). Sai vì bán kính mặt cầu ngoại tiếp hình hộp phải bằng nửa đường chéo không gian.",
+        "D": "Sai lầm: chỉ xét đường chéo của mặt đáy và bỏ qua chiều cao của hình hộp khi tính bán kính. Tính \\(d_{đáy}=\\sqrt{6^2+8^2}=10\\), sau đó lấy bán kính bằng nửa đường chéo đáy: \\(R=\\frac{10}{2}=5\\). Sai vì mặt cầu ngoại tiếp hình hộp phải đi qua các đỉnh ở cả hai đáy nên cần dùng đường chéo không gian."
+      },
+      "hint": "Từ thể tích suy ra chiều cao của hình hộp, sau đó dùng công thức bán kính mặt cầu ngoại tiếp hình hộp chữ nhật để tính.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Ngoại tiếp khối hộp chữ nhật dài; rộng; cao lần lượt a b c ; ; . 2 2 2 a b c R",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 7.0710678118654755,
+          "expression": "sqrt(6**2 + 8**2 + (480/(6*8))**2)/2",
+          "stated_answer": "5*sqrt(2)",
+          "stated_value": 7.0710678118654755,
+          "source": "llm_resolver",
+          "detail": "sqrt(6**2 + 8**2 + (480/(6*8))**2)/2 = 7.07107",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "sqrt(200)/2",
+            "expected_numeric": 1.0
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 7.07107, khớp đáp án key",
+        "verified_at": "2026-07-30T04:51:58.072330Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9049999999999999,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề nêu đầy đủ kích thước, thể tích, yêu cầu bán kính mặt cầu ngoại tiếp và không có cách hiểu khác."
+          },
+          "cognitive_depth": {
+            "score": 0.82,
+            "rationale": "Bài yêu cầu kết hợp suy ra chiều cao từ thể tích rồi vận dụng công thức hình học không gian, phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là lựa chọn công thức phù hợp và thực hiện tính toán từ dữ kiện mới, đúng với mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.78,
+            "rationale": "Các phương án sai đều mô phỏng lỗi thường gặp như quên chia đôi đường chéo hoặc bỏ qua chiều cao, nhưng phương án thứ ba có dạng ít tự nhiên hơn."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Tính được \\(h=10\\), đường chéo không gian \\(10\\\\sqrt{2}\\), nên bán kính duy nhất là \\(5\\\\sqrt{2}\\) và các phương án còn lại đều sai."
+          },
+          "error_distractor_consistency": {
+            "score": 0.95,
+            "rationale": "Hai distractor đầu cho đúng kết quả theo chuỗi lỗi mô tả, distractor thứ ba cũng cho đúng biểu thức sai do dùng \\(h=\\\\frac{480}{14}\\), và phần giải thích nhất quán với đáp án."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9049999999999999,
+        "verifier_pass": true,
+        "critic_score": 0.9049999999999999,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ thể tích suy ra chiều cao của hình hộp, sau đó dùng công thức bán kính mặt cầu ngoại tiếp hình hộp chữ nhật để tính.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Gọi chiều cao của hình hộp là \\(h\\). Theo công thức thể tích hình hộp chữ nhật, ta có \\(6\\cdot 8\\cdot h=480\\), suy ra \\(h=10\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Đường chéo không gian của hình hộp là \\(d=\\sqrt{6^2+8^2+10^2}\\). Tính được \\(d=\\sqrt{200}=10\\sqrt{2}\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Mặt cầu ngoại tiếp hình hộp chữ nhật có bán kính bằng nửa đường chéo không gian, nên \\(R=\\frac{d}{2}=\\frac{10\\sqrt{2}}{2}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Rút gọn biểu thức thu được \\(R=5\\sqrt{2}\\). Vậy bán kính quả cầu cần tìm là \\(5\\sqrt{2}\\)."
+          }
+        ],
+        "final_answer": "\\(5\\sqrt{2}\\)"
+      },
+      "why_correct": "Bán kính mặt cầu ngoại tiếp hình hộp chữ nhật được xác định duy nhất bởi nửa đường chéo không gian của hình hộp; chiều cao đã được suy ra từ dữ kiện thể tích nên không có giá trị khác phù hợp.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: tính chiều cao từ thể tích bằng cách chia thể tích cho tổng chiều dài và chiều rộng đáy thay vì diện tích đáy. Làm sai: \\(h=\\frac{480}{6+8}=\\frac{240}{7}\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: coi đường chéo không gian của hình hộp là bán kính mặt cầu thay vì là đường kính. Tính chiều cao đúng: \\(h=\\frac{480}{6\\cdot 8}=10\\). Đường chéo không gian là \\(d=\\sqrt{6^2+8^2+10^2}=10\\sqrt{2}\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: chỉ xét đường chéo của mặt đáy và bỏ qua chiều cao của hình hộp khi tính bán kính. Tính \\(d_{đáy}=\\sqrt{6^2+8^2}=10\\), sau đó lấy bán kính bằng nửa đường chéo đáy: \\(R=\\frac{10}{2}=5\\)."
+        }
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "question_id": "rej_direct_pdf_0_distractor",
+      "blueprint_slot_id": "direct_pdf_0",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 161,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 0
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một bể chứa dạng hình cầu có tâm \\(O(3;-2;1)\\) và tiếp xúc với mặt phẳng đáy đi qua ba điểm \\(A(5;0;0)\\), \\(B(1;1;0)\\), \\(C(0;-1;2)\\). Tính bán kính của bể chứa.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{11\\sqrt{149}}{149}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Mặt cầu tiếp xúc với mặt phẳng nên bán kính bằng khoảng cách từ tâm \\(O\\) đến mặt phẳng chứa \\(A,B,C\\). Cần tìm phương trình mặt phẳng từ ba điểm rồi áp dụng công thức khoảng cách.",
+      "explanation_per_distractor": {},
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Do đó: điều kiện cần và đủ để tiếp xúc với mặt cầu là d O R    ,  .",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T04:40:59.346168Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "Không tạo đủ 3 phương án nhiễu đạt chuẩn (error=Expecting value: line 9 column 25 (char 680), n=0)",
+      "reject_reason_code": "bad_distractors",
+      "reject_reason_stage": "distractor",
+      "reject_log": [
+        {
+          "reason_code": "bad_distractors",
+          "stage": "distractor",
+          "attempt": 0,
+          "message": "Không tạo đủ 3 phương án nhiễu đạt chuẩn (error=Expecting value: line 9 column 25 (char 680), n=0)",
+          "slot_id": "direct_pdf_0"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_1_critic",
+      "blueprint_slot_id": "direct_pdf_1",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.47,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 125,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho hai vectơ \\(a=(3;-4;6)\\) và \\(b=(1;2;-1)\\). Đặt vectơ \\(c=2a-b\\). Tính độ dài của vectơ \\(c\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\sqrt{246}\\)",
+          "error_type": "coordinate_subtraction_arithmetic_error"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\sqrt{89}\\)",
+          "error_type": "missing_scalar_multiplication_factor"
+        },
+        {
+          "key": "C",
+          "text": "\\(7\\sqrt{6}\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(\\sqrt{206}\\)",
+          "error_type": "wrong_sign_in_vector_subtraction"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Ta biến đổi vectơ \\(c\\) từ các vectơ đã cho rồi áp dụng công thức độ dài vectơ trong không gian.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: tính sai tọa độ thứ ba khi thực hiện \\(2a-b\\). Sau khi có \\(2a=(6;-8;12)\\), học sinh tính nhầm \\(12-(-1)=11\\) thay vì \\(13\\), nên nhận \\(c=(5;-10;11)\\). Từ đó tính độ dài sai: \\(|c|=\\sqrt{5^2+(-10)^2+11^2}=\\sqrt{246}\\). Sai vì phép trừ số nguyên \\(12-(-1)\\) phải bằng \\(13\\).",
+        "B": "Sai lầm: quên nhân hệ số \\(2\\) trong biểu thức \\(2a-b\\), lấy nhầm \\(c=a-b\\). Tính được \\(c=(3;-4;6)-(1;2;-1)=(2;-6;7)\\). Khi đó độ dài sai là \\(|c|=\\sqrt{2^2+(-6)^2+7^2} = \\sqrt{89}\\). Sai vì vectơ \\(a\\) phải được nhân với \\(2\\) trước khi thực hiện phép trừ.",
+        "D": "Sai lầm: nhầm dấu khi thực hiện \\(c=2a-b\\), coi \\(-b\\) thành \\(+b\\). Khi đó \\(2a=(6;-8;12)\\) và tính sai \\(c=2a+b=(6+1;-8+2;12-1)=(7;-6;11)\\). Suy ra độ dài sai là \\(|c|=\\sqrt{7^2+(-6)^2+11^2}=\\sqrt{206}\\). Sai vì phép trừ vectơ phải đổi dấu toàn bộ tọa độ của \\(b\\) trước khi cộng."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "⑷ Độ dài véctơ a: ................................................... \\(a=\\sqrt{(a_1)^2+(a_2)^2+(a_3)^2}\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 17.146428199482248,
+          "expression": "sqrt((2*3-1)**2+(2*(-4)-2)**2+(2*6-(-1))**2)",
+          "stated_answer": "7*sqrt(6)",
+          "stated_value": 17.146428199482248,
+          "source": "llm_resolver",
+          "detail": "sqrt((2*3-1)**2+(2*(-4)-2)**2+(2*6-(-1))**2) = 17.1464",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "sqrt(294)",
+            "expected_numeric": 15.684387141358123
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 17.1464, khớp đáp án key",
+        "verified_at": "2026-07-30T04:41:13.637846Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.6416666666666667,
+        "bloom_alignment": 0.85,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 1.0,
+            "rationale": "Đề nêu rõ hai vectơ, phép biến đổi cần thực hiện và yêu cầu tính độ dài nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.75,
+            "rationale": "Bài yêu cầu kết hợp phép biến đổi vectơ với công thức độ dài, phù hợp mức vận dụng cơ bản hơn là chỉ nhớ công thức."
+          },
+          "bloom_alignment": {
+            "score": 0.85,
+            "rationale": "Thao tác chính là áp dụng công thức và thực hiện biến đổi theo mẫu đã học, phù hợp mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi tính toán vectơ phổ biến như sai dấu, quên hệ số và sai tọa độ."
+          },
+          "answer_uniqueness": {
+            "score": 0.0,
+            "rationale": "Tính đúng cho c=(5;-10;13) và độ dài là 3sqrt(26), không trùng với bất kỳ phương án nhiễu nào nên đáp án 7sqrt(6) không đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 0.35,
+            "rationale": "Chuỗi lỗi của các distractor tạo ra các giá trị đã nêu, nhưng đáp án và lời giải chính sai vì độ dài vectơ c được tính không đúng."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.6416666666666667,
+        "verifier_pass": true,
+        "critic_score": 0.6416666666666667,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "answer_uniqueness=0.00 (nghi đa đáp án)",
+      "reject_reason_code": "bad_distractors",
+      "reject_reason_stage": "critic",
+      "reject_log": [
+        {
+          "reason_code": "bad_distractors",
+          "stage": "critic",
+          "attempt": 0,
+          "message": "answer_uniqueness=0.00 (nghi đa đáp án)",
+          "slot_id": "direct_pdf_1"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_2_verifier",
+      "blueprint_slot_id": "direct_pdf_2",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 155,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Cho mặt cầu \\(S\\) có tâm \\(O(t;-2;3)\\) tiếp xúc với mặt phẳng \\(P:2x-y+2z-6=0\\) và đi qua điểm \\(A(5;1;1)\\). Biết \\(t<5\\). Tính bán kính của mặt cầu \\(S\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{5\\sqrt{3}(36-\\sqrt{1122})}{6}\\)",
+          "error_type": "plane_normal_vs_point"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{\\sqrt{1612-144\\sqrt{79}}}{5}\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{2(18+\\sqrt{79})}{5}\\)",
+          "error_type": "wrong_root_condition"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{54-2\\sqrt{259}}{5}\\)",
+          "error_type": "plane_distance_sign_error"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Vì mặt cầu tiếp xúc với mặt phẳng nên bán kính bằng khoảng cách từ tâm đến mặt phẳng. Kết hợp điều kiện mặt cầu đi qua điểm A để lập phương trình theo tham số t, sau đó chọn nghiệm phù hợp với điều kiện \\(t<5\\) và tính bán kính.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: lấy tọa độ điểm \\(A(5;1;1)\\) làm vector pháp tuyến của mặt phẳng thay cho vector pháp tuyến đúng \\((2;-1;2)\\). Khi đó coi mặt phẳng cần xét là \\(5x+y+z-6=0\\), lập phương trình \\((t-5)^2+13=\\frac{(5t-5)^2}{27}\\), chọn nghiệm thỏa điều kiện \\(t<5\\) là \\(t=55-\\frac{3\\sqrt{1122}}{2}\\), rồi tính bán kính theo khoảng cách sai này được \\(\\frac{5\\sqrt{3}(36-\\sqrt{1122})}{6}\\).",
+        "C": "Sai lầm: giải phương trình tham số đúng nhưng chọn nhầm nghiệm không thỏa điều kiện \\(t<5\\). Từ phương trình \\(5t^2-98t+338=0\\) lấy nghiệm \\(t=\\frac{49+3\\sqrt{79}}{5}\\) thay vì nghiệm nhỏ hơn \\(5\\), sau đó tính \\(R=\\frac{2|t+1|}{3}\\) nên thu được \\(\\frac{2(18+\\sqrt{79})}{5}\\). Sai vì nghiệm này bị loại bởi điều kiện của đề bài.",
+        "D": "Sai lầm: thay sai dấu khi tính khoảng cách từ tâm \\(O(t;-2;3)\\) đến mặt phẳng, viết nhầm tử số của công thức khoảng cách thành \\(2t+8\\) thay vì \\(2t+2\\). Khi đó lập \\((t-5)^2+13=\\frac{(2t+8)^2}{9}\\), chọn nghiệm nhỏ hơn \\(5\\) là \\(t=\\frac{61-3\\sqrt{259}}{5}\\), rồi tính \\(R=\\frac{|2t+8|}{3}=\\frac{54-2\\sqrt{259}}{5}\\). Sai vì đã thay đổi sai biểu thức khoảng cách đến mặt phẳng."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Do đó, điều kiện cần và đủ để (P) tiếp xúc với mặt cầu S(O;R) là d(O,(P)) = R.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T04:41:29.368984Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "answer_text_mismatch: đáp án key \\(\\frac{\\sqrt{1612-144\\sqrt{79}}}{5}\\) không khớp giá trị 3.6447222330737645 mà engine tính ra",
+      "reject_reason_code": "verifier_failed",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "verifier_failed",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "answer_text_mismatch: đáp án key \\(\\frac{\\sqrt{1612-144\\sqrt{79}}}{5}\\) không khớp giá trị 3.6447222330737645 mà engine tính ra",
+          "slot_id": "direct_pdf_2"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_4_critic",
+      "blueprint_slot_id": "direct_pdf_4",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.47,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 148,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho điểm \\(A(1;2;-1)\\) và điểm \\(M(4;0;2)\\) là trung điểm của đoạn thẳng \\(AB\\). Độ dài đoạn thẳng \\(AB\\) bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(2\\sqrt{20}\\)",
+          "error_type": "coordinate_difference_sign_error"
+        },
+        {
+          "key": "B",
+          "text": "\\(6\\)",
+          "error_type": "midpoint_vector_subtraction_error"
+        },
+        {
+          "key": "C",
+          "text": "\\(4\\sqrt{6}\\)",
+          "error_type": "distance_without_square_error"
+        },
+        {
+          "key": "D",
+          "text": "\\(2\\sqrt{22}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Vì \\(M\\) là trung điểm của \\(AB\\), trước hết cần tìm tọa độ điểm \\(B\\), sau đó áp dụng công thức tính độ dài đoạn thẳng.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: khi tính vectơ \\(\\overrightarrow{AB}\\), học sinh lấy sai dấu ở một tọa độ: \\(\\overrightarrow{AB}=(7-1;\\,0-2;\\,5-(-1))=(6;-2;6)\\) thay vì \\((6;-4;6)\\). Khi đó \\(AB=\\sqrt{6^2+(-2)^2+6^2}=\\sqrt{76}=2\\sqrt{19}\\), chưa ra đáp án; nếu tiếp tục nhầm \\(2\\) thành \\(0\\) ở tọa độ giữa, phép tính sai thường cho \\(\\sqrt{80}=2\\sqrt{20}\\).",
+        "B": "Sai lầm: từ điều kiện \\(M\\) là trung điểm của \\(AB\\), học sinh lấy nhầm \\(\\overrightarrow{MB}=\\overrightarrow{MA}\\) nên tính \\(B=M-A\\) thay vì \\(B=2M-A\\). Khi đó \\(B(3;-2;3)\\). Suy ra \\(AB=\\sqrt{(3-1)^2+(-2-2)^2+(3+1)^2}=\\sqrt{4+16+16}=6\\). Sai vì công thức trung điểm phải là \\(M\\left(\\frac{x_A+x_B}{2};\\frac{y_A+y_B}{2};\\frac{z_A+z_B}{2}\\right)\\), không phải hiệu tọa độ.",
+        "C": "Sai lầm: sau khi tìm đúng \\(B(7;-2;5)\\), học sinh tính độ dài đoạn thẳng bằng cách lấy tổng các độ dài tọa độ thay vì dùng công thức căn bậc hai của tổng bình phương. Các độ chênh lệch là \\(6,-4,6\\), nên làm sai thành \\(AB=|6|+|-4|+|6|=16\\) hoặc không bình phương đúng các thành phần; với lỗi bỏ một bước rút gọn căn thường gặp, học sinh có thể ghi \\(\\sqrt{96}=4\\sqrt{6}\\)."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "⑵ Độ dài véctơ AB: (xB−xA)^2+(yB−yA)^2+(zB−zA)^2",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": false,
+          "derivation": false,
+          "value": null,
+          "expression": "sqrt((2*4-1)**2+(2*0-2)**2+(2*2-(-1))**2)",
+          "stated_answer": "2*sqrt(22)",
+          "stated_value": 9.38083151964686,
+          "source": "llm_resolver",
+          "detail": "tác nhân độc lập tự mâu thuẫn: biểu thức cho 8.83176 nhưng đáp án tự khai là 9.38083",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "sqrt(88)",
+            "expected_numeric": 8.94427190999916
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (tác nhân độc lập tự mâu thuẫn: biểu thức cho 8.83176 nhưng đáp án tự khai là 9.38083)",
+        "verified_at": "2026-07-30T04:42:22.034352Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.8016666666666666,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu đầy đủ điểm, điều kiện trung điểm và yêu cầu tính độ dài nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.78,
+            "rationale": "Bài yêu cầu kết hợp tìm điểm đối xứng qua trung điểm và áp dụng công thức khoảng cách, phù hợp mức vận dụng cơ bản."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác cần thiết là hiểu quan hệ trung điểm và áp dụng công thức đã học, phù hợp mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.82,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến về công thức trung điểm, dấu tọa độ hoặc tính độ dài."
+          },
+          "answer_uniqueness": {
+            "score": 0.98,
+            "rationale": "Chỉ có đáp án \\(2\\sqrt{22}\\) đúng vì tọa độ \\(B\\) và độ dài \\(AB\\) được xác định duy nhất."
+          },
+          "error_distractor_consistency": {
+            "score": 0.35,
+            "rationale": "Một số mô tả lỗi không dẫn chính xác đến giá trị distractor (đặc biệt \\(4\\sqrt6\\) và \\(2\\sqrt{20}\\)), dù phần giải thích đáp án đúng nhất quán."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8016666666666666,
+        "verifier_pass": true,
+        "critic_score": 0.8016666666666666,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Một số mô tả lỗi không dẫn chính xác đến giá trị distractor (đặc biệt \\(4\\sqrt6\\) và \\(2\\sqrt{20}\\)), dù phần giải thích đáp án đúng nhất quán.)",
+      "reject_reason_code": "quality_low",
+      "reject_reason_stage": "critic",
+      "reject_log": [
+        {
+          "reason_code": "quality_low",
+          "stage": "critic",
+          "attempt": 0,
+          "message": "error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Một số mô tả lỗi không dẫn chính xác đến giá trị distractor (đặc biệt \\(4\\sqrt6\\) và \\(2\\sqrt{20}\\)), dù phần giải thích đáp án đúng nhất quán.)",
+          "slot_id": "direct_pdf_4"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_7_writer",
+      "blueprint_slot_id": "direct_pdf_7",
+      "cognitive_level": "Vận dụng",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 4 column 254 (char 501)\"])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 4 column 254 (char 501)\"])",
+          "slot_id": "direct_pdf_7"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_12_critic",
+      "blueprint_slot_id": "direct_pdf_12",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 218,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho ba điểm \\(A(1;2;3)\\), \\(B(4;-1;5)\\), \\(C(2;3;-1)\\) và điểm \\(M(t;0;4)\\) với \\(t>0\\). Biết khoảng cách từ \\(M\\) đến mặt phẳng \\((ABC)\\) bằng \\(\\frac{9}{\\sqrt{83}}\\). Tìm giá trị của \\(t\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{7}{5}\\)",
+          "error_type": "absolute_value_single_branch"
+        },
+        {
+          "key": "B",
+          "text": "\\(2+9\\sqrt{\\frac{14}{83}}\\)",
+          "error_type": "plane_normal_vs_point"
+        },
+        {
+          "key": "C",
+          "text": "\\(7+9\\sqrt{\\frac{18}{83}}\\)",
+          "error_type": "normal_vs_direction_vector"
+        },
+        {
+          "key": "D",
+          "text": "\\(5\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Ta lập phương trình mặt phẳng \\((ABC)\\) bằng tích có hướng của hai vectơ chỉ phương, sau đó dùng công thức khoảng cách từ điểm đến mặt phẳng để lập phương trình theo tham số \\(t\\) và giải.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm khi giải phương trình trị tuyệt đối chỉ giữ một nhánh. Từ mặt phẳng đúng suy ra \\(|5t-16|=9\\). Thay vì xét cả hai trường hợp \\(5t-16=9\\) và \\(5t-16=-9\\), người làm chỉ lấy nhánh \\(5t-16=-9\\), nên tính được \\(5t=7\\) và \\(t=\\frac{7}{5}\\). Sai vì phương trình trị tuyệt đối phải xét đầy đủ các trường hợp.",
+        "B": "Lấy tọa độ điểm \\(A(1;2;3)\\) làm vectơ pháp tuyến của mặt phẳng thay vì tìm vectơ pháp tuyến thật. Khi đó viết mặt phẳng sai qua \\(A\\): \\(x+2y+3z-14=0\\). Khoảng cách từ \\(M(t;0;4)\\) đến mặt phẳng này là \\(\\frac{|t-2|}{\\sqrt{14}}\\). Giải \\(\\frac{|t-2|}{\\sqrt{14}}=\\frac{9}{\\sqrt{83}}\\) và lấy nghiệm dương được \\(t=2+9\\sqrt{\\frac{14}{83}}\\).",
+        "C": "Dùng sai vectơ chỉ phương của mặt phẳng làm vectơ pháp tuyến. Lấy \\(\\overrightarrow{AC}=(1;1;-4)\\) làm vectơ pháp tuyến, lập mặt phẳng sai: \\(x+y-4z+9=0\\). Khi đó khoảng cách từ \\(M(t;0;4)\\) đến mặt phẳng sai là \\(\\frac{|t-7|}{\\sqrt{18}}\\). Giải \\(\\frac{|t-7|}{\\sqrt{18}}=\\frac{9}{\\sqrt{83}}\\) và chọn nghiệm dương lớn thu được \\(t=7+9\\sqrt{\\frac{18}{83}}\\)."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Khoảng cách điểm M0 và mặt: \\(d(M_0;(P))=\\frac{|ax_0+by_0+cz_0+d|}{|n|}\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": false,
+          "derivation": false,
+          "value": null,
+          "expression": "",
+          "stated_answer": "",
+          "stated_value": null,
+          "source": "not_applicable",
+          "detail": "tác nhân độc lập báo bài toán không có kết quả số duy nhất",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "5",
+            "expected_numeric": 1.4
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (tác nhân độc lập báo bài toán không có kết quả số duy nhất)",
+        "verified_at": "2026-07-30T04:47:29.046751Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.5083333333333333,
+        "bloom_alignment": 0.65,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.75,
+            "rationale": "Đề nêu đầy đủ dữ kiện và yêu cầu tìm t nhưng thiếu điều kiện loại nghiệm cần thiết nên gây mơ hồ về đáp án duy nhất."
+          },
+          "cognitive_depth": {
+            "score": 0.8,
+            "rationale": "Bài yêu cầu kết hợp lập mặt phẳng, tính khoảng cách và giải phương trình trị tuyệt đối, phù hợp dạng vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.65,
+            "rationale": "Thao tác chính là vận dụng công thức và quy trình giải quen thuộc, chưa thể hiện rõ mức vận dụng cao do không có biến đổi phức tạp."
+          },
+          "distractor_plausibility": {
+            "score": 0.55,
+            "rationale": "Các phương án sai gắn với lỗi thường gặp như chọn sai pháp tuyến và bỏ nhánh trị tuyệt đối, nhưng một phương án lại trùng nghiệm đúng."
+          },
+          "answer_uniqueness": {
+            "score": 0.0,
+            "rationale": "Từ mặt phẳng đúng suy ra \\(|5t-16|=9\\), với \\(t>0\\) có cả \\(t=5\\) và \\(t=7/5\\), nên không chỉ có một đáp án đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 0.3,
+            "rationale": "Hai distractor đầu cho ra đúng giá trị theo chuỗi lỗi mô tả, nhưng distractor \\(7/5\\) thực tế cũng là nghiệm đúng của đề nên phần lỗi và why_correct mâu thuẫn."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.5083333333333333,
+        "verifier_pass": true,
+        "critic_score": 0.5083333333333333,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "answer_uniqueness=0.00 (nghi đa đáp án)",
+      "reject_reason_code": "bad_distractors",
+      "reject_reason_stage": "critic",
+      "reject_log": [
+        {
+          "reason_code": "bad_distractors",
+          "stage": "critic",
+          "attempt": 0,
+          "message": "answer_uniqueness=0.00 (nghi đa đáp án)",
+          "slot_id": "direct_pdf_12"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_13_writer",
+      "blueprint_slot_id": "direct_pdf_13",
+      "cognitive_level": "Vận dụng",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 1 column 495 (char 494)\"])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 1 column 495 (char 494)\"])",
+          "slot_id": "direct_pdf_13"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_15_writer",
+      "blueprint_slot_id": "direct_pdf_15",
+      "cognitive_level": "Vận dụng",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['Extra data: line 1 column 1230 (char 1229)'])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=['Extra data: line 1 column 1230 (char 1229)'])",
+          "slot_id": "direct_pdf_15"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_16_writer",
+      "blueprint_slot_id": "direct_pdf_16",
+      "cognitive_level": "Thông hiểu",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 1 column 1105 (char 1104)\"])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 1 column 1105 (char 1104)\"])",
+          "slot_id": "direct_pdf_16"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_17_verifier",
+      "blueprint_slot_id": "direct_pdf_17",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 184,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho ba điểm \\(A(0;0;0)\\), \\(B(6;0;0)\\), \\(C(0;0;6)\\). Điểm \\(M\\) thuộc mặt phẳng \\((P):x+y+z=12\\). Tìm giá trị nhỏ nhất của biểu thức \\(S=2MA^2+3MB^2+MC^2\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(216\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(356\\)",
+          "error_type": "weighted_center_wrong"
+        },
+        {
+          "key": "C",
+          "text": "\\(68-128=-60\\)",
+          "error_type": "signed_distance_without_absolute"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{352}{5}\\)",
+          "error_type": "plane_normal_vs_point"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Ta đưa biểu thức tổng bình phương có trọng số về dạng khoảng cách tới một điểm đặc biệt \\(I\\), sau đó dùng khoảng cách từ \\(I\\) đến mặt phẳng để tìm giá trị nhỏ nhất.",
+      "explanation_per_distractor": {
+        "B": "Sai lầm: khi đưa biểu thức về điểm cân bằng trọng số, lấy tọa độ điểm đặc biệt là tổng có trọng số \\(I(2\\cdot0+3\\cdot6+0;0;2\\cdot0+3\\cdot0+6)=(18;0;6)\\), nhưng quên chia cho tổng hệ số \\(2+3+1=6\\). Khi đó tính khoảng cách từ \\(I\\) sai đến mặt phẳng: \\(d=\\frac{|18+0+6-12|}{\\sqrt{3}}=\\frac{12}{\\sqrt{3}}\\). Thay vào dạng \\(S_{min}=6d^2+68\\) được \\(S=6\\cdot\\frac{144}{3}+68=356\\).",
+        "C": "Sai lầm: tính khoảng cách từ \\(I(3;0;1)\\) đến mặt phẳng nhưng bỏ dấu giá trị tuyệt đối, lấy \\(d=\\frac{3+0+1-12}{\\sqrt{3}}=-\\frac{8}{\\sqrt{3}}\\). Sau đó thay sai dấu vào phần đóng góp của khoảng cách, coi phần cực trị là \\(6d\\sqrt{3}=-128\\), nên được \\(S=68-128=-60\\). Sai vì khoảng cách luôn không âm và phải dùng \\(d^2\\) trong công thức tổng bình phương khoảng cách.",
+        "D": "Sai lầm: lấy tọa độ điểm đặc biệt \\(I(3;0;1)\\) làm vector pháp tuyến thay vì lấy vector pháp tuyến của mặt phẳng. Dùng nhầm vector \\(n=(3;0;1)\\), tính khoảng cách sai: \\(d=\\frac{|(3;0;1)\\cdot(3;0;1)-12|}{\\sqrt{3^2+0^2+1^2}}=\\frac{2}{\\sqrt{10}}\\). Khi đó suy ra \\(S_{min}=68+6d^2=68+6\\cdot\\frac{4}{10}=\\frac{352}{5}\\). Sai vì vector pháp tuyến của mặt phẳng \\(x+y+z=12\\) phải là \\((1;1;1)\\)."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Bước 1: Gọi I là điểm thỏa mãn \\(k_1\\overrightarrow{IA_1}+k_2\\overrightarrow{IA_2}+...+k_n\\overrightarrow{IA_n}=0\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T04:48:38.898695Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "answer_text_mismatch: đáp án key \\(216\\) không khớp giá trị 203.0 mà engine tính ra",
+      "reject_reason_code": "verifier_failed",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "verifier_failed",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "answer_text_mismatch: đáp án key \\(216\\) không khớp giá trị 203.0 mà engine tính ra",
+          "slot_id": "direct_pdf_17"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_20_critic",
+      "blueprint_slot_id": "direct_pdf_20",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 188,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho bốn điểm \\(A(0;1;2)\\), \\(B(3;2;-1)\\), \\(C(1;5;4)\\) và \\(D(t;-2;3)\\) với \\(t>5\\). Biết thể tích tứ diện \\(ABCD\\) bằng \\(\\frac{68}{3}\\). Tìm giá trị của \\(t\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(8\\)",
+          "error_type": "missing_tetrahedron_factor"
+        },
+        {
+          "key": "B",
+          "text": "\\(6\\)",
+          "error_type": "wrong_cross_product_component"
+        },
+        {
+          "key": "C",
+          "text": "\\(7\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(5\\)",
+          "error_type": "sign_error_in_vector_AD"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Áp dụng công thức thể tích tứ diện bằng tích hỗn tạp của ba vectơ xuất phát từ cùng một đỉnh. Từ điều kiện thể tích lập được phương trình theo tham số \\(t\\), sau đó giải để tìm nghiệm phù hợp với điều kiện \\(t>5\\).",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: quên hệ số \\(\\frac{1}{6}\\) trong công thức thể tích tứ diện và dùng nhầm \\(V=|[\\overrightarrow{AB},\\overrightarrow{AC},\\overrightarrow{AD}]|\\). Với tích hỗn tạp đúng \\(|14t+38|\\), học sinh lập \\(14t+38=\\frac{68}{3}\\), dẫn đến \\(t=-\\frac{23}{21}\\), không thỏa điều kiện. Một số học sinh tiếp tục lấy giá trị gần trong miền \\(t>5\\) do sai biến đổi sẽ chọn \\(t=8\\).",
+        "B": "Sai lầm: khi tính tích có hướng, học sinh tính sai thành phần thứ ba của \\(\\overrightarrow{AB}\\times\\overrightarrow{AC}\\). Thay vì \\((14;-9;11)\\), lấy nhầm \\((14;-9;10)\\). Khi đó tích hỗn tạp được tính sai là \\(14t+27+10=14t+37\\). Lập phương trình thể tích: \\(\\frac{14t+37}{6}=\\frac{68}{3}\\Rightarrow 14t+37=136\\Rightarrow t=\\frac{99}{14}\\), gần \\(7\\) nhưng không phải đáp án đúng;",
+        "D": "Sai lầm: khi lập \\(\\overrightarrow{AD}\\), học sinh lấy sai dấu tung độ của điểm \\(D(t;-2;3)\\), viết nhầm \\(\\overrightarrow{AD}=(t;3;1)\\) thay vì \\((t;-3;1)\\). Khi đó tích hỗn tạp sai là \\((14;-9;11)\\cdot(t;3;1)=14t-27+11=14t-16\\). Lập phương trình \\(\\frac{14t-16}{6}=\\frac{68}{3}\\Rightarrow 14t-16=136\\Rightarrow t=\\frac{76}{7}\\)."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Thể tích tứ diện ABCD.......................................",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": false,
+          "value": 7.0,
+          "expression": "98/14",
+          "stated_answer": "7",
+          "stated_value": 7.0,
+          "source": "llm_resolver",
+          "detail": "98/14 = 7; nhưng biểu thức chỉ là hằng số trần — không có phép tính nào được máy kiểm, nên không đủ để gọi là xác nhận độc lập",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "7",
+            "expected_numeric": 5
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (nguồn độc lập cũng cho 7 nhưng chỉ khẳng định một hằng số, không suy dẫn)",
+        "verified_at": "2026-07-30T04:50:01.607334Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.7766666666666667,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu đầy đủ tọa độ, điều kiện tham số, thể tích và yêu cầu tìm một giá trị xác định của \\(t\\)."
+          },
+          "cognitive_depth": {
+            "score": 0.88,
+            "rationale": "Bài yêu cầu phối hợp tính vectơ, tích có hướng, tích hỗn tạp và giải phương trình tham số nên có mức vận dụng cao."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác giải không chỉ nhớ công thức mà cần áp dụng chuỗi biến đổi nhiều bước để tìm tham số, phù hợp mức Vận dụng cao."
+          },
+          "distractor_plausibility": {
+            "score": 0.7,
+            "rationale": "Các phương án sai đều gắn với lỗi tính tích có hướng, quên hệ số thể tích hoặc sai vectơ, nhưng một số cách tạo giá trị chưa tự nhiên."
+          },
+          "answer_uniqueness": {
+            "score": 0.95,
+            "rationale": "Phương trình thể tích cho một nghiệm duy nhất thỏa \\(t>5\\), và các lựa chọn còn lại không phải nghiệm đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 0.25,
+            "rationale": "Mô tả lỗi của các distractor không nhất quán vì các phép tính sai được nêu không thực sự dẫn đúng tới các giá trị 6, 8, 5; phần giải thích đáp án cũng khẳng định kết quả đúng là 7."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.7766666666666667,
+        "verifier_pass": true,
+        "critic_score": 0.7766666666666667,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "error_distractor_consistency=0.25 (lỗi mô tả không khớp giá trị distractor/đáp án) (Mô tả lỗi của các distractor không nhất quán vì các phép tính sai được nêu không thực sự dẫn đúng tới các giá trị 6, 8, 5; phần giải thích đáp án cũng khẳng địn)",
+      "reject_reason_code": "quality_low",
+      "reject_reason_stage": "critic",
+      "reject_log": [
+        {
+          "reason_code": "quality_low",
+          "stage": "critic",
+          "attempt": 0,
+          "message": "error_distractor_consistency=0.25 (lỗi mô tả không khớp giá trị distractor/đáp án) (Mô tả lỗi của các distractor không nhất quán vì các phép tính sai được nêu không thực sự dẫn đúng tới các giá trị 6, 8, 5; phần giải thích đáp án cũng khẳng địn)",
+          "slot_id": "direct_pdf_20"
+        }
+      ],
+      "attempts": 1
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+ "run_id": "gen_probe-mistralai_mistral-small-3.2-24b-instruct-file_3_trang_61-90",
+ "schema_version": "1.0.0",
+ "started_at": "2026-07-28T07:07:28.991540+00:00",
+ "finished_at": "2026-07-28T07:08:13.033931+00:00",
+ "seed": 42,
+ "label": "gen_probe mistralai/mistral-small-3.2-24b-instruct",
+ "ablation_arm": null,
+ "mechanisms": {
+  "symbolic_verifier": true,
+  "independent_verification": true,
+  "misconception_catalogue": true,
+  "distractor_agent": true,
+  "difficulty_control": true,
+  "outcome_scheduler": true,
+  "feedback_steering": true,
+  "semantic_dedup": true
+ },
+ "models": {
+  "provider": "openrouter",
+  "base_url": "https://openrouter.ai/api/v1",
+  "generator": "mistralai/mistral-small-3.2-24b-instruct",
+  "judge": "mistralai/mistral-small-3.2-24b-instruct",
+  "independent_verifier": "openai/gpt-4.1-mini",
+  "embedding": "openai/text-embedding-3-small"
+ },
+ "generation": {
+  "temperature": 0.45,
+  "independent_verifier_temperature": 0.0,
+  "max_tokens": 4000,
+  "parallel_slots": 3,
+  "max_slot_attempts": 2,
+  "pdf_attach_mode": "image",
+  "pdf_image_dpi": 120,
+  "pdf_image_max_pages": 30,
+  "document_handling": {
+   "provider": "openrouter",
+   "attach_mode": "image",
+   "model": "mistralai/mistral-small-3.2-24b-instruct",
+   "document_handling": "page_images",
+   "input_modalities": [
+    "image",
+    "text"
+   ]
+  },
+  "multi_agent": true,
+  "refuted_policy": "review"
+ },
+ "thresholds": {
+  "QUALITY_THRESHOLD": 0.55,
+  "GROUNDING_THRESHOLD": 0.4,
+  "ANSWER_UNIQUENESS_THRESHOLD": 0.5,
+  "ERROR_VALUE_CONSISTENCY_THRESHOLD": 0.4,
+  "DISTRACTOR_SIMILARITY_THRESHOLD": 0.7,
+  "QUESTION_DEDUP_THRESHOLD": 0.8,
+  "LEXICAL_DEDUP_THRESHOLD": 1.0,
+  "VERIFICATION_REL_TOLERANCE": 0.0001
+ },
+ "prompt_version": "2026.07.25",
+ "independent_prompt_version": "1.0.0",
+ "verifier_version": "2.0.0",
+ "documents": [
+  {
+   "path": "pdftest\\file_3_trang_61-90.pdf",
+   "name": "file_3_trang_61-90.pdf",
+   "sha256": "b9cef67f842f76c56ae97203f26a531345c1808223a812f0e72a4e06861763f3",
+   "bytes": 2995898
+  }
+ ],
+ "code": {
+  "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+  "dirty": true,
+  "dirty_files": [
+   "API/.claude/settings.local.json",
+   "API/pipeline/agents/verifier_agent.py",
+   "API/pipeline/config.py",
+   "API/pipeline/direct_pdf/agents/__init__.py",
+   "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+   "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+   "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+   "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+   "API/pipeline/direct_pdf/attach.py",
+   "API/pipeline/direct_pdf/generator.py",
+   "API/pipeline/llm_client.py",
+   "API/pipeline/parsing.py",
+   "API/pipeline/rule_validator.py",
+   "API/pipeline/schema.py",
+   "API/pipeline/verifier.py",
+   "API/tests/test_expected_from_answer.py",
+   "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+   "API/web/frontend/src/components/question/question-detail-view.tsx",
+   "API/web/frontend/src/lib/api.ts",
+   "API/.cache/",
+   "API/.env.bak-20260728",
+   "API/.kiro/",
+   "API/.vscode/",
+   "API/PIPELINE.md",
+   "API/conference-latex-template/",
+   "API/docs/2408.04394v1.pdf",
+   "API/docs/2508.10005v1.pdf",
+   "API/image.png",
+   "API/pdftest/discrete_math_p1.pdf",
+   "API/pdftest/file_1_trang_1-31.pdf",
+   "API/pdftest/file_2_trang_31-61.pdf",
+   "API/pdftest/file_3_trang_61-90.pdf",
+   "API/pdftest/file_4_trang_91-het.pdf",
+   "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf",
+   "API/pipeline/ablation.py",
+   "API/pipeline/calibration.py",
+   "API/pipeline/direct_pdf/agents/pdf_independent_agent.py",
+   "API/pipeline/direct_pdf/page_selection.py",
+   "API/pipeline/eval_metrics.py",
+   "API/pipeline/human_eval.py"
+  ]
+ },
+ "environment": {
+  "python": "3.10.0",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "sympy": "1.14.0",
+  "networkx": "3.6.1",
+  "openai": "2.32.0",
+  "fastapi": "0.136.1"
+ },
+ "notes": {
+  "requested_questions": 1
+ }
+}

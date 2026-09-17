@@ -1,0 +1,135 @@
+[
+ {
+  "model": "openai/gpt-4.1-nano",
+  "pdf": "pdftest/file_3_trang_61-90.pdf",
+  "requested": 20,
+  "delivered": 4,
+  "rejected": 42,
+  "attempted": 46,
+  "error_code": null,
+  "duration_seconds": 1456.1,
+  "cost": {
+   "tokens": 6542482,
+   "calls": 158
+  },
+  "issue_counts": {},
+  "status_counts": {
+   "consistency_confirmed": 2,
+   "non_verifiable": 2
+  },
+  "bloom_counts": {
+   "Thông hiểu": 1,
+   "Vận dụng cao": 1,
+   "Nhận biết": 2
+  },
+  "per_question": [
+   {
+    "id": "q_2026_d632a5ef",
+    "bloom": "Thông hiểu",
+    "status": "consistency_confirmed",
+    "machine_checked": true,
+    "independent": false,
+    "derivation": false,
+    "review": "pending_review",
+    "issues": [],
+    "stem_len": 291,
+    "stem_tail": "uãng đường vật đi được trong 4 giây đó. Biết rằng vận tốc trong 3 giây cuối cùng là 4 m/s."
+   },
+   {
+    "id": "q_2026_fa6d7a0a",
+    "bloom": "Vận dụng cao",
+    "status": "non_verifiable",
+    "machine_checked": false,
+    "independent": false,
+    "derivation": false,
+    "review": "pending_review",
+    "issues": [],
+    "stem_len": 248,
+    "stem_tail": "xoay tạo thành khi quay hình này quanh trục Ox là bao nhiêu (làm tròn đến hàng phần mười)?"
+   },
+   {
+    "id": "q_2026_50febe68",
+    "bloom": "Nhận biết",
+    "status": "consistency_confirmed",
+    "machine_checked": true,
+    "independent": false,
+    "derivation": false,
+    "review": "pending_review",
+    "issues": [],
+    "stem_len": 238,
+    "stem_tail": "4 m/s, và trong 1 giờ đầu, vận tốc là 10 m/s. Tính quãng đường vật đi được trong 4 giờ đó."
+   },
+   {
+    "id": "q_2026_0f5a1c24",
+    "bloom": "Nhận biết",
+    "status": "non_verifiable",
+    "machine_checked": false,
+    "independent": false,
+    "derivation": false,
+    "review": "pending_review",
+    "issues": [],
+    "stem_len": 336,
+    "stem_tail": "ần theo hàm số v(t) = -\\(\\frac{3}{2}\\)t + 6. Tính quãng đường vật đi được trong 4 giây đó."
+   }
+  ],
+  "wall_seconds": 1458.2,
+  "failed": false
+ },
+ {
+  "model": "amazon/nova-2-lite-v1",
+  "pdf": "pdftest/file_3_trang_61-90.pdf",
+  "requested": 20,
+  "delivered": 2,
+  "rejected": 44,
+  "attempted": 46,
+  "error_code": null,
+  "duration_seconds": 2496.4,
+  "cost": {
+   "tokens": 799688,
+   "calls": 124
+  },
+  "issue_counts": {
+   "source_quote_len": 2
+  },
+  "status_counts": {
+   "consistency_confirmed": 1,
+   "refuted": 1
+  },
+  "bloom_counts": {
+   "Vận dụng": 1,
+   "Vận dụng cao": 1
+  },
+  "per_question": [
+   {
+    "id": "q_2026_33ec89cf",
+    "bloom": "Vận dụng",
+    "status": "consistency_confirmed",
+    "machine_checked": true,
+    "independent": false,
+    "derivation": false,
+    "review": "pending_review",
+    "issues": [
+     "source_quote_len=346"
+    ],
+    "stem_len": 440,
+    "stem_tail": "ng đường s mà vật di chuyển được trong 6 giờ là a/(b), (a,b)=1. Khi đó a-b bằng bao nhiêu?"
+   },
+   {
+    "id": "q_2026_6b399f5a",
+    "bloom": "Vận dụng cao",
+    "status": "refuted",
+    "machine_checked": false,
+    "independent": true,
+    "derivation": true,
+    "review": "needs_revision",
+    "issues": [
+     "source_quote_len=266"
+    ],
+    "stem_len": 472,
+    "stem_tail": "thời gian cón lài đồ thí vàn tốc là một đơn thàng song song với trức Ox. Tính đồn đường BC"
+   }
+  ],
+  "wall_seconds": 2498.6,
+  "failed": false
+ }
+]

@@ -1,0 +1,3770 @@
+{
+  "generated_at": "2026-07-30T18:52:52.346149+00:00",
+  "ground_truth": null,
+  "n_cells": 18,
+  "n_cells_with_artifact": 18,
+  "cells_without_data": [],
+  "arms": [
+    "full_system"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "documents": [
+    "t12-daoham-p1.pdf",
+    "t12-daoham-p2.pdf",
+    "t12-khoi-dadien.pdf",
+    "t12-mulog-tichphan.pdf",
+    "t12-oxyz-p1.pdf",
+    "t12-oxyz-p2.pdf"
+  ],
+  "cells": [
+    {
+      "arm": "full_system",
+      "seed": 42,
+      "document": "t12-daoham-p1.pdf",
+      "artifact": "full_system\\seed42\\t12-daoham-p1.json",
+      "metrics": {
+        "counts": {
+          "requested": 12,
+          "pipeline_delivered": 12,
+          "rejected_candidates": 7,
+          "total_candidates": 19,
+          "admission_rate": {
+            "value": 0.6316,
+            "n": 12,
+            "of": 19
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "reject_reasons": {
+            "writer_empty": 3,
+            "quality_low": 2,
+            "multi_answer": 1,
+            "verifier_failed": 1
+          },
+          "review_status": {
+            "pending_review": 11,
+            "needs_revision": 1
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 7,
+            "consistency_confirmed": 4,
+            "mismatch": 0,
+            "non_verifiable": 1,
+            "refuted": 0
+          },
+          "machine_verifiable_coverage": {
+            "value": 0.9167,
+            "n": 11,
+            "of": 12
+          },
+          "conceptual_share": {
+            "value": 0.0833,
+            "n": 1,
+            "of": 12
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "independent_target_definite": {
+            "value": 0.75,
+            "n": 9,
+            "of": 12
+          },
+          "independently_verified_rate": {
+            "value": 0.5833,
+            "n": 7,
+            "of": 12
+          },
+          "consistency_only_rate": {
+            "value": 0.3333,
+            "n": 4,
+            "of": 12
+          },
+          "routed_to_human_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 12
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 0,
+          "independently_correct_answer_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_negative_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "ground_truth_source": null
+        },
+        "quality_judge": {
+          "grounding_judge": 0.8892,
+          "overall_quality_judge": 0.8794,
+          "answer_uniqueness_judge": 0.99,
+          "distractor_plausibility_judge": 0.8883,
+          "error_value_consistency_judge": 0.9267,
+          "clarity_judge": 0.9658,
+          "cognitive_depth_judge": 0.8317,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.8875,
+          "bloom_distribution": {
+            "Vận dụng cao": 2,
+            "Thông hiểu": 4,
+            "Vận dụng": 5,
+            "Nhận biết": 1
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.625,
+          "difficulty_estimated_mean": 0.6242,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 196379,
+          "model_calls": 65,
+          "tokens_per_delivered": 16364.9,
+          "calls_per_delivered": 5.42,
+          "duration_seconds": 502.6,
+          "seconds_per_delivered": 41.9
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed42-t12-daoham-p1",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/attach.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/rule_validator.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.cache/",
+            "API/.env.bak-20260728",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/docs/2408.04394v1.pdf",
+            "API/docs/2508.10005v1.pdf",
+            "API/docs/AQG-eval-methodologies-Amidei-INLG2018.pdf",
+            "API/docs/HumanEval-best-practices-NLG-INLG2019.pdf",
+            "API/docs/MCQ-quality-GPT4-rulebased-2307.08161.pdf",
+            "API/docs/QGEval-2406.05707.pdf",
+            "API/docs/TOM-TAT-TIEU-CHI-DANH-GIA.md",
+            "API/image.png",
+            "API/pdftest/corpus2/",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 42,
+      "document": "t12-daoham-p2.pdf",
+      "artifact": "full_system\\seed42\\t12-daoham-p2.json",
+      "metrics": {
+        "counts": {
+          "requested": 12,
+          "pipeline_delivered": 0,
+          "rejected_candidates": 6,
+          "total_candidates": 6,
+          "admission_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 6
+          },
+          "delivery_rate_vs_requested": {
+            "value": 0.0,
+            "n": 0,
+            "of": 12
+          },
+          "reject_reasons": {
+            "quote_mismatch": 1,
+            "writer_empty": 1,
+            "multi_answer": 1,
+            "verifier_failed": 3
+          },
+          "review_status": {}
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 0,
+            "consistency_confirmed": 0,
+            "mismatch": 0,
+            "non_verifiable": 0,
+            "refuted": 0
+          },
+          "machine_verifiable_coverage": {
+            "value": null,
+            "n": 0,
+            "of": 0
+          },
+          "conceptual_share": {
+            "value": null,
+            "n": 0,
+            "of": 0
+          },
+          "independent_target_attempted": {
+            "value": null,
+            "n": 0,
+            "of": 0
+          },
+          "independent_target_definite": {
+            "value": null,
+            "n": 0,
+            "of": 0
+          },
+          "independently_verified_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0
+          },
+          "consistency_only_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0
+          },
+          "routed_to_human_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 0,
+          "independently_correct_answer_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_negative_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "ground_truth_source": null
+        },
+        "quality_judge": {
+          "grounding_judge": null,
+          "overall_quality_judge": null,
+          "answer_uniqueness_judge": null,
+          "distractor_plausibility_judge": null,
+          "error_value_consistency_judge": null,
+          "clarity_judge": null,
+          "cognitive_depth_judge": null,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": null,
+          "bloom_distribution": {},
+          "difficulty_alignment_heuristic": null,
+          "difficulty_target_mean": null,
+          "difficulty_estimated_mean": null,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 42700,
+          "model_calls": 16,
+          "tokens_per_delivered": null,
+          "calls_per_delivered": null,
+          "duration_seconds": 145.0,
+          "seconds_per_delivered": null
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed42-t12-daoham-p2",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/attach.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/rule_validator.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.cache/",
+            "API/.env.bak-20260728",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/docs/2408.04394v1.pdf",
+            "API/docs/2508.10005v1.pdf",
+            "API/docs/AQG-eval-methodologies-Amidei-INLG2018.pdf",
+            "API/docs/HumanEval-best-practices-NLG-INLG2019.pdf",
+            "API/docs/MCQ-quality-GPT4-rulebased-2307.08161.pdf",
+            "API/docs/QGEval-2406.05707.pdf",
+            "API/docs/TOM-TAT-TIEU-CHI-DANH-GIA.md",
+            "API/image.png",
+            "API/pdftest/corpus2/",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 42,
+      "document": "t12-khoi-dadien.pdf",
+      "artifact": "full_system\\seed42\\t12-khoi-dadien.json",
+      "metrics": {
+        "counts": {
+          "requested": 12,
+          "pipeline_delivered": 12,
+          "rejected_candidates": 9,
+          "total_candidates": 21,
+          "admission_rate": {
+            "value": 0.5714,
+            "n": 12,
+            "of": 21
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "reject_reasons": {
+            "multi_answer": 1,
+            "writer_empty": 2,
+            "quality_low": 5,
+            "verifier_failed": 1
+          },
+          "review_status": {
+            "pending_review": 11,
+            "needs_revision": 1
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 8,
+            "consistency_confirmed": 4,
+            "mismatch": 0,
+            "non_verifiable": 0,
+            "refuted": 0
+          },
+          "machine_verifiable_coverage": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "conceptual_share": {
+            "value": 0.0,
+            "n": 0,
+            "of": 12
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "independent_target_definite": {
+            "value": 0.8333,
+            "n": 10,
+            "of": 12
+          },
+          "independently_verified_rate": {
+            "value": 0.6667,
+            "n": 8,
+            "of": 12
+          },
+          "consistency_only_rate": {
+            "value": 0.3333,
+            "n": 4,
+            "of": 12
+          },
+          "routed_to_human_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 12
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 0,
+          "independently_correct_answer_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_negative_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "ground_truth_source": null
+        },
+        "quality_judge": {
+          "grounding_judge": 0.8708,
+          "overall_quality_judge": 0.8744,
+          "answer_uniqueness_judge": 0.99,
+          "distractor_plausibility_judge": 0.9075,
+          "error_value_consistency_judge": 0.9333,
+          "clarity_judge": 0.8975,
+          "cognitive_depth_judge": 0.8433,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.8708,
+          "bloom_distribution": {
+            "Thông hiểu": 4,
+            "Vận dụng cao": 3,
+            "Nhận biết": 2,
+            "Vận dụng": 3
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.6042,
+          "difficulty_estimated_mean": 0.5958,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 287771,
+          "model_calls": 76,
+          "tokens_per_delivered": 23980.9,
+          "calls_per_delivered": 6.33,
+          "duration_seconds": 559.5,
+          "seconds_per_delivered": 46.6
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed42-t12-khoi-dadien",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/attach.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/rule_validator.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.cache/",
+            "API/.env.bak-20260728",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/docs/2408.04394v1.pdf",
+            "API/docs/2508.10005v1.pdf",
+            "API/docs/AQG-eval-methodologies-Amidei-INLG2018.pdf",
+            "API/docs/HumanEval-best-practices-NLG-INLG2019.pdf",
+            "API/docs/MCQ-quality-GPT4-rulebased-2307.08161.pdf",
+            "API/docs/QGEval-2406.05707.pdf",
+            "API/docs/TOM-TAT-TIEU-CHI-DANH-GIA.md",
+            "API/image.png",
+            "API/pdftest/corpus2/",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 42,
+      "document": "t12-mulog-tichphan.pdf",
+      "artifact": "full_system\\seed42\\t12-mulog-tichphan.json",
+      "metrics": {
+        "counts": {
+          "requested": 12,
+          "pipeline_delivered": 12,
+          "rejected_candidates": 7,
+          "total_candidates": 19,
+          "admission_rate": {
+            "value": 0.6316,
+            "n": 12,
+            "of": 19
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "reject_reasons": {
+            "quality_low": 2,
+            "writer_empty": 1,
+            "multi_answer": 1,
+            "verifier_failed": 2,
+            "bad_distractors": 1
+          },
+          "review_status": {
+            "pending_review": 11,
+            "needs_revision": 1
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 9,
+            "consistency_confirmed": 1,
+            "mismatch": 1,
+            "non_verifiable": 0,
+            "refuted": 1
+          },
+          "machine_verifiable_coverage": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "conceptual_share": {
+            "value": 0.0,
+            "n": 0,
+            "of": 12
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "independent_target_definite": {
+            "value": 0.9167,
+            "n": 11,
+            "of": 12
+          },
+          "independently_verified_rate": {
+            "value": 0.75,
+            "n": 9,
+            "of": 12
+          },
+          "consistency_only_rate": {
+            "value": 0.0833,
+            "n": 1,
+            "of": 12
+          },
+          "routed_to_human_rate": {
+            "value": 0.1667,
+            "n": 2,
+            "of": 12
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 0,
+          "independently_correct_answer_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_negative_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "ground_truth_source": null
+        },
+        "quality_judge": {
+          "grounding_judge": 0.895,
+          "overall_quality_judge": 0.9139,
+          "answer_uniqueness_judge": 0.9958,
+          "distractor_plausibility_judge": 0.8983,
+          "error_value_consistency_judge": 0.905,
+          "clarity_judge": 0.9608,
+          "cognitive_depth_judge": 0.8358,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.8875,
+          "bloom_distribution": {
+            "Vận dụng": 5,
+            "Thông hiểu": 3,
+            "Vận dụng cao": 3,
+            "Nhận biết": 1
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.6542,
+          "difficulty_estimated_mean": 0.6567,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 248455,
+          "model_calls": 69,
+          "tokens_per_delivered": 20704.6,
+          "calls_per_delivered": 5.75,
+          "duration_seconds": 520.5,
+          "seconds_per_delivered": 43.4
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed42-t12-mulog-tichphan",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/attach.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/rule_validator.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.cache/",
+            "API/.env.bak-20260728",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/docs/2408.04394v1.pdf",
+            "API/docs/2508.10005v1.pdf",
+            "API/docs/AQG-eval-methodologies-Amidei-INLG2018.pdf",
+            "API/docs/HumanEval-best-practices-NLG-INLG2019.pdf",
+            "API/docs/MCQ-quality-GPT4-rulebased-2307.08161.pdf",
+            "API/docs/QGEval-2406.05707.pdf",
+            "API/docs/TOM-TAT-TIEU-CHI-DANH-GIA.md",
+            "API/image.png",
+            "API/pdftest/corpus2/",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 42,
+      "document": "t12-oxyz-p1.pdf",
+      "artifact": "full_system\\seed42\\t12-oxyz-p1.json",
+      "metrics": {
+        "counts": {
+          "requested": 12,
+          "pipeline_delivered": 12,
+          "rejected_candidates": 11,
+          "total_candidates": 23,
+          "admission_rate": {
+            "value": 0.5217,
+            "n": 12,
+            "of": 23
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "reject_reasons": {
+            "bad_distractors": 3,
+            "verifier_failed": 2,
+            "quality_low": 2,
+            "writer_empty": 4
+          },
+          "review_status": {
+            "pending_review": 10,
+            "needs_revision": 2
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 4,
+            "consistency_confirmed": 6,
+            "mismatch": 0,
+            "non_verifiable": 1,
+            "refuted": 1
+          },
+          "machine_verifiable_coverage": {
+            "value": 0.9167,
+            "n": 11,
+            "of": 12
+          },
+          "conceptual_share": {
+            "value": 0.0833,
+            "n": 1,
+            "of": 12
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "independent_target_definite": {
+            "value": 0.5833,
+            "n": 7,
+            "of": 12
+          },
+          "independently_verified_rate": {
+            "value": 0.3333,
+            "n": 4,
+            "of": 12
+          },
+          "consistency_only_rate": {
+            "value": 0.5,
+            "n": 6,
+            "of": 12
+          },
+          "routed_to_human_rate": {
+            "value": 0.0833,
+            "n": 1,
+            "of": 12
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 0,
+          "independently_correct_answer_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_negative_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "ground_truth_source": null
+        },
+        "quality_judge": {
+          "grounding_judge": 0.8933,
+          "overall_quality_judge": 0.8592,
+          "answer_uniqueness_judge": 0.995,
+          "distractor_plausibility_judge": 0.89,
+          "error_value_consistency_judge": 0.8133,
+          "clarity_judge": 0.9425,
+          "cognitive_depth_judge": 0.835,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.9042,
+          "bloom_distribution": {
+            "Vận dụng": 4,
+            "Vận dụng cao": 3,
+            "Nhận biết": 2,
+            "Thông hiểu": 3
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.6208,
+          "difficulty_estimated_mean": 0.6225,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 271583,
+          "model_calls": 76,
+          "tokens_per_delivered": 22631.9,
+          "calls_per_delivered": 6.33,
+          "duration_seconds": 707.0,
+          "seconds_per_delivered": 58.9
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed42-t12-oxyz-p1",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/attach.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/rule_validator.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.cache/",
+            "API/.env.bak-20260728",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/docs/2408.04394v1.pdf",
+            "API/docs/2508.10005v1.pdf",
+            "API/docs/AQG-eval-methodologies-Amidei-INLG2018.pdf",
+            "API/docs/HumanEval-best-practices-NLG-INLG2019.pdf",
+            "API/docs/MCQ-quality-GPT4-rulebased-2307.08161.pdf",
+            "API/docs/QGEval-2406.05707.pdf",
+            "API/docs/TOM-TAT-TIEU-CHI-DANH-GIA.md",
+            "API/image.png",
+            "API/pdftest/corpus2/",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 42,
+      "document": "t12-oxyz-p2.pdf",
+      "artifact": "full_system\\seed42\\t12-oxyz-p2.json",
+      "metrics": {
+        "counts": {
+          "requested": 12,
+          "pipeline_delivered": 12,
+          "rejected_candidates": 9,
+          "total_candidates": 21,
+          "admission_rate": {
+            "value": 0.5714,
+            "n": 12,
+            "of": 21
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "reject_reasons": {
+            "writer_empty": 6,
+            "quality_low": 1,
+            "bad_distractors": 1,
+            "verifier_failed": 1
+          },
+          "review_status": {
+            "pending_review": 11,
+            "needs_revision": 1
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 4,
+            "consistency_confirmed": 6,
+            "mismatch": 2,
+            "non_verifiable": 0,
+            "refuted": 0
+          },
+          "machine_verifiable_coverage": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "conceptual_share": {
+            "value": 0.0,
+            "n": 0,
+            "of": 12
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "independent_target_definite": {
+            "value": 0.5,
+            "n": 6,
+            "of": 12
+          },
+          "independently_verified_rate": {
+            "value": 0.3333,
+            "n": 4,
+            "of": 12
+          },
+          "consistency_only_rate": {
+            "value": 0.5,
+            "n": 6,
+            "of": 12
+          },
+          "routed_to_human_rate": {
+            "value": 0.1667,
+            "n": 2,
+            "of": 12
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 0,
+          "independently_correct_answer_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_negative_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "ground_truth_source": null
+        },
+        "quality_judge": {
+          "grounding_judge": 0.8733,
+          "overall_quality_judge": 0.8867,
+          "answer_uniqueness_judge": 0.9842,
+          "distractor_plausibility_judge": 0.9042,
+          "error_value_consistency_judge": 0.9625,
+          "clarity_judge": 0.8833,
+          "cognitive_depth_judge": 0.8483,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.8975,
+          "bloom_distribution": {
+            "Vận dụng": 7,
+            "Vận dụng cao": 3,
+            "Thông hiểu": 2
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.7042,
+          "difficulty_estimated_mean": 0.7167,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 218279,
+          "model_calls": 65,
+          "tokens_per_delivered": 18189.9,
+          "calls_per_delivered": 5.42,
+          "duration_seconds": 542.0,
+          "seconds_per_delivered": 45.2
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed42-t12-oxyz-p2",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/attach.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/rule_validator.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.cache/",
+            "API/.env.bak-20260728",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/docs/2408.04394v1.pdf",
+            "API/docs/2508.10005v1.pdf",
+            "API/docs/AQG-eval-methodologies-Amidei-INLG2018.pdf",
+            "API/docs/HumanEval-best-practices-NLG-INLG2019.pdf",
+            "API/docs/MCQ-quality-GPT4-rulebased-2307.08161.pdf",
+            "API/docs/QGEval-2406.05707.pdf",
+            "API/docs/TOM-TAT-TIEU-CHI-DANH-GIA.md",
+            "API/image.png",
+            "API/pdftest/corpus2/",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 43,
+      "document": "t12-daoham-p1.pdf",
+      "artifact": "full_system\\seed43\\t12-daoham-p1.json",
+      "metrics": {
+        "counts": {
+          "requested": 12,
+          "pipeline_delivered": 12,
+          "rejected_candidates": 9,
+          "total_candidates": 21,
+          "admission_rate": {
+            "value": 0.5714,
+            "n": 12,
+            "of": 21
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "reject_reasons": {
+            "quality_low": 2,
+            "writer_empty": 3,
+            "verifier_failed": 3,
+            "duplicate": 1
+          },
+          "review_status": {
+            "pending_review": 12
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 6,
+            "consistency_confirmed": 6,
+            "mismatch": 0,
+            "non_verifiable": 0,
+            "refuted": 0
+          },
+          "machine_verifiable_coverage": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "conceptual_share": {
+            "value": 0.0,
+            "n": 0,
+            "of": 12
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "independent_target_definite": {
+            "value": 0.9167,
+            "n": 11,
+            "of": 12
+          },
+          "independently_verified_rate": {
+            "value": 0.5,
+            "n": 6,
+            "of": 12
+          },
+          "consistency_only_rate": {
+            "value": 0.5,
+            "n": 6,
+            "of": 12
+          },
+          "routed_to_human_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 12
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 0,
+          "independently_correct_answer_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_negative_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "ground_truth_source": null
+        },
+        "quality_judge": {
+          "grounding_judge": 0.9358,
+          "overall_quality_judge": 0.8744,
+          "answer_uniqueness_judge": 0.99,
+          "distractor_plausibility_judge": 0.8667,
+          "error_value_consistency_judge": 0.7792,
+          "clarity_judge": 0.8875,
+          "cognitive_depth_judge": 0.8317,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.8917,
+          "bloom_distribution": {
+            "Thông hiểu": 4,
+            "Vận dụng cao": 3,
+            "Vận dụng": 5
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.6708,
+          "difficulty_estimated_mean": 0.6608,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 215476,
+          "model_calls": 72,
+          "tokens_per_delivered": 17956.3,
+          "calls_per_delivered": 6.0,
+          "duration_seconds": 587.6,
+          "seconds_per_delivered": 49.0
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed43-t12-daoham-p1",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/attach.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/rule_validator.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.cache/",
+            "API/.env.bak-20260728",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/docs/2408.04394v1.pdf",
+            "API/docs/2508.10005v1.pdf",
+            "API/docs/AQG-eval-methodologies-Amidei-INLG2018.pdf",
+            "API/docs/HumanEval-best-practices-NLG-INLG2019.pdf",
+            "API/docs/MCQ-quality-GPT4-rulebased-2307.08161.pdf",
+            "API/docs/QGEval-2406.05707.pdf",
+            "API/docs/TOM-TAT-TIEU-CHI-DANH-GIA.md",
+            "API/image.png",
+            "API/pdftest/corpus2/",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 43,
+      "document": "t12-daoham-p2.pdf",
+      "artifact": "full_system\\seed43\\t12-daoham-p2.json",
+      "metrics": {
+        "counts": {
+          "requested": 12,
+          "pipeline_delivered": 12,
+          "rejected_candidates": 8,
+          "total_candidates": 20,
+          "admission_rate": {
+            "value": 0.6,
+            "n": 12,
+            "of": 20
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "reject_reasons": {
+            "verifier_failed": 3,
+            "quote_mismatch": 2,
+            "multi_answer": 1,
+            "writer_empty": 2
+          },
+          "review_status": {
+            "pending_review": 10,
+            "needs_revision": 2
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 10,
+            "consistency_confirmed": 0,
+            "mismatch": 2,
+            "non_verifiable": 0,
+            "refuted": 0
+          },
+          "machine_verifiable_coverage": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "conceptual_share": {
+            "value": 0.0,
+            "n": 0,
+            "of": 12
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "independent_target_definite": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "independently_verified_rate": {
+            "value": 0.8333,
+            "n": 10,
+            "of": 12
+          },
+          "consistency_only_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 12
+          },
+          "routed_to_human_rate": {
+            "value": 0.1667,
+            "n": 2,
+            "of": 12
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 1
+        },
+        "correctness": {
+          "labelled": 0,
+          "independently_correct_answer_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_negative_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "ground_truth_source": null
+        },
+        "quality_judge": {
+          "grounding_judge": 0.8575,
+          "overall_quality_judge": 0.8628,
+          "answer_uniqueness_judge": 0.9917,
+          "distractor_plausibility_judge": 0.9125,
+          "error_value_consistency_judge": 0.97,
+          "clarity_judge": 0.9775,
+          "cognitive_depth_judge": 0.8442,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.8825,
+          "bloom_distribution": {
+            "Vận dụng": 3,
+            "Thông hiểu": 4,
+            "Nhận biết": 2,
+            "Vận dụng cao": 3
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.6042,
+          "difficulty_estimated_mean": 0.5825,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 201698,
+          "model_calls": 68,
+          "tokens_per_delivered": 16808.2,
+          "calls_per_delivered": 5.67,
+          "duration_seconds": 548.4,
+          "seconds_per_delivered": 45.7
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed43-t12-daoham-p2",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/attach.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/rule_validator.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.cache/",
+            "API/.env.bak-20260728",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/docs/2408.04394v1.pdf",
+            "API/docs/2508.10005v1.pdf",
+            "API/docs/AQG-eval-methodologies-Amidei-INLG2018.pdf",
+            "API/docs/HumanEval-best-practices-NLG-INLG2019.pdf",
+            "API/docs/MCQ-quality-GPT4-rulebased-2307.08161.pdf",
+            "API/docs/QGEval-2406.05707.pdf",
+            "API/docs/TOM-TAT-TIEU-CHI-DANH-GIA.md",
+            "API/image.png",
+            "API/pdftest/corpus2/",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 43,
+      "document": "t12-khoi-dadien.pdf",
+      "artifact": "full_system\\seed43\\t12-khoi-dadien.json",
+      "metrics": {
+        "counts": {
+          "requested": 12,
+          "pipeline_delivered": 6,
+          "rejected_candidates": 6,
+          "total_candidates": 12,
+          "admission_rate": {
+            "value": 0.5,
+            "n": 6,
+            "of": 12
+          },
+          "delivery_rate_vs_requested": {
+            "value": 0.5,
+            "n": 6,
+            "of": 12
+          },
+          "reject_reasons": {
+            "writer_empty": 1,
+            "quality_low": 1,
+            "verifier_failed": 3,
+            "multi_answer": 1
+          },
+          "review_status": {
+            "pending_review": 6
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 4,
+            "consistency_confirmed": 1,
+            "mismatch": 0,
+            "non_verifiable": 1,
+            "refuted": 0
+          },
+          "machine_verifiable_coverage": {
+            "value": 0.8333,
+            "n": 5,
+            "of": 6
+          },
+          "conceptual_share": {
+            "value": 0.1667,
+            "n": 1,
+            "of": 6
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 6,
+            "of": 6
+          },
+          "independent_target_definite": {
+            "value": 0.6667,
+            "n": 4,
+            "of": 6
+          },
+          "independently_verified_rate": {
+            "value": 0.6667,
+            "n": 4,
+            "of": 6
+          },
+          "consistency_only_rate": {
+            "value": 0.1667,
+            "n": 1,
+            "of": 6
+          },
+          "routed_to_human_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 6
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 0,
+          "independently_correct_answer_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_negative_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "ground_truth_source": null
+        },
+        "quality_judge": {
+          "grounding_judge": 0.9333,
+          "overall_quality_judge": 0.9186,
+          "answer_uniqueness_judge": 0.9833,
+          "distractor_plausibility_judge": 0.92,
+          "error_value_consistency_judge": 0.9167,
+          "clarity_judge": 0.9567,
+          "cognitive_depth_judge": 0.8467,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.8883,
+          "bloom_distribution": {
+            "Vận dụng cao": 2,
+            "Thông hiểu": 2,
+            "Vận dụng": 1,
+            "Nhận biết": 1
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.6167,
+          "difficulty_estimated_mean": 0.625,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 150612,
+          "model_calls": 41,
+          "tokens_per_delivered": 25102.0,
+          "calls_per_delivered": 6.83,
+          "duration_seconds": 313.1,
+          "seconds_per_delivered": 52.2
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed43-t12-khoi-dadien",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/attach.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/rule_validator.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.cache/",
+            "API/.env.bak-20260728",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/docs/2408.04394v1.pdf",
+            "API/docs/2508.10005v1.pdf",
+            "API/docs/AQG-eval-methodologies-Amidei-INLG2018.pdf",
+            "API/docs/HumanEval-best-practices-NLG-INLG2019.pdf",
+            "API/docs/MCQ-quality-GPT4-rulebased-2307.08161.pdf",
+            "API/docs/QGEval-2406.05707.pdf",
+            "API/docs/TOM-TAT-TIEU-CHI-DANH-GIA.md",
+            "API/image.png",
+            "API/pdftest/corpus2/",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 43,
+      "document": "t12-mulog-tichphan.pdf",
+      "artifact": "full_system\\seed43\\t12-mulog-tichphan.json",
+      "metrics": {
+        "counts": {
+          "requested": 12,
+          "pipeline_delivered": 11,
+          "rejected_candidates": 6,
+          "total_candidates": 17,
+          "admission_rate": {
+            "value": 0.6471,
+            "n": 11,
+            "of": 17
+          },
+          "delivery_rate_vs_requested": {
+            "value": 0.9167,
+            "n": 11,
+            "of": 12
+          },
+          "reject_reasons": {
+            "duplicate": 1,
+            "bad_distractors": 3,
+            "writer_empty": 2
+          },
+          "review_status": {
+            "pending_review": 10,
+            "needs_revision": 1
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 7,
+            "consistency_confirmed": 2,
+            "mismatch": 0,
+            "non_verifiable": 1,
+            "refuted": 1
+          },
+          "machine_verifiable_coverage": {
+            "value": 0.9091,
+            "n": 10,
+            "of": 11
+          },
+          "conceptual_share": {
+            "value": 0.0909,
+            "n": 1,
+            "of": 11
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 11,
+            "of": 11
+          },
+          "independent_target_definite": {
+            "value": 0.7273,
+            "n": 8,
+            "of": 11
+          },
+          "independently_verified_rate": {
+            "value": 0.6364,
+            "n": 7,
+            "of": 11
+          },
+          "consistency_only_rate": {
+            "value": 0.1818,
+            "n": 2,
+            "of": 11
+          },
+          "routed_to_human_rate": {
+            "value": 0.0909,
+            "n": 1,
+            "of": 11
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 0,
+          "independently_correct_answer_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_negative_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "ground_truth_source": null
+        },
+        "quality_judge": {
+          "grounding_judge": 0.9045,
+          "overall_quality_judge": 0.9262,
+          "answer_uniqueness_judge": 0.9909,
+          "distractor_plausibility_judge": 0.9091,
+          "error_value_consistency_judge": 0.9273,
+          "clarity_judge": 0.9582,
+          "cognitive_depth_judge": 0.8673,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.9045,
+          "bloom_distribution": {
+            "Vận dụng": 3,
+            "Thông hiểu": 3,
+            "Vận dụng cao": 4,
+            "Nhận biết": 1
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.6636,
+          "difficulty_estimated_mean": 0.6591,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 214999,
+          "model_calls": 56,
+          "tokens_per_delivered": 19545.4,
+          "calls_per_delivered": 5.09,
+          "duration_seconds": 555.3,
+          "seconds_per_delivered": 50.5
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed43-t12-mulog-tichphan",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/attach.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/rule_validator.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.cache/",
+            "API/.env.bak-20260728",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/docs/2408.04394v1.pdf",
+            "API/docs/2508.10005v1.pdf",
+            "API/docs/AQG-eval-methodologies-Amidei-INLG2018.pdf",
+            "API/docs/HumanEval-best-practices-NLG-INLG2019.pdf",
+            "API/docs/MCQ-quality-GPT4-rulebased-2307.08161.pdf",
+            "API/docs/QGEval-2406.05707.pdf",
+            "API/docs/TOM-TAT-TIEU-CHI-DANH-GIA.md",
+            "API/image.png",
+            "API/pdftest/corpus2/",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 43,
+      "document": "t12-oxyz-p1.pdf",
+      "artifact": "full_system\\seed43\\t12-oxyz-p1.json",
+      "metrics": {
+        "counts": {
+          "requested": 12,
+          "pipeline_delivered": 12,
+          "rejected_candidates": 6,
+          "total_candidates": 18,
+          "admission_rate": {
+            "value": 0.6667,
+            "n": 12,
+            "of": 18
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "reject_reasons": {
+            "bad_distractors": 2,
+            "writer_empty": 1,
+            "quality_low": 2,
+            "verifier_failed": 1
+          },
+          "review_status": {
+            "needs_revision": 4,
+            "pending_review": 8
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 6,
+            "consistency_confirmed": 4,
+            "mismatch": 1,
+            "non_verifiable": 1,
+            "refuted": 0
+          },
+          "machine_verifiable_coverage": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "conceptual_share": {
+            "value": 0.0,
+            "n": 0,
+            "of": 12
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "independent_target_definite": {
+            "value": 0.75,
+            "n": 9,
+            "of": 12
+          },
+          "independently_verified_rate": {
+            "value": 0.5,
+            "n": 6,
+            "of": 12
+          },
+          "consistency_only_rate": {
+            "value": 0.3333,
+            "n": 4,
+            "of": 12
+          },
+          "routed_to_human_rate": {
+            "value": 0.0833,
+            "n": 1,
+            "of": 12
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 1
+        },
+        "correctness": {
+          "labelled": 0,
+          "independently_correct_answer_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_negative_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "ground_truth_source": null
+        },
+        "quality_judge": {
+          "grounding_judge": 0.935,
+          "overall_quality_judge": 0.8426,
+          "answer_uniqueness_judge": 0.9925,
+          "distractor_plausibility_judge": 0.9125,
+          "error_value_consistency_judge": 0.8908,
+          "clarity_judge": 0.9742,
+          "cognitive_depth_judge": 0.8342,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.8875,
+          "bloom_distribution": {
+            "Thông hiểu": 4,
+            "Vận dụng cao": 3,
+            "Vận dụng": 4,
+            "Nhận biết": 1
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.6375,
+          "difficulty_estimated_mean": 0.6242,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 238138,
+          "model_calls": 68,
+          "tokens_per_delivered": 19844.8,
+          "calls_per_delivered": 5.67,
+          "duration_seconds": 688.2,
+          "seconds_per_delivered": 57.3
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed43-t12-oxyz-p1",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/attach.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/rule_validator.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.cache/",
+            "API/.env.bak-20260728",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/docs/2408.04394v1.pdf",
+            "API/docs/2508.10005v1.pdf",
+            "API/docs/AQG-eval-methodologies-Amidei-INLG2018.pdf",
+            "API/docs/HumanEval-best-practices-NLG-INLG2019.pdf",
+            "API/docs/MCQ-quality-GPT4-rulebased-2307.08161.pdf",
+            "API/docs/QGEval-2406.05707.pdf",
+            "API/docs/TOM-TAT-TIEU-CHI-DANH-GIA.md",
+            "API/image.png",
+            "API/pdftest/corpus2/",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 43,
+      "document": "t12-oxyz-p2.pdf",
+      "artifact": "full_system\\seed43\\t12-oxyz-p2.json",
+      "metrics": {
+        "counts": {
+          "requested": 12,
+          "pipeline_delivered": 12,
+          "rejected_candidates": 5,
+          "total_candidates": 17,
+          "admission_rate": {
+            "value": 0.7059,
+            "n": 12,
+            "of": 17
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "reject_reasons": {
+            "verifier_failed": 2,
+            "quality_low": 1,
+            "bad_distractors": 1,
+            "writer_empty": 1
+          },
+          "review_status": {
+            "pending_review": 11,
+            "needs_revision": 1
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 5,
+            "consistency_confirmed": 6,
+            "mismatch": 0,
+            "non_verifiable": 1,
+            "refuted": 0
+          },
+          "machine_verifiable_coverage": {
+            "value": 0.9167,
+            "n": 11,
+            "of": 12
+          },
+          "conceptual_share": {
+            "value": 0.0833,
+            "n": 1,
+            "of": 12
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "independent_target_definite": {
+            "value": 0.5,
+            "n": 6,
+            "of": 12
+          },
+          "independently_verified_rate": {
+            "value": 0.4167,
+            "n": 5,
+            "of": 12
+          },
+          "consistency_only_rate": {
+            "value": 0.5,
+            "n": 6,
+            "of": 12
+          },
+          "routed_to_human_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 12
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 0,
+          "independently_correct_answer_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_negative_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "ground_truth_source": null
+        },
+        "quality_judge": {
+          "grounding_judge": 0.9042,
+          "overall_quality_judge": 0.8622,
+          "answer_uniqueness_judge": 0.9967,
+          "distractor_plausibility_judge": 0.8925,
+          "error_value_consistency_judge": 0.7825,
+          "clarity_judge": 0.9758,
+          "cognitive_depth_judge": 0.8367,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.8892,
+          "bloom_distribution": {
+            "Vận dụng": 5,
+            "Thông hiểu": 3,
+            "Vận dụng cao": 3,
+            "Nhận biết": 1
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.6542,
+          "difficulty_estimated_mean": 0.6583,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 205391,
+          "model_calls": 63,
+          "tokens_per_delivered": 17115.9,
+          "calls_per_delivered": 5.25,
+          "duration_seconds": 570.1,
+          "seconds_per_delivered": 47.5
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed43-t12-oxyz-p2",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/attach.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/rule_validator.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.cache/",
+            "API/.env.bak-20260728",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/docs/2408.04394v1.pdf",
+            "API/docs/2508.10005v1.pdf",
+            "API/docs/AQG-eval-methodologies-Amidei-INLG2018.pdf",
+            "API/docs/HumanEval-best-practices-NLG-INLG2019.pdf",
+            "API/docs/MCQ-quality-GPT4-rulebased-2307.08161.pdf",
+            "API/docs/QGEval-2406.05707.pdf",
+            "API/docs/TOM-TAT-TIEU-CHI-DANH-GIA.md",
+            "API/image.png",
+            "API/pdftest/corpus2/",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 44,
+      "document": "t12-daoham-p1.pdf",
+      "artifact": "full_system\\seed44\\t12-daoham-p1.json",
+      "metrics": {
+        "counts": {
+          "requested": 12,
+          "pipeline_delivered": 12,
+          "rejected_candidates": 6,
+          "total_candidates": 18,
+          "admission_rate": {
+            "value": 0.6667,
+            "n": 12,
+            "of": 18
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "reject_reasons": {
+            "quality_low": 4,
+            "verifier_failed": 2
+          },
+          "review_status": {
+            "pending_review": 12
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 6,
+            "consistency_confirmed": 3,
+            "mismatch": 0,
+            "non_verifiable": 3,
+            "refuted": 0
+          },
+          "machine_verifiable_coverage": {
+            "value": 0.75,
+            "n": 9,
+            "of": 12
+          },
+          "conceptual_share": {
+            "value": 0.25,
+            "n": 3,
+            "of": 12
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "independent_target_definite": {
+            "value": 0.75,
+            "n": 9,
+            "of": 12
+          },
+          "independently_verified_rate": {
+            "value": 0.5,
+            "n": 6,
+            "of": 12
+          },
+          "consistency_only_rate": {
+            "value": 0.25,
+            "n": 3,
+            "of": 12
+          },
+          "routed_to_human_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 12
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 0,
+          "independently_correct_answer_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_negative_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "ground_truth_source": null
+        },
+        "quality_judge": {
+          "grounding_judge": 0.9233,
+          "overall_quality_judge": 0.9054,
+          "answer_uniqueness_judge": 0.9925,
+          "distractor_plausibility_judge": 0.8817,
+          "error_value_consistency_judge": 0.9192,
+          "clarity_judge": 0.925,
+          "cognitive_depth_judge": 0.8008,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.9133,
+          "bloom_distribution": {
+            "Vận dụng": 5,
+            "Thông hiểu": 2,
+            "Nhận biết": 3,
+            "Vận dụng cao": 2
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.5917,
+          "difficulty_estimated_mean": 0.5917,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 203813,
+          "model_calls": 70,
+          "tokens_per_delivered": 16984.4,
+          "calls_per_delivered": 5.83,
+          "duration_seconds": 422.5,
+          "seconds_per_delivered": 35.2
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed44-t12-daoham-p1",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/attach.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/rule_validator.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.cache/",
+            "API/.env.bak-20260728",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/docs/2408.04394v1.pdf",
+            "API/docs/2508.10005v1.pdf",
+            "API/docs/AQG-eval-methodologies-Amidei-INLG2018.pdf",
+            "API/docs/HumanEval-best-practices-NLG-INLG2019.pdf",
+            "API/docs/MCQ-quality-GPT4-rulebased-2307.08161.pdf",
+            "API/docs/QGEval-2406.05707.pdf",
+            "API/docs/TOM-TAT-TIEU-CHI-DANH-GIA.md",
+            "API/image.png",
+            "API/pdftest/corpus2/",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 44,
+      "document": "t12-daoham-p2.pdf",
+      "artifact": "full_system\\seed44\\t12-daoham-p2.json",
+      "metrics": {
+        "counts": {
+          "requested": 12,
+          "pipeline_delivered": 12,
+          "rejected_candidates": 6,
+          "total_candidates": 18,
+          "admission_rate": {
+            "value": 0.6667,
+            "n": 12,
+            "of": 18
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "reject_reasons": {
+            "quote_mismatch": 3,
+            "verifier_failed": 2,
+            "writer_empty": 1
+          },
+          "review_status": {
+            "pending_review": 11,
+            "needs_revision": 1
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 9,
+            "consistency_confirmed": 2,
+            "mismatch": 0,
+            "non_verifiable": 1,
+            "refuted": 0
+          },
+          "machine_verifiable_coverage": {
+            "value": 0.9167,
+            "n": 11,
+            "of": 12
+          },
+          "conceptual_share": {
+            "value": 0.0833,
+            "n": 1,
+            "of": 12
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "independent_target_definite": {
+            "value": 0.9167,
+            "n": 11,
+            "of": 12
+          },
+          "independently_verified_rate": {
+            "value": 0.75,
+            "n": 9,
+            "of": 12
+          },
+          "consistency_only_rate": {
+            "value": 0.1667,
+            "n": 2,
+            "of": 12
+          },
+          "routed_to_human_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 12
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 0,
+          "independently_correct_answer_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_negative_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "ground_truth_source": null
+        },
+        "quality_judge": {
+          "grounding_judge": 0.8308,
+          "overall_quality_judge": 0.889,
+          "answer_uniqueness_judge": 0.9942,
+          "distractor_plausibility_judge": 0.9067,
+          "error_value_consistency_judge": 0.9375,
+          "clarity_judge": 0.9792,
+          "cognitive_depth_judge": 0.8233,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.8875,
+          "bloom_distribution": {
+            "Thông hiểu": 5,
+            "Vận dụng": 5,
+            "Nhận biết": 1,
+            "Vận dụng cao": 1
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.5958,
+          "difficulty_estimated_mean": 0.5875,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 187851,
+          "model_calls": 64,
+          "tokens_per_delivered": 15654.2,
+          "calls_per_delivered": 5.33,
+          "duration_seconds": 450.4,
+          "seconds_per_delivered": 37.5
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed44-t12-daoham-p2",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/attach.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/rule_validator.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.cache/",
+            "API/.env.bak-20260728",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/docs/2408.04394v1.pdf",
+            "API/docs/2508.10005v1.pdf",
+            "API/docs/AQG-eval-methodologies-Amidei-INLG2018.pdf",
+            "API/docs/HumanEval-best-practices-NLG-INLG2019.pdf",
+            "API/docs/MCQ-quality-GPT4-rulebased-2307.08161.pdf",
+            "API/docs/QGEval-2406.05707.pdf",
+            "API/docs/TOM-TAT-TIEU-CHI-DANH-GIA.md",
+            "API/image.png",
+            "API/pdftest/corpus2/",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 44,
+      "document": "t12-khoi-dadien.pdf",
+      "artifact": "full_system\\seed44\\t12-khoi-dadien.json",
+      "metrics": {
+        "counts": {
+          "requested": 12,
+          "pipeline_delivered": 12,
+          "rejected_candidates": 3,
+          "total_candidates": 15,
+          "admission_rate": {
+            "value": 0.8,
+            "n": 12,
+            "of": 15
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "reject_reasons": {
+            "quality_low": 1,
+            "writer_empty": 1,
+            "bad_distractors": 1
+          },
+          "review_status": {
+            "pending_review": 9,
+            "needs_revision": 3
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 10,
+            "consistency_confirmed": 1,
+            "mismatch": 0,
+            "non_verifiable": 0,
+            "refuted": 1
+          },
+          "machine_verifiable_coverage": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "conceptual_share": {
+            "value": 0.0,
+            "n": 0,
+            "of": 12
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "independent_target_definite": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "independently_verified_rate": {
+            "value": 0.8333,
+            "n": 10,
+            "of": 12
+          },
+          "consistency_only_rate": {
+            "value": 0.0833,
+            "n": 1,
+            "of": 12
+          },
+          "routed_to_human_rate": {
+            "value": 0.0833,
+            "n": 1,
+            "of": 12
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 0,
+          "independently_correct_answer_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_negative_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "ground_truth_source": null
+        },
+        "quality_judge": {
+          "grounding_judge": 0.9442,
+          "overall_quality_judge": 0.8737,
+          "answer_uniqueness_judge": 0.9983,
+          "distractor_plausibility_judge": 0.8892,
+          "error_value_consistency_judge": 0.875,
+          "clarity_judge": 0.8925,
+          "cognitive_depth_judge": 0.8183,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.8817,
+          "bloom_distribution": {
+            "Vận dụng": 6,
+            "Thông hiểu": 3,
+            "Vận dụng cao": 2,
+            "Nhận biết": 1
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.6417,
+          "difficulty_estimated_mean": 0.6417,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 217601,
+          "model_calls": 57,
+          "tokens_per_delivered": 18133.4,
+          "calls_per_delivered": 4.75,
+          "duration_seconds": 685.0,
+          "seconds_per_delivered": 57.1
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed44-t12-khoi-dadien",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/attach.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/rule_validator.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.cache/",
+            "API/.env.bak-20260728",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/docs/2408.04394v1.pdf",
+            "API/docs/2508.10005v1.pdf",
+            "API/docs/AQG-eval-methodologies-Amidei-INLG2018.pdf",
+            "API/docs/HumanEval-best-practices-NLG-INLG2019.pdf",
+            "API/docs/MCQ-quality-GPT4-rulebased-2307.08161.pdf",
+            "API/docs/QGEval-2406.05707.pdf",
+            "API/docs/TOM-TAT-TIEU-CHI-DANH-GIA.md",
+            "API/image.png",
+            "API/pdftest/corpus2/",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 44,
+      "document": "t12-mulog-tichphan.pdf",
+      "artifact": "full_system\\seed44\\t12-mulog-tichphan.json",
+      "metrics": {
+        "counts": {
+          "requested": 12,
+          "pipeline_delivered": 12,
+          "rejected_candidates": 10,
+          "total_candidates": 22,
+          "admission_rate": {
+            "value": 0.5455,
+            "n": 12,
+            "of": 22
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "reject_reasons": {
+            "quality_low": 2,
+            "multi_answer": 2,
+            "bad_distractors": 3,
+            "writer_empty": 1,
+            "verifier_failed": 1,
+            "quote_mismatch": 1
+          },
+          "review_status": {
+            "pending_review": 10,
+            "needs_revision": 2
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 7,
+            "consistency_confirmed": 4,
+            "mismatch": 0,
+            "non_verifiable": 0,
+            "refuted": 1
+          },
+          "machine_verifiable_coverage": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "conceptual_share": {
+            "value": 0.0,
+            "n": 0,
+            "of": 12
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "independent_target_definite": {
+            "value": 0.9167,
+            "n": 11,
+            "of": 12
+          },
+          "independently_verified_rate": {
+            "value": 0.5833,
+            "n": 7,
+            "of": 12
+          },
+          "consistency_only_rate": {
+            "value": 0.3333,
+            "n": 4,
+            "of": 12
+          },
+          "routed_to_human_rate": {
+            "value": 0.0833,
+            "n": 1,
+            "of": 12
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 0,
+          "independently_correct_answer_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_negative_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "ground_truth_source": null
+        },
+        "quality_judge": {
+          "grounding_judge": 0.9458,
+          "overall_quality_judge": 0.8622,
+          "answer_uniqueness_judge": 0.9733,
+          "distractor_plausibility_judge": 0.8858,
+          "error_value_consistency_judge": 0.8742,
+          "clarity_judge": 0.9225,
+          "cognitive_depth_judge": 0.8367,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.8767,
+          "bloom_distribution": {
+            "Vận dụng": 5,
+            "Vận dụng cao": 4,
+            "Thông hiểu": 3
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.7,
+          "difficulty_estimated_mean": 0.69,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 282383,
+          "model_calls": 77,
+          "tokens_per_delivered": 23531.9,
+          "calls_per_delivered": 6.42,
+          "duration_seconds": 604.0,
+          "seconds_per_delivered": 50.3
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed44-t12-mulog-tichphan",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/attach.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/rule_validator.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.cache/",
+            "API/.env.bak-20260728",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/docs/2408.04394v1.pdf",
+            "API/docs/2508.10005v1.pdf",
+            "API/docs/AQG-eval-methodologies-Amidei-INLG2018.pdf",
+            "API/docs/HumanEval-best-practices-NLG-INLG2019.pdf",
+            "API/docs/MCQ-quality-GPT4-rulebased-2307.08161.pdf",
+            "API/docs/QGEval-2406.05707.pdf",
+            "API/docs/TOM-TAT-TIEU-CHI-DANH-GIA.md",
+            "API/image.png",
+            "API/pdftest/corpus2/",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 44,
+      "document": "t12-oxyz-p1.pdf",
+      "artifact": "full_system\\seed44\\t12-oxyz-p1.json",
+      "metrics": {
+        "counts": {
+          "requested": 12,
+          "pipeline_delivered": 2,
+          "rejected_candidates": 4,
+          "total_candidates": 6,
+          "admission_rate": {
+            "value": 0.3333,
+            "n": 2,
+            "of": 6
+          },
+          "delivery_rate_vs_requested": {
+            "value": 0.1667,
+            "n": 2,
+            "of": 12
+          },
+          "reject_reasons": {
+            "bad_distractors": 1,
+            "quality_low": 1,
+            "writer_empty": 1,
+            "verifier_failed": 1
+          },
+          "review_status": {
+            "pending_review": 2
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 2,
+            "consistency_confirmed": 0,
+            "mismatch": 0,
+            "non_verifiable": 0,
+            "refuted": 0
+          },
+          "machine_verifiable_coverage": {
+            "value": 1.0,
+            "n": 2,
+            "of": 2
+          },
+          "conceptual_share": {
+            "value": 0.0,
+            "n": 0,
+            "of": 2
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 2,
+            "of": 2
+          },
+          "independent_target_definite": {
+            "value": 1.0,
+            "n": 2,
+            "of": 2
+          },
+          "independently_verified_rate": {
+            "value": 1.0,
+            "n": 2,
+            "of": 2
+          },
+          "consistency_only_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 2
+          },
+          "routed_to_human_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 2
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 0,
+          "independently_correct_answer_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_negative_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "ground_truth_source": null
+        },
+        "quality_judge": {
+          "grounding_judge": 0.95,
+          "overall_quality_judge": 0.9317,
+          "answer_uniqueness_judge": 1.0,
+          "distractor_plausibility_judge": 0.91,
+          "error_value_consistency_judge": 1.0,
+          "clarity_judge": 0.99,
+          "cognitive_depth_judge": 0.765,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.925,
+          "bloom_distribution": {
+            "Vận dụng": 1,
+            "Thông hiểu": 1
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.6,
+          "difficulty_estimated_mean": 0.58,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 62133,
+          "model_calls": 18,
+          "tokens_per_delivered": 31066.5,
+          "calls_per_delivered": 9.0,
+          "duration_seconds": 155.1,
+          "seconds_per_delivered": 77.6
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed44-t12-oxyz-p1",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/attach.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/rule_validator.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.cache/",
+            "API/.env.bak-20260728",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/docs/2408.04394v1.pdf",
+            "API/docs/2508.10005v1.pdf",
+            "API/docs/AQG-eval-methodologies-Amidei-INLG2018.pdf",
+            "API/docs/HumanEval-best-practices-NLG-INLG2019.pdf",
+            "API/docs/MCQ-quality-GPT4-rulebased-2307.08161.pdf",
+            "API/docs/QGEval-2406.05707.pdf",
+            "API/docs/TOM-TAT-TIEU-CHI-DANH-GIA.md",
+            "API/image.png",
+            "API/pdftest/corpus2/",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 44,
+      "document": "t12-oxyz-p2.pdf",
+      "artifact": "full_system\\seed44\\t12-oxyz-p2.json",
+      "metrics": {
+        "counts": {
+          "requested": 12,
+          "pipeline_delivered": 12,
+          "rejected_candidates": 6,
+          "total_candidates": 18,
+          "admission_rate": {
+            "value": 0.6667,
+            "n": 12,
+            "of": 18
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "reject_reasons": {
+            "bad_distractors": 3,
+            "writer_empty": 1,
+            "verifier_failed": 2
+          },
+          "review_status": {
+            "pending_review": 10,
+            "needs_revision": 2
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 4,
+            "consistency_confirmed": 6,
+            "mismatch": 1,
+            "non_verifiable": 1,
+            "refuted": 0
+          },
+          "machine_verifiable_coverage": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "conceptual_share": {
+            "value": 0.0,
+            "n": 0,
+            "of": 12
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 12,
+            "of": 12
+          },
+          "independent_target_definite": {
+            "value": 0.5833,
+            "n": 7,
+            "of": 12
+          },
+          "independently_verified_rate": {
+            "value": 0.3333,
+            "n": 4,
+            "of": 12
+          },
+          "consistency_only_rate": {
+            "value": 0.5,
+            "n": 6,
+            "of": 12
+          },
+          "routed_to_human_rate": {
+            "value": 0.0833,
+            "n": 1,
+            "of": 12
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 1
+        },
+        "correctness": {
+          "labelled": 0,
+          "independently_correct_answer_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "verifier_false_negative_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0,
+            "unavailable_reason": "chưa có nhãn ground-truth ngoài (audit CAS độc lập hoặc chuyên gia người). Không có nhãn thì không tồn tại correctness rate — trạng thái kiểm chứng của pipeline không thay thế được."
+          },
+          "ground_truth_source": null
+        },
+        "quality_judge": {
+          "grounding_judge": 0.9183,
+          "overall_quality_judge": 0.8276,
+          "answer_uniqueness_judge": 0.9933,
+          "distractor_plausibility_judge": 0.915,
+          "error_value_consistency_judge": 0.9758,
+          "clarity_judge": 0.7775,
+          "cognitive_depth_judge": 0.7908,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.8617,
+          "bloom_distribution": {
+            "Vận dụng": 4,
+            "Thông hiểu": 4,
+            "Vận dụng cao": 4
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.6833,
+          "difficulty_estimated_mean": 0.6858,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 214610,
+          "model_calls": 65,
+          "tokens_per_delivered": 17884.2,
+          "calls_per_delivered": 5.42,
+          "duration_seconds": 649.2,
+          "seconds_per_delivered": 54.1
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed44-t12-oxyz-p2",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/attach.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/rule_validator.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.cache/",
+            "API/.env.bak-20260728",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/docs/2408.04394v1.pdf",
+            "API/docs/2508.10005v1.pdf",
+            "API/docs/AQG-eval-methodologies-Amidei-INLG2018.pdf",
+            "API/docs/HumanEval-best-practices-NLG-INLG2019.pdf",
+            "API/docs/MCQ-quality-GPT4-rulebased-2307.08161.pdf",
+            "API/docs/QGEval-2406.05707.pdf",
+            "API/docs/TOM-TAT-TIEU-CHI-DANH-GIA.md",
+            "API/image.png",
+            "API/pdftest/corpus2/",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    }
+  ],
+  "by_arm": {
+    "full_system": {
+      "n_cells": 18,
+      "n_seeds": 3,
+      "n_documents": 6,
+      "pipeline_delivered": 187,
+      "total_candidates": 311,
+      "admission_rate": 0.6013,
+      "status_totals": {
+        "independently_verified": 108,
+        "consistency_confirmed": 56,
+        "mismatch": 7,
+        "non_verifiable": 11,
+        "refuted": 5
+      },
+      "tokens_per_delivered": 19571.5,
+      "seconds_per_delivered": 49.2,
+      "correctness": {
+        "labelled": 0,
+        "note": "chưa có nhãn ground-truth cho arm này — không có correctness rate để báo cáo"
+      },
+      "per_seed": {
+        "42": {
+          "cells": 6,
+          "delivered": 60,
+          "candidates": 109
+        },
+        "43": {
+          "cells": 6,
+          "delivered": 65,
+          "candidates": 105
+        },
+        "44": {
+          "cells": 6,
+          "delivered": 62,
+          "candidates": 97
+        }
+      }
+    }
+  }
+}

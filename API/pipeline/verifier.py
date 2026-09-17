@@ -116,6 +116,21 @@ def _parse_math(expr: str, variables: Optional[List[str]] = None):
     return parse_expr(expr, local_dict=local)
 
 
+def _is_non_finite(expr) -> bool:
+    """True nếu biểu thức là ±∞, ∞ phức, hoặc NaN.
+
+    Với các giá trị này mọi phép so bằng cách trừ đều sai: oo - oo = nan, còn
+    float(nan) == float(nan) là False. Phải chặn riêng.
+    """
+    try:
+        import sympy
+        if expr in (sympy.oo, -sympy.oo, sympy.zoo, sympy.nan):
+            return True
+        return bool(getattr(expr, 'is_finite', None) is False)
+    except Exception:
+        return False
+
+
 # ============ Numeric cross-check ============
 
 def _numeric_match(expr_a, expr_b, var, n_points: int = 5,
@@ -308,6 +323,15 @@ def _verify_integral(payload: Dict[str, Any]) -> VerificationResult:
             upper = sympy.sympify(payload['upper'])
             actual = sympy.integrate(f, (var, lower, upper))
             claimed = sympy.sympify(payload['claimed_value'])
+            # Tích phân phân kỳ: cùng lý do như _verify_limit, phải so trực tiếp.
+            if actual == claimed:
+                return VerificationResult(verified=True, engine='sympy.integrate',
+                                          detail=f'∫={actual}',
+                                          expected=actual, actual=claimed)
+            if _is_non_finite(actual) or _is_non_finite(claimed):
+                return VerificationResult(verified=False, engine='sympy.integrate',
+                                          detail=f'actual={actual}, claimed={claimed}',
+                                          expected=actual, actual=claimed)
             diff = sympy.simplify(actual - claimed)
             if diff == 0:
                 return VerificationResult(verified=True, engine='sympy.integrate',
@@ -337,6 +361,19 @@ def _verify_limit(payload: Dict[str, Any]) -> VerificationResult:
         direction = payload.get('direction', '+-')
         actual = sympy.limit(f, var, point, direction)
         claimed = sympy.sympify(payload['claimed_value'])
+        # So sánh trực tiếp TRƯỚC khi trừ: với giới hạn vô cực, oo - oo = nan
+        # nên nhánh simplify() bên dưới báo sai cho một đáp án ĐÚNG
+        # (lim_{x→0+} 1/x = ∞, claimed ∞ vẫn bị verified=False).
+        if actual == claimed:
+            return VerificationResult(verified=True, engine='sympy.limit',
+                                      detail=f'lim = {actual}',
+                                      expected=actual, actual=claimed)
+        if _is_non_finite(actual) or _is_non_finite(claimed):
+            # Ít nhất một bên vô cực/không xác định và hai bên KHÔNG bằng nhau:
+            # phép trừ và so số học đều vô nghĩa ở đây.
+            return VerificationResult(verified=False, engine='sympy.limit',
+                                      detail=f'actual={actual}, claimed={claimed}',
+                                      expected=actual, actual=claimed)
         if sympy.simplify(actual - claimed) == 0:
             return VerificationResult(verified=True, engine='sympy.limit',
                                       detail=f'lim = {actual}', expected=actual, actual=claimed)

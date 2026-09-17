@@ -1,0 +1,11 @@
+    [pdf-slot direct_pdf_2] critic reject: error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Hai distractor đầu có chuỗi lỗi dẫn đúng tới giá trị đã cho, nhưng distractor \(127\) không khớp với phần mô tả lỗi vì phép tính theo lỗi nêu ra cho ra \(152\) )
+    [pdf-slot direct_pdf_8] writer 0 candidates; errors=["Expecting ',' delimiter: line 30 column 379 (char 2148)"]
+    [pdf-slot direct_pdf_7] writer 0 candidates; errors=["Expecting ',' delimiter: line 1 column 644 (char 643)"]
+    [pdf-slot direct_pdf_6] writer 0 candidates; errors=["Expecting ',' delimiter: line 27 column 156 (char 1694)"]
+    [pdf-slot direct_pdf_10] critic reject: error_distractor_consistency=0.25 (lỗi mô tả không khớp giá trị distractor/đáp án) (Phương án 132 và 152 có mô tả lỗi không hoàn toàn khớp giá trị tính ra, còn 139 cũng có chuỗi tính sai không nhất quán với phép nguyên hàm.)
+    [pdf-slot direct_pdf_9] critic reject: error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Một số mô tả lỗi không khớp hoàn toàn với giá trị distractor (đặc biệt phương án \(\\frac{142}{5}\) mâu thuẫn giữa chuỗi tính và kết quả), nên cần chỉnh lại.)
+    [pdf-slot direct_pdf_12] writer 0 candidates; errors=["Expecting ',' delimiter: line 4 column 85 (char 462)"]
+    [pdf-slot direct_pdf_13] writer 0 candidates; errors=["Expecting ',' delimiter: line 31 column 169 (char 2054)"]
+    [pdf-slot direct_pdf_14] verifier reject: duplicate: rule validator failed: ['d3:duplicate_option']
+    [pdf-slot direct_pdf_15] critic reject: error_distractor_consistency=0.20 (lỗi mô tả không khớp giá trị distractor/đáp án) (Chuỗi lỗi của distractor \(-32\) và \(-28\) không nhất quán với giá trị nêu ra, đồng thời phần giải thích lỗi của \(-28\) thừa nhận có thể vẫn ra đáp án đúng.)
+[cell] arm=full_system seed=43 file_1_trang_1-31.pdf: delivered=6/8 rejected=10 tokens=119668 336s

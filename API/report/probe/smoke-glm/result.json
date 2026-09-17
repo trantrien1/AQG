@@ -1,0 +1,188 @@
+{
+ "questions": [],
+ "accepted_count": 0,
+ "requested_count": 1,
+ "is_partial": true,
+ "parse_errors": 4,
+ "verify_failures": 0,
+ "error_code": null,
+ "error_message": null,
+ "rejected": [
+  {
+   "stem": "",
+   "question_id": "rej_direct_pdf_0_writer",
+   "blueprint_slot_id": "direct_pdf_0",
+   "cognitive_level": "Vận dụng",
+   "review_status": "rejected",
+   "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['Expecting value: line 175 column 1 (char 957)'])",
+   "reject_reason_code": "writer_empty",
+   "reject_reason_stage": "writer",
+   "reject_log": [
+    {
+     "reason_code": "writer_empty",
+     "stage": "writer",
+     "attempt": 0,
+     "message": "Writer không sinh được câu hỏi hợp lệ (errors=['Expecting value: line 175 column 1 (char 957)'])",
+     "slot_id": "direct_pdf_0"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "stem": "",
+   "question_id": "rej_direct_pdf_1_writer",
+   "blueprint_slot_id": "direct_pdf_1",
+   "cognitive_level": "Vận dụng",
+   "review_status": "rejected",
+   "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['Expecting value: line 153 column 1 (char 836)'])",
+   "reject_reason_code": "writer_empty",
+   "reject_reason_stage": "writer",
+   "reject_log": [
+    {
+     "reason_code": "writer_empty",
+     "stage": "writer",
+     "attempt": 0,
+     "message": "Writer không sinh được câu hỏi hợp lệ (errors=['Expecting value: line 153 column 1 (char 836)'])",
+     "slot_id": "direct_pdf_1"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_2_distractor",
+   "blueprint_slot_id": "direct_pdf_2",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng",
+   "difficulty_target": 0.7,
+   "difficulty_estimated": 0.77,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.7,
+    "stem_length_adj": 0.1,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 455,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 0
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 200,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 6 giờ với vận tốc v(km/h) phụ thuộc vào thời gian t(h) có đồ thị như hình bên dưới. Trong khoảng thời gian 2 giờ đầu khi bắt đầu chuyển động, đồ thị là một phần đường Parabol có đỉnh I(3;9) và có trục đối xứng song song với trục tung. Khoảng thời gian còn lại, đồ thị vận tốc là một đường thẳng có hệ số góc bằng \\(\\frac{1}{4}\\). Quãng đường s mà vật đi được trong 6 giờ là \\(\\frac{a}{b}\\) (a,b) = 1. Khi đó a - b bằng bao nhiêu?",
+   "options": [
+    {
+     "key": "A",
+     "text": "97",
+     "error_type": null
+    }
+   ],
+   "answer_key": "A",
+   "explanation_correct": "Để tìm quãng đường đi được, ta cần tích phân vận tốc theo thời gian. Vận tốc được biểu diễn bởi hai hàm số khác nhau trên hai khoảng thời gian: một hàm bậc hai (parabol) trong 2 giờ đầu và một hàm bậc nhất (đường thẳng) trong 4 giờ sau. Ta phải xác định phương trình của từng hàm số, sau đó tính tích phân trên từng khoảng thời gian tương ứng và cộng chúng lại.",
+   "explanation_per_distractor": {},
+   "hint": null,
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Một vật chuyển động trong 6 giờ với vận tốc v(km/h) phụ thuộc vào thời gian t(h) có đồ thị như hình bên dưới. Trong khoảng thời gian 2 giờ đầu khi bắt đầu chuyển động, đồ thị là một phần đường Parabol có đỉnh I(3;9) và có trục đối xứng song song với trục tung. Khoảng thời gian còn lại, đồ thị vận tốc là một đường thẳng có hệ số góc bằng \\(\\frac{1}{4}\\). Quãng đường s mà vật đi được trong 6 giờ là \\(\\frac{a}{b}\\) ,(a,b) = 1.Khi đó a - b bằng bao nhiêu?",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": null,
+    "method": null,
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": false,
+    "question_kind": "conceptual",
+    "evidence_sources": [],
+    "independent": {},
+    "needs_human_review": false,
+    "verifier_version": null,
+    "verifier_hint": null,
+    "numeric_crosscheck_points": 0,
+    "detail": null,
+    "verified_at": "2026-07-28T07:15:03.275867Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": null,
+    "quality": null,
+    "bloom_alignment": null,
+    "answer_prob": null,
+    "quality_traits": {},
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": null,
+    "verifier_pass": null,
+    "critic_score": null,
+    "grounding_score": null,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "Không tạo đủ 3 phương án nhiễu đạt chuẩn (error=Expecting value: line 1 column 1 (char 0), n=0)",
+   "reject_reason_code": "bad_distractors",
+   "reject_reason_stage": "distractor",
+   "reject_log": [
+    {
+     "reason_code": "bad_distractors",
+     "stage": "distractor",
+     "attempt": 0,
+     "message": "Không tạo đủ 3 phương án nhiễu đạt chuẩn (error=Expecting value: line 1 column 1 (char 0), n=0)",
+     "slot_id": "direct_pdf_2"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "stem": "",
+   "question_id": "rej_direct_pdf_3_writer",
+   "blueprint_slot_id": "direct_pdf_3",
+   "cognitive_level": "Vận dụng",
+   "review_status": "rejected",
+   "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['Expecting value: line 1 column 1 (char 0)'])",
+   "reject_reason_code": "writer_empty",
+   "reject_reason_stage": "writer",
+   "reject_log": [
+    {
+     "reason_code": "writer_empty",
+     "stage": "writer",
+     "attempt": 0,
+     "message": "Writer không sinh được câu hỏi hợp lệ (errors=['Expecting value: line 1 column 1 (char 0)'])",
+     "slot_id": "direct_pdf_3"
+    }
+   ],
+   "attempts": 1
+  }
+ ]
+}

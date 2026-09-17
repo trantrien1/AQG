@@ -1,0 +1,12 @@
+    [pdf-slot direct_pdf_2] refuted: cả biểu thức của Writer lẫn tính toán độc lập (1.49379) đều không khớp đáp án key (1.5)
+    [pdf-slot direct_pdf_5] writer 0 candidates; errors=["Expecting ',' delimiter: line 27 column 181 (char 1772)"]
+    [pdf-slot direct_pdf_4] mismatch: biểu thức của Writer khớp key (435.6) nhưng tính toán độc lập cho 1368.48
+    [pdf-slot direct_pdf_3] mismatch: biểu thức của Writer khớp key (425.791) nhưng tính toán độc lập cho 428.932
+    [pdf-slot direct_pdf_3] critic reject: error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Các chuỗi lỗi mô tả không hoàn toàn khớp với giá trị distractor: ví dụ lỗi đổi biến với cận không đổi thực tế không tạo ra giá trị được nêu, và đáp án đúng cũng)
+    [pdf-slot direct_pdf_6] verifier reject: multi_answer: distractor "\(\int_{0}^{6}f(x)\,dx\)" cũng được verifier xác nhận đúng
+    [pdf-slot direct_pdf_7] verifier reject: quality_low: rule validator failed: ['question_too_trivial:bare_one_step_integral']
+    [pdf-slot direct_pdf_12] verifier reject: duplicate: rule validator failed: ['d3:duplicate_option']
+    [pdf-slot direct_pdf_15] mismatch: biểu thức của Writer khớp key (14.4882) nhưng tính toán độc lập cho 2.40243
+    [pdf-slot direct_pdf_15] critic reject: answer_uniqueness=0.15 (nghi đa đáp án)
+    [pdf-slot direct_pdf_17] verifier reject: duplicate: rule validator failed: ['d3:duplicate_option']
+[cell] arm=full_system seed=42 t12-mulog-tichphan.pdf: delivered=12/12 rejected=7 tokens=248455 520s

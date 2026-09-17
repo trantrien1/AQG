@@ -1,0 +1,892 @@
+{
+  "metadata": {
+    "bench": "suite",
+    "arm": "full_system",
+    "seed": 44,
+    "source_pdf": "pdftest/corpus2/t12-oxyz-p1.pdf",
+    "source_pdf_name": "t12-oxyz-p1.pdf",
+    "requested_questions": 12,
+    "accepted_questions": 2,
+    "is_partial": true,
+    "parse_errors": 4,
+    "verify_failures": 0,
+    "error_code": null,
+    "error_message": null,
+    "cost": {
+      "tokens": 62133,
+      "calls": 18
+    },
+    "duration_seconds": 155.10524487495422,
+    "generated_at": "2026-07-30T11:40:32.413301+00:00"
+  },
+  "questions": [
+    {
+      "question_id": "q_2026_71a96562",
+      "blueprint_slot_id": "direct_pdf_0",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 300,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một khối hộp chữ nhật được đặt nội tiếp trong một mặt cầu. Ba kích thước của khối hộp lần lượt là \\(a\\), \\(b\\), \\(c\\). Biết tổng của hai kích thước đầu là \\(a+b=7\\), hiệu của chúng là \\(a-b=1\\), và đường chéo không gian của khối hộp bằng \\(2\\sqrt{21}\\). Tính bán kính của mặt cầu ngoại tiếp khối hộp.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(2\\sqrt{21}\\)",
+          "error_type": "wrong_radius_diameter"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\sqrt{59}\\)",
+          "error_type": "edge_as_sphere_radius"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{5}{2}\\)",
+          "error_type": "use_base_diagonal_instead_of_space_diagonal"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\sqrt{21}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Từ hai điều kiện về tổng và hiệu ta tìm được hai cạnh của đáy, sau đó dùng đường chéo không gian để tìm cạnh còn lại. Bán kính mặt cầu ngoại tiếp khối hộp bằng một nửa đường chéo không gian.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: lấy bán kính mặt cầu bằng đường kính của mặt cầu. Vì khối hộp nội tiếp mặt cầu có đường kính bằng đường chéo không gian \\(d=2\\sqrt{21}\\), người làm sai kết luận ngay \\(R=d=2\\sqrt{21}\\) thay vì dùng công thức đúng \\(R=\\frac{d}{2}\\).",
+        "B": "Sai lầm: nhầm bán kính mặt cầu ngoại tiếp khối hộp bằng cạnh còn lại của khối hộp. Từ \\(a=4,b=3\\) và đường chéo không gian \\(2\\sqrt{21}\\), ta có \\(c^2=(2\\sqrt{21})^2-4^2-3^2=84-16-9=59\\), nên \\(c=\\sqrt{59}\\). Người làm sai lấy trực tiếp \\(R=c=\\sqrt{59}\\) thay vì \\(R\\) bằng một nửa đường chéo không gian.",
+        "C": "Sai lầm: chỉ dùng đường chéo của đáy thay cho đường chéo không gian của khối hộp. Từ \\(a+b=7\\), \\(a-b=1\\) suy ra \\(a=4,b=3\\), nên đường chéo đáy là \\(\\sqrt{4^2+3^2}=5\\). Người làm sai lấy bán kính bằng một nửa đường chéo này: \\(R=\\frac{5}{2}\\), bỏ qua cạnh thứ ba của khối hộp."
+      },
+      "hint": "Từ hai điều kiện về tổng và hiệu ta tìm được hai cạnh của đáy, sau đó dùng đường chéo không gian để tìm cạnh còn lại.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Ngoại tiếp khối hộp chữ nhật dài; rộng; cao lần lượt \\(a;b;c\\). \\(R=\\frac{\\sqrt{a^2+b^2+c^2}}{2}\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 4.58257569495584,
+          "expression": "sqrt(21)",
+          "stated_answer": "sqrt(21)",
+          "stated_value": 4.58257569495584,
+          "source": "llm_resolver",
+          "detail": "sqrt(21) = 4.58258",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "sqrt(21)",
+            "expected_numeric": 7.681145747868608
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 4.58258, khớp đáp án key",
+        "verified_at": "2026-07-30T11:38:56.337424Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9383333333333334,
+        "bloom_alignment": 0.95,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu đầy đủ dữ kiện, yêu cầu tính một đại lượng duy nhất và không có cách hiểu khác nhau."
+          },
+          "cognitive_depth": {
+            "score": 0.78,
+            "rationale": "Học sinh phải kết hợp giải hệ từ tổng-hiệu với công thức mặt cầu ngoại tiếp thay vì chỉ nhớ công thức trực tiếp."
+          },
+          "bloom_alignment": {
+            "score": 0.95,
+            "rationale": "Bài yêu cầu vận dụng công thức đã học vào tình huống có biến đổi dữ kiện và tính toán trung gian, phù hợp mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.92,
+            "rationale": "Các phương án nhiễu đều gắn với lỗi phổ biến như nhầm đường kính-bán kính, dùng đường chéo đáy hoặc nhầm cạnh khối hộp."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(\\sqrt{21}\\) thỏa mãn vì bán kính bằng nửa đường chéo không gian \\(2\\sqrt{21}\\), các phương án còn lại đều do sai công thức."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Chuỗi lỗi mô tả đều dẫn đúng đến từng distractor và phần giải thích đúng nhất quán với đáp án \\(\\sqrt{21}\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9383333333333334,
+        "verifier_pass": true,
+        "critic_score": 0.9383333333333334,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ hai điều kiện về tổng và hiệu ta tìm được hai cạnh của đáy, sau đó dùng đường chéo không gian để tìm cạnh còn lại. Bán kính mặt cầu ngoại tiếp khối hộp bằng một nửa đường chéo không gian.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Từ \\(a+b=7\\) và \\(a-b=1\\), cộng hai phương trình ta được \\(2a=8\\), suy ra \\(a=4\\). Do đó \\(b=3\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Gọi \\(c\\) là kích thước còn lại của khối hộp. Đường chéo không gian thỏa mãn \\(d^2=a^2+b^2+c^2\\). Thay \\(d=2\\sqrt{21}\\), ta có \\(84=4^2+3^2+c^2\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tính \\(c^2=84-16-9=59\\). Tuy nhiên để tìm bán kính mặt cầu ngoại tiếp chỉ cần dùng trực tiếp đường chéo không gian đã cho vì tâm mặt cầu là trung điểm của đường chéo khối hộp."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Bán kính mặt cầu ngoại tiếp khối hộp là \\(R=\\frac{d}{2}=\\frac{2\\sqrt{21}}{2}=\\sqrt{21}\\)."
+          }
+        ],
+        "final_answer": "\\(\\sqrt{21}\\)"
+      },
+      "why_correct": "Khối hộp chữ nhật nội tiếp mặt cầu có đường kính bằng đường chéo không gian của khối hộp, nên bán kính duy nhất được xác định bằng một nửa đường chéo đó.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: lấy bán kính mặt cầu bằng đường kính của mặt cầu. Vì khối hộp nội tiếp mặt cầu có đường kính bằng đường chéo không gian \\(d=2\\sqrt{21}\\), người làm sai kết luận ngay \\(R=d=2\\sqrt{21}\\) thay vì dùng công thức đúng"
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm: nhầm bán kính mặt cầu ngoại tiếp khối hộp bằng cạnh còn lại của khối hộp. Từ \\(a=4,b=3\\) và đường chéo không gian \\(2\\sqrt{21}\\), ta có \\(c^2=(2\\sqrt{21})^2-4^2-3^2=84-16-9=59\\), nên \\(c=\\sqrt{59}\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: chỉ dùng đường chéo của đáy thay cho đường chéo không gian của khối hộp. Từ \\(a+b=7\\), \\(a-b=1\\) suy ra \\(a=4,b=3\\), nên đường chéo đáy là \\(\\sqrt{4^2+3^2}=5\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_29a14d7b",
+      "blueprint_slot_id": "direct_pdf_1",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.43,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": -0.04,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 68,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Một mặt cầu có diện tích bằng \\(144\\pi\\). Tính thể tích khối cầu đó.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(62208\\pi\\)",
+          "error_type": "sphere_radius_division_error"
+        },
+        {
+          "key": "B",
+          "text": "\\(216\\pi\\)",
+          "error_type": "volume_missing_four_thirds"
+        },
+        {
+          "key": "C",
+          "text": "\\(288\\pi\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(2304\\pi\\)",
+          "error_type": "surface_area_forget_4"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Từ diện tích mặt cầu suy ra bán kính, sau đó thay bán kính vừa tìm được vào công thức thể tích khối cầu để tính kết quả.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là biến đổi sai phương trình diện tích mặt cầu: từ \\(4\\pi R^2=144\\pi\\) suy ra nhầm \\(R=\\frac{144}{4}=36\\) thay vì bình phương bán kính bằng \\(36\\) rồi lấy căn. Dùng giá trị sai này vào công thức thể tích cho \\(V=\\frac{4}{3}\\pi\\cdot36^3=62208\\pi\\). Sai vì đã xử lý sai bước tìm bán kính.",
+        "B": "Sai lầm là dùng công thức thể tích khối cầu thành \\(V=\\pi R^3\\), bỏ mất hệ số \\(\\frac{4}{3}\\). Từ \\(4\\pi R^2=144\\pi\\) vẫn tìm đúng được \\(R=6\\), rồi tính sai \\(V=\\pi\\cdot6^3=216\\pi\\). Sai vì công thức đúng phải là \\(V=\\frac{4}{3}\\pi R^3\\).",
+        "D": "Sai lầm là dùng công thức diện tích mặt cầu thành \\(S=\\pi R^2\\) thay vì \\(S=4\\pi R^2\\). Từ \\(\\pi R^2=144\\pi\\) suy ra \\(R=12\\). Sau đó áp dụng đúng công thức thể tích \\(V=\\frac{4}{3}\\pi R^3\\) được \\(V=\\frac{4}{3}\\pi\\cdot12^3=2304\\pi\\). Sai vì đã thiếu hệ số \\(4\\) trong công thức diện tích mặt cầu."
+      },
+      "hint": "Từ diện tích mặt cầu suy ra bán kính, sau đó thay bán kính vừa tìm được vào công thức thể tích khối cầu để tính kết quả.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Diện tích mặt cầu: 2 4 C S R  .  Thể tích khối cầu: 4 3 3 V R C",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 904.7786842338604,
+          "expression": "4*pi*6**3/3",
+          "stated_answer": "288*pi",
+          "stated_value": 904.7786842338604,
+          "source": "llm_resolver",
+          "detail": "4*pi*6**3/3 = 904.779",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "288*pi",
+            "expected_numeric": 195432.19579451386
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 904.779, khớp đáp án key",
+        "verified_at": "2026-07-30T11:38:59.122075Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9249999999999999,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 1.0,
+            "rationale": "Đề bài ngắn gọn, đủ dữ kiện và yêu cầu tính thể tích khối cầu nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.75,
+            "rationale": "Bài yêu cầu nhận biết công thức và thực hiện biến đổi tính toán trực tiếp, phù hợp mức độ thông hiểu cơ bản."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Học sinh cần hiểu mối liên hệ giữa diện tích mặt cầu, bán kính và thể tích rồi áp dụng công thức, đúng với mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều mô phỏng lỗi phổ biến khi quên hệ số trong công thức hoặc biến đổi sai bán kính."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(288\\\\pi\\) thu được từ \\(4\\\\pi R^2=144\\\\pi\\) với \\(R=6\\) và công thức thể tích chuẩn, các đáp án còn lại đều sai."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Chuỗi lỗi của từng distractor đều dẫn đúng tới giá trị đã nêu và phần giải thích đáp án nhất quán với đáp án \\(288\\\\pi\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9249999999999999,
+        "verifier_pass": true,
+        "critic_score": 0.9249999999999999,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ diện tích mặt cầu suy ra bán kính, sau đó thay bán kính vừa tìm được vào công thức thể tích khối cầu để tính kết quả.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Áp dụng công thức diện tích mặt cầu \\(S=4\\pi R^2\\). Với \\(S=144\\pi\\), ta có \\(4\\pi R^2=144\\pi\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Chia hai vế cho \\(4\\pi\\) được \\(R^2=36\\), suy ra \\(R=6\\) vì bán kính là số dương."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Áp dụng công thức thể tích khối cầu \\(V=\\frac{4}{3}\\pi R^3\\), thay \\(R=6\\) được \\(V=\\frac{4}{3}\\pi\\cdot6^3=\\frac{4}{3}\\pi\\cdot216=288\\pi\\)."
+          }
+        ],
+        "final_answer": "\\(288\\pi\\)"
+      },
+      "why_correct": "Diện tích mặt cầu xác định duy nhất bán kính dương của mặt cầu; khi có bán kính thì thể tích được tính duy nhất theo công thức khối cầu nên kết quả là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm là biến đổi sai phương trình diện tích mặt cầu: từ \\(4\\pi R^2=144\\pi\\) suy ra nhầm \\(R=\\frac{144}{4}=36\\) thay vì bình phương bán kính bằng \\(36\\) rồi lấy căn."
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm là dùng công thức thể tích khối cầu thành \\(V=\\pi R^3\\), bỏ mất hệ số \\(\\frac{4}{3}\\). Từ \\(4\\pi R^2=144\\pi\\) vẫn tìm đúng được \\(R=6\\), rồi tính sai \\(V=\\pi\\cdot6^3=216\\pi\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm là dùng công thức diện tích mặt cầu thành \\(S=\\pi R^2\\) thay vì \\(S=4\\pi R^2\\). Từ \\(\\pi R^2=144\\pi\\) suy ra \\(R=12\\). Sau đó áp dụng đúng công thức thể tích \\(V=\\frac{4}{3}\\pi R^3\\) được"
+        }
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "question_id": "rej_direct_pdf_2_distractor",
+      "blueprint_slot_id": "direct_pdf_2",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 159,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 0
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho ba điểm \\(A(1;2;3)\\), \\(B(4;-1;2)\\), \\(C(m;1;0)\\). Biết diện tích tam giác \\(ABC\\) bằng \\(6\\) và \\(m>4\\). Tìm giá trị của \\(m\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{14+2\\sqrt{14}}{5}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Áp dụng công thức diện tích tam giác trong không gian bằng một nửa độ dài tích có hướng của hai vectơ cạnh. Từ điều kiện diện tích lập được phương trình theo tham số \\(m\\), sau đó giải và chọn nghiệm thỏa điều kiện \\(m>4\\).",
+      "explanation_per_distractor": {},
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "⑾ Diện tích tam giác ABC...................................... 1/2 ; ABC S AB AC",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T11:39:02.539665Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "Không tạo đủ 3 phương án nhiễu đạt chuẩn (error=Expecting ':' delimiter: line 15 column 35 (char 1282), n=0)",
+      "reject_reason_code": "bad_distractors",
+      "reject_reason_stage": "distractor",
+      "reject_log": [
+        {
+          "reason_code": "bad_distractors",
+          "stage": "distractor",
+          "attempt": 0,
+          "message": "Không tạo đủ 3 phương án nhiễu đạt chuẩn (error=Expecting ':' delimiter: line 15 column 35 (char 1282), n=0)",
+          "slot_id": "direct_pdf_2"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_3_critic",
+      "blueprint_slot_id": "direct_pdf_3",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 184,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho bốn điểm \\(A(1;0;0)\\), \\(B(0;2;0)\\), \\(C(0;0;3)\\) và \\(D(2;1;t)\\) với \\(t>0\\). Biết thể tích tứ diện \\(ABCD\\) bằng \\(5\\). Giá trị của \\(t\\) là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(39\\)",
+          "error_type": "volume_tetrahedron_missing_factor"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{39}{2}\\)",
+          "error_type": "determinant_sign_error"
+        },
+        {
+          "key": "C",
+          "text": "\\( -\\frac{39}{2} \\)",
+          "error_type": "wrong_domain"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{21}{2}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Ta biểu diễn thể tích tứ diện bằng tích có hướng và đưa điều kiện thể tích về phương trình chứa tham số \\(t\\). Sau khi tính định thức và xét điều kiện \\(t>0\\), thu được giá trị duy nhất \\(t=\\frac{21}{2}\\).",
+      "explanation_per_distractor": {
+        "A": "Học sinh tính thể tích tứ diện nhưng quên hệ số \\(\\frac{1}{6}\\), dùng nhầm công thức \\(V=\\left|\\det(\\overrightarrow{AB},\\overrightarrow{AC},\\overrightarrow{AD})\\right|\\). Khi đó có \\(2t+9=5\\cdot 6\\cdot 2\\), suy ra \\(2t+9=78\\) và \\(t=\\frac{69}{2}\\), không đúng; vì để tạo distractor hợp lý cần lấy kết quả từ bước sai thường gặp này sau khi rút gọn nhầm \\(2t-?\\).",
+        "B": "Khi tính định thức tạo thể tích tứ diện, học sinh mắc lỗi đổi dấu một hạng tử và tính sai \\(\\left|\\det(\\overrightarrow{AB},\\overrightarrow{AC},\\overrightarrow{AD})\\right|=2t-9\\) thay vì \\(2t+9\\). Khi đó lập phương trình \\(\\frac{2t-9}{6}=5\\), suy ra \\(2t-9=30\\) và \\(t=\\frac{39}{2}\\). Sai do tính sai dấu trong định thức.",
+        "C": "Tính thể tích được phương trình \\(\\left|2t+9\\right|=30\\), sau đó giải giá trị tuyệt đối thành hai trường hợp: \\(2t+9=30\\) hoặc \\(2t+9=-30\\). Từ trường hợp thứ hai thu được \\(t=-\\frac{39}{2}\\). Sai ở chỗ bỏ qua điều kiện xác định của tham số trong đề bài là \\(t>0\\), nên giữ lại nghiệm âm không hợp lệ."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Thể tích tứ diện \\(ABCD\\): \\(\\frac{1}{6};V_{ABCD}=AB,AC,AD\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": false,
+          "value": 10.5,
+          "expression": "21/2",
+          "stated_answer": "21/2",
+          "stated_value": 10.5,
+          "source": "llm_resolver",
+          "detail": "21/2 = 10.5; nhưng biểu thức chỉ là hằng số trần — không có phép tính nào được máy kiểm, nên không đủ để gọi là xác nhận độc lập",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "21/2",
+            "expected_numeric": 39
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (nguồn độc lập cũng cho 10.5 nhưng chỉ khẳng định một hằng số, không suy dẫn)",
+        "verified_at": "2026-07-30T11:40:32.411977Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.7583333333333332,
+        "bloom_alignment": 0.75,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài nêu đầy đủ điểm, tham số, điều kiện và yêu cầu tìm một giá trị nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu kết hợp tính vectơ, tích có hướng, thể tích và xử lý điều kiện tham số nên phù hợp mức vận dụng cao."
+          },
+          "bloom_alignment": {
+            "score": 0.75,
+            "rationale": "Thao tác chính là áp dụng công thức quen thuộc vào tình huống mới và phân tích nghiệm theo điều kiện, phù hợp vận dụng hơn là vận dụng cao thuần túy."
+          },
+          "distractor_plausibility": {
+            "score": 0.65,
+            "rationale": "Các phương án sai chủ yếu mô phỏng lỗi dấu và lỗi điều kiện, nhưng một distractor có mô tả tạo số chưa nhất quán làm giảm tính chẩn đoán."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Phương trình thể tích cho hai nghiệm đại số nhưng điều kiện \\(t>0\\) chỉ giữ lại \\(t=\\\\frac{21}{2}\\), nên đáp án duy nhất."
+          },
+          "error_distractor_consistency": {
+            "score": 0.35,
+            "rationale": "Giải thích lỗi của các distractor không hoàn toàn nhất quán, đặc biệt phương án \\(39\\) không được suy ra đúng từ chuỗi tính sai đã mô tả, trong khi lời giải đáp án đúng vẫn khớp."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.7583333333333332,
+        "verifier_pass": true,
+        "critic_score": 0.7583333333333332,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Giải thích lỗi của các distractor không hoàn toàn nhất quán, đặc biệt phương án \\(39\\) không được suy ra đúng từ chuỗi tính sai đã mô tả, trong khi lời giải đáp)",
+      "reject_reason_code": "quality_low",
+      "reject_reason_stage": "critic",
+      "reject_log": [
+        {
+          "reason_code": "quality_low",
+          "stage": "critic",
+          "attempt": 0,
+          "message": "error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Giải thích lỗi của các distractor không hoàn toàn nhất quán, đặc biệt phương án \\(39\\) không được suy ra đúng từ chuỗi tính sai đã mô tả, trong khi lời giải đáp)",
+          "slot_id": "direct_pdf_3"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_4_writer",
+      "blueprint_slot_id": "direct_pdf_4",
+      "cognitive_level": "Vận dụng",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 4 column 367 (char 657)\"])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 4 column 367 (char 657)\"])",
+          "slot_id": "direct_pdf_4"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_5_verifier",
+      "blueprint_slot_id": "direct_pdf_5",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Nhận biết",
+      "difficulty_target": 0.3,
+      "difficulty_estimated": 0.27,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.3,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 111,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 40,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho hai điểm \\(A(2;-1;3)\\) và \\(B(5;1;1)\\). Độ dài đoạn thẳng \\(AB\\) bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\sqrt{13}\\)",
+          "error_type": "omit_coordinate_difference"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\sqrt{29}\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(\\sqrt{7}\\)",
+          "error_type": "forget_square_in_distance_formula"
+        },
+        {
+          "key": "D",
+          "text": "\\(7\\)",
+          "error_type": "manhattan_distance_confusion"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Áp dụng công thức độ dài đoạn thẳng trong không gian, ta tính các hiệu tọa độ rồi lấy căn bậc hai của tổng bình phương.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là bỏ qua một tọa độ khi áp dụng công thức khoảng cách trong không gian. Học sinh chỉ lấy hiệu theo hai trục đầu: \\(\\Delta x=5-2=3\\), \\(\\Delta y=1-(-1)=2\\), rồi tính \\(AB=\\sqrt{3^2+2^2}=\\sqrt{13}\\). Sai vì phải tính đủ cả ba hiệu tọa độ, bao gồm \\(\\Delta z=1-3=-2\\).",
+        "C": "Sai lầm là quên bình phương các hiệu tọa độ trong công thức khoảng cách. Học sinh tính \\(\\Delta x=3\\), \\(\\Delta y=2\\), \\(\\Delta z=-2\\), rồi lấy \\(AB=\\sqrt{3+2+2}=\\sqrt{7}\\). Sai vì công thức cần dùng là \\(AB=\\sqrt{(\\Delta x)^2+(Δy)^2+(Δz)^2}\\).",
+        "D": "Sai lầm là nhầm độ dài đoạn thẳng trong không gian với tổng các độ lệch tọa độ. Học sinh tính các độ lệch tuyệt đối \\(|5-2|=3\\), \\(|1-(-1)|=2\\), \\(|1-3|=2\\), sau đó cộng lại được \\(3+2+2=7\\). Sai vì công thức đúng phải lấy căn bậc hai của tổng các bình phương."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Độ dài véctơ \\(AB\\): \\(AB=\\sqrt{(x_B-x_A)^2+(y_B-y_A)^2+(z_B-z_A)^2}\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T11:39:37.944764Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "answer_text_mismatch: đáp án key \\(\\sqrt{29}\\) không khớp giá trị 4.123105625617661 mà engine tính ra",
+      "reject_reason_code": "verifier_failed",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "verifier_failed",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "answer_text_mismatch: đáp án key \\(\\sqrt{29}\\) không khớp giá trị 4.123105625617661 mà engine tính ra",
+          "slot_id": "direct_pdf_5"
+        }
+      ],
+      "attempts": 1
+    }
+  ]
+}

@@ -1,0 +1,3313 @@
+{
+  "metadata": {
+    "bench": "suite",
+    "arm": "full_system",
+    "seed": 44,
+    "source_pdf": "pdftest/corpus2/t12-oxyz-p2.pdf",
+    "source_pdf_name": "t12-oxyz-p2.pdf",
+    "requested_questions": 12,
+    "accepted_questions": 12,
+    "is_partial": false,
+    "parse_errors": 6,
+    "verify_failures": 0,
+    "error_code": null,
+    "error_message": null,
+    "cost": {
+      "tokens": 214610,
+      "calls": 65
+    },
+    "duration_seconds": 649.1614334583282,
+    "generated_at": "2026-07-30T11:51:23.267133+00:00"
+  },
+  "questions": [
+    {
+      "question_id": "q_2026_96cd8652",
+      "blueprint_slot_id": "direct_pdf_0",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 187,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho ba điểm \\(A(1;2;3)\\), \\(B(3;1;4)\\), \\(C(2;5;1)\\). Gọi \\((P)\\) là mặt phẳng đi qua ba điểm trên. Tính khoảng cách từ điểm \\(M(2;2;2)\\) đến mặt phẳng \\((P)\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(-\\frac{8\\sqrt{3}}{15}\\)",
+          "error_type": "distance_missing_abs"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{\\sqrt{6}}{6}\\)",
+          "error_type": "normal_vs_direction_vector"
+        },
+        {
+          "key": "C",
+          "text": "\\(0\\)",
+          "error_type": "plane_normal_vs_point"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{8\\sqrt{3}}{15}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Từ ba điểm đã cho, tìm được vectơ pháp tuyến của mặt phẳng rồi lập phương trình mặt phẳng. Sau đó áp dụng công thức khoảng cách từ điểm đến mặt phẳng để tính kết quả.",
+      "explanation_per_distractor": {
+        "A": "Tính phương trình mặt phẳng đúng được \\((P): -x+5y+7z-30=0\\). Khi áp dụng công thức khoảng cách, học sinh quên lấy giá trị tuyệt đối nên tính \\(d=\\frac{-2+5\\cdot2+7\\cdot2-30}{\\sqrt{(-1)^2+5^2+7^2}}=\\frac{-8}{\\sqrt{75}}=-\\frac{8\\sqrt{3}}{15}\\). Sai vì khoảng cách luôn không âm, công thức phải dùng \\(\\left|-2+10+14-30\\right|\\).",
+        "B": "Học sinh nhầm lấy vectơ chỉ phương \\(\\overrightarrow{AB}=(2;-1;1)\\) làm vectơ pháp tuyến thay vì tính \\(\\vec n=\\overrightarrow{AB}\\times\\overrightarrow{AC}\\). Khi đó lập mặt phẳng sai qua \\(A\\): \\(2x-y+z+D=0\\), với \\(D=-3\\), nên có \\(2x-y+z-3=0\\). Tính khoảng cách từ \\(M\\): \\(d=\\frac{|2\\cdot2-2+2-3|}{\\sqrt{2^2+(-1)^2+1^2}}=\\frac{1}{\\sqrt6}=\\frac{\\sqrt6}{6}\\).",
+        "C": "Học sinh nhầm lấy tọa độ điểm \\(M(2;2;2)\\) làm vectơ pháp tuyến của mặt phẳng, nên chọn vectơ pháp tuyến \\(\\vec n=(2;2;2)\\). Lập mặt phẳng qua \\(A(1;2;3)\\): \\(2x+2y+2z+D=0\\), thay tọa độ \\(A\\) được \\(D=-12\\), suy ra mặt phẳng sai là \\(2x+2y+2z-12=0\\). Thay \\(M\\) vào: \\(2\\cdot2+2\\cdot2+2\\cdot2-12=0\\), nên tính ra \\(d=0\\)."
+      },
+      "hint": "Từ ba điểm đã cho, tìm được vectơ pháp tuyến của mặt phẳng rồi lập phương trình mặt phẳng.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Mặt phẳng \\(P\\) đi qua điểm \\(M(x_0;y_0;z_0)\\) và nhận vectơ \\(n=(A;B;C)\\) làm vectơ pháp tuyến có dạng",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": false,
+          "derivation": false,
+          "value": null,
+          "expression": "abs((-2+5*2+7*2-30)/sqrt((-1)**2+5**2+7**2))",
+          "stated_answer": "8*sqrt(3)/15",
+          "stated_value": null,
+          "source": "llm_resolver",
+          "detail": "biểu thức độc lập không đánh giá được (parse lỗi: name 'Function' is not defined)",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "8*sqrt(3)/15",
+            "expected_numeric": 0.408248290463863
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (biểu thức độc lập không đánh giá được (parse lỗi: name 'Function' is not defined))",
+        "verified_at": "2026-07-30T11:41:43.491095Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.98,
+        "quality": 0.8683333333333335,
+        "bloom_alignment": 0.95,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.5,
+            "rationale": ""
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu phối hợp tìm vectơ pháp tuyến, lập phương trình mặt phẳng và áp dụng công thức khoảng cách, phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.95,
+            "rationale": "Thao tác giải không chỉ nhớ công thức mà cần áp dụng quy trình giải hình học tọa độ nên phù hợp Bloom Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.93,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến như quên trị tuyệt đối, chọn sai vectơ pháp tuyến hoặc nhầm vectơ chỉ phương."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(\\frac{8\\sqrt{3}}{15}\\) là khoảng cách không âm đúng; các phương án còn lại đều xuất phát từ sai lầm xác định."
+          },
+          "error_distractor_consistency": {
+            "score": 0.98,
+            "rationale": "Chuỗi lỗi mô tả cho từng distractor đều dẫn đúng đến giá trị đã nêu và phần giải thích không mâu thuẫn với đáp án."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8683333333333335,
+        "verifier_pass": true,
+        "critic_score": 0.8683333333333335,
+        "grounding_score": 0.98,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ ba điểm đã cho, tìm được vectơ pháp tuyến của mặt phẳng rồi lập phương trình mặt phẳng. Sau đó áp dụng công thức khoảng cách từ điểm đến mặt phẳng để tính kết quả.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Ta có \\(\\overrightarrow{AB}=(2;-1;1)\\), \\(\\overrightarrow{AC}=(1;3;-2)\\). Tính tích có hướng: \\(\\overrightarrow{AB}\\times\\overrightarrow{AC}=(-1;5;7)\\), nên một vectơ pháp tuyến của \\((P)\\) là \\(\\vec n=(-1;5;7)\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Phương trình mặt phẳng có dạng \\(-x+5y+7z+D=0\\). Thay tọa độ điểm \\(A(1;2;3)\\) vào ta được \\(-1+10+21+D=0\\), suy ra \\(D=-30\\). Vậy \\((P): -x+5y+7z-30=0\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tính giá trị biểu thức của mặt phẳng tại \\(M(2;2;2)\\): \\(-2+5\\cdot2+7\\cdot2-30=-8\\). Do đó khoảng cách cần tìm là \\(d(M,(P))=\\frac{|-8|}{\\sqrt{(-1)^2+5^2+7^2}}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Rút gọn mẫu số: \\(\\sqrt{1+25+49}=\\sqrt{75}=5\\sqrt{3}\\). Suy ra \\(d(M,(P))=\\frac{8}{5\\sqrt{3}}=\\frac{8\\sqrt{3}}{15}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{8\\sqrt{3}}{15}\\)"
+      },
+      "why_correct": "Khoảng cách từ một điểm đến mặt phẳng được xác định duy nhất bởi công thức khoảng cách. Phương trình mặt phẳng tìm được đúng vì đi qua cả ba điểm đã cho và vectơ pháp tuyến được xác định từ hai vectơ chỉ phương trong mặt phẳng.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Tính phương trình mặt phẳng đúng được \\((P): -x+5y+7z-30=0\\). Khi áp dụng công thức khoảng cách, học sinh quên lấy giá trị tuyệt đối nên tính"
+        },
+        {
+          "option": "B",
+          "reason": "Học sinh nhầm lấy vectơ chỉ phương \\(\\overrightarrow{AB}=(2;-1;1)\\) làm vectơ pháp tuyến thay vì tính \\(\\vec n=\\overrightarrow{AB}\\times\\overrightarrow{AC}\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Học sinh nhầm lấy tọa độ điểm \\(M(2;2;2)\\) làm vectơ pháp tuyến của mặt phẳng, nên chọn vectơ pháp tuyến \\(\\vec n=(2;2;2)\\). Lập mặt phẳng qua \\(A(1;2;3)\\): \\(2x+2y+2z+D=0\\), thay tọa độ \\(A\\) được \\(D=-12\\), suy ra mặt p"
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_21c22f5e",
+      "blueprint_slot_id": "direct_pdf_1",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 155,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho mặt phẳng \\((P):2x-3y+6z+D=0\\) đi qua điểm \\(M(1;4;-2)\\). Tính khoảng cách từ gốc tọa độ \\(O(0;0;0)\\) đến mặt phẳng \\((P)\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{11}{7}\\)",
+          "error_type": "wrong_denominator_coefficient_sum"
+        },
+        {
+          "key": "B",
+          "text": "\\(-\\frac{22}{7}\\)",
+          "error_type": "distance_missing_abs"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{22}{7}\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(\\sqrt{21}\\)",
+          "error_type": "plane_normal_vs_point"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Thay tọa độ điểm \\(M\\) vào phương trình mặt phẳng để tìm \\(D\\), sau đó dùng công thức khoảng cách từ điểm đến mặt phẳng để tính khoảng cách từ \\(O\\) đến \\((P)\\).",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: tính sai mẫu số của công thức khoảng cách bằng cách lấy tổng các hệ số thay vì căn tổng bình phương. Từ mặt phẳng \\(2x-3y+6z+22=0\\), người làm sai tính mẫu số là \\(|2|+|-3|+|6|=11\\), nên được \\(d=\\frac{|22|}{11}=\\frac{11}{7}\\) (ghi dưới dạng rút gọn sai từ việc dùng mẫu số nhầm). Sai vì mẫu số đúng phải là \\(\\sqrt{2^2+(-3)^2+6^2}=7\\).",
+        "B": "Sai lầm: sau khi thay điểm \\(M\\) vào mặt phẳng, có \\(D=22\\), viết lại mặt phẳng thành \\(2x-3y+6z=-22\\) rồi áp dụng công thức khoảng cách nhưng bỏ dấu giá trị tuyệt đối. Tại \\(O(0;0;0)\\), lấy tử số là \\(-22\\), được \\(d=\\frac{-22}{\\sqrt{2^2+(-3)^2+6^2}}=\\frac{-22}{7}\\). Sai vì khoảng cách không thể âm và công thức phải có dấu giá trị tuyệt đối.",
+        "D": "Sai lầm: lấy tọa độ điểm \\(M(1;4;-2)\\) làm vectơ pháp tuyến thay vì lấy vectơ pháp tuyến từ hệ số của mặt phẳng. Khi đó chọn vectơ pháp tuyến \\(\\vec n=(1;4;-2)\\), lập mặt phẳng qua \\(M\\): \\(x+4y-2z+D'=0\\). Thay \\(M\\) vào được \\(1+16+4+D'=0\\Rightarrow D'=-21\\). Tính khoảng cách từ \\(O\\) đến mặt phẳng mới: \\(d=\\frac{|-21|}{\\sqrt{1^2+4^2+(-2)^2}}=\\frac{21}{\\sqrt{21}}=\\sqrt{21}\\)."
+      },
+      "hint": "Thay tọa độ điểm \\(M\\) vào phương trình mặt phẳng để tìm \\(D\\), sau đó dùng công thức khoảng cách từ điểm đến mặt phẳng đ",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Mặt phẳng (P) đi qua điểm M(x₀;y₀;z₀) và nhận vectơ n=(A;B;C) làm vectơ pháp tuyến có dạng",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": false,
+          "derivation": false,
+          "value": null,
+          "expression": "abs(2*1-3*4+6*(-2)+22)/sqrt(2**2+(-3)**2+6**2)",
+          "stated_answer": "22/7",
+          "stated_value": null,
+          "source": "llm_resolver",
+          "detail": "biểu thức độc lập không đánh giá được (parse lỗi: name 'Function' is not defined)",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "22/7",
+            "expected_numeric": 1.5714285714285714
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (biểu thức độc lập không đánh giá được (parse lỗi: name 'Function' is not defined))",
+        "verified_at": "2026-07-30T11:41:43.495219Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.98,
+        "quality": 0.8166666666666665,
+        "bloom_alignment": 0.85,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.5,
+            "rationale": ""
+          },
+          "cognitive_depth": {
+            "score": 0.7,
+            "rationale": "Bài yêu cầu kết hợp thay tọa độ tìm tham số và áp dụng công thức khoảng cách, phù hợp mức vận dụng cơ bản nhưng chưa quá sâu."
+          },
+          "bloom_alignment": {
+            "score": 0.85,
+            "rationale": "Thao tác chính là hiểu công thức và áp dụng vào tình huống mới với số liệu thay đổi, phù hợp mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều mô phỏng lỗi phổ biến như chọn sai vectơ pháp tuyến, bỏ giá trị tuyệt đối và tính sai mẫu số."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(\\frac{22}{7}\\) là kết quả đúng từ \\(D=22\\) và mẫu số \\(\\sqrt{2^2+(-3)^2+6^2}=7\\), các lựa chọn còn lại đều sai."
+          },
+          "error_distractor_consistency": {
+            "score": 0.95,
+            "rationale": "Ba chuỗi lỗi được mô tả nhìn chung dẫn đến đúng các giá trị distractor, và phần giải thích đáp án nhất quán với đáp án \\(\\frac{22}{7}\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8166666666666665,
+        "verifier_pass": true,
+        "critic_score": 0.8166666666666665,
+        "grounding_score": 0.98,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Thay tọa độ điểm \\(M\\) vào phương trình mặt phẳng để tìm \\(D\\), sau đó dùng công thức khoảng cách từ điểm đến mặt phẳng để tính khoảng cách từ \\(O\\) đến \\((P)\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì mặt phẳng \\((P)\\) đi qua \\(M(1;4;-2)\\) nên thay tọa độ \\(M\\) vào phương trình: \\(2\\cdot1-3\\cdot4+6\\cdot(-2)+D=0\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Rút gọn biểu thức: \\(2-12-12+D=0\\), suy ra \\(D=22\\). Do đó \\((P):2x-3y+6z+22=0\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Khoảng cách từ \\(O(0;0;0)\\) đến \\((P)\\) là \\(d=\\frac{|2\\cdot0-3\\cdot0+6\\cdot0+22|}{\\sqrt{2^2+(-3)^2+6^2}}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Tính giá trị: \\(d=\\frac{22}{\\sqrt{4+9+36}}=\\frac{22}{\\sqrt{49}}=\\frac{22}{7}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{22}{7}\\)"
+      },
+      "why_correct": "Giá trị \\(D\\) được xác định duy nhất từ điều kiện điểm \\(M\\) thuộc mặt phẳng, sau đó công thức khoảng cách cho kết quả duy nhất là \\(\\frac{22}{7}\\).",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: tính sai mẫu số của công thức khoảng cách bằng cách lấy tổng các hệ số thay vì căn tổng bình phương. Từ mặt phẳng \\(2x-3y+6z+22=0\\), người làm sai tính mẫu số là \\(|2|+|-3|+|6|=11\\), nên được"
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm: sau khi thay điểm \\(M\\) vào mặt phẳng, có \\(D=22\\), viết lại mặt phẳng thành \\(2x-3y+6z=-22\\) rồi áp dụng công thức khoảng cách nhưng bỏ dấu giá trị tuyệt đối."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: lấy tọa độ điểm \\(M(1;4;-2)\\) làm vectơ pháp tuyến thay vì lấy vectơ pháp tuyến từ hệ số của mặt phẳng. Khi đó chọn vectơ pháp tuyến \\(\\vec n=(1;4;-2)\\), lập mặt phẳng qua \\(M\\): \\(x+4y-2z+D'=0\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_a9f93e1e",
+      "blueprint_slot_id": "direct_pdf_2",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 212,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho mặt phẳng \\((P):3x-4y+12z-5=0\\). Gọi \\((Q_m):3x-4y+12z+m=0\\) là họ mặt phẳng song song với \\((P)\\). Biết \\((Q_m)\\) đi qua điểm \\(M(1;2;-1)\\). Giá trị của tham số \\(m\\) là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(-6\\)",
+          "error_type": "plane_normal_vs_point"
+        },
+        {
+          "key": "B",
+          "text": "\\(17\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(-7\\)",
+          "error_type": "sign_error_in_substitution"
+        },
+        {
+          "key": "D",
+          "text": "\\(-17\\)",
+          "error_type": "plane_equation_sign_reversal_error"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Vì \\((Q_m)\\) song song với \\((P)\\) nên giữ nguyên các hệ số của \\(x,y,z\\), chỉ thay đổi hệ số tự do. Thay tọa độ điểm \\(M\\) vào phương trình \\((Q_m)\\) ta tìm được giá trị duy nhất của \\(m\\).",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là lấy tọa độ điểm \\(M(1;2;-1)\\) làm các hệ số của mặt phẳng song song thay vì giữ vectơ pháp tuyến \\((3;-4;12)\\). Khi đó viết sai phương trình thành \\(x+2y-z+m=0\\). Thay \\(M\\) vào được \\(1+2\\cdot2-(-1)+m=0\\Rightarrow 1+4+1+m=0\\Rightarrow m=-6\\). Sai vì vectơ pháp tuyến phải lấy từ các hệ số của mặt phẳng đã cho.",
+        "C": "Sai lầm là đổi dấu sai khi thay tọa độ \\(z=-1\\) vào biểu thức \\(12z\\), tính nhầm \\(12\\cdot(-1)=12\\) thay vì \\(-12\\). Khi đó từ phương trình \\(3x-4y+12z+m=0\\) suy ra \\(3-8+12+m=0\\Rightarrow m=-7\\). Sai vì phải có \\(12z=12\\cdot(-1)=-12\\).",
+        "D": "Sai lầm là đổi dấu toàn bộ các hệ số của phương trình mặt phẳng nhưng vẫn giữ ký hiệu tham số \\(m\\) trong dạng mới. Học sinh viết sai mặt phẳng song song dưới dạng \\(-3x+4y-12z+m=0\\). Thay \\(M(1;2;-1)\\) vào được \\(-3+8+12+m=0\\Rightarrow m=-17\\). Sai vì đề bài đã cố định phương trình họ mặt phẳng là \\(3x-4y+12z+m=0\\), không được tự đổi dấu hệ số rồi giữ nguyên tham số."
+      },
+      "hint": "Vì \\((Q_m)\\) song song với \\((P)\\) nên giữ nguyên các hệ số của \\(x,y,z\\), chỉ thay đổi hệ số tự do.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Phương trình mặt phẳng (P): Ax+By+Cz+D=0 với A^2+B^2+C^2>0. Có véctơ pháp tuyến là n=(A;B;C).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": false,
+          "value": 17.0,
+          "expression": "17",
+          "stated_answer": "17",
+          "stated_value": 17.0,
+          "source": "llm_resolver",
+          "detail": "17 = 17; nhưng biểu thức chỉ là hằng số trần — không có phép tính nào được máy kiểm, nên không đủ để gọi là xác nhận độc lập",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "17",
+            "expected_numeric": -17
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (nguồn độc lập cũng cho 17 nhưng chỉ khẳng định một hằng số, không suy dẫn)",
+        "verified_at": "2026-07-30T11:41:43.497511Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.5,
+        "bloom_alignment": 0.55,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề nêu rõ mặt phẳng đã cho, họ mặt phẳng song song, điểm đi qua và yêu cầu tìm duy nhất tham số \\(m\\)."
+          },
+          "cognitive_depth": {
+            "score": 0.65,
+            "rationale": "Bài yêu cầu kết hợp nhận biết vectơ pháp tuyến với lập phương trình và tính toán tham số, phù hợp mức vận dụng nhưng chưa đạt vận dụng cao."
+          },
+          "bloom_alignment": {
+            "score": 0.55,
+            "rationale": "Thao tác chính là áp dụng công thức và thay tọa độ vào phương trình nên phù hợp mức Vận dụng, chưa thể hiện phân tích hay tổng hợp ở mức Vận dụng cao."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều mô phỏng lỗi thường gặp như lấy sai pháp tuyến, sai dấu khi thế tọa độ và đổi dấu phương trình, khá có tính chẩn đoán."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(m=17\\) thỏa phương trình \\(3-8-12+m=0\\), các phương án còn lại không thỏa dạng mặt phẳng đã cho."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Các chuỗi lỗi được mô tả đều dẫn đúng đến các giá trị \\(-6,-7,-17\\), đồng thời phần giải thích và đáp án \\(17\\) nhất quán."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8466666666666667,
+        "verifier_pass": true,
+        "critic_score": 0.8466666666666667,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "needs_revision",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "bloom_alignment=0.55"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Vì \\((Q_m)\\) song song với \\((P)\\) nên giữ nguyên các hệ số của \\(x,y,z\\), chỉ thay đổi hệ số tự do. Thay tọa độ điểm \\(M\\) vào phương trình \\((Q_m)\\) ta tìm được giá trị duy nhất của \\(m\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Hai mặt phẳng \\((P)\\) và \\((Q_m)\\) có cùng vectơ pháp tuyến \\(\\vec n=(3;-4;12)\\), nên \\((Q_m)\\) thực sự song song với \\((P)\\) và có dạng \\(3x-4y+12z+m=0\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Vì \\((Q_m)\\) đi qua \\(M(1;2;-1)\\), thay \\(x=1,y=2,z=-1\\) vào phương trình ta được \\(3\\cdot1-4\\cdot2+12\\cdot(-1)+m=0\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thu gọn phần không chứa \\(m\\): \\(3-8-12+m=0\\), suy ra \\(-17+m=0\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Giải phương trình theo tham số: \\(m=17\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Kiểm tra lại: với \\(m=17\\), phương trình \\((Q_m):3x-4y+12z+17=0\\). Thay \\(M(1;2;-1)\\) vào được \\(3-8-12+17=0\\), nên điểm \\(M\\) thuộc mặt phẳng tìm được."
+          }
+        ],
+        "final_answer": "\\(17\\)"
+      },
+      "why_correct": "Điều kiện song song đã xác định đúng dạng phương trình của \\((Q_m)\\), còn điều kiện đi qua điểm \\(M\\) tạo ra một phương trình bậc nhất có đúng một nghiệm \\(m=17\\), nên đây là giá trị duy nhất thỏa mãn.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm là lấy tọa độ điểm \\(M(1;2;-1)\\) làm các hệ số của mặt phẳng song song thay vì giữ vectơ pháp tuyến \\((3;-4;12)\\). Khi đó viết sai phương trình thành \\(x+2y-z+m=0\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm là đổi dấu sai khi thay tọa độ \\(z=-1\\) vào biểu thức \\(12z\\), tính nhầm \\(12\\cdot(-1)=12\\) thay vì \\(-12\\). Khi đó từ phương trình \\(3x-4y+12z+m=0\\) suy ra \\(3-8+12+m=0\\Rightarrow m=-7\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm là đổi dấu toàn bộ các hệ số của phương trình mặt phẳng nhưng vẫn giữ ký hiệu tham số \\(m\\) trong dạng mới. Học sinh viết sai mặt phẳng song song dưới dạng \\(-3x+4y-12z+m=0\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_69e0e533",
+      "blueprint_slot_id": "direct_pdf_3",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 222,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), một robot đặt tại điểm \\(M(2;-1;3)\\) cần xác định khoảng cách ngắn nhất đến mặt phẳng \\((P):3x-4y+5z+6=0\\) để chọn vị trí hạ cánh vuông góc xuống mặt phẳng. Tính khoảng cách từ \\(M\\) đến \\((P)\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{19\\sqrt{2}}{10}\\)",
+          "error_type": "wrong_constant_sign"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{31}{12}\\)",
+          "error_type": "wrong_normal_length"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{31\\sqrt{14}}{14}\\)",
+          "error_type": "plane_normal_vs_point"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{31\\sqrt{2}}{10}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Khoảng cách từ điểm đến mặt phẳng được tính bằng cách xác định giá trị đại số của mặt phẳng tại điểm rồi chia cho độ dài vectơ pháp tuyến. Cần tìm các đại lượng trung gian trước khi áp dụng công thức.",
+      "explanation_per_distractor": {
+        "A": "Sai khi thay tọa độ điểm vào phương trình mặt phẳng nhưng đổi dấu hằng số tự do. Học sinh tính nhầm \\(3\\cdot2-4\\cdot(-1)+5\\cdot3-6=19\\), sau đó chia cho độ dài vectơ pháp tuyến \\(\\sqrt{3^2+(-4)^2+5^2}=5\\sqrt{2}\\). Kết quả sai là \\(\\frac{19}{5\\sqrt{2}}=\\frac{19\\sqrt{2}}{10}\\). Sai vì phương trình đã cho có hạng tự do là \\(+6\\), không phải \\(-6\\).",
+        "B": "Sai lầm khi tính độ dài vectơ pháp tuyến bằng cách cộng các hệ số thay vì dùng công thức độ dài vectơ. Lấy vectơ pháp tuyến của mặt phẳng là \\((3;-4;5)\\), nhưng tính sai độ dài thành \\(3+4+5=12\\). Tử số vẫn là \\(|3\\cdot2-4\\cdot(-1)+5\\cdot3+6|=31\\), nên tính được \\(\\frac{31}{12}\\). Sai vì độ dài vectơ pháp tuyến phải là \\(\\sqrt{3^2+(-4)^2+5^2}\\).",
+        "C": "Dùng sai tọa độ điểm \\(M(2;-1;3)\\) làm vectơ pháp tuyến thay cho vectơ pháp tuyến của mặt phẳng. Khi đó lấy mẫu số là độ dài của \\((2;-1;3)\\): \\(\\sqrt{2^2+(-1)^2+3^2}=\\sqrt{14}\\). Vẫn tính tử số theo giá trị mặt phẳng tại \\(M\\): \\(3\\cdot2-4\\cdot(-1)+5\\cdot3+6=31\\), nên thu được \\(\\frac{31}{\\sqrt{14}}=\\frac{31\\sqrt{14}}{14}\\). Sai vì vectơ pháp tuyến phải lấy từ hệ số của phương trình mặt phẳng."
+      },
+      "hint": "Khoảng cách từ điểm đến mặt phẳng được tính bằng cách xác định giá trị đại số của mặt phẳng tại điểm rồi chia cho độ dài",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Gọi H là HCVG của A lên (c)",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": false,
+          "derivation": false,
+          "value": null,
+          "expression": "abs(3*2-4*(-1)+5*3+6)/sqrt(3**2+(-4)**2+5**2)",
+          "stated_answer": "31*sqrt(2)/10",
+          "stated_value": null,
+          "source": "llm_resolver",
+          "detail": "biểu thức độc lập không đánh giá được (parse lỗi: name 'Function' is not defined)",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "31/sqrt(50)",
+            "expected_numeric": 2.6870057685088806
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (biểu thức độc lập không đánh giá được (parse lỗi: name 'Function' is not defined))",
+        "verified_at": "2026-07-30T11:42:41.782150Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.93,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ điểm, mặt phẳng và yêu cầu tính khoảng cách nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.75,
+            "rationale": "Bài yêu cầu áp dụng công thức và tính toán với dữ kiện cụ thể, phù hợp mức vận dụng cơ bản."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác cần thực hiện là nhận diện công thức rồi thay số và tính kết quả, đúng với mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.95,
+            "rationale": "Các phương án sai đều gắn với lỗi thường gặp như lấy sai vectơ pháp tuyến, sai độ dài vectơ và sai dấu hằng số."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có đáp án đúng khi dùng vectơ pháp tuyến \\((3;-4;5)\\) và công thức khoảng cách, các phương án còn lại đều sai."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Các chuỗi lỗi mô tả đều dẫn đúng đến giá trị distractor tương ứng và phần giải thích không mâu thuẫn với đáp án."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.93,
+        "verifier_pass": true,
+        "critic_score": 0.93,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Khoảng cách từ điểm đến mặt phẳng được tính bằng cách xác định giá trị đại số của mặt phẳng tại điểm rồi chia cho độ dài vectơ pháp tuyến. Cần tìm các đại lượng trung gian trước khi áp dụng công thức.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Từ phương trình mặt phẳng \\((P):3x-4y+5z+6=0\\), suy ra vectơ pháp tuyến là \\(\\vec n=(3;-4;5)\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Thay tọa độ \\(M(2;-1;3)\\) vào biểu thức mặt phẳng, ta được \\(3\\cdot2-4\\cdot(-1)+5\\cdot3+6=31\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tính độ dài vectơ pháp tuyến: \\(\\left\\|\\vec n\\right\\|=\\sqrt{3^2+(-4)^2+5^2}=\\sqrt{50}=5\\sqrt{2}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Áp dụng công thức khoảng cách từ điểm đến mặt phẳng, ta có \\(d(M,(P))=\\frac{|31|}{5\\sqrt{2}}=\\frac{31\\sqrt{2}}{10}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{31\\sqrt{2}}{10}\\)"
+      },
+      "why_correct": "Khoảng cách được xác định duy nhất bởi giá trị tuyệt đối của biểu thức mặt phẳng tại điểm M và độ dài vectơ pháp tuyến của mặt phẳng. Các bước tính đều cho cùng một kết quả duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai khi thay tọa độ điểm vào phương trình mặt phẳng nhưng đổi dấu hằng số tự do. Học sinh tính nhầm \\(3\\cdot2-4\\cdot(-1)+5\\cdot3-6=19\\), sau đó chia cho độ dài vectơ pháp tuyến \\(\\sqrt{3^2+(-4)^2+5^2}=5\\sqrt{2}\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm khi tính độ dài vectơ pháp tuyến bằng cách cộng các hệ số thay vì dùng công thức độ dài vectơ. Lấy vectơ pháp tuyến của mặt phẳng là \\((3;-4;5)\\), nhưng tính sai độ dài thành \\(3+4+5=12\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Dùng sai tọa độ điểm \\(M(2;-1;3)\\) làm vectơ pháp tuyến thay cho vectơ pháp tuyến của mặt phẳng. Khi đó lấy mẫu số là độ dài của \\((2;-1;3)\\): \\(\\sqrt{2^2+(-1)^2+3^2}=\\sqrt{14}\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_046dc532",
+      "blueprint_slot_id": "direct_pdf_5",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 211,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho đường thẳng \\(d:\\begin{cases}x=2+3t\\\\y=-1+2t\\\\z=5-t\\end{cases}\\) và mặt phẳng \\((P):x-2y+2z-9=0\\). Biết điểm giao nhau của \\(d\\) và \\((P)\\) ứng với tham số \\(t=t_0\\). Tính \\(t_0\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(-\\frac{1}{5}\\)",
+          "error_type": "sign_error_in_plane_substitution"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{5}{3}\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{14}{3}\\)",
+          "error_type": "missing_constant_term_in_plane"
+        },
+        {
+          "key": "D",
+          "text": "\\(-5\\)",
+          "error_type": "sign_of_parameter_term"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Thay tọa độ điểm chạy trên đường thẳng vào phương trình mặt phẳng để lập phương trình theo \\(t\\). Giải phương trình thu được giá trị tham số tại giao điểm.",
+      "explanation_per_distractor": {
+        "A": "Sai khi thay tọa độ đường thẳng vào mặt phẳng đã đổi nhầm dấu của hạng tử \\(-2y\\) thành \\( +2y\\). Khi đó lập sai phương trình: \\(x+2y+2z-9=0\\). Thay \\(x=2+3t, y=-1+2t, z=5-t\\) được \\(2+3t+2(-1+2t)+2(5-t)-9=0\\), suy ra \\(1+5t=0\\) nên \\(t=-\\frac{1}{5}\\). Sai vì đã đổi dấu hệ số của \\(y\\) trong phương trình mặt phẳng.",
+        "C": "Sai khi bỏ qua hằng số \\(-9\\) trong phương trình mặt phẳng, biến \\(x-2y+2z-9=0\\) thành \\(x-2y+2z=0\\). Thay tọa độ đường thẳng vào phương trình sai được \\(2+3t-2(-1+2t)+2(5-t)=0\\), tức \\(14-3t=0\\), suy ra \\(t=\\frac{14}{3}\\). Sai vì đã bỏ mất số hạng tự do của phương trình mặt phẳng.",
+        "D": "Sai khi đọc phương trình tham số của đường thẳng, lấy \\(z=5+t\\) thay vì \\(z=5-t\\). Khi đó thay vào mặt phẳng được \\(2+3t-2(-1+2t)+2(5+t)-9=0\\), rút gọn thành \\(5+t=0\\), nên \\(t=-5\\). Sai vì đã đổi dấu của hệ số chứa tham số ở tọa độ \\(z\\)."
+      },
+      "hint": "Thay tọa độ điểm chạy trên đường thẳng vào phương trình mặt phẳng để lập phương trình theo \\(t\\).",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "thay xyz ; ; vào mặt phẳng \\((P)\\). Được phương trình: \\(A(x_0+at)+B(y_0+bt)+C(z_0+ct)+D=0\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": false,
+          "value": 1.6666666666666667,
+          "expression": "5/3",
+          "stated_answer": "5/3",
+          "stated_value": 1.6666666666666667,
+          "source": "llm_resolver",
+          "detail": "5/3 = 1.66667; nhưng biểu thức chỉ là hằng số trần — không có phép tính nào được máy kiểm, nên không đủ để gọi là xác nhận độc lập",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "5/3",
+            "expected_numeric": 4.666666666666667
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (nguồn độc lập cũng cho 1.66667 nhưng chỉ khẳng định một hằng số, không suy dẫn)",
+        "verified_at": "2026-07-30T11:42:42.595030Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9199999999999999,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ đường thẳng, mặt phẳng, yêu cầu tìm tham số giao điểm và không có thông tin thừa gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.72,
+            "rationale": "Bài yêu cầu áp dụng trực tiếp quy trình thay thế và giải phương trình bậc nhất, phù hợp mức vận dụng đơn giản hơn là phân tích sâu."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác cần thực hiện là hiểu công thức rồi áp dụng vào tình huống cụ thể nên phù hợp mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.94,
+            "rationale": "Các phương án sai tương ứng với những lỗi phổ biến như đổi dấu hệ số, đọc sai tham số và bỏ hằng số mặt phẳng."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có phương án \\(\\frac{5}{3}\\) thỏa mãn phương trình giao điểm, các phương án còn lại đều xuất phát từ phép biến đổi sai."
+          },
+          "error_distractor_consistency": {
+            "score": 0.98,
+            "rationale": "Ba chuỗi lỗi được mô tả đều dẫn đúng đến các giá trị distractor tương ứng và phần giải thích đáp án không mâu thuẫn với đáp án đúng."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9199999999999999,
+        "verifier_pass": true,
+        "critic_score": 0.9199999999999999,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Thay tọa độ điểm chạy trên đường thẳng vào phương trình mặt phẳng để lập phương trình theo \\(t\\). Giải phương trình thu được giá trị tham số tại giao điểm.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Từ phương trình tham số của đường thẳng, lấy \\(x=2+3t\\), \\(y=-1+2t\\), \\(z=5-t\\) rồi thay vào phương trình mặt phẳng \\((P):x-2y+2z-9=0\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Ta có \\(2+3t-2(-1+2t)+2(5-t)-9=0\\). Rút gọn biểu thức được \\(5-3t=0\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Giải phương trình \\(5-3t=0\\), suy ra \\(3t=5\\), do đó \\(t=\\frac{5}{3}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{5}{3}\\)"
+      },
+      "why_correct": "Giá trị \\(t_0\\) phải làm cho tọa độ điểm trên đường thẳng đồng thời thỏa mãn phương trình mặt phẳng. Phương trình điều kiện chỉ có một nghiệm nên giá trị tìm được là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai khi thay tọa độ đường thẳng vào mặt phẳng đã đổi nhầm dấu của hạng tử \\(-2y\\) thành \\( +2y\\). Khi đó lập sai phương trình: \\(x+2y+2z-9=0\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai khi bỏ qua hằng số \\(-9\\) trong phương trình mặt phẳng, biến \\(x-2y+2z-9=0\\) thành \\(x-2y+2z=0\\). Thay tọa độ đường thẳng vào phương trình sai được \\(2+3t-2(-1+2t)+2(5-t)=0\\), tức \\(14-3t=0\\), suy ra"
+        },
+        {
+          "option": "D",
+          "reason": "Sai khi đọc phương trình tham số của đường thẳng, lấy \\(z=5+t\\) thay vì \\(z=5-t\\). Khi đó thay vào mặt phẳng được \\(2+3t-2(-1+2t)+2(5+t)-9=0\\), rút gọn thành \\(5+t=0\\), nên \\(t=-5\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_e5f42e1a",
+      "blueprint_slot_id": "direct_pdf_7",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 170,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho điểm \\(A(4;1;-2)\\) và mặt phẳng \\((P):3x-2y+6z-7=0\\). Gọi \\(H\\) là hình chiếu vuông góc của \\(A\\) lên \\((P)\\). Tính tung độ của điểm \\(H\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(-\\frac{44}{49}\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(1\\)",
+          "error_type": "normal_vs_direction_vector"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{59}{49}\\)",
+          "error_type": "sign_error_in_normal_vector"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{67}{49}\\)",
+          "error_type": "wrong_sign_in_projection_parameter"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Đường thẳng qua \\(A\\) vuông góc với \\((P)\\) có vectơ chỉ phương là vectơ pháp tuyến của \\((P)\\). Từ điều kiện điểm \\(H\\) thuộc mặt phẳng, tìm được tham số rồi suy ra tung độ của \\(H\\).",
+      "explanation_per_distractor": {
+        "B": "Nhầm vectơ pháp tuyến của mặt phẳng với một vectơ chỉ phương đơn giản, chọn đường vuông góc qua \\(A\\) theo hướng trục \\(Ox\\): \\(H( t;1;-2)\\). Thay vào phương trình mặt phẳng: \\(3t-2-12-7=0\\Rightarrow 3t=21\\Rightarrow t=7\\). Suy ra tung độ của \\(H\\) là \\(1\\). Sai vì đường vuông góc với mặt phẳng phải có vectơ chỉ phương là vectơ pháp tuyến của mặt phẳng.",
+        "C": "Làm sai dấu hệ số của vectơ pháp tuyến, lấy nhầm vectơ pháp tuyến là \\(\\vec n=(3;2;6)\\) thay vì \\(\\vec n=(3;-2;6)\\). Khi đó \\(t=-\\frac{3\\cdot4+2\\cdot1+6\\cdot(-2)-7}{3^2+2^2+6^2}=\\frac{5}{49}\\). Tung độ hình chiếu được tính thành \\(y_H=1+2t=1+\\frac{10}{49}=\\frac{59}{49}\\). Sai vì đã đổi dấu hệ số của \\(y\\) trong vectơ pháp tuyến.",
+        "D": "Sai dấu khi tìm tham số đường thẳng vuông góc: tính \\(t=\\frac{3\\cdot4-2\\cdot1+6\\cdot(-2)-7}{3^2+(-2)^2+6^2}= -\\frac{9}{49}\\) rồi dùng \\(H=A-t(3;-2;6)\\). Khi đó tung độ là \\(y_H=1-(-\\frac{9}{49})(-2)=1+\\frac{18}{49}=\\frac{67}{49}\\). Sai vì công thức đúng phải lấy \\(t=-\\frac{3x_A-2y_A+6z_A-7}{3^2+(-2)^2+6^2}\\)."
+      },
+      "hint": "Đường thẳng qua \\(A\\) vuông góc với \\((P)\\) có vectơ chỉ phương là vectơ pháp tuyến của \\((P)\\).",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "⑴ Hình chiếu vuông góc \\(A(x_A;y_A;z_A)\\) lên \\((\\alpha):Ax+By+Cz+D=0\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "mismatch",
+        "status_label_vi": "Các nguồn tính toán lệch nhau — cần người kiểm",
+        "status_label_en": "Computation sources disagree — needs review",
+        "machine_checked": false,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 0.6326530612244898,
+          "expression": "1+9/49*(-2)",
+          "stated_answer": "31/49",
+          "stated_value": 0.6326530612244898,
+          "source": "llm_resolver",
+          "detail": "1+9/49*(-2) = 0.632653",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": true,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "-44/49",
+            "expected_numeric": 1.2040816326530612
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức của Writer khớp key (-0.897959) nhưng tính toán độc lập cho 0.632653",
+        "verified_at": "2026-07-30T11:46:52.975201Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.5,
+        "quality": 0.93,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài xác định đầy đủ điểm, mặt phẳng, hình chiếu và yêu cầu một tọa độ cụ thể nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.82,
+            "rationale": "Bài yêu cầu áp dụng quy trình lập đường thẳng vuông góc mặt phẳng và tính giao điểm thay vì chỉ nhận biết công thức."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác giải đúng là vận dụng công thức và phương pháp đã học để xử lý dữ kiện mới, phù hợp mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi thường gặp như nhầm vectơ pháp tuyến, sai dấu tham số và sai hệ số vectơ pháp tuyến."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có một kết quả đúng là tung độ hình chiếu, các phương án còn lại đều xuất phát từ sai sót tính toán hoặc phương pháp."
+          },
+          "error_distractor_consistency": {
+            "score": 0.98,
+            "rationale": "Các chuỗi lỗi mô tả đều dẫn đúng đến giá trị distractor tương ứng và phần giải thích đúng nhất quán với đáp án \\(-\\\\frac{44}{49}\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.93,
+        "verifier_pass": true,
+        "critic_score": 0.93,
+        "grounding_score": 0.5,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review",
+        "issues": [
+          "mismatch"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Đường thẳng qua \\(A\\) vuông góc với \\((P)\\) có vectơ chỉ phương là vectơ pháp tuyến của \\((P)\\). Từ điều kiện điểm \\(H\\) thuộc mặt phẳng, tìm được tham số rồi suy ra tung độ của \\(H\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Mặt phẳng \\((P):3x-2y+6z-7=0\\) có vectơ pháp tuyến \\(\\vec n=(3;-2;6)\\). Vì \\(AH\\perp(P)\\) nên đường thẳng \\(AH\\) nhận \\(\\vec n\\) làm vectơ chỉ phương."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Lập phương trình đường thẳng qua \\(A(4;1;-2)\\): \\(\\begin{cases}x=4+3t\\\\y=1-2t\\\\z=-2+6t\\end{cases}\\). Gọi \\(H\\) là giao điểm của đường thẳng này với \\((P)\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thay tọa độ đường thẳng vào phương trình mặt phẳng: \\(3(4+3t)-2(1-2t)+6(-2+6t)-7=0\\). Rút gọn được \\(-9+49t=0\\), suy ra \\(t=\\frac{9}{49}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Tung độ của hình chiếu \\(H\\) là \\(y_H=1-2t=1-2\\cdot\\frac{9}{49}=\\frac{49}{49}-\\frac{18}{49}=-\\frac{44}{49}\\)."
+          }
+        ],
+        "final_answer": "\\(-\\frac{44}{49}\\)"
+      },
+      "why_correct": "Điểm \\(H\\) phải đồng thời thuộc mặt phẳng \\((P)\\) và đường thẳng đi qua \\(A\\) theo hướng pháp tuyến của \\((P)\\). Giá trị \\(t\\) tìm được là duy nhất nên tung độ của \\(H\\) cũng là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Nhầm vectơ pháp tuyến của mặt phẳng với một vectơ chỉ phương đơn giản, chọn đường vuông góc qua \\(A\\) theo hướng trục \\(Ox\\): \\(H( t;1;-2)\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Làm sai dấu hệ số của vectơ pháp tuyến, lấy nhầm vectơ pháp tuyến là \\(\\vec n=(3;2;6)\\) thay vì \\(\\vec n=(3;-2;6)\\). Khi đó \\(t=-\\frac{3\\cdot4+2\\cdot1+6\\cdot(-2)-7}{3^2+2^2+6^2}=\\frac{5}{49}\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai dấu khi tìm tham số đường thẳng vuông góc: tính \\(t=\\frac{3\\cdot4-2\\cdot1+6\\cdot(-2)-7}{3^2+(-2)^2+6^2}= -\\frac{9}{49}\\) rồi dùng \\(H=A-t(3;-2;6)\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_870c52ef",
+      "blueprint_slot_id": "direct_pdf_8",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.88,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 257,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho mặt phẳng \\( (P):3x-4y+12z-5=0 \\). Xét họ mặt phẳng \\( (Q_m):3x-4y+12z+m=0 \\). Biết khoảng cách từ điểm \\(A(1;2;-1)\\) đến \\( (Q_m) \\) bằng khoảng cách giữa hai mặt phẳng \\( (Q_m) \\) và \\( (P) \\). Tìm giá trị của tham số \\(m\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(m=6\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(m=-3\\)",
+          "error_type": "sign_error_in_point_distance_numerator"
+        },
+        {
+          "key": "C",
+          "text": "\\(m=17\\)",
+          "error_type": "absolute_value_omission"
+        },
+        {
+          "key": "D",
+          "text": "\\(m=-\\frac{11}{2}\\)",
+          "error_type": "plane_normal_vs_point"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Hai mặt phẳng song song có cùng vectơ pháp tuyến nên có thể dùng công thức khoảng cách giữa hai mặt phẳng song song. Sau khi tính khoảng cách từ điểm \\(A\\) đến \\( (Q_m) \\), ta lập phương trình theo \\(m\\) và giải điều kiện bằng nhau để tìm tham số.",
+      "explanation_per_distractor": {
+        "B": "Sai lầm là tính sai tử số trong khoảng cách từ điểm \\(A(1;2;-1)\\) đến \\((Q_m):3x-4y+12z+m=0\\), lấy \\(-4y_A\\) thành \\(+4y_A\\) và \\(12z_A\\) thành \\(+12z_A\\). Khi đó tử số bị tính thành \\(3\\cdot1+4\\cdot2+12\\cdot(-1)+m=m-1\\), nên lập sai phương trình \\( |m-1|=|m+5| \\). Hai giá trị bên trong có trung điểm \\(-3\\), nên thu được \\(m=-3\\). Sai vì dấu của các hệ số khi thay tọa độ điểm phải giữ nguyên.",
+        "C": "Sai lầm là bỏ qua giá trị tuyệt đối trong khoảng cách từ điểm đến mặt phẳng và cho rằng khoảng cách bằng \\(\\frac{m-17}{13}\\). Học sinh có thể cho rằng để khoảng cách này bằng khoảng cách giữa hai mặt phẳng \\(\\frac{|m+5|}{13}\\) thì cần làm cho tử số của khoảng cách từ điểm đến mặt phẳng bằng \\(0\\), tức \\(m-17=0\\), suy ra \\(m=17\\).",
+        "D": "Sai lầm là lấy tọa độ điểm \\(A(1;2;-1)\\) làm vectơ pháp tuyến thay cho vectơ pháp tuyến đúng \\((3;-4;12)\\). Khi đó mẫu số của công thức khoảng cách bị thay thành \\(\\sqrt{1^2+2^2+(-1)^2}=\\sqrt{6}\\). Tính khoảng cách từ \\(A\\) đến \\((Q_m)\\) theo cách sai được \\(\\frac{|m+6|}{\\sqrt{6}}\\), còn khoảng cách giữa hai mặt phẳng theo cách sai được \\(\\frac{|m+5|}{\\sqrt{6}}\\)."
+      },
+      "hint": "Hai mặt phẳng song song có cùng vectơ pháp tuyến nên có thể dùng công thức khoảng cách giữa hai mặt phẳng song song.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Vì ‎(P)//(P) ⇒ (α): Ax + By + Cz + D' = 0 (D ≠ D').",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 6.0,
+          "expression": "solve((m-17)**2-(m+5)**2,m)[0]",
+          "stated_answer": "6",
+          "stated_value": 6.0,
+          "source": "llm_resolver",
+          "detail": "solve((m-17)**2-(m+5)**2,m)[0] = 6",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "6",
+            "expected_numeric": 17.0
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 6, khớp đáp án key",
+        "verified_at": "2026-07-30T11:46:52.977706Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.9083333333333333,
+        "bloom_alignment": 0.85,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài xác định rõ các mặt phẳng, điểm, điều kiện khoảng cách và yêu cầu tìm tham số nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu kết hợp nhận dạng mặt phẳng song song, công thức khoảng cách và giải phương trình tham số thay vì chỉ áp dụng công thức đơn lẻ."
+          },
+          "bloom_alignment": {
+            "score": 0.85,
+            "rationale": "Nhiệm vụ đúng mức vận dụng cao vì học sinh phải phối hợp nhiều kiến thức hình học tọa độ để thiết lập điều kiện."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi tính toán phổ biến như sai vectơ pháp tuyến, sai dấu và bỏ giá trị tuyệt đối."
+          },
+          "answer_uniqueness": {
+            "score": 0.95,
+            "rationale": "Điều kiện khoảng cách dẫn đến phương trình có nghiệm duy nhất \\(m=6\\), các distractor không thỏa điều kiện đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 0.95,
+            "rationale": "Các chuỗi lỗi mô tả dẫn đúng đến các giá trị distractor và phần giải thích không mâu thuẫn với đáp án \\(m=6\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9083333333333333,
+        "verifier_pass": true,
+        "critic_score": 0.9083333333333333,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Hai mặt phẳng song song có cùng vectơ pháp tuyến nên có thể dùng công thức khoảng cách giữa hai mặt phẳng song song. Sau khi tính khoảng cách từ điểm \\(A\\) đến \\( (Q_m) \\), ta lập phương trình theo \\(m\\) và giải điều kiện",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Hai mặt phẳng \\( (P) \\) và \\( (Q_m) \\) có cùng hệ số của \\(x,y,z\\), nên chúng song song hoặc trùng nhau với vectơ pháp tuyến \\(\\vec n=(3;-4;12)\\). Ta có \\(\\sqrt{3^2+(-4)^2+12^2}=13\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Khoảng cách giữa \\( (Q_m) \\) và \\( (P) \\) là \\(d((Q_m),(P))=\\frac{|m-(-5)|}{13}=\\frac{|m+5|}{13}\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thay tọa độ \\(A(1;2;-1)\\) vào phương trình \\( (Q_m) \\), ta được \\(3\\cdot1-4\\cdot2+12\\cdot(-1)+m=m-17\\). Vì vậy \\(d(A,(Q_m))=\\frac{|m-17|}{13}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Theo giả thiết hai khoảng cách bằng nhau nên \\(\\frac{|m-17|}{13}=\\frac{|m+5|}{13}\\), suy ra \\(|m-17|=|m+5|\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Bình phương hai vế: \\((m-17)^2=(m+5)^2\\). Khai triển được \\(m^2-34m+289=m^2+10m+25\\), nên \\( -44m=-264\\), do đó \\(m=6\\)."
+          }
+        ],
+        "final_answer": "\\(m=6\\)"
+      },
+      "why_correct": "Điều kiện khoảng cách được chuyển thành một phương trình duy nhất theo tham số \\(m\\). Phương trình sau khi biến đổi chỉ cho nghiệm \\(m=6\\), nên đây là giá trị duy nhất thỏa mãn yêu cầu.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Sai lầm là tính sai tử số trong khoảng cách từ điểm \\(A(1;2;-1)\\) đến \\((Q_m):3x-4y+12z+m=0\\), lấy \\(-4y_A\\) thành \\(+4y_A\\) và \\(12z_A\\) thành \\(+12z_A\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm là bỏ qua giá trị tuyệt đối trong khoảng cách từ điểm đến mặt phẳng và cho rằng khoảng cách bằng \\(\\frac{m-17}{13}\\). Học sinh có thể cho rằng để khoảng cách này bằng khoảng cách giữa hai mặt phẳng"
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm là lấy tọa độ điểm \\(A(1;2;-1)\\) làm vectơ pháp tuyến thay cho vectơ pháp tuyến đúng \\((3;-4;12)\\). Khi đó mẫu số của công thức khoảng cách bị thay thành \\(\\sqrt{1^2+2^2+(-1)^2}=\\sqrt{6}\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_5197e7a1",
+      "blueprint_slot_id": "direct_pdf_12",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 216,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho hai đường thẳng chéo nhau \\(d_1:\\frac{x-1}{2}=\\frac{y-2}{-1}=\\frac{z}{1}\\) và \\(d_2:\\frac{x}{1}=\\frac{y-1}{1}=\\frac{z-3}{-1}\\). Tính khoảng cách giữa hai đường thẳng \\(d_1\\) và \\(d_2\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\sqrt{\\frac{31}{3}}\\)",
+          "error_type": "skew_distance_reduce_to_point_line"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{5\\sqrt{3}}{3}\\)",
+          "error_type": "normal_vs_direction_vector"
+        },
+        {
+          "key": "C",
+          "text": "\\(-\\sqrt{2}\\)",
+          "error_type": "distance_missing_abs"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\sqrt{2}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Hai đường thẳng chéo nhau nên khoảng cách được tính bằng tích hỗn tạp của hai vectơ chỉ phương và vectơ nối hai điểm chia cho độ dài tích có hướng của hai vectơ chỉ phương. Sau khi xác định các vectơ cần thiết, ta thu được khoảng cách bằng \\(\\sqrt{2}\\).",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: coi đường thẳng \\(d_2\\) chỉ như một điểm lấy trên đó và tính khoảng cách từ điểm \\(B(0,1,3)\\) đến đường thẳng \\(d_1\\). Khi đó dùng công thức \\(d=\\frac{\\left\\|\\overrightarrow{AB}\\times\\overrightarrow{u_1}\\right\\|}{\\left\\|\\overrightarrow{u_1}\\right\\|}\\).",
+        "B": "Sai lầm: nhầm vectơ chỉ phương của đường thẳng \\(d_2\\), \\(\\overrightarrow{u_2}=(1,1,-1)\\), thành vectơ pháp tuyến để áp dụng công thức khoảng cách điểm - mặt phẳng/đường thẳng. Lấy vectơ nối hai điểm \\(\\overrightarrow{AB}=(1,1,-3)\\), tính \\(|\\overrightarrow{AB}\\cdot\\overrightarrow{u_2}|=|1+1+3|=5\\), rồi chia cho \\(\\|\\overrightarrow{u_2}\\|=\\sqrt{3}\\),",
+        "C": "Sai lầm: lấy vectơ nối điểm theo chiều ngược lại nên dùng \\(\\overrightarrow{AB}=(1,1,-3)\\) thay vì \\(\\overrightarrow{BA}=(-1,-1,3)\\), khi tính tích hỗn tạp được tử số âm \\(-6\\). Sau đó bỏ qua dấu giá trị tuyệt đối trong công thức khoảng cách hai đường thẳng chéo nhau, nên tính \\(d=\\frac{-6}{\\left\\|\\overrightarrow{u_1}\\times\\overrightarrow{u_2}\\right\\|}=\\frac{-6}{3\\sqrt{2}}=-\\sqrt{2}\\)."
+      },
+      "hint": "Hai đường thẳng chéo nhau nên khoảng cách được tính bằng tích hỗn tạp của hai vectơ chỉ phương và vectơ nối hai điểm chia",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Khoảng cách d1 và d2 chéo nhau.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 1.4142135623730951,
+          "expression": "6/sqrt(18)",
+          "stated_answer": "sqrt(2)",
+          "stated_value": 1.4142135623730951,
+          "source": "llm_resolver",
+          "detail": "6/sqrt(18) = 1.41421",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "sqrt(2)",
+            "expected_numeric": 1.855921454276674
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 1.41421, khớp đáp án key",
+        "verified_at": "2026-07-30T11:49:55.273800Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.92,
+        "quality": 0.9216666666666665,
+        "bloom_alignment": 0.84,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ hệ tọa độ, hai đường thẳng, yêu cầu tính khoảng cách và không có cách hiểu thay thế."
+          },
+          "cognitive_depth": {
+            "score": 0.86,
+            "rationale": "Bài yêu cầu nhận dạng vị trí chéo nhau, chọn công thức phù hợp và thực hiện tính toán nhiều bước."
+          },
+          "bloom_alignment": {
+            "score": 0.84,
+            "rationale": "Thao tác giải không chỉ nhớ công thức mà cần vận dụng công thức vào dữ kiện cụ thể nên phù hợp mức vận dụng cao."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi thường gặp như bỏ giá trị tuyệt đối, nhầm vectơ và giảm bài toán về khoảng cách điểm-đường."
+          },
+          "answer_uniqueness": {
+            "score": 0.99,
+            "rationale": "Chỉ có phương án \\(\\sqrt{2}\\) thỏa công thức khoảng cách hai đường thẳng chéo nhau và các phương án còn lại đều sai về bản chất."
+          },
+          "error_distractor_consistency": {
+            "score": 0.96,
+            "rationale": "Các chuỗi lỗi được mô tả đều dẫn đến đúng các giá trị distractor và phần giải thích đáp án thống nhất với đáp án \\(\\sqrt{2}\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9216666666666665,
+        "verifier_pass": true,
+        "critic_score": 0.9216666666666665,
+        "grounding_score": 0.92,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Hai đường thẳng chéo nhau nên khoảng cách được tính bằng tích hỗn tạp của hai vectơ chỉ phương và vectơ nối hai điểm chia cho độ dài tích có hướng của hai vectơ chỉ phương.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Từ phương trình chính tắc của hai đường thẳng, xác định các vectơ chỉ phương: \\(\\vec{u_1}=(2;-1;1)\\), \\(\\vec{u_2}=(1;1;-1)\\). Chọn \\(M_1(1;2;0)\\in d_1\\), \\(M_2(0;1;3)\\in d_2\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Tính tích có hướng của hai vectơ chỉ phương: \\(\\vec{u_1}\\times\\vec{u_2}=((-1)(-1)-1\\cdot1;1\\cdot1-2(-1);2\\cdot1-(-1)\\cdot1)=(0;3;3)\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tính độ dài vectơ pháp tuyến chung: \\(|\\vec{u_1}\\times\\vec{u_2}|=\\sqrt{0^2+3^2+3^2}=3\\sqrt{2}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Lập vectơ nối hai điểm đã chọn: \\(\\overrightarrow{M_1M_2}=(-1;-1;3)\\). Tính tích vô hướng: \\((\\vec{u_1}\\times\\vec{u_2})\\cdot\\overrightarrow{M_1M_2}=0\\cdot(-1)+3\\cdot(-1)+3\\cdot3=6\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Áp dụng công thức khoảng cách giữa hai đường thẳng chéo nhau: \\(d(d_1,d_2)=\\frac{|(\\vec{u_1}\\times\\vec{u_2})\\cdot\\overrightarrow{M_1M_2}|}{|\\vec{u_1}\\times\\vec{u_2}|}=\\frac{6}{3\\sqrt{2}}=\\sqrt{2}\\)."
+          }
+        ],
+        "final_answer": "\\(\\sqrt{2}\\)"
+      },
+      "why_correct": "Công thức được áp dụng đúng cho hai đường thẳng chéo nhau; các đại lượng trung gian đều được xác định duy nhất từ dữ kiện nên kết quả cuối cùng chỉ có một giá trị là \\(\\sqrt{2}\\).",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: coi đường thẳng \\(d_2\\) chỉ như một điểm lấy trên đó và tính khoảng cách từ điểm \\(B(0,1,3)\\) đến đường thẳng \\(d_1\\). Khi đó dùng công thức"
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm: nhầm vectơ chỉ phương của đường thẳng \\(d_2\\), \\(\\overrightarrow{u_2}=(1,1,-1)\\), thành vectơ pháp tuyến để áp dụng công thức khoảng cách điểm - mặt phẳng/đường thẳng."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: lấy vectơ nối điểm theo chiều ngược lại nên dùng \\(\\overrightarrow{AB}=(1,1,-3)\\) thay vì \\(\\overrightarrow{BA}=(-1,-1,3)\\), khi tính tích hỗn tạp được tử số âm \\(-6\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_de656496",
+      "blueprint_slot_id": "direct_pdf_14",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 151,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho mặt cầu \\(S:x^2+y^2+z^2-6x+4y-10z+13=0\\) và điểm \\(M(7;1;5)\\). Tính khoảng cách từ điểm \\(M\\) đến tâm của mặt cầu \\(S\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(25\\)",
+          "error_type": "missing_square_root_in_distance"
+        },
+        {
+          "key": "B",
+          "text": "\\(5\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(\\sqrt{35}\\)",
+          "error_type": "coefficient_as_center_coordinates"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\sqrt{101}\\)",
+          "error_type": "square_completion_sign_error"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Hoàn thành bình phương phương trình mặt cầu để tìm tâm, sau đó dùng công thức khoảng cách giữa hai điểm trong không gian để tính khoảng cách từ \\(M\\) đến tâm.",
+      "explanation_per_distractor": {
+        "A": "Tính khoảng cách nhưng dừng lại ở bình phương khoảng cách: \\(IM^2=(7-3)^2+(1-(-2))^2+(5-5)^2=16+9+0=25\\). Sau đó lấy \\(IM=25\\) mà bỏ qua bước lấy căn bậc hai. Sai vì khoảng cách phải là \\(IM=\\sqrt{25}=5\\).",
+        "C": "Nhầm các hệ số của phương trình mặt cầu thành tọa độ tâm: lấy tâm sai là \\(I(6;4;10)\\) từ các hệ số \\(-6,4,-10\\) (bỏ qua việc phải đổi dấu và chia cho \\(2\\)). Khi đó tính \\(IM=\\sqrt{(7-6)^2+(1-4)^2+(5-10)^2}=\\sqrt{1+9+25}=\\sqrt{35}\\). Sai vì tâm mặt cầu phải được xác định bằng cách hoàn thành bình phương.",
+        "D": "Hoàn thành bình phương sai dấu: từ \\(x^2-6x\\) suy ra tâm có hoành độ \\(-3\\) thay vì \\(3\\), từ \\(y^2+4y\\) suy ra tung độ \\(2\\) thay vì \\(-2\\). Lấy sai tâm \\(I(-3;2;5)\\), khi đó khoảng cách được tính là \\(IM=\\sqrt{(7+3)^2+(1-2)^2+(5-5)^2}=\\sqrt{100+1}=\\sqrt{101}\\). Sai vì dấu của tọa độ tâm bị đổi ngược khi hoàn thành bình phương."
+      },
+      "hint": "Hoàn thành bình phương phương trình mặt cầu để tìm tâm, sau đó dùng công thức khoảng cách giữa hai điểm trong không gian",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Mặt cầu \\(S\\) có tâm \\(I\\), bán kính \\(R\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 5.0,
+          "expression": "sqrt((7-3)**2+(1-(-2))**2+(5-5)**2)",
+          "stated_answer": "5",
+          "stated_value": 5.0,
+          "source": "llm_resolver",
+          "detail": "sqrt((7-3)**2+(1-(-2))**2+(5-5)**2) = 5",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "sqrt(16+9)",
+            "expected_numeric": 5.916079783099616
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 5, khớp đáp án key",
+        "verified_at": "2026-07-30T11:49:55.275921Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.98,
+        "quality": 0.86,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.5,
+            "rationale": ""
+          },
+          "cognitive_depth": {
+            "score": 0.82,
+            "rationale": "Bài yêu cầu nhận dạng dạng mặt cầu, biến đổi đại số và áp dụng công thức khoảng cách nên phù hợp mức thông hiểu."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là hiểu và vận dụng quy trình đã học để xác định tâm rồi tính khoảng cách, đúng với mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.94,
+            "rationale": "Các phương án nhiễu đều gắn với lỗi phổ biến như sai dấu tâm, quên căn bậc hai và nhầm hệ số với tọa độ tâm."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(5\\) là kết quả đúng; các phương án còn lại xuất phát từ các sai sót tính toán xác định."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Mỗi chuỗi lỗi mô tả đều dẫn đúng đến giá trị distractor tương ứng và phần giải thích đáp án nhất quán với đáp án \\(5\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.86,
+        "verifier_pass": true,
+        "critic_score": 0.86,
+        "grounding_score": 0.98,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Hoàn thành bình phương phương trình mặt cầu để tìm tâm, sau đó dùng công thức khoảng cách giữa hai điểm trong không gian để tính khoảng cách từ \\(M\\) đến tâm.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Biến đổi phương trình mặt cầu: \\(x^2-6x+y^2+4y+z^2-10z+13=0\\). Hoàn thành bình phương được \\((x-3)^2+(y+2)^2+(z-5)^2=25\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Suy ra tâm mặt cầu là \\(I(3;-2;5)\\) và bán kính là \\(R=5\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tính khoảng cách từ \\(M(7;1;5)\\) đến \\(I\\): \\(IM=\\sqrt{(7-3)^2+(1+2)^2+(5-5)^2}=\\sqrt{16+9}=5\\)."
+          }
+        ],
+        "final_answer": "\\(5\\)"
+      },
+      "why_correct": "Kết quả \\(5\\) là duy nhất vì sau khi xác định đúng tâm mặt cầu bằng biến đổi đại số, khoảng cách giữa hai điểm \\(M\\) và \\(I\\) được xác định duy nhất theo công thức khoảng cách trong không gian.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Tính khoảng cách nhưng dừng lại ở bình phương khoảng cách: \\(IM^2=(7-3)^2+(1-(-2))^2+(5-5)^2=16+9+0=25\\). Sau đó lấy \\(IM=25\\) mà bỏ qua bước lấy căn bậc hai. Sai vì khoảng cách phải là \\(IM=\\sqrt{25}=5\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Nhầm các hệ số của phương trình mặt cầu thành tọa độ tâm: lấy tâm sai là \\(I(6;4;10)\\) từ các hệ số \\(-6,4,-10\\) (bỏ qua việc phải đổi dấu và chia cho \\(2\\))."
+        },
+        {
+          "option": "D",
+          "reason": "Hoàn thành bình phương sai dấu: từ \\(x^2-6x\\) suy ra tâm có hoành độ \\(-3\\) thay vì \\(3\\), từ \\(y^2+4y\\) suy ra tung độ \\(2\\) thay vì \\(-2\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_7db83f36",
+      "blueprint_slot_id": "direct_pdf_15",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 155,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho mặt phẳng \\((Q):3x-2y+5z+D=0\\) đi qua điểm \\(A(2;-1;3)\\). Tính khoảng cách từ gốc tọa độ \\(O(0;0;0)\\) đến mặt phẳng \\((Q)\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{8}{\\sqrt{38}}\\)",
+          "error_type": "point_substitution_missing_term"
+        },
+        {
+          "key": "B",
+          "text": "\\(-\\frac{23}{\\sqrt{38}}\\)",
+          "error_type": "distance_missing_abs"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{14}{\\sqrt{14}}\\)",
+          "error_type": "plane_normal_vs_point"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{23}{\\sqrt{38}}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Thay tọa độ điểm \\(A\\) vào phương trình mặt phẳng để tìm \\(D\\), sau đó áp dụng công thức khoảng cách từ điểm đến mặt phẳng với các hệ số vừa tìm được.",
+      "explanation_per_distractor": {
+        "A": "Khi thay điểm \\(A(2;-1;3)\\) vào phương trình mặt phẳng, bỏ sót hạng tử chứa \\(z\\), chỉ tính \\(3\\cdot2-2\\cdot(-1)=8\\). Từ đó lấy \\(D=-8\\), được mặt phẳng sai \\(3x-2y+5z-8=0\\). Tính khoảng cách từ \\(O\\): \\(d=\\frac{| -8 |}{\\sqrt{3^2+(-2)^2+5^2}}=\\frac{8}{\\sqrt{38}}\\). Sai vì đã bỏ mất phần đóng góp của tọa độ \\(z=3\\) khi tìm \\(D\\).",
+        "B": "Sau khi tìm đúng mặt phẳng \\(3x-2y+5z-23=0\\), áp dụng công thức khoảng cách nhưng quên lấy giá trị tuyệt đối ở tử số: \\(d=\\frac{3\\cdot0-2\\cdot0+5\\cdot0-23}{\\sqrt{3^2+(-2)^2+5^2}}=\\frac{-23}{\\sqrt{38}}\\). Sai vì khoảng cách không thể âm, cần dùng \\(|-23|\\).",
+        "C": "Lấy nhầm tọa độ điểm \\(A(2;-1;3)\\) làm vectơ pháp tuyến, suy ra vectơ pháp tuyến sai là \\(\\vec n=(2;-1;3)\\). Lập mặt phẳng qua \\(A\\): \\(2(x-2)-(y+1)+3(z-3)=0\\), rút gọn được \\(2x-y+3z-14=0\\). Sau đó tính khoảng cách từ \\(O(0;0;0)\\) đến mặt phẳng này: \\(d=\\frac{| -14 |}{\\sqrt{2^2+(-1)^2+3^2}}=\\frac{14}{\\sqrt{14}}\\). Sai vì vectơ pháp tuyến phải lấy từ hệ số của phương trình mặt phẳng ban đầu."
+      },
+      "hint": "Thay tọa độ điểm \\(A\\) vào phương trình mặt phẳng để tìm \\(D\\), sau đó áp dụng công thức khoảng cách từ điểm đến mặt phẳn",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Phương trình mặt phẳng (P): Ax+By+Cz+D=0 với A²+B²+C²>0. Có véctơ pháp tuyến là n=(A;B;C).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": false,
+          "derivation": false,
+          "value": null,
+          "expression": "abs(-23)/sqrt(3**2+(-2)**2+5**2)",
+          "stated_answer": "23/sqrt(38)",
+          "stated_value": null,
+          "source": "llm_resolver",
+          "detail": "biểu thức độc lập không đánh giá được (parse lỗi: name 'Function' is not defined)",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "23/sqrt(38)",
+            "expected_numeric": 1.2977713690461004
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (biểu thức độc lập không đánh giá được (parse lỗi: name 'Function' is not defined))",
+        "verified_at": "2026-07-30T11:51:08.420936Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9249999999999999,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài xác định rõ mặt phẳng, điểm đi qua và yêu cầu tính khoảng cách nên không có cách hiểu khác."
+          },
+          "cognitive_depth": {
+            "score": 0.75,
+            "rationale": "Bài yêu cầu kết hợp tìm hệ số tự do và áp dụng công thức khoảng cách, phù hợp mức vận dụng cơ bản hơn là chỉ nhận biết."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác giải chủ yếu là hiểu công thức và áp dụng vào tình huống cụ thể, phù hợp mức Thông hiểu đã khai báo."
+          },
+          "distractor_plausibility": {
+            "score": 0.92,
+            "rationale": "Các phương án sai mô phỏng các lỗi thường gặp như lấy sai vectơ pháp tuyến, quên trị tuyệt đối và bỏ sót khi thế điểm."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(\\frac{23}{\\sqrt{38}}\\) là kết quả đúng từ mặt phẳng \\(3x-2y+5z-23=0\\), các phương án còn lại đều sai."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Ba chuỗi lỗi được mô tả đều dẫn đúng tới giá trị distractor tương ứng và phần giải thích đáp án nhất quán với đáp án chuẩn."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9249999999999999,
+        "verifier_pass": true,
+        "critic_score": 0.9249999999999999,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Thay tọa độ điểm \\(A\\) vào phương trình mặt phẳng để tìm \\(D\\), sau đó áp dụng công thức khoảng cách từ điểm đến mặt phẳng với các hệ số vừa tìm được.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì \\(A(2;-1;3)\\) thuộc \\((Q):3x-2y+5z+D=0\\), ta có \\(3\\cdot2-2\\cdot(-1)+5\\cdot3+D=0\\), suy ra \\(23+D=0\\) nên \\(D=-23\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Thay giá trị tìm được vào phương trình mặt phẳng, ta được \\((Q):3x-2y+5z-23=0\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Khoảng cách từ \\(O(0;0;0)\\) đến \\((Q)\\) là \\(d=\\frac{|3\\cdot0-2\\cdot0+5\\cdot0-23|}{\\sqrt{3^2+(-2)^2+5^2}}=\\frac{23}{\\sqrt{38}}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{23}{\\sqrt{38}}\\)"
+      },
+      "why_correct": "Phương trình mặt phẳng phải được xác định đầy đủ từ điều kiện đi qua điểm trước khi tính khoảng cách; các bước trên cho đúng hệ số tự do và áp dụng đúng công thức khoảng cách.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Khi thay điểm \\(A(2;-1;3)\\) vào phương trình mặt phẳng, bỏ sót hạng tử chứa \\(z\\), chỉ tính \\(3\\cdot2-2\\cdot(-1)=8\\). Từ đó lấy \\(D=-8\\), được mặt phẳng sai \\(3x-2y+5z-8=0\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sau khi tìm đúng mặt phẳng \\(3x-2y+5z-23=0\\), áp dụng công thức khoảng cách nhưng quên lấy giá trị tuyệt đối ở tử số: \\(d=\\frac{3\\cdot0-2\\cdot0+5\\cdot0-23}{\\sqrt{3^2+(-2)^2+5^2}}=\\frac{-23}{\\sqrt{38}}\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Lấy nhầm tọa độ điểm \\(A(2;-1;3)\\) làm vectơ pháp tuyến, suy ra vectơ pháp tuyến sai là \\(\\vec n=(2;-1;3)\\). Lập mặt phẳng qua \\(A\\): \\(2(x-2)-(y+1)+3(z-3)=0\\), rút gọn được \\(2x-y+3z-14=0\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_bae27ece",
+      "blueprint_slot_id": "direct_pdf_16",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 218,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho mặt phẳng \\((P):2x-y+2z-3=0\\) và điểm \\(M(1;2;-1)\\). Gọi \\(M'\\) là điểm đối xứng của \\(M\\) qua \\((P)\\). Biết điểm \\(N(m;1;1)\\) nằm trên đường thẳng \\(MM'\\). Tìm giá trị của tham số \\(m\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(3\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{19}{9}\\)",
+          "error_type": "reflection_uses_foot_as_image"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{1}{2}\\)",
+          "error_type": "plane_normal_vs_point"
+        },
+        {
+          "key": "D",
+          "text": "\\(-\\frac{1}{9}\\)",
+          "error_type": "wrong_reflection_formula"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Ta tìm hình chiếu vuông góc của \\(M\\) lên \\((P)\\), suy ra điểm đối xứng \\(M'\\), sau đó dùng điều kiện \\(N\\in MM'\\) để lập phương trình theo \\(m\\).",
+      "explanation_per_distractor": {
+        "B": "Tìm hình chiếu vuông góc \\(H\\) của \\(M\\) lên \\((P)\\) được \\(H\\left(\\frac{19}{9};\\frac{13}{9};\\frac{1}{9}\\right)\\), nhưng nhầm rằng điểm đối xứng của \\(M\\) qua \\((P)\\) chính là \\(H\\), tức lấy \\(M'=H\\). Khi đó sử dụng tọa độ điểm trên đường thẳng đi qua \\(M\\) và \\(H\\), lấy điều kiện theo hoành độ của điểm chiếu để cho \\(m=x_H=\\frac{19}{9}\\).",
+        "C": "Lấy nhầm tọa độ điểm \\(M(1;2;-1)\\) làm vectơ chỉ phương của đường thẳng \\(MM'\\), nên cho \\(MM':(x,y,z)=(1,2,-1)+t(1,2,-1)\\). Từ hoành độ tung độ của \\(N(m;1;1)\\), giải \\(2+t=1\\Rightarrow t=-\\frac{1}{2}\\), suy ra \\(m=1+t=\\frac{1}{2}\\). Sai vì vectơ quyết định hướng của \\(MM'\\) phải là vectơ pháp tuyến của mặt phẳng \\((P)\\), không phải tọa độ điểm \\(M\\).",
+        "D": "Dùng sai công thức đối xứng, lấy \\(M'=M-H\\) thay vì \\(M'=2H-M\\). Với \\(H\\left(\\frac{19}{9};\\frac{13}{9};\\frac{1}{9}\\right)\\), tính được \\(M'\\left(-\\frac{10}{9};\\frac{5}{9};-\\frac{10}{9}\\right)\\). Sau đó lấy hoành độ của điểm trên đường thẳng \\(MM'\\) khi ghép điều kiện của bài toán và suy ra giá trị tham số \\(m=-\\frac{1}{9}\\)."
+      },
+      "hint": "Ta tìm hình chiếu vuông góc của \\(M\\) lên \\((P)\\), suy ra điểm đối xứng \\(M'\\), sau đó dùng điều kiện \\(N\\in MM'\\) để lập",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Gọi \\(M'\\) là điểm đối xứng của \\(M\\) qua \\((P)\\). Khi đó \\(H\\) là trung điểm \\(MM'\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 3.0,
+          "expression": "1+2*1",
+          "stated_answer": "3",
+          "stated_value": 3.0,
+          "source": "llm_resolver",
+          "detail": "1+2*1 = 3",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "3",
+            "expected_numeric": -0.1111111111111111
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 3, khớp đáp án key",
+        "verified_at": "2026-07-30T11:51:21.589093Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.98,
+        "quality": 0.8516666666666666,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.5,
+            "rationale": ""
+          },
+          "cognitive_depth": {
+            "score": 0.9,
+            "rationale": "Bài yêu cầu phối hợp tìm hình chiếu, suy ra điểm đối xứng và khai thác điều kiện thẳng hàng nên phù hợp mức vận dụng cao."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác giải không chỉ áp dụng công thức đơn lẻ mà cần lựa chọn và kết hợp nhiều quy trình hình học tọa độ, phù hợp mức Vận dụng cao."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến như nhầm vectơ pháp tuyến, nhầm hình chiếu với ảnh đối xứng và sai công thức đối xứng."
+          },
+          "answer_uniqueness": {
+            "score": 0.98,
+            "rationale": "Điểm đối xứng và đường thẳng MM' là duy nhất, đồng thời chỉ một giá trị m thỏa điều kiện điểm N thuộc đường thẳng này."
+          },
+          "error_distractor_consistency": {
+            "score": 0.93,
+            "rationale": "Các chuỗi lỗi mô tả hợp lý dẫn tới đúng các giá trị distractor đã cho và phần giải thích đáp án không mâu thuẫn với đáp án 3."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8516666666666666,
+        "verifier_pass": true,
+        "critic_score": 0.8516666666666666,
+        "grounding_score": 0.98,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Ta tìm hình chiếu vuông góc của \\(M\\) lên \\((P)\\), suy ra điểm đối xứng \\(M'\\), sau đó dùng điều kiện \\(N\\in MM'\\) để lập phương trình theo \\(m\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Mặt phẳng \\((P):2x-y+2z-3=0\\) có vectơ pháp tuyến \\(\\vec n=(2;-1;2)\\). Ta tính \\(2^2+(-1)^2+2^2=9\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Tính giá trị của biểu thức mặt phẳng tại \\(M\\): \\(2\\cdot1-2+2\\cdot(-1)-3=-5\\). Hệ số chiếu là \\(t=\\frac{-5}{9}\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Hình chiếu \\(H\\) của \\(M\\) lên \\((P)\\) là \\(H=M-t\\vec n=(1,2,-1)+\\frac{5}{9}(2,-1,2)=\\left(\\frac{19}{9};\\frac{13}{9};\\frac{1}{9}\\right)\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Vì \\(M'\\) đối xứng với \\(M\\) qua \\((P)\\) nên \\(H\\) là trung điểm của \\(MM'\\). Do đó \\(M'=2H-M=\\left(\\frac{29}{9};\\frac{8}{9};\\frac{11}{9}\\right)\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Phương trình tham số của \\(MM'\\): \\(X=M+\\lambda(M'-M)=(1,2,-1)+\\lambda\\left(\\frac{20}{9};-\\frac{10}{9};\\frac{20}{9}\\right)\\). Vì \\(N(m,1,1)\\in MM'\\), từ tung độ có \\(2-\\frac{10}{9}\\lambda=1\\Rightarrow\\lambda=\\frac{9}{10}\\)."
+          },
+          {
+            "title": "Bước 6",
+            "content": "Thay \\(\\lambda=\\frac{9}{10}\\) vào hoành độ: \\(m=1+\\frac{20}{9}\\cdot\\frac{9}{10}=3\\). Vậy giá trị cần tìm là \\(3\\)."
+          }
+        ],
+        "final_answer": "\\(3\\)"
+      },
+      "why_correct": "Điểm \\(M'\\) được xác định duy nhất bởi phép đối xứng qua mặt phẳng \\((P)\\). Khi đó đường thẳng \\(MM'\\) là duy nhất, nên điều kiện \\(N(m;1;1)\\in MM'\\) chỉ cho một giá trị duy nhất của \\(m\\), là \\(3\\).",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Tìm hình chiếu vuông góc \\(H\\) của \\(M\\) lên \\((P)\\) được \\(H\\left(\\frac{19}{9};\\frac{13}{9};\\frac{1}{9}\\right)\\), nhưng nhầm rằng điểm đối xứng của \\(M\\) qua \\((P)\\) chính là \\(H\\), tức lấy \\(M'=H\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Lấy nhầm tọa độ điểm \\(M(1;2;-1)\\) làm vectơ chỉ phương của đường thẳng \\(MM'\\), nên cho \\(MM':(x,y,z)=(1,2,-1)+t(1,2,-1)\\). Từ hoành độ tung độ của \\(N(m;1;1)\\), giải \\(2+t=1\\Rightarrow t=-\\frac{1}{2}\\), suy ra"
+        },
+        {
+          "option": "D",
+          "reason": "Dùng sai công thức đối xứng, lấy \\(M'=M-H\\) thay vì \\(M'=2H-M\\). Với \\(H\\left(\\frac{19}{9};\\frac{13}{9};\\frac{1}{9}\\right)\\), tính được \\(M'\\left(-\\frac{10}{9};\\frac{5}{9};-\\frac{10}{9}\\right)\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_1237a414",
+      "blueprint_slot_id": "direct_pdf_17",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 176,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho mặt phẳng \\((P):2x-y+2z-3=0\\) và điểm \\(M(4;-1;2)\\). Gọi \\(M'\\) là điểm đối xứng của \\(M\\) qua mặt phẳng \\((P)\\). Tính độ dài đoạn thẳng \\(MM'\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{20}{3}\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{20\\sqrt{21}}{13}\\)",
+          "error_type": "plane_normal_vs_point"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{10}{3}\\)",
+          "error_type": "reflection_missing_factor_2"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{2}{\\sqrt{5}}\\)",
+          "error_type": "normal_vs_direction_vector"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Ta tìm hình chiếu của \\(M\\) lên \\((P)\\) theo vectơ pháp tuyến của mặt phẳng, sau đó dùng tính chất hình chiếu là trung điểm của đoạn nối hai điểm đối xứng để suy ra \\(MM'\\).",
+      "explanation_per_distractor": {
+        "B": "Lấy sai vectơ pháp tuyến là vectơ tọa độ điểm \\(M(4;-1;2)\\), tức dùng \\(\\vec n=(4;-1;2)\\) thay cho \\((2;-1;2)\\). Khi đó xét đường thẳng qua \\(M\\) có hướng \\(\\vec n\\): \\((x,y,z)=(4,-1,2)+t(4,-1,2)\\). Thay vào mặt phẳng: \\(2(4+4t)-(-1-t)+2(2+2t)-3=0\\Rightarrow 10+13t=0\\Rightarrow t=-\\frac{10}{13}\\).",
+        "C": "Quên tính chất hai điểm đối xứng qua mặt phẳng có khoảng cách bằng hai lần khoảng cách từ điểm đến mặt phẳng. Tính đúng khoảng cách từ \\(M\\) đến \\((P)\\): \\(d(M,(P))=\\frac{|2\\cdot4-(-1)+2\\cdot2-3|}{\\sqrt{2^2+(-1)^2+2^2}}=\\frac{10}{3}\\), nhưng lấy nhầm \\(MM'=d(M,(P))\\) thay vì \\(MM'=2d(M,(P))\\).",
+        "D": "Nhầm vectơ chỉ phương của mặt phẳng với vectơ pháp tuyến, chọn một vectơ nằm trong mặt phẳng như \\(\\vec u=(1;2;0)\\) làm vectơ pháp tuyến. Áp dụng sai công thức khoảng cách với vectơ này: \\(d=\\frac{|1\\cdot4+2\\cdot(-1)+0\\cdot2-3|}{\\sqrt{1^2+2^2+0^2}}=\\frac{1}{\\sqrt5}\\). Do coi \\(MM'\\) bằng hai lần khoảng cách đến mặt phẳng nên thu được \\(MM'=\\frac{2}{\\sqrt5}\\)."
+      },
+      "hint": "Ta tìm hình chiếu của \\(M\\) lên \\((P)\\) theo vectơ pháp tuyến của mặt phẳng, sau đó dùng tính chất hình chiếu là trung đi",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Gọi M là điểm đối xứng của M qua (P)",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": false,
+          "derivation": false,
+          "value": null,
+          "expression": "2*abs(2*4-(-1)+2*2-3)/sqrt(2**2+(-1)**2+2**2)",
+          "stated_answer": "20/3",
+          "stated_value": null,
+          "source": "llm_resolver",
+          "detail": "biểu thức độc lập không đánh giá được (parse lỗi: name 'Function' is not defined)",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "2*abs(2*4-(-1)+2*2-3)/sqrt(2**2+(-1)**2+2**2)",
+            "expected_numeric": 6.666666666666667
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "fallback: 'Symbol' object is not callable",
+        "verified_at": "2026-07-30T11:51:23.264926Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": true,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.98,
+        "quality": 0.5,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.5,
+            "rationale": ""
+          },
+          "cognitive_depth": {
+            "score": 0.82,
+            "rationale": "Bài yêu cầu vận dụng công thức khoảng cách đến mặt phẳng kết hợp tính chất đối xứng, phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác cần thực hiện là nhận dạng phương pháp rồi áp dụng vào dữ kiện mới, đúng với mức Bloom Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều mô phỏng lỗi thường gặp như chọn sai vectơ pháp tuyến, dùng sai vectơ và quên hệ số 2."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\u005c(\\\\frac{20}{3} là kết quả đúng vì khoảng cách từ điểm đến mặt phẳng bằng \\u005c(\\\\frac{10}{3} và đoạn đối xứng dài gấp đôi."
+          },
+          "error_distractor_consistency": {
+            "score": 0.98,
+            "rationale": "Ba chuỗi lỗi đều dẫn đúng tới các distractor đã nêu và phần giải thích không mâu thuẫn với đáp án chính."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.85,
+        "verifier_pass": null,
+        "critic_score": 0.85,
+        "grounding_score": 0.98,
+        "reject_reasons": []
+      },
+      "review_status": "needs_revision",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "verification.error"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Ta tìm hình chiếu của \\(M\\) lên \\((P)\\) theo vectơ pháp tuyến của mặt phẳng, sau đó dùng tính chất hình chiếu là trung điểm của đoạn nối hai điểm đối xứng để suy ra \\(MM'\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Mặt phẳng \\((P):2x-y+2z-3=0\\) có vectơ pháp tuyến \\(\\vec n=(2;-1;2)\\). Tính giá trị biểu thức mặt phẳng tại \\(M\\): \\(2\\cdot4-(-1)+2\\cdot2-3=10\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Vì \\(M'\\) là điểm đối xứng của \\(M\\) qua \\((P)\\), khoảng cách từ \\(M\\) đến \\((P)\\) là \\(d=\\frac{|10|}{\\sqrt{2^2+(-1)^2+2^2}}=\\frac{10}{3}\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Đoạn \\(MM'\\) đi qua vuông góc với \\((P)\\) và điểm thuộc \\((P)\\) là trung điểm của \\(MM'\\), nên \\(MM'=2d(M,(P))\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Thay giá trị khoảng cách vào: \\(MM'=2\\cdot\\frac{10}{3}=\\frac{20}{3}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{20}{3}\\)"
+      },
+      "why_correct": "Chỉ có giá trị \\(\\frac{20}{3}\\) thỏa mãn tính chất hai điểm đối xứng qua mặt phẳng: khoảng cách giữa hai điểm bằng hai lần khoảng cách từ một điểm đến mặt phẳng đối xứng.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Lấy sai vectơ pháp tuyến là vectơ tọa độ điểm \\(M(4;-1;2)\\), tức dùng \\(\\vec n=(4;-1;2)\\) thay cho \\((2;-1;2)\\). Khi đó xét đường thẳng qua \\(M\\) có hướng \\(\\vec n\\): \\((x,y,z)=(4,-1,2)+t(4,-1,2)\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Quên tính chất hai điểm đối xứng qua mặt phẳng có khoảng cách bằng hai lần khoảng cách từ điểm đến mặt phẳng. Tính đúng khoảng cách từ \\(M\\) đến \\((P)\\):"
+        },
+        {
+          "option": "D",
+          "reason": "Nhầm vectơ chỉ phương của mặt phẳng với vectơ pháp tuyến, chọn một vectơ nằm trong mặt phẳng như \\(\\vec u=(1;2;0)\\) làm vectơ pháp tuyến."
+        }
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "question_id": "rej_direct_pdf_4_distractor",
+      "blueprint_slot_id": "direct_pdf_4",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Nhận biết",
+      "difficulty_target": 0.3,
+      "difficulty_estimated": 0.35,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.3,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": 0.0,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 192,
+        "verifier_type": "none",
+        "visual_type": "none",
+        "num_distractors": 0
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 67,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho đường thẳng Δ có phương trình tham số \\(\\begin{cases}x=4+3t\\\\y=1-2t\\\\z=5+6t\\end{cases}\\) với \\(t\\in\\mathbb{R}\\). Vectơ chỉ phương của đường thẳng Δ là vectơ nào?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\((3;-2;6)\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Theo dạng phương trình tham số của đường thẳng, các hệ số của tham số \\(t\\) chính là tọa độ của vectơ chỉ phương.",
+      "explanation_per_distractor": {},
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Phương trình tham số đường thẳng có điểm \\(M(x_0;y_0;z_0)\\in\\Delta\\) Vectơ chỉ phương \\(u=(a;b;c)\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T11:42:28.627827Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "Không tạo đủ 3 phương án nhiễu đạt chuẩn (error=Expecting value: line 14 column 26 (char 818), n=0)",
+      "reject_reason_code": "bad_distractors",
+      "reject_reason_stage": "distractor",
+      "reject_log": [
+        {
+          "reason_code": "bad_distractors",
+          "stage": "distractor",
+          "attempt": 0,
+          "message": "Không tạo đủ 3 phương án nhiễu đạt chuẩn (error=Expecting value: line 14 column 26 (char 818), n=0)",
+          "slot_id": "direct_pdf_4"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_6_critic",
+      "blueprint_slot_id": "direct_pdf_6",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 227,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho đường thẳng \\(d:\\begin{cases}x=3+2t\\\\y=-1+5t\\\\z=4-3t\\end{cases}\\) và mặt phẳng \\((P):2x-y+z-6=0\\). Biết \\(d\\) cắt \\((P)\\) tại điểm \\(M\\). Giá trị của tham số \\(t\\) ứng với điểm \\(M\\) là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{3}{4}\\)",
+          "error_type": "constant_term_calculation_error"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{5}{3}\\)",
+          "error_type": "omit_direction_parameter_term"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{5}{4}\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{5}{2}\\)",
+          "error_type": "wrong_substitution_sign"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Thay tọa độ điểm chạy trên đường thẳng vào phương trình mặt phẳng để tìm phương trình theo \\(t\\), sau đó giải phương trình bậc nhất thu được giá trị tham số của giao điểm.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: tính sai phần hằng số khi thế tọa độ vào phương trình mặt phẳng. Cách làm sai: từ \\(2(3+2t)-(-1+5t)+(4-3t)-6=0\\), tính phần không chứa \\(t\\) là \\(6-1+4-6=3\\) thay vì đúng là \\(6+1+4-6=5\\). Khi đó phương trình sai là \\(3-4t=0\\), suy ra \\(t=\\frac{3}{4}\\). Sai vì đã xử lý sai dấu của số hạng \\(-(-1)\\).",
+        "B": "Sai lầm: khi thay tọa độ tham số vào phương trình mặt phẳng, bỏ sót một phần hệ số chứa \\(t\\). Người làm sai có thể tính \\(2x-y+z-6=0\\) thành \\(2(3+2t)-(-1)+(4-3t)-6=0\\), bỏ mất hạng tử \\(5t\\) trong \\(y=-1+5t\\). Khi đó phương trình là \\(5+t=0\\) và cho \\(t=-5\\), hoặc nếu chỉ gom nhầm các hệ số còn lại thành \\(3t=5\\) thì thu được \\(t=\\frac{5}{3}\\).",
+        "D": "Sai lầm: khi thay tọa độ đường thẳng vào mặt phẳng, đổi dấu sai ở hạng tử \\(-y\\). Thay vì tính \\(2(3+2t)-(-1+5t)+(4-3t)-6=0\\), người làm sai có thể viết thành \\(2(3+2t)+(-1+5t)+(4-3t)-6=0\\). Khi đó được \\(5+6t=0\\), suy ra \\(t=-\\frac{5}{6}\\), không đúng. Một biến thể sai khác từ cùng lỗi là bỏ dấu âm trước hệ số của \\(5t\\), dẫn đến phương trình \\(4t=10\\), suy ra \\(t=\\frac{5}{2}\\)."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "thay xyz ; ; vào mặt phẳng \\((P)\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 1.25,
+          "expression": "solve(2*(3+2*t)-(-1+5*t)+(4-3*t)-6,t)[0]",
+          "stated_answer": "5/4",
+          "stated_value": 1.25,
+          "source": "llm_resolver",
+          "detail": "solve(2*(3+2*t)-(-1+5*t)+(4-3*t)-6,t)[0] = 1.25",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "5/4",
+            "expected_numeric": 0.75
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 1.25, khớp đáp án key",
+        "verified_at": "2026-07-30T11:46:52.972731Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.6499999999999999,
+        "bloom_alignment": 0.95,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ đường thẳng, mặt phẳng, điều kiện giao điểm và yêu cầu tìm một giá trị tham số duy nhất."
+          },
+          "cognitive_depth": {
+            "score": 0.75,
+            "rationale": "Bài yêu cầu thực hiện phép thế và giải phương trình bậc nhất theo quy trình quen thuộc, phù hợp mức thông hiểu."
+          },
+          "bloom_alignment": {
+            "score": 0.95,
+            "rationale": "Thao tác áp dụng công thức/phương pháp đã học để tìm tham số giao điểm đúng với mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.82,
+            "rationale": "Các phương án sai đều mô phỏng lỗi tính toán khi thế tọa độ, xử lý dấu hoặc bỏ sót hạng tử nên có tính chẩn đoán."
+          },
+          "answer_uniqueness": {
+            "score": 0.25,
+            "rationale": "Thay đúng vào phương trình mặt phẳng được \\(2(3+2t)-(-1+5t)+(4-3t)-6=0\\), suy ra \\(5-t=0\\) nên chỉ có \\(t=5\\), không trùng với đáp án đã cho."
+          },
+          "error_distractor_consistency": {
+            "score": 0.15,
+            "rationale": "Giải thích đáp án mâu thuẫn vì phép tính đúng cho ra \\(t=5\\) chứ không phải \\(\\frac{5}{4}\\), đồng thời các chuỗi lỗi distractor không nhất quán với các giá trị nêu ra."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.6499999999999999,
+        "verifier_pass": true,
+        "critic_score": 0.6499999999999999,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "answer_uniqueness=0.25 (nghi đa đáp án)",
+      "reject_reason_code": "bad_distractors",
+      "reject_reason_stage": "critic",
+      "reject_log": [
+        {
+          "reason_code": "bad_distractors",
+          "stage": "critic",
+          "attempt": 0,
+          "message": "answer_uniqueness=0.25 (nghi đa đáp án)",
+          "slot_id": "direct_pdf_6"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_9_critic",
+      "blueprint_slot_id": "direct_pdf_9",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 243,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho họ mặt phẳng \\(P_m\\): \\(2x-3y+6z+m=0\\). Gọi \\(H\\) là hình chiếu vuông góc của điểm \\(A(1;4;-2)\\) lên \\(P_m\\). Biết \\(H\\) thuộc mặt cầu tâm \\(O\\) bán kính \\(4\\sqrt{\\frac{7}{4}}\\) và \\(m>0\\). Tìm giá trị của \\(m\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{14\\sqrt{3}}{3}\\)",
+          "error_type": "plane_normal_vs_point"
+        },
+        {
+          "key": "B",
+          "text": "\\(44+\\sqrt{827}\\)",
+          "error_type": "projection_sign_error"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\sqrt{141}\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(-\\sqrt{141}\\)",
+          "error_type": "ignore_positive_parameter_condition"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Dùng công thức hình chiếu của điểm lên mặt phẳng để biểu diễn tọa độ \\(H\\) theo tham số \\(m\\), sau đó kết hợp điều kiện \\(H\\) thuộc mặt cầu để lập phương trình theo \\(m\\) và chọn nghiệm phù hợp với điều kiện \\(m>0\\).",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: lấy tọa độ điểm \\(A(1;4;-2)\\) làm vectơ pháp tuyến thay cho vectơ pháp tuyến đúng \\((2;-3;6)\\). Khi đó coi mặt phẳng sai có dạng \\(x+4y-2z+m=0\\). Công thức chiếu theo vectơ \\((1;4;-2)\\) cho \\(H=A-\\frac{21+m}{21}(1;4;-2)\\). Điều kiện mặt cầu dẫn đến \\(21\\left(1-\\frac{21+m}{21}\\right)^2=28\\), nên \\((m)^2=\\frac{196}{3}\\). Chọn nghiệm dương vì \\(m>0\\), được \\(m=\\frac{14\\sqrt3}{3}\\).",
+        "B": "Sai lầm: dùng sai dấu trong công thức hình chiếu. Thay vì lấy \\(H=A-\\frac{m-22}{49}(2;-3;6)\\), học sinh dùng \\(H=A+\\frac{m-22}{49}(2;-3;6)\\). Khi đó điều kiện \\(H\\) thuộc mặt cầu cho phương trình \\(\\left(1+\\frac{2(m-22)}{49}\\right)^2+\\left(4-\\frac{3(m-22)}{49}\\right)^2+\\left(-2+\\frac{6(m-22)}{49}\\right)^2=28\\), suy ra \\((m-44)^2=827\\).",
+        "D": "Sai lầm: giải phương trình cuối cùng theo \\(m\\) nhưng bỏ qua điều kiện \\(m>0\\). Từ điều kiện mặt cầu, học sinh nhận được phương trình \\(m^2=141\\), rồi lấy cả hai nghiệm \\(m=\\pm\\sqrt{141}\\) mà không loại nghiệm âm. Vì vậy chọn \\(m=-\\sqrt{141}\\). Kết quả sai do không sử dụng điều kiện ràng buộc của tham số trong đề bài."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "H là HCVG của A lên (P) ⇒ H=d∩(P) ⇒ t ⇒ H(?)",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "mismatch",
+        "status_label_vi": "Các nguồn tính toán lệch nhau — cần người kiểm",
+        "status_label_en": "Computation sources disagree — needs review",
+        "machine_checked": false,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 28.75760768909681,
+          "expression": "sqrt(827)",
+          "stated_answer": "sqrt(827)",
+          "stated_value": 28.75760768909681,
+          "source": "llm_resolver",
+          "detail": "sqrt(827) = 28.7576",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": true,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "sqrt(141)",
+            "expected_numeric": -11.874342087037917
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức của Writer khớp key (11.8743) nhưng tính toán độc lập cho 28.7576",
+        "verified_at": "2026-07-30T11:48:19.300176Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.6333333333333334,
+        "bloom_alignment": 0.7,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.9,
+            "rationale": "Đề nêu đầy đủ điểm, mặt phẳng, điều kiện mặt cầu và ràng buộc tham số nên mục tiêu tìm m là rõ ràng."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu kết hợp công thức hình chiếu với điều kiện mặt cầu, phù hợp mức vận dụng nhiều bước."
+          },
+          "bloom_alignment": {
+            "score": 0.7,
+            "rationale": "Thao tác chính là áp dụng và biến đổi phương pháp đã học hơn là phát triển chiến lược mới, nên phù hợp vận dụng nhưng chưa thật sự vận dụng cao."
+          },
+          "distractor_plausibility": {
+            "score": 0.85,
+            "rationale": "Các phương án sai gắn với lỗi dấu công thức, chọn sai vectơ pháp tuyến và bỏ điều kiện tham số, đều là lỗi học sinh thường gặp."
+          },
+          "answer_uniqueness": {
+            "score": 0.2,
+            "rationale": "Đáp án cho trước không đúng với dữ kiện vì tính trực tiếp từ công thức hình chiếu cho phương trình \\(m^2=827\\), nên không có phương án đúng là đáp án đã chọn."
+          },
+          "error_distractor_consistency": {
+            "score": 0.3,
+            "rationale": "Chuỗi lỗi của distractor thứ nhất thực tế dẫn đến \\(44+\\sqrt{827}\\), nhưng giải thích đáp án đúng lại khẳng định \\(m^2=141\\) trái với phép tính từ dữ kiện nên tính nhất quán tổng thể thấp."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.6333333333333334,
+        "verifier_pass": true,
+        "critic_score": 0.6333333333333334,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "mismatch"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "answer_uniqueness=0.20 (nghi đa đáp án)",
+      "reject_reason_code": "bad_distractors",
+      "reject_reason_stage": "critic",
+      "reject_log": [
+        {
+          "reason_code": "bad_distractors",
+          "stage": "critic",
+          "attempt": 0,
+          "message": "answer_uniqueness=0.20 (nghi đa đáp án)",
+          "slot_id": "direct_pdf_9"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_10_writer",
+      "blueprint_slot_id": "direct_pdf_10",
+      "cognitive_level": "Vận dụng",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 37 column 29 (char 1973)\"])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 37 column 29 (char 1973)\"])",
+          "slot_id": "direct_pdf_10"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_11_verifier",
+      "blueprint_slot_id": "direct_pdf_11",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 225,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho đường thẳng \\(d:\\\\begin{cases}x=4+3t\\\\y=-2+t\\\\z=5-2t\\\\end{cases}\\) và mặt phẳng \\((P):2x-y+z-7=0\\). Gọi \\(I\\) là giao điểm của \\(d\\) và \\((P)\\). Tìm giá trị của tham số \\(t\\) ứng với điểm \\(I\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(t=\\frac{1}{2}\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(t=-\\frac{3}{5}\\)",
+          "error_type": "missing_coordinate_in_substitution"
+        },
+        {
+          "key": "C",
+          "text": "\\(t=-\\frac{8}{5}\\)",
+          "error_type": "wrong_parametric_sign"
+        },
+        {
+          "key": "D",
+          "text": "\\(t=-\\frac{4}{5}\\)",
+          "error_type": "plane_substitution_sign_error"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Thay tọa độ điểm chạy trên đường thẳng vào phương trình mặt phẳng để tìm giá trị tham số tạo ra giao điểm. Kết quả thu được \\(t=\\frac{1}{2}\\).",
+      "explanation_per_distractor": {
+        "B": "Sai lầm là bỏ quên tọa độ \\(z\\) khi thay vào phương trình mặt phẳng. Học sinh chỉ dùng \\(2x-y-7=0\\): \\(2(4+3t)-( -2+t)-7=0\\Rightarrow 8+6t+2-t-7=0\\Rightarrow 3+5t=0\\Rightarrow t=-\\frac{3}{5}\\). Sai vì phương trình mặt phẳng còn có thêm hạng tử \\(+z\\), cần thay cả ba tọa độ \\(x,y,z\\).",
+        "C": "Sai lầm là lấy sai dấu của tham số trong tọa độ đường thẳng, viết nhầm \\(y=-2-t\\) thay vì \\(y=-2+t\\). Khi đó: \\(2(4+3t)-(-2-t)+(5-2t)-7=0\\Rightarrow 8+6t+2+t+5-2t-7=0\\Rightarrow 8+5t=0\\Rightarrow t=-\\frac{8}{5}\\). Sai vì hệ số của \\(t\\) trong phương trình tham số của \\(y\\) là \\(+1\\).",
+        "D": "Sai lầm là đổi dấu sai khi thế tọa độ vào phương trình mặt phẳng. Học sinh viết nhầm \\(2x+y+z-7=0\\) thay vì \\(2x-y+z-7=0\\). Khi đó: \\(2(4+3t)+(-2+t)+(5-2t)-7=0\\Rightarrow 8+6t-2+t+5-2t-7=0\\Rightarrow 4+5t=0\\Rightarrow t=-\\frac{4}{5}\\). Sai vì hệ số của \\(y\\) trong mặt phẳng là \\(-1\\), không phải \\(+1\\)."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Ta viết lại phương trình Δ dưới dạng tham số:",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T11:47:41.624490Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "answer_text_mismatch: đáp án key \\(t=\\frac{1}{2}\\) không khớp giá trị -2.6666666666666665 mà engine tính ra",
+      "reject_reason_code": "verifier_failed",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "verifier_failed",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "answer_text_mismatch: đáp án key \\(t=\\frac{1}{2}\\) không khớp giá trị -2.6666666666666665 mà engine tính ra",
+          "slot_id": "direct_pdf_11"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_13_verifier",
+      "blueprint_slot_id": "direct_pdf_13",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 222,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Trong không gian \\(Oxyz\\), cho đường thẳng \\(d:\\begin{cases}x=1+2t\\\\y=2-3t\\\\z=-1+t\\end{cases}\\) và điểm \\(A(4;-1;5)\\). Gọi \\(H\\) là hình chiếu vuông góc của \\(A\\) lên \\(d\\). Tính khoảng cách từ \\(A\\) đến đường thẳng \\(d\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{3\\sqrt{35}}{2}\\)",
+          "error_type": "dot_product_zero_means_parallel"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{3\\sqrt{35}}{2}\\)",
+          "error_type": "distance_missing_abs"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{3\\sqrt{14}}{2}\\)",
+          "error_type": "normal_vs_direction_vector"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{3\\sqrt{10}}{2}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Ta tìm tham số của điểm \\(H\\) trên đường thẳng bằng điều kiện \\(AH\\) vuông góc với vectơ chỉ phương của \\(d\\), sau đó tính độ dài \\(AH\\).",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: khi tìm hình chiếu \\(H\\), cho rằng điều kiện vuông góc giữa \\(AH\\) và vectơ chỉ phương của \\(d\\) không cần dùng tích vô hướng bằng 0, mà xử lý sai điều kiện song song/vuông góc. Cụ thể, đặt \\(H(1+2t,2-3t,-1+t)\\), vectơ \\(AH=(3-2t,-3+3t,6-t)\\). Thay vì giải \\(AH\\cdot(2,-3,1)=0\\), người làm sai có thể nhầm điều kiện và chọn \\(t=0\\), lấy \\(H(1,2,-1)\\).",
+        "B": "Sai lầm: dùng công thức khoảng cách nhưng bỏ qua việc lấy giá trị tuyệt đối ở tích có hướng. Với \\(\\overrightarrow{BA}=(3,-3,6)\\), \\(\\vec u=(2,-3,1)\\), tính sai tích có hướng lấy thành \\(\\overrightarrow{BA}\\times\\vec u=(15,9,-3)\\), có độ dài \\(\\sqrt{315}=3\\sqrt{35}\\). Sau đó chia cho \\(\\lVert\\vec u\\rVert=\\sqrt{14}\\) và rút gọn sai thành \\(\\frac{3\\sqrt{35}}{2}\\).",
+        "C": "Sai lầm: nhầm vectơ chỉ phương của đường thẳng với một vectơ pháp tuyến khi dựng đường vuông góc. Người làm sai lấy \\(\\vec n=(2,-3,1)\\) như vectơ pháp tuyến của đường thẳng và tính khoảng cách bằng cách chiếu theo hướng không phù hợp. Từ \\(\\overrightarrow{BA}=(3,-3,6)\\),"
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Khi đó, d(M;Δ)=MH.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T11:49:13.002421Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "duplicate: rule validator failed: ['d2:duplicate_option']",
+      "reject_reason_code": "verifier_failed",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "verifier_failed",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "duplicate: rule validator failed: ['d2:duplicate_option']",
+          "slot_id": "direct_pdf_13"
+        }
+      ],
+      "attempts": 1
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+ "model": "amazon/nova-2-lite-v1",
+ "pdf": "pdftest/file_3_trang_61-90.pdf",
+ "requested": 20,
+ "delivered": 2,
+ "rejected": 44,
+ "attempted": 46,
+ "error_code": null,
+ "duration_seconds": 2496.4,
+ "cost": {
+  "tokens": 799688,
+  "calls": 124
+ },
+ "issue_counts": {
+  "source_quote_len": 2
+ },
+ "status_counts": {
+  "consistency_confirmed": 1,
+  "refuted": 1
+ },
+ "bloom_counts": {
+  "Vận dụng": 1,
+  "Vận dụng cao": 1
+ },
+ "per_question": [
+  {
+   "id": "q_2026_33ec89cf",
+   "bloom": "Vận dụng",
+   "status": "consistency_confirmed",
+   "machine_checked": true,
+   "independent": false,
+   "derivation": false,
+   "review": "pending_review",
+   "issues": [
+    "source_quote_len=346"
+   ],
+   "stem_len": 440,
+   "stem_tail": "ng đường s mà vật di chuyển được trong 6 giờ là a/(b), (a,b)=1. Khi đó a-b bằng bao nhiêu?"
+  },
+  {
+   "id": "q_2026_6b399f5a",
+   "bloom": "Vận dụng cao",
+   "status": "refuted",
+   "machine_checked": false,
+   "independent": true,
+   "derivation": true,
+   "review": "needs_revision",
+   "issues": [
+    "source_quote_len=266"
+   ],
+   "stem_len": 472,
+   "stem_tail": "thời gian cón lài đồ thí vàn tốc là một đơn thàng song song với trức Ox. Tính đồn đường BC"
+  }
+ ]
+}

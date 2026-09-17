@@ -1,0 +1,13 @@
+    [pdf-slot direct_pdf_1] critic reject: error_distractor_consistency=0.30 (lỗi mô tả không khớp giá trị distractor/đáp án) (Một số chuỗi lỗi không tạo đúng giá trị distractor đã nêu, đặc biệt distractor 24 có phần giải thích mâu thuẫn và tính toán không nhất quán.)
+    [pdf-slot direct_pdf_5] verifier reject: multi_answer: distractor "\(\int_{-5}^{5} f(x)\,dx=\int_{0}^{5} f(x)\,dx\)" cũng được verifier xác nhận đúng
+    [pdf-slot direct_pdf_6] critic reject: answer_uniqueness=0.10 (nghi đa đáp án)
+    [pdf-slot direct_pdf_8] mismatch: biểu thức của Writer khớp key (14.6667) nhưng tính toán độc lập cho 10.6667
+    [pdf-slot direct_pdf_8] critic reject: error_distractor_consistency=0.25 (lỗi mô tả không khớp giá trị distractor/đáp án) (Chuỗi lỗi của các distractor nhìn chung dẫn đến đúng giá trị nêu ra, nhưng phần giải thích đáp án mâu thuẫn vì với \(m=5\) tích phân trên đoạn giao điểm cho diệ)
+    [pdf-slot direct_pdf_10] refuted: cả biểu thức của Writer lẫn tính toán độc lập (29) đều không khớp đáp án key (24.25)
+    [pdf-slot direct_pdf_11] verifier reject: multi_answer: distractor "\(\sqrt[3]{\frac{135}{2}}\)" cũng được verifier xác nhận đúng
+    [pdf-slot direct_pdf_13] writer 0 candidates; errors=["Expecting ',' delimiter: line 4 column 372 (char 714)"]
+    [pdf-slot direct_pdf_17] distractor drop: error=Expecting value: line 14 column 26 (char 1270) n=0
+    [pdf-slot direct_pdf_15] verifier reject: duplicate: rule validator failed: ['d2:duplicate_option']
+    [pdf-slot direct_pdf_18] distractor drop: error=Expecting value: line 14 column 26 (char 1406) n=0
+    [pdf-slot direct_pdf_20] verifier reject: duplicate_question: rule validator failed: ['duplicate_question:source_quote_is_existing_exercise']
+[cell] arm=full_system seed=44 t12-mulog-tichphan.pdf: delivered=12/12 rejected=10 tokens=282383 604s

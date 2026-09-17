@@ -1,0 +1,2559 @@
+{
+  "generated_at": "2026-07-26T07:06:56.230951+00:00",
+  "ground_truth": "report/bench/suite-20260725/ground_truth_cas.json",
+  "n_cells": 12,
+  "n_cells_with_artifact": 12,
+  "cells_without_data": [],
+  "arms": [
+    "full_system"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "documents": [
+    "discrete_math_p1.pdf",
+    "file_1_trang_1-31.pdf",
+    "file_3_trang_61-90.pdf",
+    "toan-thuc-te-nguyen-ham-va-tich-phan-toan-12.pdf"
+  ],
+  "cells": [
+    {
+      "arm": "full_system",
+      "seed": 42,
+      "document": "discrete_math_p1.pdf",
+      "artifact": "full_system\\seed42\\discrete_math_p1.json",
+      "metrics": {
+        "counts": {
+          "requested": 8,
+          "pipeline_delivered": 6,
+          "rejected_candidates": 10,
+          "total_candidates": 16,
+          "admission_rate": {
+            "value": 0.375,
+            "n": 6,
+            "of": 16
+          },
+          "delivery_rate_vs_requested": {
+            "value": 0.75,
+            "n": 6,
+            "of": 8
+          },
+          "reject_reasons": {
+            "verifier_failed": 3,
+            "bad_distractors": 2,
+            "quality_low": 1,
+            "orchestrator_error": 1,
+            "writer_empty": 3
+          },
+          "review_status": {
+            "pending_review": 6
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 3,
+            "consistency_confirmed": 1,
+            "mismatch": 0,
+            "non_verifiable": 1,
+            "refuted": 1
+          },
+          "machine_verifiable_coverage": {
+            "value": 0.8333,
+            "n": 5,
+            "of": 6
+          },
+          "conceptual_share": {
+            "value": 0.1667,
+            "n": 1,
+            "of": 6
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 6,
+            "of": 6
+          },
+          "independent_target_definite": {
+            "value": 0.6667,
+            "n": 4,
+            "of": 6
+          },
+          "independently_verified_rate": {
+            "value": 0.5,
+            "n": 3,
+            "of": 6
+          },
+          "consistency_only_rate": {
+            "value": 0.1667,
+            "n": 1,
+            "of": 6
+          },
+          "routed_to_human_rate": {
+            "value": 0.1667,
+            "n": 1,
+            "of": 6
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 3,
+          "unlabelled": 3,
+          "ground_truth_source": [
+            "cas_audit"
+          ],
+          "independently_correct_answer_rate": {
+            "value": 1.0,
+            "n": 3,
+            "of": 3
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0
+          },
+          "verifier_false_negative_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 3
+          },
+          "wrong_keys": 0,
+          "correct_keys": 3
+        },
+        "quality_judge": {
+          "grounding_judge": 0.8833,
+          "overall_quality_judge": 0.9219,
+          "answer_uniqueness_judge": 0.9967,
+          "distractor_plausibility_judge": 0.9083,
+          "error_value_consistency_judge": 0.9833,
+          "clarity_judge": 0.89,
+          "cognitive_depth_judge": 0.8367,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.9167,
+          "bloom_distribution": {
+            "Nhận biết": 1,
+            "Thông hiểu": 1,
+            "Vận dụng": 4
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.6,
+          "difficulty_estimated_mean": 0.6433,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 100558,
+          "model_calls": 73,
+          "tokens_per_delivered": 16759.7,
+          "calls_per_delivered": 12.17,
+          "duration_seconds": 442.6,
+          "seconds_per_delivered": 73.8
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed42-discrete_math_p1",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/image.png",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf",
+            "API/pipeline/ablation.py",
+            "API/pipeline/calibration.py",
+            "API/pipeline/direct_pdf/agents/pdf_independent_agent.py",
+            "API/pipeline/direct_pdf/page_selection.py",
+            "API/pipeline/eval_metrics.py",
+            "API/pipeline/human_eval.py",
+            "API/pipeline/independent_target.py",
+            "API/pipeline/run_manifest.py",
+            "API/pipeline/verification_status.py",
+            "API/report/",
+            "API/scripts/",
+            "API/tests/golden/",
+            "API/tests/test_ablation.py"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 42,
+      "document": "file_1_trang_1-31.pdf",
+      "artifact": "full_system\\seed42\\file_1_trang_1-31.json",
+      "metrics": {
+        "counts": {
+          "requested": 8,
+          "pipeline_delivered": 8,
+          "rejected_candidates": 8,
+          "total_candidates": 16,
+          "admission_rate": {
+            "value": 0.5,
+            "n": 8,
+            "of": 16
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "reject_reasons": {
+            "verifier_failed": 1,
+            "quality_low": 2,
+            "writer_empty": 3,
+            "bad_distractors": 2
+          },
+          "review_status": {
+            "pending_review": 8
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 5,
+            "consistency_confirmed": 0,
+            "mismatch": 2,
+            "non_verifiable": 1,
+            "refuted": 0
+          },
+          "machine_verifiable_coverage": {
+            "value": 0.875,
+            "n": 7,
+            "of": 8
+          },
+          "conceptual_share": {
+            "value": 0.125,
+            "n": 1,
+            "of": 8
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "independent_target_definite": {
+            "value": 0.875,
+            "n": 7,
+            "of": 8
+          },
+          "independently_verified_rate": {
+            "value": 0.625,
+            "n": 5,
+            "of": 8
+          },
+          "consistency_only_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 8
+          },
+          "routed_to_human_rate": {
+            "value": 0.25,
+            "n": 2,
+            "of": 8
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 7,
+          "unlabelled": 1,
+          "ground_truth_source": [
+            "cas_audit"
+          ],
+          "independently_correct_answer_rate": {
+            "value": 0.8571,
+            "n": 6,
+            "of": 7
+          },
+          "verifier_false_positive_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 1
+          },
+          "verifier_false_negative_rate": {
+            "value": 0.1667,
+            "n": 1,
+            "of": 6
+          },
+          "wrong_keys": 1,
+          "correct_keys": 6
+        },
+        "quality_judge": {
+          "grounding_judge": 0.935,
+          "overall_quality_judge": 0.8975,
+          "answer_uniqueness_judge": 0.9938,
+          "distractor_plausibility_judge": 0.89,
+          "error_value_consistency_judge": 0.8813,
+          "clarity_judge": 0.8413,
+          "cognitive_depth_judge": 0.8663,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.9125,
+          "bloom_distribution": {
+            "Nhận biết": 1,
+            "Vận dụng": 4,
+            "Thông hiểu": 1,
+            "Vận dụng cao": 2
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.6625,
+          "difficulty_estimated_mean": 0.6875,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 130400,
+          "model_calls": 54,
+          "tokens_per_delivered": 16300.0,
+          "calls_per_delivered": 6.75,
+          "duration_seconds": 456.9,
+          "seconds_per_delivered": 57.1
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed42-file_1_trang_1-31",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/image.png",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf",
+            "API/pipeline/ablation.py",
+            "API/pipeline/calibration.py",
+            "API/pipeline/direct_pdf/agents/pdf_independent_agent.py",
+            "API/pipeline/direct_pdf/page_selection.py",
+            "API/pipeline/eval_metrics.py",
+            "API/pipeline/human_eval.py",
+            "API/pipeline/independent_target.py",
+            "API/pipeline/run_manifest.py",
+            "API/pipeline/verification_status.py",
+            "API/report/",
+            "API/scripts/",
+            "API/tests/golden/",
+            "API/tests/test_ablation.py"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 42,
+      "document": "file_3_trang_61-90.pdf",
+      "artifact": "full_system\\seed42\\file_3_trang_61-90.json",
+      "metrics": {
+        "counts": {
+          "requested": 8,
+          "pipeline_delivered": 8,
+          "rejected_candidates": 3,
+          "total_candidates": 11,
+          "admission_rate": {
+            "value": 0.7273,
+            "n": 8,
+            "of": 11
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "reject_reasons": {
+            "quality_low": 1,
+            "multi_answer": 1,
+            "bad_distractors": 1
+          },
+          "review_status": {
+            "pending_review": 8
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 7,
+            "consistency_confirmed": 1,
+            "mismatch": 0,
+            "non_verifiable": 0,
+            "refuted": 0
+          },
+          "machine_verifiable_coverage": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "conceptual_share": {
+            "value": 0.0,
+            "n": 0,
+            "of": 8
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "independent_target_definite": {
+            "value": 0.875,
+            "n": 7,
+            "of": 8
+          },
+          "independently_verified_rate": {
+            "value": 0.875,
+            "n": 7,
+            "of": 8
+          },
+          "consistency_only_rate": {
+            "value": 0.125,
+            "n": 1,
+            "of": 8
+          },
+          "routed_to_human_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 8
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 8,
+          "unlabelled": 0,
+          "ground_truth_source": [
+            "cas_audit"
+          ],
+          "independently_correct_answer_rate": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0
+          },
+          "verifier_false_negative_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 8
+          },
+          "wrong_keys": 0,
+          "correct_keys": 8
+        },
+        "quality_judge": {
+          "grounding_judge": 0.9113,
+          "overall_quality_judge": 0.9167,
+          "answer_uniqueness_judge": 0.995,
+          "distractor_plausibility_judge": 0.91,
+          "error_value_consistency_judge": 0.935,
+          "clarity_judge": 0.9063,
+          "cognitive_depth_judge": 0.8638,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.89,
+          "bloom_distribution": {
+            "Nhận biết": 1,
+            "Thông hiểu": 2,
+            "Vận dụng": 4,
+            "Vận dụng cao": 1
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.6188,
+          "difficulty_estimated_mean": 0.6412,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 175474,
+          "model_calls": 43,
+          "tokens_per_delivered": 21934.2,
+          "calls_per_delivered": 5.38,
+          "duration_seconds": 373.6,
+          "seconds_per_delivered": 46.7
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed42-file_3_trang_61-90",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/image.png",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf",
+            "API/pipeline/ablation.py",
+            "API/pipeline/calibration.py",
+            "API/pipeline/direct_pdf/agents/pdf_independent_agent.py",
+            "API/pipeline/direct_pdf/page_selection.py",
+            "API/pipeline/eval_metrics.py",
+            "API/pipeline/human_eval.py",
+            "API/pipeline/independent_target.py",
+            "API/pipeline/run_manifest.py",
+            "API/pipeline/verification_status.py",
+            "API/report/",
+            "API/scripts/",
+            "API/tests/golden/",
+            "API/tests/test_ablation.py"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 42,
+      "document": "toan-thuc-te-nguyen-ham-va-tich-phan-toan-12.pdf",
+      "artifact": "full_system\\seed42\\toan-thuc-te-nguyen-ham-va-tich-phan-toan-12.json",
+      "metrics": {
+        "counts": {
+          "requested": 8,
+          "pipeline_delivered": 8,
+          "rejected_candidates": 14,
+          "total_candidates": 22,
+          "admission_rate": {
+            "value": 0.3636,
+            "n": 8,
+            "of": 22
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "reject_reasons": {
+            "writer_empty": 7,
+            "quality_low": 2,
+            "verifier_failed": 3,
+            "bad_distractors": 1,
+            "duplicate": 1
+          },
+          "review_status": {
+            "pending_review": 7,
+            "needs_revision": 1
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 7,
+            "consistency_confirmed": 0,
+            "mismatch": 1,
+            "non_verifiable": 0,
+            "refuted": 0
+          },
+          "machine_verifiable_coverage": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "conceptual_share": {
+            "value": 0.0,
+            "n": 0,
+            "of": 8
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "independent_target_definite": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "independently_verified_rate": {
+            "value": 0.875,
+            "n": 7,
+            "of": 8
+          },
+          "consistency_only_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 8
+          },
+          "routed_to_human_rate": {
+            "value": 0.125,
+            "n": 1,
+            "of": 8
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 8,
+          "unlabelled": 0,
+          "ground_truth_source": [
+            "cas_audit"
+          ],
+          "independently_correct_answer_rate": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0
+          },
+          "verifier_false_negative_rate": {
+            "value": 0.125,
+            "n": 1,
+            "of": 8
+          },
+          "wrong_keys": 0,
+          "correct_keys": 8
+        },
+        "quality_judge": {
+          "grounding_judge": 0.9413,
+          "overall_quality_judge": 0.844,
+          "answer_uniqueness_judge": 0.9975,
+          "distractor_plausibility_judge": 0.8788,
+          "error_value_consistency_judge": 0.81,
+          "clarity_judge": 0.855,
+          "cognitive_depth_judge": 0.8225,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.875,
+          "bloom_distribution": {
+            "Thông hiểu": 2,
+            "Vận dụng": 4,
+            "Vận dụng cao": 2
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.6875,
+          "difficulty_estimated_mean": 0.7062,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 458955,
+          "model_calls": 64,
+          "tokens_per_delivered": 57369.4,
+          "calls_per_delivered": 8.0,
+          "duration_seconds": 614.6,
+          "seconds_per_delivered": 76.8
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed42-toan-thuc-te-nguyen-ham-va-tich-phan-toan-12",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/image.png",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf",
+            "API/pipeline/ablation.py",
+            "API/pipeline/calibration.py",
+            "API/pipeline/direct_pdf/agents/pdf_independent_agent.py",
+            "API/pipeline/direct_pdf/page_selection.py",
+            "API/pipeline/eval_metrics.py",
+            "API/pipeline/human_eval.py",
+            "API/pipeline/independent_target.py",
+            "API/pipeline/run_manifest.py",
+            "API/pipeline/verification_status.py",
+            "API/report/",
+            "API/scripts/",
+            "API/tests/golden/"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 43,
+      "document": "discrete_math_p1.pdf",
+      "artifact": "full_system\\seed43\\discrete_math_p1.json",
+      "metrics": {
+        "counts": {
+          "requested": 8,
+          "pipeline_delivered": 8,
+          "rejected_candidates": 4,
+          "total_candidates": 12,
+          "admission_rate": {
+            "value": 0.6667,
+            "n": 8,
+            "of": 12
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "reject_reasons": {
+            "quote_mismatch": 1,
+            "bad_distractors": 1,
+            "writer_empty": 2
+          },
+          "review_status": {
+            "pending_review": 8
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 7,
+            "consistency_confirmed": 0,
+            "mismatch": 0,
+            "non_verifiable": 0,
+            "refuted": 1
+          },
+          "machine_verifiable_coverage": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "conceptual_share": {
+            "value": 0.0,
+            "n": 0,
+            "of": 8
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "independent_target_definite": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "independently_verified_rate": {
+            "value": 0.875,
+            "n": 7,
+            "of": 8
+          },
+          "consistency_only_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 8
+          },
+          "routed_to_human_rate": {
+            "value": 0.125,
+            "n": 1,
+            "of": 8
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 7,
+          "unlabelled": 1,
+          "ground_truth_source": [
+            "cas_audit"
+          ],
+          "independently_correct_answer_rate": {
+            "value": 0.8571,
+            "n": 6,
+            "of": 7
+          },
+          "verifier_false_positive_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 1
+          },
+          "verifier_false_negative_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 6
+          },
+          "wrong_keys": 1,
+          "correct_keys": 6
+        },
+        "quality_judge": {
+          "grounding_judge": 0.935,
+          "overall_quality_judge": 0.9125,
+          "answer_uniqueness_judge": 0.9938,
+          "distractor_plausibility_judge": 0.895,
+          "error_value_consistency_judge": 0.9375,
+          "clarity_judge": 0.9688,
+          "cognitive_depth_judge": 0.7925,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.8875,
+          "bloom_distribution": {
+            "Thông hiểu": 3,
+            "Vận dụng": 3,
+            "Vận dụng cao": 2
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.6625,
+          "difficulty_estimated_mean": 0.6863,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 95676,
+          "model_calls": 41,
+          "tokens_per_delivered": 11959.5,
+          "calls_per_delivered": 5.12,
+          "duration_seconds": 376.8,
+          "seconds_per_delivered": 47.1
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed43-discrete_math_p1",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/image.png",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf",
+            "API/pipeline/ablation.py",
+            "API/pipeline/calibration.py",
+            "API/pipeline/direct_pdf/agents/pdf_independent_agent.py",
+            "API/pipeline/direct_pdf/page_selection.py",
+            "API/pipeline/eval_metrics.py",
+            "API/pipeline/human_eval.py",
+            "API/pipeline/independent_target.py",
+            "API/pipeline/run_manifest.py",
+            "API/pipeline/verification_status.py",
+            "API/report/",
+            "API/scripts/",
+            "API/tests/golden/"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 43,
+      "document": "file_1_trang_1-31.pdf",
+      "artifact": "full_system\\seed43\\file_1_trang_1-31.json",
+      "metrics": {
+        "counts": {
+          "requested": 8,
+          "pipeline_delivered": 6,
+          "rejected_candidates": 10,
+          "total_candidates": 16,
+          "admission_rate": {
+            "value": 0.375,
+            "n": 6,
+            "of": 16
+          },
+          "delivery_rate_vs_requested": {
+            "value": 0.75,
+            "n": 6,
+            "of": 8
+          },
+          "reject_reasons": {
+            "quality_low": 4,
+            "writer_empty": 5,
+            "verifier_failed": 1
+          },
+          "review_status": {
+            "pending_review": 6
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 5,
+            "consistency_confirmed": 0,
+            "mismatch": 0,
+            "non_verifiable": 1,
+            "refuted": 0
+          },
+          "machine_verifiable_coverage": {
+            "value": 0.8333,
+            "n": 5,
+            "of": 6
+          },
+          "conceptual_share": {
+            "value": 0.1667,
+            "n": 1,
+            "of": 6
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 6,
+            "of": 6
+          },
+          "independent_target_definite": {
+            "value": 0.8333,
+            "n": 5,
+            "of": 6
+          },
+          "independently_verified_rate": {
+            "value": 0.8333,
+            "n": 5,
+            "of": 6
+          },
+          "consistency_only_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 6
+          },
+          "routed_to_human_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 6
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 5,
+          "unlabelled": 1,
+          "ground_truth_source": [
+            "cas_audit"
+          ],
+          "independently_correct_answer_rate": {
+            "value": 1.0,
+            "n": 5,
+            "of": 5
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0
+          },
+          "verifier_false_negative_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 5
+          },
+          "wrong_keys": 0,
+          "correct_keys": 5
+        },
+        "quality_judge": {
+          "grounding_judge": 0.93,
+          "overall_quality_judge": 0.9192,
+          "answer_uniqueness_judge": 0.9833,
+          "distractor_plausibility_judge": 0.9033,
+          "error_value_consistency_judge": 0.9917,
+          "clarity_judge": 0.8867,
+          "cognitive_depth_judge": 0.85,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.9,
+          "bloom_distribution": {
+            "Nhận biết": 1,
+            "Thông hiểu": 2,
+            "Vận dụng": 2,
+            "Vận dụng cao": 1
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.5917,
+          "difficulty_estimated_mean": 0.61,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 119668,
+          "model_calls": 48,
+          "tokens_per_delivered": 19944.7,
+          "calls_per_delivered": 8.0,
+          "duration_seconds": 335.6,
+          "seconds_per_delivered": 55.9
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed43-file_1_trang_1-31",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/image.png",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf",
+            "API/pipeline/ablation.py",
+            "API/pipeline/calibration.py",
+            "API/pipeline/direct_pdf/agents/pdf_independent_agent.py",
+            "API/pipeline/direct_pdf/page_selection.py",
+            "API/pipeline/eval_metrics.py",
+            "API/pipeline/human_eval.py",
+            "API/pipeline/independent_target.py",
+            "API/pipeline/run_manifest.py",
+            "API/pipeline/verification_status.py",
+            "API/report/",
+            "API/scripts/",
+            "API/tests/golden/"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 43,
+      "document": "file_3_trang_61-90.pdf",
+      "artifact": "full_system\\seed43\\file_3_trang_61-90.json",
+      "metrics": {
+        "counts": {
+          "requested": 8,
+          "pipeline_delivered": 8,
+          "rejected_candidates": 2,
+          "total_candidates": 10,
+          "admission_rate": {
+            "value": 0.8,
+            "n": 8,
+            "of": 10
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "reject_reasons": {
+            "writer_empty": 2
+          },
+          "review_status": {
+            "pending_review": 8
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 7,
+            "consistency_confirmed": 1,
+            "mismatch": 0,
+            "non_verifiable": 0,
+            "refuted": 0
+          },
+          "machine_verifiable_coverage": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "conceptual_share": {
+            "value": 0.0,
+            "n": 0,
+            "of": 8
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "independent_target_definite": {
+            "value": 0.875,
+            "n": 7,
+            "of": 8
+          },
+          "independently_verified_rate": {
+            "value": 0.875,
+            "n": 7,
+            "of": 8
+          },
+          "consistency_only_rate": {
+            "value": 0.125,
+            "n": 1,
+            "of": 8
+          },
+          "routed_to_human_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 8
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 8,
+          "unlabelled": 0,
+          "ground_truth_source": [
+            "cas_audit"
+          ],
+          "independently_correct_answer_rate": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0
+          },
+          "verifier_false_negative_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 8
+          },
+          "wrong_keys": 0,
+          "correct_keys": 8
+        },
+        "quality_judge": {
+          "grounding_judge": 0.9375,
+          "overall_quality_judge": 0.9171,
+          "answer_uniqueness_judge": 1.0,
+          "distractor_plausibility_judge": 0.9025,
+          "error_value_consistency_judge": 0.96,
+          "clarity_judge": 0.9062,
+          "cognitive_depth_judge": 0.8425,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.8913,
+          "bloom_distribution": {
+            "Nhận biết": 1,
+            "Thông hiểu": 2,
+            "Vận dụng": 4,
+            "Vận dụng cao": 1
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.6188,
+          "difficulty_estimated_mean": 0.6412,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 140464,
+          "model_calls": 34,
+          "tokens_per_delivered": 17558.0,
+          "calls_per_delivered": 4.25,
+          "duration_seconds": 279.4,
+          "seconds_per_delivered": 34.9
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed43-file_3_trang_61-90",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/image.png",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf",
+            "API/pipeline/ablation.py",
+            "API/pipeline/calibration.py",
+            "API/pipeline/direct_pdf/agents/pdf_independent_agent.py",
+            "API/pipeline/direct_pdf/page_selection.py",
+            "API/pipeline/eval_metrics.py",
+            "API/pipeline/human_eval.py",
+            "API/pipeline/independent_target.py",
+            "API/pipeline/run_manifest.py",
+            "API/pipeline/verification_status.py",
+            "API/report/",
+            "API/scripts/",
+            "API/tests/golden/"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 43,
+      "document": "toan-thuc-te-nguyen-ham-va-tich-phan-toan-12.pdf",
+      "artifact": "full_system\\seed43\\toan-thuc-te-nguyen-ham-va-tich-phan-toan-12.json",
+      "metrics": {
+        "counts": {
+          "requested": 8,
+          "pipeline_delivered": 8,
+          "rejected_candidates": 2,
+          "total_candidates": 10,
+          "admission_rate": {
+            "value": 0.8,
+            "n": 8,
+            "of": 10
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "reject_reasons": {
+            "writer_empty": 1,
+            "quality_low": 1
+          },
+          "review_status": {
+            "needs_revision": 1,
+            "pending_review": 7
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 7,
+            "consistency_confirmed": 0,
+            "mismatch": 0,
+            "non_verifiable": 0,
+            "refuted": 1
+          },
+          "machine_verifiable_coverage": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "conceptual_share": {
+            "value": 0.0,
+            "n": 0,
+            "of": 8
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "independent_target_definite": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "independently_verified_rate": {
+            "value": 0.875,
+            "n": 7,
+            "of": 8
+          },
+          "consistency_only_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 8
+          },
+          "routed_to_human_rate": {
+            "value": 0.125,
+            "n": 1,
+            "of": 8
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 8,
+          "unlabelled": 0,
+          "ground_truth_source": [
+            "cas_audit"
+          ],
+          "independently_correct_answer_rate": {
+            "value": 0.875,
+            "n": 7,
+            "of": 8
+          },
+          "verifier_false_positive_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 1
+          },
+          "verifier_false_negative_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 7
+          },
+          "wrong_keys": 1,
+          "correct_keys": 7
+        },
+        "quality_judge": {
+          "grounding_judge": 0.9413,
+          "overall_quality_judge": 0.8242,
+          "answer_uniqueness_judge": 0.9975,
+          "distractor_plausibility_judge": 0.875,
+          "error_value_consistency_judge": 0.8737,
+          "clarity_judge": 0.7925,
+          "cognitive_depth_judge": 0.8312,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.855,
+          "bloom_distribution": {
+            "Thông hiểu": 3,
+            "Vận dụng": 4,
+            "Vận dụng cao": 1
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.6438,
+          "difficulty_estimated_mean": 0.6625,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 259876,
+          "model_calls": 37,
+          "tokens_per_delivered": 32484.5,
+          "calls_per_delivered": 4.62,
+          "duration_seconds": 302.9,
+          "seconds_per_delivered": 37.9
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed43-toan-thuc-te-nguyen-ham-va-tich-phan-toan-12",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/image.png",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf",
+            "API/pipeline/ablation.py",
+            "API/pipeline/calibration.py",
+            "API/pipeline/direct_pdf/agents/pdf_independent_agent.py",
+            "API/pipeline/direct_pdf/page_selection.py",
+            "API/pipeline/eval_metrics.py",
+            "API/pipeline/human_eval.py",
+            "API/pipeline/independent_target.py",
+            "API/pipeline/run_manifest.py",
+            "API/pipeline/verification_status.py",
+            "API/report/",
+            "API/scripts/",
+            "API/tests/golden/"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 44,
+      "document": "discrete_math_p1.pdf",
+      "artifact": "full_system\\seed44\\discrete_math_p1.json",
+      "metrics": {
+        "counts": {
+          "requested": 8,
+          "pipeline_delivered": 8,
+          "rejected_candidates": 14,
+          "total_candidates": 22,
+          "admission_rate": {
+            "value": 0.3636,
+            "n": 8,
+            "of": 22
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "reject_reasons": {
+            "verifier_failed": 3,
+            "quality_low": 1,
+            "quote_mismatch": 2,
+            "writer_empty": 5,
+            "multi_answer": 2,
+            "bad_distractors": 1
+          },
+          "review_status": {
+            "pending_review": 8
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 4,
+            "consistency_confirmed": 1,
+            "mismatch": 0,
+            "non_verifiable": 3,
+            "refuted": 0
+          },
+          "machine_verifiable_coverage": {
+            "value": 0.5,
+            "n": 4,
+            "of": 8
+          },
+          "conceptual_share": {
+            "value": 0.5,
+            "n": 4,
+            "of": 8
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "independent_target_definite": {
+            "value": 0.5,
+            "n": 4,
+            "of": 8
+          },
+          "independently_verified_rate": {
+            "value": 0.5,
+            "n": 4,
+            "of": 8
+          },
+          "consistency_only_rate": {
+            "value": 0.125,
+            "n": 1,
+            "of": 8
+          },
+          "routed_to_human_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 8
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 4,
+          "unlabelled": 4,
+          "ground_truth_source": [
+            "cas_audit"
+          ],
+          "independently_correct_answer_rate": {
+            "value": 1.0,
+            "n": 4,
+            "of": 4
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0
+          },
+          "verifier_false_negative_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 4
+          },
+          "wrong_keys": 0,
+          "correct_keys": 4
+        },
+        "quality_judge": {
+          "grounding_judge": 0.9475,
+          "overall_quality_judge": 0.9069,
+          "answer_uniqueness_judge": 0.9975,
+          "distractor_plausibility_judge": 0.875,
+          "error_value_consistency_judge": 0.8913,
+          "clarity_judge": 0.9175,
+          "cognitive_depth_judge": 0.8412,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.9188,
+          "bloom_distribution": {
+            "Nhận biết": 1,
+            "Thông hiểu": 1,
+            "Vận dụng": 5,
+            "Vận dụng cao": 1
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.6438,
+          "difficulty_estimated_mean": 0.6812,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 147303,
+          "model_calls": 64,
+          "tokens_per_delivered": 18412.9,
+          "calls_per_delivered": 8.0,
+          "duration_seconds": 547.2,
+          "seconds_per_delivered": 68.4
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed44-discrete_math_p1",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/image.png",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf",
+            "API/pipeline/ablation.py",
+            "API/pipeline/calibration.py",
+            "API/pipeline/direct_pdf/agents/pdf_independent_agent.py",
+            "API/pipeline/direct_pdf/page_selection.py",
+            "API/pipeline/eval_metrics.py",
+            "API/pipeline/human_eval.py",
+            "API/pipeline/independent_target.py",
+            "API/pipeline/run_manifest.py",
+            "API/pipeline/verification_status.py",
+            "API/report/",
+            "API/scripts/",
+            "API/tests/golden/"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 44,
+      "document": "file_1_trang_1-31.pdf",
+      "artifact": "full_system\\seed44\\file_1_trang_1-31.json",
+      "metrics": {
+        "counts": {
+          "requested": 8,
+          "pipeline_delivered": 8,
+          "rejected_candidates": 7,
+          "total_candidates": 15,
+          "admission_rate": {
+            "value": 0.5333,
+            "n": 8,
+            "of": 15
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "reject_reasons": {
+            "bad_distractors": 1,
+            "quality_low": 3,
+            "writer_empty": 3
+          },
+          "review_status": {
+            "pending_review": 6,
+            "needs_revision": 2
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 7,
+            "consistency_confirmed": 0,
+            "mismatch": 0,
+            "non_verifiable": 1,
+            "refuted": 0
+          },
+          "machine_verifiable_coverage": {
+            "value": 0.875,
+            "n": 7,
+            "of": 8
+          },
+          "conceptual_share": {
+            "value": 0.125,
+            "n": 1,
+            "of": 8
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "independent_target_definite": {
+            "value": 0.875,
+            "n": 7,
+            "of": 8
+          },
+          "independently_verified_rate": {
+            "value": 0.875,
+            "n": 7,
+            "of": 8
+          },
+          "consistency_only_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 8
+          },
+          "routed_to_human_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 8
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 7,
+          "unlabelled": 1,
+          "ground_truth_source": [
+            "cas_audit"
+          ],
+          "independently_correct_answer_rate": {
+            "value": 1.0,
+            "n": 7,
+            "of": 7
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0
+          },
+          "verifier_false_negative_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 7
+          },
+          "wrong_keys": 0,
+          "correct_keys": 7
+        },
+        "quality_judge": {
+          "grounding_judge": 0.9237,
+          "overall_quality_judge": 0.8046,
+          "answer_uniqueness_judge": 0.9938,
+          "distractor_plausibility_judge": 0.8762,
+          "error_value_consistency_judge": 0.88,
+          "clarity_judge": 0.9137,
+          "cognitive_depth_judge": 0.8363,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.8312,
+          "bloom_distribution": {
+            "Nhận biết": 1,
+            "Thông hiểu": 2,
+            "Vận dụng": 3,
+            "Vận dụng cao": 2
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.6375,
+          "difficulty_estimated_mean": 0.6587,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 124208,
+          "model_calls": 51,
+          "tokens_per_delivered": 15526.0,
+          "calls_per_delivered": 6.38,
+          "duration_seconds": 387.0,
+          "seconds_per_delivered": 48.4
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed44-file_1_trang_1-31",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/image.png",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf",
+            "API/pipeline/ablation.py",
+            "API/pipeline/calibration.py",
+            "API/pipeline/direct_pdf/agents/pdf_independent_agent.py",
+            "API/pipeline/direct_pdf/page_selection.py",
+            "API/pipeline/eval_metrics.py",
+            "API/pipeline/human_eval.py",
+            "API/pipeline/independent_target.py",
+            "API/pipeline/run_manifest.py",
+            "API/pipeline/verification_status.py",
+            "API/report/",
+            "API/scripts/",
+            "API/tests/golden/"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 44,
+      "document": "file_3_trang_61-90.pdf",
+      "artifact": "full_system\\seed44\\file_3_trang_61-90.json",
+      "metrics": {
+        "counts": {
+          "requested": 8,
+          "pipeline_delivered": 8,
+          "rejected_candidates": 6,
+          "total_candidates": 14,
+          "admission_rate": {
+            "value": 0.5714,
+            "n": 8,
+            "of": 14
+          },
+          "delivery_rate_vs_requested": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "reject_reasons": {
+            "writer_empty": 3,
+            "multi_answer": 1,
+            "verifier_failed": 1,
+            "bad_distractors": 1
+          },
+          "review_status": {
+            "needs_revision": 1,
+            "pending_review": 7
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 7,
+            "consistency_confirmed": 0,
+            "mismatch": 0,
+            "non_verifiable": 0,
+            "refuted": 1
+          },
+          "machine_verifiable_coverage": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "conceptual_share": {
+            "value": 0.0,
+            "n": 0,
+            "of": 8
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "independent_target_definite": {
+            "value": 1.0,
+            "n": 8,
+            "of": 8
+          },
+          "independently_verified_rate": {
+            "value": 0.875,
+            "n": 7,
+            "of": 8
+          },
+          "consistency_only_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 8
+          },
+          "routed_to_human_rate": {
+            "value": 0.125,
+            "n": 1,
+            "of": 8
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 6,
+          "unlabelled": 2,
+          "ground_truth_source": [
+            "cas_audit"
+          ],
+          "independently_correct_answer_rate": {
+            "value": 0.8333,
+            "n": 5,
+            "of": 6
+          },
+          "verifier_false_positive_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 1
+          },
+          "verifier_false_negative_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 5
+          },
+          "wrong_keys": 1,
+          "correct_keys": 5
+        },
+        "quality_judge": {
+          "grounding_judge": 0.8912,
+          "overall_quality_judge": 0.9169,
+          "answer_uniqueness_judge": 0.9975,
+          "distractor_plausibility_judge": 0.8813,
+          "error_value_consistency_judge": 0.9725,
+          "clarity_judge": 0.9013,
+          "cognitive_depth_judge": 0.8438,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.905,
+          "bloom_distribution": {
+            "Nhận biết": 1,
+            "Thông hiểu": 2,
+            "Vận dụng": 4,
+            "Vận dụng cao": 1
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.6188,
+          "difficulty_estimated_mean": 0.655,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 184100,
+          "model_calls": 45,
+          "tokens_per_delivered": 23012.5,
+          "calls_per_delivered": 5.62,
+          "duration_seconds": 351.1,
+          "seconds_per_delivered": 43.9
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed44-file_3_trang_61-90",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/image.png",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf",
+            "API/pipeline/ablation.py",
+            "API/pipeline/calibration.py",
+            "API/pipeline/direct_pdf/agents/pdf_independent_agent.py",
+            "API/pipeline/direct_pdf/page_selection.py",
+            "API/pipeline/eval_metrics.py",
+            "API/pipeline/human_eval.py",
+            "API/pipeline/independent_target.py",
+            "API/pipeline/run_manifest.py",
+            "API/pipeline/verification_status.py",
+            "API/report/",
+            "API/scripts/",
+            "API/tests/golden/"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    },
+    {
+      "arm": "full_system",
+      "seed": 44,
+      "document": "toan-thuc-te-nguyen-ham-va-tich-phan-toan-12.pdf",
+      "artifact": "full_system\\seed44\\toan-thuc-te-nguyen-ham-va-tich-phan-toan-12.json",
+      "metrics": {
+        "counts": {
+          "requested": 8,
+          "pipeline_delivered": 5,
+          "rejected_candidates": 16,
+          "total_candidates": 21,
+          "admission_rate": {
+            "value": 0.2381,
+            "n": 5,
+            "of": 21
+          },
+          "delivery_rate_vs_requested": {
+            "value": 0.625,
+            "n": 5,
+            "of": 8
+          },
+          "reject_reasons": {
+            "writer_empty": 6,
+            "verifier_failed": 3,
+            "bad_distractors": 3,
+            "duplicate": 1,
+            "multi_answer": 1,
+            "quality_low": 2
+          },
+          "review_status": {
+            "pending_review": 5
+          }
+        },
+        "verification": {
+          "status_distribution": {
+            "independently_verified": 4,
+            "consistency_confirmed": 0,
+            "mismatch": 0,
+            "non_verifiable": 1,
+            "refuted": 0
+          },
+          "machine_verifiable_coverage": {
+            "value": 0.8,
+            "n": 4,
+            "of": 5
+          },
+          "conceptual_share": {
+            "value": 0.2,
+            "n": 1,
+            "of": 5
+          },
+          "independent_target_attempted": {
+            "value": 1.0,
+            "n": 5,
+            "of": 5
+          },
+          "independent_target_definite": {
+            "value": 0.8,
+            "n": 4,
+            "of": 5
+          },
+          "independently_verified_rate": {
+            "value": 0.8,
+            "n": 4,
+            "of": 5
+          },
+          "consistency_only_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 5
+          },
+          "routed_to_human_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 5
+          },
+          "answer_key_repaired": 0,
+          "verifier_hint_errored": 0
+        },
+        "correctness": {
+          "labelled": 4,
+          "unlabelled": 1,
+          "ground_truth_source": [
+            "cas_audit"
+          ],
+          "independently_correct_answer_rate": {
+            "value": 1.0,
+            "n": 4,
+            "of": 4
+          },
+          "verifier_false_positive_rate": {
+            "value": null,
+            "n": 0,
+            "of": 0
+          },
+          "verifier_false_negative_rate": {
+            "value": 0.0,
+            "n": 0,
+            "of": 4
+          },
+          "wrong_keys": 0,
+          "correct_keys": 4
+        },
+        "quality_judge": {
+          "grounding_judge": 0.864,
+          "overall_quality_judge": 0.9243,
+          "answer_uniqueness_judge": 1.0,
+          "distractor_plausibility_judge": 0.926,
+          "error_value_consistency_judge": 0.98,
+          "clarity_judge": 0.884,
+          "cognitive_depth_judge": 0.84,
+          "_note": "Mọi số trong nhóm này do một model chấm, không phải đo lường khách quan; đọc như ý kiến một giám khảo tự động, một lượt chấm."
+        },
+        "alignment": {
+          "bloom_alignment_judge": 0.916,
+          "bloom_distribution": {
+            "Nhận biết": 1,
+            "Thông hiểu": 2,
+            "Vận dụng": 2
+          },
+          "difficulty_alignment_heuristic": 1.0,
+          "difficulty_target_mean": 0.54,
+          "difficulty_estimated_mean": 0.562,
+          "_note": "difficulty_estimated là ước lượng heuristic trước triển khai, chưa hiệu chỉnh trên dữ liệu học sinh thật."
+        },
+        "cost": {
+          "tokens": 437031,
+          "model_calls": 62,
+          "tokens_per_delivered": 87406.2,
+          "calls_per_delivered": 12.4,
+          "duration_seconds": 447.9,
+          "seconds_per_delivered": 89.6
+        }
+      },
+      "manifest": {
+        "run_id": "full_system-seed44-toan-thuc-te-nguyen-ham-va-tich-phan-toan-12",
+        "mechanisms": {
+          "symbolic_verifier": true,
+          "independent_verification": true,
+          "misconception_catalogue": true,
+          "distractor_agent": true,
+          "difficulty_control": true,
+          "outcome_scheduler": true,
+          "feedback_steering": true,
+          "semantic_dedup": true
+        },
+        "models": {
+          "provider": "openai_compatible",
+          "base_url": "http://127.0.0.1:5005/v1",
+          "generator": "gpt-4o",
+          "judge": "gpt-4o-mini",
+          "independent_verifier": "gpt-4o-mini",
+          "embedding": "text-embedding-3-small"
+        },
+        "prompt_version": "2026.07.25",
+        "verifier_version": "2.0.0",
+        "code": {
+          "commit": "0e546c4fc5df3ebab537b255b8f6ecbf93958a62",
+          "dirty": true,
+          "dirty_files": [
+            "API/.claude/settings.local.json",
+            "API/pipeline/agents/verifier_agent.py",
+            "API/pipeline/config.py",
+            "API/pipeline/direct_pdf/agents/__init__.py",
+            "API/pipeline/direct_pdf/agents/pdf_critic_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_distractor_agent.py",
+            "API/pipeline/direct_pdf/agents/pdf_orchestrator.py",
+            "API/pipeline/direct_pdf/agents/pdf_writer_agent.py",
+            "API/pipeline/direct_pdf/generator.py",
+            "API/pipeline/llm_client.py",
+            "API/pipeline/parsing.py",
+            "API/pipeline/schema.py",
+            "API/pipeline/verifier.py",
+            "API/tests/test_expected_from_answer.py",
+            "API/web/frontend/src/app/(dashboard)/job/[id]/questions/page.tsx",
+            "API/web/frontend/src/components/question/question-detail-view.tsx",
+            "API/web/frontend/src/lib/api.ts",
+            "API/.kiro/",
+            "API/.vscode/",
+            "API/PIPELINE.md",
+            "API/conference-latex-template/",
+            "API/image.png",
+            "API/pdftest/discrete_math_p1.pdf",
+            "API/pdftest/file_1_trang_1-31.pdf",
+            "API/pdftest/file_2_trang_31-61.pdf",
+            "API/pdftest/file_3_trang_61-90.pdf",
+            "API/pdftest/file_4_trang_91-het.pdf",
+            "API/pdftest/tong-hop-ly-thuyet-mon-toan-12-le-minh-tam.pdf",
+            "API/pipeline/ablation.py",
+            "API/pipeline/calibration.py",
+            "API/pipeline/direct_pdf/agents/pdf_independent_agent.py",
+            "API/pipeline/direct_pdf/page_selection.py",
+            "API/pipeline/eval_metrics.py",
+            "API/pipeline/human_eval.py",
+            "API/pipeline/independent_target.py",
+            "API/pipeline/run_manifest.py",
+            "API/pipeline/verification_status.py",
+            "API/report/",
+            "API/scripts/",
+            "API/tests/golden/"
+          ]
+        },
+        "reproducibility_gaps": [
+          "nhiệt độ sinh 0.45 > 0: model lấy mẫu ngẫu nhiên, seed của pipeline không khống chế được phía provider",
+          "chạy 3 slot song song: thứ tự hoàn thành đổi giữa các lần chạy nên tập câu được chấp nhận có thể khác",
+          "cây làm việc có thay đổi chưa commit"
+        ]
+      }
+    }
+  ],
+  "by_arm": {
+    "full_system": {
+      "n_cells": 12,
+      "n_seeds": 3,
+      "n_documents": 4,
+      "pipeline_delivered": 89,
+      "total_candidates": 185,
+      "admission_rate": 0.4811,
+      "status_totals": {
+        "independently_verified": 70,
+        "consistency_confirmed": 4,
+        "mismatch": 3,
+        "non_verifiable": 8,
+        "refuted": 4
+      },
+      "tokens_per_delivered": 26670.9,
+      "seconds_per_delivered": 55.2,
+      "correctness": {
+        "labelled": 75,
+        "correct_keys": 71,
+        "wrong_keys": 4,
+        "independently_correct_answer_rate": 0.9467,
+        "verifier_false_positive_rate": 0.0,
+        "verifier_false_negative_rate": 0.0282
+      },
+      "per_seed": {
+        "42": {
+          "cells": 4,
+          "delivered": 30,
+          "candidates": 65
+        },
+        "43": {
+          "cells": 4,
+          "delivered": 30,
+          "candidates": 48
+        },
+        "44": {
+          "cells": 4,
+          "delivered": 29,
+          "candidates": 72
+        }
+      }
+    }
+  }
+}

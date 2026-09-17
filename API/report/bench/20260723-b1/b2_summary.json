@@ -1,0 +1,131 @@
+{
+  "per_pdf": [
+    {
+      "pdf": "file_1_trang_1-31.pdf",
+      "requested": 10,
+      "generated": 5,
+      "generation_error": null,
+      "generation_seconds": 24.9,
+      "cost": {
+        "tokens": 4316,
+        "calls": 1
+      },
+      "gate_pass": 3,
+      "gate_pass_rate": 0.6,
+      "pass_clean": 3,
+      "pass_clean_rate": 0.6,
+      "verdict_distribution": {
+        "distractor_validator": 1,
+        "pass": 3,
+        "rule:quality_low": 1
+      },
+      "verified_true": 1,
+      "verified_false": 0,
+      "verified_none": 4,
+      "hint_type_distribution": {
+        "none": 3,
+        "numeric_eval": 2
+      }
+    },
+    {
+      "pdf": "file_2_trang_31-61.pdf",
+      "requested": 10,
+      "generated": 5,
+      "generation_error": null,
+      "generation_seconds": 21.9,
+      "cost": {
+        "tokens": 5192,
+        "calls": 1
+      },
+      "gate_pass": 3,
+      "gate_pass_rate": 0.6,
+      "pass_clean": 3,
+      "pass_clean_rate": 0.6,
+      "verdict_distribution": {
+        "pass": 3,
+        "rule:quality_low": 2
+      },
+      "verified_true": 2,
+      "verified_false": 0,
+      "verified_none": 3,
+      "hint_type_distribution": {
+        "none": 1,
+        "numeric_eval": 4
+      }
+    },
+    {
+      "pdf": "file_3_trang_61-90.pdf",
+      "requested": 10,
+      "generated": 2,
+      "generation_error": null,
+      "generation_seconds": 16.3,
+      "cost": {
+        "tokens": 5235,
+        "calls": 1
+      },
+      "gate_pass": 1,
+      "gate_pass_rate": 0.5,
+      "pass_clean": 1,
+      "pass_clean_rate": 0.5,
+      "verdict_distribution": {
+        "rule:format_error": 1,
+        "pass": 1
+      },
+      "verified_true": 1,
+      "verified_false": 0,
+      "verified_none": 1,
+      "hint_type_distribution": {
+        "none": 1,
+        "numeric_eval": 1
+      }
+    },
+    {
+      "pdf": "file_4_trang_91-het.pdf",
+      "requested": 10,
+      "generated": 10,
+      "generation_error": null,
+      "generation_seconds": 34.8,
+      "cost": {
+        "tokens": 8197,
+        "calls": 1
+      },
+      "gate_pass": 9,
+      "gate_pass_rate": 0.9,
+      "pass_clean": 9,
+      "pass_clean_rate": 0.9,
+      "verdict_distribution": {
+        "pass": 9,
+        "answer_text_mismatch": 1
+      },
+      "verified_true": 10,
+      "verified_false": 0,
+      "verified_none": 0,
+      "hint_type_distribution": {
+        "numeric_eval": 10
+      }
+    }
+  ],
+  "totals": {
+    "pdfs": 4,
+    "requested": 40,
+    "generated": 22,
+    "graded": 22,
+    "gate_pass": 16,
+    "gate_pass_rate": 0.7273,
+    "pass_clean": 16,
+    "pass_clean_rate": 0.7273,
+    "verdict_distribution": {
+      "distractor_validator": 1,
+      "pass": 16,
+      "rule:quality_low": 3,
+      "rule:format_error": 1,
+      "answer_text_mismatch": 1
+    },
+    "verified_true": 14,
+    "verified_false": 0,
+    "verified_none": 8,
+    "cost_tokens": 22940,
+    "cost_calls": 4,
+    "generation_seconds": 97.9
+  }
+}

@@ -15,6 +15,7 @@ from .. import config as cfg
 from .. import generator as gen
 from .. import schema
 from .. import verifier as verifier_mod
+from ..agents.verifier_agent import recover_numeric_eval_against_key
 from ..llm_client import call_llm_with_pdf
 from .attach import (
     PdfAttachError,
@@ -343,6 +344,11 @@ def parse_direct_pdf_response(
                     except Exception:
                         vres = None
                     if vres is not None:
+                        # numeric_eval false-flag recovery (đồng bộ với
+                        # VerifierAgent): expr khớp đáp án key thì nâng lên
+                        # verified=True dù expected_numeric writer viết lệch.
+                        recover_numeric_eval_against_key(
+                            vres, candidate.get('answer_text', ''))
                         # verified=False KHÔNG loại (đồng bộ với VerifierAgent):
                         # mismatch thường do verifier_hint viết lệch, không phải
                         # LLM tính sai. Chỉ đếm verify_failures để theo dõi.
@@ -586,6 +592,11 @@ class DirectPdfQuestionGenerator:
         if not attachment_parts:
             try:
                 attach_mode = str(getattr(cfg, 'PDF_ATTACH_MODE', 'image')).lower()
+                # Chỉ bật tiền tố cache cho OpenRouter: đường chat2api đang
+                # chạy tốt với thứ tự cũ và đã sinh ra ngữ liệu hiện có,
+                # không đổi hành vi của nó vì một tối ưu chi phí.
+                _cacheable = (cfg.LLM_PROVIDER == 'openrouter'
+                              and attach_mode != 'file_url')
                 if attach_mode == 'image':
                     base_content = build_pdf_image_content(
                         pdf_bytes,
@@ -593,11 +604,15 @@ class DirectPdfQuestionGenerator:
                         seed_prompt,
                         dpi=getattr(cfg, 'PDF_IMAGE_DPI', 120),
                         max_pages=getattr(cfg, 'PDF_IMAGE_MAX_PAGES', 30),
+                        images_first=_cacheable,
+                        cache_control=_cacheable,
                     )
                 else:
                     base_content = build_pdf_user_content(
                         pdf_bytes, filename, seed_prompt,
                         as_image_url=(attach_mode == 'file_url'),
+                        pdf_first=_cacheable,
+                        cache_control=_cacheable,
                     )
             except PdfAttachError as e:
                 return DirectPdfResult(

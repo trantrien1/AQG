@@ -1,0 +1,9 @@
+    [pdf-slot direct_pdf_2] writer 0 candidates; errors=["Expecting ',' delimiter: line 1 column 523 (char 522)"]
+    [pdf-slot direct_pdf_0] critic reject: error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Mô tả lỗi của distractor thứ ba dẫn đến \(2\sqrt{485}\) chứ không phải \(2\sqrt{626}\), nên chuỗi suy luận và giá trị distractor không nhất quán.)
+    [pdf-slot direct_pdf_6] writer 0 candidates; errors=["Expecting ',' delimiter: line 4 column 180 (char 417)"]
+    [pdf-slot direct_pdf_11] verifier reject: duplicate: rule validator failed: ['d2:duplicate_option', 'd3:duplicate_option']
+    [pdf-slot direct_pdf_9] critic reject: error_distractor_consistency=0.30 (lỗi mô tả không khớp giá trị distractor/đáp án) (Một số chuỗi lỗi không tạo đúng giá trị distractor, đặc biệt phương án \(8\) không khớp với phép tính được mô tả, nhưng phần giải thích đáp án đúng vẫn nhất quá)
+    [pdf-slot direct_pdf_12] writer 0 candidates; errors=["Expecting ',' delimiter: line 4 column 137 (char 434)"]
+    [pdf-slot direct_pdf_14] verifier reject: duplicate: rule validator failed: ['d2:duplicate_option']
+    [pdf-slot direct_pdf_18] verifier reject: duplicate: rule validator failed: ['d3:duplicate_option']
+[cell] arm=full_system seed=43 t12-daoham-p1.pdf: delivered=12/12 rejected=9 tokens=215476 588s

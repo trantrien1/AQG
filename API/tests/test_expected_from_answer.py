@@ -30,6 +30,17 @@ from pipeline.agents.verifier_agent import _expected_from_answer
     (r'\(\frac{512\pi}{5}\,\text{cm}^3\)', 512 * math.pi / 5),
     (r'\(8\pi\)', 8 * math.pi),
     (r'\(\pi\)', math.pi),
+    # Benchmark 2026-07-23 (report/bench/20260723-b1): \sqrt inside a \frac was
+    # dropped, so a CORRECT answer read as the bare numerator and was rejected
+    # as answer_text_mismatch. \frac{\sqrt{229}-3}{2} was parsed as 229 (should
+    # be ~6.07) and \frac{80\sqrt{15}\pi}{3} as 80 (should be ~324.46).
+    (r'\(\frac{\sqrt{229}-3}{2}\)', (math.sqrt(229) - 3) / 2),
+    (r'\(\frac{80\sqrt{15}\pi}{3}\)', 80 * math.sqrt(15) * math.pi / 3),
+    (r'\sqrt{2}', math.sqrt(2)),
+    (r'2\sqrt{3}', 2 * math.sqrt(3)),
+    (r'\sqrt[3]{27}', 3.0),
+    (r'\sqrt[4]{16}', 2.0),
+    (r'\(\frac{\sqrt{50}}{5}\)', math.sqrt(50) / 5),
 ])
 def test_expected_from_answer_parses_correctly(answer_text, expected):
     got = _expected_from_answer(answer_text)

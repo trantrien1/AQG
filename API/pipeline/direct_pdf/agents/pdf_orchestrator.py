@@ -17,11 +17,14 @@ from concurrent.futures import ThreadPoolExecutor
 from typing import Any, Callable, Dict, List, Optional, Tuple
 
 from .. import attach as attach_mod
+from .. import page_selection
 from ..generator import DirectPdfResult, _synthetic_slot
 from .pdf_writer_agent import PdfWriterAgent
 from .pdf_distractor_agent import PdfDistractorAgent
 from .pdf_critic_agent import PdfCriticAgent
+from .pdf_independent_agent import PdfIndependentVerifierAgent
 from .messages import PdfWriteRequest, PdfDistractorRequest, PdfCriticRequest
+from ... import ablation
 from ... import config as cfg
 from ...agents import VerifierAgent, FormatterAgent
 from ...agents.messages import (
@@ -32,6 +35,7 @@ from ...rule_validator import validate_record
 from ... import reject as reject_mod
 from ... import schema as schema_mod
 from ...schema import record_option_text_issues
+from ...verification_status import VerificationStatus
 
 ProgressCallback = Callable[[Dict[str, Any]], None]
 
@@ -98,28 +102,53 @@ def _stem_key(text: Any) -> str:
     return re.sub(r'\s+', ' ', str(text or '').strip().lower())[:80]
 
 
-def _pick_cognitive(bloom_distribution: Optional[List[Dict[str, Any]]],
-                    index: int) -> str:
-    """Chọn mức Bloom cho slot thứ `index` theo phân bố (round-robin có trọng số).
-
-    Không có Planner nên orchestrator tự rải Bloom: xây một danh sách phẳng theo
-    tỉ lệ rồi lấy phần tử `index % len`. Rỗng -> 'Thông hiểu'.
-    """
-    if not bloom_distribution:
-        return 'Thông hiểu'
-    flat: List[str] = []
-    for b in bloom_distribution:
+def _bloom_weights(
+        bloom_distribution: Optional[List[Dict[str, Any]]]
+) -> List[Tuple[str, float]]:
+    """(mức, tỉ lệ đã chuẩn hoá về tổng 1) theo đúng thứ tự người dùng khai."""
+    pairs: List[Tuple[str, float]] = []
+    for b in bloom_distribution or []:
         level = str(b.get('cognitive_level') or b.get('level') or '').strip()
         if not level:
             continue
         frac = b.get('fraction')
         if frac is None:
             frac = b.get('ratio')
-        weight = max(1, int(round(float(frac) * 10))) if frac is not None else 1
-        flat.extend([level] * weight)
-    if not flat:
+        try:
+            w = float(frac) if frac is not None else 1.0
+        except (TypeError, ValueError):
+            w = 1.0
+        pairs.append((level, max(0.0, w)))
+    total = sum(w for _, w in pairs)
+    if not pairs or total <= 0:
+        return []
+    return [(lv, w / total) for lv, w in pairs]
+
+
+def _pick_cognitive(bloom_distribution: Optional[List[Dict[str, Any]]],
+                    index: int) -> str:
+    """Chọn mức Bloom cho slot thứ `index` theo phân bố người dùng khai báo.
+
+    Dùng phép chia ghế theo phần dư lớn nhất: slot thứ i về tay mức đang thiếu
+    nhiều nhất so với phần đáng lẽ được hưởng sau i+1 slot. Cách này rải đều
+    (không dồn cục) và giữ ĐÚNG tỉ lệ đã khai ở mọi độ dài, kể cả tỉ lệ không
+    tròn số.
+
+    Bản cũ dựng một danh sách phẳng với trọng số ``int(round(frac*10))``. Phép
+    làm tròn ngân hàng của Python biến ``round(2.5)`` thành 2, nên phân bố
+    10/25/40/25 chạy thành 11,1/22,2/44,4/22,2 — tỉ lệ người dùng khai bị bóp
+    méo trước cả lời gọi mô hình đầu tiên. Xem tests/test_bloom_schedule.py.
+    """
+    weights = _bloom_weights(bloom_distribution)
+    if not weights:
         return 'Thông hiểu'
-    return flat[index % len(flat)]
+    assigned = {lv: 0 for lv, _ in weights}
+    level = weights[0][0]
+    for i in range(index + 1):
+        level = max(weights, key=lambda p: (p[1] * (i + 1) - assigned[p[0]], -
+                                            list(assigned).index(p[0])))[0]
+        assigned[level] += 1
+    return level
 
 
 def _pick_outcome(learning_outcomes: Optional[List[Dict[str, str]]],
@@ -195,6 +224,10 @@ class DirectPdfOrchestrator:
         # Critic chấm/đánh giá — dùng JUDGE_MODEL (mặc định = generator model
         # khi không set env) để có thể chạy model nhẹ hơn, tiết kiệm quota.
         self.critic = PdfCriticAgent(use_skills=use_skills, model=cfg.JUDGE_MODEL)
+        # Giải lại bài toán CHỈ từ đề bài (không thấy đáp án/lời giải của
+        # Writer) để có một nguồn tính toán thật sự độc lập.
+        self.independent = PdfIndependentVerifierAgent(
+            model=cfg.INDEPENDENT_VERIFIER_MODEL)
         # Tái dùng nguyên trạng agent deterministic (không gọi LLM).
         self.verifier = VerifierAgent(use_skills=use_skills)
         self.formatter = FormatterAgent(use_skills=use_skills)
@@ -212,16 +245,19 @@ class DirectPdfOrchestrator:
         # prompt riêng + attachment_parts (phần non-text) khi gọi.
         attach_mode = str(getattr(cfg, 'PDF_ATTACH_MODE', 'image')).lower()
         if attach_mode == 'image':
-            base = attach_mod.build_pdf_image_content(
-                pdf_bytes, filename, '',
+            # Cache ảnh trang theo hash tài liệu: benchmark chạy lại cùng PDF
+            # không phải render lại. Nội dung gửi lên model không đổi một byte
+            # nào, nên đây là tiết kiệm thuần, không phải đánh đổi chất lượng.
+            return page_selection.cached_page_parts(
+                pdf_bytes, filename,
                 dpi=getattr(cfg, 'PDF_IMAGE_DPI', 120),
                 max_pages=getattr(cfg, 'PDF_IMAGE_MAX_PAGES', 30),
+                builder=attach_mod.build_pdf_image_content,
             )
-        else:
-            base = attach_mod.build_pdf_user_content(
-                pdf_bytes, filename, '',
-                as_image_url=(attach_mode == 'file_url'),
-            )
+        base = attach_mod.build_pdf_user_content(
+            pdf_bytes, filename, '',
+            as_image_url=(attach_mode == 'file_url'),
+        )
         return [p for p in base if p.get('type') != 'text']
 
     # ---- một slot: writer -> distractor -> verify -> critic ----
@@ -250,25 +286,51 @@ class DirectPdfOrchestrator:
             return None, parse_errors + 1, verify_failures, rejects
 
         scored: List[Dict[str, Any]] = []
+        use_distractor_agent = ablation.is_enabled(ablation.DISTRACTOR_AGENT)
         for cand in w_resp.candidates:
-            # Stage 2: distractor
-            d_resp = self.distractor.run(PdfDistractorRequest(
-                attachment_parts=attachment_parts, candidate=cand, slot=slot,
-            ))
-            if d_resp.error or len(d_resp.distractors) != 3:
+            # Stage 2: distractor. Khi cơ chế bị tắt (ablation), Writer đã tự
+            # sinh 3 phương án trong cùng lượt và ta dùng thẳng chúng.
+            if use_distractor_agent:
+                d_resp = self.distractor.run(PdfDistractorRequest(
+                    attachment_parts=attachment_parts, candidate=cand, slot=slot,
+                ))
+                distractors = d_resp.distractors
+                error = d_resp.error
+            else:
+                distractors = [d for d in (cand.get('distractors') or [])
+                               if isinstance(d, dict)]
+                error = None if len(distractors) == 3 else 'writer_own_distractors'
+            if error or len(distractors) != 3:
                 print(f'    [pdf-slot {slot.get("slot_id")}] distractor drop: '
-                      f'error={d_resp.error} n={len(d_resp.distractors)}')
+                      f'error={error} n={len(distractors)}')
                 rejects.append(_rejected_record(
                     slot, 'distractor',
                     f'Không tạo đủ 3 phương án nhiễu đạt chuẩn '
-                    f'(error={d_resp.error}, n={len(d_resp.distractors)})',
+                    f'(error={error}, n={len(distractors)})',
                     cand=cand,
                 ))
                 parse_errors += 1
                 continue
-            cand['distractors'] = d_resp.distractors
+            cand['distractors'] = distractors
 
-            # Stage 3: verifier (deterministic, context='')
+            # Stage 3: mục tiêu kiểm chứng độc lập. Chạy TRƯỚC verifier và chỉ
+            # được nhìn đề bài — kết quả gắn vào candidate để tầng phân xử
+            # deterministic bên dưới đối chiếu. Lỗi ở đây không đánh rớt câu:
+            # thiếu bằng chứng độc lập thì câu rơi về CONSISTENCY_CONFIRMED.
+            try:
+                target = self.independent.run(cand, attachment_parts)
+            except (BudgetExceeded, NonRetryableLLMError, PdfUnsupportedError):
+                raise
+            except Exception as exc:
+                print(f'    [pdf-slot {slot.get("slot_id")}] independent verifier '
+                      f'lỗi (bỏ qua): {exc}')
+                target = None
+            if target is not None:
+                # Lưu dạng dict để candidate luôn JSON-serialize được (record bị
+                # loại cũng được ghi ra debug_rejected.json).
+                cand['_independent_target'] = target.to_dict()
+
+            # Stage 4: verifier (deterministic, context='')
             with self._verifier_lock:
                 v_resp = self.verifier.run(VerifyRequest(
                     candidate=cand, slot=slot, context='',
@@ -286,18 +348,19 @@ class DirectPdfOrchestrator:
                     parse_errors += 1
                 continue
             _ver = v_resp.annotations.get('_verification') or {}
-            if _ver.get('verified') is False:
-                # Mismatch số học không còn bị loại (thường do hint viết lệch,
-                # không phải LLM tính sai) — chỉ log để theo dõi.
-                print(f'    [pdf-slot {slot.get("slot_id")}] verifier mismatch '
-                      f'(giữ lại): {_ver.get("engine")}: '
-                      f'{str(_ver.get("detail"))[:80]}')
+            _status = _ver.get('status')
+            if _status in (VerificationStatus.MISMATCH, VerificationStatus.REFUTED):
+                # Không loại câu ở đây (mục tiêu độc lập cũng do model dựng nên
+                # bác oan là có thật) — câu đi tiếp nhưng mang trạng thái buộc
+                # phải qua mắt người trước khi dùng.
+                print(f'    [pdf-slot {slot.get("slot_id")}] {_status}: '
+                      f'{str(_ver.get("detail"))[:100]}')
             patch = v_resp.annotations.pop('_candidate_patch', None)
             if isinstance(patch, dict):
                 cand.update(patch)
             cand.update(v_resp.annotations)
 
-            # Stage 4: critic (vision)
+            # Stage 5: critic (vision)
             cr_resp = self.critic.run(PdfCriticRequest(
                 attachment_parts=attachment_parts, candidate=cand, slot=slot,
             ))
@@ -315,10 +378,21 @@ class DirectPdfOrchestrator:
         if not scored:
             return None, parse_errors, verify_failures, rejects
 
-        # Chọn tốt nhất: ưu tiên verified, rồi _quality, rồi _grounding.
+        # Chọn tốt nhất: ưu tiên bằng chứng kiểm chứng MẠNH NHẤT (độc lập >
+        # nhất quán > không kiểm được > lệch nguồn > bị bác), rồi _quality,
+        # rồi _grounding.
+        _STATUS_RANK = {
+            VerificationStatus.INDEPENDENTLY_VERIFIED: 4,
+            VerificationStatus.CONSISTENCY_CONFIRMED: 3,
+            VerificationStatus.NON_VERIFIABLE: 2,
+            VerificationStatus.MISMATCH: 1,
+            VerificationStatus.REFUTED: 0,
+        }
+
         def _key(c: Dict[str, Any]):
-            verified = 1 if (c.get('_verification') or {}).get('verified') is True else 0
-            return (verified, c.get('_quality') or 0.0, c.get('_grounding') or 0.0)
+            status = (c.get('_verification') or {}).get('status')
+            rank = _STATUS_RANK.get(status, 2)
+            return (rank, c.get('_quality') or 0.0, c.get('_grounding') or 0.0)
 
         best = max(scored, key=_key)
         return best, parse_errors, verify_failures, rejects
@@ -385,7 +459,8 @@ class DirectPdfOrchestrator:
         # Số lô rỗng LIÊN TIẾP trước khi bỏ cuộc. Đặt tương đối theo số câu yêu
         # cầu (tối thiểu 4) để mục tiêu lớn không dừng sớm khi gặp một chuỗi câu
         # bị model từ chối/throttle tạm thời.
-        max_empty_streak = max(4, requested_count // 3)
+        max_empty_streak = (int(getattr(cfg, 'MAX_EMPTY_STREAK', 0))
+                            or max(4, requested_count // 3))
         empty_streak = 0
         slot_index = 0
         attempts_used = 0
@@ -404,9 +479,14 @@ class DirectPdfOrchestrator:
                 if outcome_counts.get(k, 0) > 0:
                     outcome_counts[k] -= 1
 
+        scheduler_on = ablation.is_enabled(ablation.OUTCOME_SCHEDULER)
+
         def _build_slot(virtual_index: int) -> Dict[str, Any]:
             nonlocal slot_index
-            cognitive = _pick_cognitive(bloom_distribution, virtual_index)
+            # Ablation: không rải Bloom/CĐR thì mọi slot dùng chung một mức mặc
+            # định, tức là bỏ hẳn việc lập kế hoạch phủ mức tư duy.
+            cognitive = (_pick_cognitive(bloom_distribution, virtual_index)
+                         if scheduler_on else 'Thông hiểu')
             slot = _synthetic_slot(slot_index, {
                 'cognitive_level': cognitive,
                 'difficulty_target': _difficulty_target_for_level(bloom_distribution, cognitive),
@@ -418,7 +498,8 @@ class DirectPdfOrchestrator:
             # nhưng misfire ở đây khiến quote công thức chung bị loại nhầm là
             # 'not_relevant'). Các check metadata/heading bắt quote rác vẫn chạy.
             slot['source_chunk_type'] = 'exercise'
-            outcome = _pick_outcome_balanced(learning_outcomes, outcome_counts)
+            outcome = (_pick_outcome_balanced(learning_outcomes, outcome_counts)
+                       if scheduler_on else None)
             if outcome:
                 # Writer đọc key này để soạn câu kiểm tra đúng CĐR được gán;
                 # record nhận nhãn ngay khi accept (classifier sau chỉ kiểm chứng).
@@ -542,7 +623,8 @@ class DirectPdfOrchestrator:
                         )
                         continue
 
-                    key = _stem_key(record.get('stem', ''))
+                    dedup_on = ablation.is_enabled(ablation.SEMANTIC_DEDUP)
+                    key = _stem_key(record.get('stem', '')) if dedup_on else ''
                     if key and key in seen:
                         _release_outcome(slot)
                         empty_streak += 1

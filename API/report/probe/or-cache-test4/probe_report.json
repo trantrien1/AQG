@@ -1,0 +1,38 @@
+{
+ "model": "google/gemini-2.5-flash",
+ "pdf": "pdftest/file_3_trang_61-90.pdf",
+ "requested": 5,
+ "delivered": 1,
+ "rejected": 5,
+ "error_code": null,
+ "duration_seconds": 151.2,
+ "cost": {
+  "tokens": 154825,
+  "calls": 15
+ },
+ "issue_counts": {
+  "source_quote_len": 1
+ },
+ "status_counts": {
+  "consistency_confirmed": 1
+ },
+ "bloom_counts": {
+  "Vận dụng": 1
+ },
+ "per_question": [
+  {
+   "id": "q_2026_853dfad5",
+   "bloom": "Vận dụng",
+   "status": "consistency_confirmed",
+   "machine_checked": true,
+   "independent": false,
+   "derivation": false,
+   "review": "pending_review",
+   "issues": [
+    "source_quote_len=295"
+   ],
+   "stem_len": 355,
+   "stem_tail": " hẳn khi đi được tổng cộng 80m kể từ lúc bắt đầu chuyển động. Hãy tìm giá trị của \\(v_0\\)."
+  }
+ ]
+}

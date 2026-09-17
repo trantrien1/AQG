@@ -1,0 +1,3214 @@
+{
+  "metadata": {
+    "bench": "suite",
+    "arm": "full_system",
+    "seed": 42,
+    "source_pdf": "pdftest/corpus2/t12-daoham-p1.pdf",
+    "source_pdf_name": "t12-daoham-p1.pdf",
+    "requested_questions": 12,
+    "accepted_questions": 12,
+    "is_partial": false,
+    "parse_errors": 7,
+    "verify_failures": 0,
+    "error_code": null,
+    "error_message": null,
+    "cost": {
+      "tokens": 196379,
+      "calls": 65
+    },
+    "duration_seconds": 502.6441044807434,
+    "generated_at": "2026-07-30T01:50:10.703598+00:00"
+  },
+  "questions": [
+    {
+      "question_id": "q_2026_3c418114",
+      "blueprint_slot_id": "direct_pdf_2",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 168,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(y=x^3-3mx^2+3x+1\\) với \\(m>1\\). Biết đồ thị hàm số có hai điểm cực trị có hoành độ \\(x_1,x_2\\) thỏa mãn \\(x_1^2+x_2^2=10\\). Giá trị của \\(m\\) là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(2\\sqrt{3}\\)",
+          "error_type": "wrong_viete_sum"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\sqrt{3}\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(\\sqrt{2}\\)",
+          "error_type": "wrong_viete_product"
+        },
+        {
+          "key": "D",
+          "text": "\\(-\\sqrt{3}\\)",
+          "error_type": "ignore_parameter_condition"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Ta dùng điều kiện có hai cực trị để xét nghiệm của phương trình đạo hàm, sau đó dùng hệ thức Vi-ét để biểu diễn điều kiện về hai hoành độ cực trị theo tham số \\(m\\).",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: áp dụng sai hệ thức Vi-ét cho phương trình \\(x^2-2mx+1=0\\), lấy \\(x_1+x_2=m\\) thay vì \\(x_1+x_2=2m\\). Khi đó tính \\(x_1^2+x_2^2=(x_1+x_2)^2-2x_1x_2=m^2-2=10\\), suy ra \\(m^2=12\\). Vì \\(m>1\\) nên lấy \\(m=2\\sqrt{3}\\). Sai vì tổng hai nghiệm của phương trình đạo hàm phải là \\(2m\\), không phải \\(m\\).",
+        "C": "Sai lầm: áp dụng sai hệ thức Vi-ét, lấy \\(x_1x_2=-1\\) thay vì \\(x_1x_2=1\\). Vẫn giữ \\(x_1+x_2=2m\\), ta có \\(x_1^2+x_2^2=(x_1+x_2)^2-2x_1x_2=4m^2+2=10\\). Từ đó suy ra \\(4m^2=8\\), nên \\(m=\\sqrt{2}\\) do điều kiện \\(m>1\\). Sai vì tích hai nghiệm của \\(x^2-2mx+1=0\\) là \\(1\\).",
+        "D": "Sai lầm: sau khi biến đổi đúng đến \\(m^2=3\\), lấy nghiệm \\(m=-\\sqrt{3}\\) mà bỏ qua điều kiện ban đầu \\(m>1\\). Người làm sai kết luận \\(m=\\pm\\sqrt{3}\\) rồi chọn nghiệm âm. Sai vì điều kiện \\(m>1\\) loại bỏ hoàn toàn giá trị \\(-\\sqrt{3}\\)."
+      },
+      "hint": "Ta dùng điều kiện có hai cực trị để xét nghiệm của phương trình đạo hàm, sau đó dùng hệ thức Vi-ét để biểu diễn điều kiện",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Có hai cực trị \\(\\Leftrightarrow\\) phương trình \\(y'=0\\) có hai nghiệm phân biệt trái dấu hoặc cùng dấu với điều kiện liên quan đến nghiệm.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 1.7320508075688772,
+          "expression": "sqrt(3)",
+          "stated_answer": "sqrt(3)",
+          "stated_value": 1.7320508075688772,
+          "source": "llm_resolver",
+          "detail": "sqrt(3) = 1.73205",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "sqrt(3)",
+            "expected_numeric": -1.7320508075688772
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 1.73205, khớp đáp án key",
+        "verified_at": "2026-07-30T01:42:47.158635Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9316666666666666,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ hàm số, điều kiện tham số, điều kiện hai hoành độ cực trị và yêu cầu tìm m nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.9,
+            "rationale": "Bài yêu cầu phối hợp đạo hàm, điều kiện có hai cực trị, Vi-ét và biến đổi tham số nên phù hợp mức vận dụng cao."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Hoạt động giải không chỉ nhận biết công thức mà phải lựa chọn và kết hợp nhiều phương pháp để suy luận tham số."
+          },
+          "distractor_plausibility": {
+            "score": 0.88,
+            "rationale": "Các phương án sai đều gắn với lỗi Vi-ét hoặc bỏ điều kiện tham số thường gặp trong dạng bài này."
+          },
+          "answer_uniqueness": {
+            "score": 0.98,
+            "rationale": "Chỉ có m=\\(\\sqrt{3}\\) thỏa điều kiện m>1 và điều kiện hoành độ cực trị, các phương án còn lại đều vi phạm hoặc do sai biến đổi."
+          },
+          "error_distractor_consistency": {
+            "score": 0.95,
+            "rationale": "Các chuỗi lỗi mô tả dẫn đúng tới các giá trị distractor tương ứng và phần giải thích đáp án nhất quán với \\(\\sqrt{3}\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9316666666666666,
+        "verifier_pass": true,
+        "critic_score": 0.9316666666666666,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Ta dùng điều kiện có hai cực trị để xét nghiệm của phương trình đạo hàm, sau đó dùng hệ thức Vi-ét để biểu diễn điều kiện về hai hoành độ cực trị theo tham số \\(m\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Tính đạo hàm: \\(y'=3x^2-6mx+3=3(x^2-2mx+1)\\). Hoành độ các điểm cực trị là nghiệm của phương trình \\(x^2-2mx+1=0\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Để hàm số có hai điểm cực trị, phương trình \\(x^2-2mx+1=0\\) phải có hai nghiệm phân biệt, tức là \\(\\Delta'=m^2-1>0\\). Điều kiện này phù hợp với giả thiết \\(m>1\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Gọi \\(x_1,x_2\\) là hai nghiệm của phương trình trên. Theo Vi-ét: \\(x_1+x_2=2m\\), \\(x_1x_2=1\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Biến đổi điều kiện đã cho: \\(x_1^2+x_2^2=(x_1+x_2)^2-2x_1x_2=(2m)^2-2\\cdot1=4m^2-2\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Chọn đáp án B: \\(\\sqrt{3}\\)."
+          }
+        ],
+        "final_answer": "\\(\\sqrt{3}\\)"
+      },
+      "why_correct": "Điều kiện hai cực trị được chuyển thành điều kiện phương trình đạo hàm có hai nghiệm phân biệt, sau đó hệ thức Vi-ét cho phép liên hệ trực tiếp các hoành độ cực trị với tham số. Nghiệm âm của \\(m^2=3\\) bị loại bởi điều kiện \\(m>1\\), nên chỉ còn \\(m=\\sqrt{3}\\).",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: áp dụng sai hệ thức Vi-ét cho phương trình \\(x^2-2mx+1=0\\), lấy \\(x_1+x_2=m\\) thay vì \\(x_1+x_2=2m\\). Khi đó tính \\(x_1^2+x_2^2=(x_1+x_2)^2-2x_1x_2=m^2-2=10\\), suy ra \\(m^2=12\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: áp dụng sai hệ thức Vi-ét, lấy \\(x_1x_2=-1\\) thay vì \\(x_1x_2=1\\). Vẫn giữ \\(x_1+x_2=2m\\), ta có \\(x_1^2+x_2^2=(x_1+x_2)^2-2x_1x_2=4m^2+2=10\\). Từ đó suy ra \\(4m^2=8\\), nên \\(m=\\sqrt{2}\\) do điều kiện \\(m>1\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: sau khi biến đổi đúng đến \\(m^2=3\\), lấy nghiệm \\(m=-\\sqrt{3}\\) mà bỏ qua điều kiện ban đầu \\(m>1\\). Người làm sai kết luận \\(m=\\pm\\sqrt{3}\\) rồi chọn nghiệm âm."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_63d1c5ad",
+      "blueprint_slot_id": "direct_pdf_3",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.47,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 125,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(f(x)=x^3-6x^2+9x+5\\). Biết đồ thị hàm số có một điểm cực đại tại \\(x_0\\). Giá trị của \\(f(x_0)\\) bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(-11\\)",
+          "error_type": "wrong_derivative_coefficient"
+        },
+        {
+          "key": "B",
+          "text": "\\(4\\)",
+          "error_type": "forget_constant_term_when_evaluating"
+        },
+        {
+          "key": "C",
+          "text": "\\(5\\)",
+          "error_type": "derivative_zero_implies_extremum"
+        },
+        {
+          "key": "D",
+          "text": "\\(9\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Ta tính đạo hàm để tìm điểm tới hạn, xét sự đổi dấu của đạo hàm rồi tính giá trị hàm số tại hoành độ cực đại.",
+      "explanation_per_distractor": {
+        "A": "Người làm sai khi lấy đạo hàm của \\(9x\\) thành \\(-9\\) thay vì \\(9\\), dẫn đến đạo hàm sai \\(f'(x)=3x^2-12x-9=3(x+1)(x-3)\\). Họ lập bảng dấu sai và chọn \\(x_0=-1\\) là điểm cực đại. Khi đó tính \\(f(-1)=(-1)^3-6(-1)^2+9(-1)+5=-11\\). Sai vì đạo hàm đã bị tính sai ngay từ bước đầu.",
+        "B": "Sau khi tìm đúng hoành độ cực đại \\(x_0=1\\), người làm sai thay vào hàm số nhưng quên giữ số hạng tự do \\(+5\\). Họ tính \\(1^3-6\\cdot1^2+9\\cdot1=4\\), nên thu được \\(f(x_0)=4\\). Sai vì giá trị hàm số phải tính đầy đủ cả hằng số trong công thức ban đầu.",
+        "C": "Tính đạo hàm đúng được \\(f'(x)=3(x-1)(x-3)\\), nên có các điểm làm đạo hàm bằng 0 là \\(x=1\\) và \\(x=3\\). Sai lầm là cho rằng mọi nghiệm của \\(f'(x)=0\\) đều là điểm cực đại, chọn nhầm \\(x_0=3\\). Khi đó tính \\(f(3)=3^3-6\\cdot3^2+9\\cdot3+5=5\\). Sai vì cần xét sự đổi dấu của đạo hàm: tại \\(x=3\\) là điểm cực tiểu."
+      },
+      "hint": "Ta tính đạo hàm để tìm điểm tới hạn, xét sự đổi dấu của đạo hàm rồi tính giá trị hàm số tại hoành độ cực đại.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Bước 01. Tìm tập xác định của hàm số. Tính \\(f'(x)\\). Tìm các điểm tại đó \\(f'(x)\\) bằng 0 hoặc không xác định.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 9.0,
+          "expression": "1**3-6*1**2+9*1+5",
+          "stated_answer": "9",
+          "stated_value": 9.0,
+          "source": "llm_resolver",
+          "detail": "1**3-6*1**2+9*1+5 = 9",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "9",
+            "expected_numeric": -11
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 9, khớp đáp án key",
+        "verified_at": "2026-07-30T01:44:01.073293Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.93,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ hàm số, điều kiện cực đại tại \\(x_0\\) và yêu cầu tính giá trị hàm tại đó nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.78,
+            "rationale": "Bài yêu cầu áp dụng quy trình đạo hàm và xét dấu để tìm cực trị, phù hợp mức vận dụng cơ bản hơn là chỉ nhớ công thức."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác cần thực hiện là hiểu và áp dụng quy tắc tìm cực trị theo mẫu trong tài liệu, phù hợp mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.92,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến như lấy mọi nghiệm \\(f'(x)=0\\), quên hằng số và tính sai đạo hàm."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ \\(x=1\\) là điểm cực đại và cho \\(f(1)=9\\), các phương án còn lại tương ứng các lỗi sai nên không có đáp án cạnh tranh."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Chuỗi lỗi của từng distractor đều dẫn đúng tới giá trị nêu ra và phần giải thích đáp án nhất quán với đáp án \\(9\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.93,
+        "verifier_pass": true,
+        "critic_score": 0.93,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Ta tính đạo hàm để tìm điểm tới hạn, xét sự đổi dấu của đạo hàm rồi tính giá trị hàm số tại hoành độ cực đại.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Ta có \\(f'(x)=3x^2-12x+9=3(x-1)(x-3)\\). Giải phương trình \\(f'(x)=0\\) được hai nghiệm \\(x=1\\) và \\(x=3\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Xét dấu \\(f'(x)\\): hàm số đồng biến trên \\((-\\infty,1)\\), nghịch biến trên \\((1,3)\\), đồng biến trên \\((3,+\\infty)\\). Do đạo hàm đổi dấu từ dương sang âm tại \\(x=1\\), nên \\(x_0=1\\) là hoành độ điểm cực đại."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tính giá trị tại điểm cực đại: \\(f(x_0)=f(1)=1^3-6\\cdot1^2+9\\cdot1+5=9\\)."
+          }
+        ],
+        "final_answer": "\\(9\\)"
+      },
+      "why_correct": "Chỉ tại \\(x=1\\), đạo hàm đổi dấu từ dương sang âm nên đây là điểm cực đại; thay đúng hoành độ này vào hàm số cho kết quả duy nhất \\(9\\).",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Người làm sai khi lấy đạo hàm của \\(9x\\) thành \\(-9\\) thay vì \\(9\\), dẫn đến đạo hàm sai \\(f'(x)=3x^2-12x-9=3(x+1)(x-3)\\). Họ lập bảng dấu sai và chọn \\(x_0=-1\\) là điểm cực đại."
+        },
+        {
+          "option": "B",
+          "reason": "Sau khi tìm đúng hoành độ cực đại \\(x_0=1\\), người làm sai thay vào hàm số nhưng quên giữ số hạng tự do \\(+5\\). Họ tính \\(1^3-6\\cdot1^2+9\\cdot1=4\\), nên thu được \\(f(x_0)=4\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Tính đạo hàm đúng được \\(f'(x)=3(x-1)(x-3)\\), nên có các điểm làm đạo hàm bằng 0 là \\(x=1\\) và \\(x=3\\). Sai lầm là cho rằng mọi nghiệm của \\(f'(x)=0\\) đều là điểm cực đại, chọn nhầm \\(x_0=3\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_7bcfca76",
+      "blueprint_slot_id": "direct_pdf_5",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 159,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(y=x^4+mx^2+3\\) có ba điểm cực trị. Biết khoảng cách giữa hai điểm cực tiểu của đồ thị hàm số bằng \\(6\\). Giá trị của tham số \\(m\\) bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(-72\\)",
+          "error_type": "derivative_zero_implies_extremum"
+        },
+        {
+          "key": "B",
+          "text": "\\(-18\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(-6\\)",
+          "error_type": "wrong_coordinate_distance_conversion"
+        },
+        {
+          "key": "D",
+          "text": "\\(-3\\)",
+          "error_type": "wrong_distance_formula"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Dựa vào điều kiện có ba điểm cực trị, xét đạo hàm để tìm tọa độ hai điểm cực tiểu rồi dùng khoảng cách giữa hai điểm đó để lập phương trình tìm \\(m\\).",
+      "explanation_per_distractor": {
+        "A": "Từ \\(y'=2x(2x^2+m)=0\\), người làm sai cho rằng cả ba nghiệm \\(x=0, x=\\pm\\sqrt{-\\frac{m}{2}}\\) đều là điểm cực tiểu. Chọn nhầm hai điểm cực tiểu là \\(x=0\\) và \\(x=\\sqrt{-\\frac{m}{2}}\\), rồi lập khoảng cách \\(\\sqrt{-\\frac{m}{2}}=6\\). Bình phương hai vế được \\(-\\frac{m}{2}=36\\), suy ra \\(m=-72\\). Sai vì \\(x=0\\) không phải là điểm cực tiểu của hàm số.",
+        "C": "Người làm sai cho rằng khoảng cách giữa hai điểm có hoành độ đối xứng \\(x_1=-a, x_2=a\\) là \\(2a^2\\) thay vì \\(2a\\), với \\(a=\\sqrt{-\\frac{m}{2}}\\). Lập phương trình \\(2\\left(-\\frac{m}{2}\\right)=6\\), suy ra \\(-m=6\\) nên \\(m=-6\\). Sai vì khoảng cách trên trục hoành phải là hiệu hai hoành độ, không phải hiệu bình phương hoành độ.",
+        "D": "Người làm sai quên lấy căn khi tính khoảng cách giữa hai điểm cực tiểu. Với hoành độ hai điểm cực tiểu \\(x_1=-\\sqrt{-\\frac{m}{2}}, x_2=\\sqrt{-\\frac{m}{2}}\\), khoảng cách đúng là \\(2\\sqrt{-\\frac{m}{2}}\\), nhưng lại đặt \\(\\left(2\\sqrt{-\\frac{m}{2}}\\right)^2=6\\). Khi đó \\(-2m=6\\), suy ra \\(m=-3\\). Sai vì đã dùng bình phương khoảng cách thay cho khoảng cách."
+      },
+      "hint": "Dựa vào điều kiện có ba điểm cực trị, xét đạo hàm để tìm tọa độ hai điểm cực tiểu rồi dùng khoảng cách giữa hai điểm đó đ",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Có ba điểm cực trị (hai cực trị).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": -18.0,
+          "expression": "-2*(3**2)",
+          "stated_answer": "-18",
+          "stated_value": -18.0,
+          "source": "llm_resolver",
+          "detail": "-2*(3**2) = -18",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "-18",
+            "expected_numeric": -6
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho -18, khớp đáp án key",
+        "verified_at": "2026-07-30T01:44:05.311749Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.9333333333333332,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài nêu rõ hàm số, điều kiện số điểm cực trị và điều kiện khoảng cách nên yêu cầu xác định tham số là không mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu kết hợp điều kiện cực trị, tọa độ điểm cực tiểu và công thức khoảng cách thay vì chỉ áp dụng một công thức đơn lẻ."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác giải cần vận dụng quy trình đạo hàm và biến đổi điều kiện hình học đúng với mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều mô phỏng lỗi phổ biến như nhầm nghiệm đạo hàm, sai công thức khoảng cách và sai biến đổi đại số."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có m=-18 thỏa điều kiện hai điểm cực tiểu cách nhau 6, các phương án còn lại xuất phát từ sai lầm tính toán."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Chuỗi lỗi mô tả dẫn đúng đến các giá trị -72, -3, -6 và phần giải thích nhất quán với đáp án -18."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9333333333333332,
+        "verifier_pass": true,
+        "critic_score": 0.9333333333333332,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Dựa vào điều kiện có ba điểm cực trị, xét đạo hàm để tìm tọa độ hai điểm cực tiểu rồi dùng khoảng cách giữa hai điểm đó để lập phương trình tìm \\(m\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Ta có \\(y'=4x^3+2mx=2x(2x^2+m)\\). Các điểm cực trị thỏa mãn \\(y'=0\\), nên \\(x=0\\) hoặc \\(2x^2+m=0\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Để hàm số có ba điểm cực trị cần phương trình \\(2x^2+m=0\\) có hai nghiệm phân biệt, suy ra \\(m<0\\). Khi đó hai nghiệm khác \\(0\\) là \\(x=\\pm\\sqrt{\\frac{-m}{2}}\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Với \\(m<0\\), hai điểm có hoành độ \\(x_1=-\\sqrt{\\frac{-m}{2}}\\) và \\(x_2=\\sqrt{\\frac{-m}{2}}\\) là hai điểm cực tiểu. Do chúng có cùng tung độ nên khoảng cách giữa hai điểm cực tiểu chỉ là hiệu hai hoành độ."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Theo đề bài, \\(x_2-x_1=6\\), nên \\(2\\sqrt{\\frac{-m}{2}}=6\\). Bình phương hai vế được \\(4\\cdot\\frac{-m}{2}=36\\), suy ra \\(-2m=36\\) và \\(m=-18\\)."
+          }
+        ],
+        "final_answer": "\\(-18\\)"
+      },
+      "why_correct": "Điều kiện ba điểm cực trị buộc \\(m<0\\), khi đó hai điểm cực tiểu có hoành độ đối xứng qua trục tung. Phương trình khoảng cách cho duy nhất giá trị \\(m=-18\\).",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Từ \\(y'=2x(2x^2+m)=0\\), người làm sai cho rằng cả ba nghiệm \\(x=0, x=\\pm\\sqrt{-\\frac{m}{2}}\\) đều là điểm cực tiểu. Chọn nhầm hai điểm cực tiểu là \\(x=0\\) và \\(x=\\sqrt{-\\frac{m}{2}}\\), rồi lập khoảng cách"
+        },
+        {
+          "option": "C",
+          "reason": "Người làm sai cho rằng khoảng cách giữa hai điểm có hoành độ đối xứng \\(x_1=-a, x_2=a\\) là \\(2a^2\\) thay vì \\(2a\\), với \\(a=\\sqrt{-\\frac{m}{2}}\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Người làm sai quên lấy căn khi tính khoảng cách giữa hai điểm cực tiểu. Với hoành độ hai điểm cực tiểu \\(x_1=-\\sqrt{-\\frac{m}{2}}, x_2=\\sqrt{-\\frac{m}{2}}\\), khoảng cách đúng là \\(2\\sqrt{-\\frac{m}{2}}\\), nhưng lại đặt"
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_1b1f353e",
+      "blueprint_slot_id": "direct_pdf_6",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 344,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một công ty mô hình hóa mức tăng trưởng theo thời gian bởi hàm số \\(F_m(x)=x^3-6x^2+(m+5)x+2\\) trên giai đoạn \\(1\\le x\\le4\\), trong đó \\(m\\) là tham số thực. Để mức tăng trưởng luôn giảm trong toàn bộ giai đoạn này, người quản lý yêu cầu \\(F_m(x)\\) nghịch biến trên \\([1;4]\\). Giá trị lớn nhất của số nguyên \\(m\\) thỏa mãn yêu cầu là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(-29\\)",
+          "error_type": "wrong_polynomial_derivative_coefficient"
+        },
+        {
+          "key": "B",
+          "text": "\\(4\\)",
+          "error_type": "check_one_endpoint_only"
+        },
+        {
+          "key": "C",
+          "text": "\\(-5\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(7\\)",
+          "error_type": "derivative_zero_implies_extremum"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Điều kiện nghịch biến trên đoạn được chuyển thành điều kiện đạo hàm không dương trên đoạn. Sau khi xét giá trị lớn nhất của đạo hàm trên \\([1;4]\\), ta tìm được giới hạn của tham số \\(m\\), từ đó chọn giá trị nguyên lớn nhất.",
+      "explanation_per_distractor": {
+        "A": "Làm sai bằng cách tính sai đạo hàm của hạng tử \\(-6x^2\\), lấy \\((-6x^2)'=-6x\\) thay vì \\((-6x^2)'=-12x\\). Khi đó dùng đạo hàm sai \\(F_m'(x)=3x^2-6x+(m+5)\\). Vì tam thức này có hệ số bậc hai dương, xét đầu mút lớn nhất tại \\(x=4\\): \\(F_m'(4)=3\\cdot16-6\\cdot4+m+5=m+29\\le0\\Rightarrow m\\le-29\\). Suy ra \\(m=-29\\). Sai vì bước tính đạo hàm ban đầu đã sai.",
+        "B": "Làm sai bằng cách chỉ kiểm tra đạo hàm tại một đầu mút của đoạn mà bỏ qua các điểm còn lại. Từ điều kiện nghịch biến, cần \\(F_m'(x)\\le0\\), nhưng chỉ xét tại \\(x=1\\): \\(F_m'(1)=3-12+(m+5)=m-4\\le0\\Rightarrow m\\le4\\). Do đó chọn giá trị nguyên lớn nhất là \\(m=4\\). Sai vì cần đảm bảo đạo hàm không dương trên toàn bộ \\([1;4]\\), không chỉ tại một điểm.",
+        "D": "Làm sai bằng cách cho rằng điều kiện \\(F_m'(x_0)=0\\) là đủ để hàm số đạt cực trị và áp dụng trực tiếp vào đạo hàm. Ta có \\(F_m'(x)=3x^2-12x+(m+5)\\). Chọn đỉnh của tam thức đạo hàm tại \\(x=2\\) và đặt \\(F_m'(2)=0\\) để suy ra điều kiện, được \\(3\\cdot 2^2-12\\cdot2+(m+5)=0\\Rightarrow m-7=0\\Rightarrow m=7\\)."
+      },
+      "hint": "Điều kiện nghịch biến trên đoạn được chuyển thành điều kiện đạo hàm không dương trên đoạn.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Nếu \\(f'(x)<0,\\forall x\\in K\\) thì hàm số \\(f\\) nghịch biến trên \\(K\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": false,
+          "value": -5.0,
+          "expression": "-5",
+          "stated_answer": "-5",
+          "stated_value": -5.0,
+          "source": "llm_resolver",
+          "detail": "-5 = -5; nhưng biểu thức chỉ là hằng số trần — không có phép tính nào được máy kiểm, nên không đủ để gọi là xác nhận độc lập",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "-5",
+            "expected_numeric": -29
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (nguồn độc lập cũng cho -5 nhưng chỉ khẳng định một hằng số, không suy dẫn)",
+        "verified_at": "2026-07-30T01:45:18.469298Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9166666666666666,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài nêu rõ hàm số, khoảng xét, yêu cầu nghịch biến và đại lượng cần tìm nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu kết hợp đạo hàm, xét dấu tam thức bậc hai và xử lý tham số thay vì chỉ áp dụng công thức trực tiếp."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác giải đúng là vận dụng định lý đơn điệu vào tình huống tham số mới nên phù hợp mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.8,
+            "rationale": "Các phương án sai đại diện cho lỗi thường gặp như nhầm điều kiện cực trị, xét một điểm và sai đạo hàm, nhưng một số giá trị có thể dễ bị loại sau kiểm tra."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Điều kiện \\(F'_m(x)\\le0\\) trên \\([1;4]\\) cho \\(m\\le-5\\), nên chỉ có \\(-5\\) là số nguyên lớn nhất thỏa mãn."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Các chuỗi lỗi được mô tả đều dẫn đúng đến các distractor tương ứng và phần giải thích không mâu thuẫn với đáp án \\(-5\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9166666666666666,
+        "verifier_pass": true,
+        "critic_score": 0.9166666666666666,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Điều kiện nghịch biến trên đoạn được chuyển thành điều kiện đạo hàm không dương trên đoạn. Sau khi xét giá trị lớn nhất của đạo hàm trên \\([1;4]\\), ta tìm được giới hạn của tham số \\(m\\), từ đó chọn giá trị nguyên lớn nhấ",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Tính đạo hàm của hàm số: \\(F'_m(x)=3x^2-12x+m+5=3(x-2)^2+m-7\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Vì cần \\(F_m(x)\\) nghịch biến trên \\([1;4]\\), ta cần \\(F'_m(x)\\le0\\) với mọi \\(x\\in[1;4]\\). Xét biểu thức \\(F'_m(x)=3(x-2)^2+m-7\\), phần \\(3(x-2)^2\\) đạt giá trị lớn nhất trên đoạn tại hai đầu mút."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tính các giá trị ở đầu mút: \\(F'_m(1)=m-4\\), \\(F'_m(4)=m+5\\). Do đó giá trị lớn nhất của \\(F'_m(x)\\) trên đoạn là \\(m+5\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Để \\(F'_m(x)\\le0\\) trên toàn đoạn cần \\(m+5\\le0\\), suy ra \\(m\\le-5\\). Giá trị nguyên lớn nhất thỏa mãn là \\(m=-5\\)."
+          }
+        ],
+        "final_answer": "\\(-5\\)"
+      },
+      "why_correct": "Điều kiện đạo hàm không dương trên toàn đoạn là điều kiện cần và đủ để hàm số nghịch biến trên đoạn. Việc xét giá trị lớn nhất của đạo hàm đã bao quát toàn bộ khoảng xét, nên không bỏ sót trường hợp nào.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Làm sai bằng cách tính sai đạo hàm của hạng tử \\(-6x^2\\), lấy \\((-6x^2)'=-6x\\) thay vì \\((-6x^2)'=-12x\\). Khi đó dùng đạo hàm sai \\(F_m'(x)=3x^2-6x+(m+5)\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Làm sai bằng cách chỉ kiểm tra đạo hàm tại một đầu mút của đoạn mà bỏ qua các điểm còn lại. Từ điều kiện nghịch biến, cần \\(F_m'(x)\\le0\\), nhưng chỉ xét tại \\(x=1\\): \\(F_m'(1)=3-12+(m+5)=m-4\\le0\\Rightarrow m\\le4\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Làm sai bằng cách cho rằng điều kiện \\(F_m'(x_0)=0\\) là đủ để hàm số đạt cực trị và áp dụng trực tiếp vào đạo hàm. Ta có \\(F_m'(x)=3x^2-12x+(m+5)\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_3ce027ce",
+      "blueprint_slot_id": "direct_pdf_7",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Nhận biết",
+      "difficulty_target": 0.3,
+      "difficulty_estimated": 0.35,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.3,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": 0.0,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 170,
+        "verifier_type": "none",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 67,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(f(x)=-5x^2+6x+1\\). Biết \\(x_0=\\frac{3}{5}\\) là nghiệm của \\(f'(x)=0\\). Dựa vào dấu của đạo hàm cấp hai, điểm \\(x_0\\) là điểm cực đại hay cực tiểu của hàm số?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Điểm cực đại",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "Điểm cực tiểu",
+          "error_type": "second_derivative_sign_error"
+        },
+        {
+          "key": "C",
+          "text": "Điểm cực tiểu hoặc cực đại",
+          "error_type": "misread_second_derivative_criterion"
+        },
+        {
+          "key": "D",
+          "text": "Không xác định được điểm cực trị",
+          "error_type": "derivative_zero_implies_extremum"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Ta có \\(f''(x)=-10<0\\) tại \\(x_0=\\frac{3}{5}\\), nên theo dấu của đạo hàm cấp hai, hàm số đạt cực đại tại điểm này.",
+      "explanation_per_distractor": {
+        "B": "Sai ở bước tính đạo hàm cấp hai: từ \\(f(x)=-5x^2+6x+1\\), người làm sai cho rằng \\((-5x^2)''=10\\) nên \\(f''(x)=10>0\\). Áp dụng nhầm quy tắc dấu của đạo hàm cấp hai (đạo hàm cấp hai dương thì cực tiểu), suy ra \\(x_0\\) là điểm cực tiểu. Sai vì thực tế \\(f''(x)=-10<0\\).",
+        "C": "Người làm sai nhớ không đầy đủ quy tắc đạo hàm cấp hai: thấy \\(f'(x_0)=0\\) và cho rằng dấu của \\(f''(x_0)\\) chỉ cho biết hàm có cực trị nhưng không phân biệt loại cực trị. Do đó trả lời chung là điểm cực tiểu hoặc cực đại. Sai vì khi \\(f''(x_0)<0\\) thì kết luận cụ thể là điểm cực đại.",
+        "D": "Người làm sai cho rằng điều kiện \\(f'(x_0)=0\\) chỉ là điều kiện cần nên không thể kết luận gì thêm và bỏ qua thông tin về đạo hàm cấp hai. Vì vậy kết luận không xác định được điểm cực trị. Sai vì bài đã cho đủ dữ kiện và \\(f''(x_0)=-10<0\\) cho phép kết luận \\(x_0\\) là điểm cực đại."
+      },
+      "hint": "Ta có \\(f''(x)=-10<0\\) tại \\(x_0=\\frac{3}{5}\\), nên theo dấu của đạo hàm cấp hai, hàm số đạt cực đại tại điểm này.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Nếu \\(f'(x_0)=0, f''(x_0)<0\\) thì hàm số \\(f\\) đạt cực đại tại \\(x_0\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "none",
+        "method": "none",
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": false,
+          "derivation": false,
+          "value": null,
+          "expression": "",
+          "stated_answer": "",
+          "stated_value": null,
+          "source": "unavailable",
+          "detail": "gọi model thất bại: Error code: 401 - {'detail': '{\\n  \"error\": {\\n    \"message\": \"Your authentication token has been invalidated. Please try signing in again.\",\\n    \"type\": \"invalid_request_error\",\\n    \"code\": \"token_invalidated\",\\n    \"param\": null\\n  },\\n  \"status\": 401\\n}'}",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": [
+            "Error code: 401 - {'detail': '{\\n  \"error\": {\\n    \"message\": \"Your authentication token has been invalidated. Please try signing in again.\",\\n    \"type\": \"inva"
+          ]
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "none",
+          "payload": {}
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "không có engine kiểm chứng chạy được cho câu này (gọi model thất bại: Error code: 401 - {'detail': '{\\n  \"error\": {\\n    \"message\": \"Your authentication token has been in)",
+        "verified_at": "2026-07-30T01:45:18.469298Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.5,
+        "bloom_alignment": 0.95,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ hàm số, điểm dừng, yêu cầu phân loại cực trị và không có cách hiểu khác."
+          },
+          "cognitive_depth": {
+            "score": 0.75,
+            "rationale": "Câu hỏi chủ yếu yêu cầu nhận diện và áp dụng trực tiếp quy tắc dấu đạo hàm cấp hai."
+          },
+          "bloom_alignment": {
+            "score": 0.95,
+            "rationale": "Thao tác cần làm là nhớ và áp dụng tiêu chuẩn cực trị đã học, phù hợp mức Nhận biết."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến như nhầm dấu đạo hàm cấp hai hoặc quên điều kiện phân loại cực trị."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ phương án cực đại phù hợp với \\(f''(x_0)=-10<0\\), các phương án còn lại đều trái tiêu chuẩn."
+          },
+          "error_distractor_consistency": {
+            "score": 0.98,
+            "rationale": "Chuỗi lỗi mô tả dẫn đến đúng các distractor tương ứng và phần giải thích luôn nhất quán với đáp án cực đại."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9266666666666667,
+        "verifier_pass": null,
+        "critic_score": 0.9266666666666667,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "needs_revision",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "verification.error"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Ta có \\(f''(x)=-10<0\\) tại \\(x_0=\\frac{3}{5}\\), nên theo dấu của đạo hàm cấp hai, hàm số đạt cực đại tại điểm này.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Tính đạo hàm cấp hai của hàm số: \\(f'(x)=-10x+6\\), nên \\(f''(x)=-10\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Vì \\(f''(\\frac{3}{5})=-10<0\\), suy ra hàm số đạt cực đại tại \\(x_0=\\frac{3}{5}\\)."
+          }
+        ],
+        "final_answer": "Điểm cực đại"
+      },
+      "why_correct": "Đạo hàm cấp hai âm tại điểm dừng là điều kiện xác định điểm cực đại của hàm số.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Sai ở bước tính đạo hàm cấp hai: từ \\(f(x)=-5x^2+6x+1\\), người làm sai cho rằng \\((-5x^2)''=10\\) nên \\(f''(x)=10>0\\). Áp dụng nhầm quy tắc dấu của đạo hàm cấp hai (đạo hàm cấp hai dương thì cực tiểu), suy ra \\(x_0\\) là đi"
+        },
+        {
+          "option": "C",
+          "reason": "Người làm sai nhớ không đầy đủ quy tắc đạo hàm cấp hai: thấy \\(f'(x_0)=0\\) và cho rằng dấu của \\(f''(x_0)\\) chỉ cho biết hàm có cực trị nhưng không phân biệt loại cực trị."
+        },
+        {
+          "option": "D",
+          "reason": "Người làm sai cho rằng điều kiện \\(f'(x_0)=0\\) chỉ là điều kiện cần nên không thể kết luận gì thêm và bỏ qua thông tin về đạo hàm cấp hai. Vì vậy kết luận không xác định được điểm cực trị."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_7a807f2e",
+      "blueprint_slot_id": "direct_pdf_8",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.47,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 113,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(y=x^3-3mx^2+6x+5\\) với \\(m>0\\). Tìm giá trị của \\(m\\) để hàm số đồng biến trên toàn bộ tập xác định.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\sqrt{2}\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(m=2\\)",
+          "error_type": "wrong_derivative_coefficient"
+        },
+        {
+          "key": "C",
+          "text": "\\(m=\\frac{\\sqrt{2}}{2}\\)",
+          "error_type": "wrong_parameter_condition"
+        },
+        {
+          "key": "D",
+          "text": "\\(m=\\sqrt{3}\\)",
+          "error_type": "wrong_quadratic_discriminant_condition"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Hàm số đồng biến trên \\(\\mathbb{R}\\) khi đạo hàm không âm với mọi \\(x\\). Ta biến đổi điều kiện này thành điều kiện của tam thức bậc hai để tìm được tham số \\(m\\).",
+      "explanation_per_distractor": {
+        "B": "Sai lầm: tính đạo hàm sai hệ số của hạng tử \\(-3mx^2\\), lấy \\((-3mx^2)'=-3mx\\) thay vì \\((-3mx^2)'=-6mx\\). Khi đó suy ra đạo hàm sai là \\(y'=3x^2-3mx+6\\). Điều kiện tam thức này không âm với mọi \\(x\\) cho \\(\\Delta=(-3m)^2-4\\cdot3\\cdot6\\le0\\), suy ra \\(9m^2-72\\le0\\), nhưng tiếp tục nhầm khi lấy biên dương thành \\(m=2\\). Kết quả này sai do bước đạo hàm ban đầu sai.",
+        "C": "Sai lầm: sau khi có điều kiện từ \\(\\Delta=36m^2-72\\le0\\), học sinh chia nhầm hai vế cho \\(72\\) thành \\(\\frac{m^2}{2}\\le1\\), rồi suy ra \\(m^2\\le\\frac{1}{2}\\). Lấy giá trị biên dương được \\(m=\\frac{\\sqrt{2}}{2}\\). Sai vì phép biến đổi bất đẳng thức đối với tham số bị thực hiện sai, dẫn đến giá trị nhỏ hơn điều kiện đúng.",
+        "D": "Sai lầm: cho rằng tam thức bậc hai \\(y'=3x^2-6mx+6\\) luôn không âm khi có hai nghiệm phân biệt, nên đặt điều kiện \\(\\Delta>0\\) thay vì \\(\\Delta\\le0\\). Tính \\(\\Delta=(-6m)^2-4\\cdot3\\cdot6=36m^2-72\\), từ \\(\\Delta>0\\) suy ra \\(m^2>2\\). Chọn nhầm một giá trị thỏa điều kiện này như \\(m=\\sqrt{3}\\). Sai vì khi đó \\(y'\\) đổi dấu và hàm không đồng biến trên toàn bộ \\(\\mathbb{R}\\)."
+      },
+      "hint": "Hàm số đồng biến trên \\(\\mathbb{R}\\) khi đạo hàm không âm với mọi \\(x\\). Ta biến đổi điều kiện này thành điều kiện của ta",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Để f(x) đồng biến trên D ⇒ y'=f'(x)≥0, ∀x∈D.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": false,
+          "derivation": false,
+          "value": null,
+          "expression": "",
+          "stated_answer": "",
+          "stated_value": null,
+          "source": "not_applicable",
+          "detail": "tác nhân độc lập báo bài toán không có kết quả số duy nhất",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "sqrt(2)",
+            "expected_numeric": 2.0
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (tác nhân độc lập báo bài toán không có kết quả số duy nhất)",
+        "verified_at": "2026-07-30T01:45:18.469298Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.8799999999999999,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài xác định rõ hàm số, điều kiện tham số và yêu cầu tìm \\(m\\) để hàm đồng biến trên toàn bộ tập xác định."
+          },
+          "cognitive_depth": {
+            "score": 0.82,
+            "rationale": "Bài yêu cầu vận dụng quy trình đạo hàm và điều kiện tam thức không âm để suy ra tham số, phù hợp mức hiểu-vận dụng cơ bản."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là áp dụng định lý và biến đổi điều kiện đã học chứ chưa yêu cầu phân tích hay sáng tạo ở mức cao hơn, phù hợp mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.86,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến khi xét dấu tam thức, tính đạo hàm hoặc biến đổi điều kiện tham số."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ \\(m=\\\\sqrt{2}\\) làm cho \\(\\\\Delta=0\\) của tam thức đạo hàm và thỏa điều kiện \\(m>0\\), các phương án còn lại không cho hàm đồng biến trên \\(\\\\mathbb{R}\\)."
+          },
+          "error_distractor_consistency": {
+            "score": 0.72,
+            "rationale": "Giải thích đáp án đúng nhất quán, nhưng distractor \\(m=2\\) có chuỗi lỗi mô tả chưa dẫn ra đúng giá trị này một cách hoàn toàn chặt chẽ."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8799999999999999,
+        "verifier_pass": true,
+        "critic_score": 0.8799999999999999,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Hàm số đồng biến trên \\(\\mathbb{R}\\) khi đạo hàm không âm với mọi \\(x\\). Ta biến đổi điều kiện này thành điều kiện của tam thức bậc hai để tìm được tham số \\(m\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Tính đạo hàm: \\(y'=3x^2-6mx+6=3(x^2-2mx+2)\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Để hàm số đồng biến trên \\(\\mathbb{R}\\), cần có \\(y'\\ge 0\\) với mọi \\(x\\), tức là tam thức \\(x^2-2mx+2\\) không âm với mọi \\(x\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Xét biệt thức của tam thức bậc hai: \\(\\Delta=(-2m)^2-4\\cdot1\\cdot2=4m^2-8\\). Điều kiện không âm với mọi \\(x\\) là \\(\\Delta\\le0\\), suy ra \\(4m^2-8\\le0\\) hay \\(m^2\\le2\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Vì đề cho \\(m>0\\) nên từ \\(m^2\\le2\\) và điều kiện biên để có giá trị lớn nhất của tham số ta được \\(m=\\sqrt{2}\\)."
+          }
+        ],
+        "final_answer": "\\(\\sqrt{2}\\)"
+      },
+      "why_correct": "Với \\(m=\\sqrt{2}\\), ta có \\(\\Delta=0\\) nên \\(y'=3(x-\\sqrt{2})^2\\ge0\\) với mọi \\(x\\), do đó hàm số đồng biến trên \\(\\mathbb{R}\\). Giá trị này thỏa mãn điều kiện \\(m>0\\) và là giá trị tham số cần tìm.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Sai lầm: tính đạo hàm sai hệ số của hạng tử \\(-3mx^2\\), lấy \\((-3mx^2)'=-3mx\\) thay vì \\((-3mx^2)'=-6mx\\). Khi đó suy ra đạo hàm sai là \\(y'=3x^2-3mx+6\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: sau khi có điều kiện từ \\(\\Delta=36m^2-72\\le0\\), học sinh chia nhầm hai vế cho \\(72\\) thành \\(\\frac{m^2}{2}\\le1\\), rồi suy ra \\(m^2\\le\\frac{1}{2}\\). Lấy giá trị biên dương được \\(m=\\frac{\\sqrt{2}}{2}\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: cho rằng tam thức bậc hai \\(y'=3x^2-6mx+6\\) luôn không âm khi có hai nghiệm phân biệt, nên đặt điều kiện \\(\\Delta>0\\) thay vì \\(\\Delta\\le0\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_8d2cd8eb",
+      "blueprint_slot_id": "direct_pdf_11",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 265,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một xưởng sản xuất nhận thấy lợi nhuận (đơn vị: triệu đồng) khi sản xuất \\(t\\) sản phẩm trong một giai đoạn được mô hình hóa bởi hàm số \\(P(t)=-t^3+9t^2-24t+100\\), với \\(2\\le t\\le6\\). Hỏi lợi nhuận lớn nhất mà xưởng có thể đạt được trong giai đoạn này là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(84\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(64\\)",
+          "error_type": "missing_endpoint_check"
+        },
+        {
+          "key": "C",
+          "text": "\\(81.0731785138614\\)",
+          "error_type": "wrong_derivative_coefficient"
+        },
+        {
+          "key": "D",
+          "text": "\\(80\\)",
+          "error_type": "derivative_zero_implies_extremum"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Để tìm lợi nhuận lớn nhất trên đoạn kín, cần xét các điểm tới hạn của hàm lợi nhuận và các đầu mút của đoạn. Sau khi giải phương trình đạo hàm bằng 0, so sánh các giá trị thu được để chọn giá trị lớn nhất.",
+      "explanation_per_distractor": {
+        "B": "Áp dụng sai quy trình tìm giá trị lớn nhất bằng cách chỉ xét đầu mút cuối của đoạn \\([2,6]\\), tính \\(P(6)=-(6)^3+9(6)^2-24(6)+100=64\\) rồi kết luận đây là lợi nhuận lớn nhất. Sai vì bài toán cực trị trên đoạn kín phải xét cả điểm tới hạn và tất cả các đầu mút.",
+        "C": "Sai khi tính đạo hàm của \\(-t^3+9t^2-24t+100\\) thành \\(P'(t)=-t^2+18t-24\\) (quên hệ số của hạng tử \\(-t^3\\)). Giải phương trình sai \\(-t^2+18t-24=0\\) được nghiệm thuộc đoạn \\(t=9-\\sqrt{57}\\approx1.4502\\), sau đó tính \\(P(9-\\sqrt{57})\\approx81.0731785138614\\) và lấy làm lợi nhuận lớn nhất. Sai vì đạo hàm ban đầu bị tính sai.",
+        "D": "Tính \\(P'(t)=-3t^2+18t-24\\), giải \\(P'(t)=0\\) được \\(t=2\\) và \\(t=4\\). Sai lầm là cho rằng cứ \\(P'(t_0)=0\\) thì điểm đó đều quyết định cực trị lớn nhất và chọn ngay điểm tới hạn đầu tiên \\(t=2\\). Khi đó tính \\(P(2)=80\\) và kết luận sai rằng lợi nhuận lớn nhất là \\(80\\). Sai vì cần kiểm tra đầy đủ các điểm tới hạn và hai đầu mút của đoạn."
+      },
+      "hint": "Để tìm lợi nhuận lớn nhất trên đoạn kín, cần xét các điểm tới hạn của hàm lợi nhuận và các đầu mút của đoạn.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Nếu hàm số đồng biến trên khoảng K thì \\(f'(x) \\ge 0, \\forall x \\in K\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": false,
+          "derivation": false,
+          "value": null,
+          "expression": "max(-2**3+9*2**2-24*2+100,-4**3+9*4**2-24*4+100,-6**3+9*6**2-24*6+100)",
+          "stated_answer": "84",
+          "stated_value": null,
+          "source": "llm_resolver",
+          "detail": "biểu thức độc lập không đánh giá được (parse lỗi: name 'Function' is not defined)",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "84",
+            "expected_numeric": 81.0731785138614
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (biểu thức độc lập không đánh giá được (parse lỗi: name 'Function' is not defined))",
+        "verified_at": "2026-07-30T01:46:27.594396Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.9433333333333334,
+        "bloom_alignment": 0.95,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ hàm lợi nhuận, miền xét và yêu cầu tìm giá trị lớn nhất nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Câu hỏi yêu cầu vận dụng quy trình cực trị trên đoạn kín thay vì chỉ nhận biết công thức đơn giản."
+          },
+          "bloom_alignment": {
+            "score": 0.95,
+            "rationale": "Thao tác tính đạo hàm, tìm điểm tới hạn và so sánh giá trị đúng với mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đại diện cho những lỗi thường gặp như chỉ lấy nghiệm đạo hàm, bỏ qua đầu mút và tính sai đạo hàm."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có giá trị lớn nhất đúng là 84 và các distractor đều xuất phát từ quy trình sai."
+          },
+          "error_distractor_consistency": {
+            "score": 0.98,
+            "rationale": "Các chuỗi lỗi mô tả dẫn đúng đến các giá trị 80, 64, 81.0731785138614 và phần giải thích không mâu thuẫn với đáp án 84."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9433333333333334,
+        "verifier_pass": true,
+        "critic_score": 0.9433333333333334,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Để tìm lợi nhuận lớn nhất trên đoạn kín, cần xét các điểm tới hạn của hàm lợi nhuận và các đầu mút của đoạn. Sau khi giải phương trình đạo hàm bằng 0, so sánh các giá trị thu được để chọn giá trị lớn nhất.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Xét hàm lợi nhuận \\(P(t)=-t^3+9t^2-24t+100\\) trên đoạn \\([2;6]\\). Tính đạo hàm: \\(P'(t)=-3t^2+18t-24=-3(t^2-6t+8)=-3(t-2)(t-4)\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Giải phương trình \\(P'(t)=0\\): \\(-3(t-2)(t-4)=0\\), suy ra các điểm cần xét là \\(t=2\\) và \\(t=4\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Lập bảng xét dấu đạo hàm: trên khoảng \\((2;4)\\), \\(P'(t)>0\\) nên lợi nhuận tăng; trên khoảng \\((4;6)\\), \\(P'(t)<0\\) nên lợi nhuận giảm. Do đó \\(t=4\\) cho giá trị cực đại trong đoạn xét."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Tính các giá trị cần so sánh: \\(P(2)=-8+36-48+100=80\\), \\(P(4)=-64+144-96+100=84\\), \\(P(6)=-216+324-144+100=64\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "So sánh \\(80,84,64\\), giá trị lớn nhất là \\(84\\). Vậy lợi nhuận lớn nhất xưởng đạt được là \\(84\\) triệu đồng."
+          }
+        ],
+        "final_answer": "\\(84\\)"
+      },
+      "why_correct": "Giá trị \\(84\\) là lớn nhất trong tất cả các giá trị của hàm lợi nhuận tại điểm tới hạn và hai đầu mút của đoạn xác định, nên đây là đáp án duy nhất đúng.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Áp dụng sai quy trình tìm giá trị lớn nhất bằng cách chỉ xét đầu mút cuối của đoạn \\([2,6]\\), tính \\(P(6)=-(6)^3+9(6)^2-24(6)+100=64\\) rồi kết luận đây là lợi nhuận lớn nhất."
+        },
+        {
+          "option": "C",
+          "reason": "Sai khi tính đạo hàm của \\(-t^3+9t^2-24t+100\\) thành \\(P'(t)=-t^2+18t-24\\) (quên hệ số của hạng tử \\(-t^3\\)). Giải phương trình sai \\(-t^2+18t-24=0\\) được nghiệm thuộc đoạn"
+        },
+        {
+          "option": "D",
+          "reason": "Tính \\(P'(t)=-3t^2+18t-24\\), giải \\(P'(t)=0\\) được \\(t=2\\) và \\(t=4\\). Sai lầm là cho rằng cứ \\(P'(t_0)=0\\) thì điểm đó đều quyết định cực trị lớn nhất và chọn ngay điểm tới hạn đầu tiên \\(t=2\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_365d06a2",
+      "blueprint_slot_id": "direct_pdf_13",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.67,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 136,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(f(x)=x^3-3mx^2+6x+5\\) với \\(m>0\\). Giá trị lớn nhất của tham số \\(m\\) để hàm số đồng biến trên đoạn \\([1;3]\\) là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{3}{2}\\)",
+          "error_type": "extremum_endpoint_missing"
+        },
+        {
+          "key": "B",
+          "text": "\\(1\\)",
+          "error_type": "wrong_vertex_value"
+        },
+        {
+          "key": "C",
+          "text": "\\(2\\sqrt{2}\\)",
+          "error_type": "wrong_derivative_coefficient"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\sqrt{2}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Để hàm số đồng biến trên đoạn đã cho cần xét dấu đạo hàm trên toàn bộ đoạn. Sau khi biến đổi điều kiện đạo hàm không âm thành điều kiện của một tam thức bậc hai, ta tìm được giới hạn của tham số.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: chỉ kiểm tra đạo hàm tại hai đầu mút của đoạn \\([1;3]\\) mà bỏ qua điểm đạt giá trị nhỏ nhất của đạo hàm. Tính \\(f'(x)=3x^2-6mx+6\\). Lấy \\(f'(1)=9-6m\\ge0\\) suy ra \\(m\\le\\frac{3}{2}\\); còn \\(f'(3)=33-18m\\ge0\\) cho điều kiện yếu hơn. Kết luận sai là giá trị lớn nhất \\(m=\\frac{3}{2}\\). Sai vì cần xét cả điểm tới hạn \\(x=m\\) trong đoạn, nơi đạo hàm có thể nhỏ nhất.",
+        "B": "Sai lầm: tính sai giá trị của đạo hàm tại đỉnh của tam thức. Sau khi có \\(f'(x)=3x^2-6mx+6\\), nhận ra đỉnh tại \\(x=m\\) nhưng tính nhầm \\(f'(m)=6-6m^2\\) thay vì \\(f'(m)=6-3m^2\\). Từ điều kiện \\(6-6m^2\\ge0\\) suy ra \\(m^2\\le1\\), do \\(m>0\\) nên chọn \\(m=1\\). Sai vì phép tính giá trị tại đỉnh bị sai hệ số.",
+        "C": "Sai lầm: lấy đạo hàm sai ở hạng tử \\(-3mx^2\\), cho rằng \\((-3mx^2)'=-3mx\\) thay vì \\(-6mx\\). Khi đó dùng đạo hàm sai \\(g'(x)=3x^2-3mx+6\\). Đỉnh của tam thức xảy ra tại \\(x=\\frac{m}{2}\\), suy ra giá trị nhỏ nhất là \\(g'(\\frac{m}{2})=6-\\frac{3m^2}{4}\\). Điều kiện \\(6-\\frac{3m^2}{4}\\ge0\\) cho \\(m^2\\le8\\), nên chọn sai \\(m=2\\sqrt{2}\\). Sai vì công thức đạo hàm ban đầu không đúng."
+      },
+      "hint": "Để hàm số đồng biến trên đoạn đã cho cần xét dấu đạo hàm trên toàn bộ đoạn.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Đề yêu cầu y=f(x;m) đồng biến trên D ⇒ y'=f'(x;m)≥0.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 1.4142135623730951,
+          "expression": "sqrt(2)",
+          "stated_answer": "sqrt(2)",
+          "stated_value": 1.4142135623730951,
+          "source": "llm_resolver",
+          "detail": "sqrt(2) = 1.41421",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "sqrt(2)",
+            "expected_numeric": 2.8284271247461903
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 1.41421, khớp đáp án key",
+        "verified_at": "2026-07-30T01:47:35.494213Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.92,
+        "quality": 0.9,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ hàm số, miền xét, điều kiện tham số và yêu cầu tìm giá trị lớn nhất nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu kết hợp đạo hàm, điều kiện đơn điệu trên đoạn và tối ưu tham số nên phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là áp dụng quy trình giải bài toán tham số để suy luận điều kiện chứ không chỉ nhớ công thức."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến khi xét đạo hàm trên đoạn như bỏ điểm cực trị của đạo hàm hoặc tính sai đạo hàm."
+          },
+          "answer_uniqueness": {
+            "score": 0.95,
+            "rationale": "Chỉ có \\(m=\\sqrt{2}\\) thỏa điều kiện \\(f'(x)\\ge0\\) trên toàn đoạn, các phương án còn lại xuất phát từ sai sót."
+          },
+          "error_distractor_consistency": {
+            "score": 0.82,
+            "rationale": "Chuỗi lỗi của các distractor nhìn chung tạo đúng các giá trị đã nêu, nhưng giải thích \\(f'(m)\\) trong distractor \\(1\\) có cách ghi không khớp hoàn toàn với biểu thức đạo hàm đúng."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9,
+        "verifier_pass": true,
+        "critic_score": 0.9,
+        "grounding_score": 0.92,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Để hàm số đồng biến trên đoạn đã cho cần xét dấu đạo hàm trên toàn bộ đoạn. Sau khi biến đổi điều kiện đạo hàm không âm thành điều kiện của một tam thức bậc hai, ta tìm được giới hạn của tham số.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Tính đạo hàm: \\(f'(x)=3x^2-6mx+6=3(x^2-2mx+2)\\). Vì \\(3>0\\), cần có \\(x^2-2mx+2\\geq0\\) với mọi \\(x\\in[1;3]\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Xét tam thức \\(g(x)=x^2-2mx+2\\). Với \\(m>0\\), điểm đạt giá trị nhỏ nhất của \\(g(x)\\) là \\(x=m\\) nếu \\(m\\in[1;3]\\). Khi đó \\(g(m)=2-m^2\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Để \\(g(x)\\geq0\\) trên đoạn, trường hợp \\(m\\in[1;3]\\) phải thỏa \\(2-m^2\\geq0\\), suy ra \\(m\\leq\\sqrt{2}\\). Hai trường hợp \\(m<1\\) và \\(m>3\\) không cho giá trị lớn hơn phù hợp: với \\(m<1\\), điều kiện tại \\(x=1\\) cho \\(3-2m\\geq0\\); với \\(m>3\\), điều kiện tại \\(x=3\\) cho \\(11-6m\\geq0\\), mâu thuẫn với \\(m>3\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Kết hợp các điều kiện với \\(m>0\\), giá trị lớn nhất của tham số thỏa mãn là \\(m=\\sqrt{2}\\)."
+          }
+        ],
+        "final_answer": "\\(\\sqrt{2}\\)"
+      },
+      "why_correct": "Giá trị \\(m=\\sqrt{2}\\) làm cho đạo hàm không âm trên toàn bộ đoạn \\([1;3]\\). Nếu tăng \\(m\\) lớn hơn \\(\\sqrt{2}\\), tại \\(x=m\\) (nằm trong đoạn) sẽ có \\(f'(m)<0\\), nên hàm không còn đồng biến.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: chỉ kiểm tra đạo hàm tại hai đầu mút của đoạn \\([1;3]\\) mà bỏ qua điểm đạt giá trị nhỏ nhất của đạo hàm. Tính \\(f'(x)=3x^2-6mx+6\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm: tính sai giá trị của đạo hàm tại đỉnh của tam thức. Sau khi có \\(f'(x)=3x^2-6mx+6\\), nhận ra đỉnh tại \\(x=m\\) nhưng tính nhầm \\(f'(m)=6-6m^2\\) thay vì \\(f'(m)=6-3m^2\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: lấy đạo hàm sai ở hạng tử \\(-3mx^2\\), cho rằng \\((-3mx^2)'=-3mx\\) thay vì \\(-6mx\\). Khi đó dùng đạo hàm sai \\(g'(x)=3x^2-3mx+6\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_6041c8dd",
+      "blueprint_slot_id": "direct_pdf_14",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.47,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 135,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(f_m(x)=x^3-3mx^2+6x+1\\) với \\(m>0\\). Biết hàm số đồng biến trên đoạn \\([0;3]\\). Giá trị lớn nhất của \\(m\\) bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\sqrt{3}\\)",
+          "error_type": "wrong_endpoint_check"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\sqrt{2}\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(2\\sqrt{2}\\)",
+          "error_type": "quadratic_coefficient_error"
+        },
+        {
+          "key": "D",
+          "text": "\\(2\\)",
+          "error_type": "vertex_value_wrong"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Ta xét đạo hàm và điều kiện để \\(f'_m(x)\\ge 0\\) trên đoạn \\([0;3]\\). Giá trị nhỏ nhất của đạo hàm quyết định giới hạn của tham số \\(m\\), từ đó suy ra \\(m\\le\\sqrt{2}\\).",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: chỉ xét điều kiện tại điểm làm cực tiểu trong khoảng \\([0;3]\\) và bỏ qua việc phải kiểm tra toàn bộ đoạn. Từ \\(f'_m(m)=3(2-m^2)\\ge0\\) suy ra \\(m^2\\le2\\), nhưng do nhầm khi chuyển điều kiện (lấy giới hạn từ \\(2-m^2\\ge -1\\)) nên nhận được \\(m^2\\le3\\), suy ra \\(m=\\sqrt{3}\\). Sai vì điều kiện cần là \\(f'_m(x)\\ge0\\) với mọi \\(x\\in[0;3]\\), không chỉ tại một giá trị.",
+        "C": "Sai lầm: khi đưa đạo hàm về tam thức bậc hai, học sinh bỏ hệ số trong hạng tử giữa và coi \\(x^2-2mx+2\\) thành \\(x^2-mx+2\\). Khi đó giá trị nhỏ nhất tại \\(x=\\frac{m}{2}\\) là \\(2-\\frac{m^2}{4}\\). Điều kiện \\(2-\\frac{m^2}{4}\\ge0\\) cho \\(m^2\\le8\\), nên chọn \\(m=2\\sqrt{2}\\). Sai vì đã biến đổi sai biểu thức đạo hàm ban đầu.",
+        "D": "Sai lầm: khi xét \\(f'_m(x)=3(x^2-2mx+2)\\), học sinh đặt đỉnh của tam thức tại \\(x=m\\) nhưng tính sai giá trị nhỏ nhất của tam thức: thay vì \\(m^2-2m^2+2=2-m^2\\), lại tính thành \\(2-m\\). Khi đó điều kiện đồng biến được suy ra từ \\(2-m\\ge0\\), nên lấy giá trị lớn nhất là \\(m=2\\). Sai vì đã tính sai tung độ đỉnh của tam thức bậc hai."
+      },
+      "hint": "Ta xét đạo hàm và điều kiện để \\(f'_m(x)\\ge 0\\) trên đoạn \\([0;3]\\). Giá trị nhỏ nhất của đạo hàm quyết định giới hạn của",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Nếu \\(f'(x)>0,\\forall x\\in K\\) thì hàm số \\(f\\) đồng biến trên \\(K\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 1.4142135623730951,
+          "expression": "sqrt(2)",
+          "stated_answer": "sqrt(2)",
+          "stated_value": 1.4142135623730951,
+          "source": "llm_resolver",
+          "detail": "sqrt(2) = 1.41421",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "sqrt(2)",
+            "expected_numeric": 2.8284271247461903
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 1.41421, khớp đáp án key",
+        "verified_at": "2026-07-30T01:47:36.249299Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.9083333333333333,
+        "bloom_alignment": 0.8,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề nêu rõ hàm số, điều kiện tham số, đoạn xét và yêu cầu tìm giá trị lớn nhất nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu vận dụng đạo hàm, xét giá trị nhỏ nhất của tam thức và suy luận tham số thay vì chỉ nhớ công thức."
+          },
+          "bloom_alignment": {
+            "score": 0.8,
+            "rationale": "Thao tác chính là áp dụng quy trình đã học để giải bài toán tham số đơn điệu, phù hợp mức Thông hiểu nhưng có yếu tố vận dụng nhẹ."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều mô phỏng lỗi thường gặp khi tính đỉnh tam thức hoặc kiểm tra điều kiện trên đoạn, có tính chẩn đoán."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Điều kiện đúng dẫn tới \\(m\\\\le\\\\sqrt{2}\\) nên chỉ có một giá trị lớn nhất là \\(\\sqrt{2}\\), các phương án còn lại không thỏa."
+          },
+          "error_distractor_consistency": {
+            "score": 0.95,
+            "rationale": "Chuỗi lỗi của từng distractor nhìn chung dẫn đúng tới các giá trị đã nêu và phần giải thích đáp án nhất quán với đáp án \\(\\sqrt{2}\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9083333333333333,
+        "verifier_pass": true,
+        "critic_score": 0.9083333333333333,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Ta xét đạo hàm và điều kiện để \\(f'_m(x)\\ge 0\\) trên đoạn \\([0;3]\\). Giá trị nhỏ nhất của đạo hàm quyết định giới hạn của tham số \\(m\\), từ đó suy ra \\(m\\le\\sqrt{2}\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Tính đạo hàm: \\(f'_m(x)=3x^2-6mx+6=3(x^2-2mx+2)\\). Để hàm số đồng biến trên \\([0;3]\\), cần có \\(f'_m(x)\\ge0\\) với mọi \\(x\\in[0;3]\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Xét tam thức \\(x^2-2mx+2\\). Vì \\(m>0\\), đỉnh của parabol nằm tại \\(x=m\\). Trường hợp \\(0<m\\le3\\), giá trị nhỏ nhất đạt tại \\(x=m\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tại \\(x=m\\), ta có \\(f'_m(m)=3(m^2-2m^2+2)=3(2-m^2)\\). Điều kiện đồng biến cho \\(3(2-m^2)\\ge0\\), suy ra \\(m^2\\le2\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Kết hợp với \\(m>0\\), ta được \\(0<m\\le\\sqrt{2}\\). Mặt khác \\(\\sqrt{2}<3\\), nên điều kiện xét đỉnh trong đoạn \\([0;3]\\) là phù hợp."
+          }
+        ],
+        "final_answer": "\\(\\sqrt{2}\\)"
+      },
+      "why_correct": "Điều kiện đồng biến trên đoạn buộc đạo hàm không âm trên toàn bộ đoạn. Giá trị nhỏ nhất của đạo hàm xảy ra tại điểm đỉnh của tam thức bậc hai, nên chỉ có \\(m\\le\\sqrt{2}\\) thỏa mãn; do đó giá trị lớn nhất duy nhất là \\(\\sqrt{2}\\).",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: chỉ xét điều kiện tại điểm làm cực tiểu trong khoảng \\([0;3]\\) và bỏ qua việc phải kiểm tra toàn bộ đoạn. Từ \\(f'_m(m)=3(2-m^2)\\ge0\\) suy ra \\(m^2\\le2\\), nhưng do nhầm khi chuyển điều kiện (lấy giới hạn từ"
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: khi đưa đạo hàm về tam thức bậc hai, học sinh bỏ hệ số trong hạng tử giữa và coi \\(x^2-2mx+2\\) thành \\(x^2-mx+2\\). Khi đó giá trị nhỏ nhất tại \\(x=\\frac{m}{2}\\) là \\(2-\\frac{m^2}{4}\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: khi xét \\(f'_m(x)=3(x^2-2mx+2)\\), học sinh đặt đỉnh của tam thức tại \\(x=m\\) nhưng tính sai giá trị nhỏ nhất của tam thức: thay vì \\(m^2-2m^2+2=2-m^2\\), lại tính thành \\(2-m\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_35ee8fdb",
+      "blueprint_slot_id": "direct_pdf_15",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 191,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(y=\\frac{3x+5}{x+m}\\) với \\(m\\ne -x\\). Biết đồ thị hàm số có tiệm cận đứng là đường thẳng \\(x=-2\\) và hàm số đồng biến trên từng khoảng xác định. Giá trị của \\(m\\) bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(0\\)",
+          "error_type": "wrong_domain"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{5}{3}\\)",
+          "error_type": "wrong_derivative_condition"
+        },
+        {
+          "key": "C",
+          "text": "\\(-2\\)",
+          "error_type": "wrong_sign_vertical_asymptote"
+        },
+        {
+          "key": "D",
+          "text": "\\(2\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Từ tiệm cận đứng tìm được giá trị tham số, sau đó kiểm tra điều kiện đơn điệu bằng đạo hàm.",
+      "explanation_per_distractor": {
+        "A": "Học sinh bỏ qua điều kiện xác định và xử lý sai tiệm cận đứng: thay \\(x=-2\\) vào mẫu \\(x+m\\) được \\(-2+m=0\\), sau đó chuyển vế nhầm dấu và lấy \\(m=0\\). Sai vì phải giải đúng \\(-2+m=0\\) nên \\(m=2\\), đồng thời cần kiểm tra điều kiện xác định của hàm số.",
+        "B": "Học sinh tính đạo hàm đúng \\(y'=\\frac{3m-5}{(x+m)^2}\\) nhưng chỉ lấy điều kiện biên \\(3m-5=0\\) để đảm bảo đồng biến, suy ra \\(m=\\frac{5}{3}\\). Sai vì để hàm số đồng biến trên từng khoảng xác định cần \\(y'>0\\), tức \\(3m-5>0\\), không phải chỉ bằng \\(0\\).",
+        "C": "Học sinh áp dụng sai công thức tiệm cận đứng, cho rằng mẫu số \\(x+m=0\\) tạo ra tiệm cận \\(x=m\\) thay vì \\(x=-m\\). Từ \\(x=-2\\) suy ra nhầm \\(m=-2\\). Sai vì nghiệm của \\(x+m=0\\) là \\(x=-m\\)."
+      },
+      "hint": "Từ tiệm cận đứng tìm được giá trị tham số, sau đó kiểm tra điều kiện đơn điệu bằng đạo hàm.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Dạng 1.3. Hàm số phân thức đơn điệu trên khoảng k.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": false,
+          "value": 2.0,
+          "expression": "2",
+          "stated_answer": "2",
+          "stated_value": 2.0,
+          "source": "llm_resolver",
+          "detail": "2 = 2; nhưng biểu thức chỉ là hằng số trần — không có phép tính nào được máy kiểm, nên không đủ để gọi là xác nhận độc lập",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "2",
+            "expected_numeric": 0
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (nguồn độc lập cũng cho 2 nhưng chỉ khẳng định một hằng số, không suy dẫn)",
+        "verified_at": "2026-07-30T01:48:35.338092Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.8916666666666667,
+        "bloom_alignment": 0.8,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề nêu rõ hàm số, điều kiện tham số, tiệm cận đứng và yêu cầu tìm giá trị m."
+          },
+          "cognitive_depth": {
+            "score": 0.75,
+            "rationale": "Bài yêu cầu kết hợp xác định tiệm cận và kiểm tra đơn điệu bằng đạo hàm, phù hợp mức vận dụng nhẹ hơn là chỉ nhận biết."
+          },
+          "bloom_alignment": {
+            "score": 0.8,
+            "rationale": "Thao tác giải gồm áp dụng công thức và kiểm tra điều kiện đã học, phù hợp mức Thông hiểu nhưng có yếu tố vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến về dấu tiệm cận, điều kiện đạo hàm và miền xác định."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Từ tiệm cận đứng suy ra duy nhất m=2 và giá trị này thỏa điều kiện đồng biến nên chỉ có một đáp án đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 0.95,
+            "rationale": "Các chuỗi lỗi mô tả đều dẫn đúng tới các distractor tương ứng và phần giải thích nhất quán với đáp án m=2."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8916666666666667,
+        "verifier_pass": true,
+        "critic_score": 0.8916666666666667,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ tiệm cận đứng tìm được giá trị tham số, sau đó kiểm tra điều kiện đơn điệu bằng đạo hàm.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Với hàm số \\(y=\\frac{3x+5}{x+m}\\), tiệm cận đứng xảy ra khi \\(x+m=0\\), nên phương trình tiệm cận đứng là \\(x=-m\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Do tiệm cận đứng là \\(x=-2\\) nên \\(-m=-2\\Rightarrow m=2\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Kiểm tra tính đồng biến: \\(y'=\\frac{3m-5}{(x+m)^2}\\). Thay \\(m=2\\) được \\(y'=\\frac{1}{(x+2)^2}>0\\) trên các khoảng xác định, nên hàm số đồng biến trên từng khoảng xác định."
+          }
+        ],
+        "final_answer": "\\(2\\)"
+      },
+      "why_correct": "Giá trị \\(m=2\\) vừa thỏa điều kiện về tiệm cận đứng, vừa thỏa điều kiện đạo hàm dương trên miền xác định; do tiệm cận đứng xác định duy nhất \\(m\\) nên đáp án là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Học sinh bỏ qua điều kiện xác định và xử lý sai tiệm cận đứng: thay \\(x=-2\\) vào mẫu \\(x+m\\) được \\(-2+m=0\\), sau đó chuyển vế nhầm dấu và lấy \\(m=0\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Học sinh tính đạo hàm đúng \\(y'=\\frac{3m-5}{(x+m)^2}\\) nhưng chỉ lấy điều kiện biên \\(3m-5=0\\) để đảm bảo đồng biến, suy ra \\(m=\\frac{5}{3}\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Học sinh áp dụng sai công thức tiệm cận đứng, cho rằng mẫu số \\(x+m=0\\) tạo ra tiệm cận \\(x=m\\) thay vì \\(x=-m\\). Từ \\(x=-2\\) suy ra nhầm \\(m=-2\\). Sai vì nghiệm của \\(x+m=0\\) là \\(x=-m\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_3326f262",
+      "blueprint_slot_id": "direct_pdf_16",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 172,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(f_m(x)=x^4-2mx^2+3\\) với \\(m>0\\). Đồ thị hàm số có ba điểm cực trị \\(A,B,C\\). Biết tam giác \\(ABC\\) có diện tích bằng \\(12\\). Giá trị của \\(m\\) bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\sqrt[5]{144}\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(\\sqrt[3]{144}\\)",
+          "error_type": "extrema_height_as_parameter"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\sqrt[5]{36}\\)",
+          "error_type": "area_triangle_missing_half"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\sqrt[3]{12}\\)",
+          "error_type": "sqrt_equation_solution_error"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Ta tìm các điểm cực trị của hàm số theo tham số \\(m\\), sau đó biểu diễn diện tích tam giác tạo bởi các điểm cực trị theo \\(m\\) và giải phương trình thu được.",
+      "explanation_per_distractor": {
+        "B": "Sai lầm: xác định sai chiều cao của tam giác cực trị, lấy hiệu tung độ giữa điểm cực trị như bằng \\(m\\) thay vì \\(m^2\\). Khi đó dùng công thức đúng \\(S=\\frac{1}{2}\\cdot 2\\sqrt{m}\\cdot m\\), được \\(m^{3/2}=12\\). Bình phương hai vế cho \\(m^3=144\\), suy ra \\(m=\\sqrt[3]{144}\\).",
+        "C": "Sai lầm: dùng công thức diện tích tam giác là đáy nhân chiều cao, bỏ mất hệ số \\(\\frac{1}{2}\\). Ta vẫn tìm được các điểm cực trị với hoành độ \\(-\\sqrt{m},0,\\sqrt{m}\\), nên đáy có độ dài \\(2\\sqrt{m}\\) và chiều cao là \\(m^2\\). Tính sai diện tích: \\(S=2\\sqrt{m}\\cdot m^2=2m^{5/2}=12\\), suy ra \\(m^{5/2}=6\\), do đó \\(m=\\sqrt[5]{36}\\).",
+        "D": "Sai lầm: từ phương trình hoành độ điểm cực trị \\(x^2=m\\) suy ra nhầm \\(x=m\\), nên khoảng cách giữa hai điểm cực trị ngoài bị lấy là \\(2m\\) thay vì \\(2\\sqrt{m}\\). Khi đó diện tích bị tính sai thành \\(S=\\frac{1}{2}\\cdot 2m\\cdot m^2=m^3=12\\), suy ra \\(m=\\sqrt[3]{12}\\)."
+      },
+      "hint": "Ta tìm các điểm cực trị của hàm số theo tham số \\(m\\), sau đó biểu diễn diện tích tam giác tạo bởi các điểm cực trị theo",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Có ba điểm cực trị (hai cực trị). ab < 0",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 2.7019200770412266,
+          "expression": "12**(2/5)",
+          "stated_answer": "12**(2/5)",
+          "stated_value": 2.7019200770412266,
+          "source": "llm_resolver",
+          "detail": "12**(2/5) = 2.70192",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "12**(2/5)",
+            "expected_numeric": 2.2894284851066637
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 2.70192, khớp đáp án key",
+        "verified_at": "2026-07-30T01:48:49.321430Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.9166666666666666,
+        "bloom_alignment": 0.85,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề nêu rõ hàm số, điều kiện tham số, dữ kiện hình học và yêu cầu tìm giá trị duy nhất của m."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu kết hợp đạo hàm tìm cực trị, tọa độ điểm cực trị và xử lý điều kiện diện tích nên vượt mức áp dụng công thức đơn giản."
+          },
+          "bloom_alignment": {
+            "score": 0.85,
+            "rationale": "Thao tác chính là phân tích và kết nối nhiều bước phương pháp cực trị - hình học, phù hợp mức vận dụng cao."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều xuất phát từ những lỗi tính diện tích, sai chiều cao hoặc sai khoảng cách hoành độ thường gặp."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Từ diện tích suy ra \\(m^{5/2}=12\\) và điều kiện \\(m>0\\) cho đúng một nghiệm \\(m=\\sqrt[5]{144}\\), không có phương án nhiễu nào trùng đáp án."
+          },
+          "error_distractor_consistency": {
+            "score": 0.95,
+            "rationale": "Mỗi chuỗi lỗi mô tả đều dẫn đúng đến giá trị distractor tương ứng và phần giải thích đáp án không mâu thuẫn với đáp án đúng."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9166666666666666,
+        "verifier_pass": true,
+        "critic_score": 0.9166666666666666,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Ta tìm các điểm cực trị của hàm số theo tham số \\(m\\), sau đó biểu diễn diện tích tam giác tạo bởi các điểm cực trị theo \\(m\\) và giải phương trình thu được.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Ta có \\(f'_m(x)=4x^3-4mx=4x(x^2-m)\\). Vì \\(m>0\\), phương trình \\(f'_m(x)=0\\) có ba nghiệm \\(x=0, x=\\sqrt{m}, x=-\\sqrt{m}\\), nên đồ thị có ba điểm cực trị."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Tính tung độ các điểm cực trị: \\(f_m(0)=3\\), còn \\(f_m(\\pm\\sqrt{m})=m^2-2m\\cdot m+3=3-m^2\\). Do đó hai điểm có hoành độ \\(\\pm\\sqrt{m}\\) nằm trên cùng một đường thẳng ngang."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Độ dài đáy của tam giác nối hai điểm cực trị có hoành độ \\(\\pm\\sqrt{m}\\) là \\(2\\sqrt{m}\\), chiều cao ứng với điểm còn lại là \\(3-(3-m^2)=m^2\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Diện tích tam giác là \\(S=\\frac{1}{2}\\cdot 2\\sqrt{m}\\cdot m^2=m^{\\frac{5}{2}}\\). Theo giả thiết \\(m^{\\frac{5}{2}}=12\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Lũy thừa hai vế với số mũ \\(\\frac{2}{5}\\) thu được \\(m=12^{\\frac{2}{5}}=\\sqrt[5]{144}\\)."
+          }
+        ],
+        "final_answer": "\\(\\sqrt[5]{144}\\)"
+      },
+      "why_correct": "Điều kiện diện tích đã được biến đổi thành một phương trình duy nhất theo \\(m\\). Vì \\(m>0\\), phép lấy lũy thừa \\(\\frac{2}{5}\\) cho nghiệm dương duy nhất nên chỉ có một giá trị thỏa mãn.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Sai lầm: xác định sai chiều cao của tam giác cực trị, lấy hiệu tung độ giữa điểm cực trị như bằng \\(m\\) thay vì \\(m^2\\). Khi đó dùng công thức đúng \\(S=\\frac{1}{2}\\cdot 2\\sqrt{m}\\cdot m\\), được \\(m^{3/2}=12\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: dùng công thức diện tích tam giác là đáy nhân chiều cao, bỏ mất hệ số \\(\\frac{1}{2}\\). Ta vẫn tìm được các điểm cực trị với hoành độ \\(-\\sqrt{m},0,\\sqrt{m}\\), nên đáy có độ dài \\(2\\sqrt{m}\\) và chiều cao là"
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: từ phương trình hoành độ điểm cực trị \\(x^2=m\\) suy ra nhầm \\(x=m\\), nên khoảng cách giữa hai điểm cực trị ngoài bị lấy là \\(2m\\) thay vì \\(2\\sqrt{m}\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_91f1188e",
+      "blueprint_slot_id": "direct_pdf_18",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 173,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(F(x)=((x^2-5x+6)^3-3(x^2-5x+6)+1)\\) xác định trên đoạn \\([0;k]\\) với \\(k>0\\). Tìm giá trị lớn nhất của \\(k\\) để hàm số \\(F(x)\\) nghịch biến trên đoạn \\([0;k]\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(1\\)",
+          "error_type": "wrong_inner_function"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{5+\\sqrt{5}}{2}\\)",
+          "error_type": "wrong_root_selection"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{5-\\sqrt{5}}{2}\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{5}{2}\\)",
+          "error_type": "outer_derivative_sign_error"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Đặt \\(u=x^2-5x+6\\), ta xét dấu đạo hàm của hàm hợp. Điều kiện nghịch biến yêu cầu \\(F'(x)\\le0\\) trên toàn đoạn, từ đó tìm được điểm giới hạn đầu tiên mà dấu đạo hàm đổi chiều.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: lấy nhầm hàm trong khi áp dụng quy tắc dây chuyền, coi hàm trong cần xét là \\(x\\) thay vì \\(u=x^2-5x+6\\). Khi đó đạo hàm bị viết sai thành \\(F'(x)=3(x^2-1)(2x-5)\\). Cho nhân tử đổi dấu đầu tiên bằng \\(0\\): \\(x^2-1=0\\Rightarrow x=\\pm1\\). Chọn nghiệm dương nhỏ nhất để làm mốc nghịch biến nên thu được \\(k=1\\). Sai vì đã xác định sai cấu trúc hàm hợp.",
+        "B": "Sai lầm: sau khi tìm đúng điều kiện biên \\(u=1\\), giải phương trình \\(x^2-5x+6=1\\Rightarrow x^2-5x+5=0\\), nhận được hai nghiệm \\(x=\\frac{5-\\sqrt5}{2}\\) và \\(x=\\frac{5+\\sqrt5}{2}\\), nhưng chọn nhầm nghiệm lớn hơn vì cho rằng cần lấy giá trị \\(k\\) lớn nhất trong các nghiệm. Do đó thu được \\(k=\\frac{5+\\sqrt5}{2}\\).",
+        "D": "Sai lầm: khi lấy đạo hàm hàm ngoài \\(u^3-3u+1\\), đổi sai dấu của hạng tử \\(-3u\\), viết \\( (u^3-3u+1)'=3u^2+3\\) thay vì \\(3u^2-3\\). Khi đó \\(F'(x)=3(u^2+1)(2x-5)\\). Vì \\(u^2+1>0\\), dấu của \\(F'(x)\\) chỉ phụ thuộc vào \\(2x-5\\). Điều kiện nghịch biến cho \\(2x-5\\le0\\Rightarrow x\\le\\frac{5}{2}\\), nên kết luận sai \\(k=\\frac{5}{2}\\)."
+      },
+      "hint": "Đặt \\(u=x^2-5x+6\\), ta xét dấu đạo hàm của hàm hợp. Điều kiện nghịch biến yêu cầu \\(F'(x)\\le0\\) trên toàn đoạn, từ đó tìm",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Dạng 1.4. Hàm hợp y=f(u(x)).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 1.381966011250105,
+          "expression": "(5-sqrt(5))/2",
+          "stated_answer": "(5-sqrt(5))/2",
+          "stated_value": 1.381966011250105,
+          "source": "llm_resolver",
+          "detail": "(5-sqrt(5))/2 = 1.38197",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "(5-sqrt(5))/2",
+            "expected_numeric": 3.618033988749895
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 1.38197, khớp đáp án key",
+        "verified_at": "2026-07-30T01:50:10.701286Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.5,
+        "quality": 0.9016666666666667,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.96,
+            "rationale": "Đề nêu rõ hàm số, đoạn xét, điều kiện \\(k>0\\) và yêu cầu tìm giá trị lớn nhất của \\(k\\) nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.88,
+            "rationale": "Bài toán yêu cầu kết hợp nhận dạng hàm hợp, tính đạo hàm, xét dấu và suy luận miền nghịch biến thay vì chỉ áp dụng công thức đơn giản."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác cần thực hiện là vận dụng phương pháp hàm hợp và đạo hàm để giải bài toán mới, phù hợp mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến khi xử lý hàm hợp, dấu đạo hàm hàm ngoài và chọn nghiệm biên."
+          },
+          "answer_uniqueness": {
+            "score": 0.95,
+            "rationale": "Chỉ có \\(\\frac{5-\\sqrt{5}}{2}\\) thỏa điều kiện đoạn \\([0;k]\\) nằm hoàn toàn trong miền nghịch biến; các nghiệm còn lại không cho đáp án đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 0.82,
+            "rationale": "Các chuỗi lỗi mô tả dẫn đúng tới từng distractor, nhưng phần giải thích 'nghiệm dương nhỏ nhất của phương trình \\(u=1\\)' cần diễn đạt chặt hơn vì còn phụ thuộc dấu của \\(u'\\) và \\(f'(u)\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9016666666666667,
+        "verifier_pass": true,
+        "critic_score": 0.9016666666666667,
+        "grounding_score": 0.5,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Đặt \\(u=x^2-5x+6\\), ta xét dấu đạo hàm của hàm hợp. Điều kiện nghịch biến yêu cầu \\(F'(x)\\le0\\) trên toàn đoạn, từ đó tìm được điểm giới hạn đầu tiên mà dấu đạo hàm đổi chiều.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Đặt \\(u=x^2-5x+6\\), khi đó \\(F(x)=u^3-3u+1\\). Ta có \\(F'(x)=(3u^2-3)(2x-5)=3(u-1)(u+1)(2x-5)\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Xét điều kiện để \\(F'(x)\\le0\\) trên \\([0;k]\\). Với \\(0\\le x\\le\\frac52\\), ta có \\(2x-5\\le0\\), nên cần \\(3(u-1)(u+1)\\ge0\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Giải các mốc làm đổi dấu của \\(u-1\\): \\(x^2-5x+6=1\\Rightarrow x^2-5x+5=0\\). Suy ra \\(x=\\frac{5\\pm\\sqrt5}{2}\\). Trên đoạn bắt đầu từ \\(0\\), mốc đầu tiên là \\(x=\\frac{5-\\sqrt5}{2}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Với \\(0\\le x<\\frac{5-\\sqrt5}{2}\\), ta có \\(u>1\\) nên \\((u-1)(u+1)>0\\), kết hợp \\(2x-5<0\\) cho \\(F'(x)<0\\). Sau mốc này thì \\(u<1\\), dấu đạo hàm đổi sang dương, nên không thể kéo dài đoạn nghịch biến."
+          }
+        ],
+        "final_answer": "\\(\\frac{5-\\sqrt{5}}{2}\\)"
+      },
+      "why_correct": "Giá trị tìm được là biên duy nhất vì đó là nghiệm dương nhỏ nhất của phương trình \\(u=1\\), nơi dấu của đạo hàm đổi. Mọi \\(k\\) lớn hơn giá trị này đều chứa khoảng mà \\(F'(x)>0\\), nên không còn nghịch biến trên toàn đoạn.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: lấy nhầm hàm trong khi áp dụng quy tắc dây chuyền, coi hàm trong cần xét là \\(x\\) thay vì \\(u=x^2-5x+6\\). Khi đó đạo hàm bị viết sai thành \\(F'(x)=3(x^2-1)(2x-5)\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm: sau khi tìm đúng điều kiện biên \\(u=1\\), giải phương trình \\(x^2-5x+6=1\\Rightarrow x^2-5x+5=0\\), nhận được hai nghiệm \\(x=\\frac{5-\\sqrt5}{2}\\) và \\(x=\\frac{5+\\sqrt5}{2}\\), nhưng chọn nhầm nghiệm lớn hơn vì cho rằ"
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: khi lấy đạo hàm hàm ngoài \\(u^3-3u+1\\), đổi sai dấu của hạng tử \\(-3u\\), viết \\( (u^3-3u+1)'=3u^2+3\\) thay vì \\(3u^2-3\\). Khi đó \\(F'(x)=3(u^2+1)(2x-5)\\)."
+        }
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_0_writer",
+      "blueprint_slot_id": "direct_pdf_0",
+      "cognitive_level": "Vận dụng",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 4 column 151 (char 523)\"])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 4 column 151 (char 523)\"])",
+          "slot_id": "direct_pdf_0"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_1_writer",
+      "blueprint_slot_id": "direct_pdf_1",
+      "cognitive_level": "Thông hiểu",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 4 column 130 (char 334)\"])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 4 column 130 (char 334)\"])",
+          "slot_id": "direct_pdf_1"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_4_critic",
+      "blueprint_slot_id": "direct_pdf_4",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 183,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(y=mx^4-4x^2+3\\) với \\(m>0\\). Biết đồ thị hàm số có ba điểm cực trị tạo thành một tam giác vuông cân tại điểm cực trị nằm trên trục tung. Giá trị của \\(m\\) bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(2\\)",
+          "error_type": "derivative_zero_implies_extremum"
+        },
+        {
+          "key": "B",
+          "text": "\\(-8\\)",
+          "error_type": "wrong_sign_in_parameter_condition"
+        },
+        {
+          "key": "C",
+          "text": "\\(32\\)",
+          "error_type": "wrong_geometry_condition"
+        },
+        {
+          "key": "D",
+          "text": "\\(8\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Ta dùng điều kiện ba điểm cực trị của hàm trùng phương tạo thành tam giác vuông cân, sau đó kết hợp điều kiện đạo hàm để tìm tham số. Với hệ số \\(a=m, b=-4\\), điều kiện hình học dẫn đến \\(b^3=-8a\\), từ đó suy ra \\(m=8\\).",
+      "explanation_per_distractor": {
+        "A": "Người giải chỉ dùng điều kiện cần \\(y'(x)=0\\) và cho rằng mọi nghiệm của đạo hàm đều tạo cực trị nên bỏ qua điều kiện tam giác vuông cân. Từ \\(y'=4x(mx^2-2)=0\\), họ lấy điều kiện đơn giản \\(mx^2=2\\) rồi chọn nhầm cặp điểm cực trị có hoành độ \\(x=\\pm1\\), suy ra \\(m\\cdot1^2=2\\Rightarrow m=2\\). Sai vì \\(y'(x_0)=0\\) chỉ là điều kiện cần, không đủ để thỏa điều kiện hình học của ba điểm cực trị.",
+        "B": "Người giải lấy sai dấu trong điều kiện hình học của tam giác cực trị, dùng \\(b^3=8a\\) thay vì \\(b^3=-8a\\). Với \\(b=-4\\), ta có \\((-4)^3=8m\\Rightarrow -64=8m\\Rightarrow m=-8\\). Sai vì đã đổi dấu điều kiện và còn trái với giả thiết \\(m>0\\).",
+        "C": "Người giải nhầm rằng tam giác tạo bởi ba điểm cực trị là tam giác đều nên áp dụng điều kiện \\(b^3=-24a\\) thay cho điều kiện vuông cân \\(b^3=-8a\\). Khi đó \\((-4)^3=-24m\\Rightarrow -64=-24m\\Rightarrow m=\\frac{8}{3}\\), không phải \\(32\\). Để tạo distractor \\(32\\), người giải còn nhầm tiếp khi chuyển vế thành \\(m=\\frac{64}{2}\\). Lỗi chính là dùng sai điều kiện hình học cho tam giác."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Giả sử hàm số \\(y=ax^4+bx^2+c\\) có 3 cực trị tạo thành tam giác ABC thỏa mãn dữ kiện: \\(ab<0\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 8.0,
+          "expression": "solve(2*m-16,m)[0]",
+          "stated_answer": "8",
+          "stated_value": 8.0,
+          "source": "llm_resolver",
+          "detail": "solve(2*m-16,m)[0] = 8",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "8",
+            "expected_numeric": 2
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 8, khớp đáp án key",
+        "verified_at": "2026-07-30T01:44:05.308927Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.7583333333333333,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài nêu rõ hàm số, điều kiện tham số và tính chất hình học cần dùng, không có cách hiểu khác nhau."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu kết hợp đạo hàm, cực trị hàm trùng phương và điều kiện hình học thay vì chỉ áp dụng công thức đơn lẻ."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác biến đổi hệ số và lựa chọn công thức phù hợp từ kiến thức đã học phù hợp mức Vận dụng cao."
+          },
+          "distractor_plausibility": {
+            "score": 0.65,
+            "rationale": "Các phương án sai cố gắng mô phỏng lỗi dấu, nhầm điều kiện hình học và hiểu sai điều kiện cực trị, nhưng một số mô tả tính toán chưa tự nhiên."
+          },
+          "answer_uniqueness": {
+            "score": 0.95,
+            "rationale": "Với \\(m>0\\), điều kiện trong nguồn cho \\(b^3=-8a\\) dẫn duy nhất đến \\(m=8\\), các đáp án còn lại không thỏa."
+          },
+          "error_distractor_consistency": {
+            "score": 0.25,
+            "rationale": "Hai distractor \\(-8\\) và \\(2\\) không được suy ra hoàn toàn đúng theo chuỗi lỗi mô tả, còn distractor \\(32\\) mâu thuẫn rõ với phép tính trong phần giải thích lỗi."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.7583333333333333,
+        "verifier_pass": true,
+        "critic_score": 0.7583333333333333,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "error_distractor_consistency=0.25 (lỗi mô tả không khớp giá trị distractor/đáp án) (Hai distractor \\(-8\\) và \\(2\\) không được suy ra hoàn toàn đúng theo chuỗi lỗi mô tả, còn distractor \\(32\\) mâu thuẫn rõ với phép tính trong phần giải thích lỗi)",
+      "reject_reason_code": "quality_low",
+      "reject_reason_stage": "critic",
+      "reject_log": [
+        {
+          "reason_code": "quality_low",
+          "stage": "critic",
+          "attempt": 0,
+          "message": "error_distractor_consistency=0.25 (lỗi mô tả không khớp giá trị distractor/đáp án) (Hai distractor \\(-8\\) và \\(2\\) không được suy ra hoàn toàn đúng theo chuỗi lỗi mô tả, còn distractor \\(32\\) mâu thuẫn rõ với phép tính trong phần giải thích lỗi)",
+          "slot_id": "direct_pdf_4"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_9_critic",
+      "blueprint_slot_id": "direct_pdf_9",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 229,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một xưởng sản xuất theo dõi lợi nhuận (đơn vị: triệu đồng) trong khoảng thời gian \\(2\\le t\\le6\\) tháng bởi hàm số \\(P(t)=-t^3+9t^2-15t+8\\). Hỏi lợi nhuận lớn nhất mà xưởng có thể đạt được trong khoảng thời gian trên là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(36\\)",
+          "error_type": "derivative_coefficient_error"
+        },
+        {
+          "key": "B",
+          "text": "\\(26\\)",
+          "error_type": "extremum_endpoint_missing"
+        },
+        {
+          "key": "C",
+          "text": "\\(33\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(30\\)",
+          "error_type": "cubic_sign_error"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Để tìm lợi nhuận lớn nhất trên đoạn kín, cần tìm các điểm tới hạn trong đoạn rồi so sánh giá trị của hàm tại các điểm đó và hai đầu mút.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: lấy đạo hàm của \\(9t^2\\) sai thành \\(9t\\) thay vì \\(18t\\). Khi đó giải phương trình đạo hàm sai \\(-3t^2+9t-15=0\\) và không tìm được điểm tới hạn đúng; học sinh có thể chọn giá trị gần đỉnh do nhầm hệ số, tính tại \\(t=4\\) được \\(P(4)=-64+144-60+8=28\\), sau đó tiếp tục làm tròn/sai biến đổi để chọn \\(36\\). Kết quả sai vì đạo hàm phải là \\(P'(t)=-3t^2+18t-15\\).",
+        "B": "Sai lầm: chỉ xét một đầu mút của đoạn mà bỏ qua điểm tới hạn và đầu mút còn lại. Tính \\(P(6)=-6^3+9\\cdot6^2-15\\cdot6+8=26\\) rồi kết luận lợi nhuận lớn nhất là \\(26\\). Cách làm sai vì khi tìm GTLN trên đoạn \\([2,6]\\) phải so sánh tất cả các điểm tới hạn trong đoạn và hai đầu mút.",
+        "D": "Sai lầm: đổi dấu sai khi thay giá trị điểm tới hạn vào hàm số. Tại \\(t=5\\), học sinh có thể tính nhầm \\(-5^3\\) thành \\(5^3\\), dẫn đến \\(P(5)=125+9\\cdot25-15\\cdot5+8=258\\), rồi tiếp tục bỏ sai phần hệ số khi rút gọn để lấy giá trị gần đỉnh là \\(30\\). Cách làm sai vì phải thay đúng dấu của hạng tử bậc ba: \\(-5^3+9\\cdot5^2-15\\cdot5+8=33\\)."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Bước 01. Tìm tập xác định của hàm số. Tính f'(x). Tìm các điểm tại đó f'(x) bằng 0 hoặc f'(x) không xác định.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 33.0,
+          "expression": "-5**3+9*5**2-15*5+8",
+          "stated_answer": "33",
+          "stated_value": 33.0,
+          "source": "llm_resolver",
+          "detail": "-5**3+9*5**2-15*5+8 = 33",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "-5**3+9*5**2-15*5+8",
+            "expected_numeric": 30
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 33, khớp đáp án key",
+        "verified_at": "2026-07-30T01:46:19.981197Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.7966666666666667,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ hàm lợi nhuận, khoảng xét và yêu cầu tìm giá trị lớn nhất nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu áp dụng quy trình đạo hàm và so sánh giá trị thay vì chỉ nhớ công thức, phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác tính đạo hàm, tìm điểm tới hạn và đánh giá trên đoạn đúng với hoạt động vận dụng kiến thức."
+          },
+          "distractor_plausibility": {
+            "score": 0.8,
+            "rationale": "Các phương án sai gắn với lỗi thường gặp như bỏ điểm tới hạn, sai đạo hàm và sai dấu khi tính giá trị."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(P(5)=33\\) là giá trị lớn nhất trên đoạn, các phương án còn lại không đúng với phép tính đầy đủ."
+          },
+          "error_distractor_consistency": {
+            "score": 0.25,
+            "rationale": "Một số mô tả chuỗi lỗi không thực sự dẫn tới đúng số distractor (đặc biệt phương án 36 và 30), dù phần giải thích đáp án đúng vẫn nhất quán."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.7966666666666667,
+        "verifier_pass": true,
+        "critic_score": 0.7966666666666667,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "error_distractor_consistency=0.25 (lỗi mô tả không khớp giá trị distractor/đáp án) (Một số mô tả chuỗi lỗi không thực sự dẫn tới đúng số distractor (đặc biệt phương án 36 và 30), dù phần giải thích đáp án đúng vẫn nhất quán.)",
+      "reject_reason_code": "quality_low",
+      "reject_reason_stage": "critic",
+      "reject_log": [
+        {
+          "reason_code": "quality_low",
+          "stage": "critic",
+          "attempt": 0,
+          "message": "error_distractor_consistency=0.25 (lỗi mô tả không khớp giá trị distractor/đáp án) (Một số mô tả chuỗi lỗi không thực sự dẫn tới đúng số distractor (đặc biệt phương án 36 và 30), dù phần giải thích đáp án đúng vẫn nhất quán.)",
+          "slot_id": "direct_pdf_9"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_10_verifier",
+      "blueprint_slot_id": "direct_pdf_10",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 171,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(y=x^4+mx^2+5\\) với \\(m<0\\). Đồ thị hàm số có ba điểm cực trị tạo thành một tam giác có diện tích bằng \\(4\\sqrt{2}\\). Giá trị của tham số \\(m\\) bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(-4\\cdot 2^{\\frac{2}{5}}\\)",
+          "error_type": "missing_negative_root"
+        },
+        {
+          "key": "B",
+          "text": "\\(-4\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(-2^{\\frac{11}{5}}\\)",
+          "error_type": "derivative_coefficient_error"
+        },
+        {
+          "key": "D",
+          "text": "\\(-2^{\\frac{8}{5}}\\)",
+          "error_type": "area_formula_missing_half"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Vì \\(m<0\\), hàm số có ba điểm cực trị. Dùng điều kiện diện tích tam giác tạo bởi các điểm cực trị để lập phương trình theo \\(m\\), sau đó giải và chọn giá trị thỏa mãn điều kiện.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là chỉ lấy một nghiệm khi giải \\(x^2=-\\frac{m}{2}\\), nên chỉ dùng một khoảng cách từ điểm cực trị giữa đến điểm cực trị còn lại làm đáy tam giác, lấy độ dài đáy là \\(a=\\sqrt{-\\frac{m}{2}}\\) thay vì \\(2a\\). Khi đó diện tích sai được tính là \\(S=\\frac{1}{2}\\cdot a\\cdot \\frac{m^2}{4}=\\frac{\\sqrt{\\frac{-m}{2}}\\,m^2}{8}=4\\sqrt{2}\\).",
+        "C": "Sai lầm là tính đạo hàm sai: thay \\(y'=4x^3+2mx\\) bằng \\(y'=4x^3+mx\\). Khi đó phương trình cực trị là \\(x(4x^2+m)=0\\), nên hoành độ hai cực trị ngoài là \\(\\pm\\sqrt{-\\frac{m}{4}}\\). Đáy tam giác bị tính là \\(2\\sqrt{-\\frac{m}{4}}\\), chiều cao vẫn là \\(\\frac{m^2}{4}\\), do đó \\(S=\\sqrt{-\\frac{m}{4}}\\cdot\\frac{m^2}{4}=4\\sqrt{2}\\).",
+        "D": "Sai lầm là dùng công thức diện tích tam giác không có hệ số \\(\\frac{1}{2}\\), tức lấy \\(S=\\text{đáy}\\cdot\\text{chiều cao}\\). Khi đó tính sai \\(S=2a\\cdot\\frac{m^2}{4}=\\frac{\\sqrt{-m/2}\\,m^2}{2}=4\\sqrt{2}\\). Đặt \\(t=-m>0\\) được \\(\\frac{\\sqrt{t/2}\\,t^2}{2}=4\\sqrt{2}\\), suy ra \\(t=2^{\\frac{8}{5}}\\), nên \\(m=-2^{\\frac{8}{5}}\\)."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Xét hàm số bậc bốn \\(y=ax^4+bx^2+c a\\ne0\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T01:46:25.715371Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "multi_answer: distractor \"\\(-4\\cdot 2^{\\frac{2}{5}}\\)\" cũng được verifier xác nhận đúng",
+      "reject_reason_code": "multi_answer",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "multi_answer",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "multi_answer: distractor \"\\(-4\\cdot 2^{\\frac{2}{5}}\\)\" cũng được verifier xác nhận đúng",
+          "slot_id": "direct_pdf_10"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_12_verifier",
+      "blueprint_slot_id": "direct_pdf_12",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 204,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(f_m(x)=x^3-3mx^2+6x+1\\) với \\(m>\\sqrt{2}\\). Đồ thị hàm số có hai điểm cực trị. Biết khoảng cách giữa hai điểm cực trị của đồ thị bằng \\(2\\sqrt{66}\\). Giá trị của tham số \\(m\\) bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\sqrt{\\frac{65}{2}}\\)",
+          "error_type": "geometric_distance_square_error"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\sqrt{2+\\left(\\frac{\\sqrt{66}}{2}\\right)^{\\frac{2}{3}}}\\)",
+          "error_type": "distance_missing_horizontal_component"
+        },
+        {
+          "key": "C",
+          "text": "\\(2\\sqrt{17}\\)",
+          "error_type": "derivative_zero_implies_extremum"
+        },
+        {
+          "key": "D",
+          "text": "\\(2\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Ta dùng điều kiện khoảng cách giữa hai điểm cực trị của hàm bậc ba để lập phương trình theo tham số \\(m\\), sau đó giải phương trình tham số.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: sau khi đặt \\(t=\\sqrt{m^2-2}\\), tính khoảng cách giữa hai điểm cực trị nhưng quên bình phương đúng một thành phần khi áp dụng công thức khoảng cách. Người làm sai dùng biểu thức \\(4t^2+16t^4=264\\), đặt \\(u=t^2=m^2-2\\) được \\(4u+16u^2=264\\), giải lấy nghiệm dương \\(u=\\frac{61}{2}\\), từ đó \\(m^2=u+2=\\frac{65}{2}\\) và \\(m=\\sqrt{\\frac{65}{2}}\\).",
+        "B": "Sai lầm: bỏ qua thành phần chênh lệch hoành độ khi tính khoảng cách giữa hai điểm cực trị. Đặt \\(t=\\sqrt{m^2-2}\\), chênh lệch tung độ hai điểm cực trị có độ lớn là \\(4t^3\\). Người làm sai lấy \\(4t^3=2\\sqrt{66}\\), suy ra \\(t^3=\\frac{\\sqrt{66}}{2}\\), nên \\(t^2=\\left(\\frac{\\sqrt{66}}{2}\\right)^{\\frac{2}{3}}\\) và \\(m=\\sqrt{t^2+2}=\\sqrt{2+\\left(\\frac{\\sqrt{66}}{2}\\right)^{\\frac{2}{3}}}\\).",
+        "C": "Sai lầm: chỉ lấy điều kiện \\(f'(x)=0\\) để suy ra hai điểm cực trị rồi dùng khoảng cách theo trục hoành. Ta có \\(f'(x)=3(x^2-2mx+2)=0\\), hai nghiệm là \\(x_1=m-\\sqrt{m^2-2}\\), \\(x_2=m+\\sqrt{m^2-2}\\). Do đó khoảng cách bị tính sai thành \\(|x_2-x_1|=2\\sqrt{m^2-2}=2\\sqrt{66}\\), suy ra \\(m^2-2=66\\) và \\(m=\\sqrt{68}=2\\sqrt{17}\\)."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Khoảng cách giữa hai điểm cực trị của đồ thị hàm số bậc 3 là.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T01:47:35.494213Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "answer_text_mismatch: đáp án key \\(2\\) không khớp giá trị 2.1213203435596424 mà engine tính ra",
+      "reject_reason_code": "verifier_failed",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "verifier_failed",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "answer_text_mismatch: đáp án key \\(2\\) không khớp giá trị 2.1213203435596424 mà engine tính ra",
+          "slot_id": "direct_pdf_12"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_17_writer",
+      "blueprint_slot_id": "direct_pdf_17",
+      "cognitive_level": "Vận dụng",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 26 column 232 (char 1557)\"])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 26 column 232 (char 1557)\"])",
+          "slot_id": "direct_pdf_17"
+        }
+      ],
+      "attempts": 1
+    }
+  ]
+}

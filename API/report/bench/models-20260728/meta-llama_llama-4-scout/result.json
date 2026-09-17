@@ -1,0 +1,1587 @@
+{
+ "questions": [
+  {
+   "question_id": "q_2026_f503742e",
+   "blueprint_slot_id": "direct_pdf_2",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "numeric_eval",
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng cao",
+   "difficulty_target": 0.85,
+   "difficulty_estimated": 0.85,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.85,
+    "stem_length_adj": 0.03,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 163,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 322,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 4 giờ với vận tốc \\(v(t) = at^2 + bt + c\\). Đồ thị vận tốc của vật như hình vẽ bên. Tính quãng đường \\(S\\) mà vật đi được trong 4 giờ đó.",
+   "options": [
+    {
+     "key": "A",
+     "text": "23.5",
+     "error_type": "missing_constant_C"
+    },
+    {
+     "key": "B",
+     "text": "\\(25.3\\)",
+     "error_type": null
+    },
+    {
+     "key": "C",
+     "text": "27",
+     "error_type": "degree_sum_no_divide"
+    },
+    {
+     "key": "D",
+     "text": "26",
+     "error_type": "euler_for_hamilton"
+    }
+   ],
+   "answer_key": "B",
+   "explanation_correct": "Quãng đường vật đi được trong 4 giờ là \\(S = \\int_{0}^{1} (-\\frac{3}{2}t^2 + 6t + 4)dt + \\int_{1}^{4} (-\\frac{3}{2}t + 10)dt = 25.3\\)",
+   "explanation_per_distractor": {
+    "A": "Không thêm hằng số C vào kết quả tích phân.",
+    "C": "Tính tổng độ các đỉnh không chia 2.",
+    "D": "Áp dụng điều kiện cần của chu trình Euler vào chu trình Hamilton."
+   },
+   "hint": "Quãng đường vật đi được trong 4 giờ là",
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Trong khoảng thời gian 1 giờ đầu, đồ thị vận tốc là một phần của đường Parabol có đỉnh \\(I(2; 10)\\) và trục đối xứng song song với trục tung.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": "numeric_eval",
+    "method": "numeric_eval",
+    "verified": false,
+    "status": "mismatch",
+    "status_label_vi": "Các nguồn tính toán lệch nhau — cần người kiểm",
+    "status_label_en": "Computation sources disagree — needs review",
+    "machine_checked": false,
+    "machine_verifiable": true,
+    "question_kind": "computational",
+    "evidence_sources": [
+     "writer_expression",
+     "independent_target"
+    ],
+    "independent": {
+     "attempted": true,
+     "definite": false,
+     "derivation": false,
+     "value": null,
+     "expression": "",
+     "stated_answer": "",
+     "stated_value": null,
+     "source": "not_applicable",
+     "detail": "tác nhân độc lập báo bài toán không có kết quả số duy nhất",
+     "model": "openai/gpt-4.1-mini",
+     "prompt_version": "1.0.0",
+     "errors": []
+    },
+    "needs_human_review": true,
+    "verifier_version": "2.0.0",
+    "verifier_hint": {
+     "type": "numeric_eval",
+     "payload": {
+      "expr": "integrate(-3/2*t^2 + 6*t + 4, (t, 0, 1)) + integrate(-3/2*t + 10, (t, 1, 4))",
+      "expected_numeric": 25.3
+     }
+    },
+    "numeric_crosscheck_points": 0,
+    "detail": "biểu thức kiểm chứng của Writer không khớp đáp án key (tác nhân độc lập báo bài toán không có kết quả số duy nhất)",
+    "verified_at": "2026-07-28T07:17:37.743231Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": 0.85,
+    "quality": 0.8833333333333334,
+    "bloom_alignment": 0.9,
+    "answer_prob": null,
+    "quality_traits": {
+     "clarity": {
+      "score": 0.95,
+      "rationale": "The question is clear and unambiguous, asking for the distance traveled by an object with a given velocity function."
+     },
+     "cognitive_depth": {
+      "score": 0.8,
+      "rationale": "The question requires applying the concept of integral to calculate distance, which matches the target difficulty."
+     },
+     "bloom_alignment": {
+      "score": 0.9,
+      "rationale": "The question requires applying knowledge to solve a problem, which aligns with the 'Vận dụng cao' Bloom level."
+     },
+     "distractor_plausibility": {
+      "score": 0.8,
+      "rationale": "The distractors are plausible and related to common errors in calculation."
+     },
+     "answer_uniqueness": {
+      "score": 0.95,
+      "rationale": "There is only one correct answer, and the distractors are distinct."
+     },
+     "error_distractor_consistency": {
+      "score": 0.9,
+      "rationale": "The errors described for the distractors lead to the correct distractor values."
+     }
+    },
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": 0.8833333333333334,
+    "verifier_pass": false,
+    "critic_score": 0.8833333333333334,
+    "grounding_score": 0.85,
+    "reject_reasons": []
+   },
+   "review_status": "needs_revision",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "needs_revision",
+    "issues": [
+     "mismatch",
+     "verifier_numeric_mismatch"
+    ]
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "_attempts": 1,
+   "short_explanation": "Quãng đường vật đi được trong 4 giờ là \\(S = \\int_{0}^{1} (-\\frac{3}{2}t^2 + 6t + 4)dt + \\int_{1}^{4} (-\\frac{3}{2}t + 10)dt = 25.3\\)",
+   "detailed_solution": {
+    "steps": [
+     {
+      "title": "Bước 1",
+      "content": "Trong khoảng 1 giờ đầu, phương trình vận tốc của vật là \\(v(t) = at^2 + bt + c\\). Với \\(v(0) = 4\\), \\(v(2) = 10\\), \\(x_I = -\\frac{b}{2a} = 2\\). Ta có hệ phương trình: \\(\\begin{cases} c = 4 \\\\ 4a + 2b + c = 10 \\\\ 4a = 0 \\end{cases} \\Rightarrow \\begin{cases} a = -\\frac{3}{2} \\\\ b = 6 \\\\ c = 4 \\end{cases}\\). Khi đó \\(v(t) = -\\frac{3}{2}t^2 + 6t + 4\\)"
+     },
+     {
+      "title": "Bước 2",
+      "content": "Quãng đường vật đi trong 1 giờ đầu: \\(S_1 = \\int_{0}^{1} (-\\frac{3}{2}t^2 + 6t + 4)dt\\)"
+     },
+     {
+      "title": "Bước 3",
+      "content": "Trong 3 giờ sau, phương trình vận tốc \\(v(t) = mt + n\\). Với \\(v(1) = \\frac{17}{2}\\), \\(v(4) = 4\\). Ta có hệ phương trình: \\(\\begin{cases} m + n = \\frac{17}{2} \\\\ 4m + n = 4 \\end{cases} \\Rightarrow \\begin{cases} m = -\\frac{3}{2} \\\\ n = 10 \\end{cases}\\). Khi đó \\(v(t) = -\\frac{3}{2}t + 10\\)"
+     },
+     {
+      "title": "Bước 4",
+      "content": "Quãng đường vật đi trong 3 giờ sau: \\(S_2 = \\int_{1}^{4} (-\\frac{3}{2}t + 10)dt\\)"
+     },
+     {
+      "title": "Bước 5",
+      "content": "Quãng đường vật đi được trong 4 giờ: \\(S = S_1 + S_2 = 25.3\\)"
+     }
+    ],
+    "final_answer": "\\(25.3\\)"
+   },
+   "why_correct": "Vì quãng đường được tính chính xác từ đồ thị vận tốc và phương trình vận tốc của vật trong từng khoảng thời gian.",
+   "why_others_wrong": [
+    {
+     "option": "A",
+     "reason": "Không thêm hằng số C vào kết quả tích phân."
+    },
+    {
+     "option": "C",
+     "reason": "Tính tổng độ các đỉnh không chia 2."
+    },
+    {
+     "option": "D",
+     "reason": "Áp dụng điều kiện cần của chu trình Euler vào chu trình Hamilton."
+    }
+   ]
+  }
+ ],
+ "accepted_count": 1,
+ "requested_count": 20,
+ "is_partial": true,
+ "parse_errors": 5,
+ "verify_failures": 0,
+ "error_code": null,
+ "error_message": null,
+ "rejected": [
+  {
+   "question_id": "rej_direct_pdf_0_verifier",
+   "blueprint_slot_id": "direct_pdf_0",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng",
+   "difficulty_target": 0.7,
+   "difficulty_estimated": 0.73,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.7,
+    "stem_length_adj": 0.06,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 329,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 130,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 4 giờ với vận tốc \\(v(t) = -\\frac{3}{2}t^2 + 6t + 4\\) trong khoảng thời gian 1 giờ đầu, đồ thị vận tốc là một phần của đường Parabol có đỉnh \\(I(2;10)\\) và trục đối xứng song song với trục tung. Khoảng thời gian còn lại vật chuyển động chậm dần đều. Tính quãng đường \\(S\\) mà vật đi được trong 4 giờ đó.",
+   "options": [
+    {
+     "key": "A",
+     "text": "22",
+     "error_type": "area_no_absolute"
+    },
+    {
+     "key": "B",
+     "text": "21",
+     "error_type": "product_rule_drop_term"
+    },
+    {
+     "key": "C",
+     "text": "20",
+     "error_type": "extremum_endpoint_missing"
+    },
+    {
+     "key": "D",
+     "text": "\\(25,3\\)",
+     "error_type": null
+    }
+   ],
+   "answer_key": "D",
+   "explanation_correct": "Vận tốc của vật được xác định theo hai giai đoạn. Trong 1 giờ đầu, đồ thị vận tốc là một phần của Parabol \\(v(t) = -\\frac{3}{2}t^2 + 6t + 4\\). Trong 3 giờ sau, vận tốc giảm tuyến tính từ \\(v(1) = \\frac{17}{2}\\) xuống \\(v(4) = 4\\). Quãng đường được tính bằng tích phân vận tốc theo thời gian.",
+   "explanation_per_distractor": {
+    "A": "Trong khoảng thời gian 1 giờ đầu, đồ thị vận tốc là một phần của Parabol \\( v(t) = -\\frac{3}{2}t^2 + 6t + 4 \\). Quãng đường được tính bằng tích phân vận tốc theo thời gian không lấy giá trị tuyệt đối khi \\( f \\) đổi dấu.",
+    "B": "Quãng đường được tính bằng \\( S = \\int_0^1 (-\\frac{3}{2}t^2 + 6t + 4) dt + \\int_1^4 (-3t + 10) dt \\) nhưng nhầm \\( (uv)' = u'v' \\) thay vì \\( (uv)' = u'v + uv' \\)",
+    "C": "Tìm GTLN/GTNN trên đoạn chỉ xét tại điểm tới hạn \\( v(1) = \\frac{17}{2} \\) và \\( v(4) = 4 \\), bỏ qua hai đầu mút \\( v(0) = 4 \\) và \\( v(2) = 10 \\)"
+   },
+   "hint": null,
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Một vật chuyển động trong 4 giờ với vận tốc \\(v(t)\\) phụ thuộc vào thời gian \\(t(h)\\) có đồ thị vận tốc như hình vẽ bên. Trong khoảng thời gian 1 giờ kể từ khi bắt đầu chuyển động, đồ thị đó là một phần của đường Parabol có đỉnh \\(I(2;10)\\) và trục đối xứng song song với trục tung. Khoảng thời gian còn lại vật chuyển động chậm dần đều. Tính quãng đường \\(S\\) mà vật đi được trong 4 giờ đó.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": null,
+    "method": null,
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": false,
+    "question_kind": "conceptual",
+    "evidence_sources": [],
+    "independent": {},
+    "needs_human_review": false,
+    "verifier_version": null,
+    "verifier_hint": null,
+    "numeric_crosscheck_points": 0,
+    "detail": null,
+    "verified_at": "2026-07-28T07:17:16.484945Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": null,
+    "quality": null,
+    "bloom_alignment": null,
+    "answer_prob": null,
+    "quality_traits": {},
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": null,
+    "verifier_pass": null,
+    "critic_score": null,
+    "grounding_score": null,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "format_error: rule validator failed: ['source_quote_too_long:391']",
+   "reject_reason_code": "quote_mismatch",
+   "reject_reason_stage": "verifier",
+   "reject_log": [
+    {
+     "reason_code": "quote_mismatch",
+     "stage": "verifier",
+     "attempt": 0,
+     "message": "format_error: rule validator failed: ['source_quote_too_long:391']",
+     "slot_id": "direct_pdf_0"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_1_verifier",
+   "blueprint_slot_id": "direct_pdf_1",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "conceptual"
+   ],
+   "cognitive_level": "Thông hiểu",
+   "difficulty_target": 0.5,
+   "difficulty_estimated": 0.53,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.5,
+    "stem_length_adj": 0.06,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 351,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 75,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 4 giờ với vận tốc \\(v(t)\\) phụ thuộc vào thời gian \\(t\\) (h) có đồ thị vận tốc như hình vẽ bên. Trong khoảng thời gian 1 giờ đầu tiên kể từ khi bắt đầu chuyển động, đồ thị vận tốc là một phần của đường Parabol có đỉnh \\(I(2;10)\\) và trục đối xứng song song với trục tung. Tính quãng đường \\(S\\) mà vật đi được trong 4 giờ đó.",
+   "options": [
+    {
+     "key": "A",
+     "text": "30",
+     "error_type": "mix_radian_degree"
+    },
+    {
+     "key": "B",
+     "text": "26",
+     "error_type": "product_rule_drop_term"
+    },
+    {
+     "key": "C",
+     "text": "\\(25,3\\)",
+     "error_type": null
+    },
+    {
+     "key": "D",
+     "text": "22",
+     "error_type": "wrong_domain"
+    }
+   ],
+   "answer_key": "C",
+   "explanation_correct": "Vận tốc của vật trong 4 giờ được xác định bởi hai hàm số: một hàm bậc hai trong 1 giờ đầu tiên và một hàm bậc nhất trong 3 giờ sau. Quãng đường đi được là tích phân của vận tốc theo thời gian.",
+   "explanation_per_distractor": {
+    "A": "Lẫn đơn vị radian/độ khi tính giá trị lượng giác.",
+    "B": "Sử dụng công thức sai: \\((uv)' = u'v'\\) thay vì \\((uv)' = u'v + uv'\\)",
+    "D": "Không kiểm tra điều kiện xác định của biểu thức trong 1 giờ đầu tiên."
+   },
+   "hint": null,
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Một vật chuyển động trong 4 giờ với vận tốc \\(v(t)\\) phụ thuộc vào thời gian \\(t\\) (h) có đồ thị vận tốc như hình vẽ bên. Trong khoảng thời gian 1 giờ đầu tiên kể từ khi bắt đầu chuyển động, đồ thị vận tốc là một phần của đường Parabol có đỉnh \\(I(2;10)\\) và trục đối xứng song song với trục tung. Khoảng thời gian còn lại vật chuyển động chậm dần đều. Tính quãng đường \\(S\\) mà vật đi được trong 4 giờ đó.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": null,
+    "method": null,
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": false,
+    "question_kind": "conceptual",
+    "evidence_sources": [],
+    "independent": {},
+    "needs_human_review": false,
+    "verifier_version": null,
+    "verifier_hint": null,
+    "numeric_crosscheck_points": 0,
+    "detail": null,
+    "verified_at": "2026-07-28T07:17:19.303455Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": null,
+    "quality": null,
+    "bloom_alignment": null,
+    "answer_prob": null,
+    "quality_traits": {},
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": null,
+    "verifier_pass": null,
+    "critic_score": null,
+    "grounding_score": null,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "format_error: rule validator failed: ['source_quote_too_long:406']",
+   "reject_reason_code": "quote_mismatch",
+   "reject_reason_stage": "verifier",
+   "reject_log": [
+    {
+     "reason_code": "quote_mismatch",
+     "stage": "verifier",
+     "attempt": 0,
+     "message": "format_error: rule validator failed: ['source_quote_too_long:406']",
+     "slot_id": "direct_pdf_1"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_3_dedup",
+   "blueprint_slot_id": "direct_pdf_3",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "numeric_eval",
+    "conceptual"
+   ],
+   "cognitive_level": "Thông hiểu",
+   "difficulty_target": 0.5,
+   "difficulty_estimated": 0.5,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.5,
+    "stem_length_adj": 0.03,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 162,
+    "verifier_type": "numeric_eval",
+    "visual_type": "graph",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 75,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 4 giờ với vận tốc \\(v(t) = at^2 + bt + c\\). Đồ thị vận tốc của vật như hình vẽ bên. Tính quãng đường \\(S\\) mà vật đi được trong 4 giờ đó",
+   "options": [
+    {
+     "key": "A",
+     "text": "20.3",
+     "error_type": "area_no_absolute"
+    },
+    {
+     "key": "B",
+     "text": "30.5",
+     "error_type": "product_rule_drop_term"
+    },
+    {
+     "key": "C",
+     "text": "23.5",
+     "error_type": "forget_change_bounds"
+    },
+    {
+     "key": "D",
+     "text": "\\(25.3\\)",
+     "error_type": null
+    }
+   ],
+   "answer_key": "D",
+   "explanation_correct": "Vận tốc của vật được xác định qua đồ thị. Trong 1 giờ đầu, đồ thị là một phần của parabol \\(v(t) = -\\frac{3}{2}t^2 + 6t + 4\\). Trong 3 giờ sau, đồ thị là một đoạn thẳng \\(v(t) = -\\frac{3}{2}t + 10\\). Quãng đường \\(S\\) được tính bằng tích phân của vận tốc theo thời gian: \\(S = \\int_{0}^{1} (-\\frac{3}{2}t^2 + 6t + 4)dt + \\int_{1}^{4} (-\\frac{3}{2}t + 10)dt = 25.3\\) km",
+   "explanation_per_distractor": {
+    "A": "Diện tích được tính bằng tích phân của giá trị tuyệt đối hàm số. Nếu không lấy giá trị tuyệt đối khi hàm số đổi dấu sẽ dẫn đến kết quả sai.",
+    "B": "Quãng đường được tính bằng tích phân của vận tốc theo thời gian. Công thức đúng là \\((uv)' = u'v + uv'\\). Nếu chỉ lấy đạo hàm một phía sẽ dẫn đến kết quả sai.",
+    "C": "Quãng đường được tính bằng tích phân của vận tốc theo thời gian. Trong khoảng thời gian 1 giờ đầu, đồ thị là một phần của parabol \\(v(t) = -\\frac{3}{2}t^2 + 6t + 4\\). Trong 3 giờ sau, đồ thị là một đoạn thẳng \\(v(t) = -\\frac{3}{2}t + 10\\). Tuy nhiên, khi tính tích phân, bỏ qua việc đổi cận tích phân từ biến cũ sang biến mới, giữ nguyên cận theo biến cũ."
+   },
+   "hint": "Vận tốc của vật được xác định qua đồ thị. Trong 1 giờ đầu, đồ thị là một phần của parabol",
+   "visual": {
+    "type": "graph",
+    "spec": {
+     "graph_type": "velocity_time_graph"
+    },
+    "alt_text": "Đồ thị vận tốc của vật chuyển động"
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Trong khoảng thời gian 1 giờ đầu, đồ thị vận tốc là một phần của đường parabol có đỉnh $I(2;10)$ và trục đối xứng song song với trục tung.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": "numeric_eval",
+    "method": "numeric_eval",
+    "verified": false,
+    "status": "mismatch",
+    "status_label_vi": "Các nguồn tính toán lệch nhau — cần người kiểm",
+    "status_label_en": "Computation sources disagree — needs review",
+    "machine_checked": false,
+    "machine_verifiable": true,
+    "question_kind": "computational",
+    "evidence_sources": [
+     "writer_expression",
+     "independent_target"
+    ],
+    "independent": {
+     "attempted": true,
+     "definite": false,
+     "derivation": false,
+     "value": null,
+     "expression": "",
+     "stated_answer": "",
+     "stated_value": null,
+     "source": "not_applicable",
+     "detail": "tác nhân độc lập báo bài toán không có kết quả số duy nhất",
+     "model": "openai/gpt-4.1-mini",
+     "prompt_version": "1.0.0",
+     "errors": []
+    },
+    "needs_human_review": true,
+    "verifier_version": "2.0.0",
+    "verifier_hint": {
+     "type": "numeric_eval",
+     "payload": {
+      "expr": "integrate(-3/2*t**2 + 6*t + 4, (t, 0, 1)) + integrate(-3/2*t + 10, (t, 1, 4))",
+      "expected_numeric": 25.3
+     }
+    },
+    "numeric_crosscheck_points": 0,
+    "detail": "biểu thức kiểm chứng của Writer không khớp đáp án key (tác nhân độc lập báo bài toán không có kết quả số duy nhất)",
+    "verified_at": "2026-07-28T07:18:42.547005Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": 0.9,
+    "quality": 0.9,
+    "bloom_alignment": 0.9,
+    "answer_prob": null,
+    "quality_traits": {
+     "clarity": {
+      "score": 1.0,
+      "rationale": "Đề bài rõ ràng, dễ hiểu."
+     },
+     "cognitive_depth": {
+      "score": 0.8,
+      "rationale": "Độ sâu tư duy phù hợp với mức nhận thức 'Thông hiểu'."
+     },
+     "bloom_alignment": {
+      "score": 0.9,
+      "rationale": "Câu hỏi phù hợp với mức Bloom 'Thông hiểu'."
+     },
+     "distractor_plausibility": {
+      "score": 0.8,
+      "rationale": "Các phương án sai có hợp lý, gắn lỗi thường gặp."
+     },
+     "answer_uniqueness": {
+      "score": 1.0,
+      "rationale": "Chỉ có một đáp án đúng."
+     },
+     "error_distractor_consistency": {
+      "score": 0.9,
+      "rationale": "Mô tả lỗi distractor dẫn đến giá trị đúng."
+     }
+    },
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": 0.9,
+    "verifier_pass": false,
+    "critic_score": 0.9,
+    "grounding_score": 0.9,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "needs_revision",
+    "issues": [
+     "mismatch",
+     "verifier_numeric_mismatch"
+    ]
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "_attempts": 1,
+   "short_explanation": "Vận tốc của vật được xác định qua đồ thị. Trong 1 giờ đầu, đồ thị là một phần của parabol \\(v(t) = -\\frac{3}{2}t^2 + 6t + 4\\). Trong 3 giờ sau, đồ thị là một đoạn thẳng \\(v(t) = -\\frac{3}{2}t + 10\\).",
+   "detailed_solution": {
+    "steps": [
+     {
+      "title": "Bước 1",
+      "content": "Xác định phương trình vận tốc trong 1 giờ đầu tiên \\(v(t) = -\\frac{3}{2}t^2 + 6t + 4\\)"
+     },
+     {
+      "title": "Bước 2",
+      "content": "Xác định phương trình vận tốc trong 3 giờ tiếp theo \\(v(t) = -\\frac{3}{2}t + 10\\)"
+     },
+     {
+      "title": "Bước 3",
+      "content": "Tính tích phân quãng đường trong 1 giờ đầu \\(\\int_{0}^{1} (-\\frac{3}{2}t^2 + 6t + 4)dt\\)"
+     },
+     {
+      "title": "Bước 4",
+      "content": "Tính tích phân quãng đường trong 3 giờ sau \\(\\int_{1}^{4} (-\\frac{3}{2}t + 10)dt\\)"
+     },
+     {
+      "title": "Bước 5",
+      "content": "Cộng hai quãng đường để tìm tổng quãng đường \\(S\\)"
+     }
+    ],
+    "final_answer": "\\(25.3\\)"
+   },
+   "why_correct": "Vì phương trình vận tốc được xác định chính xác từ đồ thị và tích phân quãng đường được tính đúng",
+   "why_others_wrong": [
+    {
+     "option": "A",
+     "reason": "Diện tích được tính bằng tích phân của giá trị tuyệt đối hàm số. Nếu không lấy giá trị tuyệt đối khi hàm số đổi dấu sẽ dẫn đến kết quả sai."
+    },
+    {
+     "option": "B",
+     "reason": "Quãng đường được tính bằng tích phân của vận tốc theo thời gian. Công thức đúng là \\((uv)' = u'v + uv'\\). Nếu chỉ lấy đạo hàm một phía sẽ dẫn đến kết quả sai."
+    },
+    {
+     "option": "C",
+     "reason": "Quãng đường được tính bằng tích phân của vận tốc theo thời gian. Trong khoảng thời gian 1 giờ đầu, đồ thị là một phần của parabol \\(v(t) = -\\frac{3}{2}t^2 + 6t + 4\\)."
+    }
+   ],
+   "reject_reason": "Trùng với câu đã được chấp nhận trong cùng lượt sinh",
+   "reject_reason_code": "duplicate",
+   "reject_reason_stage": "dedup",
+   "reject_log": [
+    {
+     "reason_code": "duplicate",
+     "stage": "dedup",
+     "attempt": 0,
+     "message": "Trùng với câu đã được chấp nhận trong cùng lượt sinh",
+     "slot_id": "direct_pdf_3"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_4_verifier",
+   "blueprint_slot_id": "direct_pdf_4",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng cao",
+   "difficulty_target": 0.85,
+   "difficulty_estimated": 0.88,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.85,
+    "stem_length_adj": 0.06,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 356,
+    "verifier_type": "numeric_eval",
+    "visual_type": "graph",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 322,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 4 giờ với vận tốc \\( v(t) = at^2 + bt + c \\). Đồ thị vận tốc của vật như hình vẽ bên. Trong khoảng thời gian 1 giờ đầu, đồ thị là một phần của đường Parabol có đỉnh \\( I(2;10) \\) và trục đối xứng song song với trục tung. Khoảng thời gian còn lại vật chuyển động chậm dần đều. Tính quãng đường \\( S \\) mà vật đi được trong 4 giờ đó",
+   "options": [
+    {
+     "key": "A",
+     "text": "",
+     "error_type": "distance_missing_abs"
+    },
+    {
+     "key": "B",
+     "text": "24",
+     "error_type": "missing_constant_C"
+    },
+    {
+     "key": "C",
+     "text": "\\(23.8\\)",
+     "error_type": "plane_normal_vs_point"
+    },
+    {
+     "key": "D",
+     "text": "\\(25.3\\)",
+     "error_type": null
+    }
+   ],
+   "answer_key": "D",
+   "explanation_correct": "Vận tốc của vật được xác định qua hai giai đoạn: giai đoạn 1 giờ đầu là một phần của Parabol và giai đoạn 3 giờ sau là đường thẳng. Từ đồ thị và dữ kiện cho trước, ta xác định được phương trình vận tốc trong từng giai đoạn. Sau đó, tích phân vận tốc theo thời gian sẽ cho quãng đường đi được.",
+   "explanation_per_distractor": {
+    "A": "Khi tính khoảng cách, không lấy giá trị tuyệt đối.",
+    "B": "Khi tính quãng đường, bỏ qua hằng số C trong nguyên hàm.",
+    "C": "Lấy tọa độ điểm làm vector pháp tuyến thay vì hệ số của phương trình mặt phẳng."
+   },
+   "hint": null,
+   "visual": {
+    "type": "graph",
+    "spec": {},
+    "alt_text": "Đồ thị vận tốc của vật chuyển động"
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Một vật chuyển động trong 4 giờ với vận tốc \\( v(t) = at^2 + bt + c \\). Đồ thị vận tốc của vật như hình vẽ bên. Trong khoảng thời gian 1 giờ đầu, đồ thị là một phần của đường Parabol có đỉnh \\( I(2;10) \\) và trục đối xứng song song với trục tung. Khoảng thời gian còn lại vật chuyển động chậm dần đều. Tính quãng đường \\( S \\) mà vật đi được trong 4 giờ đó",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": null,
+    "method": null,
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": false,
+    "question_kind": "conceptual",
+    "evidence_sources": [],
+    "independent": {},
+    "needs_human_review": false,
+    "verifier_version": null,
+    "verifier_hint": null,
+    "numeric_crosscheck_points": 0,
+    "detail": null,
+    "verified_at": "2026-07-28T07:19:29.745164Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": null,
+    "quality": null,
+    "bloom_alignment": null,
+    "answer_prob": null,
+    "quality_traits": {},
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": null,
+    "verifier_pass": null,
+    "critic_score": null,
+    "grounding_score": null,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "explanation_low_quality: rule validator failed: ['source_quote_too_long:356', 'explanation_low_quality:solution_steps<5:4']",
+   "reject_reason_code": "quote_mismatch",
+   "reject_reason_stage": "verifier",
+   "reject_log": [
+    {
+     "reason_code": "quote_mismatch",
+     "stage": "verifier",
+     "attempt": 0,
+     "message": "explanation_low_quality: rule validator failed: ['source_quote_too_long:356', 'explanation_low_quality:solution_steps<5:4']",
+     "slot_id": "direct_pdf_4"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_5_verifier",
+   "blueprint_slot_id": "direct_pdf_5",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng",
+   "difficulty_target": 0.7,
+   "difficulty_estimated": 0.7,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.7,
+    "stem_length_adj": 0.03,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 174,
+    "verifier_type": "numeric_eval",
+    "visual_type": "graph",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 130,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 4 giờ với vận tốc \\(v(t) = -\\frac{3}{2}t^2 + 6t + 4\\). Đồ thị vận tốc của vật như hình vẽ bên. Tính quãng đường \\(S\\) mà vật đi được trong 4 giờ đó.",
+   "options": [
+    {
+     "key": "A",
+     "text": "23.1",
+     "error_type": "forget_change_bounds"
+    },
+    {
+     "key": "B",
+     "text": "\\(25.3\\)",
+     "error_type": null
+    },
+    {
+     "key": "C",
+     "text": "30.2",
+     "error_type": "degree_sum_no_divide"
+    },
+    {
+     "key": "D",
+     "text": "27.8",
+     "error_type": "missing_constant_C"
+    }
+   ],
+   "answer_key": "B",
+   "explanation_correct": "Vận tốc của vật được cho bởi hàm \\(v(t) = -\\frac{3}{2}t^2 + 6t + 4\\). Trong 4 giờ, đồ thị vận tốc gồm 2 phần: 1 giờ đầu là parabol và 3 giờ sau là đường thẳng. Ta tính quãng đường bằng tích phân: $\\(S = \\int_0^1 (-\\frac{3}{2}t^2 + 6t + 4)dt + \\int_1^4 (-\\frac{3}{2}t + 10)dt = 25.3 \\, \\text{km}\\).",
+   "explanation_per_distractor": {
+    "A": "When calculating the distance traveled, the student forgot to change the integration bounds after substituting variables.",
+    "C": "The student calculated the number of edges as the sum of degrees without dividing by 2.",
+    "D": "The student forgot to add the constant C to the indefinite integral."
+   },
+   "hint": null,
+   "visual": {
+    "type": "graph",
+    "spec": {},
+    "alt_text": "Đồ thị vận tốc của vật"
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Một vật chuyển động trong 4 giờ với vận tốc \\(v(t) = at^2 + bt + c\\). Đồ thị vận tốc của vật như hình vẽ bên. Trong khoảng thời gian 1 giờ kể từ khi bắt đầu chuyển động, đồ thị là một phần của đường Parabol có đỉnh \\(I(2;10)\\) và trục đối xứng song song với trục tung. Khoảng thời gian còn lại vật chuyển động chậm dần đều. Tính quãng đường \\(S\\) mà vật đi được trong 4 giờ đó.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": null,
+    "method": null,
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": false,
+    "question_kind": "conceptual",
+    "evidence_sources": [],
+    "independent": {},
+    "needs_human_review": false,
+    "verifier_version": null,
+    "verifier_hint": null,
+    "numeric_crosscheck_points": 0,
+    "detail": null,
+    "verified_at": "2026-07-28T07:18:21.952198Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": null,
+    "quality": null,
+    "bloom_alignment": null,
+    "answer_prob": null,
+    "quality_traits": {},
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": null,
+    "verifier_pass": null,
+    "critic_score": null,
+    "grounding_score": null,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "format_error: rule validator failed: ['source_quote_too_long:377']",
+   "reject_reason_code": "quote_mismatch",
+   "reject_reason_stage": "verifier",
+   "reject_log": [
+    {
+     "reason_code": "quote_mismatch",
+     "stage": "verifier",
+     "attempt": 0,
+     "message": "format_error: rule validator failed: ['source_quote_too_long:377']",
+     "slot_id": "direct_pdf_5"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_6_dedup",
+   "blueprint_slot_id": "direct_pdf_6",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "numeric_eval",
+    "conceptual"
+   ],
+   "cognitive_level": "Thông hiểu",
+   "difficulty_target": 0.5,
+   "difficulty_estimated": 0.5,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.5,
+    "stem_length_adj": 0.03,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 163,
+    "verifier_type": "numeric_eval",
+    "visual_type": "graph",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 75,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 4 giờ với vận tốc \\(v(t) = at^2 + bt + c\\). Đồ thị vận tốc của vật như hình vẽ bên. Tính quãng đường \\(S\\) mà vật đi được trong 4 giờ đó.",
+   "options": [
+    {
+     "key": "A",
+     "text": "30.4",
+     "error_type": "product_rule_drop_term"
+    },
+    {
+     "key": "B",
+     "text": "26",
+     "error_type": "geometric_sum_wrong"
+    },
+    {
+     "key": "C",
+     "text": "\\(25.3\\)",
+     "error_type": null
+    },
+    {
+     "key": "D",
+     "text": "22.6",
+     "error_type": "add_when_not_disjoint"
+    }
+   ],
+   "answer_key": "C",
+   "explanation_correct": "Vận tốc của vật được xác định trong từng giai đoạn và tích hợp để tìm quãng đường.",
+   "explanation_per_distractor": {
+    "A": "S = ∫[0,1] (-3/2 * \\(t^2 + 6\\)t + 4) dt + ∫[1,4] 10 \\(dt = 30.4\\)",
+    "B": "\\(S_n = 10\\) * (1 - (-3/2)^4) / (1 - (-3/2)) = 26",
+    "D": "P(S) = P(1st 1 hour) + P(next 3 hours) = 10 + (10 + 4 + 4)/2 * \\(3 = 22.6\\)"
+   },
+   "hint": "Vận tốc của vật được xác định trong từng giai đoạn và tích hợp để tìm quãng đường.",
+   "visual": {
+    "type": "graph",
+    "spec": {
+     "description": "Đồ thị vận tốc của vật chuyển động trong 4 giờ."
+    },
+    "alt_text": "Đồ thị vận tốc theo thời gian của vật."
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Trong khoảng thời gian 1 giờ đầu, ta gọi phương trình vận tốc của vật là \\(v(t) = at^2 + bt + c\\,(a\\neq 0)\\)",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": "numeric_eval",
+    "method": "numeric_eval",
+    "verified": false,
+    "status": "mismatch",
+    "status_label_vi": "Các nguồn tính toán lệch nhau — cần người kiểm",
+    "status_label_en": "Computation sources disagree — needs review",
+    "machine_checked": false,
+    "machine_verifiable": true,
+    "question_kind": "computational",
+    "evidence_sources": [
+     "writer_expression",
+     "independent_target"
+    ],
+    "independent": {
+     "attempted": true,
+     "definite": false,
+     "derivation": false,
+     "value": null,
+     "expression": "",
+     "stated_answer": "",
+     "stated_value": null,
+     "source": "not_applicable",
+     "detail": "tác nhân độc lập báo bài toán không có kết quả số duy nhất",
+     "model": "openai/gpt-4.1-mini",
+     "prompt_version": "1.0.0",
+     "errors": []
+    },
+    "needs_human_review": true,
+    "verifier_version": "2.0.0",
+    "verifier_hint": {
+     "type": "numeric_eval",
+     "payload": {
+      "expr": "(integrate(-3/2*t^2 + 6*t + 4, (t, 0, 1)) + integrate(-3/2*t + 10, (t, 1, 4)))",
+      "expected_numeric": 25.3
+     }
+    },
+    "numeric_crosscheck_points": 0,
+    "detail": "biểu thức kiểm chứng của Writer không khớp đáp án key (tác nhân độc lập báo bài toán không có kết quả số duy nhất)",
+    "verified_at": "2026-07-28T07:20:39.707892Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": 0.85,
+    "quality": 0.8916666666666667,
+    "bloom_alignment": 0.9,
+    "answer_prob": null,
+    "quality_traits": {
+     "clarity": {
+      "score": 0.95,
+      "rationale": "Đề bài rõ ràng, không mơ hồ, yêu cầu tính quãng đường dựa trên vận tốc cho trước."
+     },
+     "cognitive_depth": {
+      "score": 0.8,
+      "rationale": "Phù hợp với mức nhận thức 'Thông hiểu' khi yêu cầu tích hợp thông tin và áp dụng công thức."
+     },
+     "bloom_alignment": {
+      "score": 0.9,
+      "rationale": "Đúng mức Bloom 'Thông hiểu' khi cần tính toán dựa trên công thức và đồ thị."
+     },
+     "distractor_plausibility": {
+      "score": 0.8,
+      "rationale": "Các phương án sai có lỗi rõ ràng và hợp lý, gắn với lỗi thường gặp khi tính tích phân hoặc xác định phương trình."
+     },
+     "answer_uniqueness": {
+      "score": 1.0,
+      "rationale": "Chỉ có một đáp án đúng, không có ambiguity."
+     },
+     "error_distractor_consistency": {
+      "score": 0.9,
+      "rationale": "Mô tả lỗi của các distractor dẫn đến giá trị đúng."
+     }
+    },
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": 0.8916666666666667,
+    "verifier_pass": false,
+    "critic_score": 0.8916666666666667,
+    "grounding_score": 0.85,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "needs_revision",
+    "issues": [
+     "mismatch",
+     "verifier_numeric_mismatch"
+    ]
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "_attempts": 1,
+   "short_explanation": "Vận tốc của vật được xác định trong từng giai đoạn và tích hợp để tìm quãng đường.",
+   "detailed_solution": {
+    "steps": [
+     {
+      "title": "Bước 1",
+      "content": "Xác định phương trình vận tốc trong khoảng thời gian 1 giờ đầu tiên."
+     },
+     {
+      "title": "Bước 2",
+      "content": "Xác định phương trình vận tốc trong khoảng thời gian 3 giờ sau."
+     },
+     {
+      "title": "Bước 3",
+      "content": "Tính quãng đường đi được bằng tích phân vận tốc theo thời gian."
+     }
+    ],
+    "final_answer": "\\(25.3\\)"
+   },
+   "why_correct": "Bằng cách xác định chính xác các phương trình vận tốc trong từng giai đoạn và tích hợp đúng quãng đường.",
+   "why_others_wrong": [
+    {
+     "option": "A",
+     "reason": "S = ∫[0,1] (-3/2 * \\(t^2 + 6\\)t + 4) dt + ∫[1,4] 10 \\(dt = 30.4\\)"
+    },
+    {
+     "option": "B",
+     "reason": "\\(S_n = 10\\) * (1 - (-3/2)^4) / (1 - (-3/2)) = 26"
+    },
+    {
+     "option": "D",
+     "reason": "P(S) = P(1st 1 hour) + P(next 3 hours) = 10 + (10 + 4 + 4)/2 * \\(3 = 22.6\\)"
+    }
+   ],
+   "reject_reason": "Trùng với câu đã được chấp nhận trong cùng lượt sinh",
+   "reject_reason_code": "duplicate",
+   "reject_reason_stage": "dedup",
+   "reject_log": [
+    {
+     "reason_code": "duplicate",
+     "stage": "dedup",
+     "attempt": 0,
+     "message": "Trùng với câu đã được chấp nhận trong cùng lượt sinh",
+     "slot_id": "direct_pdf_6"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_7_verifier",
+   "blueprint_slot_id": "direct_pdf_7",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng cao",
+   "difficulty_target": 0.85,
+   "difficulty_estimated": 0.88,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.85,
+    "stem_length_adj": 0.06,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 353,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 322,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 4 giờ với vận tốc phụ thuộc vào thời gian \\(t(h)\\) có đồ thị vận tốc như hình vẽ bên. Trong khoảng thời gian 1 giờ đầu, đồ thị là một phần của đường Parabol có đỉnh \\(I(2;10)\\) và trục đối xứng song song với trục tung. Khoảng thời gian còn lại vật chuyển động chậm dần đều. Tính quãng đường \\(S\\) mà vật đi được trong 4 giờ đó.",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\(25.3\\)",
+     "error_type": null
+    },
+    {
+     "key": "B",
+     "text": "22",
+     "error_type": "matrix_multiply_not_commutative"
+    },
+    {
+     "key": "C",
+     "text": "24",
+     "error_type": "dot_product_zero_means_parallel"
+    },
+    {
+     "key": "D",
+     "text": "23",
+     "error_type": "geometric_sum_wrong"
+    }
+   ],
+   "answer_key": "A",
+   "explanation_correct": "Vận tốc của vật trong 4 giờ: \\(S = \\int_{0}^{1} (-\\frac{3}{2}t^2 + 6t + 4)dt + \\int_{1}^{4} (-\\frac{3}{2}t + 10)dt = 25,3km\\).",
+   "explanation_per_distractor": {
+    "B": "Trong tính toán quãng đường, giả sử vận tốc không đổi hoặc không giao hoán.",
+    "C": "Tích vô hướng bằng 0 suy ra song song.",
+    "D": "Áp dụng sai công thức tổng của cấp số nhân."
+   },
+   "hint": null,
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Một vật chuyển động trong 4 giờ với vận tốc . phụ thuộc vào thời gian $t(h)$ có đồ thị vận tốc như hình vẽ bên.Trong khoảng thời gian 1 giờ kể từ khi bắt đầu chuyển động, đồ thị đó là một phần của đường Parabol có đỉnh $I(2;10)$ và trục đối xứng song song với trục tung. Khoảng thời gian còn lại vật chuyển động chậm dần đều. Tính quãng đường $S$ mà vật đi được trong 4 giờ đó.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": null,
+    "method": null,
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": false,
+    "question_kind": "conceptual",
+    "evidence_sources": [],
+    "independent": {},
+    "needs_human_review": false,
+    "verifier_version": null,
+    "verifier_hint": null,
+    "numeric_crosscheck_points": 0,
+    "detail": null,
+    "verified_at": "2026-07-28T07:20:05.125380Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": null,
+    "quality": null,
+    "bloom_alignment": null,
+    "answer_prob": null,
+    "quality_traits": {},
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": null,
+    "verifier_pass": null,
+    "critic_score": null,
+    "grounding_score": null,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "format_error: rule validator failed: ['source_quote_too_long:377']",
+   "reject_reason_code": "quote_mismatch",
+   "reject_reason_stage": "verifier",
+   "reject_log": [
+    {
+     "reason_code": "quote_mismatch",
+     "stage": "verifier",
+     "attempt": 0,
+     "message": "format_error: rule validator failed: ['source_quote_too_long:377']",
+     "slot_id": "direct_pdf_7"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_8_dedup",
+   "blueprint_slot_id": "direct_pdf_8",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "numeric_eval",
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng",
+   "difficulty_target": 0.7,
+   "difficulty_estimated": 0.7,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.7,
+    "stem_length_adj": 0.03,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 163,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 130,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 4 giờ với vận tốc \\(v(t) = at^2 + bt + c\\). Đồ thị vận tốc của vật như hình vẽ bên. Tính quãng đường \\(S\\) mà vật đi được trong 4 giờ đó.",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\(25.3\\)",
+     "error_type": null
+    },
+    {
+     "key": "B",
+     "text": "26.1",
+     "error_type": "degree_sum_no_divide"
+    },
+    {
+     "key": "C",
+     "text": "27.2",
+     "error_type": "missing_negative_root"
+    },
+    {
+     "key": "D",
+     "text": "23.7",
+     "error_type": "geometric_sum_wrong"
+    }
+   ],
+   "answer_key": "A",
+   "explanation_correct": "Vận tốc của vật trong 4 giờ: Trong khoảng thời gian 1 giờ đầu, ta gọi phương trình vận tốc của vật là \\(v(t) = at^2 + bt + c(a≠0)\\). Theo bài ra ta có hệ phương trình: \\(\\begin{cases} v(0) = 4 \\\\ v(2) = 10 \\end{cases} \\) \\(\\Rightarrow \\begin{cases} c = 4 \\\\ 4a + 2b + c = 10 \\end{cases} \\) \\(\\Rightarrow \\begin{cases} a = -\\frac{3}{2} \\\\ b = 6 \\end{cases} \\) Khi đó: \\(v(t) = -\\frac{3}{2}x^2 + 6x + 4 \\) \\(⇒ v(1) = \\frac{17}{2}; v(4) = 4 \\) Trong khoảng thời gian 3 giờ sau, gọi phương trình vận tốc \\(v(t) = mx + n\\).",
+   "explanation_per_distractor": {
+    "B": "Tính số cạnh bằng \\( \\frac{\\sum \\deg(v)}{2} \\) nhưng không chia 2: \\( \\sum \\deg(v) = 2|E| \\)",
+    "C": "Chỉ xét nghiệm dương \\( x = \\sqrt{k} \\) mà bỏ qua \\( x = -\\sqrt{k} \\)",
+    "D": "Sử dụng công thức sai cho tổng của cấp số nhân: \\( S_n = u_1 \\frac{1 - q^n}{q - 1} \\) thay vì \\( S_n = u_1 \\frac{1 - q^n}{1 - q} \\)"
+   },
+   "hint": "Vận tốc của vật trong 4 giờ: Trong khoảng thời gian 1 giờ đầu, ta gọi phương trình vận tốc của vật là",
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Một vật chuyển động trong 4 giờ với vận tốc $v(t) = at^2 + bt + c$. Đồ thị vận tốc của vật như hình vẽ bên. Tính quãng đường $S$ mà vật đi được trong 4 giờ đó.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": "numeric_eval",
+    "method": "numeric_eval",
+    "verified": false,
+    "status": "mismatch",
+    "status_label_vi": "Các nguồn tính toán lệch nhau — cần người kiểm",
+    "status_label_en": "Computation sources disagree — needs review",
+    "machine_checked": false,
+    "machine_verifiable": true,
+    "question_kind": "computational",
+    "evidence_sources": [
+     "writer_expression",
+     "independent_target"
+    ],
+    "independent": {
+     "attempted": true,
+     "definite": false,
+     "derivation": false,
+     "value": null,
+     "expression": "",
+     "stated_answer": "",
+     "stated_value": null,
+     "source": "not_applicable",
+     "detail": "tác nhân độc lập báo bài toán không có kết quả số duy nhất",
+     "model": "openai/gpt-4.1-mini",
+     "prompt_version": "1.0.0",
+     "errors": []
+    },
+    "needs_human_review": true,
+    "verifier_version": "2.0.0",
+    "verifier_hint": {
+     "type": "numeric_eval",
+     "payload": {
+      "expr": "integrate(-3/2*t**2 + 6*t + 4, (t, 0, 1)) + integrate(-3/2*t + 10, (t, 1, 4))",
+      "expected_numeric": 25.3
+     }
+    },
+    "numeric_crosscheck_points": 0,
+    "detail": "biểu thức kiểm chứng của Writer không khớp đáp án key (tác nhân độc lập báo bài toán không có kết quả số duy nhất)",
+    "verified_at": "2026-07-28T07:21:00.848053Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": 0.9,
+    "quality": 0.9166666666666666,
+    "bloom_alignment": 0.9,
+    "answer_prob": null,
+    "quality_traits": {
+     "clarity": {
+      "score": 1.0,
+      "rationale": "Đề bài rõ ràng, cụ thể, nêu chi tiết các thông tin cần thiết để giải quyết bài toán."
+     },
+     "cognitive_depth": {
+      "score": 0.9,
+      "rationale": "Đòi hỏi học sinh vận dụng kiến thức về tích phân để tính quãng đường đi được, phù hợp với mức nhận thức 'Vận dụng'."
+     },
+     "bloom_alignment": {
+      "score": 0.9,
+      "rationale": "Câu hỏi yêu cầu học sinh áp dụng kiến thức đã học vào tình huống thực tế, phù hợp với mức Bloom 'Vận dụng'."
+     },
+     "distractor_plausibility": {
+      "score": 0.8,
+      "rationale": "Các phương án phân sai có thể xảy ra do lỗi tính toán hoặc sử dụng công thức sai, khá phù hợp với lỗi thường gặp."
+     },
+     "answer_uniqueness": {
+      "score": 1.0,
+      "rationale": "Chỉ có một đáp án đúng là 25.3, các phương án khác không chính xác."
+     },
+     "error_distractor_consistency": {
+      "score": 0.9,
+      "rationale": "Mô tả lỗi cho từng phương án phân sai hợp lý và dẫn đến giá trị phân sai đó."
+     }
+    },
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": 0.9166666666666666,
+    "verifier_pass": false,
+    "critic_score": 0.9166666666666666,
+    "grounding_score": 0.9,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "needs_revision",
+    "issues": [
+     "mismatch",
+     "verifier_numeric_mismatch"
+    ]
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "_attempts": 1,
+   "short_explanation": "Vận tốc của vật trong 4 giờ: Trong khoảng thời gian 1 giờ đầu, ta gọi phương trình vận tốc của vật là \\(v(t) = at^2 + bt + c(a≠0)\\). Theo bài ra ta có hệ phương trình: \\(\\begin{cases} v(0) = 4 \\\\ v(2) = 10 \\end{cases} \\)",
+   "detailed_solution": {
+    "steps": [
+     {
+      "title": "Bước 1",
+      "content": "Vận tốc của vật trong 4 giờ: Trong khoảng thời gian 1 giờ đầu, ta gọi phương trình vận tốc của vật là \\(v(t) = at^2 + bt + c(a≠0)\\)."
+     },
+     {
+      "title": "Bước 2",
+      "content": "Theo bài ra ta có hệ phương trình: \\(\\begin{cases} v(0) = 4 \\\\ v(2) = 10 \\end{cases} \\) \\(\\Rightarrow \\begin{cases} c = 4 \\\\ 4a + 2b + c = 10 \\end{cases} \\) \\(\\Rightarrow \\begin{cases} a = -\\frac{3}{2} \\\\ b = 6 \\end{cases} \\)"
+     },
+     {
+      "title": "Bước 3",
+      "content": "Khi đó: \\(v(t) = -\\frac{3}{2}x^2 + 6x + 4 \\) \\(⇒ v(1) = \\frac{17}{2}; v(4) = 4 \\)"
+     },
+     {
+      "title": "Bước 4",
+      "content": "Trong khoảng thời gian 3 giờ sau, gọi phương trình vận tốc \\(v(t) = mx + n\\). Theo giả thiết ta có hệ phương trình: \\(\\begin{cases} v(1) = m + n = \\frac{17}{2} \\\\ v(4) = 4m + n = 4 \\end{cases} \\) \\(\\Rightarrow \\begin{cases} m = -\\frac{3}{2} \\\\ n = 10 \\end{cases} \\) \\(⇒ v(t) = -\\frac{3}{2}x + 10 \\)"
+     },
+     {
+      "title": "Bước 5",
+      "content": "Quãng đường vật đi trong 4 giờ: \\(S = \\int\\_{0}^{1} (-\\frac{3}{2}t^2 + 6t + 4)dt + \\int\\_{1}^{4} (-\\frac{3}{2}t + 10)dt = 25.3 km \\)"
+     }
+    ],
+    "final_answer": "\\(25.3\\)"
+   },
+   "why_correct": "Vì đáp án này là kết quả chính xác từ phép tính quãng đường vật đi được trong 4 giờ dựa trên vận tốc cho trước và đồ thị vận tốc.",
+   "why_others_wrong": [
+    {
+     "option": "B",
+     "reason": "Tính số cạnh bằng \\( \\frac{\\sum \\deg(v)}{2} \\) nhưng không chia 2: \\( \\sum \\deg(v) = 2|E| \\)"
+    },
+    {
+     "option": "C",
+     "reason": "Chỉ xét nghiệm dương \\( x = \\sqrt{k} \\) mà bỏ qua \\( x = -\\sqrt{k} \\)"
+    },
+    {
+     "option": "D",
+     "reason": "Sử dụng công thức sai cho tổng của cấp số nhân: \\( S_n = u_1 \\frac{1 - q^n}{q - 1} \\) thay vì \\( S_n = u_1 \\frac{1 - q^n}{1 - q} \\)"
+    }
+   ],
+   "reject_reason": "Trùng với câu đã được chấp nhận trong cùng lượt sinh",
+   "reject_reason_code": "duplicate",
+   "reject_reason_stage": "dedup",
+   "reject_log": [
+    {
+     "reason_code": "duplicate",
+     "stage": "dedup",
+     "attempt": 0,
+     "message": "Trùng với câu đã được chấp nhận trong cùng lượt sinh",
+     "slot_id": "direct_pdf_8"
+    }
+   ],
+   "attempts": 1
+  }
+ ]
+}

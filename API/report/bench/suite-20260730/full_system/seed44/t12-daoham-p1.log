@@ -1,0 +1,8 @@
+    [pdf-slot direct_pdf_2] critic reject: error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Một số chuỗi lỗi không dẫn chính xác tới giá trị distractor (đặc biệt phương án \(\frac14\) và \(\frac12\sqrt[3]{2}\)), đồng thời phần giải thích đáp án khẳng đ)
+    [pdf-slot direct_pdf_3] verifier reject: duplicate: rule validator failed: ['d3:duplicate_option']
+    [pdf-slot direct_pdf_4] mismatch: biểu thức của Writer khớp key (46.9361) nhưng tính toán độc lập cho 2.30278
+    [pdf-slot direct_pdf_4] critic reject: error_distractor_consistency=0.25 (lỗi mô tả không khớp giá trị distractor/đáp án) (Các chuỗi lỗi đều dẫn đúng đến giá trị distractor tương ứng, nhưng answer_text đang là giá trị lợi nhuận trong khi câu hỏi hỏi số lô hàng nên có mâu thuẫn nghiê)
+    [pdf-slot direct_pdf_6] verifier reject: duplicate: rule validator failed: ['d3:duplicate_option']
+    [pdf-slot direct_pdf_8] critic reject: error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Phần mô tả lỗi của distractor \(10\) không thực sự dẫn đến đúng giá trị \(10\), và explanation chưa trình bày phép tính kiểm chứng đáp án \(14\).)
+    [pdf-slot direct_pdf_10] critic reject: error_distractor_consistency=0.30 (lỗi mô tả không khớp giá trị distractor/đáp án) (Một số chuỗi lỗi trong mô tả không tạo đúng giá trị distractor tương ứng, đặc biệt distractor \(5\) và \(11\) có diễn giải lỗi chưa khớp hoàn toàn.)
+[cell] arm=full_system seed=44 t12-daoham-p1.pdf: delivered=12/12 rejected=6 tokens=203813 423s

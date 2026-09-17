@@ -1,0 +1,1 @@
+﻿79 phieu cham bang prompt LOI: 14/19 loi chi dua ten snake_case tieng Anh, khong co mo ta. Mo hinh phai tu doan nghia nen lost_sequence duoc gan 0/25 (luat gan 9/25). KHONG dung cho bao cao. Da sua: iwf_rubric.flaw_definitions() mo ta ca 19 loi.

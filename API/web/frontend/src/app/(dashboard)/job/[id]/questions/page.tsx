@@ -49,12 +49,16 @@ import {
   type QuestionFeedback,
 } from "@/lib/api"
 import { cn } from "@/lib/utils"
+import {
+  STATUS_BADGE_CLASS, STATUS_HELP, isIndependentlyVerified, isMachineChecked,
+  needsHumanReview, verificationStatus,
+} from "@/lib/verification"
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
 type SortBy = "risk" | "score" | "newest" | "topic"
 type ViewMode = "review" | "quiz"
-type VerifiedFilter = "all" | "verified" | "symbolic" | "unverified"
+type VerifiedFilter = "all" | "verified" | "symbolic" | "review" | "unverified"
 
 interface Filters {
   search: string
@@ -113,10 +117,11 @@ function FilterBar({
           onChange={(e) => onChange({ ...filters, verified: e.target.value as VerifiedFilter })}
           className="h-9 rounded-md border bg-background px-3 text-sm"
         >
-          <option value="all">Verifier: tất cả</option>
-          <option value="verified">Đã verify</option>
-          <option value="symbolic">Symbolic</option>
-          <option value="unverified">Chưa verify</option>
+          <option value="all">Kiểm chứng: tất cả</option>
+          <option value="symbolic">Đã kiểm chứng độc lập</option>
+          <option value="verified">Máy đã kiểm (gồm cả chỉ nhất quán)</option>
+          <option value="review">Cần người kiểm</option>
+          <option value="unverified">Chưa có kiểm chứng máy</option>
         </select>
         <Button
           variant="outline"
@@ -255,12 +260,11 @@ function QuizView({
 // ── Card Grid ─────────────────────────────────────────────────────────────
 
 function isSymbolicVerified(q: Question): boolean {
-  const v = q.verification
-  return v?.verified === true && !!v.engine && v.engine !== "none"
+  return isIndependentlyVerified(q)
 }
 
 function isVerified(q: Question): boolean {
-  return q.verification?.verified === true
+  return isMachineChecked(q)
 }
 
 function riskScore(q: Question): number {
@@ -403,14 +407,41 @@ function FeedbackBar({
   )
 }
 
+/**
+ * Nhãn gọn trong danh sách. Không dùng chữ "verified" trần: một câu chỉ nhất
+ * quán với biểu thức của chính nó phải hiện khác một câu đã có nguồn tính toán
+ * độc lập xác nhận.
+ */
 function VerifierMini({ q }: { q: Question }) {
-  if (isSymbolicVerified(q)) {
-    return <Badge variant="outline" className="border-emerald-300 text-emerald-700"><ShieldCheckIcon className="mr-1 size-3" />{q.verification?.engine}</Badge>
+  const status = verificationStatus(q)
+  const help = STATUS_HELP[status]
+  if (status === "independently_verified") {
+    return (
+      <Badge variant="outline" title={help} className={STATUS_BADGE_CLASS[status]}>
+        <ShieldCheckIcon className="mr-1 size-3" />độc lập
+      </Badge>
+    )
   }
-  if (isVerified(q)) {
-    return <Badge variant="outline" className="border-emerald-300 text-emerald-700"><ShieldCheckIcon className="mr-1 size-3" />verified</Badge>
+  if (status === "consistency_confirmed") {
+    return (
+      <Badge variant="outline" title={help} className={STATUS_BADGE_CLASS[status]}>
+        <ShieldCheckIcon className="mr-1 size-3" />nhất quán
+      </Badge>
+    )
   }
-  return <Badge variant="outline" className="text-amber-700"><ShieldAlertIcon className="mr-1 size-3" />none</Badge>
+  if (status === "mismatch" || status === "refuted") {
+    return (
+      <Badge variant="outline" title={help} className={STATUS_BADGE_CLASS[status]}>
+        <ShieldAlertIcon className="mr-1 size-3" />
+        {status === "refuted" ? "bị bác" : "lệch nguồn"}
+      </Badge>
+    )
+  }
+  return (
+    <Badge variant="outline" title={help} className={STATUS_BADGE_CLASS[status]}>
+      <ShieldAlertIcon className="mr-1 size-3" />không kiểm được
+    </Badge>
+  )
 }
 
 function QuestionBankTable({
@@ -984,6 +1015,7 @@ export default function QuestionsPage() {
       if (filters.topic !== "all" && q.topic !== filters.topic) return false
       if (filters.verified === "verified" && !isVerified(q)) return false
       if (filters.verified === "symbolic" && !isSymbolicVerified(q)) return false
+      if (filters.verified === "review" && !needsHumanReview(q)) return false
       if (filters.verified === "unverified" && isVerified(q)) return false
       if (filters.search) {
         const needle = filters.search.toLowerCase()

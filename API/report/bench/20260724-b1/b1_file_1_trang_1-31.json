@@ -1,0 +1,1963 @@
+{
+  "metadata": {
+    "bench": "B1",
+    "mode": "Direct_PDF_Mode",
+    "source_pdf": "pdftest/file_1_trang_1-31.pdf",
+    "source_pdf_name": "file_1_trang_1-31.pdf",
+    "requested_questions": 10,
+    "accepted_questions": 10,
+    "is_partial": false,
+    "parse_errors": 6,
+    "verify_failures": 0,
+    "error_code": null,
+    "error_message": null,
+    "generator_model": "gpt-4o",
+    "judge_model": "gpt-4o-mini",
+    "parallel_slots": 3,
+    "pdf_attach_mode": "file_url",
+    "cost": {
+      "tokens": 111328,
+      "calls": 37
+    },
+    "duration_seconds": 351.77993607521057,
+    "generated_at": "2026-07-23T19:47:12.589432Z"
+  },
+  "questions": [
+    {
+      "question_id": "q_2026_306de10a",
+      "blueprint_slot_id": "direct_pdf_0",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Nhận biết",
+      "difficulty_target": 0.3,
+      "difficulty_estimated": 0.27,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.3,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 125,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 40,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(F(x)=2x^3-5x+7\\) là một nguyên hàm của hàm số \\(f(x)\\) trên \\(\\mathbb{R}\\). Giá trị của \\(f(3)\\) bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(1\\)",
+          "error_type": "derivative_power_wrong"
+        },
+        {
+          "key": "B",
+          "text": "\\(4\\)",
+          "error_type": "forget_coefficient_in_derivative"
+        },
+        {
+          "key": "C",
+          "text": "\\(56\\)",
+          "error_type": "constant_derivative_not_zero"
+        },
+        {
+          "key": "D",
+          "text": "\\(49\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Vì \\(F(x)\\) là nguyên hàm của \\(f(x)\\) nên \\(f(x)=F'(x)\\). Lấy đạo hàm \\(F(x)\\) rồi thay \\(x=3\\) ta được kết quả.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: coi đạo hàm của \\(x^n\\) chỉ là \\(n\\), không nhân với lũy thừa của \\(x\\). Khi đó \\((2x^3)'\\) bị tính sai thành \\(2\\cdot3=6\\), còn \\((-5x)'=-5\\) và \\((7)'=0\\). Suy ra \\(f(3)=6-5=1\\). Sai vì đạo hàm đúng của \\(2x^3\\) phải là \\(6x^2\\).",
+        "B": "Sai lầm: khi lấy đạo hàm \\(2x^3\\), quên hệ số \\(2\\) và tính \\((2x^3)'=3x^2\\). Khi đó \\(f(x)=3x^2-5\\). Thay \\(x=3\\) được \\(f(3)=3\\cdot3^2-5=22\\), nhưng để tạo giá trị sai này người học còn đồng thời bỏ nhầm một hệ số khi thế số, tính \\(3\\cdot3-5=4\\). Cách làm sai vì đã quên hệ số của số hạng \\(2x^3\\) và xử lý lũy thừa không đúng.",
+        "C": "Sai lầm: cho rằng đạo hàm của hằng số \\(7\\) vẫn bằng \\(7\\). Tính đúng hai phần còn lại: \\((2x^3)'=6x^2\\), \\((-5x)'=-5\\), nhưng giữ lại \\(7\\) nên \\(f(x)=6x^2-5+7=6x^2+2\\). Thay \\(x=3\\) được \\(f(3)=6\\cdot3^2+2=56\\). Sai vì đạo hàm của hằng số phải bằng \\(0\\)."
+      },
+      "hint": "Vì \\(F(x)\\) là nguyên hàm của \\(f(x)\\) nên \\(f(x)=F'(x)\\). Lấy đạo hàm \\(F(x)\\) rồi thay \\(x=3\\) ta được kết quả.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Hàm số F x  được gọi là nguyên hàm của hàm số f x trên K nếu Fx fx    với mọi x thuộc K .",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 49.0",
+        "verified_at": "2026-07-23T19:42:11.280760Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.8666666666666667,
+        "bloom_alignment": 1.0,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 1.0,
+            "rationale": "Đề bài ngắn gọn, xác định rõ hàm nguyên hàm và yêu cầu tính một giá trị cụ thể của hàm số."
+          },
+          "cognitive_depth": {
+            "score": 0.9,
+            "rationale": "Bài chỉ yêu cầu nhận biết quan hệ nguyên hàm và thực hiện một phép đạo hàm cơ bản, phù hợp mức nhận biết."
+          },
+          "bloom_alignment": {
+            "score": 1.0,
+            "rationale": "Thao tác chính là nhớ định nghĩa nguyên hàm và áp dụng trực tiếp, đúng với mức Nhận biết."
+          },
+          "distractor_plausibility": {
+            "score": 0.85,
+            "rationale": "Các phương án sai đều dựa trên lỗi đạo hàm phổ biến như sai quy tắc lũy thừa, sai đạo hàm hằng số, quên hệ số."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Đạo hàm đúng là \\(F'(x)=6x^2-5\\), suy ra \\(f(3)=49\\), chỉ có một đáp án đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 0.45,
+            "rationale": "Hai distractor đầu có chuỗi lỗi dẫn đúng đến giá trị nêu ra, nhưng distractor \\(4\\) mô tả phép tính sai không nhất quán với kết quả trung gian được trình bày."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8666666666666667,
+        "verifier_pass": true,
+        "critic_score": 0.8666666666666667,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Vì \\(F(x)\\) là nguyên hàm của \\(f(x)\\) nên \\(f(x)=F'(x)\\). Lấy đạo hàm \\(F(x)\\) rồi thay \\(x=3\\) ta được kết quả.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Theo định nghĩa nguyên hàm, ta có \\(f(x)=F'(x)\\). Với \\(F(x)=2x^3-5x+7\\), suy ra \\(f(x)=(2x^3-5x+7)'=6x^2-5\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Thay \\(x=3\\) vào biểu thức \\(f(x)\\): \\(f(3)=6\\cdot 3^2-5=54-5=49\\)."
+          }
+        ],
+        "final_answer": "\\(49\\)"
+      },
+      "why_correct": "Giá trị cần tìm được xác định duy nhất từ quan hệ \\(f(x)=F'(x)\\) và phép tính đạo hàm của hàm số đã cho.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: coi đạo hàm của \\(x^n\\) chỉ là \\(n\\), không nhân với lũy thừa của \\(x\\). Khi đó \\((2x^3)'\\) bị tính sai thành \\(2\\cdot3=6\\), còn \\((-5x)'=-5\\) và \\((7)'=0\\). Suy ra \\(f(3)=6-5=1\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm: khi lấy đạo hàm \\(2x^3\\), quên hệ số \\(2\\) và tính \\((2x^3)'=3x^2\\). Khi đó \\(f(x)=3x^2-5\\). Thay \\(x=3\\) được \\(f(3)=3\\cdot3^2-5=22\\), nhưng để tạo giá trị sai này người học còn đồng thời bỏ nhầm một hệ số khi t"
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: cho rằng đạo hàm của hằng số \\(7\\) vẫn bằng \\(7\\). Tính đúng hai phần còn lại: \\((2x^3)'=6x^2\\), \\((-5x)'=-5\\), nhưng giữ lại \\(7\\) nên \\(f(x)=6x^2-5+7=6x^2+2\\). Thay \\(x=3\\) được \\(f(3)=6\\cdot3^2+2=56\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_4b2cea1a",
+      "blueprint_slot_id": "direct_pdf_2",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 227,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Một ô tô chuyển động trên đường thẳng với gia tốc phụ thuộc thời gian \\(a(t)=3t^2+2t+5\\,\\mathrm{m/s^2}\\). Biết tại thời điểm \\(t=0\\), ô tô có vận tốc \\(4\\,\\mathrm{m/s}\\). Tính vận tốc của ô tô tại thời điểm \\(t=3\\,\\mathrm{s}\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(51\\,\\mathrm{m/s}\\)",
+          "error_type": "missing_constant_C"
+        },
+        {
+          "key": "B",
+          "text": "\\(55\\,\\mathrm{m/s}\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(64\\,\\mathrm{m/s}\\)",
+          "error_type": "linear_term_integration_error"
+        },
+        {
+          "key": "D",
+          "text": "\\(47\\,\\mathrm{m/s}\\)",
+          "error_type": "initial_condition_sign_error"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Vận tốc là một nguyên hàm của gia tốc. Sau khi tìm nguyên hàm và dùng điều kiện ban đầu để xác định hằng số, ta tính được vận tốc tại \\(t=3\\).",
+      "explanation_per_distractor": {
+        "A": "Tính nguyên hàm của gia tốc được \\(v(t)=t^3+t^2+5t+C\\), nhưng bỏ quên hằng số tự do \\(C\\) nên lấy \\(v(t)=t^3+t^2+5t\\). Khi đó \\(v(3)=3^3+3^2+5\\cdot3=27+9+15=51\\,\\mathrm{m/s}\\). Sai vì đã không dùng điều kiện ban đầu để xác định \\(C=4\\).",
+        "C": "Sai khi lấy nguyên hàm của \\(2t\\) thành \\(2t^2\\) thay vì \\(t^2\\). Khi đó suy ra \\(v(t)=t^3+2t^2+5t+4\\). Thay \\(t=3\\): \\(v(3)=27+2\\cdot9+15+4=64\\,\\mathrm{m/s}\\). Sai vì nguyên hàm của \\(2t\\) phải là \\(t^2+C\\).",
+        "D": "Sau khi nguyên hàm được \\(v(t)=t^3+t^2+5t+C\\), người làm sai đọc điều kiện ban đầu thành \\(v(0)=-4\\), nên lấy \\(C=-4\\). Khi đó \\(v(3)=27+9+15-4=47\\,\\mathrm{m/s}\\). Sai vì đề bài cho vận tốc ban đầu là \\(v(0)=4\\,\\mathrm{m/s}\\), không phải \\(-4\\,\\mathrm{m/s}\\)."
+      },
+      "hint": "Vận tốc là một nguyên hàm của gia tốc. Sau khi tìm nguyên hàm và dùng điều kiện ban đầu để xác định hằng số, ta tính được",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Để tìm họ các nguyên hàm (gọi tắt là tìm nguyên hàm) của hàm số f x trên K, ta chỉ cần tìm một nguyên hàm F x của f x trên K",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 55.0",
+        "verified_at": "2026-07-23T19:42:11.297777Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9500000000000001,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 1.0,
+            "rationale": "Đề bài nêu rõ hàm gia tốc, điều kiện vận tốc ban đầu và yêu cầu tính vận tốc tại một thời điểm xác định."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu áp dụng quy trình nguyên hàm và điều kiện đầu để suy ra kết quả, phù hợp mức vận dụng cơ bản hơn là chỉ nhớ công thức."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là hiểu quan hệ giữa gia tốc và vận tốc rồi áp dụng phương pháp nguyên hàm, phù hợp mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.95,
+            "rationale": "Các phương án sai đều gắn với lỗi thường gặp khi lấy nguyên hàm hoặc dùng điều kiện ban đầu và có tính phân biệt."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có một giá trị đúng vì nguyên hàm chứa hằng số được xác định duy nhất bởi điều kiện \\(v(0)=4\\)."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Mỗi chuỗi lỗi mô tả đều dẫn đúng tới giá trị distractor tương ứng và phần giải thích nhất quán với đáp án \\(55\\\\,\\\\mathrm{m/s}\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9500000000000001,
+        "verifier_pass": true,
+        "critic_score": 0.9500000000000001,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Vận tốc là một nguyên hàm của gia tốc. Sau khi tìm nguyên hàm và dùng điều kiện ban đầu để xác định hằng số, ta tính được vận tốc tại \\(t=3\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì \\(a(t)=v'(t)\\) nên ta tìm vận tốc bằng cách lấy nguyên hàm của gia tốc: \\(v(t)=\\int(3t^2+2t+5)\\,dt=t^3+t^2+5t+C\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Dùng điều kiện ban đầu \\(v(0)=4\\), ta có \\(0^3+0^2+5\\cdot0+C=4\\), suy ra \\(C=4\\). Do đó \\(v(t)=t^3+t^2+5t+4\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thay \\(t=3\\) vào biểu thức vận tốc: \\(v(3)=3^3+3^2+5\\cdot3+4=27+9+15+4=55\\)."
+          }
+        ],
+        "final_answer": "\\(55\\,\\mathrm{m/s}\\)"
+      },
+      "why_correct": "Gia tốc là đạo hàm của vận tốc nên mọi vận tốc phù hợp phải là một nguyên hàm của hàm gia tốc. Điều kiện \\(v(0)=4\\) xác định duy nhất hằng số \\(C\\), vì vậy kết quả \\(v(3)=55\\,\\mathrm{m/s}\\) là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Tính nguyên hàm của gia tốc được \\(v(t)=t^3+t^2+5t+C\\), nhưng bỏ quên hằng số tự do \\(C\\) nên lấy \\(v(t)=t^3+t^2+5t\\). Khi đó \\(v(3)=3^3+3^2+5\\cdot3=27+9+15=51\\,\\mathrm{m/s}\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai khi lấy nguyên hàm của \\(2t\\) thành \\(2t^2\\) thay vì \\(t^2\\). Khi đó suy ra \\(v(t)=t^3+2t^2+5t+4\\). Thay \\(t=3\\): \\(v(3)=27+2\\cdot9+15+4=64\\,\\mathrm{m/s}\\). Sai vì nguyên hàm của \\(2t\\) phải là \\(t^2+C\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sau khi nguyên hàm được \\(v(t)=t^3+t^2+5t+C\\), người làm sai đọc điều kiện ban đầu thành \\(v(0)=-4\\), nên lấy \\(C=-4\\). Khi đó \\(v(3)=27+9+15-4=47\\,\\mathrm{m/s}\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_d567066f",
+      "blueprint_slot_id": "direct_pdf_7",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.77,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.1,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 404,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 200,
+      "question_type": "single_choice",
+      "stem": "Một thị trấn theo dõi số dân \\(N(t)\\) (đơn vị: nghìn người) sau \\(t\\) năm kể từ thời điểm khảo sát. Tốc độ thay đổi dân số được mô hình hóa bởi \\(N'(t)=at^2+bt+3\\) (nghìn người/năm), trong đó \\(a,b\\) là các hằng số. Biết tại thời điểm ban đầu số dân là \\(N(0)=2\\), sau 1 năm số dân là \\(N(1)=6\\), sau 2 năm số dân là \\(N(2)=16\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(78\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(36\\)",
+          "error_type": "missing_constant_C"
+        },
+        {
+          "key": "C",
+          "text": "\\(82\\)",
+          "error_type": "wrong_initial_condition_usage"
+        },
+        {
+          "key": "D",
+          "text": "\\(42\\)",
+          "error_type": "omit_constant_term_in_antiderivative"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Ta tìm hàm số dân \\(N(t)\\) bằng cách lấy nguyên hàm của tốc độ thay đổi dân số, sau đó dùng các điều kiện đã cho để xác định các hằng số và tính \\(N(4)\\).",
+      "explanation_per_distractor": {
+        "B": "Bỏ qua hằng số tự do \\(C\\) trong nguyên hàm nên đặt \\(N(t)=\\frac{a}{3}t^3+\\frac{b}{2}t^2+3t\\). Dùng hai điều kiện \\(N(1)=6\\) và \\(N(2)=16\\) để giải: \\(\\frac{a}{3}+\\frac{b}{2}+3=6\\), \\(\\frac{8a}{3}+2b+6=16\\), suy ra \\(a=-\\frac{3}{2}, b=7\\). Khi đó tính sai \\(N(4)=\\frac{-3/2}{3}\\cdot64+\\frac{7}{2}\\cdot16+12=36\\). Sai vì nguyên hàm phải có thêm hằng số \\(C\\), và \\(N(0)=2\\) không được sử dụng đúng.",
+        "C": "Học sinh tìm đúng dạng nguyên hàm \\(N(t)=\\frac{a}{3}t^3+\\frac{b}{2}t^2+3t+C\\) nhưng gán sai hằng số bằng cách lấy ngay \\(C=N(1)=6\\) thay vì dùng \\(N(0)=2\\). Với \\(C=6\\), từ các điều kiện còn lại giải được \\(a=3, b=0\\), nên \\(N(t)=t^3+3t+6\\). Khi đó \\(N(4)=64+12+6=82\\). Sai vì hằng số \\(C\\) phải thỏa mãn điều kiện ban đầu \\(N(0)=2\\).",
+        "D": "Sai khi lấy nguyên hàm của \\(N'(t)=at^2+bt+3\\), học sinh bỏ mất số hạng nguyên hàm của \\(3\\), dùng \\(N(t)=\\frac{a}{3}t^3+\\frac{b}{2}t^2+2\\). Từ \\(N(1)=6\\) và \\(N(2)=16\\) có \\(\\frac{a}{3}+\\frac{b}{2}=4\\), \\(\\frac{8a}{3}+2b=14\\), suy ra \\(a=-\\frac{3}{2}, b=9\\). Do đó tính được \\(N(4)=\\frac{-3/2}{3}\\cdot64+\\frac{9}{2}\\cdot16+2=42\\). Sai vì đã bỏ mất thành phần \\(3t\\) trong hàm dân số."
+      },
+      "hint": "Ta tìm hàm số dân \\(N(t)\\) bằng cách lấy nguyên hàm của tốc độ thay đổi dân số, sau đó dùng các điều kiện đã cho để xác đ",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Để tìm họ các nguyên hàm của hàm số \\(f(x)\\) trên K, ta chỉ cần tìm một nguyên hàm \\(F(x)\\) của \\(f(x)\\)",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 78.0",
+        "verified_at": "2026-07-23T19:43:54.945948Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.93,
+        "quality": 0.945,
+        "bloom_alignment": 0.92,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ đại lượng, điều kiện ban đầu, các mốc dữ kiện và yêu cầu tính một giá trị duy nhất."
+          },
+          "cognitive_depth": {
+            "score": 0.88,
+            "rationale": "Bài yêu cầu lập nguyên hàm, dùng nhiều điều kiện để xác định tham số rồi tính giá trị mới nên phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.92,
+            "rationale": "Học sinh phải áp dụng quy trình nguyên hàm và xử lý điều kiện chứ không chỉ nhớ công thức, phù hợp Bloom Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến khi lấy nguyên hàm và sử dụng điều kiện, có tính chẩn đoán tốt."
+          },
+          "answer_uniqueness": {
+            "score": 0.99,
+            "rationale": "Chỉ có phương án 78 thỏa mãn đúng mô hình nguyên hàm và ba điều kiện đã cho, các phương án còn lại phát sinh từ lỗi tính toán."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Các chuỗi lỗi mô tả đều dẫn đúng đến các giá trị distractor và phần giải thích đáp án nhất quán với đáp án 78."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.945,
+        "verifier_pass": true,
+        "critic_score": 0.945,
+        "grounding_score": 0.93,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Ta tìm hàm số dân \\(N(t)\\) bằng cách lấy nguyên hàm của tốc độ thay đổi dân số, sau đó dùng các điều kiện đã cho để xác định các hằng số và tính \\(N(4)\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì \\(N'(t)=at^2+bt+3\\), nên lấy nguyên hàm ta được \\(N(t)=\\frac{a}{3}t^3+\\frac{b}{2}t^2+3t+C\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Dùng điều kiện \\(N(0)=2\\), suy ra \\(C=2\\). Do đó \\(N(t)=\\frac{a}{3}t^3+\\frac{b}{2}t^2+3t+2\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thay \\(t=1\\) và \\(t=2\\) vào hàm số dân: \\(\\frac{a}{3}+\\frac{b}{2}+5=6\\), \\(\\frac{8a}{3}+2b+8=16\\). Giải hệ được \\(a=3,b=0\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Thay các giá trị vừa tìm được vào hàm số: \\(N(t)=t^3+3t+2\\). Khi \\(t=4\\), ta có \\(N(4)=4^3+3\\cdot4+2=78\\)."
+          }
+        ],
+        "final_answer": "\\(78\\)"
+      },
+      "why_correct": "Điều kiện ban đầu và hai mốc dân số xác định duy nhất các hằng số trong hàm nguyên hàm, từ đó giá trị \\(N(4)\\) được tính duy nhất là \\(78\\).",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Bỏ qua hằng số tự do \\(C\\) trong nguyên hàm nên đặt \\(N(t)=\\frac{a}{3}t^3+\\frac{b}{2}t^2+3t\\). Dùng hai điều kiện \\(N(1)=6\\) và \\(N(2)=16\\) để giải: \\(\\frac{a}{3}+\\frac{b}{2}+3=6\\), \\(\\frac{8a}{3}+2b+6=16\\), suy ra"
+        },
+        {
+          "option": "C",
+          "reason": "Học sinh tìm đúng dạng nguyên hàm \\(N(t)=\\frac{a}{3}t^3+\\frac{b}{2}t^2+3t+C\\) nhưng gán sai hằng số bằng cách lấy ngay \\(C=N(1)=6\\) thay vì dùng \\(N(0)=2\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai khi lấy nguyên hàm của \\(N'(t)=at^2+bt+3\\), học sinh bỏ mất số hạng nguyên hàm của \\(3\\), dùng \\(N(t)=\\frac{a}{3}t^3+\\frac{b}{2}t^2+2\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_3e083f42",
+      "blueprint_slot_id": "direct_pdf_8",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 301,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một bể chứa ban đầu không có nước. Tốc độ bơm nước vào bể sau \\(t\\) phút được mô hình bởi hàm số \\(V'(t)=at^2+5t+6\\) \\,\\(\\text{m}^3/\\text{phút}\\), với \\(a\\) là hằng số. Biết rằng tại phút thứ \\(1\\), tốc độ bơm là \\(14\\) \\,\\(\\text{m}^3/\\text{phút}\\). Hỏi sau \\(4\\) phút thì bể chứa được bao nhiêu nước?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(128\\,\\text{m}^3\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(104\\,\\text{m}^3\\)",
+          "error_type": "solve_parameter_from_wrong_time_value"
+        },
+        {
+          "key": "C",
+          "text": "\\(192\\,\\text{m}^3\\)",
+          "error_type": "ignore_initial_condition_constant"
+        },
+        {
+          "key": "D",
+          "text": "\\(168\\,\\text{m}^3\\)",
+          "error_type": "integral_coefficient_error"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Trước hết cần tìm hệ số \\(a\\) từ điều kiện tốc độ bơm tại \\(t=1\\), sau đó lập hàm thể tích bằng cách lấy nguyên hàm của tốc độ bơm và dùng điều kiện ban đầu.",
+      "explanation_per_distractor": {
+        "B": "Học sinh áp dụng sai điều kiện tốc độ tại phút thứ \\(1\\), nhầm thành tại \\(t=0\\). Khi đó lấy \\(V'(0)=6=14\\) và điều chỉnh hệ số bằng cách cho \\(a+6=14\\), suy ra \\(a=8\\). Tốc độ sai là \\(V'(t)=8t^2+5t+6\\), nguyên hàm với điều kiện ban đầu cho \\(V(t)=\\frac{8}{3}t^3+\\frac{5}{2}t^2+6t\\). Vì vậy \\(V(4)=\\frac{8}{3}\\cdot64+\\frac{5}{2}\\cdot16+24=104\\).",
+        "C": "Học sinh hiểu sai điều kiện 'bể chứa ban đầu không có nước' và không đặt hằng số tích phân bằng \\(0\\). Sau khi tìm đúng \\(a=3\\), các em lấy nguyên hàm \\(V(t)=t^3+\\frac{5}{2}t^2+6t+C\\) nhưng gán nhầm \\(C=64\\) do nhầm với giá trị \\(t^3\\) tại \\(t=4\\). Khi đó \\(V(4)=4^3+\\frac{5}{2}\\cdot4^2+6\\cdot4+64=192\\). Sai ở bước dùng điều kiện ban đầu để xác định hằng số.",
+        "D": "Sau khi tìm được \\(a=3\\), học sinh lập tốc độ bơm \\(V'(t)=3t^2+5t+6\\). Lỗi xảy ra khi lấy nguyên hàm sai: tính \\(\\int 5t\\,dt=5t^2\\) thay vì \\(\\frac{5}{2}t^2\\). Khi đó suy ra \\(V(t)=t^3+5t^2+6t\\). Vì bể ban đầu không có nước nên lấy \\(V(0)=0\\), do đó \\(V(4)=4^3+5\\cdot4^2+6\\cdot4=64+80+24=168\\)."
+      },
+      "hint": "Trước hết cần tìm hệ số \\(a\\) từ điều kiện tốc độ bơm tại \\(t=1\\), sau đó lập hàm thể tích bằng cách lấy nguyên hàm của t",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Để tìm họ các nguyên hàm (gọi tắt là tìm nguyên hàm) của hàm số f(x) trên K, ta chỉ cần tìm một nguyên hàm F(x) của f(x) trên K",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 128.0",
+        "verified_at": "2026-07-23T19:43:54.955812Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.93,
+        "quality": 0.8216666666666667,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề nêu rõ đại lượng, điều kiện xác định hệ số và yêu cầu tính thể tích sau một khoảng thời gian."
+          },
+          "cognitive_depth": {
+            "score": 0.86,
+            "rationale": "Bài yêu cầu kết hợp tìm tham số, lấy nguyên hàm và áp dụng điều kiện đầu nên phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Học sinh phải vận dụng quy trình nguyên hàm vào tình huống thực tế thay vì chỉ nhớ công thức."
+          },
+          "distractor_plausibility": {
+            "score": 0.72,
+            "rationale": "Hai phương án sai gắn với lỗi nguyên hàm và hằng số tích phân khá điển hình, nhưng một phương án có mô tả lỗi không hợp lý."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(128\\\\,\\\\text{m}^3\\) thỏa mãn đúng việc tìm \\(a=3\\), lấy nguyên hàm và dùng điều kiện bể ban đầu không có nước."
+          },
+          "error_distractor_consistency": {
+            "score": 0.5,
+            "rationale": "Các distractor 168 và 192 khớp chuỗi lỗi mô tả, nhưng distractor 104 không ra từ phép tính theo lỗi được nêu và phần giải thích vẫn nhất quán với đáp án đúng."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8216666666666667,
+        "verifier_pass": true,
+        "critic_score": 0.8216666666666667,
+        "grounding_score": 0.93,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Trước hết cần tìm hệ số \\(a\\) từ điều kiện tốc độ bơm tại \\(t=1\\), sau đó lập hàm thể tích bằng cách lấy nguyên hàm của tốc độ bơm và dùng điều kiện ban đầu.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Thay \\(t=1\\) vào biểu thức tốc độ bơm: \\(a+5+6=14\\), suy ra \\(a=3\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Khi đó \\(V'(t)=3t^2+5t+6\\). Thể tích nước sau \\(t\\) phút là một nguyên hàm của tốc độ bơm: \\(V(t)=\\int(3t^2+5t+6)dt=t^3+\\frac{5}{2}t^2+6t+C\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Do bể ban đầu không có nước nên \\(V(0)=0\\), suy ra \\(C=0\\). Vì vậy \\(V(t)=t^3+\\frac{5}{2}t^2+6t\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Tính tại \\(t=4\\): \\(V(4)=4^3+\\frac{5}{2}\\cdot4^2+6\\cdot4=64+40+24=128\\)."
+          }
+        ],
+        "final_answer": "\\(128\\,\\text{m}^3\\)"
+      },
+      "why_correct": "Giá trị cần tìm là thể tích tích lũy, được xác định bằng nguyên hàm của tốc độ bơm sau khi đã xác định đúng hệ số chưa biết. Các bước đều dựa trên quan hệ giữa nguyên hàm và đạo hàm nên chỉ có một kết quả duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Học sinh áp dụng sai điều kiện tốc độ tại phút thứ \\(1\\), nhầm thành tại \\(t=0\\). Khi đó lấy \\(V'(0)=6=14\\) và điều chỉnh hệ số bằng cách cho \\(a+6=14\\), suy ra \\(a=8\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Học sinh hiểu sai điều kiện 'bể chứa ban đầu không có nước' và không đặt hằng số tích phân bằng \\(0\\). Sau khi tìm đúng \\(a=3\\), các em lấy nguyên hàm \\(V(t)=t^3+\\frac{5}{2}t^2+6t+C\\) nhưng gán nhầm \\(C=64\\) do nhầm với g"
+        },
+        {
+          "option": "D",
+          "reason": "Sau khi tìm được \\(a=3\\), học sinh lập tốc độ bơm \\(V'(t)=3t^2+5t+6\\). Lỗi xảy ra khi lấy nguyên hàm sai: tính \\(\\int 5t\\,dt=5t^2\\) thay vì \\(\\frac{5}{2}t^2\\). Khi đó suy ra \\(V(t)=t^3+5t^2+6t\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_1a08c25c",
+      "blueprint_slot_id": "direct_pdf_9",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 355,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một xe tải bắt đầu tăng tốc tại thời điểm \\(t=0\\) với vận tốc ban đầu \\(12\\,\\text{m/s}\\). Gia tốc của xe phụ thuộc thời gian theo công thức \\(a(t)=4t-10\\,(\\text{m/s}^2)\\). Biết xe chuyển động theo một đường thẳng và chỉ xét quãng đường xe đi được trước thời điểm vận tốc trở lại bằng \\(0\\). Quãng đường xe đi được trong khoảng thời gian đó bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{29}{3}\\,\\text{m}\\)",
+          "error_type": "wrong_domain"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{125}{3}\\,\\text{m}\\)",
+          "error_type": "missing_constant_C"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{16}{3}\\,\\text{m}\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{55}{6}\\,\\text{m}\\)",
+          "error_type": "wrong_turning_time"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Ta lấy nguyên hàm của gia tốc để tìm vận tốc, dùng điều kiện vận tốc ban đầu để xác định hằng số, sau đó giải phương trình vận tốc bằng \\(0\\) để tìm thời điểm cần xét và tính quãng đường bằng nguyên hàm của vận tốc.",
+      "explanation_per_distractor": {
+        "A": "Người làm sai bỏ qua yêu cầu chỉ xét trước thời điểm vận tốc trở lại bằng \\(0\\) đầu tiên, chọn nghiệm muộn hơn của phương trình \\(v(t)=0\\), tức \\(t=3\\). Với \\(v(t)=2t^2-10t+12\\), họ tính quãng đường trên đoạn \\([0,3]\\) có xét đổi chiều: \\(\\int_0^2 v(t)dt-\\int_2^3 v(t)dt=\\frac{16}{3}-(-\\frac{13}{3})=\\frac{29}{3}\\,\\text{m}\\). Sai vì khoảng thời gian cần xét kết thúc ở \\(t=2\\), không phải \\(t=3\\).",
+        "B": "Khi lấy nguyên hàm của gia tốc, người làm sai bỏ hằng số tự do xác định từ vận tốc ban đầu nên viết \\(v(t)=\\int(4t-10)dt=2t^2-10t\\), thay vì \\(v(t)=2t^2-10t+12\\). Sau đó giải \\(v(t)=0\\) được thời điểm \\(t=5\\). Vì vận tốc âm trên khoảng \\((0,5)\\), người làm sai tính quãng đường bằng \\(\\int_0^5|2t^2-10t|dt=\\frac{125}{3}\\,\\text{m}\\). Sai vì đã bỏ mất hằng số do điều kiện vận tốc ban đầu.",
+        "D": "Người làm sai nhầm thời điểm cần dừng xét là lúc gia tốc bằng \\(0\\). Từ \\(a(t)=4t-10\\), họ giải \\(4t-10=0\\) được \\(t=\\frac{5}{2}\\), rồi tính quãng đường bằng \\(\\int_0^{5/2}(2t^2-10t+12)dt=\\frac{55}{6}\\,\\text{m}\\). Sai vì thời điểm xét phải dựa vào điều kiện vận tốc trở lại bằng \\(0\\), không phải thời điểm gia tốc bằng \\(0\\)."
+      },
+      "hint": "Ta lấy nguyên hàm của gia tốc để tìm vận tốc, dùng điều kiện vận tốc ban đầu để xác định hằng số, sau đó giải phương trìn",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Để tìm họ các nguyên hàm (gọi tắt là tìm nguyên hàm) của hàm số f(x) trên K, ta chỉ cần tìm một nguyên hàm F(x) của f(x) trên K",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": false,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 9.333333333333334",
+        "verified_at": "2026-07-23T19:45:09.187055Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.9333333333333332,
+        "bloom_alignment": 0.95,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề nêu rõ vận tốc ban đầu, gia tốc theo thời gian, điều kiện dừng xét và yêu cầu tính quãng đường nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.9,
+            "rationale": "Bài yêu cầu kết hợp nhiều bước gồm lấy nguyên hàm, xác định hằng số, giải phương trình vận tốc và tính quãng đường nên phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.95,
+            "rationale": "Thao tác chính là áp dụng quy trình đã học vào tình huống mới thay vì chỉ nhớ công thức, phù hợp Bloom Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến khi dùng nguyên hàm và xử lý chuyển động như bỏ hằng số, chọn sai mốc thời gian, nhầm gia tốc với vận tốc."
+          },
+          "answer_uniqueness": {
+            "score": 0.95,
+            "rationale": "Chỉ phương án \\(\\frac{16}{3}\\,\\text{m}\\) phù hợp với việc tìm thời điểm vận tốc trở lại bằng 0 đầu tiên và tính quãng đường tương ứng."
+          },
+          "error_distractor_consistency": {
+            "score": 0.95,
+            "rationale": "Chuỗi lỗi mô tả dẫn đúng đến các giá trị distractor đã cho và phần giải thích không mâu thuẫn với đáp án chính."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9333333333333332,
+        "verifier_pass": false,
+        "critic_score": 0.9333333333333332,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "needs_revision",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "verifier_numeric_mismatch"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Ta lấy nguyên hàm của gia tốc để tìm vận tốc, dùng điều kiện vận tốc ban đầu để xác định hằng số, sau đó giải phương trình vận tốc bằng \\(0\\) để tìm thời điểm cần xét và tính quãng đường bằng nguyên hàm của vận tốc.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì \\(a(t)=v'(t)\\), ta tìm vận tốc bằng cách lấy nguyên hàm: \\(v(t)=\\int(4t-10)dt=2t^2-10t+C\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Tại \\(t=0\\), xe có vận tốc \\(v(0)=12\\), nên \\(C=12\\). Do đó \\(v(t)=2t^2-10t+12\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tìm thời điểm xe có vận tốc bằng \\(0\\): \\(2t^2-10t+12=0\\Rightarrow t^2-5t+6=0\\Rightarrow t=2\\) hoặc \\(t=3\\). Thời điểm đầu tiên xe trở lại vận tốc \\(0\\) là \\(t=2\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Quãng đường xe đi được trong khoảng thời gian từ \\(0\\) đến \\(2\\) là \\(s=\\int_0^2(2t^2-10t+12)dt=\\left[\\frac{2}{3}t^3-5t^2+12t\\right]_0^2=\\frac{16}{3}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{16}{3}\\,\\text{m}\\)"
+      },
+      "why_correct": "Đáp án duy nhất đúng vì phải xác định vận tốc từ gia tốc, tìm đúng thời điểm vận tốc bằng không rồi mới tính tích phân quãng đường; các bước này xác định duy nhất khoảng thời gian chuyển động cần xét.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Người làm sai bỏ qua yêu cầu chỉ xét trước thời điểm vận tốc trở lại bằng \\(0\\) đầu tiên, chọn nghiệm muộn hơn của phương trình \\(v(t)=0\\), tức \\(t=3\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Khi lấy nguyên hàm của gia tốc, người làm sai bỏ hằng số tự do xác định từ vận tốc ban đầu nên viết \\(v(t)=\\int(4t-10)dt=2t^2-10t\\), thay vì \\(v(t)=2t^2-10t+12\\). Sau đó giải \\(v(t)=0\\) được thời điểm \\(t=5\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Người làm sai nhầm thời điểm cần dừng xét là lúc gia tốc bằng \\(0\\). Từ \\(a(t)=4t-10\\), họ giải \\(4t-10=0\\) được \\(t=\\frac{5}{2}\\), rồi tính quãng đường bằng \\(\\int_0^{5/2}(2t^2-10t+12)dt=\\frac{55}{6}\\,\\text{m}\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_056bc963",
+      "blueprint_slot_id": "direct_pdf_11",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 366,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Doanh thu khi bán một loại sản phẩm của một doanh nghiệp được mô hình hóa bởi hàm số \\(R(x)\\) (đơn vị: nghìn đồng), với \\(x\\) là số sản phẩm đã bán. Tốc độ thay đổi doanh thu tại thời điểm bán được \\(x\\) sản phẩm là \\(R'(x)=0.2x+300\\). Biết doanh nghiệp có doanh thu ban đầu \\(R(0)=50\\). Hỏi doanh thu của doanh nghiệp khi đã bán được \\(1500\\) sản phẩm là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(675050\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(900050\\)",
+          "error_type": "wrong_power_rule_integration"
+        },
+        {
+          "key": "C",
+          "text": "\\(337550\\)",
+          "error_type": "wrong_constant_term_integration"
+        },
+        {
+          "key": "D",
+          "text": "\\(675000\\)",
+          "error_type": "missing_constant_C"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Ta cần tìm hàm doanh thu \\(R(x)\\) từ tốc độ thay đổi doanh thu bằng cách lấy nguyên hàm, sau đó dùng điều kiện ban đầu để xác định hằng số rồi tính giá trị tại \\(x=1500\\).",
+      "explanation_per_distractor": {
+        "B": "Sai lầm: khi nguyên hàm \\(0.2x\\), học sinh áp dụng sai quy tắc lũy thừa và viết \\(\\int 0.2x\\,dx=0.2x^2\\) thay vì \\(0.1x^2\\). Khi đó lấy \\(R(0)=50\\) được \\(R(x)=0.2x^2+300x+50\\). Thay \\(x=1500\\): \\(R(1500)=0.2\\cdot1500^2+300\\cdot1500+50=450000+450000+50=900050\\).",
+        "C": "Sai lầm: khi nguyên hàm số hạng hằng \\(300\\), học sinh nhầm \\(\\int300\\,dx\\) thành \\(150x^2\\) thay vì \\(300x\\). Khi đó dùng điều kiện \\(R(0)=50\\) suy ra \\(R(x)=0.1x^2+150x^2+50\\). Tại \\(x=1500\\): \\(R(1500)=0.1\\cdot1500^2+150\\cdot1500+50=225000+112500+50=337550\\).",
+        "D": "Sai lầm: khi lấy nguyên hàm của \\(R'(x)=0.2x+300\\), học sinh viết \\(R(x)=0.1x^2+300x\\) mà bỏ qua hằng số tự do \\(C\\). Sau đó tính tại \\(x=1500\\): \\(R(1500)=0.1\\cdot1500^2+300\\cdot1500=225000+450000=675000\\). Kết quả này sai vì nguyên hàm phải có thêm hằng số và phải dùng điều kiện \\(R(0)=50\\)."
+      },
+      "hint": "Ta cần tìm hàm doanh thu \\(R(x)\\) từ tốc độ thay đổi doanh thu bằng cách lấy nguyên hàm, sau đó dùng điều kiện ban đầu để",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Tốc độ biến động (thay đổi) của doanh thu khi x đơn vị sản phẩm đã được bán là hàm số MR(x)=R'(x).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 675050.0",
+        "verified_at": "2026-07-23T19:45:09.193364Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9383333333333334,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề nêu rõ hàm tốc độ thay đổi doanh thu, điều kiện ban đầu và yêu cầu tính doanh thu tại một lượng sản phẩm cụ thể."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu thiết lập nguyên hàm, xác định hằng số và áp dụng điều kiện, phù hợp mức vận dụng thay vì chỉ tính trực tiếp."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là áp dụng quy trình nguyên hàm vào ngữ cảnh thực tế và tính giá trị, đúng với mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều mô phỏng lỗi nguyên hàm phổ biến như bỏ hằng số hoặc sai quy tắc tích phân, có tính chẩn đoán."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Từ \\(R'(x)=0.2x+300\\) và \\(R(0)=50\\) suy ra duy nhất \\(R(x)=0.1x^2+300x+50\\), nên chỉ có một đáp án đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Ba chuỗi lỗi được mô tả đều dẫn đúng đến các giá trị distractor tương ứng và phần giải thích đáp án phù hợp với đáp án đã cho."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9383333333333334,
+        "verifier_pass": true,
+        "critic_score": 0.9383333333333334,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Ta cần tìm hàm doanh thu \\(R(x)\\) từ tốc độ thay đổi doanh thu bằng cách lấy nguyên hàm, sau đó dùng điều kiện ban đầu để xác định hằng số rồi tính giá trị tại \\(x=1500\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì \\(R'(x)=0.2x+300\\), ta tìm \\(R(x)\\) bằng cách lấy nguyên hàm: \\(R(x)=\\int(0.2x+300)dx=0.1x^2+300x+C\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Dùng điều kiện \\(R(0)=50\\), ta có \\(0.1\\cdot0^2+300\\cdot0+C=50\\), suy ra \\(C=50\\). Do đó \\(R(x)=0.1x^2+300x+50\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thay số sản phẩm cần xét \\(x=1500\\) vào hàm doanh thu: \\(R(1500)=0.1\\cdot1500^2+300\\cdot1500+50\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Tính các phần: \\(0.1\\cdot1500^2=225000\\), \\(300\\cdot1500=450000\\), nên \\(R(1500)=225000+450000+50=675050\\)."
+          }
+        ],
+        "final_answer": "\\(675050\\)"
+      },
+      "why_correct": "Hàm \\(R(x)\\) phải là một nguyên hàm của tốc độ thay đổi doanh thu \\(R'(x)\\) và hằng số được xác định duy nhất bởi điều kiện \\(R(0)=50\\), nên giá trị \\(R(1500)\\) là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Sai lầm: khi nguyên hàm \\(0.2x\\), học sinh áp dụng sai quy tắc lũy thừa và viết \\(\\int 0.2x\\,dx=0.2x^2\\) thay vì \\(0.1x^2\\). Khi đó lấy \\(R(0)=50\\) được \\(R(x)=0.2x^2+300x+50\\). Thay \\(x=1500\\):"
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: khi nguyên hàm số hạng hằng \\(300\\), học sinh nhầm \\(\\int300\\,dx\\) thành \\(150x^2\\) thay vì \\(300x\\). Khi đó dùng điều kiện \\(R(0)=50\\) suy ra \\(R(x)=0.1x^2+150x^2+50\\). Tại \\(x=1500\\):"
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: khi lấy nguyên hàm của \\(R'(x)=0.2x+300\\), học sinh viết \\(R(x)=0.1x^2+300x\\) mà bỏ qua hằng số tự do \\(C\\). Sau đó tính tại \\(x=1500\\): \\(R(1500)=0.1\\cdot1500^2+300\\cdot1500=225000+450000=675000\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_0112afd8",
+      "blueprint_slot_id": "direct_pdf_12",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 308,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một bể chứa ban đầu không có nước. Tốc độ bơm nước vào bể tại thời điểm \\(t\\) phút được mô hình hóa bởi \\(V'(t)=3t^2+bt+5\\) \\((\\text{m}^3/\\text{phút})\\), trong đó \\(b\\) là một hằng số chưa biết. Biết sau 2 phút thể tích nước trong bể là \\(30\\,\\text{m}^3\\). Hỏi sau 5 phút thể tích nước trong bể là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(262{,}5\\,\\text{m}^3\\)",
+          "error_type": "omit_constant_rate_term_integration"
+        },
+        {
+          "key": "B",
+          "text": "\\(67{,}5\\,\\text{m}^3\\)",
+          "error_type": "constant_C_misinterpretation"
+        },
+        {
+          "key": "C",
+          "text": "\\(375\\,\\text{m}^3\\)",
+          "error_type": "power_integral_coefficient_error"
+        },
+        {
+          "key": "D",
+          "text": "\\(225\\,\\text{m}^3\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Cần tìm hằng số \\(b\\) từ điều kiện thể tích tại \\(t=2\\), sau đó lập hàm thể tích bằng cách lấy nguyên hàm của tốc độ bơm và tính tại \\(t=5\\).",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: khi lấy nguyên hàm tốc độ bơm, học sinh bỏ qua hạng tử \\(5\\) trong \\(V'(t)=3t^2+bt+5\\), nên dùng \\(V(t)=t^3+\\frac{b}{2}t^2\\). Từ điều kiện \\(V(2)=30\\): \\(8+2b=30\\Rightarrow b=11\\). Sau đó tính sai \\(V(5)=125+\\frac{11}{2}\\cdot25=262{,}5\\,\\text{m}^3\\). Sai vì đã bỏ mất phần thể tích tạo ra bởi tốc độ bơm không đổi \\(5\\,\\text{m}^3/\\text{phút}\\).",
+        "B": "Sai lầm: sau khi nguyên hàm, học sinh viết \\(V(t)=t^3+\\frac{b}{2}t^2+5t+C\\) nhưng gán nhầm \\(C=30\\) từ dữ kiện thể tích sau 2 phút. Khi đó dùng \\(V(2)=30\\): \\(8+2b+10+30=30\\Rightarrow b=-9\\). Suy ra giá trị sai \\(V(5)=125-\\frac{9}{2}\\cdot25+25+30=67{,}5\\,\\text{m}^3\\). Sai vì \\(C\\) phải được xác định từ điều kiện ban đầu \\(V(0)=0\\), không phải lấy bằng thể tích đã biết.",
+        "C": "Sai lầm: khi lấy nguyên hàm của \\(3t^2\\), học sinh giữ nguyên hệ số 3 thay vì tính đúng \\(\\int 3t^2dt=t^3\\), nên lập sai hàm thể tích \\(V(t)=3t^3+\\frac{b}{2}t^2+5t\\). Dùng điều kiện \\(V(2)=30\\): \\(24+2b+10=30\\Rightarrow b=-2\\). Khi đó tính sai \\(V(5)=3\\cdot125-\\frac{2}{2}\\cdot25+25=375\\,\\text{m}^3\\). Sai vì đã nguyên hàm sai hạng tử \\(3t^2\\)."
+      },
+      "hint": "Cần tìm hằng số \\(b\\) từ điều kiện thể tích tại \\(t=2\\), sau đó lập hàm thể tích bằng cách lấy nguyên hàm của tốc độ bơm",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Để tìm họ các nguyên hàm (gọi tắt là tìm nguyên hàm) của hàm số f(x) trên K, ta chỉ cần tìm một nguyên hàm F(x) của f(x) trên K",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 225.0",
+        "verified_at": "2026-07-23T19:46:06.933228Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.92,
+        "quality": 0.9433333333333334,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài xác định rõ hàm tốc độ, điều kiện ban đầu và dữ kiện thể tích để tìm một giá trị duy nhất."
+          },
+          "cognitive_depth": {
+            "score": 0.9,
+            "rationale": "Bài yêu cầu thiết lập nguyên hàm, dùng điều kiện xác định hằng số và tính giá trị mới nên phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là áp dụng quy trình nguyên hàm vào tình huống thực tế chứ không chỉ nhận biết công thức."
+          },
+          "distractor_plausibility": {
+            "score": 0.93,
+            "rationale": "Các phương án sai đều xuất phát từ lỗi nguyên hàm thường gặp như sai hệ số, sai hằng số hoặc bỏ hạng tử."
+          },
+          "answer_uniqueness": {
+            "score": 0.98,
+            "rationale": "Chỉ có một cách tính đúng cho hàm thể tích và các distractor đều sai do lỗi biến đổi được mô tả."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Mỗi chuỗi lỗi đã dẫn đúng đến giá trị distractor tương ứng và phần giải thích đáp án nhất quán với đáp án 225 m^3."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9433333333333334,
+        "verifier_pass": true,
+        "critic_score": 0.9433333333333334,
+        "grounding_score": 0.92,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Cần tìm hằng số \\(b\\) từ điều kiện thể tích tại \\(t=2\\), sau đó lập hàm thể tích bằng cách lấy nguyên hàm của tốc độ bơm và tính tại \\(t=5\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì \\(V'(t)=3t^2+bt+5\\), ta lấy nguyên hàm để được \\(V(t)=t^3+\\frac{b}{2}t^2+5t+C\\). Do bể ban đầu không có nước nên \\(V(0)=0\\), suy ra \\(C=0\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Dùng dữ kiện \\(V(2)=30\\): \\(2^3+\\frac{b}{2}\\cdot2^2+5\\cdot2=30\\), suy ra \\(8+2b+10=30\\), nên \\(b=6\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thay \\(b=6\\) vào hàm thể tích, ta có \\(V(t)=t^3+3t^2+5t\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Tính thể tích sau 5 phút: \\(V(5)=5^3+3\\cdot5^2+5\\cdot5=125+75+25=225\\)."
+          }
+        ],
+        "final_answer": "\\(225\\,\\text{m}^3\\)"
+      },
+      "why_correct": "Hàm thể tích phải là nguyên hàm của tốc độ bơm nước và hằng số được xác định duy nhất từ điều kiện ban đầu cùng dữ kiện \\(V(2)=30\\). Vì vậy giá trị \\(V(5)=225\\,\\text{m}^3\\) là kết quả duy nhất phù hợp.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: khi lấy nguyên hàm tốc độ bơm, học sinh bỏ qua hạng tử \\(5\\) trong \\(V'(t)=3t^2+bt+5\\), nên dùng \\(V(t)=t^3+\\frac{b}{2}t^2\\). Từ điều kiện \\(V(2)=30\\): \\(8+2b=30\\Rightarrow b=11\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm: sau khi nguyên hàm, học sinh viết \\(V(t)=t^3+\\frac{b}{2}t^2+5t+C\\) nhưng gán nhầm \\(C=30\\) từ dữ kiện thể tích sau 2 phút. Khi đó dùng \\(V(2)=30\\): \\(8+2b+10+30=30\\Rightarrow b=-9\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: khi lấy nguyên hàm của \\(3t^2\\), học sinh giữ nguyên hệ số 3 thay vì tính đúng \\(\\int 3t^2dt=t^3\\), nên lập sai hàm thể tích \\(V(t)=3t^3+\\frac{b}{2}t^2+5t\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_330243b0",
+      "blueprint_slot_id": "direct_pdf_13",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.88,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 370,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Một bể chứa ban đầu không có nước. Tốc độ thay đổi thể tích nước trong bể tại thời điểm \\(t\\) giây được mô hình hóa bởi hàm số \\(V'(t)=3t^2+bt+5\\, (\\text{m}^3/\\text{giây})\\), trong đó \\(b\\) là một tham số. Biết rằng sau \\(2\\) giây kể từ khi bắt đầu bơm, bể chứa được \\(30\\,\\text{m}^3\\) nước. Hỏi sau \\(6\\) giây kể từ khi bắt đầu bơm, thể tích nước trong bể là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(642\\,\\text{m}^3\\)",
+          "error_type": "wrong_integral_coefficient"
+        },
+        {
+          "key": "B",
+          "text": "\\(363\\,\\text{m}^3\\)",
+          "error_type": "confuse_rate_with_accumulated_volume"
+        },
+        {
+          "key": "C",
+          "text": "\\(384\\,\\text{m}^3\\)",
+          "error_type": "incorrect_constant_C"
+        },
+        {
+          "key": "D",
+          "text": "\\(354\\,\\text{m}^3\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Cần xác định tham số \\(b\\) từ điều kiện thể tích tại một thời điểm, sau đó dùng nguyên hàm của tốc độ thay đổi để tính thể tích tại thời điểm cần tìm.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: tính nguyên hàm sai hệ số. Khi lấy nguyên hàm của \\(V'(t)=3t^2+bt+5\\), học sinh nhầm \\(\\int 3t^2dt=3t^3\\) thay vì \\(t^3\\), nên lập \\(V(t)=3t^3+\\frac{b}{2}t^2+5t\\). Dùng điều kiện \\(V(2)=30\\): \\(3\\cdot2^3+\\frac{b}{2}\\cdot2^2+5\\cdot2=30\\Rightarrow24+2b+10=30\\Rightarrow b=-2\\). Khi đó \\(V(6)=3\\cdot6^3-\\frac{2}{2}\\cdot6^2+5\\cdot6=648-36+30=642\\,\\text{m}^3\\).",
+        "B": "Sai lầm: dùng tốc độ thay đổi thể tích tại thời điểm \\(t=2\\) như thể đó là thể tích sau \\(2\\) giây. Học sinh đặt nhầm \\(V'(2)=30\\) thay cho \\(V(2)=30\\): \\(3\\cdot2^2+2b+5=30\\Rightarrow17+2b=30\\Rightarrow b=6,5\\). Sau đó vẫn tính thể tích bằng nguyên hàm đúng: \\(V(t)=t^3+\\frac{6,5}{2}t^2+5t\\), nên \\(V(6)=216+3,25\\cdot36+30=363\\,\\text{m}^3\\).",
+        "C": "Sai lầm: xử lí sai hằng số khi lấy nguyên hàm. Học sinh tìm được \\(b=6\\) nhưng sau khi nguyên hàm lại giữ một hằng số tự do và gán sai \\(C=30\\) từ điều kiện thể tích sau \\(2\\) giây, thay vì dùng điều kiện ban đầu \\(V(0)=0\\). Khi đó \\(V(t)=t^3+3t^2+5t+30\\), nên \\(V(6)=216+108+30+30=384\\,\\text{m}^3\\). Sai vì hằng số phải được xác định bởi điều kiện \\(V(0)=0\\), dẫn đến \\(C=0\\)."
+      },
+      "hint": "Cần xác định tham số \\(b\\) từ điều kiện thể tích tại một thời điểm, sau đó dùng nguyên hàm của tốc độ thay đổi để tính th",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Để tìm họ các nguyên hàm (gọi tắt là tìm nguyên hàm) của hàm số \\(f(x)\\) trên K, ta chỉ cần tìm một nguyên hàm \\(F(x)\\) của \\(f(x)\\)",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 354.0",
+        "verified_at": "2026-07-23T19:46:20.183914Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.9333333333333332,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài nêu rõ hàm tốc độ, điều kiện ban đầu gián tiếp qua bể rỗng, điều kiện xác định tham số và yêu cầu tính thể tích nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.9,
+            "rationale": "Bài yêu cầu kết hợp xác định tham số, lập nguyên hàm, dùng điều kiện đầu và tính giá trị mới nên phù hợp mức vận dụng cao."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là áp dụng kiến thức nguyên hàm vào mô hình thực tế và giải quyết nhiều bước, phù hợp với mức Vận dụng cao."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến khi nguyên hàm và xử lý điều kiện ban đầu, tạo khả năng phân loại học sinh."
+          },
+          "answer_uniqueness": {
+            "score": 0.95,
+            "rationale": "Tính đúng cho \\(b=6\\) cho \\(V(6)=354\\), các phương án còn lại xuất phát từ sai lầm được mô tả nên chỉ có một đáp án đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Các chuỗi lỗi được mô tả đều dẫn đúng tới các giá trị 642, 363, 384; phần giải thích đáp án cũng nhất quán với đáp án 354."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9333333333333332,
+        "verifier_pass": true,
+        "critic_score": 0.9333333333333332,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Cần xác định tham số \\(b\\) từ điều kiện thể tích tại một thời điểm, sau đó dùng nguyên hàm của tốc độ thay đổi để tính thể tích tại thời điểm cần tìm.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Gọi \\(V(t)\\) là thể tích nước trong bể sau \\(t\\) giây. Vì bể ban đầu không có nước nên \\(V(0)=0\\) và \\(V(t)=\\int(3t^2+bt+5)\\,dt\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Tính nguyên hàm: \\(V(t)=t^3+\\frac{b}{2}t^2+5t+C\\). Từ \\(V(0)=0\\) suy ra \\(C=0\\), nên \\(V(t)=t^3+\\frac{b}{2}t^2+5t\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Dùng dữ kiện \\(V(2)=30\\): \\(2^3+\\frac{b}{2}\\cdot2^2+5\\cdot2=30\\), suy ra \\(8+2b+10=30\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Giải phương trình tham số: \\(2b=12\\), do đó \\(b=6\\). Thay vào biểu thức thể tích được \\(V(t)=t^3+3t^2+5t\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Tính thể tích sau \\(6\\) giây: \\(V(6)=6^3+3\\cdot6^2+5\\cdot6=216+108+30=354\\)."
+          }
+        ],
+        "final_answer": "\\(354\\,\\text{m}^3\\)"
+      },
+      "why_correct": "Giá trị \\(b=6\\) là tham số duy nhất thỏa mãn điều kiện thể tích ban đầu và thể tích sau \\(2\\) giây, từ đó hàm thể tích được xác định duy nhất nên kết quả \\(V(6)=354\\,\\text{m}^3\\) là đáp án duy nhất đúng.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: tính nguyên hàm sai hệ số. Khi lấy nguyên hàm của \\(V'(t)=3t^2+bt+5\\), học sinh nhầm \\(\\int 3t^2dt=3t^3\\) thay vì \\(t^3\\), nên lập \\(V(t)=3t^3+\\frac{b}{2}t^2+5t\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm: dùng tốc độ thay đổi thể tích tại thời điểm \\(t=2\\) như thể đó là thể tích sau \\(2\\) giây. Học sinh đặt nhầm \\(V'(2)=30\\) thay cho \\(V(2)=30\\): \\(3\\cdot2^2+2b+5=30\\Rightarrow17+2b=30\\Rightarrow b=6,5\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: xử lí sai hằng số khi lấy nguyên hàm. Học sinh tìm được \\(b=6\\) nhưng sau khi nguyên hàm lại giữ một hằng số tự do và gán sai \\(C=30\\) từ điều kiện thể tích sau \\(2\\) giây, thay vì dùng điều kiện ban đầu"
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_0b7f0ac6",
+      "blueprint_slot_id": "direct_pdf_14",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.88,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 335,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Một chất điểm chuyển động thẳng với gia tốc phụ thuộc thời gian theo công thức \\(a(t)=k\\sin\\frac{t}{3}\\) (m/s\\(^2\\)), trong đó \\(k\\) là hằng số. Biết vận tốc ban đầu của chất điểm là \\(v(0)=2\\) (m/s) và sau \\(3\\pi\\) giây thì vận tốc của chất điểm bằng \\(14\\) (m/s). Quãng đường chất điểm đi được trong \\(3\\pi\\) giây đầu bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(21\\pi\\)",
+          "error_type": "forget_initial_velocity"
+        },
+        {
+          "key": "B",
+          "text": "\\(24\\pi\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(8\\pi\\)",
+          "error_type": "forget_jacobian_in_substitution"
+        },
+        {
+          "key": "D",
+          "text": "\\(72\\pi\\)",
+          "error_type": "forget_change_bounds"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Cần tìm tham số \\(k\\) từ điều kiện vận tốc, sau đó lập hàm vận tốc bằng cách lấy nguyên hàm của gia tốc và tính quãng đường bằng tích phân vận tốc.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là khi tìm vận tốc từ gia tốc chỉ lấy nguyên hàm của gia tốc mà quên cộng vận tốc ban đầu. Từ \\(v(t)=3k(1-\\cos\\frac{t}{3})\\), dùng điều kiện \\(v(3\\pi)=14\\) được \\(6k=14\\), suy ra \\(k=\\frac{7}{3}\\). Khi đó tính quãng đường: \\(s=\\int_0^{3\\pi}7(1-\\cos\\frac{t}{3})dt=21\\pi\\). Sai vì đã bỏ mất thành phần \\(v(0)=2\\) trong hàm vận tốc.",
+        "C": "Sau khi có \\(v(t)=8-6\\cos\\frac{t}{3}\\), đặt \\(x=\\frac{t}{3}\\). Sai lầm là đổi biểu thức và cận đúng nhưng quên hệ số vi phân \\(dt=3dx\\), nên tính thành \\(\\int_0^{\\pi}(8-6\\cos x)dx=8\\pi\\). Sai vì phép đổi biến trong tích phân cần nhân thêm hệ số từ vi phân.",
+        "D": "Đặt \\(x=\\frac{t}{3}\\), khi đó \\(dt=3dx\\). Sai lầm là chỉ đổi biến trong biểu thức nhưng giữ nguyên cận theo biến cũ: lấy cận của \\(x\\) vẫn là \\(0\\) đến \\(3\\pi\\) thay vì \\(0\\) đến \\(\\pi\\). Khi đó tính sai thành \\(\\int_0^{3\\pi}3(8-6\\cos x)dx=72\\pi\\). Sai vì khi đổi biến tích phân xác định phải đổi cả cận tích phân."
+      },
+      "hint": "Cần tìm tham số \\(k\\) từ điều kiện vận tốc, sau đó lập hàm vận tốc bằng cách lấy nguyên hàm của gia tốc và tính quãng đườ",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "cos d sin xx x C",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 75.39822368615503",
+        "verified_at": "2026-07-23T19:46:30.139390Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.88,
+        "quality": 0.9266666666666666,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.96,
+            "rationale": "Đề bài nêu rõ hàm gia tốc, điều kiện vận tốc ban đầu, thời gian xét và yêu cầu tính quãng đường nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.86,
+            "rationale": "Bài yêu cầu kết hợp xác định hằng số, lấy nguyên hàm và tính tích phân xác định nên phù hợp mức vận dụng cao."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác giải không chỉ áp dụng trực tiếp công thức mà cần phối hợp nhiều bước suy luận và xử lý điều kiện đầu nên phù hợp Vận dụng cao."
+          },
+          "distractor_plausibility": {
+            "score": 0.92,
+            "rationale": "Các phương án sai đại diện cho những lỗi tích phân thường gặp như quên vận tốc đầu, sai đổi biến và quên hệ số vi phân."
+          },
+          "answer_uniqueness": {
+            "score": 0.95,
+            "rationale": "Chỉ phương án 24π phù hợp với việc tích phân đúng hàm vận tốc có chứa vận tốc ban đầu, các phương án còn lại đều xuất phát từ sai sót."
+          },
+          "error_distractor_consistency": {
+            "score": 0.97,
+            "rationale": "Chuỗi lỗi mô tả cho từng distractor dẫn đúng đến các giá trị 72π, 21π, 8π và phần giải thích vẫn nhất quán với đáp án 24π."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9266666666666666,
+        "verifier_pass": true,
+        "critic_score": 0.9266666666666666,
+        "grounding_score": 0.88,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Cần tìm tham số \\(k\\) từ điều kiện vận tốc, sau đó lập hàm vận tốc bằng cách lấy nguyên hàm của gia tốc và tính quãng đường bằng tích phân vận tốc.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì \\(a(t)=v'(t)=k\\sin\\frac{t}{3}\\), ta lấy nguyên hàm để tìm vận tốc: \\(v(t)=\\int k\\sin\\frac{t}{3}\\,dt=-3k\\cos\\frac{t}{3}+C\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Dùng điều kiện \\(v(0)=2\\): \\(-3k\\cos0+C=2\\), suy ra \\(C=2+3k\\). Do đó \\(v(t)=2+3k-3k\\cos\\frac{t}{3}\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Dùng điều kiện \\(v(3\\pi)=14\\): \\(2+3k-3k\\cos\\pi=14\\). Vì \\(\\cos\\pi=-1\\), ta có \\(2+6k=14\\), suy ra \\(k=2\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Thay \\(k=2\\) vào hàm vận tốc được \\(v(t)=8-6\\cos\\frac{t}{3}\\). Quãng đường trong \\(3\\pi\\) giây là \\(S=\\int_0^{3\\pi}\\left(8-6\\cos\\frac{t}{3}\\right)dt\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Tính tích phân: \\(S=\\left(8t-18\\sin\\frac{t}{3}\\right)_0^{3\\pi}=24\\pi-18(\\sin\\pi-\\sin0)=24\\pi\\)."
+          }
+        ],
+        "final_answer": "\\(24\\pi\\)"
+      },
+      "why_correct": "Điều kiện vận tốc tại hai thời điểm xác định duy nhất tham số \\(k\\), từ đó hàm vận tốc được xác định duy nhất và tích phân vận tốc trên khoảng thời gian xét cho đúng quãng đường cần tìm.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm là khi tìm vận tốc từ gia tốc chỉ lấy nguyên hàm của gia tốc mà quên cộng vận tốc ban đầu. Từ \\(v(t)=3k(1-\\cos\\frac{t}{3})\\), dùng điều kiện \\(v(3\\pi)=14\\) được \\(6k=14\\), suy ra \\(k=\\frac{7}{3}\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sau khi có \\(v(t)=8-6\\cos\\frac{t}{3}\\), đặt \\(x=\\frac{t}{3}\\). Sai lầm là đổi biểu thức và cận đúng nhưng quên hệ số vi phân \\(dt=3dx\\), nên tính thành \\(\\int_0^{\\pi}(8-6\\cos x)dx=8\\pi\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Đặt \\(x=\\frac{t}{3}\\), khi đó \\(dt=3dx\\). Sai lầm là chỉ đổi biến trong biểu thức nhưng giữ nguyên cận theo biến cũ: lấy cận của \\(x\\) vẫn là \\(0\\) đến \\(3\\pi\\) thay vì \\(0\\) đến \\(\\pi\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_55890da6",
+      "blueprint_slot_id": "direct_pdf_15",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Nhận biết",
+      "difficulty_target": 0.3,
+      "difficulty_estimated": 0.28,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.3,
+        "stem_length_adj": -0.04,
+        "verifier_complexity_adj": 0.0,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 61,
+        "verifier_type": "none",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 40,
+      "question_type": "single_choice",
+      "stem": "Họ nguyên hàm của hàm số \\(f(x)=5\\cos x-3\\) là biểu thức nào?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\sin x-3x+C\\)",
+          "error_type": "missing_constant_factor"
+        },
+        {
+          "key": "B",
+          "text": "\\(-5\\sin x-3x+C\\)",
+          "error_type": "wrong_trig_derivative_sign"
+        },
+        {
+          "key": "C",
+          "text": "\\(5\\sin x-3x\\)",
+          "error_type": "missing_constant_C"
+        },
+        {
+          "key": "D",
+          "text": "\\(5\\sin x-3x+C\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Áp dụng tính chất tuyến tính của nguyên hàm và các công thức nguyên hàm cơ bản, nguyên hàm của \\(5\\cos x-3\\) là \\(5\\sin x-3x+C\\).",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là bỏ qua hệ số nhân trước hàm lượng giác khi lấy nguyên hàm. Học sinh tính sai \\(\\int5\\cos x\\,dx\\) thành \\(\\int\\cos x\\,dx=\\sin x\\), không nhân thêm hệ số \\(5\\). Sau đó vẫn tính đúng \\(\\int(-3)dx=-3x\\), nên thu được \\(\\sin x-3x+C\\).",
+        "B": "Sai lầm là dùng sai công thức lượng giác khi nguyên hàm: cho rằng \\(\\int\\cos x\\,dx=-\\sin x\\) vì nhầm dấu của đạo hàm lượng giác. Khi đó tính \\(\\int5\\cos x\\,dx=-5\\sin x\\), còn \\(\\int(-3)dx=-3x\\), nên suy ra \\(-5\\sin x-3x+C\\).",
+        "C": "Sai lầm là tính nguyên hàm đúng phần biến nhưng quên thêm hằng số tự do. Từ \\(\\int(5\\cos x-3)dx=5\\sin x-3x\\), học sinh dừng lại và bỏ qua \\(+C\\). Kết quả nhận được là \\(5\\sin x-3x\\), nhưng họ nguyên hàm phải có hằng số \\(C\\)."
+      },
+      "hint": "Áp dụng tính chất tuyến tính của nguyên hàm và các công thức nguyên hàm cơ bản, nguyên hàm của \\(5\\cos x-3\\) là",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "cos d sin xx x C",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "none",
+        "method": "none",
+        "verified": null,
+        "numeric_crosscheck_points": 0,
+        "detail": "không có verifier",
+        "verified_at": "2026-07-23T19:47:12.587593Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.975,
+        "bloom_alignment": 1.0,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 1.0,
+            "rationale": "Đề hỏi trực tiếp họ nguyên hàm của một hàm số cụ thể, không có dữ kiện gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.9,
+            "rationale": "Bài yêu cầu nhận dạng và áp dụng ngay công thức nguyên hàm cơ bản, phù hợp mức nhận biết."
+          },
+          "bloom_alignment": {
+            "score": 1.0,
+            "rationale": "Thao tác chính là nhớ công thức và chọn biểu thức đúng, đúng với mức Bloom Nhận biết."
+          },
+          "distractor_plausibility": {
+            "score": 0.95,
+            "rationale": "Các phương án sai mô phỏng các lỗi phổ biến như quên hằng số, sai dấu và quên hệ số."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ phương án \\(5\\sin x-3x+C\\) có đạo hàm đúng bằng \\(5\\cos x-3\\), các phương án khác đều sai."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Cả ba mô tả lỗi đều dẫn đúng đến giá trị distractor tương ứng và phần giải thích đáp án nhất quán với đáp án đã cho."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.975,
+        "verifier_pass": null,
+        "critic_score": 0.975,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Áp dụng tính chất tuyến tính của nguyên hàm và các công thức nguyên hàm cơ bản, nguyên hàm của \\(5\\cos x-3\\) là \\(5\\sin x-3x+C\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Tách nguyên hàm theo tổng và hiệu: \\(\\int(5\\cos x-3)dx=5\\int\\cos xdx-\\int3dx\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Dùng các công thức cơ bản: \\(\\int\\cos xdx=\\sin x+C\\) và \\(\\int3dx=3x\\), suy ra kết quả là \\(5\\sin x-3x+C\\)."
+          }
+        ],
+        "final_answer": "\\(5\\sin x-3x+C\\)"
+      },
+      "why_correct": "Biểu thức đúng vì lấy đạo hàm của \\(5\\sin x-3x+C\\) thu được \\(5\\cos x-3\\), đúng bằng hàm số đã cho.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm là bỏ qua hệ số nhân trước hàm lượng giác khi lấy nguyên hàm. Học sinh tính sai \\(\\int5\\cos x\\,dx\\) thành \\(\\int\\cos x\\,dx=\\sin x\\), không nhân thêm hệ số \\(5\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm là dùng sai công thức lượng giác khi nguyên hàm: cho rằng \\(\\int\\cos x\\,dx=-\\sin x\\) vì nhầm dấu của đạo hàm lượng giác. Khi đó tính \\(\\int5\\cos x\\,dx=-5\\sin x\\), còn \\(\\int(-3)dx=-3x\\), nên suy ra"
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm là tính nguyên hàm đúng phần biến nhưng quên thêm hằng số tự do. Từ \\(\\int(5\\cos x-3)dx=5\\sin x-3x\\), học sinh dừng lại và bỏ qua \\(+C\\)."
+        }
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_1_writer",
+      "blueprint_slot_id": "direct_pdf_1",
+      "cognitive_level": "Thông hiểu",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['Invalid \\\\escape: line 2 column 29 (char 30)'])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=['Invalid \\\\escape: line 2 column 29 (char 30)'])",
+          "slot_id": "direct_pdf_1"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_3_writer",
+      "blueprint_slot_id": "direct_pdf_3",
+      "cognitive_level": "Thông hiểu",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['Invalid \\\\escape: line 2 column 29 (char 30)'])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=['Invalid \\\\escape: line 2 column 29 (char 30)'])",
+          "slot_id": "direct_pdf_3"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_4_writer",
+      "blueprint_slot_id": "direct_pdf_4",
+      "cognitive_level": "Vận dụng",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['Invalid \\\\escape: line 2 column 41 (char 42)'])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=['Invalid \\\\escape: line 2 column 41 (char 42)'])",
+          "slot_id": "direct_pdf_4"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_5_distractor",
+      "blueprint_slot_id": "direct_pdf_5",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 297,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 0
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một bể chứa nước có mực nước tại thời điểm \\(t\\) giờ được ký hiệu là \\(h(t)\\) (m), với \\(0\\le t\\le 8\\). Tốc độ thay đổi mực nước được cho bởi \\(h'(t)=\\frac{1}{2}t^2-5t+6\\) (m/giờ). Biết ban đầu mực nước trong bể là \\(h(0)=3\\) m. Hỏi mực nước lớn nhất trong khoảng thời gian 8 giờ đầu là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{56}{3}\\text{ m}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Ta tìm hàm mực nước bằng cách lấy nguyên hàm của tốc độ thay đổi, dùng điều kiện ban đầu để xác định hằng số, sau đó xét các điểm có thể đạt giá trị lớn nhất trên đoạn \\([0;8]\\).",
+      "explanation_per_distractor": {},
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Tốc độ thay đổi của mực nước được xác định bởi hàm số",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-23T19:42:45.816972Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "Không tạo đủ 3 phương án nhiễu đạt chuẩn (error=Invalid \\escape: line 4 column 29 (char 55), n=0)",
+      "reject_reason_code": "bad_distractors",
+      "reject_reason_stage": "distractor",
+      "reject_log": [
+        {
+          "reason_code": "bad_distractors",
+          "stage": "distractor",
+          "attempt": 0,
+          "message": "Không tạo đủ 3 phương án nhiễu đạt chuẩn (error=Invalid \\escape: line 4 column 29 (char 55), n=0)",
+          "slot_id": "direct_pdf_5"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_6_writer",
+      "blueprint_slot_id": "direct_pdf_6",
+      "cognitive_level": "Thông hiểu",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['Invalid \\\\escape: line 2 column 32 (char 33)'])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=['Invalid \\\\escape: line 2 column 32 (char 33)'])",
+          "slot_id": "direct_pdf_6"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_10_writer",
+      "blueprint_slot_id": "direct_pdf_10",
+      "cognitive_level": "Vận dụng",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['Invalid \\\\escape: line 2 column 80 (char 81)'])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=['Invalid \\\\escape: line 2 column 80 (char 81)'])",
+          "slot_id": "direct_pdf_10"
+        }
+      ],
+      "attempts": 1
+    }
+  ]
+}

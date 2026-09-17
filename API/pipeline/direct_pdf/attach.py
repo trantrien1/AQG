@@ -24,6 +24,8 @@ def build_pdf_user_content(
     filename: str,
     prompt_text: str,
     as_image_url: bool = False,
+    pdf_first: bool = False,
+    cache_control: bool = False,
 ) -> List[Dict]:
     """Trả về `content` cho message user.
 
@@ -54,10 +56,15 @@ def build_pdf_user_content(
                 'file_data': data_uri,
             },
         }
-    return [
-        {'type': 'text', 'text': prompt_text},
-        pdf_part,
-    ]
+    if cache_control:
+        # Đánh dấu tài liệu là phần được cache. Nhà nào không hiểu thì bỏ qua.
+        pdf_part['cache_control'] = {'type': 'ephemeral'}
+    text_part = {'type': 'text', 'text': prompt_text}
+    # Tài liệu ĐỨNG TRƯỚC prompt khi bật cache: prompt đổi theo từng lời gọi,
+    # nên để nó trước thì tiền tố không còn ổn định và không cache được gì.
+    # Cùng một tài liệu đi kèm 4 lời gọi mỗi câu và mọi câu trong một lượt chạy,
+    # nên đây là phần lặp lớn nhất của toàn bộ chi phí.
+    return [pdf_part, text_part] if pdf_first else [text_part, pdf_part]
 
 
 def build_pdf_image_content(
@@ -66,6 +73,8 @@ def build_pdf_image_content(
     prompt_text: str,
     dpi: int = 120,
     max_pages: int = 0,
+    images_first: bool = False,
+    cache_control: bool = False,
 ) -> List[Dict]:
     """Render mỗi trang PDF thành ảnh PNG rồi đính kèm dạng `image_url`.
 
@@ -77,6 +86,11 @@ def build_pdf_image_content(
     trang nào render được (Req 2.3).
 
     `max_pages > 0` giới hạn số trang render (0 = tất cả).
+
+    `images_first`/`cache_control` phục vụ cache tiền tố giống
+    :func:`build_pdf_user_content`: cả tập ảnh trang phải đứng TRƯỚC prompt thì
+    tiền tố mới ổn định qua các lời gọi. Ở chế độ ảnh phần lặp này còn lớn hơn
+    hẳn chế độ file, vì mỗi trang là một ảnh riêng.
     """
     if not pdf_bytes:
         raise PdfAttachError('PDF bytes rỗng — không thể đính kèm.')
@@ -85,7 +99,8 @@ def build_pdf_image_content(
     except Exception as e:  # pragma: no cover
         raise PdfAttachError(f'Thiếu PyMuPDF để render PDF: {e}') from e
 
-    content: List[Dict] = [{'type': 'text', 'text': prompt_text}]
+    text_part: Dict = {'type': 'text', 'text': prompt_text}
+    images: List[Dict] = []
     try:
         doc = fitz.open(stream=pdf_bytes, filetype='pdf')
     except Exception as e:
@@ -102,7 +117,7 @@ def build_pdf_image_content(
                 b64 = base64.b64encode(png).decode('ascii')
             except Exception:
                 continue
-            content.append({
+            images.append({
                 'type': 'image_url',
                 'image_url': {'url': f'data:image/png;base64,{b64}'},
             })
@@ -112,4 +127,8 @@ def build_pdf_image_content(
 
     if rendered == 0:
         raise PdfAttachError('Không render được trang nào từ PDF.')
-    return content
+    if cache_control:
+        # Điểm cắt cache đặt ở ảnh CUỐI: mọi thứ trước nó là tiền tố dùng lại
+        # được. Nhà nào không hiểu trường này thì bỏ qua, không gãy request.
+        images[-1]['cache_control'] = {'type': 'ephemeral'}
+    return images + [text_part] if images_first else [text_part] + images

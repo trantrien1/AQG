@@ -1,6 +1,8 @@
 """LLM client + usage tracking."""
 from __future__ import annotations
 
+import datetime
+import os
 import re
 import threading
 import time
@@ -49,6 +51,57 @@ class CostTracker:
 
 class BudgetExceeded(RuntimeError):
     pass
+
+
+class ProviderQuotaExhausted(BudgetExceeded):
+    """Nhà cung cấp chặn hạn mức, mốc mở lại còn xa.
+
+    Kế thừa BudgetExceeded để mọi handler `except BudgetExceeded` sẵn có đều
+    dừng run thay vì nuốt lỗi. Phân biệt với throttle ngắn ('reset after 14s'):
+    cái đó đợi vài giây là chạy tiếp được, còn cái này đợi hàng giờ.
+
+    Không có nó, một lượt benchmark hết quota vẫn chạy hết mọi slot của mọi ô,
+    mỗi ô mất vài phút để sinh ra một artifact rỗng 0 token — vừa tốn thời gian
+    vừa đẻ ra dữ liệu trông y hệt 'chất lượng kém'.
+    """
+
+    def __init__(self, original: Exception, reset_at: Optional[str] = None):
+        self.original = original
+        self.reset_at = reset_at
+        super().__init__(
+            f'provider quota exhausted'
+            + (f'; mở lại sau {reset_at}' if reset_at else '')
+            + f': {original}'
+        )
+
+
+# 429 kèm mốc mở lại xa hơn ngần này (giây) thì dừng hẳn thay vì chờ.
+QUOTA_ABORT_AFTER_SECONDS = float(os.getenv('AQG_QUOTA_ABORT_AFTER_SECONDS', '120'))
+
+
+def _reset_at_timestamp(exc: Exception) -> Optional[str]:
+    """Trích mốc thời gian tuyệt đối 'try again after 2026-07-26 02:35:35'."""
+    m = re.search(
+        r'try again after\s+(\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}:\d{2})',
+        str(exc), re.IGNORECASE,
+    )
+    return m.group(1) if m else None
+
+
+def _quota_wait_seconds(exc: Exception) -> Optional[float]:
+    stamp = _reset_at_timestamp(exc)
+    if not stamp:
+        return None
+    try:
+        reset = datetime.datetime.fromisoformat(stamp.replace(' ', 'T'))
+    except ValueError:
+        return None
+    return (reset - datetime.datetime.now()).total_seconds()
+
+
+def _is_quota_exhausted(exc: Exception) -> bool:
+    wait = _quota_wait_seconds(exc)
+    return wait is not None and wait > QUOTA_ABORT_AFTER_SECONDS
 
 class NonRetryableLLMError(RuntimeError):
     """Provider/config error that should fail fast instead of retrying."""
@@ -170,6 +223,107 @@ def reset_tracker(*_args: Any, **_kwargs: Any):
 _client = None
 
 
+class PdfNotNativeError(RuntimeError):
+    """Model không tự đọc được PDF -> OpenRouter sẽ TRÍCH TEXT thay vì đọc trang.
+
+    Đây là lỗi cứng chứ không phải cảnh báo: trích text phá bố cục, ký hiệu
+    toán, bảng và hình — đúng những thứ mà việc đính nguyên tài liệu sinh ra để
+    giữ. Nếu để nó âm thầm xảy ra thì lượt chạy vẫn ra câu hỏi nhưng cơ chế bám
+    tài liệu không còn là cái được mô tả, và không đo nào phát hiện ra.
+    """
+
+
+_OPENROUTER_MODEL_CACHE: Dict[str, Any] = {}
+
+
+def _openrouter_model_modalities(model: str) -> Optional[list]:
+    """Trả về input_modalities của `model` theo OpenRouter, None nếu không tra được."""
+    if not _OPENROUTER_MODEL_CACHE:
+        import json
+        import urllib.request
+        url = cfg.OPENROUTER_BASE_URL.rstrip('/') + '/models'
+        try:
+            with urllib.request.urlopen(url, timeout=30) as r:
+                data = json.loads(r.read())
+        except Exception:                              # noqa: BLE001
+            _OPENROUTER_MODEL_CACHE['__failed__'] = True
+            return None
+        for m in data.get('data') or []:
+            arch = m.get('architecture') or {}
+            _OPENROUTER_MODEL_CACHE[m.get('id') or ''] = (
+                arch.get('input_modalities') or [])
+    if _OPENROUTER_MODEL_CACHE.get('__failed__'):
+        return None
+    return _OPENROUTER_MODEL_CACHE.get(model)
+
+
+def assert_pdf_native_support(model: str) -> Dict[str, Any]:
+    """Kiểm TRƯỚC khi chạy rằng `model` tự đọc được PDF trên OpenRouter.
+
+    Trả về dict mô tả cách tài liệu sẽ được xử lý (để ghi vào run manifest).
+    Raise :class:`PdfNotNativeError` nếu model thiếu modality ``file`` — khi đó
+    OpenRouter tụt xuống engine ``pdf-text``.
+
+    Chỉ áp dụng cho provider openrouter ở chế độ đính file. Provider khác và
+    chế độ ảnh trả về mô tả tương ứng mà không kiểm gì.
+    """
+    mode = str(getattr(cfg, 'PDF_ATTACH_MODE', 'image')).lower()
+    info: Dict[str, Any] = {
+        'provider': cfg.LLM_PROVIDER,
+        'attach_mode': mode,
+        'model': model,
+    }
+    if mode == 'image':
+        info['document_handling'] = 'page_images'
+        # Chế độ ảnh vẫn cần model NHÌN được. Model chỉ có text sẽ nhận một
+        # message toàn ảnh mà không thấy gì, rồi bịa câu hỏi từ prompt — thất
+        # bại im lặng đúng kiểu nguy hiểm nhất, nên chặn ngay ở đây.
+        if cfg.LLM_PROVIDER == 'openrouter':
+            mods = _openrouter_model_modalities(model)
+            info['input_modalities'] = mods
+            if mods is not None and 'image' not in mods:
+                info['document_handling'] = 'blind_to_page_images'
+                if cfg.OPENROUTER_REQUIRE_NATIVE_PDF:
+                    raise PdfNotNativeError(
+                        f'{model} không nhận đầu vào ảnh trên OpenRouter '
+                        f'(modalities={mods}), nên các trang tài liệu gửi dạng '
+                        f'ảnh sẽ KHÔNG tới được mô hình. Chọn model có '
+                        f'modality image, hoặc dùng chế độ đính file.')
+        return info
+    if cfg.LLM_PROVIDER != 'openrouter':
+        info['document_handling'] = 'raw_pdf'
+        return info
+
+    info['pdf_engine'] = cfg.OPENROUTER_PDF_ENGINE
+    mods = _openrouter_model_modalities(model)
+    info['input_modalities'] = mods
+    if mods is None:
+        info['document_handling'] = 'raw_pdf_unverified'
+        return info
+    if 'file' not in mods:
+        info['document_handling'] = 'would_fall_back_to_text_extraction'
+        if cfg.OPENROUTER_REQUIRE_NATIVE_PDF:
+            raise PdfNotNativeError(
+                f'{model} không nhận đầu vào file trên OpenRouter '
+                f'(modalities={mods}), nên PDF sẽ bị TRÍCH XUẤT TEXT thay vì '
+                f'đọc nguyên trang. Chọn model khác, hoặc đặt '
+                f'AQG_PDF_ATTACH_MODE=image để gửi ảnh từng trang, hoặc đặt '
+                f'AQG_OPENROUTER_REQUIRE_NATIVE_PDF=0 nếu cố ý chấp nhận.')
+        return info
+    info['document_handling'] = 'raw_pdf_native'
+    return info
+
+
+def _openrouter_extra_body() -> Dict[str, Any]:
+    """Ghim engine xử lý PDF thay vì để OpenRouter tự chọn."""
+    if cfg.LLM_PROVIDER != 'openrouter':
+        return {}
+    if str(getattr(cfg, 'PDF_ATTACH_MODE', 'image')).lower() == 'image':
+        return {}
+    return {'plugins': [{'id': 'file-parser',
+                         'pdf': {'engine': cfg.OPENROUTER_PDF_ENGINE}}]}
+
+
 def _get_client():
     global _client
     if _client is None:
@@ -190,6 +344,28 @@ def _get_client():
             kwargs['default_headers'] = extra_headers
         _client = OpenAI(**kwargs)
     return _client
+
+
+def _response_text_or_raise(resp) -> str:
+    """Lấy text từ response, ném lỗi KÈM thông báo của nhà cung cấp nếu rỗng.
+
+    Nhà cung cấp báo lỗi ở thân response (không phải HTTP status) thì SDK dựng
+    một object có ``choices=None``; ``resp.choices[0]`` khi đó ném "'NoneType'
+    object is not subscriptable" — thông báo che mất nguyên nhân thật, và ở một
+    phép quét nhiều mô hình nó bị đọc thành "mô hình sinh ra 0 câu".
+    """
+    choices = getattr(resp, 'choices', None)
+    if not choices:
+        err = getattr(resp, 'error', None)
+        if err is None:
+            err = (getattr(resp, 'model_extra', None) or {}).get('error')
+        if isinstance(err, dict):
+            detail = str(err.get('message') or err)
+        else:
+            detail = str(err) if err is not None else repr(resp)[:400]
+        raise RuntimeError(f'nhà cung cấp không trả về lựa chọn nào: {detail}')
+    message = getattr(choices[0], 'message', None)
+    return _strip_provider_artifacts(getattr(message, 'content', None) or '')
 
 
 def call_llm(system: str, user: str, model: str = None,
@@ -217,13 +393,15 @@ def call_llm(system: str, user: str, model: str = None,
                     {'role': 'user', 'content': user},
                 ],
             )
-            content = _strip_provider_artifacts(resp.choices[0].message.content or '')
+            content = _response_text_or_raise(resp)
             usage = getattr(resp, 'usage', None)
             tokens = (getattr(usage, 'total_tokens', 0) or 0) if usage else 0
             tracker.add(tokens=tokens, calls=0)
             return content
         except Exception as e:
             last_err = e
+            if _is_quota_exhausted(e):
+                raise ProviderQuotaExhausted(e, _reset_at_timestamp(e)) from e
             if _is_non_retryable(e):
                 raise NonRetryableLLMError(e) from e
             if attempt + 1 < retries:
@@ -256,6 +434,10 @@ def call_llm_with_pdf(system: str, user_content: list,
         try:
             client = _get_client()
             tracker.add(calls=1)
+            kwargs: Dict[str, Any] = {}
+            extra = _openrouter_extra_body()
+            if extra:
+                kwargs['extra_body'] = extra
             resp = client.chat.completions.create(
                 model=model,
                 max_tokens=max_tokens,
@@ -264,14 +446,19 @@ def call_llm_with_pdf(system: str, user_content: list,
                     {'role': 'system', 'content': system},
                     {'role': 'user', 'content': user_content},
                 ],
+                **kwargs,
             )
-            content = _strip_provider_artifacts(resp.choices[0].message.content or '')
+            content = _response_text_or_raise(resp)
             usage = getattr(resp, 'usage', None)
             tokens = (getattr(usage, 'total_tokens', 0) or 0) if usage else 0
             tracker.add(tokens=tokens, calls=0)
             return content
         except Exception as e:
             last_err = e
+            # Hết hạn mức tài khoản, mốc mở lại còn xa -> dừng hẳn. Phải kiểm
+            # TRƯỚC nhánh throttle vì message cũng chứa 'try again'.
+            if _is_quota_exhausted(e):
+                raise ProviderQuotaExhausted(e, _reset_at_timestamp(e)) from e
             # Throttle 400/429 (gateway '(reset after Ns)') -> đợi đúng thời gian
             # reset rồi thử lại; có ngân sách retry riêng, không tính vào `retries`.
             if _is_transient_throttle(e):

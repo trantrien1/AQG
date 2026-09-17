@@ -1,0 +1,7 @@
+    [pdf-slot direct_pdf_0] writer 0 candidates; errors=["Expecting ',' delimiter: line 27 column 70 (char 1704)"]
+    [pdf-slot direct_pdf_1] critic reject: error_distractor_consistency=0.20 (lỗi mô tả không khớp giá trị distractor/đáp án) (Hai distractor 60 và 160 có mô tả lỗi không dẫn đúng tới giá trị đưa ra, dù phần giải thích đáp án đúng vẫn nhất quán với \(40\).)
+    [pdf-slot direct_pdf_8] verifier reject: answer_text_mismatch: đáp án key \(24\text{ cm}^3\) không khớp giá trị 31.74901573277509 mà engine tính ra
+    [pdf-slot direct_pdf_9] verifier reject: answer_text_mismatch: đáp án key \(\frac{32}{3}\,\text{USD}\) không khớp giá trị 480.0 mà engine tính ra
+    [pdf-slot direct_pdf_10] verifier reject: multi_answer: distractor "\(\frac{10\sqrt{6}}{3}\)" cũng được verifier xác nhận đúng
+    [pdf-slot direct_pdf_11] verifier reject: answer_text_mismatch: đáp án key \(12\sqrt{7}\) không khớp giá trị 29.814239699997195 mà engine tính ra
+[cell] arm=full_system seed=43 t12-khoi-dadien.pdf: delivered=6/12 rejected=6 tokens=150612 313s

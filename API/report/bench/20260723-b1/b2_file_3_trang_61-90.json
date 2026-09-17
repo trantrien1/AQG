@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "bench": "B2-baseline-single-prompt",
+    "source_pdf": "pdftest\\file_3_trang_61-90.pdf",
+    "source_pdf_name": "file_3_trang_61-90.pdf",
+    "generator_model": "gpt-4o",
+    "pdf_attach_mode": "file_url",
+    "generated_at": "2026-07-23T17:38:36.583413Z",
+    "prompt_chars": 2625
+  },
+  "summary": {
+    "pdf": "file_3_trang_61-90.pdf",
+    "requested": 10,
+    "generated": 2,
+    "generation_error": null,
+    "generation_seconds": 16.3,
+    "cost": {
+      "tokens": 5235,
+      "calls": 1
+    },
+    "gate_pass": 1,
+    "gate_pass_rate": 0.5,
+    "pass_clean": 1,
+    "pass_clean_rate": 0.5,
+    "verdict_distribution": {
+      "rule:format_error": 1,
+      "pass": 1
+    },
+    "verified_true": 1,
+    "verified_false": 0,
+    "verified_none": 1,
+    "hint_type_distribution": {
+      "none": 1,
+      "numeric_eval": 1
+    }
+  },
+  "items": [
+    {
+      "index": 0,
+      "cognitive_level": "Nhận biết",
+      "question_text": "Một vật chuyển động có vận tốc trong khoảng thời gian đầu được mô tả bởi một phần của parabol có đỉnh \\(I(2;10)\\), trục đối xứng song song với trục tung và đi qua điểm \\(O(0;4)\\). Biết vận tốc tại thời điểm \\(t=1\\) là \\(7\\). Phương trình vận tốc trong khoảng thời gian này là",
+      "answer_text": "\\(v(t)=-\\frac{3}{2}t^2+6t+4\\)",
+      "n_distractors": 3,
+      "verifier_hint_type": "none",
+      "gate_rejected": true,
+      "gate_reason": "format_error: rule validator failed: ['stem_missing_question']",
+      "verdict": "rule:format_error",
+      "verified": null,
+      "verification_detail": "",
+      "answer_key_repaired": false,
+      "validator_checks": null,
+      "rule_issues": [
+        "stem_missing_question"
+      ]
+    },
+    {
+      "index": 1,
+      "cognitive_level": "Thông hiểu",
+      "question_text": "Một lều trại có mặt cắt ngang là parabol đi qua hai điểm \\(A(-3;0)\\), \\(B(3;0)\\) và có đỉnh \\(I(0;4)\\). Diện tích mặt cắt ngang của lều bằng",
+      "answer_text": "\\(16\\)",
+      "n_distractors": 3,
+      "verifier_hint_type": "numeric_eval",
+      "gate_rejected": false,
+      "gate_reason": "",
+      "verdict": "pass",
+      "verified": true,
+      "verification_detail": "expr = 16.0",
+      "answer_key_repaired": false,
+      "validator_checks": {
+        "candidate_structure": true,
+        "unique_answer": true,
+        "anti_pattern": true,
+        "display_syntax": true,
+        "option_text_sanity": true,
+        "visual_consistency": true,
+        "visual_spec_valid": true,
+        "iwf_no_duplicate_distractor": true,
+        "iwf_misconception_category_diversity": true,
+        "iwf_distractor_min_length": true,
+        "iwf_format_consistency": true,
+        "_soft_length_balance": true,
+        "_soft_iwf_numeric_scale": true,
+        "_soft_iwf_no_absolute_terms": true,
+        "all_passed": true
+      },
+      "rule_issues": []
+    }
+  ],
+  "raw_response": "{\n  \"questions\": [\n    {\n      \"question\": \"Một vật chuyển động có vận tốc trong khoảng thời gian đầu được mô tả bởi một phần của parabol có đỉnh \\(I(2;10)\\), trục đối xứng song song với trục tung và đi qua điểm \\(O(0;4)\\). Biết vận tốc tại thời điểm \\(t=1\\) là \\(7\\). Phương trình vận tốc trong khoảng thời gian này là\",\n      \"answer\": \"\\\\(v(t)=-\\\\frac{3}{2}t^2+6t+4\\\\)\",\n      \"explanation\": \"Dùng dạng parabol \\(v(t)=at^2+bt+c\\), kết hợp điều kiện đỉnh và các điểm đã cho để tìm các hệ số.\",\n      \"detailed_solution\": {\n        \"steps\": [\n          {\n            \"title\": \"Bước 1\",\n            \"content\": \"Đặt \\(v(t)=at^2+bt+c\\) với \\(a\\\\ne0\\).\"\n          },\n          {\n            \"title\": \"Bước 2\",\n            \"content\": \"Vì đỉnh có hoành độ \\(2\\) nên \\( -\\\\frac{b}{2a}=2\\), suy ra \\(b=-4a\\).\"\n          },\n          {\n            \"title\": \"Bước 3\",\n            \"content\": \"Từ \\(v(0)=4\\) suy ra \\(c=4\\).\"\n          },\n          {\n            \"title\": \"Bước 4\",\n            \"content\": \"Thay \\(v(2)=10\\): \\(4a+2b+4=10\\).\"\n          },\n          {\n            \"title\": \"Bước 5\",\n            \"content\": \"Thay \\(b=-4a\\) vào được \\(-4a=6\\), suy ra \\(a=-\\\\frac32\\), \\(b=6\\).\"\n          }\n        ],\n        \"final_answer\": \"\\\\(v(t)=-\\\\frac32t^2+6t+4\\\\)\"\n      },\n      \"why_correct\": \"Chỉ phương án này thỏa đồng thời điều kiện đỉnh và các giá trị vận tốc đã cho.\",\n      \"source_quote\": \"Trong khoảng thời gian 1 giờ kể từ khi bắt đầu chuyển động, đồ thị đó là một phần của đường parabol có đỉnh I(2;10)\",\n      \"cognitive_level\": \"Nhận biết\",\n      \"verifier_payload\": {\n        \"type\": \"none\",\n        \"payload\": {}\n      },\n      \"distractors\": [\n        {\n          \"text\": \"\\\\(v(t)=\\\\frac32t^2-6t+4\\\\)\",\n          \"error_description\": \"Đổi dấu hệ số bậc hai làm parabol quay ngược.\",\n          \"error_category\": \"Sai dấu hệ số\"\n        },\n        {\n          \"text\": \"\\\\(v(t)=-\\\\frac32t^2+4t+4\\\\)\",\n          \"error_description\": \"Không sử dụng đúng điều kiện hoành độ đỉnh.\",\n          \"error_category\": \"Sai điều kiện đỉnh\"\n        },\n        {\n          \"text\": \"\\\\(v(t)=-2t^2+8t+4\\\\)\",\n          \"error_description\": \"Lập hệ số theo cảm tính, không thỏa giá trị đỉnh.\",\n          \"error_category\": \"Lập phương trình sai\"\n        }\n      ]\n    },\n    {\n      \"question\": \"Một lều trại có mặt cắt ngang là parabol đi qua hai điểm \\(A(-3;0)\\), \\(B(3;0)\\) và có đỉnh \\(I(0;4)\\). Diện tích mặt cắt ngang của lều bằng\",\n      \"answer\": \"\\\\(16\\\\)\",\n      \"explanation\": \"Xác định phương trình parabol rồi tính diện tích bằng tích phân.\",\n      \"detailed_solution\": {\n        \"steps\": [\n          {\n            \"title\": \"Bước 1\",\n            \"content\": \"Đặt phương trình parabol \\(y=ax^2+4\\).\"\n          },\n          {\n            \"title\": \"Bước 2\",\n            \"content\": \"Thay \\(A(-3;0)\\): \\(9a+4=0\\), suy ra \\(a=-\\\\frac49\\).\"\n          },\n          {\n            \"title\": \"Bước 3\",\n            \"content\": \"Diện tích cần tính là \\(S=\\\\int_{-3}^{3}(4-\\\\frac49x^2)dx\\).\"\n          },\n          {\n            \"title\": \"Bước 4\",\n            \"content\": \"Tính tích phân được \\(S=\\\\left(4x-\\\\frac{4x^3}{27}\\\\right)_{-3}^{3}\\).\"\n          }\n        ],\n        \"final_answer\": \"\\\\(16\\\\)\"\n      },\n      \"why_correct\": \"Giá trị thu được đúng theo công thức diện tích hình phẳng giới hạn bởi parabol và trục hoành.\",\n      \"source_quote\": \"Parabol \\(P:y=ax^2+bx+c\\) có đỉnh C(0;3), đi qua hai điểm A(-2;0) và B(2;0)\",\n      \"cognitive_level\": \"Thông hiểu\",\n      \"verifier_payload\": {\n        \"type\": \"numeric_eval\",\n        \"payload\": {\n          \"expr\": \"16\",\n          \"expected_numeric\": 16\n        }\n      },\n      \"distractors\": [\n        {\n          \"text\": \"\\\\(12\\\\)\",\n          \"error_description\": \"Quên nhân đôi phần diện tích đối xứng.\",\n          \"error_category\": \"Sai đối xứng\"\n        },\n        {\n          \"text\": \"\\\\(18\\\\)\",\n          \"error_description\": \"Sai khi tính nguyên hàm của hạng tử bậc hai.\",\n          \"error_category\": \"Sai tích phân\"\n        },\n        {\n          \"text\": \"\\\\(24\\\\)\",\n          \"error_description\": \"Dùng công thức diện tích hình chữ nhật thay cho tích phân.\",\n          \"error_category\": \"Nhầm mô hình\"\n        }\n      ]\n    }\n  ]\n}"
+}

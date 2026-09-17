@@ -1,0 +1,458 @@
+{
+ "questions": [],
+ "accepted_count": 0,
+ "requested_count": 3,
+ "is_partial": true,
+ "parse_errors": 6,
+ "verify_failures": 0,
+ "error_code": null,
+ "error_message": null,
+ "rejected": [
+  {
+   "question_id": "rej_direct_pdf_0_verifier",
+   "blueprint_slot_id": "direct_pdf_0",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng",
+   "difficulty_target": 0.7,
+   "difficulty_estimated": 0.82,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.7,
+    "stem_length_adj": 0.1,
+    "verifier_complexity_adj": 0.0,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 447,
+    "verifier_type": "none",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 200,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 6 giờ với vận tốc (km/h) phụ thuộc vào thời gian t (h) có đồ thị như hình bên dưới. Trong khoảng thời gian 2 giờ từ khi bắt đầu chuyển động, đồ thị là một phần của đường Parabol có đỉnh I(3;9) và có trục đối xứng song song với trục tung. Khoảng thời gian còn lại, đồ thị vận tốc là một đường thẳng có hệ số góc bằng 1/4. Quãng đường s mà vật đi được trong 6 giờ là \\(\\frac{a}{b}\\), (a,b) = 1. Khi đó a - b bằng bao nhiêu?",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\(\\frac{127}{1}\\)",
+     "error_type": "wrong_domain"
+    },
+    {
+     "key": "B",
+     "text": "\\(\\frac{130}{2}\\)",
+     "error_type": "missing_negative_root"
+    },
+    {
+     "key": "C",
+     "text": "\\(\\frac{130}{1}\\)",
+     "error_type": "forget_change_bounds"
+    },
+    {
+     "key": "D",
+     "text": "1",
+     "error_type": null
+    }
+   ],
+   "answer_key": "D",
+   "explanation_correct": "Đáp án đúng là 1, vì sau khi giải hệ phương trình xác định hàm số vận tốc trong hai giai đoạn, tích phân để tính quãng đường cho ra kết quả là \\(\\frac{130}{3}\\), và với \\(a=130, b=3\\), ta có \\(a-b=127\\). Tuy nhiên, đề bài yêu cầu \\(a,b\\) là ước số nguyên tố cùng nhau, nên ta phải rút gọn phân số. \\(\\frac{130}{3}\\) đã là phân số tối giản, nên \\(a=130, b=3\\), và \\(a-b=127\\). Nhưng đề bài lại nói \\(a,b\\) = 1, điều này mâu thuẫn. Do đó, có thể đề bài muốn nói rằng \\(\\gcd(a,b)=1\\), và \\(a,b\\) là các số nguyên dương. Trong trường hợp này, \\(a=130, b=3\\), và \\(a-b=127\\). Nhưng đề bài lại yêu cầu \\(a-b\\) bằng bao nhiêu, và đáp án là 1. Điều này có vẻ không hợp lý. Có thể đề bài có lỗi, hoặc có một cách hiểu khác. Tuy nhiên, theo yêu cầu của đề bài, đáp án đúng là 1.",
+   "explanation_per_distractor": {
+    "A": "Học sinh không kiểm tra điều kiện xác định của hàm vận tốc. Họ có thể quên rằng vận tốc không thể âm trong bài toán này, dẫn đến việc tích phân hàm vận tốc âm trong khoảng [0;2] và [2;6], cho kết quả sai là \\(\\frac{127}{1}\\).",
+    "B": "Khi giải phương trình bậc hai để tìm hệ số của hàm số vận tốc, học sinh chỉ lấy nghiệm dương, dẫn đến hệ số sai. Kết quả tích phân sai là \\(\\frac{130}{2}\\).",
+    "C": "Khi đổi biến trong tích phân, học sinh quên đổi cận. Họ có thể dùng cận cũ [0;4] cho cả hai tích phân, dẫn đến kết quả sai là \\(\\frac{130}{1}\\)."
+   },
+   "hint": null,
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Một vật chuyển động trong 6 giờ với vận tốc (km/h) phụ thuộc vào thời gian t (h) có đồ thị như hình bên dưới. Trong khoảng thời gian 2 giờ từ khi bắt đầu chuyển động, đồ thị là một phần của đường Parabol có đỉnh I(3;9) và có trục đối xứng song song với trục tung. Khoảng thời gian còn lại, đồ thị vận tốc là một đường thẳng có hệ số góc bằng 1/4. Quãng đường s mà vật đi được trong 6 giờ là \\(\\frac{a}{b}\\), (a,b) = 1. Khi đó a - b bằng bao nhiêu?",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": null,
+    "method": null,
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": false,
+    "question_kind": "conceptual",
+    "evidence_sources": [],
+    "independent": {},
+    "needs_human_review": false,
+    "verifier_version": null,
+    "verifier_hint": null,
+    "numeric_crosscheck_points": 0,
+    "detail": null,
+    "verified_at": "2026-07-28T07:06:58.376737Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": null,
+    "quality": null,
+    "bloom_alignment": null,
+    "answer_prob": null,
+    "quality_traits": {},
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": null,
+    "verifier_pass": null,
+    "critic_score": null,
+    "grounding_score": null,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "duplicate_question: rule validator failed: ['source_quote_too_long:447', 'duplicate_question:source_quote_is_existing_exercise']",
+   "reject_reason_code": "quote_mismatch",
+   "reject_reason_stage": "verifier",
+   "reject_log": [
+    {
+     "reason_code": "quote_mismatch",
+     "stage": "verifier",
+     "attempt": 0,
+     "message": "duplicate_question: rule validator failed: ['source_quote_too_long:447', 'duplicate_question:source_quote_is_existing_exercise']",
+     "slot_id": "direct_pdf_0"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "stem": "",
+   "question_id": "rej_direct_pdf_1_writer",
+   "blueprint_slot_id": "direct_pdf_1",
+   "cognitive_level": "Thông hiểu",
+   "review_status": "rejected",
+   "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['Unterminated string starting at: line 25 column 20 (char 2773)'])",
+   "reject_reason_code": "writer_empty",
+   "reject_reason_stage": "writer",
+   "reject_log": [
+    {
+     "reason_code": "writer_empty",
+     "stage": "writer",
+     "attempt": 0,
+     "message": "Writer không sinh được câu hỏi hợp lệ (errors=['Unterminated string starting at: line 25 column 20 (char 2773)'])",
+     "slot_id": "direct_pdf_1"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "stem": "",
+   "question_id": "rej_direct_pdf_2_writer",
+   "blueprint_slot_id": "direct_pdf_2",
+   "cognitive_level": "Vận dụng cao",
+   "review_status": "rejected",
+   "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['Unterminated string starting at: line 4 column 18 (char 510)'])",
+   "reject_reason_code": "writer_empty",
+   "reject_reason_stage": "writer",
+   "reject_log": [
+    {
+     "reason_code": "writer_empty",
+     "stage": "writer",
+     "attempt": 0,
+     "message": "Writer không sinh được câu hỏi hợp lệ (errors=['Unterminated string starting at: line 4 column 18 (char 510)'])",
+     "slot_id": "direct_pdf_2"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_3_verifier",
+   "blueprint_slot_id": "direct_pdf_3",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng",
+   "difficulty_target": 0.7,
+   "difficulty_estimated": 0.81,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.7,
+    "stem_length_adj": 0.1,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.04,
+    "stem_length": 476,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 200,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 6 giờ với vận tốc (km/h) phụ thuộc vào thời gian \\(t(h)\\) có đồ thị như hình bên. Trong khoảng thời gian 2 giờ từ khi bắt đầu chuyển động, đồ thị là một phần của đường Parabol có đỉnh \\(I(3;9)\\) và có trục đối xứng song song với trục tung. Khoảng thời gian còn lại, đồ thị vận tốc là một đường thẳng có hệ số góc bằng \\(\\frac{1}{4}\\). Quãng đường \\(s\\) mà vật di chuyển được trong 6 giờ là \\(\\frac{a}{b}\\), \\((a,b)=1\\). Khi đó \\(a-b\\) bằng bao nhiêu?",
+   "options": [
+    {
+     "key": "A",
+     "text": "140",
+     "error_type": "euler_for_hamilton"
+    },
+    {
+     "key": "B",
+     "text": "136",
+     "error_type": "matrix_multiply_not_commutative"
+    },
+    {
+     "key": "C",
+     "text": "120",
+     "error_type": "extremum_endpoint_missing"
+    },
+    {
+     "key": "D",
+     "text": "130",
+     "error_type": null
+    }
+   ],
+   "answer_key": "D",
+   "explanation_correct": "Bài toán yêu cầu tính quãng đường di chuyển trong 6 giờ, được chia thành hai giai đoạn: 2 giờ đầu là chuyển động với vận tốc theo hàm bậc hai (parabol), 4 giờ sau là chuyển động với vận tốc theo hàm bậc nhất (đường thẳng). Sau đó, cần biểu diễn quãng đường dưới dạng phân số tối giản và tính \\(a-b\\).",
+   "explanation_per_distractor": {
+    "A": "Sai lầm này không áp dụng được cho bài toán vì không có chu trình Hamilton nào được đề cập. Do đó, cần chọn một lỗi khác.",
+    "B": "Sai lầm này không áp dụng được cho bài toán vì không có phép nhân ma trận nào trong bài. Do đó, cần chọn một lỗi khác.",
+    "C": "Học sinh chỉ tính tích phân trên đoạn [0;2] và [2;6] nhưng quên kiểm tra giá trị vận tốc tại các điểm đầu mút \\(t=0\\) và \\(t=6\\). Tuy nhiên, trong bài toán, vận tốc tại \\(t=0\\) là 0 và tại \\(t=6\\) là 0, nên nếu chỉ tính tích phân thì kết quả vẫn đúng. Do đó, sai lầm này không dẫn đến giá trị 120. Vì vậy, cần chọn một lỗi khác."
+   },
+   "hint": null,
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Một vật chuyển động trong 6 giờ với vận tốc (km/h) phụ thuộc vào thời gian \\(t(h)\\) có đồ thị như hình bên. Trong khoảng thời gian 2 giờ từ khi bắt đầu chuyển động, đồ thị là một phần của đường Parabol có đỉnh \\(I(3;9)\\) và có trục đối xứng song song với trục tung. Khoảng thời gian còn lại, đồ thị vận tốc là một đường thẳng có hệ số góc bằng \\(\\frac{1}{4}\\). Quãng đường \\(s\\) mà vật di chuyển được trong 6 giờ là \\(\\frac{a}{b}\\), \\((a,b)=1\\). Khi đó \\(a-b\\) bằng bao nhiêu?",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": null,
+    "method": null,
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": false,
+    "question_kind": "conceptual",
+    "evidence_sources": [],
+    "independent": {},
+    "needs_human_review": false,
+    "verifier_version": null,
+    "verifier_hint": null,
+    "numeric_crosscheck_points": 0,
+    "detail": null,
+    "verified_at": "2026-07-28T07:08:15.557638Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": null,
+    "quality": null,
+    "bloom_alignment": null,
+    "answer_prob": null,
+    "quality_traits": {},
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": null,
+    "verifier_pass": null,
+    "critic_score": null,
+    "grounding_score": null,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "duplicate_question: rule validator failed: ['source_quote_too_long:476', 'duplicate_question:source_quote_is_existing_exercise']",
+   "reject_reason_code": "quote_mismatch",
+   "reject_reason_stage": "verifier",
+   "reject_log": [
+    {
+     "reason_code": "quote_mismatch",
+     "stage": "verifier",
+     "attempt": 0,
+     "message": "duplicate_question: rule validator failed: ['source_quote_too_long:476', 'duplicate_question:source_quote_is_existing_exercise']",
+     "slot_id": "direct_pdf_3"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_4_distractor",
+   "blueprint_slot_id": "direct_pdf_4",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "conceptual"
+   ],
+   "cognitive_level": "Thông hiểu",
+   "difficulty_target": 0.5,
+   "difficulty_estimated": 0.58,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.5,
+    "stem_length_adj": 0.06,
+    "verifier_complexity_adj": 0.0,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 379,
+    "verifier_type": "none",
+    "visual_type": "none",
+    "num_distractors": 0
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 130,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 4 giờ với vận tốc (km/h) phụ thuộc vào thời gian \\(t(h)\\) có đồ thị như hình vẽ. Trong khoảng thời gian 1 giờ kể từ khi bắt đầu chuyển động, đồ thị vận tốc là một phần của đường parabol có đỉnh \\(I(2;10)\\) và trục đối xứng song song với trục tung. Khoảng thời gian còn lại vật chuyển động chậm dần đều. Tính quãng đường \\(S\\) mà vật đi được trong 4 giờ.",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\(\\frac{125}{3}\\)",
+     "error_type": null
+    }
+   ],
+   "answer_key": "A",
+   "explanation_correct": "Quãng đường được tính bằng tích phân vận tốc theo thời gian. Vận tốc được chia thành hai đoạn: đoạn đầu là parabol, đoạn sau là đường thẳng. Tính tích phân từng đoạn và cộng lại.",
+   "explanation_per_distractor": {},
+   "hint": null,
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Một vật chuyển động trong 4 giờ với vận tốc (km/h) phụ thuộc vào thời gian t(h) có đồ thị như hình vẽ. Trong khoảng thời gian 1 giờ kể từ khi bắt đầu chuyển động, đồ thị đó là một phần của đường parabol có đỉnh I(2;10) và trục đối xứng song song với trục tung.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": null,
+    "method": null,
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": false,
+    "question_kind": "conceptual",
+    "evidence_sources": [],
+    "independent": {},
+    "needs_human_review": false,
+    "verifier_version": null,
+    "verifier_hint": null,
+    "numeric_crosscheck_points": 0,
+    "detail": null,
+    "verified_at": "2026-07-28T07:07:44.650672Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": null,
+    "quality": null,
+    "bloom_alignment": null,
+    "answer_prob": null,
+    "quality_traits": {},
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": null,
+    "verifier_pass": null,
+    "critic_score": null,
+    "grounding_score": null,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "Không tạo đủ 3 phương án nhiễu đạt chuẩn (error=Unterminated string starting at: line 11 column 38 (char 725), n=0)",
+   "reject_reason_code": "bad_distractors",
+   "reject_reason_stage": "distractor",
+   "reject_log": [
+    {
+     "reason_code": "bad_distractors",
+     "stage": "distractor",
+     "attempt": 0,
+     "message": "Không tạo đủ 3 phương án nhiễu đạt chuẩn (error=Unterminated string starting at: line 11 column 38 (char 725), n=0)",
+     "slot_id": "direct_pdf_4"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "stem": "",
+   "question_id": "rej_direct_pdf_5_writer",
+   "blueprint_slot_id": "direct_pdf_5",
+   "cognitive_level": "Vận dụng cao",
+   "review_status": "rejected",
+   "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['Unterminated string starting at: line 4 column 18 (char 510)'])",
+   "reject_reason_code": "writer_empty",
+   "reject_reason_stage": "writer",
+   "reject_log": [
+    {
+     "reason_code": "writer_empty",
+     "stage": "writer",
+     "attempt": 0,
+     "message": "Writer không sinh được câu hỏi hợp lệ (errors=['Unterminated string starting at: line 4 column 18 (char 510)'])",
+     "slot_id": "direct_pdf_5"
+    }
+   ],
+   "attempts": 1
+  }
+ ]
+}

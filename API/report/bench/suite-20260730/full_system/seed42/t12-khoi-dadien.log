@@ -1,0 +1,11 @@
+    [pdf-slot direct_pdf_2] writer 0 candidates; errors=["Expecting ',' delimiter: line 1 column 444 (char 443)"]
+    [pdf-slot direct_pdf_0] verifier reject: multi_answer: distractor "\(48\)" cũng được verifier xác nhận đúng
+    [pdf-slot direct_pdf_5] critic reject: error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Giải thích đáp án đúng nhất quán, nhưng distractor \(3\\,\\text{cm}\) có phép tính sai vì từ \(54\\pi=\\pi r^3\) không suy ra \(r=3\), và distractor \(12\\,\\te)
+    [pdf-slot direct_pdf_8] critic reject: error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Phần giải thích lỗi của distractor \(8\) và \(26\) không thực sự dẫn ra đúng giá trị theo chuỗi biến đổi được mô tả, trong khi \(12\) cũng dựa trên một phép biế)
+    [pdf-slot direct_pdf_6] critic reject: error_distractor_consistency=0.25 (lỗi mô tả không khớp giá trị distractor/đáp án) (Một số chuỗi lỗi không dẫn đúng đến giá trị distractor đã nêu, đặc biệt phương án \(450\\pi\) và \(264\\pi\) có mô tả tính toán không nhất quán.)
+    [pdf-slot direct_pdf_12] writer 0 candidates; errors=["Expecting ',' delimiter: line 4 column 222 (char 514)"]
+    [pdf-slot direct_pdf_13] verifier reject: answer_text_mismatch: đáp án key \(60\pi\,\text{dm}^2\) không khớp giá trị 414.6902302738527 mà engine tính ra
+    [pdf-slot direct_pdf_16] critic reject: error_distractor_consistency=0.25 (lỗi mô tả không khớp giá trị distractor/đáp án) (Distractor thứ ba có phần mô tả lỗi dẫn tới \(176\pi\,cm^3\) rồi lại đưa ra \(80\pi\,cm^3\), gây mâu thuẫn; phần giải thích đáp án đúng vẫn nhất quán.)
+    [pdf-slot direct_pdf_19] mismatch: biểu thức kiểm chứng của Writer không khớp đáp án key (tác nhân độc lập báo bài toán không có kết qu
+    [pdf-slot direct_pdf_19] critic reject: error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Một số chuỗi lỗi trong phần mô tả distractor không dẫn đúng tới giá trị nêu ra, đặc biệt distractor \(252\pi\) có phép tính trung gian mâu thuẫn với kết quả cuố)
+[cell] arm=full_system seed=42 t12-khoi-dadien.pdf: delivered=12/12 rejected=9 tokens=287771 560s

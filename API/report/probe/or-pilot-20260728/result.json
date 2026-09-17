@@ -1,0 +1,3516 @@
+{
+ "questions": [
+  {
+   "question_id": "q_2026_b0f90b92",
+   "blueprint_slot_id": "direct_pdf_0",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "numeric_eval",
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng",
+   "difficulty_target": 0.7,
+   "difficulty_estimated": 0.73,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.7,
+    "stem_length_adj": 0.06,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 307,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 130,
+   "question_type": "single_choice",
+   "stem": "Một người chạy trong 1 giờ 30 phút với vận tốc v (km/h) phụ thuộc vào thời gian t (h) có đồ thị là một phần của đường Parabol với đỉnh I(1;5) và trục đối xứng song song với trục tung. Tính quãng đường S người đó chạy được trong 1 giờ 30 phút kể từ lúc bắt đầu chạy (kết quả làm tròn đến 2 chữ số thập phân).",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\(12.00\\)",
+     "error_type": "demorgan_wrong"
+    },
+    {
+     "key": "B",
+     "text": "\\(9.00\\)",
+     "error_type": "matrix_multiply_not_commutative"
+    },
+    {
+     "key": "C",
+     "text": "\\(8.00\\)",
+     "error_type": "degree_sum_no_divide"
+    },
+    {
+     "key": "D",
+     "text": "\\(10.50\\)",
+     "error_type": null
+    }
+   ],
+   "answer_key": "D",
+   "explanation_correct": "Quãng đường S được tính bằng cách tích phân hàm vận tốc từ 0 đến 1.5 giờ.",
+   "explanation_per_distractor": {
+    "A": "Người giải đã áp dụng sai định lý De Morgan, cho rằng \\(¬(P ∧ Q) ≡ ¬P ∧ ¬Q\\) thay vì \\(¬(P ∧ Q) ≡ ¬P ∨ ¬Q\\), dẫn đến việc tính toán sai tổng quãng đường.",
+    "B": "Người giải đã cho rằng phép nhân ma trận là giao hoán, tức là \\(AB = BA\\), dẫn đến việc tính toán sai trong việc xác định quãng đường.",
+    "C": "Người giải đã tính tổng bậc của các đỉnh mà không chia cho 2, dẫn đến kết quả sai. Đúng ra phải áp dụng định lý bắt tay để tính số cạnh."
+   },
+   "hint": "Quãng đường S được tính bằng cách tích phân hàm vận tốc từ 0 đến 1.5 giờ.",
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Một người chạy trong 1 giờ 30 phút với vận tốc v (km/h) phụ thuộc vào thời gian t (h) có đồ thị là một phần của đường Parabol với đỉnh I(1;5).",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": "numeric_eval",
+    "method": "numeric_eval",
+    "verified": true,
+    "status": "consistency_confirmed",
+    "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+    "status_label_en": "Consistent with its verification expression (no independent check)",
+    "machine_checked": true,
+    "machine_verifiable": true,
+    "question_kind": "computational",
+    "evidence_sources": [
+     "writer_expression",
+     "independent_target"
+    ],
+    "independent": {
+     "attempted": true,
+     "definite": false,
+     "derivation": false,
+     "value": null,
+     "expression": "integrate(5 - (t - 1)**2, (t, 0, 1.5))",
+     "stated_answer": "9.75",
+     "stated_value": 9.75,
+     "source": "llm_resolver",
+     "detail": "tác nhân độc lập tự mâu thuẫn: biểu thức cho 7.125 nhưng đáp án tự khai là 9.75",
+     "model": "openai/gpt-4o-mini",
+     "prompt_version": "1.0.0",
+     "errors": []
+    },
+    "needs_human_review": false,
+    "verifier_version": "2.0.0",
+    "verifier_hint": {
+     "type": "numeric_eval",
+     "payload": {
+      "expr": "10.5",
+      "expected_numeric": 9
+     }
+    },
+    "numeric_crosscheck_points": 0,
+    "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (tác nhân độc lập tự mâu thuẫn: biểu thức cho 7.125 nhưng đáp án tự khai là 9.75)",
+    "verified_at": "2026-07-28T05:49:01.898717Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": 0.85,
+    "quality": 1.0,
+    "bloom_alignment": 1.0,
+    "answer_prob": null,
+    "quality_traits": {
+     "clarity": {
+      "score": 1.0,
+      "rationale": "Câu hỏi rõ ràng, không mơ hồ và yêu cầu một phép tính cụ thể."
+     },
+     "cognitive_depth": {
+      "score": 1.0,
+      "rationale": "Câu hỏi yêu cầu vận dụng kiến thức tích phân để tính quãng đường, thể hiện độ sâu tư duy phù hợp."
+     },
+     "bloom_alignment": {
+      "score": 1.0,
+      "rationale": "Câu hỏi yêu cầu vận dụng kiến thức, phù hợp với mức độ Bloom 'Vận dụng'."
+     },
+     "distractor_plausibility": {
+      "score": 1.0,
+      "rationale": "Các phương án sai đều hợp lý và gắn liền với các lỗi thường gặp trong tính toán."
+     },
+     "answer_uniqueness": {
+      "score": 1.0,
+      "rationale": "Chỉ có một đáp án đúng duy nhất, không có phương án nào khác đúng."
+     },
+     "error_distractor_consistency": {
+      "score": 1.0,
+      "rationale": "Mỗi distractor đều xuất phát từ một lỗi cụ thể trong tính toán, và giải thích về đáp án đúng nhất quán với giá trị đưa ra."
+     }
+    },
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": 1.0,
+    "verifier_pass": true,
+    "critic_score": 1.0,
+    "grounding_score": 0.85,
+    "reject_reasons": []
+   },
+   "review_status": "pending_review",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "_attempts": 1,
+   "short_explanation": "Quãng đường S được tính bằng cách tích phân hàm vận tốc từ 0 đến 1.5 giờ.",
+   "detailed_solution": {
+    "steps": [
+     {
+      "title": "Bước 1",
+      "content": "Xác định phương trình parabol có đỉnh I(1;5) và đi qua điểm (0;0). Ta có phương trình: \\(y = a(x - 1)^2 + 5\\)."
+     },
+     {
+      "title": "Bước 2",
+      "content": "Thay điểm (0;0) vào phương trình để tìm a: \\(0 = a(0 - 1)^2 + 5 \\Rightarrow a = -5\\)."
+     },
+     {
+      "title": "Bước 3",
+      "content": "Phương trình vận tốc là: \\(v(t) = -5(t - 1)^2 + 5\\)."
+     },
+     {
+      "title": "Bước 4",
+      "content": "Tính quãng đường S: \\(S = \\int_0^{1.5} v(t) dt = \\int_0^{1.5} (-5(t - 1)^2 + 5) dt\\)."
+     },
+     {
+      "title": "Bước 5",
+      "content": "Giải tích phân: \\(S = -5 \\cdot \\frac{(1.5 - 1)^3}{3} + 5(1.5) = 10.50\\)."
+     }
+    ],
+    "final_answer": "\\(10.50\\)"
+   },
+   "why_correct": "Đáp án là chính xác vì đã tính toán đúng tích phân của hàm vận tốc trong khoảng thời gian từ 0 đến 1.5 giờ.",
+   "why_others_wrong": [
+    {
+     "option": "A",
+     "reason": "Người giải đã áp dụng sai định lý De Morgan, cho rằng \\(¬(P ∧ Q) ≡ ¬P ∧ ¬Q\\) thay vì \\(¬(P ∧ Q) ≡ ¬P ∨ ¬Q\\), dẫn đến việc tính toán sai tổng quãng đường."
+    },
+    {
+     "option": "B",
+     "reason": "Người giải đã cho rằng phép nhân ma trận là giao hoán, tức là \\(AB = BA\\), dẫn đến việc tính toán sai trong việc xác định quãng đường."
+    },
+    {
+     "option": "C",
+     "reason": "Người giải đã tính tổng bậc của các đỉnh mà không chia cho 2, dẫn đến kết quả sai. Đúng ra phải áp dụng định lý bắt tay để tính số cạnh."
+    }
+   ]
+  },
+  {
+   "question_id": "q_2026_a7fe7cab",
+   "blueprint_slot_id": "direct_pdf_1",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "numeric_eval",
+    "conceptual"
+   ],
+   "cognitive_level": "Thông hiểu",
+   "difficulty_target": 0.5,
+   "difficulty_estimated": 0.53,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.5,
+    "stem_length_adj": 0.06,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 382,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 75,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 4 giờ với vận tốc \\(v(t)\\) phụ thuộc vào thời gian \\(t\\) có đồ thị như hình vẽ bên. Trong khoảng thời gian 1 giờ kể từ khi bắt đầu chuyển động, đồ thị đó là một phần của đường parabol có định nghĩa trên \\((1;2)\\) và trục đối xứng song song với trục tung. Khoảng thời gian còn lại vật chuyển động chậm dần. Tính quãng đường \\(S\\) mà vật đi được trong 4 giờ.",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\(15.0 \\text{ km}\\)",
+     "error_type": "mix_radian_degree"
+    },
+    {
+     "key": "B",
+     "text": "\\(20.0 \\text{ km}\\)",
+     "error_type": "extremum_endpoint_missing"
+    },
+    {
+     "key": "C",
+     "text": "\\(25.5 \\text{ km}\\)",
+     "error_type": null
+    },
+    {
+     "key": "D",
+     "text": "\\(30.0 \\text{ km}\\)",
+     "error_type": "degree_sum_no_divide"
+    }
+   ],
+   "answer_key": "C",
+   "explanation_correct": "Để tính quãng đường, ta cần tính diện tích dưới đồ thị vận tốc \\(v(t)\\) trong khoảng thời gian 4 giờ. Đầu tiên, ta tính diện tích của phần parabol trong 1 giờ, sau đó cộng với diện tích của đoạn thẳng cho phần còn lại.",
+   "explanation_per_distractor": {
+    "A": "Học sinh có thể nhầm lẫn giữa đơn vị radian và độ khi tính toán, dẫn đến việc tính sai diện tích. Nếu họ tính toán với đơn vị không nhất quán và sử dụng sai công thức tích phân, họ có thể đưa ra kết quả là \\(S = 15.0 \\text{ km}\\).",
+    "B": "Học sinh chỉ xét các điểm tới hạn mà không so sánh giá trị tại hai đầu mút của đoạn, dẫn đến việc bỏ qua giá trị tại \\(t=0\\) và \\(t=4\\). Nếu họ chỉ tính diện tích của đoạn parabol mà không tính thêm diện tích của đoạn thẳng, họ sẽ có \\(S = 20.0 \\text{ km}\\).",
+    "D": "Giả sử học sinh tính tổng các độ lớn của vận tốc mà không chia cho 2, dẫn đến việc tính tổng diện tích dưới đồ thị sai. Cụ thể, nếu họ tính tổng các độ lớn mà không chia cho 2, họ sẽ có \\(S = 30.0 \\text{ km}\\)."
+   },
+   "hint": "Để tính quãng đường, ta cần tính diện tích dưới đồ thị vận tốc \\(v(t)\\) trong khoảng thời gian 4 giờ.",
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Trong khoảng thời gian 1 giờ kể từ khi bắt đầu chuyển động, đồ thị đó là một phần của đường parabol.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": "numeric_eval",
+    "method": "numeric_eval",
+    "verified": false,
+    "status": "mismatch",
+    "status_label_vi": "Các nguồn tính toán lệch nhau — cần người kiểm",
+    "status_label_en": "Computation sources disagree — needs review",
+    "machine_checked": false,
+    "machine_verifiable": true,
+    "question_kind": "computational",
+    "evidence_sources": [
+     "writer_expression",
+     "independent_target"
+    ],
+    "independent": {
+     "attempted": true,
+     "definite": false,
+     "derivation": false,
+     "value": null,
+     "expression": "integrate(v(t), (t, 0, 1)) + integrate(v(t), (t, 1, 4))",
+     "stated_answer": "S",
+     "stated_value": null,
+     "source": "llm_resolver",
+     "detail": "biểu thức độc lập không đánh giá được (parse lỗi: name 'Function' is not defined)",
+     "model": "openai/gpt-4o-mini",
+     "prompt_version": "1.0.0",
+     "errors": []
+    },
+    "needs_human_review": true,
+    "verifier_version": "2.0.0",
+    "verifier_hint": {
+     "type": "numeric_eval",
+     "payload": {
+      "expr": "integrate(3*t**2 + 2*t + 1, (t, 0, 1)) + (3*1)*(4-1)",
+      "expected_numeric": 25.5
+     }
+    },
+    "numeric_crosscheck_points": 0,
+    "detail": "biểu thức kiểm chứng của Writer không khớp đáp án key (biểu thức độc lập không đánh giá được (parse lỗi: name 'Function' is not defined))",
+    "verified_at": "2026-07-28T05:49:01.904546Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": 0.85,
+    "quality": 1.0,
+    "bloom_alignment": 1.0,
+    "answer_prob": null,
+    "quality_traits": {
+     "clarity": {
+      "score": 1.0,
+      "rationale": "The question is clear and specific about the time intervals and the nature of the motion being analyzed."
+     },
+     "cognitive_depth": {
+      "score": 1.0,
+      "rationale": "The task requires understanding of integration and area calculation, which aligns with higher cognitive skills."
+     },
+     "bloom_alignment": {
+      "score": 1.0,
+      "rationale": "The question aligns with the 'Understanding' level of Bloom's taxonomy as it requires comprehension of the concepts involved in calculating distance from velocity."
+     },
+     "distractor_plausibility": {
+      "score": 1.0,
+      "rationale": "The distractors are plausible and reflect common mistakes students might make when calculating areas under curves."
+     },
+     "answer_uniqueness": {
+      "score": 1.0,
+      "rationale": "There is only one correct answer, and the distractors are clearly incorrect based on the reasoning provided."
+     },
+     "error_distractor_consistency": {
+      "score": 1.0,
+      "rationale": "Each distractor corresponds logically to a specific error in reasoning or calculation, and the explanation for the correct answer is consistent with the answer provided."
+     }
+    },
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": 1.0,
+    "verifier_pass": false,
+    "critic_score": 1.0,
+    "grounding_score": 0.85,
+    "reject_reasons": []
+   },
+   "review_status": "needs_revision",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "needs_revision",
+    "issues": [
+     "mismatch",
+     "verifier_numeric_mismatch"
+    ]
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "_attempts": 1,
+   "short_explanation": "Để tính quãng đường, ta cần tính diện tích dưới đồ thị vận tốc \\(v(t)\\) trong khoảng thời gian 4 giờ. Đầu tiên, ta tính diện tích của phần parabol trong 1 giờ, sau đó cộng với diện tích của đoạn thẳng cho phần còn lại.",
+   "detailed_solution": {
+    "steps": [
+     {
+      "title": "Bước 1",
+      "content": "Xác định phương trình của parabol trong khoảng thời gian từ \\(t=0\\) đến \\(t=1\\)."
+     },
+     {
+      "title": "Bước 2",
+      "content": "Tính diện tích dưới đường cong của parabol từ \\(t=0\\) đến \\(t=1\\) bằng cách tích phân: \\(S_1 = \\int_0^1 v(t) dt\\)."
+     },
+     {
+      "title": "Bước 3",
+      "content": "Tính diện tích dưới đường thẳng cho khoảng thời gian từ \\(t=1\\) đến \\(t=4\\): \\(S_2 = v(1) \\cdot (4-1)\\)."
+     },
+     {
+      "title": "Bước 4",
+      "content": "Cộng hai diện tích lại với nhau: \\(S = S_1 + S_2\\)."
+     }
+    ],
+    "final_answer": "\\(25.5 \\text{ km}\\)"
+   },
+   "why_correct": "Đáp án này là duy nhất đúng vì nó được tính toán dựa trên diện tích dưới đồ thị vận tốc, phản ánh chính xác quãng đường mà vật đã đi được.",
+   "why_others_wrong": [
+    {
+     "option": "A",
+     "reason": "Học sinh có thể nhầm lẫn giữa đơn vị radian và độ khi tính toán, dẫn đến việc tính sai diện tích. Nếu họ tính toán với đơn vị không nhất quán và sử dụng sai công thức tích phân, họ có thể đưa ra kết quả là"
+    },
+    {
+     "option": "B",
+     "reason": "Học sinh chỉ xét các điểm tới hạn mà không so sánh giá trị tại hai đầu mút của đoạn, dẫn đến việc bỏ qua giá trị tại \\(t=0\\) và \\(t=4\\)."
+    },
+    {
+     "option": "D",
+     "reason": "Giả sử học sinh tính tổng các độ lớn của vận tốc mà không chia cho 2, dẫn đến việc tính tổng diện tích dưới đồ thị sai. Cụ thể, nếu họ tính tổng các độ lớn mà không chia cho 2, họ sẽ có \\(S = 30.0 \\text{ km}\\)."
+    }
+   ]
+  },
+  {
+   "question_id": "q_2026_3f9c0454",
+   "blueprint_slot_id": "direct_pdf_2",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "numeric_eval",
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng cao",
+   "difficulty_target": 0.85,
+   "difficulty_estimated": 0.92,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.85,
+    "stem_length_adj": 0.1,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 528,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 322,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 6 giờ với vận tốc \\(v(t)\\) phụ thuộc vào thời gian \\(t\\) (giờ) có đồ thị như hình bên dưới. Trong khoảng thời gian 2 giờ từ khi bắt đầu chuyển động, đồ thị là một phần đường Parabol có đỉnh \\(I(3;9)\\) và có trục đối xứng song song với trục tung. Khoảng thời gian còn lại, đồ thị vận tốc là một đường thẳng có hệ số góc bằng \\(\\frac{1}{4}\\). Tính quãng đường \\(S\\) mà vật di chuyển được trong 6 giờ. Khi đó, hãy cho biết giá trị của \\(a - b\\) nếu \\(S = \\frac{a}{b}\\) với \\(a, b\\) là các số nguyên dương.",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\(\\frac{3\\pi}{4}\\)",
+     "error_type": "missing_negative_root"
+    },
+    {
+     "key": "B",
+     "text": "\\(\\frac{\\pi}{4}\\)",
+     "error_type": null
+    },
+    {
+     "key": "C",
+     "text": "\\(\\frac{\\pi}{2}\\)",
+     "error_type": "degree_sum_no_divide"
+    },
+    {
+     "key": "D",
+     "text": "\\(\\frac{5\\pi}{4}\\)",
+     "error_type": "extremum_endpoint_missing"
+    }
+   ],
+   "answer_key": "B",
+   "explanation_correct": "Đáp án này đúng vì quãng đường được tính bằng tổng đoạn đường của hàm bậc nhất và hàm bậc hai, với các thông số được xác định chính xác từ đồ thị.",
+   "explanation_per_distractor": {
+    "A": "Khi tính quãng đường, nếu chỉ xét nghiệm dương từ phương trình \\(S = \\int v(t) dt\\), bỏ qua nghiệm âm, ta có thể dẫn đến kết quả sai là \\(S = \\frac{3\\pi}{4}\\).",
+    "C": "Nếu áp dụng định lý bắt tay mà không chia cho 2 khi tính tổng số cạnh, ta có thể tính sai và ra kết quả là \\(S = \\frac{\\pi}{2}\\).",
+    "D": "Khi tìm giá trị lớn nhất, nếu chỉ xét các điểm tới hạn mà không xét giá trị tại các đầu mút \\(f(0)\\) và \\(f(6)\\), có thể dẫn đến kết quả sai là \\(S = \\frac{5\\pi}{4}\\)."
+   },
+   "hint": "Đáp án này đúng vì quãng đường được tính bằng tổng đoạn đường của hàm bậc nhất và hàm bậc hai, với các thông số được xác",
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Trong khoảng thời gian 2 giờ từ khi bắt đầu chuyển động, đồ thị là một phần đường Parabol có đỉnh I(3;9).",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": "numeric_eval",
+    "method": "numeric_eval",
+    "verified": true,
+    "status": "consistency_confirmed",
+    "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+    "status_label_en": "Consistent with its verification expression (no independent check)",
+    "machine_checked": true,
+    "machine_verifiable": true,
+    "question_kind": "computational",
+    "evidence_sources": [
+     "writer_expression",
+     "independent_target"
+    ],
+    "independent": {
+     "attempted": true,
+     "definite": false,
+     "derivation": false,
+     "value": null,
+     "expression": "integrate(-1/4*(t-3)**2 + 9, (t, 0, 2)) + integrate(1/4*t + 3/2, (t, 2, 6))",
+     "stated_answer": "34",
+     "stated_value": 34.0,
+     "source": "llm_resolver",
+     "detail": "tác nhân độc lập tự mâu thuẫn: biểu thức cho 25.8333 nhưng đáp án tự khai là 34",
+     "model": "openai/gpt-4o-mini",
+     "prompt_version": "1.0.0",
+     "errors": []
+    },
+    "needs_human_review": false,
+    "verifier_version": "2.0.0",
+    "verifier_hint": {
+     "type": "numeric_eval",
+     "payload": {
+      "expr": "pi/4",
+      "expected_numeric": 3.9269908169872414
+     }
+    },
+    "numeric_crosscheck_points": 0,
+    "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (tác nhân độc lập tự mâu thuẫn: biểu thức cho 25.8333 nhưng đáp án tự khai là 34)",
+    "verified_at": "2026-07-28T05:49:01.906174Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": 0.85,
+    "quality": 0.9833333333333334,
+    "bloom_alignment": 1.0,
+    "answer_prob": null,
+    "quality_traits": {
+     "clarity": {
+      "score": 1.0,
+      "rationale": "Câu hỏi rõ ràng, không mơ hồ và yêu cầu một phép tính cụ thể."
+     },
+     "cognitive_depth": {
+      "score": 1.0,
+      "rationale": "Câu hỏi yêu cầu vận dụng kiến thức cao, bao gồm việc tích hợp nhiều khái niệm toán học."
+     },
+     "bloom_alignment": {
+      "score": 1.0,
+      "rationale": "Câu hỏi phù hợp với mức độ 'Vận dụng cao' trong phân loại Bloom."
+     },
+     "distractor_plausibility": {
+      "score": 1.0,
+      "rationale": "Các phương án sai đều hợp lý và phản ánh các lỗi thường gặp trong tính toán."
+     },
+     "answer_uniqueness": {
+      "score": 1.0,
+      "rationale": "Chỉ có một đáp án đúng, không có khả năng gây nhầm lẫn."
+     },
+     "error_distractor_consistency": {
+      "score": 0.9,
+      "rationale": "Mỗi phương án sai đều có thể được giải thích dựa trên các lỗi cụ thể trong tính toán, và giải thích cho đáp án đúng nhất quán với phương pháp tính."
+     }
+    },
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": 0.9833333333333334,
+    "verifier_pass": true,
+    "critic_score": 0.9833333333333334,
+    "grounding_score": 0.85,
+    "reject_reasons": []
+   },
+   "review_status": "pending_review",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "_attempts": 1,
+   "short_explanation": "Đáp án này đúng vì quãng đường được tính bằng tổng đoạn đường của hàm bậc nhất và hàm bậc hai, với các thông số được xác định chính xác từ đồ thị.",
+   "detailed_solution": {
+    "steps": [
+     {
+      "title": "Bước 1",
+      "content": "Xác định phương trình vận tốc trong 2 giờ đầu. Gọi \\(v(t) = at^2 + bt + c\\). Do có đỉnh tại \\(I(3;9)\\) và đi qua gốc tọa độ, ta có hệ phương trình."
+     },
+     {
+      "title": "Bước 2",
+      "content": "Giải hệ phương trình để tìm \\(a\\), \\(b\\), \\(c\\). Từ đó xác định được phương trình vận tốc trong 2 giờ đầu."
+     },
+     {
+      "title": "Bước 3",
+      "content": "Trong 4 giờ còn lại, vận tốc có dạng \\(v(t) = \\frac{1}{4}t + b\\). Tìm \\(b\\) bằng cách sử dụng điều kiện tại thời điểm 2 giờ."
+     },
+     {
+      "title": "Bước 4",
+      "content": "Tính quãng đường \\(S\\) bằng cách tích phân vận tốc từ 0 đến 6 giờ. Kết hợp kết quả từ 2 giờ đầu và 4 giờ còn lại."
+     },
+     {
+      "title": "Bước 5",
+      "content": "Tính toán và rút gọn kết quả để có dạng \\(S = \\frac{a}{b}\\) với \\(a, b\\) là các số nguyên dương. Tính \\(a - b\\)."
+     }
+    ],
+    "final_answer": "\\(\\frac{\\pi}{4}\\)"
+   },
+   "why_correct": "Đáp án này là duy nhất đúng vì nó được xác định từ các bước tính toán chính xác và điều kiện bài toán.",
+   "why_others_wrong": [
+    {
+     "option": "A",
+     "reason": "Khi tính quãng đường, nếu chỉ xét nghiệm dương từ phương trình \\(S = \\int v(t) dt\\), bỏ qua nghiệm âm, ta có thể dẫn đến kết quả sai là \\(S = \\frac{3\\pi}{4}\\)."
+    },
+    {
+     "option": "C",
+     "reason": "Nếu áp dụng định lý bắt tay mà không chia cho 2 khi tính tổng số cạnh, ta có thể tính sai và ra kết quả là \\(S = \\frac{\\pi}{2}\\)."
+    },
+    {
+     "option": "D",
+     "reason": "Khi tìm giá trị lớn nhất, nếu chỉ xét các điểm tới hạn mà không xét giá trị tại các đầu mút \\(f(0)\\) và \\(f(6)\\), có thể dẫn đến kết quả sai là \\(S = \\frac{5\\pi}{4}\\)."
+    }
+   ]
+  },
+  {
+   "question_id": "q_2026_9d798085",
+   "blueprint_slot_id": "direct_pdf_3",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "numeric_eval",
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng",
+   "difficulty_target": 0.7,
+   "difficulty_estimated": 0.73,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.7,
+    "stem_length_adj": 0.06,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 378,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 130,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 5 giờ với vận tốc \\( v(t) \\) phụ thuộc vào thời gian \\( t \\) (giờ) như hình bên dưới. Trong khoảng thời gian 2 giờ từ khi bắt đầu chuyển động, đồ thị là một phần của đường Parabol có đỉnh tại \\( (1/3; 5) \\) và trục đối xứng song song với trục tung. Khoảng thời gian còn lại vật chuyển động chậm dần. Tính quãng đường \\( S \\) mà vật đi được trong 5 giờ.",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\( 15 \\) km",
+     "error_type": "forget_change_bounds"
+    },
+    {
+     "key": "B",
+     "text": "\\( 25 \\) km",
+     "error_type": "geometric_sum_wrong"
+    },
+    {
+     "key": "C",
+     "text": "\\( 20 \\) km",
+     "error_type": "limit_at_infty_wrong"
+    },
+    {
+     "key": "D",
+     "text": "\\( 30 \\) km",
+     "error_type": null
+    }
+   ],
+   "answer_key": "D",
+   "explanation_correct": "Đáp án đúng vì quãng đường được tính bằng tích phân của vận tốc theo thời gian, với các giới hạn phù hợp với khoảng thời gian chuyển động.",
+   "explanation_per_distractor": {
+    "A": "Khi đổi biến trong tích phân mà không thay đổi cận tích phân theo biến mới, kết quả có thể sai, dẫn đến quãng đường tính được là \\( 15 \\) km.",
+    "B": "Nếu áp dụng sai công thức tính tổng quãng đường, chẳng hạn như dùng \\( S_n = \\frac{u_1(1 - q^n)}{(q - 1)} \\) với \\( q \\) sai, có thể dẫn đến kết quả \\( 25 \\) km.",
+    "C": "Khi tính quãng đường, nếu coi \\( \\frac{1}{0} = \\infty \\) là một giá trị hợp lệ, có thể dẫn đến việc tính sai tổng quãng đường, tạo ra kết quả \\( 20 \\) km."
+   },
+   "hint": "Đáp án đúng vì quãng đường được tính bằng tích phân của vận tốc theo thời gian, với các giới hạn phù hợp với khoảng thời",
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Trong khoảng thời gian 2 giờ từ khi bắt đầu chuyển động, đồ thị là một phần của đường Parabol có đỉnh tại (1/3; 5).",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": "numeric_eval",
+    "method": "numeric_eval",
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": true,
+    "question_kind": "computational",
+    "evidence_sources": [
+     "independent_target"
+    ],
+    "independent": {
+     "attempted": true,
+     "definite": false,
+     "derivation": false,
+     "value": null,
+     "expression": "integrate(5 - (9*(x - 1/3)**2 + 5), (x, 0, 2)) + integrate(5 - (x - 2)**2, (x, 2, 5))",
+     "stated_answer": "35/3",
+     "stated_value": 11.666666666666666,
+     "source": "llm_resolver",
+     "detail": "tác nhân độc lập tự mâu thuẫn: biểu thức cho -8 nhưng đáp án tự khai là 11.6667",
+     "model": "openai/gpt-4o-mini",
+     "prompt_version": "1.0.0",
+     "errors": []
+    },
+    "needs_human_review": false,
+    "verifier_version": "2.0.0",
+    "verifier_hint": {
+     "type": "numeric_eval",
+     "payload": {
+      "expr": "integrate((a*t**2 + b*t + c), (t, 0, 2)) + integrate((d*t + e), (t, 2, 5))",
+      "expected_numeric": 30
+     }
+    },
+    "numeric_crosscheck_points": 0,
+    "detail": "fallback: Cannot convert expression to float",
+    "verified_at": "2026-07-28T05:50:32.242562Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": true,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": 0.85,
+    "quality": 0.5,
+    "bloom_alignment": 1.0,
+    "answer_prob": null,
+    "quality_traits": {
+     "clarity": {
+      "score": 1.0,
+      "rationale": "Câu hỏi được trình bày rõ ràng, yêu cầu cụ thể và không mơ hồ."
+     },
+     "cognitive_depth": {
+      "score": 1.0,
+      "rationale": "Câu hỏi yêu cầu vận dụng kiến thức tích phân để giải quyết, phù hợp với mức độ nhận thức yêu cầu."
+     },
+     "bloom_alignment": {
+      "score": 1.0,
+      "rationale": "Câu hỏi phù hợp với mức độ 'Vận dụng' trong phân loại Bloom."
+     },
+     "distractor_plausibility": {
+      "score": 1.0,
+      "rationale": "Các phương án sai có tính hợp lý và phản ánh các lỗi thường gặp khi tính toán, giúp người học nhận diện sai sót."
+     },
+     "answer_uniqueness": {
+      "score": 1.0,
+      "rationale": "Có một đáp án đúng duy nhất, không có sự mơ hồ giữa các phương án."
+     },
+     "error_distractor_consistency": {
+      "score": 1.0,
+      "rationale": "Mỗi phương án sai đều tương ứng với một lỗi cụ thể trong quá trình tính toán, và giải thích về đáp án đúng nhất quán với đáp án đã cho."
+     }
+    },
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": 1.0,
+    "verifier_pass": null,
+    "critic_score": 1.0,
+    "grounding_score": 0.85,
+    "reject_reasons": []
+   },
+   "review_status": "needs_revision",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "needs_revision",
+    "issues": [
+     "verification.error"
+    ]
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "_attempts": 1,
+   "short_explanation": "Đáp án đúng vì quãng đường được tính bằng tích phân của vận tốc theo thời gian, với các giới hạn phù hợp với khoảng thời gian chuyển động.",
+   "detailed_solution": {
+    "steps": [
+     {
+      "title": "Bước 1",
+      "content": "Gọi phương trình vận tốc \\( v(t) = at^2 + bt + c \\) có đỉnh tại \\( t = \\frac{1}{3} \\)."
+     },
+     {
+      "title": "Bước 2",
+      "content": "Tính các hệ số của phương trình vận tốc dựa trên các điều kiện đã cho."
+     },
+     {
+      "title": "Bước 3",
+      "content": "Tính quãng đường trong 2 giờ đầu bằng cách tính tích phân của \\( v(t) \\) từ 0 đến 2."
+     },
+     {
+      "title": "Bước 4",
+      "content": "Tính quãng đường trong 3 giờ còn lại với vận tốc giảm dần, tính tích phân từ 2 đến 5."
+     },
+     {
+      "title": "Bước 5",
+      "content": "Cộng các quãng đường đã tính để có kết quả cuối cùng."
+     }
+    ],
+    "final_answer": "\\( 30 \\) km"
+   },
+   "why_correct": "Vì các bước tính toán đều dựa trên công thức tích phân và các điều kiện của bài toán, đảm bảo đáp án là chính xác.",
+   "why_others_wrong": [
+    {
+     "option": "A",
+     "reason": "Khi đổi biến trong tích phân mà không thay đổi cận tích phân theo biến mới, kết quả có thể sai, dẫn đến quãng đường tính được là \\( 15 \\) km."
+    },
+    {
+     "option": "B",
+     "reason": "Nếu áp dụng sai công thức tính tổng quãng đường, chẳng hạn như dùng \\( S_n = \\frac{u_1(1 - q^n)}{(q - 1)} \\) với \\( q \\) sai, có thể dẫn đến kết quả \\( 25 \\) km."
+    },
+    {
+     "option": "C",
+     "reason": "Khi tính quãng đường, nếu coi \\( \\frac{1}{0} = \\infty \\) là một giá trị hợp lệ, có thể dẫn đến việc tính sai tổng quãng đường, tạo ra kết quả \\( 20 \\) km."
+    }
+   ]
+  },
+  {
+   "question_id": "q_2026_edfc4bab",
+   "blueprint_slot_id": "direct_pdf_7",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "numeric_eval",
+    "conceptual"
+   ],
+   "cognitive_level": "Thông hiểu",
+   "difficulty_target": 0.5,
+   "difficulty_estimated": 0.53,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.5,
+    "stem_length_adj": 0.06,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 364,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 75,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 5 giờ với vận tốc \\(v(t)\\) phụ thuộc vào thời gian \\(t\\) (giờ) như hình bên dưới. Trong khoảng thời gian 2 giờ từ khi bắt đầu chuyển động, đồ thị là một phần của đường parabol có đỉnh \\(I(1;6)\\) và trục đối xứng song song với trục tung. Khoảng thời gian còn lại vật chuyển động chậm dần. Tính quãng đường \\(S\\) mà vật đi được trong 5 giờ.",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\(S = 36\\) km",
+     "error_type": null
+    },
+    {
+     "key": "B",
+     "text": "\\(S = 30\\) km",
+     "error_type": "missing_constant_C"
+    },
+    {
+     "key": "C",
+     "text": "\\(S = 40\\) km",
+     "error_type": "matrix_multiply_not_commutative"
+    },
+    {
+     "key": "D",
+     "text": "\\(S = 24\\) km",
+     "error_type": "area_no_absolute"
+    }
+   ],
+   "answer_key": "A",
+   "explanation_correct": "Để tính quãng đường, ta cần xác định phương trình vận tốc \\(v(t)\\) dựa trên đỉnh và trục đối xứng của parabol. Sau đó, tích phân vận tốc trên khoảng thời gian 5 giờ.",
+   "explanation_per_distractor": {
+    "B": "Khi tính quãng đường, nếu không kèm hằng số C trong nguyên hàm, ta sẽ chỉ tính diện tích dưới đồ thị mà không tính được quãng đường thực sự, dẫn đến kết quả sai.",
+    "C": "Khi áp dụng phép nhân ma trận mà không chú ý đến tính không giao hoán của nó, có thể dẫn đến kết quả sai trong việc tích phân, từ đó ảnh hưởng đến quãng đường tính được.",
+    "D": "Khi tính diện tích mà không lấy giá trị tuyệt đối của hàm số khi nó đổi dấu, ta có thể bỏ sót một phần diện tích, dẫn đến kết quả không chính xác."
+   },
+   "hint": "Để tính quãng đường, ta cần xác định phương trình vận tốc \\(v(t)\\) dựa trên đỉnh và trục đối xứng của parabol.",
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Một vật chuyển động trong 5 giờ với vận tốc \\(v(t)\\) phụ thuộc vào thời gian \\(t\\) (giờ) như hình bên dưới.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": "numeric_eval",
+    "method": "numeric_eval",
+    "verified": false,
+    "status": "mismatch",
+    "status_label_vi": "Các nguồn tính toán lệch nhau — cần người kiểm",
+    "status_label_en": "Computation sources disagree — needs review",
+    "machine_checked": false,
+    "machine_verifiable": true,
+    "question_kind": "computational",
+    "evidence_sources": [
+     "writer_expression",
+     "independent_target"
+    ],
+    "independent": {
+     "attempted": true,
+     "definite": false,
+     "derivation": false,
+     "value": null,
+     "expression": "integrate(-1/2*(t-1)**2 + 6, (t, 0, 2)) + integrate(6 - (t-2)**2, (t, 2, 5))",
+     "stated_answer": "47/3",
+     "stated_value": 15.666666666666666,
+     "source": "llm_resolver",
+     "detail": "tác nhân độc lập tự mâu thuẫn: biểu thức cho 20.6667 nhưng đáp án tự khai là 15.6667",
+     "model": "openai/gpt-4o-mini",
+     "prompt_version": "1.0.0",
+     "errors": []
+    },
+    "needs_human_review": true,
+    "verifier_version": "2.0.0",
+    "verifier_hint": {
+     "type": "numeric_eval",
+     "payload": {
+      "expr": "integrate(-6*(t - 1)**2 + 6, (t, 0, 5))",
+      "expected_numeric": 36
+     }
+    },
+    "numeric_crosscheck_points": 0,
+    "detail": "biểu thức kiểm chứng của Writer không khớp đáp án key (tác nhân độc lập tự mâu thuẫn: biểu thức cho 20.6667 nhưng đáp án tự khai là 15.6667)",
+    "verified_at": "2026-07-28T05:52:02.547315Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": 0.85,
+    "quality": 1.0,
+    "bloom_alignment": 1.0,
+    "answer_prob": null,
+    "quality_traits": {
+     "clarity": {
+      "score": 1.0,
+      "rationale": "Đề bài rõ ràng, dễ hiểu và không mơ hồ về yêu cầu tính quãng đường."
+     },
+     "cognitive_depth": {
+      "score": 1.0,
+      "rationale": "Câu hỏi yêu cầu người học áp dụng kiến thức về tích phân và chuyển động, phù hợp với mức độ nhận thức yêu cầu."
+     },
+     "bloom_alignment": {
+      "score": 1.0,
+      "rationale": "Câu hỏi yêu cầu người học hiểu và áp dụng kiến thức, phù hợp với mức Bloom 'Thông hiểu'."
+     },
+     "distractor_plausibility": {
+      "score": 1.0,
+      "rationale": "Các phương án sai đều hợp lý và phản ánh các lỗi thường gặp trong tính toán tích phân."
+     },
+     "answer_uniqueness": {
+      "score": 1.0,
+      "rationale": "Chỉ có một đáp án đúng và các phương án sai không gây nhầm lẫn."
+     },
+     "error_distractor_consistency": {
+      "score": 1.0,
+      "rationale": "Mỗi distractor đều có lý do rõ ràng dẫn đến giá trị đó, và giải thích cho đáp án đúng nhất quán với phương pháp tính."
+     }
+    },
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": 1.0,
+    "verifier_pass": false,
+    "critic_score": 1.0,
+    "grounding_score": 0.85,
+    "reject_reasons": []
+   },
+   "review_status": "needs_revision",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "needs_revision",
+    "issues": [
+     "mismatch",
+     "verifier_numeric_mismatch"
+    ]
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "_attempts": 1,
+   "short_explanation": "Để tính quãng đường, ta cần xác định phương trình vận tốc \\(v(t)\\) dựa trên đỉnh và trục đối xứng của parabol. Sau đó, tích phân vận tốc trên khoảng thời gian 5 giờ.",
+   "detailed_solution": {
+    "steps": [
+     {
+      "title": "Bước 1",
+      "content": "Gọi phương trình vận tốc \\(v(t) = a(t - 1)^2 + 6\\) với đỉnh tại \\(I(1;6)\\)."
+     },
+     {
+      "title": "Bước 2",
+      "content": "Tìm hệ số \\(a\\) bằng cách sử dụng điều kiện \\(v(0) = 0\\): \\(0 = a(0 - 1)^2 + 6 \\Rightarrow a = -6\\)."
+     },
+     {
+      "title": "Bước 3",
+      "content": "Vậy phương trình vận tốc là \\(v(t) = -6(t - 1)^2 + 6\\)."
+     },
+     {
+      "title": "Bước 4",
+      "content": "Tính quãng đường \\(S\\) bằng cách tích phân vận tốc: \\(S = \\int_0^5 v(t) dt = \\int_0^5 (-6(t - 1)^2 + 6) dt\\)."
+     },
+     {
+      "title": "Bước 5",
+      "content": "Tính giá trị của tích phân: \\(S = 36\\) km."
+     }
+    ],
+    "final_answer": "\\(S = 36\\) km"
+   },
+   "why_correct": "Đáp án này đúng vì đã sử dụng đúng phương trình vận tốc và tích phân để tính quãng đường.",
+   "why_others_wrong": [
+    {
+     "option": "B",
+     "reason": "Khi tính quãng đường, nếu không kèm hằng số C trong nguyên hàm, ta sẽ chỉ tính diện tích dưới đồ thị mà không tính được quãng đường thực sự, dẫn đến kết quả sai."
+    },
+    {
+     "option": "C",
+     "reason": "Khi áp dụng phép nhân ma trận mà không chú ý đến tính không giao hoán của nó, có thể dẫn đến kết quả sai trong việc tích phân, từ đó ảnh hưởng đến quãng đường tính được."
+    },
+    {
+     "option": "D",
+     "reason": "Khi tính diện tích mà không lấy giá trị tuyệt đối của hàm số khi nó đổi dấu, ta có thể bỏ sót một phần diện tích, dẫn đến kết quả không chính xác."
+    }
+   ]
+  },
+  {
+   "question_id": "q_2026_ab8ab6a7",
+   "blueprint_slot_id": "direct_pdf_9",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "numeric_eval",
+    "conceptual"
+   ],
+   "cognitive_level": "Thông hiểu",
+   "difficulty_target": 0.5,
+   "difficulty_estimated": 0.57,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.5,
+    "stem_length_adj": 0.06,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.04,
+    "stem_length": 385,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 130,
+   "question_type": "single_choice",
+   "stem": "Một khinh khí cầu bay với độ cao (so với mực nước biển) tại thời điểm \\( t \\) là \\( h(t) \\), trong đó \\( t \\) tính bằng phút. Tốc độ bay của khinh khí cầu được cho bởi hàm số \\( v(t) = 2t - 0.12t^2 + 1.2 \\). Tại thời điểm xuất phát \\( t = 0 \\), khinh khí cầu ở độ cao 520 m và 5 phút sau khi xuất phát, khinh khí cầu đã ở độ cao 530 m. Hãy tính độ cao tối đa của khinh khí cầu khi bay.",
+   "options": [
+    {
+     "key": "A",
+     "text": "520",
+     "error_type": "gcd_vs_lcm"
+    },
+    {
+     "key": "B",
+     "text": "540",
+     "error_type": "extremum_endpoint_missing"
+    },
+    {
+     "key": "C",
+     "text": "530",
+     "error_type": null
+    },
+    {
+     "key": "D",
+     "text": "500",
+     "error_type": "distance_missing_abs"
+    }
+   ],
+   "answer_key": "C",
+   "explanation_correct": "Độ cao tối đa của khinh khí cầu được tính bằng cách tìm giá trị lớn nhất của hàm \\( h(t) \\) trong khoảng thời gian bay.",
+   "explanation_per_distractor": {
+    "A": "Nếu nhầm lẫn giữa ước chung lớn nhất và bội chung nhỏ nhất, có thể tính toán sai và cho rằng độ cao tối đa là 520 m, vì không nhận ra rằng đây là độ cao tại thời điểm xuất phát \\( t = 0 \\) chứ không phải là độ cao tối đa.",
+    "B": "Khi tính độ cao tối đa của khinh khí cầu, nếu chỉ xét tại điểm tới hạn mà bỏ qua hai đầu mút (tức là không so sánh tại \\( t = 0 \\) và \\( t = 5 \\)), có thể dẫn đến kết quả là 540 m, vì không xem xét độ cao tại \\( t = 0 \\) là 520 m và tại \\( t = 5 \\) là 530 m.",
+    "D": "Khi tính toán độ cao, nếu không sử dụng giá trị tuyệt đối cho tốc độ, có thể dẫn đến việc tính sai và cho rằng độ cao tối đa là 500 m, vì không nhận ra rằng độ cao không thể âm."
+   },
+   "hint": "Độ cao tối đa của khinh khí cầu được tính bằng cách tìm giá trị lớn nhất của hàm \\( h(t) \\) trong khoảng thời gian bay.",
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Tốc độ bay của khinh khí cầu được cho bởi hàm số \\( v(t) = 2t - 0.12t^2 + 1.2 \\).",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": "numeric_eval",
+    "method": "numeric_eval",
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": true,
+    "question_kind": "computational",
+    "evidence_sources": [
+     "independent_target"
+    ],
+    "independent": {
+     "attempted": true,
+     "definite": false,
+     "derivation": false,
+     "value": null,
+     "expression": "solve(diff(2*t - 0.12*t**2 + 1.2, t), t)",
+     "stated_answer": "10",
+     "stated_value": null,
+     "source": "llm_resolver",
+     "detail": "biểu thức độc lập không đánh giá được (không tính được giá trị số: 'list' object has no attribute 'evalf')",
+     "model": "openai/gpt-4o-mini",
+     "prompt_version": "1.0.0",
+     "errors": []
+    },
+    "needs_human_review": false,
+    "verifier_version": "2.0.0",
+    "verifier_hint": {
+     "type": "numeric_eval",
+     "payload": {
+      "expr": "520 + integrate(2*t - 0.12*t**2 + 1.2, t)",
+      "expected_numeric": 530
+     }
+    },
+    "numeric_crosscheck_points": 0,
+    "detail": "fallback: Cannot convert expression to float",
+    "verified_at": "2026-07-28T05:53:20.578656Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": true,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": 0.85,
+    "quality": 0.5,
+    "bloom_alignment": 1.0,
+    "answer_prob": null,
+    "quality_traits": {
+     "clarity": {
+      "score": 1.0,
+      "rationale": "Câu hỏi rõ ràng và không mơ hồ, yêu cầu cụ thể về việc tính độ cao tối đa."
+     },
+     "cognitive_depth": {
+      "score": 0.75,
+      "rationale": "Câu hỏi yêu cầu người học áp dụng kiến thức về hàm số và cực trị, phù hợp với mức độ nhận thức cao."
+     },
+     "bloom_alignment": {
+      "score": 1.0,
+      "rationale": "Câu hỏi yêu cầu người học hiểu và áp dụng kiến thức, phù hợp với mức Bloom 'Thông hiểu'."
+     },
+     "distractor_plausibility": {
+      "score": 1.0,
+      "rationale": "Các phương án sai đều hợp lý và phản ánh những lỗi thường gặp trong tính toán độ cao tối đa."
+     },
+     "answer_uniqueness": {
+      "score": 1.0,
+      "rationale": "Có một đáp án duy nhất đúng, không có sự mơ hồ nào giữa các lựa chọn."
+     },
+     "error_distractor_consistency": {
+      "score": 1.0,
+      "rationale": "Mỗi distractor đều có lý do hợp lý và logic, đồng thời giải thích về đáp án đúng cũng nhất quán với câu hỏi."
+     }
+    },
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": 0.9583333333333334,
+    "verifier_pass": null,
+    "critic_score": 0.9583333333333334,
+    "grounding_score": 0.85,
+    "reject_reasons": []
+   },
+   "review_status": "needs_revision",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "needs_revision",
+    "issues": [
+     "verification.error"
+    ]
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "_attempts": 1,
+   "short_explanation": "Độ cao tối đa của khinh khí cầu được tính bằng cách tìm giá trị lớn nhất của hàm \\( h(t) \\) trong khoảng thời gian bay.",
+   "detailed_solution": {
+    "steps": [
+     {
+      "title": "Bước 1",
+      "content": "Tính vận tốc tại thời điểm \\( t = 5 \\): \\( v(5) = 2(5) - 0.12(5^2) + 1.2 = 10 - 3 + 1.2 = 8.2 \\) m/phút."
+     },
+     {
+      "title": "Bước 2",
+      "content": "Sử dụng định nghĩa của vận tốc: \\( v(t) = \\frac{dh}{dt} \\), ta có thể tích phân để tìm hàm độ cao: \\( h(t) = \\int v(t) dt + C \\)."
+     },
+     {
+      "title": "Bước 3",
+      "content": "Tính hằng số \\( C \\) từ điều kiện ban đầu \\( h(0) = 520 \\): \\( h(0) = C = 520 \\)."
+     },
+     {
+      "title": "Bước 4",
+      "content": "Tính hàm độ cao: \\( h(t) = \\int (2t - 0.12t^2 + 1.2) dt + 520 = t^2 - 0.04t^3 + 1.2t + 520 \\)."
+     },
+     {
+      "title": "Bước 5",
+      "content": "Tìm giá trị lớn nhất của hàm \\( h(t) \\) trong khoảng \\( [0, 5] \\) và tính giá trị tại \\( t = 5 \\): \\( h(5) = 530 \\)."
+     }
+    ],
+    "final_answer": "530"
+   },
+   "why_correct": "Đáp án này là duy nhất đúng vì nó dựa trên việc tính toán chính xác độ cao của khinh khí cầu tại thời điểm 5 phút.",
+   "why_others_wrong": [
+    {
+     "option": "A",
+     "reason": "Nếu nhầm lẫn giữa ước chung lớn nhất và bội chung nhỏ nhất, có thể tính toán sai và cho rằng độ cao tối đa là 520 m, vì không nhận ra rằng đây là độ cao tại thời điểm xuất phát \\( t = 0 \\) chứ không phải là độ cao tối đa."
+    },
+    {
+     "option": "B",
+     "reason": "Khi tính độ cao tối đa của khinh khí cầu, nếu chỉ xét tại điểm tới hạn mà bỏ qua hai đầu mút (tức là không so sánh tại \\( t = 0 \\) và \\( t = 5 \\)), có thể dẫn đến kết quả là 540 m, vì không xem xét độ cao tại \\( t = 0 \\)"
+    },
+    {
+     "option": "D",
+     "reason": "Khi tính toán độ cao, nếu không sử dụng giá trị tuyệt đối cho tốc độ, có thể dẫn đến việc tính sai và cho rằng độ cao tối đa là 500 m, vì không nhận ra rằng độ cao không thể âm."
+    }
+   ]
+  },
+  {
+   "question_id": "q_2026_bb9a8830",
+   "blueprint_slot_id": "direct_pdf_12",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "numeric_eval",
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng",
+   "difficulty_target": 0.7,
+   "difficulty_estimated": 0.77,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.7,
+    "stem_length_adj": 0.1,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 434,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 200,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 6 giờ với vận tốc \\( v(t) \\) phụ thuộc vào thời gian \\( t \\) (giờ) có đồ thị như hình bên dưới. Trong khoảng thời gian 2 giờ từ khi bắt đầu chuyển động, đồ thị là một phần đường Parabol có đỉnh \\( I(3;9) \\) và có trục đối xứng song song với trục tung. Khoảng thời gian còn lại, đồ thị vận tốc là một đường thẳng có hệ số góc bằng \\( \\frac{1}{4} \\). Tính quãng đường \\( S \\) mà vật di chuyển được trong 6 giờ.",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\( 50 \\) km",
+     "error_type": "matrix_multiply_not_commutative"
+    },
+    {
+     "key": "B",
+     "text": "\\( 40 \\) km",
+     "error_type": "dot_product_zero_means_parallel"
+    },
+    {
+     "key": "C",
+     "text": "\\( 36 \\) km",
+     "error_type": "geometric_sum_wrong"
+    },
+    {
+     "key": "D",
+     "text": "\\( 48 \\) km",
+     "error_type": null
+    }
+   ],
+   "answer_key": "D",
+   "explanation_correct": "Đáp án được tính từ tổng quãng đường vật di chuyển trong 2 giờ đầu và 4 giờ sau.",
+   "explanation_per_distractor": {
+    "A": "Nếu coi phép nhân ma trận là giao hoán và áp dụng sai trong tính toán quãng đường, có thể dẫn đến kết quả sai là \\( 50 \\) km.",
+    "B": "Nếu không hiểu rõ về tích vô hướng, có thể nhầm lẫn rằng \\( u \\cdot v = 0 \\) có nghĩa là \\( u \\) song song với \\( v \\). Do đó, khi tính toán sẽ dẫn đến kết quả là \\( 40 \\) km.",
+    "C": "Nếu sử dụng công thức tính tổng quãng đường là \\( S_n = u_1 \\frac{1 - q^n}{q - 1} \\) mà không chú ý đến dấu của \\( q \\), ta có thể tính nhầm và dẫn đến kết quả là \\( 36 \\) km."
+   },
+   "hint": "Đáp án được tính từ tổng quãng đường vật di chuyển trong 2 giờ đầu và 4 giờ sau.",
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Trong khoảng thời gian 2 giờ từ khi bắt đầu chuyển động, đồ thị là một phần đường Parabol có đỉnh I(3;9).",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": "numeric_eval",
+    "method": "numeric_eval",
+    "verified": true,
+    "status": "consistency_confirmed",
+    "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+    "status_label_en": "Consistent with its verification expression (no independent check)",
+    "machine_checked": true,
+    "machine_verifiable": true,
+    "question_kind": "computational",
+    "evidence_sources": [
+     "writer_expression",
+     "independent_target"
+    ],
+    "independent": {
+     "attempted": true,
+     "definite": false,
+     "derivation": false,
+     "value": null,
+     "expression": "integrate(-1/4*t**2 + 9, (t, 0, 2)) + integrate(1/4*t + 3, (t, 2, 6))",
+     "stated_answer": "54",
+     "stated_value": 54.0,
+     "source": "llm_resolver",
+     "detail": "tác nhân độc lập tự mâu thuẫn: biểu thức cho 33.3333 nhưng đáp án tự khai là 54",
+     "model": "openai/gpt-4o-mini",
+     "prompt_version": "1.0.0",
+     "errors": []
+    },
+    "needs_human_review": false,
+    "verifier_version": "2.0.0",
+    "verifier_hint": {
+     "type": "numeric_eval",
+     "payload": {
+      "expr": "48",
+      "expected_numeric": 50
+     }
+    },
+    "numeric_crosscheck_points": 0,
+    "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (tác nhân độc lập tự mâu thuẫn: biểu thức cho 33.3333 nhưng đáp án tự khai là 54)",
+    "verified_at": "2026-07-28T05:54:16.906639Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": 0.85,
+    "quality": 1.0,
+    "bloom_alignment": 1.0,
+    "answer_prob": null,
+    "quality_traits": {
+     "clarity": {
+      "score": 1.0,
+      "rationale": "Câu hỏi được trình bày rõ ràng, không gây nhầm lẫn cho người đọc."
+     },
+     "cognitive_depth": {
+      "score": 1.0,
+      "rationale": "Câu hỏi yêu cầu học sinh vận dụng kiến thức về tích phân để tính quãng đường, phù hợp với mức độ nhận thức yêu cầu."
+     },
+     "bloom_alignment": {
+      "score": 1.0,
+      "rationale": "Câu hỏi yêu cầu vận dụng kiến thức, phù hợp với mức Bloom 'Vận dụng'."
+     },
+     "distractor_plausibility": {
+      "score": 1.0,
+      "rationale": "Các phương án sai đều có lý do hợp lý và phản ánh những lỗi thường gặp trong quá trình tính toán."
+     },
+     "answer_uniqueness": {
+      "score": 1.0,
+      "rationale": "Chỉ có một đáp án đúng duy nhất, không có sự mơ hồ nào với các phương án sai."
+     },
+     "error_distractor_consistency": {
+      "score": 1.0,
+      "rationale": "Giải thích cho từng phương án sai đều nhất quán với cách ra giá trị của chúng và không mâu thuẫn với lời giải chính."
+     }
+    },
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": 1.0,
+    "verifier_pass": true,
+    "critic_score": 1.0,
+    "grounding_score": 0.85,
+    "reject_reasons": []
+   },
+   "review_status": "pending_review",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "_attempts": 1,
+   "short_explanation": "Đáp án được tính từ tổng quãng đường vật di chuyển trong 2 giờ đầu và 4 giờ sau.",
+   "detailed_solution": {
+    "steps": [
+     {
+      "title": "Bước 1",
+      "content": "Gọi phương trình vận tốc của vật trong 2 giờ đầu là \\( v(t) = a(t-3)^2 + 9 \\) với \\( a < 0 \\)."
+     },
+     {
+      "title": "Bước 2",
+      "content": "Tìm hệ số \\( a \\) từ điều kiện \\( v(0) = 0 \\) và \\( v(2) = 9 \\)."
+     },
+     {
+      "title": "Bước 3",
+      "content": "Giải hệ phương trình để tìm \\( a \\) và từ đó xác định phương trình vận tốc trong 2 giờ đầu."
+     },
+     {
+      "title": "Bước 4",
+      "content": "Tính quãng đường trong 2 giờ đầu bằng cách tích phân \\( S_1 = \\int_0^2 v(t) dt \\)."
+     },
+     {
+      "title": "Bước 5",
+      "content": "Tìm phương trình vận tốc trong 4 giờ còn lại và tính quãng đường \\( S_2 \\) từ tích phân \\( S_2 = \\int_2^6 v(t) dt \\)."
+     },
+     {
+      "title": "Bước 6",
+      "content": "Tổng quãng đường \\( S = S_1 + S_2 \\)."
+     }
+    ],
+    "final_answer": "\\( 48 \\) km"
+   },
+   "why_correct": "Vì quãng đường được tính từ tổng quãng đường trong từng khoảng thời gian, đảm bảo tính chính xác của phương pháp tích phân.",
+   "why_others_wrong": [
+    {
+     "option": "A",
+     "reason": "Nếu coi phép nhân ma trận là giao hoán và áp dụng sai trong tính toán quãng đường, có thể dẫn đến kết quả sai là \\( 50 \\) km."
+    },
+    {
+     "option": "B",
+     "reason": "Nếu không hiểu rõ về tích vô hướng, có thể nhầm lẫn rằng \\( u \\cdot v = 0 \\) có nghĩa là \\( u \\) song song với \\( v \\). Do đó, khi tính toán sẽ dẫn đến kết quả là \\( 40 \\) km."
+    },
+    {
+     "option": "C",
+     "reason": "Nếu sử dụng công thức tính tổng quãng đường là \\( S_n = u_1 \\frac{1 - q^n}{q - 1} \\) mà không chú ý đến dấu của \\( q \\), ta có thể tính nhầm và dẫn đến kết quả là \\( 36 \\) km."
+    }
+   ]
+  }
+ ],
+ "accepted_count": 7,
+ "requested_count": 10,
+ "is_partial": true,
+ "parse_errors": 1,
+ "verify_failures": 0,
+ "error_code": null,
+ "error_message": null,
+ "rejected": [
+  {
+   "question_id": "rej_direct_pdf_4_verifier",
+   "blueprint_slot_id": "direct_pdf_4",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "conceptual"
+   ],
+   "cognitive_level": "Nhận biết",
+   "difficulty_target": 0.3,
+   "difficulty_estimated": 0.33,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.3,
+    "stem_length_adj": 0.06,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 378,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 40,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 5 giờ với vận tốc \\(v(t)\\) phụ thuộc vào thời gian \\(t\\) (giờ) có đồ thị như hình bên dưới. Trong khoảng thời gian 2 giờ từ khi bắt đầu chuyển động, đồ thị là một phần của đường Parabol có đỉnh \\(I(2;8)\\) và trục đối xứng song song với trục hoành. Khoảng thời gian còn lại vật chuyển động chậm dần. Tính quãng đường \\(S\\) mà vật đã đi được trong 5 giờ.",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\(S = 50\\) km",
+     "error_type": "demorgan_wrong"
+    },
+    {
+     "key": "B",
+     "text": "\\(S = 60\\) km",
+     "error_type": "area_no_absolute"
+    },
+    {
+     "key": "C",
+     "text": "\\(S = 80\\) km",
+     "error_type": "missing_constant_C"
+    },
+    {
+     "key": "D",
+     "text": "\\(S = 70\\) km",
+     "error_type": null
+    }
+   ],
+   "answer_key": "D",
+   "explanation_correct": "Để tính quãng đường, ta cần xác định phương trình vận tốc \\(v(t)\\) và sau đó tích phân trên khoảng thời gian tương ứng.",
+   "explanation_per_distractor": {
+    "A": "Sai lầm trong việc áp dụng định lý De Morgan khi tính toán, dẫn đến kết quả không chính xác. Việc không xác định đúng các miền tích phân có thể gây ra kết quả sai, như 50 km ở đây.",
+    "B": "Sai lầm ở đây là không lấy giá trị tuyệt đối khi hàm vận tốc đổi dấu. Khi tính diện tích, cần tách miền hoặc sử dụng giá trị tuyệt đối. Do đó, quãng đường không thể là 60 km.",
+    "C": "Khi tính nguyên hàm để tìm quãng đường, nếu không kèm theo hằng số C thì kết quả sẽ sai. Quá trình tích phân không có hằng số tự do dẫn đến sai số, do đó không thể có kết quả là 80 km."
+   },
+   "hint": null,
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Tính quãng đường \\(S\\) mà vật đã đi được trong 5 giờ.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": null,
+    "method": null,
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": false,
+    "question_kind": "conceptual",
+    "evidence_sources": [],
+    "independent": {},
+    "needs_human_review": false,
+    "verifier_version": null,
+    "verifier_hint": null,
+    "numeric_crosscheck_points": 0,
+    "detail": null,
+    "verified_at": "2026-07-28T05:49:50.387506Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": null,
+    "quality": null,
+    "bloom_alignment": null,
+    "answer_prob": null,
+    "quality_traits": {},
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": null,
+    "verifier_pass": null,
+    "critic_score": null,
+    "grounding_score": null,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "answer_text_mismatch: đáp án key \\(S = 70\\) km không khớp giá trị 40.0 mà engine tính ra",
+   "reject_reason_code": "verifier_failed",
+   "reject_reason_stage": "verifier",
+   "reject_log": [
+    {
+     "reason_code": "verifier_failed",
+     "stage": "verifier",
+     "attempt": 0,
+     "message": "answer_text_mismatch: đáp án key \\(S = 70\\) km không khớp giá trị 40.0 mà engine tính ra",
+     "slot_id": "direct_pdf_4"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_5_dedup",
+   "blueprint_slot_id": "direct_pdf_5",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "numeric_eval",
+    "conceptual"
+   ],
+   "cognitive_level": "Thông hiểu",
+   "difficulty_target": 0.5,
+   "difficulty_estimated": 0.57,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.5,
+    "stem_length_adj": 0.1,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 424,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 130,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 6 giờ với vận tốc \\(v(t)\\) phụ thuộc vào thời gian \\(t\\) (giờ) có đồ thị như hình bên dưới. Trong khoảng thời gian 2 giờ từ khi bắt đầu chuyển động, đồ thị là một phần đường Parabol có đỉnh I(3;9) và có trục đối xứng song song với trục tung. Khoảng thời gian còn lại, đồ thị vận tốc là một đường thẳng có hệ số góc bằng \\( \\frac{1}{4} \\). Tính quãng đường \\( S \\) mà vật di chuyển được trong 6 giờ.",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\( 36 \\) km",
+     "error_type": "degree_sum_no_divide"
+    },
+    {
+     "key": "B",
+     "text": "\\( 48 \\) km",
+     "error_type": null
+    },
+    {
+     "key": "C",
+     "text": "\\( 42 \\) km",
+     "error_type": "mix_radian_degree"
+    },
+    {
+     "key": "D",
+     "text": "\\( 60 \\) km",
+     "error_type": "dot_product_zero_means_parallel"
+    }
+   ],
+   "answer_key": "B",
+   "explanation_correct": "Quá trình tính quãng đường bao gồm việc tính quãng đường trong hai giai đoạn: giai đoạn đầu là parabol và giai đoạn sau là đường thẳng.",
+   "explanation_per_distractor": {
+    "A": "Khi tính tổng độ dài các đoạn, học sinh có thể quên chia cho 2, dẫn đến việc tính tổng độ dài các cạnh mà không áp dụng đúng định lý bắt tay, từ đó ra kết quả là \\( 36 \\) km.",
+    "C": "Học sinh có thể lẫn lộn giữa đơn vị radian và độ khi tính toán quãng đường, dẫn đến việc tính sai và ra kết quả là \\( 42 \\) km.",
+    "D": "Học sinh có thể nhầm lẫn rằng nếu tích vô hướng của vận tốc bằng 0 thì các đoạn đường song song với nhau, dẫn đến việc tính toán sai và ra kết quả là \\( 60 \\) km."
+   },
+   "hint": "Quá trình tính quãng đường bao gồm việc tính quãng đường trong hai giai đoạn: giai đoạn đầu là parabol và giai đoạn sau l",
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Trong khoảng thời gian 2 giờ từ khi bắt đầu chuyển động, đồ thị là một phần đường Parabol có đỉnh I(3;9).",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": "numeric_eval",
+    "method": "numeric_eval",
+    "verified": false,
+    "status": "mismatch",
+    "status_label_vi": "Các nguồn tính toán lệch nhau — cần người kiểm",
+    "status_label_en": "Computation sources disagree — needs review",
+    "machine_checked": false,
+    "machine_verifiable": true,
+    "question_kind": "computational",
+    "evidence_sources": [
+     "writer_expression",
+     "independent_target"
+    ],
+    "independent": {
+     "attempted": true,
+     "definite": false,
+     "derivation": false,
+     "value": null,
+     "expression": "integrate(-1/4*t + 9, (t, 0, 2)) + integrate(1/4*t + 9, (t, 2, 6))",
+     "stated_answer": "54",
+     "stated_value": 54.0,
+     "source": "llm_resolver",
+     "detail": "tác nhân độc lập tự mâu thuẫn: biểu thức cho 57.5 nhưng đáp án tự khai là 54",
+     "model": "openai/gpt-4o-mini",
+     "prompt_version": "1.0.0",
+     "errors": []
+    },
+    "needs_human_review": true,
+    "verifier_version": "2.0.0",
+    "verifier_hint": {
+     "type": "numeric_eval",
+     "payload": {
+      "expr": "integrate(9 - 1*(t-3)**2, (t, 0, 2)) + integrate(1/4*(t-2) + 9, (t, 2, 6))",
+      "expected_numeric": 48
+     }
+    },
+    "numeric_crosscheck_points": 0,
+    "detail": "biểu thức kiểm chứng của Writer không khớp đáp án key (tác nhân độc lập tự mâu thuẫn: biểu thức cho 57.5 nhưng đáp án tự khai là 54)",
+    "verified_at": "2026-07-28T05:50:32.242562Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": 0.85,
+    "quality": 1.0,
+    "bloom_alignment": 1.0,
+    "answer_prob": null,
+    "quality_traits": {
+     "clarity": {
+      "score": 1.0,
+      "rationale": "Câu hỏi được viết rõ ràng, không mơ hồ và dễ hiểu."
+     },
+     "cognitive_depth": {
+      "score": 1.0,
+      "rationale": "Câu hỏi yêu cầu học sinh áp dụng kiến thức về tích phân để tính quãng đường, phù hợp với mức độ nhận thức yêu cầu."
+     },
+     "bloom_alignment": {
+      "score": 1.0,
+      "rationale": "Câu hỏi yêu cầu học sinh hiểu và áp dụng kiến thức, phù hợp với mức Bloom 'Thông hiểu'."
+     },
+     "distractor_plausibility": {
+      "score": 1.0,
+      "rationale": "Các phương án sai đều hợp lý và phản ánh những lỗi thường gặp trong tính toán."
+     },
+     "answer_uniqueness": {
+      "score": 1.0,
+      "rationale": "Có duy nhất một đáp án đúng, không có sự nhầm lẫn giữa các lựa chọn."
+     },
+     "error_distractor_consistency": {
+      "score": 1.0,
+      "rationale": "Mô tả lỗi dẫn đến các giá trị distractor là chính xác và không mâu thuẫn với giải thích về đáp án đúng."
+     }
+    },
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": 1.0,
+    "verifier_pass": false,
+    "critic_score": 1.0,
+    "grounding_score": 0.85,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "needs_revision",
+    "issues": [
+     "mismatch",
+     "verifier_numeric_mismatch"
+    ]
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "_attempts": 1,
+   "short_explanation": "Quá trình tính quãng đường bao gồm việc tính quãng đường trong hai giai đoạn: giai đoạn đầu là parabol và giai đoạn sau là đường thẳng.",
+   "detailed_solution": {
+    "steps": [
+     {
+      "title": "Bước 1",
+      "content": "Xác định phương trình vận tốc trong 2 giờ đầu. Đồ thị vận tốc là một phần của đường parabol với đỉnh I(3;9). Gọi phương trình là \\( v(t) = a(t-3)^2 + 9 \\)."
+     },
+     {
+      "title": "Bước 2",
+      "content": "Tìm hệ số \\( a \\) bằng cách sử dụng điều kiện \\( v(0) = 0 \\). Giải hệ phương trình để tìm \\( a \\)."
+     },
+     {
+      "title": "Bước 3",
+      "content": "Tính quãng đường trong 2 giờ đầu bằng tích phân: \\( S_1 = \\int_0^2 v(t) dt \\)."
+     },
+     {
+      "title": "Bước 4",
+      "content": "Xác định phương trình vận tốc cho 4 giờ tiếp theo. Vận tốc là đường thẳng với hệ số góc \\( \\frac{1}{4} \\), bắt đầu từ giá trị tại \\( t = 2 \\)."
+     },
+     {
+      "title": "Bước 5",
+      "content": "Tính quãng đường trong 4 giờ còn lại bằng tích phân: \\( S_2 = \\int_2^6 v(t) dt \\)."
+     }
+    ],
+    "final_answer": "\\( 48 \\) km"
+   },
+   "why_correct": "Đáp án này là duy nhất đúng vì nó dựa trên việc tính toán chính xác quãng đường dựa vào các phương trình vận tốc đã xác định.",
+   "why_others_wrong": [
+    {
+     "option": "A",
+     "reason": "Khi tính tổng độ dài các đoạn, học sinh có thể quên chia cho 2, dẫn đến việc tính tổng độ dài các cạnh mà không áp dụng đúng định lý bắt tay, từ đó ra kết quả là \\( 36 \\) km."
+    },
+    {
+     "option": "C",
+     "reason": "Học sinh có thể lẫn lộn giữa đơn vị radian và độ khi tính toán quãng đường, dẫn đến việc tính sai và ra kết quả là \\( 42 \\) km."
+    },
+    {
+     "option": "D",
+     "reason": "Học sinh có thể nhầm lẫn rằng nếu tích vô hướng của vận tốc bằng 0 thì các đoạn đường song song với nhau, dẫn đến việc tính toán sai và ra kết quả là \\( 60 \\) km."
+    }
+   ],
+   "reject_reason": "Trùng với câu đã được chấp nhận trong cùng lượt sinh",
+   "reject_reason_code": "duplicate",
+   "reject_reason_stage": "dedup",
+   "reject_log": [
+    {
+     "reason_code": "duplicate",
+     "stage": "dedup",
+     "attempt": 0,
+     "message": "Trùng với câu đã được chấp nhận trong cùng lượt sinh",
+     "slot_id": "direct_pdf_5"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_6_dedup",
+   "blueprint_slot_id": "direct_pdf_6",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "numeric_eval",
+    "conceptual"
+   ],
+   "cognitive_level": "Nhận biết",
+   "difficulty_target": 0.3,
+   "difficulty_estimated": 0.37,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.3,
+    "stem_length_adj": 0.1,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 426,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 67,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 5 giờ với vận tốc \\( v(t) \\) phụ thuộc vào thời gian \\( t \\) (giờ) như hình bên dưới. Trong khoảng thời gian 2 giờ đầu từ khi bắt đầu chuyển động, đồ thị vận tốc là một phần của đường parabol có đỉnh I(2;8) và trục đối xứng song song với trục tung. Khoảng thời gian còn lại, đồ thị vận tốc là một đường thẳng có hệ số góc bằng \\(-\\frac{1}{3}\\). Tính quãng đường \\( S \\) mà vật đi được trong 5 giờ đó.",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\( 20 \\) (km)",
+     "error_type": "arithmetic_sum_wrong"
+    },
+    {
+     "key": "B",
+     "text": "\\( 50 \\) (km)",
+     "error_type": "missing_constant_C"
+    },
+    {
+     "key": "C",
+     "text": "\\( 40 \\) (km)",
+     "error_type": null
+    },
+    {
+     "key": "D",
+     "text": "\\( 30 \\) (km)",
+     "error_type": "det_sum_wrong"
+    }
+   ],
+   "answer_key": "C",
+   "explanation_correct": "Quãng đường vật đi được là tổng quãng đường trong 2 giờ đầu và 3 giờ sau. Phần đầu tiên là tích phân của hàm vận tốc dạng parabol, phần còn lại là tích phân của hàm vận tốc dạng thẳng.",
+   "explanation_per_distractor": {
+    "A": "Áp dụng công thức sai cho tổng quãng đường, cho rằng \\( S_n = n(u_1 + u_n) \\) mà không chia cho 2. Nếu tính sai như vậy, bạn sẽ ra được kết quả là \\( 20 \\) (km).",
+    "B": "Khi tính tích phân không xác định mà không kèm hằng số \\( C \\), bạn sẽ tính tổng quãng đường trong 5 giờ mà không cộng thêm hằng số, dẫn đến sai số và kết quả ra là \\( 50 \\).",
+    "D": "Sử dụng sai định thức, cho rằng \\( det(A + B) = det(A) + det(B) \\). Khi tính quãng đường, nếu áp dụng sai, bạn sẽ tính \\( S = \\int_0^2 v(t) dt + \\int_2^5 v(t) dt \\) mà không tính đúng từng phần, dẫn đến kết quả sai là \\( 30 \\)."
+   },
+   "hint": "Quãng đường vật đi được là tổng quãng đường trong 2 giờ đầu và 3 giờ sau.",
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Trong khoảng thời gian 2 giờ đầu, đồ thị vận tốc là một phần của đường parabol có đỉnh I(2;8) và trục đối xứng song song với trục tung.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": "numeric_eval",
+    "method": "numeric_eval",
+    "verified": true,
+    "status": "consistency_confirmed",
+    "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+    "status_label_en": "Consistent with its verification expression (no independent check)",
+    "machine_checked": true,
+    "machine_verifiable": true,
+    "question_kind": "computational",
+    "evidence_sources": [
+     "writer_expression",
+     "independent_target"
+    ],
+    "independent": {
+     "attempted": true,
+     "definite": false,
+     "derivation": false,
+     "value": null,
+     "expression": "integrate(8 - (1/3)*(t - 2), (t, 0, 2)) + integrate(8 - (1/3)*(5 - t), (t, 2, 5))",
+     "stated_answer": "40/3",
+     "stated_value": 13.333333333333334,
+     "source": "llm_resolver",
+     "detail": "tác nhân độc lập tự mâu thuẫn: biểu thức cho 39.1667 nhưng đáp án tự khai là 13.3333",
+     "model": "openai/gpt-4o-mini",
+     "prompt_version": "1.0.0",
+     "errors": []
+    },
+    "needs_human_review": false,
+    "verifier_version": "2.0.0",
+    "verifier_hint": {
+     "type": "numeric_eval",
+     "payload": {
+      "expr": "40",
+      "expected_numeric": 20.0
+     }
+    },
+    "numeric_crosscheck_points": 0,
+    "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (tác nhân độc lập tự mâu thuẫn: biểu thức cho 39.1667 nhưng đáp án tự khai là 13.3333)",
+    "verified_at": "2026-07-28T05:52:02.547315Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": 0.85,
+    "quality": 0.9833333333333334,
+    "bloom_alignment": 1.0,
+    "answer_prob": null,
+    "quality_traits": {
+     "clarity": {
+      "score": 1.0,
+      "rationale": "Đề rõ ràng và dễ hiểu, không có sự mơ hồ."
+     },
+     "cognitive_depth": {
+      "score": 1.0,
+      "rationale": "Câu hỏi yêu cầu tính toán quãng đường qua tích phân, thể hiện độ sâu tư duy phù hợp."
+     },
+     "bloom_alignment": {
+      "score": 1.0,
+      "rationale": "Câu hỏi yêu cầu nhận biết và áp dụng kiến thức đã học, phù hợp với mức độ Bloom."
+     },
+     "distractor_plausibility": {
+      "score": 1.0,
+      "rationale": "Các phương án sai đều hợp lý và phản ánh những lỗi thường gặp trong tính toán."
+     },
+     "answer_uniqueness": {
+      "score": 1.0,
+      "rationale": "Chỉ có một đáp án đúng duy nhất, không có sự nhầm lẫn."
+     },
+     "error_distractor_consistency": {
+      "score": 0.9,
+      "rationale": "Mỗi distractor đều dựa trên các lỗi cụ thể trong quá trình tính toán, và giải thích đáp án đúng nhất quán với câu hỏi."
+     }
+    },
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": 0.9833333333333334,
+    "verifier_pass": true,
+    "critic_score": 0.9833333333333334,
+    "grounding_score": 0.85,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "_attempts": 1,
+   "short_explanation": "Quãng đường vật đi được là tổng quãng đường trong 2 giờ đầu và 3 giờ sau. Phần đầu tiên là tích phân của hàm vận tốc dạng parabol, phần còn lại là tích phân của hàm vận tốc dạng thẳng.",
+   "detailed_solution": {
+    "steps": [
+     {
+      "title": "Bước 1",
+      "content": "Gọi phương trình vận tốc trong 2 giờ đầu là \\( v(t) = a(t-2)^2 + 8 \\). Vì đồ thị đi qua điểm \\( I(2;8) \\), ta có \\( v(2) = 8 \\)."
+     },
+     {
+      "title": "Bước 2",
+      "content": "Tính hệ số \\( a \\) từ điều kiện \\( v(0) = 0 \\) và \\( v(2) = 8 \\)."
+     },
+     {
+      "title": "Bước 3",
+      "content": "Tính quãng đường trong 2 giờ đầu bằng tích phân: \\( S_1 = \\int_0^2 v(t) dt = \\int_0^2 (a(t-2)^2 + 8) dt \\)."
+     },
+     {
+      "title": "Bước 4",
+      "content": "Tính quãng đường trong 3 giờ còn lại với vận tốc là \\( v(t) = -\\frac{1}{3}t + b \\)."
+     },
+     {
+      "title": "Bước 5",
+      "content": "Tính tổng quãng đường: \\( S = S_1 + S_2 \\)."
+     }
+    ],
+    "final_answer": "\\( 40 \\) (km)"
+   },
+   "why_correct": "Đáp án này là duy nhất đúng vì nó tính toán đúng tổng quãng đường dựa trên các phương trình vận tốc đã cho.",
+   "why_others_wrong": [
+    {
+     "option": "A",
+     "reason": "Áp dụng công thức sai cho tổng quãng đường, cho rằng \\( S_n = n(u_1 + u_n) \\) mà không chia cho 2. Nếu tính sai như vậy, bạn sẽ ra được kết quả là \\( 20 \\) (km)."
+    },
+    {
+     "option": "B",
+     "reason": "Khi tính tích phân không xác định mà không kèm hằng số \\( C \\), bạn sẽ tính tổng quãng đường trong 5 giờ mà không cộng thêm hằng số, dẫn đến sai số và kết quả ra là \\( 50 \\)."
+    },
+    {
+     "option": "D",
+     "reason": "Sử dụng sai định thức, cho rằng \\( det(A + B) = det(A) + det(B) \\). Khi tính quãng đường, nếu áp dụng sai, bạn sẽ tính \\( S = \\int_0^2 v(t) dt + \\int_2^5 v(t) dt \\) mà không tính đúng từng phần, dẫn đến kết quả sai là"
+    }
+   ],
+   "reject_reason": "Trùng với câu đã được chấp nhận trong cùng lượt sinh",
+   "reject_reason_code": "duplicate",
+   "reject_reason_stage": "dedup",
+   "reject_log": [
+    {
+     "reason_code": "duplicate",
+     "stage": "dedup",
+     "attempt": 0,
+     "message": "Trùng với câu đã được chấp nhận trong cùng lượt sinh",
+     "slot_id": "direct_pdf_6"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_8_dedup",
+   "blueprint_slot_id": "direct_pdf_8",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "numeric_eval",
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng",
+   "difficulty_target": 0.7,
+   "difficulty_estimated": 0.73,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.7,
+    "stem_length_adj": 0.06,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 322,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 130,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 5 giờ với vận tốc \\( v(t) \\) phụ thuộc vào thời gian \\( t \\) (giờ). Trong 2 giờ đầu, đồ thị vận tốc là một phần của đường parabol có đỉnh \\( I(2;8) \\) và trục đối xứng song song với trục tung. Khoảng thời gian còn lại, vận tốc giảm dần đều. Tính quãng đường \\( S \\) mà vật đi được trong 5 giờ đó.",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\( 50 \\) km",
+     "error_type": null
+    },
+    {
+     "key": "B",
+     "text": "\\( 25 \\) km",
+     "error_type": "geometric_sum_wrong"
+    },
+    {
+     "key": "C",
+     "text": "\\( 30 \\) km",
+     "error_type": "confuse_perimeter_area"
+    },
+    {
+     "key": "D",
+     "text": "\\( 40 \\) km",
+     "error_type": "area_no_absolute"
+    }
+   ],
+   "answer_key": "A",
+   "explanation_correct": "Quá trình tính toán cho thấy tổng quãng đường vật đi được là 50 km, từ việc tính diện tích dưới đồ thị vận tốc.",
+   "explanation_per_distractor": {
+    "B": "Nếu áp dụng sai công thức tính tổng quãng đường cho một chuỗi số hạng với công thức \\( S_n = u_1 (1 - q^n)/(q - 1) \\) mà không chú ý đến dấu, ta có thể dẫn đến kết quả là 25 km.",
+    "C": "Nếu nhầm lẫn giữa chu vi và diện tích trong quá trình tính toán, có thể dẫn đến việc tính sai và cho ra kết quả là 30 km.",
+    "D": "Trong quá trình tính diện tích dưới đồ thị vận tốc, nếu không lấy giá trị tuyệt đối khi hàm vận tốc đổi dấu, ta sẽ tính sai diện tích và dẫn đến kết quả là 40 km."
+   },
+   "hint": "Quá trình tính toán cho thấy tổng quãng đường vật đi được là 50 km, từ việc tính diện tích dưới đồ thị vận tốc.",
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Tính quãng đường S mà vật đi được trong 5 giờ đó.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": "numeric_eval",
+    "method": "numeric_eval",
+    "verified": true,
+    "status": "consistency_confirmed",
+    "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+    "status_label_en": "Consistent with its verification expression (no independent check)",
+    "machine_checked": true,
+    "machine_verifiable": true,
+    "question_kind": "computational",
+    "evidence_sources": [
+     "writer_expression",
+     "independent_target"
+    ],
+    "independent": {
+     "attempted": true,
+     "definite": false,
+     "derivation": false,
+     "value": null,
+     "expression": "integrate(-1/2*(t-2)**2 + 8, (t, 0, 2)) + integrate(8 - 2*(t-2), (t, 2, 5))",
+     "stated_answer": "26",
+     "stated_value": 26.0,
+     "source": "llm_resolver",
+     "detail": "tác nhân độc lập tự mâu thuẫn: biểu thức cho 29.6667 nhưng đáp án tự khai là 26",
+     "model": "openai/gpt-4o-mini",
+     "prompt_version": "1.0.0",
+     "errors": []
+    },
+    "needs_human_review": false,
+    "verifier_version": "2.0.0",
+    "verifier_hint": {
+     "type": "numeric_eval",
+     "payload": {
+      "expr": "50",
+      "expected_numeric": 30
+     }
+    },
+    "numeric_crosscheck_points": 0,
+    "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (tác nhân độc lập tự mâu thuẫn: biểu thức cho 29.6667 nhưng đáp án tự khai là 26)",
+    "verified_at": "2026-07-28T05:52:02.547315Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": 0.65,
+    "quality": 1.0,
+    "bloom_alignment": 1.0,
+    "answer_prob": null,
+    "quality_traits": {
+     "clarity": {
+      "score": 1.0,
+      "rationale": "Đề bài rõ ràng, không mơ hồ và dễ hiểu."
+     },
+     "cognitive_depth": {
+      "score": 1.0,
+      "rationale": "Câu hỏi yêu cầu áp dụng kiến thức về tích phân để tính quãng đường, phù hợp với mức độ nhận thức yêu cầu."
+     },
+     "bloom_alignment": {
+      "score": 1.0,
+      "rationale": "Câu hỏi yêu cầu vận dụng kiến thức, phù hợp với mức Bloom 'Vận dụng'."
+     },
+     "distractor_plausibility": {
+      "score": 1.0,
+      "rationale": "Các phương án sai có lý do hợp lý và dễ gây nhầm lẫn cho học sinh."
+     },
+     "answer_uniqueness": {
+      "score": 1.0,
+      "rationale": "Chỉ có một đáp án đúng và không có phương án nào khác cũng đúng."
+     },
+     "error_distractor_consistency": {
+      "score": 1.0,
+      "rationale": "Mỗi phương án sai đều có lý do hợp lý và giải thích cho đáp án đúng nhất quán với đáp án đã cho."
+     }
+    },
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": 1.0,
+    "verifier_pass": true,
+    "critic_score": 1.0,
+    "grounding_score": 0.65,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "_attempts": 1,
+   "short_explanation": "Quá trình tính toán cho thấy tổng quãng đường vật đi được là 50 km, từ việc tính diện tích dưới đồ thị vận tốc.",
+   "detailed_solution": {
+    "steps": [
+     {
+      "title": "Bước 1",
+      "content": "Xác định phương trình vận tốc trong 2 giờ đầu. Gọi \\( v(t) = a(t - 2)^2 + 8 \\) với \\( a < 0 \\) để có đỉnh tại \\( I(2; 8) \\)."
+     },
+     {
+      "title": "Bước 2",
+      "content": "Tính \\( v(0) \\) và \\( v(2) \\) để tìm hệ số \\( a \\): \\( v(0) = a(2)^2 + 8 = 0 \\Rightarrow a = -2 \\Rightarrow v(t) = -2(t - 2)^2 + 8 \\)."
+     },
+     {
+      "title": "Bước 3",
+      "content": "Tính quãng đường trong 2 giờ đầu: \\( S_1 = \\int_0^2 v(t) dt = \\int_0^2 (-2(t - 2)^2 + 8) dt \\)."
+     },
+     {
+      "title": "Bước 4",
+      "content": "Tính quãng đường trong 3 giờ còn lại với vận tốc giảm dần đều, xác định phương trình vận tốc cho 3 giờ này và tính diện tích dưới đồ thị."
+     },
+     {
+      "title": "Bước 5",
+      "content": "Cộng quãng đường trong 2 giờ đầu và 3 giờ sau để có tổng quãng đường \\( S = S_1 + S_2 = 50 \\) km."
+     }
+    ],
+    "final_answer": "\\( 50 \\) km"
+   },
+   "why_correct": "Đáp án này là duy nhất đúng vì nó dựa trên tính toán chính xác từ đồ thị vận tốc và các phương trình đã thiết lập.",
+   "why_others_wrong": [
+    {
+     "option": "B",
+     "reason": "Nếu áp dụng sai công thức tính tổng quãng đường cho một chuỗi số hạng với công thức \\( S_n = u_1 (1 - q^n)/(q - 1) \\) mà không chú ý đến dấu, ta có thể dẫn đến kết quả là 25 km."
+    },
+    {
+     "option": "C",
+     "reason": "Nếu nhầm lẫn giữa chu vi và diện tích trong quá trình tính toán, có thể dẫn đến việc tính sai và cho ra kết quả là 30 km."
+    },
+    {
+     "option": "D",
+     "reason": "Trong quá trình tính diện tích dưới đồ thị vận tốc, nếu không lấy giá trị tuyệt đối khi hàm vận tốc đổi dấu, ta sẽ tính sai diện tích và dẫn đến kết quả là 40 km."
+    }
+   ],
+   "reject_reason": "Trùng với câu đã được chấp nhận trong cùng lượt sinh",
+   "reject_reason_code": "duplicate",
+   "reject_reason_stage": "dedup",
+   "reject_log": [
+    {
+     "reason_code": "duplicate",
+     "stage": "dedup",
+     "attempt": 0,
+     "message": "Trùng với câu đã được chấp nhận trong cùng lượt sinh",
+     "slot_id": "direct_pdf_8"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "stem": "",
+   "question_id": "rej_direct_pdf_10_orchestrator",
+   "blueprint_slot_id": "direct_pdf_10",
+   "cognitive_level": "Vận dụng",
+   "review_status": "rejected",
+   "reject_reason": "Slot lỗi bất ngờ: bad character range €-á at position 33",
+   "reject_reason_code": "orchestrator_error",
+   "reject_reason_stage": "orchestrator",
+   "reject_log": [
+    {
+     "reason_code": "orchestrator_error",
+     "stage": "orchestrator",
+     "attempt": 0,
+     "message": "Slot lỗi bất ngờ: bad character range €-á at position 33",
+     "slot_id": "direct_pdf_10"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_11_dedup",
+   "blueprint_slot_id": "direct_pdf_11",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "numeric_eval",
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng cao",
+   "difficulty_target": 0.85,
+   "difficulty_estimated": 0.88,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.85,
+    "stem_length_adj": 0.06,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 376,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 322,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 5 giờ với vận tốc \\(v(t)\\) phụ thuộc vào thời gian \\(t\\) (giờ). Trong khoảng thời gian 2 giờ đầu, đồ thị vận tốc là một phần của đường Parabol có đỉnh I(2;8) và có trục đối xứng song song với trục tung. Trong 3 giờ tiếp theo, đồ thị vận tốc là một đường thẳng với hệ số góc bằng \\(-\\frac{3}{4}\\). Tính quãng đường \\(S\\) mà vật đi được trong 5 giờ đó.",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\(S = 30\\) km",
+     "error_type": null
+    },
+    {
+     "key": "B",
+     "text": "\\(S = 36\\) km",
+     "error_type": "forget_change_bounds"
+    },
+    {
+     "key": "C",
+     "text": "\\(S = 24\\) km",
+     "error_type": "geometric_sum_wrong"
+    },
+    {
+     "key": "D",
+     "text": "\\(S = 27\\) km",
+     "error_type": "degree_sum_no_divide"
+    }
+   ],
+   "answer_key": "A",
+   "explanation_correct": "Quá trình tính toán quãng đường bao gồm việc tìm phương trình vận tốc cho từng đoạn và sau đó tích phân để tính tổng quãng đường.",
+   "explanation_per_distractor": {
+    "B": "Khi đổi biến trong tích phân, học sinh giữ nguyên cận tích phân theo biến cũ, dẫn đến việc tính toán sai quãng đường, kết quả là \\(36\\) km.",
+    "C": "Học sinh áp dụng công thức tính tổng sai cho chuỗi hình học, dẫn đến kết quả sai là \\(S_n = u_1 \\frac{1 - q^n}{1 - q} = 24\\) km.",
+    "D": "Khi tính tổng số cạnh, học sinh quên chia cho 2, dẫn đến việc tính số cạnh là \\(\\Sigma deg(v) = 54\\), từ đó suy ra \\(|E| = \\frac{54}{2} = 27\\) km."
+   },
+   "hint": "Quá trình tính toán quãng đường bao gồm việc tìm phương trình vận tốc cho từng đoạn và sau đó tích phân để tính tổng quãn",
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Trong khoảng thời gian 2 giờ đầu, đồ thị vận tốc là một phần của đường Parabol có đỉnh I(2;8).",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": "numeric_eval",
+    "method": "numeric_eval",
+    "verified": false,
+    "status": "mismatch",
+    "status_label_vi": "Các nguồn tính toán lệch nhau — cần người kiểm",
+    "status_label_en": "Computation sources disagree — needs review",
+    "machine_checked": false,
+    "machine_verifiable": true,
+    "question_kind": "computational",
+    "evidence_sources": [
+     "writer_expression",
+     "independent_target"
+    ],
+    "independent": {
+     "attempted": true,
+     "definite": false,
+     "derivation": false,
+     "value": null,
+     "expression": "integrate(8 - (1/2)*(t - 2)**2, (t, 0, 2)) + integrate(-3/4*t + 9/4, (t, 2, 5))",
+     "stated_answer": "37/4",
+     "stated_value": 9.25,
+     "source": "llm_resolver",
+     "detail": "tác nhân độc lập tự mâu thuẫn: biểu thức cho 13.5417 nhưng đáp án tự khai là 9.25",
+     "model": "openai/gpt-4o-mini",
+     "prompt_version": "1.0.0",
+     "errors": []
+    },
+    "needs_human_review": true,
+    "verifier_version": "2.0.0",
+    "verifier_hint": {
+     "type": "numeric_eval",
+     "payload": {
+      "expr": "integrate(-2*(t - 2)**2 + 8, (t, 0, 2)) + integrate(-3/4*t + 8, (t, 2, 5))",
+      "expected_numeric": 30
+     }
+    },
+    "numeric_crosscheck_points": 0,
+    "detail": "biểu thức kiểm chứng của Writer không khớp đáp án key (tác nhân độc lập tự mâu thuẫn: biểu thức cho 13.5417 nhưng đáp án tự khai là 9.25)",
+    "verified_at": "2026-07-28T05:53:22.700075Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": 0.85,
+    "quality": 1.0,
+    "bloom_alignment": 1.0,
+    "answer_prob": null,
+    "quality_traits": {
+     "clarity": {
+      "score": 1.0,
+      "rationale": "Câu hỏi rõ ràng, dễ hiểu và không mơ hồ."
+     },
+     "cognitive_depth": {
+      "score": 1.0,
+      "rationale": "Câu hỏi yêu cầu vận dụng kiến thức tích phân để tính quãng đường, thể hiện mức độ tư duy cao."
+     },
+     "bloom_alignment": {
+      "score": 1.0,
+      "rationale": "Câu hỏi yêu cầu vận dụng kiến thức, phù hợp với mức Bloom 'Vận dụng cao'."
+     },
+     "distractor_plausibility": {
+      "score": 1.0,
+      "rationale": "Các phương án sai đều hợp lý và phản ánh những lỗi thường gặp trong quá trình tính toán."
+     },
+     "answer_uniqueness": {
+      "score": 1.0,
+      "rationale": "Chỉ có một đáp án đúng, không có sự mơ hồ giữa các phương án."
+     },
+     "error_distractor_consistency": {
+      "score": 1.0,
+      "rationale": "Mô tả lỗi trong các distractor phù hợp với cách tính sai thường gặp, giải thích không mâu thuẫn với đáp án."
+     }
+    },
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": 1.0,
+    "verifier_pass": false,
+    "critic_score": 1.0,
+    "grounding_score": 0.85,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "needs_revision",
+    "issues": [
+     "mismatch",
+     "verifier_numeric_mismatch"
+    ]
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "_attempts": 1,
+   "short_explanation": "Quá trình tính toán quãng đường bao gồm việc tìm phương trình vận tốc cho từng đoạn và sau đó tích phân để tính tổng quãng đường.",
+   "detailed_solution": {
+    "steps": [
+     {
+      "title": "Bước 1",
+      "content": "Xác định phương trình vận tốc trong 2 giờ đầu. Đường Parabol có dạng: \\(v(t) = a(t - 2)^2 + 8\\)."
+     },
+     {
+      "title": "Bước 2",
+      "content": "Sử dụng điều kiện \\(v(0) = 0\\) và \\(v(2) = 8\\) để tìm hệ số \\(a\\)."
+     },
+     {
+      "title": "Bước 3",
+      "content": "Giải hệ phương trình để tìm \\(a = -2\\). Vậy phương trình vận tốc là: \\(v(t) = -2(t - 2)^2 + 8\\) cho \\(0 \\leq t \\leq 2\\)."
+     },
+     {
+      "title": "Bước 4",
+      "content": "Tính quãng đường trong 2 giờ đầu: \\(S_1 = \\int_0^2 v(t) dt = \\int_0^2 (-2(t - 2)^2 + 8) dt\\)."
+     },
+     {
+      "title": "Bước 5",
+      "content": "Tính quãng đường trong 3 giờ tiếp theo với phương trình vận tốc \\(v(t) = -\\frac{3}{4}t + 8\\) cho \\(2 < t \\leq 5\\)."
+     },
+     {
+      "title": "Bước 6",
+      "content": "Tính quãng đường trong 3 giờ tiếp theo: \\(S_2 = \\int_2^5 v(t) dt = \\int_2^5 (-\\frac{3}{4}t + 8) dt\\)."
+     },
+     {
+      "title": "Bước 7",
+      "content": "Tổng quãng đường: \\(S = S_1 + S_2\\)."
+     }
+    ],
+    "final_answer": "\\(S = 30\\) km"
+   },
+   "why_correct": "Đáp án này là duy nhất đúng vì nó được xác định từ các phương trình vận tốc chính xác và phép tích phân đúng.",
+   "why_others_wrong": [
+    {
+     "option": "B",
+     "reason": "Khi đổi biến trong tích phân, học sinh giữ nguyên cận tích phân theo biến cũ, dẫn đến việc tính toán sai quãng đường, kết quả là \\(36\\) km."
+    },
+    {
+     "option": "C",
+     "reason": "Học sinh áp dụng công thức tính tổng sai cho chuỗi hình học, dẫn đến kết quả sai là \\(S_n = u_1 \\frac{1 - q^n}{1 - q} = 24\\) km."
+    },
+    {
+     "option": "D",
+     "reason": "Khi tính tổng số cạnh, học sinh quên chia cho 2, dẫn đến việc tính số cạnh là \\(\\Sigma deg(v) = 54\\), từ đó suy ra \\(|E| = \\frac{54}{2} = 27\\) km."
+    }
+   ],
+   "reject_reason": "Trùng với câu đã được chấp nhận trong cùng lượt sinh",
+   "reject_reason_code": "duplicate",
+   "reject_reason_stage": "dedup",
+   "reject_log": [
+    {
+     "reason_code": "duplicate",
+     "stage": "dedup",
+     "attempt": 0,
+     "message": "Trùng với câu đã được chấp nhận trong cùng lượt sinh",
+     "slot_id": "direct_pdf_11"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_13_dedup",
+   "blueprint_slot_id": "direct_pdf_13",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "numeric_eval",
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng cao",
+   "difficulty_target": 0.85,
+   "difficulty_estimated": 0.88,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.85,
+    "stem_length_adj": 0.06,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 400,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 322,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 5 giờ với vận tốc \\(v(t)\\) phụ thuộc vào thời gian \\(t\\) (giờ) có đồ thị như hình bên dưới. Trong khoảng thời gian 2 giờ đầu, đồ thị là một phần đường Parabol có đỉnh I(2;10) và có trục đối xứng song song với trục tung. Khoảng thời gian còn lại, đồ thị vận tốc là một đường thẳng có hệ số góc bằng \\(-\\frac{1}{4}\\). Quảng đường \\(S\\) mà vật di chuyển được trong 5 giờ là gì?",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\(S = 20\\)",
+     "error_type": "missing_negative_root"
+    },
+    {
+     "key": "B",
+     "text": "\\(S = 30\\)",
+     "error_type": "area_no_absolute"
+    },
+    {
+     "key": "C",
+     "text": "\\(S = 50\\)",
+     "error_type": "forget_change_bounds"
+    },
+    {
+     "key": "D",
+     "text": "\\(S = 40\\)",
+     "error_type": null
+    }
+   ],
+   "answer_key": "D",
+   "explanation_correct": "Để tính quảng đường, ta cần xác định phương trình vận tốc trong từng khoảng thời gian và sau đó tích phân để tìm quãng đường.",
+   "explanation_per_distractor": {
+    "A": "Khi tính quãng đường, nếu chỉ lấy nghiệm dương từ phương trình vận tốc mà không xét nghiệm âm, ta sẽ tính sai và ra kết quả \\(S = 20\\).",
+    "B": "Khi tính diện tích dưới đường cong mà không lấy giá trị tuyệt đối cho các đoạn âm, ta có thể tính sai và ra kết quả \\(S = 30\\).",
+    "C": "Khi đổi biến trong tích phân mà không thay đổi cận tích phân theo biến mới, ta có thể tính sai và ra kết quả \\(S = 50\\)."
+   },
+   "hint": "Để tính quảng đường, ta cần xác định phương trình vận tốc trong từng khoảng thời gian và sau đó tích phân để tìm quãng đư",
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Trong khoảng thời gian 2 giờ đầu, đồ thị là một phần đường Parabol có đỉnh I(2;10) và có trục đối xứng song song với trục tung.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": "numeric_eval",
+    "method": "numeric_eval",
+    "verified": true,
+    "status": "consistency_confirmed",
+    "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+    "status_label_en": "Consistent with its verification expression (no independent check)",
+    "machine_checked": true,
+    "machine_verifiable": true,
+    "question_kind": "computational",
+    "evidence_sources": [
+     "writer_expression",
+     "independent_target"
+    ],
+    "independent": {
+     "attempted": true,
+     "definite": false,
+     "derivation": false,
+     "value": null,
+     "expression": "integrate(-1/4*t + 12, (t, 2, 5)) + integrate(-1/4*t**2 + 10*t - 10, (t, 0, 2))",
+     "stated_answer": "25",
+     "stated_value": 25.0,
+     "source": "llm_resolver",
+     "detail": "tác nhân độc lập tự mâu thuẫn: biểu thức cho 32.7083 nhưng đáp án tự khai là 25",
+     "model": "openai/gpt-4o-mini",
+     "prompt_version": "1.0.0",
+     "errors": []
+    },
+    "needs_human_review": false,
+    "verifier_version": "2.0.0",
+    "verifier_hint": {
+     "type": "numeric_eval",
+     "payload": {
+      "expr": "20 + 20",
+      "expected_numeric": 50.0
+     }
+    },
+    "numeric_crosscheck_points": 0,
+    "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (tác nhân độc lập tự mâu thuẫn: biểu thức cho 32.7083 nhưng đáp án tự khai là 25)",
+    "verified_at": "2026-07-28T05:54:28.454642Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": 0.85,
+    "quality": 1.0,
+    "bloom_alignment": 1.0,
+    "answer_prob": null,
+    "quality_traits": {
+     "clarity": {
+      "score": 1.0,
+      "rationale": "Câu hỏi rõ ràng và không mơ hồ, yêu cầu tính toán cụ thể."
+     },
+     "cognitive_depth": {
+      "score": 1.0,
+      "rationale": "Câu hỏi yêu cầu vận dụng kiến thức tích phân để tính quãng đường, thể hiện độ sâu tư duy."
+     },
+     "bloom_alignment": {
+      "score": 1.0,
+      "rationale": "Câu hỏi phù hợp với mức độ vận dụng cao, yêu cầu học sinh áp dụng kiến thức vào tình huống thực tế."
+     },
+     "distractor_plausibility": {
+      "score": 1.0,
+      "rationale": "Các lựa chọn sai đều hợp lý và phản ánh những lỗi thường gặp trong quá trình tính toán tích phân."
+     },
+     "answer_uniqueness": {
+      "score": 1.0,
+      "rationale": "Có một đáp án đúng duy nhất, không có sự mập mờ giữa các lựa chọn."
+     },
+     "error_distractor_consistency": {
+      "score": 1.0,
+      "rationale": "Mỗi distractor đều phản ánh một lỗi cụ thể trong quá trình tính toán, và giải thích cho đáp án đúng là nhất quán."
+     }
+    },
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": 1.0,
+    "verifier_pass": true,
+    "critic_score": 1.0,
+    "grounding_score": 0.85,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "_attempts": 1,
+   "short_explanation": "Để tính quảng đường, ta cần xác định phương trình vận tốc trong từng khoảng thời gian và sau đó tích phân để tìm quãng đường.",
+   "detailed_solution": {
+    "steps": [
+     {
+      "title": "Bước 1",
+      "content": "Gọi \\(v(t) = a(t-2)^2 + 10\\) cho khoảng thời gian từ 0 đến 2 giờ, với \\(I(2;10)\\) là đỉnh, ta có \\(a\\) cần tìm."
+     },
+     {
+      "title": "Bước 2",
+      "content": "Từ điều kiện \\(v(0) = 0\\), ta có: \\(v(0) = a(0-2)^2 + 10 = 0 \\Rightarrow a = -\\frac{5}{4}\\). Vậy phương trình vận tốc là: \\(v(t) = -\\frac{5}{4}(t-2)^2 + 10\\)."
+     },
+     {
+      "title": "Bước 3",
+      "content": "Tính quãng đường trong 2 giờ đầu: \\(S_1 = \\int_0^2 v(t) dt = \\int_0^2 (-\\frac{5}{4}(t-2)^2 + 10) dt\\)."
+     },
+     {
+      "title": "Bước 4",
+      "content": "Giải tích phân: \\(S_1 = \\left[-\\frac{5}{12}(t-2)^3 + 10t \\right]_0^2 = 20\\)."
+     },
+     {
+      "title": "Bước 5",
+      "content": "Trong 3 giờ còn lại, phương trình vận tốc là \\(v(t) = -\\frac{1}{4}(t-2) + 10\\). Tính quãng đường trong 3 giờ tiếp theo: \\(S_2 = \\int_2^5 v(t) dt = \\int_2^5 (-\\frac{1}{4}(t-2) + 10) dt\\)."
+     },
+     {
+      "title": "Bước 6",
+      "content": "Giải tích phân: \\(S_2 = \\left[-\\frac{1}{8}(t-2)^2 + 10t \\right]_2^5 = 20\\)."
+     },
+     {
+      "title": "Bước 7",
+      "content": "Tổng quãng đường: \\(S = S_1 + S_2 = 20 + 20 = 40\\)."
+     }
+    ],
+    "final_answer": "\\(S = 40\\)"
+   },
+   "why_correct": "Đáp án này là duy nhất đúng vì nó dựa trên việc tính toán chính xác các tích phân của hàm vận tốc trong từng khoảng thời gian.",
+   "why_others_wrong": [
+    {
+     "option": "A",
+     "reason": "Khi tính quãng đường, nếu chỉ lấy nghiệm dương từ phương trình vận tốc mà không xét nghiệm âm, ta sẽ tính sai và ra kết quả \\(S = 20\\)."
+    },
+    {
+     "option": "B",
+     "reason": "Khi tính diện tích dưới đường cong mà không lấy giá trị tuyệt đối cho các đoạn âm, ta có thể tính sai và ra kết quả \\(S = 30\\)."
+    },
+    {
+     "option": "C",
+     "reason": "Khi đổi biến trong tích phân mà không thay đổi cận tích phân theo biến mới, ta có thể tính sai và ra kết quả \\(S = 50\\)."
+    }
+   ],
+   "reject_reason": "Trùng với câu đã được chấp nhận trong cùng lượt sinh",
+   "reject_reason_code": "duplicate",
+   "reject_reason_stage": "dedup",
+   "reject_log": [
+    {
+     "reason_code": "duplicate",
+     "stage": "dedup",
+     "attempt": 0,
+     "message": "Trùng với câu đã được chấp nhận trong cùng lượt sinh",
+     "slot_id": "direct_pdf_13"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_14_dedup",
+   "blueprint_slot_id": "direct_pdf_14",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "numeric_eval",
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng",
+   "difficulty_target": 0.7,
+   "difficulty_estimated": 0.73,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.7,
+    "stem_length_adj": 0.06,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 365,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 130,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 5 giờ với vận tốc \\(v(t)\\) phụ thuộc vào thời gian \\(t\\) (giờ) như hình bên dưới. Trong khoảng thời gian 2 giờ từ khi bắt đầu chuyển động, đồ thị của vật có dạng parabol với đỉnh tại \\( (1; 6) \\) và trục đối xứng song song với trục tung. Khoảng thời gian còn lại vật chuyển động chậm dần. Tính quãng đường \\(S\\) mà vật đi được trong 5 giờ.",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\(S = 20\\) km",
+     "error_type": "degree_sum_no_divide"
+    },
+    {
+     "key": "B",
+     "text": "\\(S = 30\\) km",
+     "error_type": null
+    },
+    {
+     "key": "C",
+     "text": "\\(S = 35\\) km",
+     "error_type": "missing_constant_C"
+    },
+    {
+     "key": "D",
+     "text": "\\(S = 25\\) km",
+     "error_type": "dot_product_zero_means_parallel"
+    }
+   ],
+   "answer_key": "B",
+   "explanation_correct": "Để tính quãng đường, ta cần xác định hàm vận tốc \\(v(t)\\) từ đồ thị parabol và sau đó tích phân để tìm quãng đường.",
+   "explanation_per_distractor": {
+    "A": "Học sinh có thể quên chia tổng bậc của các đỉnh cho 2 khi tính tổng độ lớn của các cạnh trong đồ thị, do đó dẫn đến việc họ tính sai tổng số cạnh, và từ đó tính sai quãng đường \\(S\\) thành \\(20\\) km.",
+    "C": "Một số học sinh có thể không thêm hằng số tích phân \\(C\\) vào kết quả của mình, dẫn đến việc họ tính sai quãng đường và cho ra kết quả là \\(S = 35\\) km.",
+    "D": "Giả sử học sinh tính quãng đường bằng cách lấy tích phân hàm vận tốc mà không kiểm tra điều kiện xác định, dẫn đến việc tính sai các giới hạn tích phân. Kết quả là họ có thể tính được giá trị \\(S\\) sai thành \\(25\\) km."
+   },
+   "hint": "Để tính quãng đường, ta cần xác định hàm vận tốc \\(v(t)\\) từ đồ thị parabol và sau đó tích phân để tìm quãng đường.",
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Tính quãng đường \\(S\\) mà vật đi được trong 5 giờ.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": "numeric_eval",
+    "method": "numeric_eval",
+    "verified": false,
+    "status": "mismatch",
+    "status_label_vi": "Các nguồn tính toán lệch nhau — cần người kiểm",
+    "status_label_en": "Computation sources disagree — needs review",
+    "machine_checked": false,
+    "machine_verifiable": true,
+    "question_kind": "computational",
+    "evidence_sources": [
+     "writer_expression",
+     "independent_target"
+    ],
+    "independent": {
+     "attempted": true,
+     "definite": false,
+     "derivation": false,
+     "value": null,
+     "expression": "integrate(-1*(t-1)**2 + 6, (t, 0, 2)) + integrate(6 - (t-3)**2, (t, 2, 5))",
+     "stated_answer": "25/3",
+     "stated_value": 8.333333333333334,
+     "source": "llm_resolver",
+     "detail": "tác nhân độc lập tự mâu thuẫn: biểu thức cho 26.3333 nhưng đáp án tự khai là 8.33333",
+     "model": "openai/gpt-4o-mini",
+     "prompt_version": "1.0.0",
+     "errors": []
+    },
+    "needs_human_review": true,
+    "verifier_version": "2.0.0",
+    "verifier_hint": {
+     "type": "numeric_eval",
+     "payload": {
+      "expr": "integrate(-4*(t - 1)**2 + 6, (t, 0, 2)) + 6*3",
+      "expected_numeric": 30
+     }
+    },
+    "numeric_crosscheck_points": 0,
+    "detail": "biểu thức kiểm chứng của Writer không khớp đáp án key (tác nhân độc lập tự mâu thuẫn: biểu thức cho 26.3333 nhưng đáp án tự khai là 8.33333)",
+    "verified_at": "2026-07-28T05:54:36.185107Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": 0.85,
+    "quality": 1.0,
+    "bloom_alignment": 1.0,
+    "answer_prob": null,
+    "quality_traits": {
+     "clarity": {
+      "score": 1.0,
+      "rationale": "Câu hỏi rõ ràng, không mơ hồ và yêu cầu tính quãng đường cụ thể."
+     },
+     "cognitive_depth": {
+      "score": 1.0,
+      "rationale": "Câu hỏi yêu cầu vận dụng kiến thức tích phân để giải quyết bài toán, phù hợp với cấp độ nhận thức."
+     },
+     "bloom_alignment": {
+      "score": 1.0,
+      "rationale": "Câu hỏi yêu cầu vận dụng kiến thức, phù hợp với mức Bloom 'Vận dụng'."
+     },
+     "distractor_plausibility": {
+      "score": 1.0,
+      "rationale": "Các phương án sai đều hợp lý và phản ánh những lỗi thường gặp của học sinh."
+     },
+     "answer_uniqueness": {
+      "score": 1.0,
+      "rationale": "Chỉ có một đáp án đúng, không có phương án nào khác cũng đúng."
+     },
+     "error_distractor_consistency": {
+      "score": 1.0,
+      "rationale": "Mỗi distractor đều phản ánh một lỗi cụ thể trong quá trình tính toán, và giải thích là nhất quán với đáp án."
+     }
+    },
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": 1.0,
+    "verifier_pass": false,
+    "critic_score": 1.0,
+    "grounding_score": 0.85,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "needs_revision",
+    "issues": [
+     "mismatch",
+     "verifier_numeric_mismatch"
+    ]
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "_attempts": 1,
+   "short_explanation": "Để tính quãng đường, ta cần xác định hàm vận tốc \\(v(t)\\) từ đồ thị parabol và sau đó tích phân để tìm quãng đường.",
+   "detailed_solution": {
+    "steps": [
+     {
+      "title": "Bước 1",
+      "content": "Xác định phương trình của parabol. Ta có đỉnh \\(I(1; 6)\\) và trục đối xứng là trục tung, nên phương trình có dạng \\(v(t) = a(t - 1)^2 + 6\\)."
+     },
+     {
+      "title": "Bước 2",
+      "content": "Tìm hệ số \\(a\\) bằng cách sử dụng một điểm trên đồ thị. Giả sử tại \\(t = 0\\), \\(v(0) = 2\\)."
+     },
+     {
+      "title": "Bước 3",
+      "content": "Thay vào phương trình: \\(2 = a(0 - 1)^2 + 6 \\Rightarrow a = -4\\). Vậy có \\(v(t) = -4(t - 1)^2 + 6\\)."
+     },
+     {
+      "title": "Bước 4",
+      "content": "Tính quãng đường trong 2 giờ đầu: \\(S_1 = \\int_{0}^{2} v(t) dt = \\int_{0}^{2} (-4(t - 1)^2 + 6) dt\\)."
+     },
+     {
+      "title": "Bước 5",
+      "content": "Giải tích phân và cộng với quãng đường trong 3 giờ còn lại, sử dụng tốc độ trung bình cho khoảng thời gian này."
+     }
+    ],
+    "final_answer": "\\(S = 30\\) km"
+   },
+   "why_correct": "Đáp án này là duy nhất đúng vì đã sử dụng đúng phương trình parabol để tính quãng đường và tích phân chính xác.",
+   "why_others_wrong": [
+    {
+     "option": "A",
+     "reason": "Học sinh có thể quên chia tổng bậc của các đỉnh cho 2 khi tính tổng độ lớn của các cạnh trong đồ thị, do đó dẫn đến việc họ tính sai tổng số cạnh, và từ đó tính sai quãng đường \\(S\\) thành \\(20\\) km."
+    },
+    {
+     "option": "C",
+     "reason": "Một số học sinh có thể không thêm hằng số tích phân \\(C\\) vào kết quả của mình, dẫn đến việc họ tính sai quãng đường và cho ra kết quả là \\(S = 35\\) km."
+    },
+    {
+     "option": "D",
+     "reason": "Giả sử học sinh tính quãng đường bằng cách lấy tích phân hàm vận tốc mà không kiểm tra điều kiện xác định, dẫn đến việc tính sai các giới hạn tích phân. Kết quả là họ có thể tính được giá trị \\(S\\) sai thành \\(25\\) km."
+    }
+   ],
+   "reject_reason": "Trùng với câu đã được chấp nhận trong cùng lượt sinh",
+   "reject_reason_code": "duplicate",
+   "reject_reason_stage": "dedup",
+   "reject_log": [
+    {
+     "reason_code": "duplicate",
+     "stage": "dedup",
+     "attempt": 0,
+     "message": "Trùng với câu đã được chấp nhận trong cùng lượt sinh",
+     "slot_id": "direct_pdf_14"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "stem": "",
+   "question_id": "rej_direct_pdf_15_orchestrator",
+   "blueprint_slot_id": "direct_pdf_15",
+   "cognitive_level": "Vận dụng cao",
+   "review_status": "rejected",
+   "reject_reason": "Slot lỗi bất ngờ: bad character range €-á at position 33",
+   "reject_reason_code": "orchestrator_error",
+   "reject_reason_stage": "orchestrator",
+   "reject_log": [
+    {
+     "reason_code": "orchestrator_error",
+     "stage": "orchestrator",
+     "attempt": 0,
+     "message": "Slot lỗi bất ngờ: bad character range €-á at position 33",
+     "slot_id": "direct_pdf_15"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_16_dedup",
+   "blueprint_slot_id": "direct_pdf_16",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "numeric_eval",
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng",
+   "difficulty_target": 0.7,
+   "difficulty_estimated": 0.77,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.7,
+    "stem_length_adj": 0.1,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 435,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 200,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 5 giờ với vận tốc \\( v(t) \\) phụ thuộc vào thời gian \\( t \\) (giờ) có đồ thị như hình bên dưới. Trong khoảng thời gian 2 giờ từ khi bắt đầu chuyển động, đồ thị là một phần của đường Parabol có đỉnh I(3;9) và có trục đối xứng song song với trục tung. Khoảng thời gian còn lại, đồ thị vận tốc là một đường thẳng có hệ số góc bằng \\( \\frac{1}{4} \\). Tính quãng đường \\( S \\) mà vật di chuyển được trong 5 giờ đó.",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\( \\frac{43}{2} \\) km",
+     "error_type": null
+    },
+    {
+     "key": "B",
+     "text": "\\( 20 \\) km",
+     "error_type": "geometric_sum_wrong"
+    },
+    {
+     "key": "C",
+     "text": "\\( \\frac{41}{2} \\) km",
+     "error_type": "demorgan_wrong"
+    },
+    {
+     "key": "D",
+     "text": "\\( 30 \\) km",
+     "error_type": "det_sum_wrong"
+    }
+   ],
+   "answer_key": "A",
+   "explanation_correct": "Đáp án đúng vì quãng đường được tính bằng tổng quãng đường trong 2 giờ đầu (đường Parabol) và quãng đường trong 3 giờ sau (đường thẳng).",
+   "explanation_per_distractor": {
+    "B": "Áp dụng sai công thức tính tổng quãng đường, dẫn đến việc không chia đúng cho \\( 1 - q \\) trong công thức tổng hình học.",
+    "C": "Sử dụng sai định lý De Morgan, dẫn đến việc tính toán sai tổng quãng đường trong 2 giờ đầu và 3 giờ sau.",
+    "D": "Áp dụng sai định thức không tuyến tính, dẫn đến việc cộng trực tiếp các quãng đường mà không tính toán đúng."
+   },
+   "hint": "Đáp án đúng vì quãng đường được tính bằng tổng quãng đường trong 2 giờ đầu (đường Parabol) và quãng đường trong 3 giờ sau",
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Trong khoảng thời gian 2 giờ từ khi bắt đầu chuyển động, đồ thị là một phần của đường Parabol có đỉnh I(3;9) và có trục đối xứng song song với trục tung.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": "numeric_eval",
+    "method": "numeric_eval",
+    "verified": true,
+    "status": "consistency_confirmed",
+    "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+    "status_label_en": "Consistent with its verification expression (no independent check)",
+    "machine_checked": true,
+    "machine_verifiable": true,
+    "question_kind": "computational",
+    "evidence_sources": [
+     "writer_expression",
+     "independent_target"
+    ],
+    "independent": {
+     "attempted": true,
+     "definite": false,
+     "derivation": false,
+     "value": null,
+     "expression": "integrate(9 - (1/3)*(t - 3)**2, (t, 0, 2)) + integrate(1/4*t + 3/2, (t, 2, 5))",
+     "stated_answer": "35/3",
+     "stated_value": 11.666666666666666,
+     "source": "llm_resolver",
+     "detail": "tác nhân độc lập tự mâu thuẫn: biểu thức cho 22.2361 nhưng đáp án tự khai là 11.6667",
+     "model": "openai/gpt-4o-mini",
+     "prompt_version": "1.0.0",
+     "errors": []
+    },
+    "needs_human_review": false,
+    "verifier_version": "2.0.0",
+    "verifier_hint": {
+     "type": "numeric_eval",
+     "payload": {
+      "expr": "43/2",
+      "expected_numeric": 30
+     }
+    },
+    "numeric_crosscheck_points": 0,
+    "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (tác nhân độc lập tự mâu thuẫn: biểu thức cho 22.2361 nhưng đáp án tự khai là 11.6667)",
+    "verified_at": "2026-07-28T05:55:38.553996Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": 0.85,
+    "quality": 1.0,
+    "bloom_alignment": 1.0,
+    "answer_prob": null,
+    "quality_traits": {
+     "clarity": {
+      "score": 1.0,
+      "rationale": "The question is clear and unambiguous, asking for a specific calculation based on the provided parameters."
+     },
+     "cognitive_depth": {
+      "score": 1.0,
+      "rationale": "The question requires application of integration to find the total distance, demonstrating appropriate cognitive depth for the topic."
+     },
+     "bloom_alignment": {
+      "score": 1.0,
+      "rationale": "The question aligns with the 'Application' level of Bloom's taxonomy, as it requires applying knowledge to solve a problem."
+     },
+     "distractor_plausibility": {
+      "score": 1.0,
+      "rationale": "The distractors are plausible and based on common calculation errors, making them effective for assessment."
+     },
+     "answer_uniqueness": {
+      "score": 1.0,
+      "rationale": "There is only one correct answer provided, with no ambiguity in the distractors."
+     },
+     "error_distractor_consistency": {
+      "score": 1.0,
+      "rationale": "Each distractor's explanation accurately reflects a potential miscalculation related to the problem, and the answer explanation is consistent with the correct answer."
+     }
+    },
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": 1.0,
+    "verifier_pass": true,
+    "critic_score": 1.0,
+    "grounding_score": 0.85,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "_attempts": 1,
+   "short_explanation": "Đáp án đúng vì quãng đường được tính bằng tổng quãng đường trong 2 giờ đầu (đường Parabol) và quãng đường trong 3 giờ sau (đường thẳng).",
+   "detailed_solution": {
+    "steps": [
+     {
+      "title": "Bước 1",
+      "content": "Gọi phương trình vận tốc của vật trong 2 giờ đầu là \\( v(t) = a(t - 3)^2 + 9 \\) với \\( a \\) là hệ số cần tìm."
+     },
+     {
+      "title": "Bước 2",
+      "content": "Từ thông tin đã cho, ta có hệ phương trình để tìm \\( a \\): \\( v(0) = 0 \\) và \\( v(2) = 9 \\)."
+     },
+     {
+      "title": "Bước 3",
+      "content": "Giải hệ phương trình và tìm được \\( a = -\\frac{9}{4} \\). Vậy phương trình vận tốc trong 2 giờ đầu là \\( v(t) = -\\frac{9}{4}(t - 3)^2 + 9 \\)."
+     },
+     {
+      "title": "Bước 4",
+      "content": "Tính quãng đường trong 2 giờ đầu: \\( S_1 = \\int_0^2 v(t) dt \\)."
+     },
+     {
+      "title": "Bước 5",
+      "content": "Quãng đường trong 3 giờ tiếp theo là \\( S_2 = \\int_2^5 v(t) dt \\) với \\( v(t) = \\frac{1}{4}(t - 2) + 9 \\)."
+     },
+     {
+      "title": "Bước 6",
+      "content": "Tính tổng quãng đường \\( S = S_1 + S_2 \\) và được kết quả là \\( \\frac{43}{2} \\) km."
+     }
+    ],
+    "final_answer": "\\( \\frac{43}{2} \\) km"
+   },
+   "why_correct": "Vì đáp án này được tính toán từ các phương trình vận tốc chính xác và áp dụng đúng tích phân để tìm quãng đường.",
+   "why_others_wrong": [
+    {
+     "option": "B",
+     "reason": "Áp dụng sai công thức tính tổng quãng đường, dẫn đến việc không chia đúng cho \\( 1 - q \\) trong công thức tổng hình học."
+    },
+    {
+     "option": "C",
+     "reason": "Sử dụng sai định lý De Morgan, dẫn đến việc tính toán sai tổng quãng đường trong 2 giờ đầu và 3 giờ sau."
+    },
+    {
+     "option": "D",
+     "reason": "Áp dụng sai định thức không tuyến tính, dẫn đến việc cộng trực tiếp các quãng đường mà không tính toán đúng."
+    }
+   ],
+   "reject_reason": "Trùng với câu đã được chấp nhận trong cùng lượt sinh",
+   "reject_reason_code": "duplicate",
+   "reject_reason_stage": "dedup",
+   "reject_log": [
+    {
+     "reason_code": "duplicate",
+     "stage": "dedup",
+     "attempt": 0,
+     "message": "Trùng với câu đã được chấp nhận trong cùng lượt sinh",
+     "slot_id": "direct_pdf_16"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_17_dedup",
+   "blueprint_slot_id": "direct_pdf_17",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "numeric_eval",
+    "conceptual"
+   ],
+   "cognitive_level": "Thông hiểu",
+   "difficulty_target": 0.5,
+   "difficulty_estimated": 0.5,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.5,
+    "stem_length_adj": 0.03,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 218,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 75,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 6 giờ với vận tốc \\(v(t)\\) phụ thuộc vào thời gian \\(t\\) (giờ) như hình bên dưới. Trong khoảng thời gian 3 giờ từ khi bắt đầu chuyển động, tính quãng đường \\(S\\) mà vật đi được trong 6 giờ đó.",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\(S = 42\\) km",
+     "error_type": null
+    },
+    {
+     "key": "B",
+     "text": "\\(S = 30\\) km",
+     "error_type": "confuse_perimeter_area"
+    },
+    {
+     "key": "C",
+     "text": "\\(S = 48\\) km",
+     "error_type": "product_rule_drop_term"
+    },
+    {
+     "key": "D",
+     "text": "\\(S = 36\\) km",
+     "error_type": "mix_radian_degree"
+    }
+   ],
+   "answer_key": "A",
+   "explanation_correct": "Quãng đường được tính bằng cách lấy diện tích dưới đồ thị vận tốc trong khoảng thời gian 6 giờ.",
+   "explanation_per_distractor": {
+    "B": "Người học nhầm lẫn giữa diện tích và quãng đường. Họ có thể tính diện tích dưới đồ thị vận tốc trong 6 giờ, nhưng lại kết luận rằng đó là quãng đường, dẫn đến giá trị sai.",
+    "C": "Người học có thể đã áp dụng sai quy tắc tính quãng đường từ vận tốc trong từng khoảng thời gian mà không tính đến các hằng số, dẫn đến việc bỏ qua các thành phần quan trọng trong tính toán.",
+    "D": "Người học có thể đã lẫn lộn giữa các đơn vị đo lường khi tính toán. Họ có thể đã tính quãng đường trong giờ đầu tiên bằng cách sử dụng sai đơn vị, dẫn đến kết quả không chính xác."
+   },
+   "hint": "Quãng đường được tính bằng cách lấy diện tích dưới đồ thị vận tốc trong khoảng thời gian 6 giờ.",
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Trong khoảng thời gian 3 giờ từ khi bắt đầu chuyển động, tính quãng đường \\(S\\) mà vật đi được.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": "numeric_eval",
+    "method": "numeric_eval",
+    "verified": false,
+    "status": "mismatch",
+    "status_label_vi": "Các nguồn tính toán lệch nhau — cần người kiểm",
+    "status_label_en": "Computation sources disagree — needs review",
+    "machine_checked": false,
+    "machine_verifiable": true,
+    "question_kind": "computational",
+    "evidence_sources": [
+     "writer_expression",
+     "independent_target"
+    ],
+    "independent": {
+     "attempted": true,
+     "definite": false,
+     "derivation": false,
+     "value": null,
+     "expression": "integrate(v(t), (t, 0, 6))",
+     "stated_answer": "S",
+     "stated_value": null,
+     "source": "llm_resolver",
+     "detail": "biểu thức độc lập không đánh giá được (parse lỗi: name 'Function' is not defined)",
+     "model": "openai/gpt-4o-mini",
+     "prompt_version": "1.0.0",
+     "errors": []
+    },
+    "needs_human_review": true,
+    "verifier_version": "2.0.0",
+    "verifier_hint": {
+     "type": "numeric_eval",
+     "payload": {
+      "expr": "integrate(2*t + 4, (t, 0, 6))",
+      "expected_numeric": 42
+     }
+    },
+    "numeric_crosscheck_points": 0,
+    "detail": "biểu thức kiểm chứng của Writer không khớp đáp án key (biểu thức độc lập không đánh giá được (parse lỗi: name 'Function' is not defined))",
+    "verified_at": "2026-07-28T05:55:39.371140Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": 0.85,
+    "quality": 0.9833333333333334,
+    "bloom_alignment": 1.0,
+    "answer_prob": null,
+    "quality_traits": {
+     "clarity": {
+      "score": 1.0,
+      "rationale": "Câu hỏi rõ ràng và không mơ hồ, yêu cầu tính quãng đường trong một khoảng thời gian cụ thể."
+     },
+     "cognitive_depth": {
+      "score": 1.0,
+      "rationale": "Câu hỏi yêu cầu người học áp dụng kiến thức về tích phân để tính toán quãng đường, phù hợp với mức độ nhận thức yêu cầu."
+     },
+     "bloom_alignment": {
+      "score": 1.0,
+      "rationale": "Câu hỏi yêu cầu người học hiểu và áp dụng kiến thức, phù hợp với mức Bloom 'Thông hiểu'."
+     },
+     "distractor_plausibility": {
+      "score": 1.0,
+      "rationale": "Các phương án sai đều có thể gây nhầm lẫn cho học sinh và phản ánh các lỗi thường gặp trong tính toán quãng đường."
+     },
+     "answer_uniqueness": {
+      "score": 1.0,
+      "rationale": "Chỉ có một phương án đúng, không có sự mơ hồ giữa các phương án."
+     },
+     "error_distractor_consistency": {
+      "score": 0.9,
+      "rationale": "Các phương án sai đều dựa trên những hiểu lầm hợp lý về cách tính quãng đường, và phần giải thích về đáp án đúng nhất quán với phương án đó."
+     }
+    },
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": 0.9833333333333334,
+    "verifier_pass": false,
+    "critic_score": 0.9833333333333334,
+    "grounding_score": 0.85,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "needs_revision",
+    "issues": [
+     "mismatch",
+     "verifier_numeric_mismatch"
+    ]
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "_attempts": 1,
+   "short_explanation": "Quãng đường được tính bằng cách lấy diện tích dưới đồ thị vận tốc trong khoảng thời gian 6 giờ.",
+   "detailed_solution": {
+    "steps": [
+     {
+      "title": "Bước 1",
+      "content": "Xác định phương trình vận tốc \\(v(t)\\) từ đồ thị."
+     },
+     {
+      "title": "Bước 2",
+      "content": "Tính diện tích dưới đồ thị vận tốc từ \\(t = 0\\) đến \\(t = 6\\) giờ."
+     },
+     {
+      "title": "Bước 3",
+      "content": "Sử dụng công thức tính quãng đường \\(S = \\int_0^6 v(t) dt\\)."
+     },
+     {
+      "title": "Bước 4",
+      "content": "Tính giá trị của tích phân để tìm ra quãng đường \\(S\\)."
+     }
+    ],
+    "final_answer": "\\(S = 42\\) km"
+   },
+   "why_correct": "Đáp án này đúng vì nó được tính từ diện tích dưới đồ thị vận tốc, phản ánh chính xác quãng đường vật đi được.",
+   "why_others_wrong": [
+    {
+     "option": "B",
+     "reason": "Người học nhầm lẫn giữa diện tích và quãng đường. Họ có thể tính diện tích dưới đồ thị vận tốc trong 6 giờ, nhưng lại kết luận rằng đó là quãng đường, dẫn đến giá trị sai."
+    },
+    {
+     "option": "C",
+     "reason": "Người học có thể đã áp dụng sai quy tắc tính quãng đường từ vận tốc trong từng khoảng thời gian mà không tính đến các hằng số, dẫn đến việc bỏ qua các thành phần quan trọng trong tính toán."
+    },
+    {
+     "option": "D",
+     "reason": "Người học có thể đã lẫn lộn giữa các đơn vị đo lường khi tính toán. Họ có thể đã tính quãng đường trong giờ đầu tiên bằng cách sử dụng sai đơn vị, dẫn đến kết quả không chính xác."
+    }
+   ],
+   "reject_reason": "Trùng với câu đã được chấp nhận trong cùng lượt sinh",
+   "reject_reason_code": "duplicate",
+   "reject_reason_stage": "dedup",
+   "reject_log": [
+    {
+     "reason_code": "duplicate",
+     "stage": "dedup",
+     "attempt": 0,
+     "message": "Trùng với câu đã được chấp nhận trong cùng lượt sinh",
+     "slot_id": "direct_pdf_17"
+    }
+   ],
+   "attempts": 1
+  }
+ ]
+}

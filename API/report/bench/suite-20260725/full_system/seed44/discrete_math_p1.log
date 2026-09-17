@@ -1,0 +1,15 @@
+    [pdf-slot direct_pdf_0] verifier reject: duplicate: rule validator failed: ['d2:duplicate_option', 'd3:duplicate_option']
+    [pdf-slot direct_pdf_2] verifier reject: duplicate_question: rule validator failed: ['duplicate_question:source_quote_is_existing_exercise']
+    [pdf-slot direct_pdf_1] critic reject: error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Phần lớn chuỗi lỗi mô tả chưa dẫn chính xác đến giá trị distractor, đặc biệt phương án \(4\) và \(10\), dù lời giải đáp án đúng vẫn nhất quán với đáp án \(5\).)
+    [pdf-slot direct_pdf_4] writer 0 candidates; errors=["Expecting ',' delimiter: line 22 column 227 (char 1331)"]
+    [pdf-slot direct_pdf_6] verifier reject: multi_answer: distractor "\(9\)" cũng được verifier xác nhận đúng
+    [pdf-slot direct_pdf_8] verifier reject: multi_answer: distractor "5" cũng được verifier xác nhận đúng
+    [pdf-slot direct_pdf_10] writer 0 candidates; errors=["Expecting ',' delimiter: line 4 column 261 (char 678)"]
+    [pdf-slot direct_pdf_11] verifier reject: duplicate_question: rule validator failed: ['duplicate_question:source_quote_is_existing_exercise']
+    [pdf-slot direct_pdf_14] writer 0 candidates; errors=["Expecting ',' delimiter: line 1 column 1733 (char 1732)"]
+    [pdf-slot direct_pdf_12] verifier reject: duplicate: rule validator failed: ['d3:duplicate_option']
+    [pdf-slot direct_pdf_16] writer 0 candidates; errors=["Expecting ',' delimiter: line 4 column 291 (char 772)"]
+    [pdf-slot direct_pdf_17] distractor drop: error=distractor_count=1 n=0
+    [pdf-slot direct_pdf_19] writer 0 candidates; errors=["Expecting ',' delimiter: line 1 column 397 (char 396)"]
+    [pdf-slot direct_pdf_20] verifier reject: duplicate: rule validator failed: ['d2:duplicate_option']
+[cell] arm=full_system seed=44 discrete_math_p1.pdf: delivered=8/8 rejected=14 tokens=147303 547s

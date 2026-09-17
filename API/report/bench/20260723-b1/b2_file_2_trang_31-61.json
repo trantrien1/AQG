@@ -1,0 +1,173 @@
+{
+  "metadata": {
+    "bench": "B2-baseline-single-prompt",
+    "source_pdf": "pdftest\\file_2_trang_31-61.pdf",
+    "source_pdf_name": "file_2_trang_31-61.pdf",
+    "generator_model": "gpt-4o",
+    "pdf_attach_mode": "file_url",
+    "generated_at": "2026-07-23T17:38:20.218548Z",
+    "prompt_chars": 2625
+  },
+  "summary": {
+    "pdf": "file_2_trang_31-61.pdf",
+    "requested": 10,
+    "generated": 5,
+    "generation_error": null,
+    "generation_seconds": 21.9,
+    "cost": {
+      "tokens": 5192,
+      "calls": 1
+    },
+    "gate_pass": 3,
+    "gate_pass_rate": 0.6,
+    "pass_clean": 3,
+    "pass_clean_rate": 0.6,
+    "verdict_distribution": {
+      "pass": 3,
+      "rule:quality_low": 2
+    },
+    "verified_true": 2,
+    "verified_false": 0,
+    "verified_none": 3,
+    "hint_type_distribution": {
+      "none": 1,
+      "numeric_eval": 4
+    }
+  },
+  "items": [
+    {
+      "index": 0,
+      "cognitive_level": "Nhận biết",
+      "question_text": "Cho \\(F(x)\\) là một nguyên hàm của \\(f(x)\\) trên đoạn \\([a;b]\\). Biểu thức nào bằng \\(\\int_a^b f(x)dx\\)?",
+      "answer_text": "\\(F(b)-F(a)\\)",
+      "n_distractors": 3,
+      "verifier_hint_type": "none",
+      "gate_rejected": false,
+      "gate_reason": "",
+      "verdict": "pass",
+      "verified": null,
+      "verification_detail": "không có verifier",
+      "answer_key_repaired": false,
+      "validator_checks": {
+        "candidate_structure": true,
+        "unique_answer": true,
+        "anti_pattern": true,
+        "display_syntax": true,
+        "option_text_sanity": true,
+        "visual_consistency": true,
+        "visual_spec_valid": true,
+        "iwf_no_duplicate_distractor": true,
+        "iwf_misconception_category_diversity": true,
+        "iwf_distractor_min_length": true,
+        "iwf_format_consistency": true,
+        "_soft_length_balance": true,
+        "_soft_iwf_numeric_scale": true,
+        "_soft_iwf_no_absolute_terms": true,
+        "all_passed": true
+      },
+      "rule_issues": []
+    },
+    {
+      "index": 1,
+      "cognitive_level": "Thông hiểu",
+      "question_text": "Tính \\(I=\\int_0^2(3x^2-4x+1)dx\\).",
+      "answer_text": "\\(2\\)",
+      "n_distractors": 3,
+      "verifier_hint_type": "numeric_eval",
+      "gate_rejected": true,
+      "gate_reason": "quality_low: rule validator failed: ['question_too_trivial:bare_one_step_integral']",
+      "verdict": "rule:quality_low",
+      "verified": null,
+      "verification_detail": "",
+      "answer_key_repaired": false,
+      "validator_checks": null,
+      "rule_issues": [
+        "question_too_trivial:bare_one_step_integral"
+      ]
+    },
+    {
+      "index": 2,
+      "cognitive_level": "Vận dụng",
+      "question_text": "Một xe chuyển động với vận tốc \\(v(t)=20-4t\\) (m/s). Tính quãng đường xe đi được từ lúc bắt đầu phanh đến khi dừng hẳn.",
+      "answer_text": "\\(50\\text{ m}\\)",
+      "n_distractors": 3,
+      "verifier_hint_type": "numeric_eval",
+      "gate_rejected": false,
+      "gate_reason": "",
+      "verdict": "pass",
+      "verified": true,
+      "verification_detail": "expr = 50.0",
+      "answer_key_repaired": false,
+      "validator_checks": {
+        "candidate_structure": true,
+        "unique_answer": true,
+        "anti_pattern": true,
+        "display_syntax": true,
+        "option_text_sanity": true,
+        "visual_consistency": true,
+        "visual_spec_valid": true,
+        "iwf_no_duplicate_distractor": true,
+        "iwf_misconception_category_diversity": true,
+        "iwf_distractor_min_length": true,
+        "iwf_format_consistency": true,
+        "_soft_length_balance": true,
+        "_soft_iwf_numeric_scale": true,
+        "_soft_iwf_no_absolute_terms": true,
+        "all_passed": true
+      },
+      "rule_issues": []
+    },
+    {
+      "index": 3,
+      "cognitive_level": "Vận dụng",
+      "question_text": "Tính diện tích hình phẳng giới hạn bởi đồ thị \\(y=x^2\\), trục hoành và hai đường thẳng \\(x=0,x=3\\).",
+      "answer_text": "\\(9\\)",
+      "n_distractors": 3,
+      "verifier_hint_type": "numeric_eval",
+      "gate_rejected": false,
+      "gate_reason": "",
+      "verdict": "pass",
+      "verified": true,
+      "verification_detail": "expr = 9.0",
+      "answer_key_repaired": false,
+      "validator_checks": {
+        "candidate_structure": true,
+        "unique_answer": true,
+        "anti_pattern": true,
+        "display_syntax": true,
+        "option_text_sanity": true,
+        "visual_consistency": true,
+        "visual_spec_valid": true,
+        "iwf_no_duplicate_distractor": true,
+        "iwf_misconception_category_diversity": true,
+        "iwf_distractor_min_length": true,
+        "iwf_format_consistency": true,
+        "_soft_length_balance": true,
+        "_soft_iwf_numeric_scale": true,
+        "_soft_iwf_no_absolute_terms": true,
+        "all_passed": true
+      },
+      "rule_issues": []
+    },
+    {
+      "index": 4,
+      "cognitive_level": "Vận dụng",
+      "question_text": "Cho \\(f(x)=2x+1\\). Tính \\(I=\\int_1^4 f(x)dx\\).",
+      "answer_text": "\\(12\\)",
+      "n_distractors": 3,
+      "verifier_hint_type": "numeric_eval",
+      "gate_rejected": true,
+      "gate_reason": "quality_low: rule validator failed: ['d1:duplicate_option', 'question_too_trivial:bare_one_step_integral']",
+      "verdict": "rule:quality_low",
+      "verified": null,
+      "verification_detail": "",
+      "answer_key_repaired": false,
+      "validator_checks": null,
+      "rule_issues": [
+        "d1:duplicate_option",
+        "question_too_trivial:bare_one_step_integral"
+      ]
+    }
+  ],
+  "raw_response": "{\n  \"questions\": [\n    {\n      \"question\": \"Cho \\\\(F(x)\\\\) là một nguyên hàm của \\\\(f(x)\\\\) trên đoạn \\\\([a;b]\\\\). Biểu thức nào bằng \\\\(\\\\int_a^b f(x)dx\\\\)?\",\n      \"answer\": \"\\\\(F(b)-F(a)\\\\)\",\n      \"explanation\": \"Theo định lý Newton-Leibniz, tích phân xác định bằng hiệu giá trị nguyên hàm tại cận trên và cận dưới.\",\n      \"detailed_solution\": {\n        \"steps\": [\n          {\n            \"title\": \"Bước 1\",\n            \"content\": \"Nhận biết \\\\(F'(x)=f(x)\\\\).\"\n          },\n          {\n            \"title\": \"Bước 2\",\n            \"content\": \"Áp dụng công thức tính tích phân xác định được \\\\(\\\\int_a^b f(x)dx=F(b)-F(a)\\\\).\"\n          }\n        ],\n        \"final_answer\": \"\\\\(F(b)-F(a)\\\\)\"\n      },\n      \"why_correct\": \"Đây là hệ thức cơ bản liên hệ giữa tích phân xác định và nguyên hàm.\",\n      \"source_quote\": \"Nếu F(x) là một nguyên hàm của f(x) trên đoạn [a;b] thì hiệu số F(b)-F(a) được gọi là tích phân\",\n      \"cognitive_level\": \"Nhận biết\",\n      \"verifier_payload\": {\n        \"type\": \"none\",\n        \"payload\": {}\n      },\n      \"distractors\": [\n        {\n          \"text\": \"\\\\(F(a)-F(b)\\\\)\",\n          \"error_description\": \"Đổi thứ tự cận làm đổi dấu tích phân.\",\n          \"error_category\": \"sai dấu\"\n        },\n        {\n          \"text\": \"\\\\(F(a)+F(b)\\\\)\",\n          \"error_description\": \"Nhầm phép lấy hiệu thành phép cộng.\",\n          \"error_category\": \"nhầm công thức\"\n        },\n        {\n          \"text\": \"\\\\(F(b)\\\\)\",\n          \"error_description\": \"Bỏ qua giá trị tại cận dưới.\",\n          \"error_category\": \"thiếu thành phần\"\n        }\n      ]\n    },\n    {\n      \"question\": \"Tính \\\\(I=\\\\int_0^2(3x^2-4x+1)dx\\\\).\",\n      \"answer\": \"\\\\(2\\\\)\",\n      \"explanation\": \"Lấy nguyên hàm của đa thức rồi tính hiệu tại hai cận.\",\n      \"detailed_solution\": {\n        \"steps\": [\n          {\n            \"title\": \"Bước 1\",\n            \"content\": \"Tìm nguyên hàm: \\\\(F(x)=x^3-2x^2+x\\\\).\"\n          },\n          {\n            \"title\": \"Bước 2\",\n            \"content\": \"Tính \\\\(F(2)=8-8+2=2\\\\).\"\n          },\n          {\n            \"title\": \"Bước 3\",\n            \"content\": \"Tính \\\\(F(0)=0\\\\).\"\n          },\n          {\n            \"title\": \"Bước 4\",\n            \"content\": \"Suy ra \\\\(I=F(2)-F(0)=2\\\\).\"\n          }\n        ],\n        \"final_answer\": \"\\\\(2\\\\)\"\n      },\n      \"why_correct\": \"Kết quả đúng theo định nghĩa tích phân xác định.\",\n      \"source_quote\": \"Tích phân không phụ thuộc và cách kí hiệu biến\",\n      \"cognitive_level\": \"Thông hiểu\",\n      \"verifier_payload\": {\n        \"type\": \"numeric_eval\",\n        \"payload\": {\n          \"expr\": \"2\",\n          \"expected_numeric\": 2\n        }\n      },\n      \"distractors\": [\n        {\n          \"text\": \"\\\\(0\\\\)\",\n          \"error_description\": \"Chỉ tính hiệu hai cận mà bỏ qua nguyên hàm.\",\n          \"error_category\": \"sai quy trình\"\n        },\n        {\n          \"text\": \"\\\\(4\\\\)\",\n          \"error_description\": \"Sai khi thay cận trên vào biểu thức nguyên hàm.\",\n          \"error_category\": \"sai tính toán\"\n        },\n        {\n          \"text\": \"\\\\(-2\\\\)\",\n          \"error_description\": \"Đổi dấu khi lấy hiệu hai giá trị nguyên hàm.\",\n          \"error_category\": \"sai dấu\"\n        }\n      ]\n    },\n    {\n      \"question\": \"Một xe chuyển động với vận tốc \\\\(v(t)=20-4t\\\\) (m/s). Tính quãng đường xe đi được từ lúc bắt đầu phanh đến khi dừng hẳn.\",\n      \"answer\": \"\\\\(50\\\\text{ m}\\\\)\",\n      \"explanation\": \"Xe dừng khi vận tốc bằng 0, quãng đường là tích phân của vận tốc trong khoảng thời gian chuyển động.\",\n      \"detailed_solution\": {\n        \"steps\": [\n          {\n            \"title\": \"Bước 1\",\n            \"content\": \"Giải \\\\(20-4t=0\\\\) được \\\\(t=5\\\\).\"\n          },\n          {\n            \"title\": \"Bước 2\",\n            \"content\": \"Lập tích phân quãng đường \\\\(S=\\\\int_0^5(20-4t)dt\\\\).\"\n          },\n          {\n            \"title\": \"Bước 3\",\n            \"content\": \"Nguyên hàm là \\\\(20t-2t^2\\\\).\"\n          },\n          {\n            \"title\": \"Bước 4\",\n            \"content\": \"Tính \\\\(S=(100-50)-0=50\\\\).\"\n          }\n        ],\n        \"final_answer\": \"\\\\(50\\\\text{ m}\\\\)\"\n      },\n      \"why_correct\": \"Quãng đường bằng diện tích dưới đồ thị vận tốc theo thời gian.\",\n      \"source_quote\": \"Quãng đường di chuyển của xe là: S=∫v(t)dt\",\n      \"cognitive_level\": \"Vận dụng\",\n      \"verifier_payload\": {\n        \"type\": \"numeric_eval\",\n        \"payload\": {\n          \"expr\": \"integrate(20-4*t,(t,0,5))\",\n          \"expected_numeric\": 50\n        }\n      },\n      \"distractors\": [\n        {\n          \"text\": \"\\\\(40\\\\text{ m}\\\\)\",\n          \"error_description\": \"Lấy sai thời điểm xe dừng.\",\n          \"error_category\": \"sai điều kiện\"\n        },\n        {\n          \"text\": \"\\\\(100\\\\text{ m}\\\\)\",\n          \"error_description\": \"Nhầm quãng đường với tích vận tốc ban đầu và thời gian.\",\n          \"error_category\": \"nhầm mô hình\"\n        },\n        {\n          \"text\": \"\\\\(60\\\\text{ m}\\\\)\",\n          \"error_description\": \"Sai khi tính giá trị nguyên hàm tại cận trên.\",\n          \"error_category\": \"sai tính toán\"\n        }\n      ]\n    },\n    {\n      \"question\": \"Tính diện tích hình phẳng giới hạn bởi đồ thị \\\\(y=x^2\\\\), trục hoành và hai đường thẳng \\\\(x=0,x=3\\\\).\",\n      \"answer\": \"\\\\(9\\\\)\",\n      \"explanation\": \"Diện tích bằng tích phân của hàm không âm trên đoạn xét.\",\n      \"detailed_solution\": {\n        \"steps\": [\n          {\n            \"title\": \"Bước 1\",\n            \"content\": \"Lập công thức \\\\(S=\\\\int_0^3x^2dx\\\\).\"\n          },\n          {\n            \"title\": \"Bước 2\",\n            \"content\": \"Nguyên hàm của \\\\(x^2\\\\) là \\\\(\\\\frac{x^3}{3}\\\\).\"\n          },\n          {\n            \"title\": \"Bước 3\",\n            \"content\": \"Thay cận trên: \\\\(\\\\frac{27}{3}=9\\\\).\"\n          },\n          {\n            \"title\": \"Bước 4\",\n            \"content\": \"Thay cận dưới: \\\\(0\\\\).\"\n          },\n          {\n            \"title\": \"Bước 5\",\n            \"content\": \"Suy ra \\\\(S=9-0=9\\\\).\"\n          }\n        ],\n        \"final_answer\": \"\\\\(9\\\\)\"\n      },\n      \"why_correct\": \"Hàm số không âm nên tích phân biểu diễn đúng diện tích hình phẳng.\",\n      \"source_quote\": \"Nếu hàm số y=f(x) liên tục và không âm trên đoạn [a;b] thì tích phân là diện tích S\",\n      \"cognitive_level\": \"Vận dụng\",\n      \"verifier_payload\": {\n        \"type\": \"numeric_eval\",\n        \"payload\": {\n          \"expr\": \"integrate(x**2,(x,0,3))\",\n          \"expected_numeric\": 9\n        }\n      },\n      \"distractors\": [\n        {\n          \"text\": \"\\\\(18\\\\)\",\n          \"error_description\": \"Nhân đôi kết quả do nhầm với diện tích đối xứng.\",\n          \"error_category\": \"nhầm hình học\"\n        },\n        {\n          \"text\": \"\\\\(27\\\\)\",\n          \"error_description\": \"Không chia cho bậc của nguyên hàm.\",\n          \"error_category\": \"sai nguyên hàm\"\n        },\n        {\n          \"text\": \"\\\\(3\\\\)\",\n          \"error_description\": \"Chỉ lấy giá trị tại cận trên.\",\n          \"error_category\": \"bỏ qua tích phân\"\n        }\n      ]\n    },\n    {\n      \"question\": \"Cho \\\\(f(x)=2x+1\\\\). Tính \\\\(I=\\\\int_1^4 f(x)dx\\\\).\",\n      \"answer\": \"\\\\(12\\\\)\",\n      \"explanation\": \"Áp dụng nguyên hàm và tính theo hai cận.\",\n      \"detailed_solution\": {\n        \"steps\": [\n          {\n            \"title\": \"Bước 1\",\n            \"content\": \"Tìm nguyên hàm \\\\(F(x)=x^2+x\\\\).\"\n          },\n          {\n            \"title\": \"Bước 2\",\n            \"content\": \"Tính \\\\(F(4)=20\\\\).\"\n          },\n          {\n            \"title\": \"Bước 3\",\n            \"content\": \"Tính \\\\(F(1)=2\\\\).\"\n          },\n          {\n            \"title\": \"Bước 4\",\n            \"content\": \"Suy ra \\\\(I=20-2=18\\\\).\"\n          }\n        ],\n        \"final_answer\": \"\\\\(18\\\\)\"\n      },\n      \"why_correct\": \"Tích phân được tính bằng hiệu hai giá trị nguyên hàm.\",\n      \"source_quote\": \"S=F(b)-F(a), trong đó F(x) là một nguyên hàm\",\n      \"cognitive_level\": \"Vận dụng\",\n      \"verifier_payload\": {\n        \"type\": \"numeric_eval\",\n        \"payload\": {\n          \"expr\": \"18\",\n          \"expected_numeric\": 18\n        }\n      },\n      \"distractors\": [\n        {\n          \"text\": \"\\\\(12\\\\)\",\n          \"error_description\": \"Sai khi tính giá trị nguyên hàm tại cận.\",\n          \"error_category\": \"sai tính toán\"\n        },\n        {\n          \"text\": \"\\\\(20\\\\)\",\n          \"error_description\": \"Chỉ lấy giá trị tại cận trên.\",\n          \"error_category\": \"thiếu hiệu\"\n        },\n        {\n          \"text\": \"\\\\(22\\\\)\",\n          \"error_description\": \"Cộng hai giá trị nguyên hàm thay vì lấy hiệu.\",\n          \"error_category\": \"nhầm phép toán\"\n        }\n      ]\n    }\n  ]\n}"
+}

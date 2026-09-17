@@ -18,6 +18,8 @@ from typing import Any, Dict, List
 from .pdf_base import PdfAwareAgent
 from .messages import PdfDistractorRequest, PdfDistractorResponse
 from .pdf_writer_agent import _feedback_block
+from ... import ablation
+from ... import config as cfg
 from ... import distractor_bank
 from ...agents.distractor_agent import _parse_distractors
 from ...llm_client import BudgetExceeded, NonRetryableLLMError, PdfUnsupportedError
@@ -39,6 +41,9 @@ def _misconception_block(candidate: Dict[str, Any], slot: Dict[str, Any]) -> str
     Seed theo CRC32 của text để cùng một candidate luôn nhận cùng danh sách
     (tái lập được khi debug/benchmark).
     """
+    if not ablation.is_enabled(ablation.MISCONCEPTION_CATALOGUE):
+        # Ablation: bỏ danh mục sai lầm, agent phải tự nghĩ ra lỗi.
+        return ''
     match_text = ' '.join(str(x or '') for x in (
         slot.get('topic'),
         candidate.get('question_text'),
@@ -66,7 +71,7 @@ class PdfDistractorAgent(PdfAwareAgent):
             raw = self._call_pdf(
                 self._user_prompt(request),
                 request.attachment_parts,
-                max_tokens=1300,
+                max_tokens=cfg.DISTRACTOR_MAX_TOKENS,
             )
             distractors = _parse_distractors(raw)
             if len(distractors) != 3:

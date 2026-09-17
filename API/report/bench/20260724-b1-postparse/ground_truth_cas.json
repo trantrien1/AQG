@@ -1,0 +1,219 @@
+{
+  "source": "cas_audit",
+  "note": "Tái tính độc lập bằng SymPy từ dữ kiện của từng đề (không dùng biểu thức kiểm chứng của Writer). Audit thực hiện 2026-07-24, chạy lại 2026-07-25 cho cùng kết quả. Năm câu không tái tính được (1, 8, 10, 30, 31) để trống thay vì mặc định là đúng.",
+  "run": "report\\bench\\20260724-b1-postparse",
+  "labelled": 35,
+  "total_questions": 40,
+  "labels": {
+    "q_2026_942bb186": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 2
+    },
+    "q_2026_c4a61743": {
+      "key_correct": false,
+      "source": "cas_audit",
+      "note": "CAS cho 165, key ghi 204; verifier gắn cờ (verified=False) nên đã vào hàng duyệt",
+      "run_index": 3
+    },
+    "q_2026_90bda286": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 4
+    },
+    "q_2026_7cdc2fce": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 5
+    },
+    "q_2026_60c97e7d": {
+      "key_correct": false,
+      "source": "cas_audit",
+      "note": "CAS cho 43/3, key ghi 47/3; verifier báo verified=True — lọt lưới",
+      "run_index": 6
+    },
+    "q_2026_ff49f9b6": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 7
+    },
+    "q_2026_2fa6c489": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 9
+    },
+    "q_2026_80339036": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 11
+    },
+    "q_2026_2c264c94": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 12
+    },
+    "q_2026_8f4b6d20": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 13
+    },
+    "q_2026_9175daf1": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 14
+    },
+    "q_2026_2e9b4e72": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 15
+    },
+    "q_2026_49f83e11": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 16
+    },
+    "q_2026_747066b9": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 17
+    },
+    "q_2026_192e0844": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 18
+    },
+    "q_2026_2fc2b81c": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 19
+    },
+    "q_2026_a406a3f8": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 20
+    },
+    "q_2026_a25869b2": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 21
+    },
+    "q_2026_f3d640f8": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 22
+    },
+    "q_2026_7f4dfd56": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 23
+    },
+    "q_2026_4ba79567": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 24
+    },
+    "q_2026_3d8274f7": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 25
+    },
+    "q_2026_8005e5ba": {
+      "key_correct": false,
+      "source": "cas_audit",
+      "note": "CAS cho 768/5 = 153.6, key ghi 48; verifier gắn cờ (verified=False)",
+      "run_index": 26
+    },
+    "q_2026_4c442707": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 27
+    },
+    "q_2026_6b9c2336": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 28
+    },
+    "q_2026_c9e4cc50": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 29
+    },
+    "q_2026_751f8858": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 32
+    },
+    "q_2026_0461a097": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 33
+    },
+    "q_2026_50e7325d": {
+      "key_correct": false,
+      "source": "cas_audit",
+      "note": "CAS cho 576*sqrt(2)*pi/5, key ghi 468*sqrt(2)*pi/5; verifier báo verified=True — lọt lưới",
+      "run_index": 34
+    },
+    "q_2026_c662821e": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 35
+    },
+    "q_2026_3f787570": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 36
+    },
+    "q_2026_c1fe4487": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 37
+    },
+    "q_2026_a372a21c": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 38
+    },
+    "q_2026_ed2b2bd7": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "Giá trị khớp phép tính ngây thơ int_1^3 (5-x^2) = 4/3 mà đề ngụ ý, NHƯNG đề đặt sai: y=5 và y=x^2 cắt nhau tại x=sqrt(5) trong đoạn [1;3]. Lỗi phát biểu đề, không phải lỗi đáp án — đếm riêng, không tính vào 'key sai'.",
+      "run_index": 39
+    },
+    "q_2026_3c25873b": {
+      "key_correct": true,
+      "source": "cas_audit",
+      "note": "audit độc lập khớp đáp án key",
+      "run_index": 40
+    }
+  }
+}

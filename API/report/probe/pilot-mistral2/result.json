@@ -1,0 +1,92 @@
+{
+ "questions": [],
+ "accepted_count": 0,
+ "requested_count": 1,
+ "is_partial": true,
+ "parse_errors": 4,
+ "verify_failures": 0,
+ "error_code": null,
+ "error_message": null,
+ "rejected": [
+  {
+   "stem": "",
+   "question_id": "rej_direct_pdf_0_writer",
+   "blueprint_slot_id": "direct_pdf_0",
+   "cognitive_level": "Vận dụng",
+   "review_status": "rejected",
+   "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['nhà cung cấp không trả về lựa chọn nào: {\"error\":{\"message\":\"At most 5 image(s) may be provided in one prompt.\",\"type\":\"BadRequestError\",\"param\":null,\"code\":400}}'])",
+   "reject_reason_code": "writer_empty",
+   "reject_reason_stage": "writer",
+   "reject_log": [
+    {
+     "reason_code": "writer_empty",
+     "stage": "writer",
+     "attempt": 0,
+     "message": "Writer không sinh được câu hỏi hợp lệ (errors=['nhà cung cấp không trả về lựa chọn nào: {\"error\":{\"message\":\"At most 5 image(s) may be provided in one prompt.\",\"type\":\"BadRequestError\",\"param\":null,\"code\":400}}'])",
+     "slot_id": "direct_pdf_0"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "stem": "",
+   "question_id": "rej_direct_pdf_1_writer",
+   "blueprint_slot_id": "direct_pdf_1",
+   "cognitive_level": "Vận dụng",
+   "review_status": "rejected",
+   "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['nhà cung cấp không trả về lựa chọn nào: Total number of images exceeds the maximum allowed of 8.'])",
+   "reject_reason_code": "writer_empty",
+   "reject_reason_stage": "writer",
+   "reject_log": [
+    {
+     "reason_code": "writer_empty",
+     "stage": "writer",
+     "attempt": 0,
+     "message": "Writer không sinh được câu hỏi hợp lệ (errors=['nhà cung cấp không trả về lựa chọn nào: Total number of images exceeds the maximum allowed of 8.'])",
+     "slot_id": "direct_pdf_1"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "stem": "",
+   "question_id": "rej_direct_pdf_2_writer",
+   "blueprint_slot_id": "direct_pdf_2",
+   "cognitive_level": "Vận dụng",
+   "review_status": "rejected",
+   "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['nhà cung cấp không trả về lựa chọn nào: Total number of images exceeds the maximum allowed of 8.'])",
+   "reject_reason_code": "writer_empty",
+   "reject_reason_stage": "writer",
+   "reject_log": [
+    {
+     "reason_code": "writer_empty",
+     "stage": "writer",
+     "attempt": 0,
+     "message": "Writer không sinh được câu hỏi hợp lệ (errors=['nhà cung cấp không trả về lựa chọn nào: Total number of images exceeds the maximum allowed of 8.'])",
+     "slot_id": "direct_pdf_2"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "stem": "",
+   "question_id": "rej_direct_pdf_3_writer",
+   "blueprint_slot_id": "direct_pdf_3",
+   "cognitive_level": "Vận dụng",
+   "review_status": "rejected",
+   "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['nhà cung cấp không trả về lựa chọn nào: Total number of images exceeds the maximum allowed of 8.'])",
+   "reject_reason_code": "writer_empty",
+   "reject_reason_stage": "writer",
+   "reject_log": [
+    {
+     "reason_code": "writer_empty",
+     "stage": "writer",
+     "attempt": 0,
+     "message": "Writer không sinh được câu hỏi hợp lệ (errors=['nhà cung cấp không trả về lựa chọn nào: Total number of images exceeds the maximum allowed of 8.'])",
+     "slot_id": "direct_pdf_3"
+    }
+   ],
+   "attempts": 1
+  }
+ ]
+}

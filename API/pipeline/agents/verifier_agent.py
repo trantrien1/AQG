@@ -7,13 +7,19 @@ from __future__ import annotations
 
 import copy
 import re
-from typing import Any, Dict
+from typing import Any, Dict, List, Optional
 
 from .base import BaseAgent
 from .messages import VerifyRequest, VerifyResponse
+from .. import ablation
 from ..verifier import verify, verify_distractor, VerificationResult, _natural_to_sympy
 from ..filter import option_text_sanity_issues, repair_option_texts, validate_distractors
+from ..independent_target import IndependentTarget, disabled_target
 from ..rule_validator import first_issue_code, validate_candidate
+from ..verification_status import (
+    VERIFIER_VERSION, Adjudication, VerificationStatus, adjudicate,
+    is_machine_checked,
+)
 
 _QUOTE_REPAIR_CODES = {
     'quote_mismatch:source_quote_not_relevant',
@@ -57,6 +63,13 @@ def _expected_from_answer(answer_text: str):
         ' ', text)
     text = re.sub(r'\\(?:,|;|!|quad|qquad)', ' ', text)
 
+    # \sqrt{...} / \sqrt[n]{...} → sqrt(...) / (..)**(1/n). Must precede the
+    # generic char-strip below, which would otherwise reduce \sqrt{229} to the
+    # bare numerator 229 — a correct answer like (\sqrt{229}-3)/2 then reads as
+    # the integer 229 and is wrongly rejected as an answer_text_mismatch.
+    text = re.sub(r'\\sqrt\s*\[\s*(\d+)\s*\]\s*\{([^{}]+)\}', r'((\2))**(1/(\1))', text)
+    text = re.sub(r'\\sqrt\s*\{([^{}]+)\}', r'sqrt((\1))', text)
+
     # \pi → pi với phép nhân tường minh ("432\pi" nghĩa là 432*π). Nếu không,
     # \dfrac{432\pi}{5} rơi xuống fallback và bị đọc thành 432 thay vì
     # 432π/5 ≈ 271.43 → answer_text_mismatch reject oan câu đúng. Nhân tường
@@ -65,12 +78,14 @@ def _expected_from_answer(answer_text: str):
     text = re.sub(r'([\d)}])\s*\\pi\b', r'\1*pi', text)
     text = re.sub(r'\\pi\b', 'pi', text)
 
-    _num = r'[-+]?(?:\d+(?:\.\d+)?(?:\*pi)?|pi)'
-    text = re.sub(
-        r'\\d?frac\s*\{\s*(' + _num + r')\s*\}\s*\{\s*(' + _num + r')\s*\}',
-        r'(\1)/(\2)',
-        text,
-    )
+    # \frac{A}{B} → ((A))/((B)) for arbitrary single-level A, B. A/B may now hold
+    # sqrt(...) or *pi from the substitutions above, so the old numeric-only
+    # \frac pattern (which silently dropped a \sqrt numerator, e.g. reading
+    # \frac{\sqrt{229}-3}{2} as 229) no longer applies. Loop twice to resolve a
+    # stacked \frac{\frac{..}{..}}{..}.
+    for _ in range(2):
+        text = re.sub(r'\\d?frac\s*\{([^{}]+)\}\s*\{([^{}]+)\}',
+                      r'((\1))/((\2))', text)
     text = re.sub(r'(?<=\d),(?=\d)', '.', text)
     text = re.sub(
         r'\b(?:[cdk]?m|mm)(?:\s*\^\s*\{?\s*\d\s*\}?|[²³23])?(?![A-Za-z0-9])',
@@ -80,6 +95,11 @@ def _expected_from_answer(answer_text: str):
     # Any unit stripped above may still orphan its exponent (" ^2" from
     # "s^2", "km/h^2"...) — drop it, otherwise it binds to the number.
     text = re.sub(r'(?<=[\d).])\s+\^\s*\d+(?:\.\d+)?', ' ', text).strip()
+    # Implicit multiplication a reader assumes but sympy needs spelled out:
+    # "80sqrt(15)", "2pi", "3(x)" → "80*sqrt(15)", "2*pi", "3*(x)".
+    text = re.sub(r'(\d)\s*(sqrt|root|pi)\b', r'\1*\2', text)
+    text = re.sub(r'(\))\s*(sqrt|root|pi)\b', r'\1*\2', text)
+    text = re.sub(r'([\d)])\s*\(', r'\1*(', text)
     if not text:
         return None
     try:
@@ -157,6 +177,37 @@ def _numeric_close(a, b) -> bool:
         return False
     tol = max(1e-6, abs(bf) * 1e-4)
     return abs(af - bf) <= tol
+
+def recover_numeric_eval_against_key(result: VerificationResult, answer_text: str) -> bool:
+    """numeric_eval false-flag recovery — CHỈ nâng mức *nhất quán*, không phải đúng.
+
+    Engine numeric_eval so ``expr`` của Writer với một scalar ``expected_numeric``
+    mà chính Writer khai thêm. Khi Writer viết lệch con số dư thừa đó (hay gặp ở
+    thể tích dạng ``\\frac{k\\pi}{5}``: ``expr`` tích phân đúng nhưng số kèm theo
+    sai), câu bị gắn verified=False rồi phải duyệt tay vô ích. Ở đây ta bỏ qua
+    scalar dư và so ``expr`` với chính đáp án key.
+
+    GIỚI HẠN QUAN TRỌNG: ``expr`` VẪN do Writer viết, nên nếu Writer mô hình hoá
+    sai một cách nhất quán, ``expr`` sai sẽ khớp với key sai và hàm này nâng
+    verified lên True cho một đáp án SAI. Đây là lý do nhãn ``verified`` một chiều
+    không còn được dùng làm kết luận: kết quả của bước này chỉ đưa câu hỏi tới
+    trạng thái CONSISTENCY_CONFIRMED — "nhất quán với biểu thức của chính nó" —
+    chứ không bao giờ tới INDEPENDENTLY_VERIFIED. Chỉ mục tiêu kiểm chứng độc lập
+    (``pipeline.independent_target``) mới cấp được trạng thái sau.
+
+    Trả True nếu đã nâng ``result`` tại chỗ.
+    """
+    if result.verified is not False or result.engine != 'numeric_eval':
+        return False
+    keyed = _expected_from_answer(answer_text)
+    if keyed is None or result.actual is None or not _numeric_close(result.actual, keyed):
+        return False
+    result.verified = True
+    result.detail = (
+        f'{result.detail} | expr khớp đáp án key ({keyed}); '
+        f'expected_numeric writer viết lệch bị bỏ qua'
+    )
+    return True
 
 def _answer_text_matches_verifier(
     verifier_type: str,
@@ -384,12 +435,25 @@ def _repair_answer_from_verified_distractor(
     candidate: Dict[str, Any],
     verifier_type: str,
     result: VerificationResult,
+    independent: Optional[IndependentTarget] = None,
 ) -> bool:
+    """Đổi đáp án key sang phương án nhiễu mà tính toán chỉ ra là đúng.
+
+    CHỈ chạy khi có bằng chứng ĐỘC LẬP: mục tiêu kiểm chứng độc lập phải dứt
+    khoát và trỏ đúng giá trị mới. Trước đây bước này chỉ dựa vào biểu thức của
+    Writer — cùng một nguồn đã viết ra đáp án đang bị nghi sai — nên nó có thể
+    tự tin viết đè key đúng thành sai theo đúng lỗi mô hình hoá của chính Writer.
+    Không đủ bằng chứng thì trả False và câu hỏi đi tiếp sang duyệt tay.
+    """
     numeric_types = {'probability', 'counting', 'limit', 'numeric_eval', 'modular'}
     if verifier_type not in numeric_types or result.verified is not True:
         return False
     expected = _verified_numeric_value(result)
     if expected is None:
+        return False
+    if independent is None or not getattr(independent, 'definite', False):
+        return False
+    if not _numeric_close(getattr(independent, 'value', None), expected):
         return False
     current = _expected_from_answer(candidate.get('answer_text', ''))
     if current is not None and _numeric_close(current, expected):
@@ -435,6 +499,11 @@ def _repair_answer_from_verified_distractor(
         matched.get('distractor_category_text') or 'answer_key_mismatch_repair'
     )
     candidate['_auto_repaired_answer_from_verifier'] = True
+    candidate['_answer_key_repair_evidence'] = {
+        'independent_value': getattr(independent, 'value', None),
+        'independent_expression': getattr(independent, 'expression', '')[:200],
+        'writer_expression_value': expected,
+    }
     return True
 
 def _normalize_hint_schema(hint: Dict[str, Any]) -> Dict[str, Any]:
@@ -444,12 +513,16 @@ def _normalize_hint_schema(hint: Dict[str, Any]) -> Dict[str, Any]:
     payload = _safe_payload(hint.get('payload'))
     if t == 'modular':
         op = payload.get('operation')
+        # 'mod'/'remainder'/'modulo' phải map về 'mod_reduce' — tên engine thật
+        # trong pipeline.verifier. Map nhầm sang 'mod' khiến verifier trả
+        # verified=None (unknown operation) và câu đi tiếp mà KHÔNG được kiểm.
         aliases = {
             'modular_exponentiation': 'mod_pow',
             'modular_power': 'mod_pow',
             'pow_mod': 'mod_pow',
-            'remainder': 'mod',
-            'modulo': 'mod',
+            'remainder': 'mod_reduce',
+            'modulo': 'mod_reduce',
+            'mod': 'mod_reduce',
         }
         if op in aliases:
             payload['operation'] = aliases[op]
@@ -457,7 +530,7 @@ def _normalize_hint_schema(hint: Dict[str, Any]) -> Dict[str, Any]:
             if {'base', 'exp', 'mod'}.issubset(payload):
                 payload['operation'] = 'mod_pow'
             elif {'a', 'mod'}.issubset(payload):
-                payload['operation'] = 'mod'
+                payload['operation'] = 'mod_reduce'
     elif t == 'probability':
         if 'formula' not in payload and 'expr' in payload:
             payload['formula'] = payload['expr']
@@ -484,12 +557,48 @@ def _normalize_hint_schema(hint: Dict[str, Any]) -> Dict[str, Any]:
     return hint
 
 
-class VerifierAgent(BaseAgent):
-    """Chạy 3 bước kiểm tra độc lập:
+def _independent_from_candidate(candidate: Dict[str, Any]) -> IndependentTarget:
+    """Đọc mục tiêu kiểm chứng độc lập mà agent trước đã gắn vào candidate.
 
-    1. Symbolic verify (SymPy / NetworkX) — kiểm đáp án đúng về mặt toán
-    2. Multi-answer check — đảm bảo không distractor nào cũng được verify đúng
-    3. Distractor validator — unique / length_balance / anti_pattern / visual
+    VerifierAgent giữ tính deterministic: nó KHÔNG tự gọi LLM. Việc giải lại bài
+    toán do `pipeline.direct_pdf.agents.pdf_independent_agent` (hoặc bất kỳ
+    caller nào) làm trước, kết quả để ở khoá ``_independent_target``; ở đây chỉ
+    đánh giá bằng chứng đó.
+    """
+    if not ablation.is_enabled(ablation.INDEPENDENT_VERIFICATION):
+        return disabled_target('tắt qua ablation')
+    raw = candidate.get('_independent_target')
+    if isinstance(raw, IndependentTarget):
+        return raw
+    if isinstance(raw, dict):
+        known = {f for f in IndependentTarget.__dataclass_fields__}
+        return IndependentTarget(**{k: v for k, v in raw.items() if k in known})
+    return disabled_target('chưa dựng mục tiêu độc lập cho câu này')
+
+
+def _distractor_values(candidate: Dict[str, Any]) -> List[Optional[float]]:
+    out: List[Optional[float]] = []
+    for d in candidate.get('distractors') or []:
+        if not isinstance(d, dict):
+            out.append(None)
+            continue
+        value = _expected_from_answer(d.get('distractor_text', ''))
+        try:
+            out.append(float(value) if value is not None else None)
+        except (TypeError, ValueError):
+            out.append(None)
+    return out
+
+
+class VerifierAgent(BaseAgent):
+    """Tầng kiểm chứng deterministic (không gọi LLM). Bốn bước:
+
+    1. Symbolic verify (SymPy / NetworkX) trên biểu thức Writer khai — đo NHẤT
+       QUÁN giữa biểu thức đó và đáp án key.
+    2. Phân xử đa nguồn: đáp án key ↔ biểu thức Writer ↔ mục tiêu độc lập, ra
+       một trong 5 trạng thái của `pipeline.verification_status`.
+    3. Multi-answer check — không phương án nhiễu nào cũng được xác nhận đúng.
+    4. Distractor validator — unique / length_balance / anti_pattern / visual.
     """
 
     def __init__(self, use_skills: bool = True):
@@ -525,28 +634,80 @@ class VerifierAgent(BaseAgent):
 
         hint = _normalize_hint_schema(c.get('verifier_hint', {}))
         hint = _fill_missing_expected(hint, c.get('answer_text', ''))
+        verifier_type = hint.get('type', 'none')
 
-        # --- 1. Symbolic verify ---
-        v_result: VerificationResult = verify(hint)
+        # --- 1. Symbolic verify (biểu thức do Writer khai) ---
+        if ablation.is_enabled(ablation.SYMBOLIC_VERIFIER):
+            v_result: VerificationResult = verify(hint)
+            # numeric_eval false-flag recovery (shared with the legacy monolith
+            # path in direct_pdf.generator so both stay in sync).
+            if recover_numeric_eval_against_key(v_result, c.get('answer_text', '')):
+                annotations['_numeric_eval_key_recovered'] = True
+        else:
+            v_result = VerificationResult(
+                verified=None, engine='none',
+                detail='symbolic verifier disabled (ablation)',
+            )
+
+        independent = _independent_from_candidate(c)
+
+        # --- 2. Multi-answer check (chỉ ý nghĩa khi engine phán được True) ---
+        multi_answer: List[str] = []
+        if v_result.verified is True:
+            for d in c.get('distractors', []):
+                if verify_distractor(hint, d['distractor_text']) is True:
+                    multi_answer.append(str(d.get('distractor_text', ''))[:60])
+
+        # --- 3. Phân xử đa nguồn → một trong 5 trạng thái ---
+        keyed_value = _expected_from_answer(c.get('answer_text', ''))
+        try:
+            keyed_value = float(keyed_value) if keyed_value is not None else None
+        except (TypeError, ValueError):
+            keyed_value = None
+        adj: Adjudication = adjudicate(
+            writer_verified=v_result.verified,
+            writer_engine=v_result.engine,
+            independent=independent,
+            keyed_value=keyed_value,
+            distractor_values=_distractor_values(c),
+            multi_answer_options=multi_answer,
+        )
+
         annotations['_verification'] = {
+            # `verified` giữ lại NGUYÊN NGHĨA CŨ (biểu thức Writer khớp key hay
+            # không) cho mọi consumer cũ; kết luận thật nằm ở `status`.
             'verified': v_result.verified,
             'engine': v_result.engine,
             'detail': v_result.detail,
             'numeric_crosscheck_points': v_result.numeric_crosscheck_points,
+            'verifier_version': VERIFIER_VERSION,
+            'machine_verifiable': verifier_type not in (None, '', 'none'),
+            'machine_checked': is_machine_checked(adj.status),
+            # Giữ nguyên văn hint đã chạy: run cũ chỉ lưu chuỗi detail nên khi
+            # audit lại một câu sai không truy được biểu thức Writer đã dùng.
+            'verifier_hint': hint,
+            **adj.to_dict(),
+            'independent': independent.to_dict(),
         }
 
-        # verified=False KHÔNG reject: LLM hiếm khi sai phép tính, mismatch ở
-        # đây thường do verifier_hint (expr/expected_numeric) viết lệch câu hỏi
-        # hoặc đáp án bị làm tròn → reject sẽ loại oan câu đúng. Giữ annotation
-        # _verification.verified=False để Critic và bước chọn ứng viên (ưu tiên
-        # verified=True) tự cân nhắc.
+        # Nhiều đáp án đúng là lỗi cấu trúc thật của MCQ — vẫn loại thẳng.
+        if multi_answer:
+            return VerifyResponse(
+                annotations=annotations, rejected=True,
+                reject_reason=(
+                    f'multi_answer: distractor "{multi_answer[0]}"'
+                    f' cũng được verifier xác nhận đúng'
+                ),
+            )
+
+        # Mismatch giữa biểu thức Writer và đáp án key KHÔNG loại câu: phần lớn
+        # là hint viết lệch chứ không phải tính sai. Câu đó mang trạng thái
+        # MISMATCH và bị đẩy sang duyệt tay ở bước dựng record.
         if not _answer_text_matches_verifier(
-            hint.get('type', 'none'),
-            c.get('answer_text', ''),
-            v_result,
+            verifier_type, c.get('answer_text', ''), v_result,
         ):
             if _repair_answer_from_verified_distractor(
-                c, hint.get('type', 'none'), v_result,
+                c, verifier_type, v_result, independent,
             ):
                 annotations['_answer_key_repaired'] = True
                 annotations['_candidate_patch'] = {
@@ -556,14 +717,28 @@ class VerifierAgent(BaseAgent):
                     'answer_explanation_text': c.get('answer_explanation_text', ''),
                     'why_correct': c.get('why_correct', ''),
                 }
+                annotations['_answer_key_repair_evidence'] = c.get(
+                    '_answer_key_repair_evidence')
             else:
                 return VerifyResponse(
                     annotations=annotations,
                     rejected=True,
                     reject_reason=(
-                        f'verifier=False (answer_text_mismatch: '
-                        f'{c.get("answer_text", "")[:80]} vs {v_result.actual})'
+                        f'answer_text_mismatch: đáp án key '
+                        f'{c.get("answer_text", "")[:80]} không khớp giá trị '
+                        f'{v_result.actual} mà engine tính ra'
                     ),
+                )
+
+        # Bị tính toán độc lập bác bỏ. Mặc định GIỮ câu nhưng ép duyệt tay
+        # (AQG_REFUTED_POLICY=reject để loại hẳn) — mục tiêu độc lập cũng do một
+        # model dựng nên, bác oan là có thật; quyết định cuối để cho người.
+        if adj.status == VerificationStatus.REFUTED:
+            from .. import config as _cfg
+            if str(getattr(_cfg, 'REFUTED_POLICY', 'review')).lower() == 'reject':
+                return VerifyResponse(
+                    annotations=annotations, rejected=True,
+                    reject_reason=f'refuted: {adj.detail}',
                 )
 
         # Verifier chạy nhưng parse lỗi payload → fallback: cho đi tiếp qua Critic
@@ -574,19 +749,7 @@ class VerifierAgent(BaseAgent):
                 f'fallback: {v_result.detail[:120]}'
             )
 
-        # --- 2. Multi-answer check (chỉ khi verified=True) ---
-        if v_result.verified is True:
-            for d in c.get('distractors', []):
-                if verify_distractor(hint, d['distractor_text']) is True:
-                    return VerifyResponse(
-                        annotations=annotations, rejected=True,
-                        reject_reason=(
-                            f'multi_answer: distractor "{d["distractor_text"][:40]}"'
-                            f' cũng được verifier xác nhận đúng'
-                        ),
-                    )
-
-        # --- 3. Distractor validator ---
+        # --- 4. Distractor validator ---
         option_repairs = repair_option_texts(c)
         if option_repairs:
             annotations['_option_text_repairs'] = option_repairs

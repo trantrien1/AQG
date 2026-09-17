@@ -61,11 +61,6 @@ def clean_source_quote(quote: str) -> str:
     return quote.strip()
 
 
-_JSON_BAD_BACKSLASH_RE = re.compile(r'\\(?!["\\/bfnrtu])')
-_JSON_LATEX_BACKSLASH_RE = re.compile(
-    r'(?<!\\)\\(?=(?:frac|sqrt|binom|int|sum|prod|lim|sin|cos|tan|cot|sec|csc|'
-    r'log|ln|exp|left|right|cdot|times|mathrm|text|operatorname|[(),;!]))'
-)
 # Model hay escape thừa backslash của delimiter trong JSON ("\\\\(" thay vì
 # "\\(") -> text sau json.loads chứa "\\(", KaTeX không nhận và để sót
 # backslash mồ côi trong math span. Thu gọn mọi run >=2 backslash đứng ngay
@@ -78,17 +73,118 @@ _LATEX_COMMAND_RE = re.compile(
     r'\\(?:frac|sqrt|binom|int|sum|prod|lim|sin|cos|tan|cot|sec|csc|log|ln|exp)\b'
 )
 
+def _robust_json_repair(text: str) -> str:
+    """Escape every unescaped LaTeX backslash inside JSON string literals, in a
+    single left-to-right pass that never re-processes what it just wrote.
+
+    The old two-regex approach failed whenever an escaped delimiter and a
+    non-whitelisted command appeared together (e.g. ``\\(`` next to ``\\pi``):
+    it raised ``Invalid \\escape`` on the un-whitelisted command and silently
+    turned ``\\theta``/``\\beta``/``\\nabla`` into control characters. The
+    scanner handles the whole LaTeX vocabulary uniformly. Inside a string:
+
+      * ``\\"`` ``\\\\`` ``\\/``          -> valid escape, kept
+      * ``\\uXXXX`` (4 hex digits)        -> kept
+      * ``\\b \\f \\n \\r \\t`` followed   -> a real control-char escape, kept
+        by a non-letter
+      * everything else, including those  -> a LaTeX command (``\\theta``,
+        five before a letter (``\\theta``)   ``\\frac``, ``\\circ``, ``\\(``,
+        and ``\\(`` ``\\pi`` ``\\,`` ...     ``\\,`` ...) -> backslash doubled
+
+    Correct for input that is already partly escaped (``\\\\(`` stays) as well
+    as fully unescaped (``\\(`` -> ``\\\\(``).
+    """
+    out: list[str] = []
+    in_str = False
+    i, n = 0, len(text)
+    while i < n:
+        ch = text[i]
+        if not in_str:
+            out.append(ch)
+            if ch == '"':
+                in_str = True
+            i += 1
+            continue
+        if ch == '"':
+            out.append(ch)
+            in_str = False
+            i += 1
+            continue
+        if ch == '\\':
+            nxt = text[i + 1] if i + 1 < n else ''
+            after = text[i + 2] if i + 2 < n else ''
+            if nxt == 'u' and re.match(r'[0-9a-fA-F]{4}', text[i + 2:i + 6]):
+                out.append(text[i:i + 6])
+                i += 6
+                continue
+            if nxt in '"\\/':                       # already-valid escape
+                out.append(ch)
+                out.append(nxt)
+                i += 2
+                continue
+            if nxt in 'bfnrt' and not after.isalpha():
+                out.append(ch)                      # real \n \t (not \theta)
+                out.append(nxt)
+                i += 2
+                continue
+            out.append('\\\\')                      # LaTeX backslash -> double
+            i += 1
+            continue
+        if ch < ' ':
+            # Ký tự điều khiển THÔ nằm trong chuỗi JSON: json.loads ném
+            # "Invalid control character". Một số model xuống dòng thật ngay
+            # giữa lời giải thay vì viết \n. Escape lại thay vì bỏ cả câu —
+            # nếu không, cái trông như "model sinh kém" thật ra chỉ là bộ parse
+            # của ta khắt khe hơn model khác một chút.
+            out.append({'\n': '\\n', '\r': '\\r', '\t': '\\t'}.get(
+                ch, '\\u%04x' % ord(ch)))
+            i += 1
+            continue
+        out.append(ch)
+        i += 1
+    return ''.join(out)
+
+
 def loads_json_maybe_repair(raw: str) -> Any:
-    """Parse JSON, repairing common unescaped LaTeX backslashes if needed."""
+    """Parse JSON, repairing unescaped LaTeX backslashes if needed.
+
+    Fast path: already-valid JSON parses unchanged (the scanner never touches
+    it). Otherwise `_robust_json_repair` escapes the LaTeX backslashes the model
+    leaves raw (``\\(``, ``\\frac``, ``\\pi``, ``\\theta``, ``\\circ`` ...) and
+    we retry; if the input is broken for some other reason the retry re-raises.
+    """
     raw = raw or ''
-    latex_repaired = _JSON_LATEX_BACKSLASH_RE.sub(r'\\\\', raw)
     try:
-        return json.loads(latex_repaired)
+        return json.loads(raw)
     except Exception:
-        repaired = _JSON_BAD_BACKSLASH_RE.sub(r'\\\\', latex_repaired)
-        if repaired == latex_repaired:
-            raise
-        return json.loads(repaired)
+        pass
+    try:
+        return json.loads(_robust_json_repair(raw))
+    except Exception:
+        _dump_unparsable(raw)
+        raise
+
+
+def _dump_unparsable(raw: str) -> None:
+    """Ghi output thô không parse nổi ra đĩa khi AQG_DEBUG_RAW_DIR được đặt.
+
+    Khi quét nhiều mô hình, "0 câu giao ra" mà không có output thô thì không
+    phân biệt được model viết JSON sai với bộ parse của ta khắt khe. Mặc định
+    tắt, không ảnh hưởng đường chạy thường.
+    """
+    import os
+    target = os.getenv('AQG_DEBUG_RAW_DIR')
+    if not target:
+        return
+    try:
+        import hashlib
+        import pathlib
+        d = pathlib.Path(target)
+        d.mkdir(parents=True, exist_ok=True)
+        name = hashlib.sha1(raw.encode('utf-8', 'replace')).hexdigest()[:12]
+        (d / f'unparsable-{name}.txt').write_text(raw, encoding='utf-8')
+    except Exception:
+        pass
 
 def _strip_math_delimiters(expr: str) -> str:
     s = (expr or '').strip()

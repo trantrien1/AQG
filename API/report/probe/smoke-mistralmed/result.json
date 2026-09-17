@@ -1,0 +1,207 @@
+{
+ "questions": [],
+ "accepted_count": 0,
+ "requested_count": 1,
+ "is_partial": true,
+ "parse_errors": 4,
+ "verify_failures": 0,
+ "error_code": null,
+ "error_message": null,
+ "rejected": [
+  {
+   "stem": "",
+   "question_id": "rej_direct_pdf_0_writer",
+   "blueprint_slot_id": "direct_pdf_0",
+   "cognitive_level": "Vận dụng",
+   "review_status": "rejected",
+   "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 12 column 602 (char 1528)\"])",
+   "reject_reason_code": "writer_empty",
+   "reject_reason_stage": "writer",
+   "reject_log": [
+    {
+     "reason_code": "writer_empty",
+     "stage": "writer",
+     "attempt": 0,
+     "message": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 12 column 602 (char 1528)\"])",
+     "slot_id": "direct_pdf_0"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_1_verifier",
+   "blueprint_slot_id": "direct_pdf_1",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng",
+   "difficulty_target": 0.7,
+   "difficulty_estimated": 0.77,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.7,
+    "stem_length_adj": 0.1,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 498,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 200,
+   "question_type": "single_choice",
+   "stem": "Một công trình xây dựng có nền móng là hình chữ nhật \\(ABCD\\) với chiều dài \\(AB = 6\\) mét và chiều rộng \\(BC = 4\\) mét. Phần mái của công trình được thiết kế theo hình parabol với đỉnh \\(I\\) nằm trên đường thẳng vuông góc với mặt đất tại trung điểm của cạnh \\(AB\\), và đỉnh \\(I\\) cách mặt đất \\(3\\) mét. Các cạnh bên của mái công trình là các đường thẳng nối từ đỉnh \\(I\\) đến các đỉnh \\(A, B, C, D\\) của nền móng. Tính thể tích phần không gian bên trong công trình (tính từ mặt đất đến đỉnh mái).",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\(\\frac{144}{7}\\)",
+     "error_type": "area_no_absolute"
+    },
+    {
+     "key": "B",
+     "text": "\\(\\frac{144}{3}\\)",
+     "error_type": "confuse_perimeter_area"
+    },
+    {
+     "key": "C",
+     "text": "\\(\\frac{144}{5}\\)",
+     "error_type": null
+    },
+    {
+     "key": "D",
+     "text": "\\(\\frac{128}{5}\\)",
+     "error_type": "volume_missing_pi"
+    }
+   ],
+   "answer_key": "C",
+   "explanation_correct": "Thể tích phần không gian bên trong công trình được tính bằng cách lấy diện tích mặt cắt ngang (diện tích của parabol) nhân với chiều dài của công trình. Diện tích mặt cắt ngang được tính bằng tích phân của hàm số mô tả parabol trên khoảng từ \\(-3\\) đến \\(3\\).",
+   "explanation_per_distractor": {
+    "A": "Học sinh tính sai diện tích mặt cắt ngang bằng cách bỏ qua giá trị tuyệt đối của hàm số dưới trục hoành (nếu có), dẫn đến sai lệch tích phân thành \\(\\frac{24}{7}\\) và nhân với chiều dài \\(6\\) mét, cho kết quả \\(\\frac{144}{7}\\).",
+    "B": "Học sinh nhầm lẫn giữa chu vi và diện tích mặt cắt ngang, tính chu vi hình chữ nhật \\(2(6+4)=20\\) và nhân với chiều cao \\(3\\) mét, sau đó chia cho 2 (do hình parabol) dẫn đến \\(\\frac{144}{3}\\).",
+    "D": "Học sinh quên nhân với chiều dài \\(6\\) mét của công trình, chỉ tính diện tích mặt cắt ngang \\(S = \\int_{-3}^{3} \\left(3 - \\frac{3}{4}x^2\\right) dx = \\frac{64}{5}\\) và cho đó là thể tích, dẫn đến kết quả sai \\(\\frac{128}{5}\\) khi nhân nhầm với 2 thay vì 6."
+   },
+   "hint": null,
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Diện tích của hình parabol có đáy là \\(d\\) và chiều cao \\(h\\) là \\(S = \\frac{2}{3}dh\\).",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": null,
+    "method": null,
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": false,
+    "question_kind": "conceptual",
+    "evidence_sources": [],
+    "independent": {},
+    "needs_human_review": false,
+    "verifier_version": null,
+    "verifier_hint": null,
+    "numeric_crosscheck_points": 0,
+    "detail": null,
+    "verified_at": "2026-07-28T09:56:51.355470Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": null,
+    "quality": null,
+    "bloom_alignment": null,
+    "answer_prob": null,
+    "quality_traits": {},
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": null,
+    "verifier_pass": null,
+    "critic_score": null,
+    "grounding_score": null,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "explanation_low_quality: rule validator failed: ['explanation_low_quality:solution_steps<4:3']",
+   "reject_reason_code": "explanation_low_quality",
+   "reject_reason_stage": "verifier",
+   "reject_log": [
+    {
+     "reason_code": "explanation_low_quality",
+     "stage": "verifier",
+     "attempt": 0,
+     "message": "explanation_low_quality: rule validator failed: ['explanation_low_quality:solution_steps<4:3']",
+     "slot_id": "direct_pdf_1"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "stem": "",
+   "question_id": "rej_direct_pdf_2_writer",
+   "blueprint_slot_id": "direct_pdf_2",
+   "cognitive_level": "Vận dụng",
+   "review_status": "rejected",
+   "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['Unterminated string starting at: line 24 column 20 (char 2656)'])",
+   "reject_reason_code": "writer_empty",
+   "reject_reason_stage": "writer",
+   "reject_log": [
+    {
+     "reason_code": "writer_empty",
+     "stage": "writer",
+     "attempt": 0,
+     "message": "Writer không sinh được câu hỏi hợp lệ (errors=['Unterminated string starting at: line 24 column 20 (char 2656)'])",
+     "slot_id": "direct_pdf_2"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "stem": "",
+   "question_id": "rej_direct_pdf_3_writer",
+   "blueprint_slot_id": "direct_pdf_3",
+   "cognitive_level": "Vận dụng",
+   "review_status": "rejected",
+   "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 20 column 7511 (char 9946)\"])",
+   "reject_reason_code": "writer_empty",
+   "reject_reason_stage": "writer",
+   "reject_log": [
+    {
+     "reason_code": "writer_empty",
+     "stage": "writer",
+     "attempt": 0,
+     "message": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 20 column 7511 (char 9946)\"])",
+     "slot_id": "direct_pdf_3"
+    }
+   ],
+   "attempts": 1
+  }
+ ]
+}

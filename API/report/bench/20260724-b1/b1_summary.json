@@ -1,0 +1,169 @@
+{
+  "per_pdf": [
+    {
+      "pdf": "file_1_trang_1-31.pdf",
+      "requested": 10,
+      "accepted": 10,
+      "rejected": 6,
+      "attempted_candidates": 16,
+      "acceptance_rate": 0.625,
+      "reject_distribution": {
+        "writer": 5,
+        "distractor": 1
+      },
+      "verification": {
+        "verified_true": 8,
+        "verified_false_kept": 1,
+        "verified_none": 1,
+        "answer_key_repaired": 0,
+        "verifier_hint_errored": 0,
+        "source_quote_repaired": 0
+      },
+      "needs_revision": 1,
+      "quality_avg": 0.9233,
+      "grounding_avg": 0.926,
+      "bloom_distribution": {
+        "Nhận biết": 2,
+        "Thông hiểu": 1,
+        "Vận dụng": 5,
+        "Vận dụng cao": 2
+      },
+      "cost_tokens": 111328,
+      "cost_calls": 37,
+      "duration_seconds": 351.8,
+      "seconds_per_accepted": 35.2,
+      "calls_per_accepted": 3.7
+    },
+    {
+      "pdf": "file_2_trang_31-61.pdf",
+      "requested": 10,
+      "accepted": 10,
+      "rejected": 8,
+      "attempted_candidates": 18,
+      "acceptance_rate": 0.5556,
+      "reject_distribution": {
+        "writer": 3,
+        "verifier:answer_text_mismatch": 1,
+        "dedup": 1,
+        "verifier:rule_validator": 3
+      },
+      "verification": {
+        "verified_true": 9,
+        "verified_false_kept": 0,
+        "verified_none": 1,
+        "answer_key_repaired": 0,
+        "verifier_hint_errored": 0,
+        "source_quote_repaired": 0
+      },
+      "needs_revision": 0,
+      "quality_avg": 0.9072,
+      "grounding_avg": 0.932,
+      "bloom_distribution": {
+        "Thông hiểu": 3,
+        "Vận dụng": 3,
+        "Vận dụng cao": 3,
+        "Nhận biết": 1
+      },
+      "cost_tokens": 171658,
+      "cost_calls": 44,
+      "duration_seconds": 400.7,
+      "seconds_per_accepted": 40.1,
+      "calls_per_accepted": 4.4
+    },
+    {
+      "pdf": "file_3_trang_61-90.pdf",
+      "requested": 10,
+      "accepted": 7,
+      "rejected": 8,
+      "attempted_candidates": 15,
+      "acceptance_rate": 0.4667,
+      "reject_distribution": {
+        "writer": 4,
+        "distractor": 4
+      },
+      "verification": {
+        "verified_true": 7,
+        "verified_false_kept": 0,
+        "verified_none": 0,
+        "answer_key_repaired": 0,
+        "verifier_hint_errored": 0,
+        "source_quote_repaired": 0
+      },
+      "needs_revision": 1,
+      "quality_avg": 0.8693,
+      "grounding_avg": 0.8786,
+      "bloom_distribution": {
+        "Nhận biết": 1,
+        "Thông hiểu": 2,
+        "Vận dụng": 3,
+        "Vận dụng cao": 1
+      },
+      "cost_tokens": 141094,
+      "cost_calls": 69,
+      "duration_seconds": 407.1,
+      "seconds_per_accepted": 58.2,
+      "calls_per_accepted": 9.86
+    },
+    {
+      "pdf": "file_4_trang_91-het.pdf",
+      "requested": 10,
+      "accepted": 10,
+      "rejected": 6,
+      "attempted_candidates": 16,
+      "acceptance_rate": 0.625,
+      "reject_distribution": {
+        "writer": 5,
+        "distractor": 1
+      },
+      "verification": {
+        "verified_true": 10,
+        "verified_false_kept": 0,
+        "verified_none": 0,
+        "answer_key_repaired": 0,
+        "verifier_hint_errored": 0,
+        "source_quote_repaired": 0
+      },
+      "needs_revision": 1,
+      "quality_avg": 0.8768,
+      "grounding_avg": 0.854,
+      "bloom_distribution": {
+        "Thông hiểu": 2,
+        "Vận dụng": 5,
+        "Vận dụng cao": 2,
+        "Nhận biết": 1
+      },
+      "cost_tokens": 187478,
+      "cost_calls": 37,
+      "duration_seconds": 335.2,
+      "seconds_per_accepted": 33.5,
+      "calls_per_accepted": 3.7
+    }
+  ],
+  "totals": {
+    "pdfs": 4,
+    "requested": 40,
+    "accepted": 37,
+    "rejected": 28,
+    "acceptance_rate": 0.5692,
+    "reject_distribution": {
+      "writer": 17,
+      "distractor": 6,
+      "verifier:answer_text_mismatch": 1,
+      "dedup": 1,
+      "verifier:rule_validator": 3
+    },
+    "verification": {
+      "verified_true": 34,
+      "verified_false_kept": 1,
+      "verified_none": 2,
+      "answer_key_repaired": 0,
+      "verifier_hint_errored": 0,
+      "source_quote_repaired": 0
+    },
+    "needs_revision": 3,
+    "cost_tokens": 611558,
+    "cost_calls": 187,
+    "duration_seconds": 1494.8,
+    "seconds_per_accepted": 40.4
+  }
+}

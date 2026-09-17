@@ -1,0 +1,35 @@
+{
+ "model": "meta-llama/llama-4-scout",
+ "pdf": "pdftest/file_3_trang_61-90.pdf",
+ "requested": 20,
+ "delivered": 1,
+ "rejected": 45,
+ "attempted": 46,
+ "error_code": null,
+ "duration_seconds": 1763.5,
+ "cost": {
+  "tokens": 7405051,
+  "calls": 143
+ },
+ "issue_counts": {},
+ "status_counts": {
+  "mismatch": 1
+ },
+ "bloom_counts": {
+  "Vận dụng": 1
+ },
+ "per_question": [
+  {
+   "id": "q_2026_9c4cb098",
+   "bloom": "Vận dụng",
+   "status": "mismatch",
+   "machine_checked": false,
+   "independent": false,
+   "derivation": false,
+   "review": "needs_revision",
+   "issues": [],
+   "stem_len": 367,
+   "stem_tail": "òn lại vật chuyển động chậm dần đều. Tính quãng đường \\(S\\) mà vật đi được trong 4 giờ đó."
+  }
+ ]
+}

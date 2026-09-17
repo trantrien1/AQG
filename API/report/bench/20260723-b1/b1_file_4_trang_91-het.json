@@ -1,0 +1,2116 @@
+{
+  "metadata": {
+    "bench": "B1",
+    "mode": "Direct_PDF_Mode",
+    "source_pdf": "pdftest\\file_4_trang_91-het.pdf",
+    "source_pdf_name": "file_4_trang_91-het.pdf",
+    "requested_questions": 10,
+    "accepted_questions": 10,
+    "is_partial": false,
+    "parse_errors": 4,
+    "verify_failures": 1,
+    "error_code": null,
+    "error_message": null,
+    "generator_model": "gpt-4o",
+    "judge_model": "gpt-4o-mini",
+    "parallel_slots": 3,
+    "pdf_attach_mode": "file_url",
+    "cost": {
+      "tokens": 192592,
+      "calls": 38
+    },
+    "duration_seconds": 440.24503445625305,
+    "generated_at": "2026-07-23T16:59:27.271245Z"
+  },
+  "questions": [
+    {
+      "question_id": "q_2026_61a28194",
+      "blueprint_slot_id": "direct_pdf_1",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 218,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Một khối tròn xoay được tạo thành khi quay miền phẳng giới hạn bởi parabol có đỉnh \\(I(0;5)\\), đi qua điểm \\(A(3;2)\\), trục hoành và hai đường thẳng \\(x=-3, x=3\\) quanh trục \\(Ox\\). Tính thể tích của khối tròn xoay đó.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{80\\sqrt{15}\\pi}{3}\\)",
+          "error_type": "wrong_domain"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{336\\pi}{5}\\)",
+          "error_type": "forget_change_bounds"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{504\\pi}{5}\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{504}{5}\\)",
+          "error_type": "volume_missing_pi"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Từ điều kiện đỉnh và điểm đi qua, xác định được phương trình parabol rồi dùng công thức thể tích khối tròn xoay để tính tích phân.",
+      "explanation_per_distractor": {
+        "A": "Học sinh bỏ qua điều kiện miền quay bị giới hạn bởi hai đường thẳng \\(x=-3, x=3\\), thay vào đó tự lấy miền mà parabol cắt trục hoành. Từ \\(5-\\frac{x^2}{3}=0\\) suy ra \\(x=\\pm\\sqrt{15}\\), rồi tính sai thể tích \\(\\pi\\int_{-\\sqrt{15}}^{\\sqrt{15}}\\left(5-\\frac{x^2}{3}\\right)^2dx=\\frac{80\\sqrt{15}\\pi}{3}\\). Sai vì cận tích phân phải theo giới hạn hình phẳng đã cho.",
+        "B": "Học sinh đặt đổi biến \\(x=3u\\) để đơn giản tích phân nhưng chỉ đổi biểu thức mà quên đổi cận. Khi đó lấy sai tích phân \\(\\pi\\int_{-3}^{3}(5-3u^2)^2du\\). Tính được \\(\\int_{-3}^{3}(25-30u^2+9u^4)du=\\frac{336}{5}\\), nên nhận kết quả sai \\(\\frac{336\\pi}{5}\\). Sai vì khi đổi biến phải đổi cận từ \\([-3,3]\\) sang \\([-1,1]\\).",
+        "D": "Học sinh xác định được parabol \\(y=5-\\frac{x^2}{3}\\) và lập tích phân đúng nhưng quên hệ số \\(\\pi\\) trong công thức thể tích khối tròn xoay. Vì vậy tính \\(\\int_{-3}^{3}\\left(5-\\frac{x^2}{3}\\right)^2dx=\\frac{504}{5}\\) và kết luận sai là \\(\\frac{504}{5}\\) thay vì phải nhân thêm \\(\\pi\\)."
+      },
+      "hint": "Từ điều kiện đỉnh và điểm đi qua, xác định được phương trình parabol rồi dùng công thức thể tích khối tròn xoay để tính t",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Vậy khối tròn có thể tích là:   2 b N a V f x dx",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": false,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 316.6725394818512",
+        "verified_at": "2026-07-23T16:53:10.429673Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9049999999999999,
+        "bloom_alignment": 0.82,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài nêu đầy đủ miền giới hạn, trục quay và yêu cầu tính thể tích nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.78,
+            "rationale": "Bài yêu cầu suy ra parabol rồi áp dụng tích phân thể tích, phù hợp mức vận dụng nhẹ hơn là chỉ nhận biết."
+          },
+          "bloom_alignment": {
+            "score": 0.82,
+            "rationale": "Thao tác chính là áp dụng phương pháp đã học vào dữ kiện mới nên phù hợp với mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đại diện cho các lỗi phổ biến như quên \\(\\pi\\), sai đổi cận và chọn sai miền tích phân."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(\\frac{504\\pi}{5}\\) phù hợp với tích phân trên đoạn \\([-3,3]\\) của miền đã cho."
+          },
+          "error_distractor_consistency": {
+            "score": 0.98,
+            "rationale": "Các chuỗi lỗi mô tả đều dẫn đến đúng các giá trị distractor và phần giải thích thống nhất với đáp án đúng."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9049999999999999,
+        "verifier_pass": false,
+        "critic_score": 0.9049999999999999,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "needs_revision",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "verifier_numeric_mismatch"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ điều kiện đỉnh và điểm đi qua, xác định được phương trình parabol rồi dùng công thức thể tích khối tròn xoay để tính tích phân.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì parabol có đỉnh \\(I(0;5)\\) nên có dạng \\(y=ax^2+5\\). Thay điểm \\(A(3;2)\\) vào ta được \\(2=9a+5\\), suy ra \\(a=-\\frac{1}{3}\\). Do đó phương trình parabol là \\(y=5-\\frac{x^2}{3}\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Miền quay quanh trục \\(Ox\\) có bán kính tại vị trí \\(x\\) là \\(y=5-\\frac{x^2}{3}\\), với \\(x\\in[-3;3]\\). Vì vậy thể tích được tính bởi \\(V=\\pi\\int_{-3}^{3}\\left(5-\\frac{x^2}{3}\\right)^2dx\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Khai triển biểu thức: \\(\\left(5-\\frac{x^2}{3}\\right)^2=25-\\frac{10x^2}{3}+\\frac{x^4}{9}\\). Suy ra \\(V=\\pi\\left(150-60+\\frac{54}{5}\\right)=\\pi\\cdot\\frac{504}{5}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{504\\pi}{5}\\)"
+      },
+      "why_correct": "Phương trình parabol được suy ra duy nhất từ đỉnh và điểm đã cho; sau đó công thức tích phân thể tích khối tròn xoay cho đúng giá trị \\(\\frac{504\\pi}{5}\\), nên đây là kết quả duy nhất phù hợp.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Học sinh bỏ qua điều kiện miền quay bị giới hạn bởi hai đường thẳng \\(x=-3, x=3\\), thay vào đó tự lấy miền mà parabol cắt trục hoành."
+        },
+        {
+          "option": "B",
+          "reason": "Học sinh đặt đổi biến \\(x=3u\\) để đơn giản tích phân nhưng chỉ đổi biểu thức mà quên đổi cận. Khi đó lấy sai tích phân \\(\\pi\\int_{-3}^{3}(5-3u^2)^2du\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Học sinh xác định được parabol \\(y=5-\\frac{x^2}{3}\\) và lập tích phân đúng nhưng quên hệ số \\(\\pi\\) trong công thức thể tích khối tròn xoay."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_49376343",
+      "blueprint_slot_id": "direct_pdf_4",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.53,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 275,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Cho miền phẳng giới hạn bởi đồ thị hàm số \\(y=f(x)\\), trục hoành và hai đường thẳng \\(x=0\\), \\(x=2\\). Biết đồ thị \\(f(x)\\) là một parabol có đỉnh \\(I(1;5)\\) và đi qua điểm \\(A(0;2)\\). Khi quay miền phẳng đó quanh trục \\(Ox\\), thể tích khối tròn xoay tạo thành bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{18\\pi}{5}\\)",
+          "error_type": "omit_vertex_height_in_parabola"
+        },
+        {
+          "key": "B",
+          "text": "\\(8\\pi\\)",
+          "error_type": "forget_square_in_volume"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{368\\pi}{5}\\)",
+          "error_type": "parabola_opening_direction_wrong"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{168\\pi}{5}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Từ điều kiện đỉnh và điểm đi qua, tìm được phương trình parabol rồi áp dụng công thức thể tích khối tròn xoay bằng tích phân để tính kết quả.",
+      "explanation_per_distractor": {
+        "A": "Sai khi lập phương trình parabol: học sinh chỉ dùng độ lệch ngang từ đỉnh và viết nhầm \\(f(x)=-3(x-1)^2\\), bỏ mất tung độ đỉnh \\(5\\). Khi đó tính thể tích theo công thức quay quanh trục \\(Ox\\): \\(V=\\pi\\int_0^2[-3(x-1)^2]^2dx=9\\pi\\int_{-1}^{1}t^4dt=9\\pi\\cdot\\frac{2}{5}=\\frac{18\\pi}{5}\\). Sai vì đồ thị mới không có đỉnh \\(I(1;5)\\) và không đi qua \\(A(0;2)\\).",
+        "B": "Sai ở bước áp dụng công thức thể tích khối tròn xoay: thay vì dùng \\(V=\\pi\\int_0^2(f(x))^2dx\\), học sinh nhầm dùng công thức diện tích hình phẳng \\(V=\\pi\\int_0^2f(x)dx\\). Từ đỉnh \\(I(1;5)\\) và điểm \\(A(0;2)\\), vẫn tìm được \\(f(x)=-3(x-1)^2+5=-3x^2+6x+2\\). Khi đó tính sai \\(\\pi\\int_0^2(-3x^2+6x+2)dx=\\pi[-x^3+3x^2+2x]_0^2=8\\pi\\). Sai vì thể tích phải tích phân bình phương bán kính mặt cắt.",
+        "C": "Sai khi xác định phương trình parabol: từ đỉnh \\(I(1;5)\\) viết \\(f(x)=a(x-1)^2+5\\), nhưng lấy nhầm \\(a=3\\) thay vì \\(a=-3\\) do bỏ qua việc parabol đi qua \\(A(0;2)\\). Khi đó dùng \\(f(x)=3(x-1)^2+5\\). Thể tích sai là \\(V=\\pi\\int_0^2(3(x-1)^2+5)^2dx\\). Đặt \\(t=x-1\\), ta được \\(\\pi\\int_{-1}^{1}(3t^2+5)^2dt=\\pi\\int_{-1}^{1}(9t^4+30t^2+25)dt=\\frac{368\\pi}{5}\\)."
+      },
+      "hint": "Từ điều kiện đỉnh và điểm đi qua, tìm được phương trình parabol rồi áp dụng công thức thể tích khối tròn xoay bằng tích p",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Quay D quanh trục Ox ta được một hình khối gọi là khối tròn xoay.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": false,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 105.55751316061705",
+        "verified_at": "2026-07-23T16:54:18.376965Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.93,
+        "quality": 0.5,
+        "bloom_alignment": 0.55,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.96,
+            "rationale": "Đề nêu đầy đủ miền phẳng, trục quay, điều kiện xác định parabol và yêu cầu tính thể tích nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.78,
+            "rationale": "Bài yêu cầu kết hợp xác định parabol từ điều kiện hình học và áp dụng tích phân thể tích, phù hợp mức vận dụng nhẹ hơn là chỉ nhận biết."
+          },
+          "bloom_alignment": {
+            "score": 0.55,
+            "rationale": "Thao tác thực tế là thiết lập phương trình và tính tích phân chứ không chỉ giải thích khái niệm, nên mức Thông hiểu được đánh giá hơi thấp."
+          },
+          "distractor_plausibility": {
+            "score": 0.92,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến như quên bình phương, sai chiều parabol hoặc quên tung độ đỉnh và dùng cùng ngữ cảnh bài toán."
+          },
+          "answer_uniqueness": {
+            "score": 0.98,
+            "rationale": "Từ đỉnh \\(I(1;5)\\) và điểm \\(A(0;2)\\) suy ra duy nhất \\(f(x)=-3(x-1)^2+5\\), các distractor không thỏa điều kiện hoặc sai công thức thể tích."
+          },
+          "error_distractor_consistency": {
+            "score": 0.99,
+            "rationale": "Ba chuỗi lỗi đều dẫn đúng đến các giá trị distractor đã nêu và phần giải thích đáp án phù hợp với đáp án \\(\\frac{168\\pi}{5}\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8633333333333333,
+        "verifier_pass": false,
+        "critic_score": 0.8633333333333333,
+        "grounding_score": 0.93,
+        "reject_reasons": []
+      },
+      "review_status": "needs_revision",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "bloom_alignment=0.55",
+          "verifier_numeric_mismatch"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ điều kiện đỉnh và điểm đi qua, tìm được phương trình parabol rồi áp dụng công thức thể tích khối tròn xoay bằng tích phân để tính kết quả.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì parabol có đỉnh \\(I(1;5)\\) nên viết được dưới dạng \\(f(x)=a(x-1)^2+5\\). Do đi qua \\(A(0;2)\\) nên \\(2=a(0-1)^2+5\\), suy ra \\(a=-3\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Suy ra hàm số của parabol là \\(f(x)=5-3(x-1)^2=-3x^2+6x+2\\). Trên đoạn \\([0;2]\\), miền phẳng được quay quanh trục \\(Ox\\) nên dùng bán kính \\(f(x)\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thể tích khối tròn xoay là \\(V=\\pi\\int_0^2(f(x))^2dx=\\pi\\int_0^2(5-3(x-1)^2)^2dx\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Khai triển và tính tích phân: \\(\\int_0^2(5-3(x-1)^2)^2dx=\\int_0^2(9x^4-36x^3+36x^2+12x+4)dx=\\frac{168}{5}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{168\\pi}{5}\\)"
+      },
+      "why_correct": "Điều kiện hình học xác định duy nhất parabol, sau đó công thức thể tích khối tròn xoay cho đúng một giá trị tích phân nên kết quả là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai khi lập phương trình parabol: học sinh chỉ dùng độ lệch ngang từ đỉnh và viết nhầm \\(f(x)=-3(x-1)^2\\), bỏ mất tung độ đỉnh \\(5\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sai ở bước áp dụng công thức thể tích khối tròn xoay: thay vì dùng \\(V=\\pi\\int_0^2(f(x))^2dx\\), học sinh nhầm dùng công thức diện tích hình phẳng \\(V=\\pi\\int_0^2f(x)dx\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai khi xác định phương trình parabol: từ đỉnh \\(I(1;5)\\) viết \\(f(x)=a(x-1)^2+5\\), nhưng lấy nhầm \\(a=3\\) thay vì \\(a=-3\\) do bỏ qua việc parabol đi qua \\(A(0;2)\\). Khi đó dùng \\(f(x)=3(x-1)^2+5\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_bf282e1c",
+      "blueprint_slot_id": "direct_pdf_5",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 209,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một khu vực trồng hoa có dạng hình phẳng giới hạn bởi đồ thị hàm số \\(y=x^2\\), một đường thẳng đi qua hai điểm \\(A(-1;1)\\), \\(B(3;9)\\) và hai đường thẳng \\(x=-1\\), \\(x=3\\). Tính diện tích khu vực trồng hoa đó.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{80}{3}\\)",
+          "error_type": "line_through_points_slope_wrong"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{32}{3}\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(9\\)",
+          "error_type": "integration_interval_misread"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{88}{3}\\)",
+          "error_type": "area_add_two_functions"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Trước hết cần tìm phương trình đường thẳng qua hai điểm đã cho, sau đó xác định hàm nào nằm trên trong khoảng xét rồi áp dụng công thức diện tích hình phẳng.",
+      "explanation_per_distractor": {
+        "A": "Sai ở bước lập phương trình đường thẳng qua hai điểm. Người làm nhầm hệ số góc thành \\(m=\\frac{9-1}{3-1}=4\\), rồi lập đường thẳng qua \\(A(-1;1)\\) là \\(y=4x+5\\). Khi đó tính diện tích sai bằng \\(\\int_{-1}^{3}(4x+5-x^2)\\,dx=\\frac{80}{3}\\). Sai vì hệ số góc đúng phải là \\(m=\\frac{9-1}{3-(-1)}=2\\), nên đường thẳng đúng là \\(y=2x+3\\).",
+        "C": "Sai ở bước xác định cận tích phân. Người làm bỏ qua đầu mút \\(x=-1\\) và chỉ lấy khoảng từ \\(0\\) đến \\(3\\), nên tính \\(S=\\int_{0}^{3}(2x+3-x^2)\\,dx\\). Ta có \\(\\left[x^2+3x-\\frac{x^3}{3}\\right]_{0}^{3}=18-9=9\\). Sai vì miền hình phẳng được giới hạn bởi hai đường thẳng \\(x=-1\\) và \\(x=3\\), nên cận đúng phải là \\([-1;3]\\).",
+        "D": "Sai ở bước áp dụng công thức diện tích hình phẳng. Người làm nhầm hiệu hai hàm thành tổng hai hàm và tính \\(S=\\int_{-1}^{3}(x^2+2x+3)\\,dx\\). Kết quả là \\(\\left[\\frac{x^3}{3}+x^2+3x\\right]_{-1}^{3}=\\frac{88}{3}\\). Sai vì diện tích giữa hai đồ thị phải lấy hàm trên trừ hàm dưới: \\(S=\\int_{-1}^{3}(2x+3-x^2)\\,dx\\)."
+      },
+      "hint": "Trước hết cần tìm phương trình đường thẳng qua hai điểm đã cho, sau đó xác định hàm nào nằm trên trong khoảng xét rồi áp",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Diện tích S của hình phẳng giới hạn bởi đồ thị hàm số \\(y=f(x)\\), trục hoành và 2 đường thẳng \\(x=a, x=b\\) được tính bởi công thức",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 10.666666666666666",
+        "verified_at": "2026-07-23T16:55:06.159557Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9550000000000001,
+        "bloom_alignment": 0.95,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài xác định rõ hai đồ thị, hai đường biên đứng và yêu cầu tính một đại lượng duy nhất là diện tích."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu lập phương trình đường thẳng, xác định vị trí tương đối của hai hàm và tính tích phân nên phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.95,
+            "rationale": "Thao tác chính là vận dụng công thức diện tích hình phẳng vào tình huống mới, đúng với mức Bloom Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.95,
+            "rationale": "Các phương án sai đều mô phỏng lỗi phổ biến khi tính hệ số góc, lấy tổng hàm hoặc chọn sai cận tích phân."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(\\frac{32}{3}\\) là kết quả đúng từ đường thẳng \\(y=2x+3\\) và tích phân trên đoạn \\([-1,3]\\)."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Các chuỗi lỗi mô tả đều dẫn đúng đến các giá trị distractor và phần giải thích không mâu thuẫn với đáp án chính."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9550000000000001,
+        "verifier_pass": true,
+        "critic_score": 0.9550000000000001,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Trước hết cần tìm phương trình đường thẳng qua hai điểm đã cho, sau đó xác định hàm nào nằm trên trong khoảng xét rồi áp dụng công thức diện tích hình phẳng.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Gọi đường thẳng cần tìm có dạng \\(y=ax+b\\). Vì đi qua \\(A(-1;1)\\) và \\(B(3;9)\\) nên ta có hệ \\( -a+b=1 \\), \\(3a+b=9\\). Giải hệ được \\(a=2\\), \\(b=3\\), do đó đường thẳng là \\(y=2x+3\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Tìm vị trí giao nhau của hai đồ thị: \\(x^2=2x+3\\). Suy ra \\(x^2-2x-3=0\\), nên \\(x=-1\\) hoặc \\(x=3\\), đúng với hai cận của miền cần tính."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Trên đoạn \\([-1;3]\\), lấy \\(x=0\\) thì \\(2x+3=3\\) lớn hơn \\(x^2=0\\), nên diện tích cần tìm là \\(S=\\int_{-1}^{3}(2x+3-x^2)\\,dx\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Tính tích phân: \\(S=\\left(x^2+3x-\\frac{x^3}{3}\\right)\\Big|_{-1}^{3}=\\left(9+9-9\\right)-\\left(1-3+\\frac{1}{3}\\right)=9+\\frac{1}{3}=\\frac{32}{3}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{32}{3}\\)"
+      },
+      "why_correct": "Đường thẳng được xác định duy nhất bởi hai điểm đã cho, hai đồ thị chỉ cắt nhau tại hai đầu mút của miền xét và trên toàn khoảng đó đường thẳng nằm phía trên parabol nên công thức tích phân đã chọn cho đúng diện tích.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai ở bước lập phương trình đường thẳng qua hai điểm. Người làm nhầm hệ số góc thành \\(m=\\frac{9-1}{3-1}=4\\), rồi lập đường thẳng qua \\(A(-1;1)\\) là \\(y=4x+5\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai ở bước xác định cận tích phân. Người làm bỏ qua đầu mút \\(x=-1\\) và chỉ lấy khoảng từ \\(0\\) đến \\(3\\), nên tính \\(S=\\int_{0}^{3}(2x+3-x^2)\\,dx\\). Ta có \\(\\left[x^2+3x-\\frac{x^3}{3}\\right]_{0}^{3}=18-9=9\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai ở bước áp dụng công thức diện tích hình phẳng. Người làm nhầm hiệu hai hàm thành tổng hai hàm và tính \\(S=\\int_{-1}^{3}(x^2+2x+3)\\,dx\\). Kết quả là \\(\\left[\\frac{x^3}{3}+x^2+3x\\right]_{-1}^{3}=\\frac{88}{3}\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_d30c2435",
+      "blueprint_slot_id": "direct_pdf_6",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 294,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một bể chứa nước dạng khối tròn xoay được tạo thành khi quay miền phẳng \\(D\\) giới hạn bởi đồ thị hàm số \\(y=f(x)\\), trục hoành và hai đường thẳng \\(x=1, x=3\\) quanh trục \\(Ox\\). Biết đồ thị \\(y=f(x)\\) là một parabol có đỉnh \\(I(3;5)\\) và đi qua điểm \\(A(1;1)\\). Tính thể tích của bể chứa nước.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{168\\pi}{5}\\)",
+          "error_type": "wrong_integration_bounds"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{13406\\pi}{15}\\)",
+          "error_type": "vertex_coordinate_sign_error"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{446\\pi}{15}\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{446}{15}\\)",
+          "error_type": "volume_missing_pi"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Từ dữ kiện đỉnh và điểm đi qua, xác định được phương trình parabol rồi dùng công thức thể tích khối tròn xoay \\(V=\\pi\\int_a^b(f(x))^2dx\\).",
+      "explanation_per_distractor": {
+        "A": "Học sinh xác định đúng hàm số \\(f(x)=5-(x-3)^2\\) nhưng lấy sai cận tích phân, dùng \\([0,3]\\) thay vì \\([1,3]\\). Khi đó tính \\(V=\\pi\\int_0^3(5-(x-3)^2)^2dx\\). Đặt \\(t=x-3\\), được \\(V=\\pi\\int_{-3}^0(5-t^2)^2dt=\\frac{168\\pi}{5}\\). Sai vì miền phẳng bị giới hạn bởi hai đường thẳng \\(x=1\\) và \\(x=3\\), nên cận đúng phải là \\([1,3]\\).",
+        "B": "Học sinh nhầm dấu của hoành độ đỉnh, lấy đỉnh là \\((-3;5)\\) nên lập sai parabol \\(y=5-(x+3)^2\\). Sau đó vẫn áp dụng công thức thể tích trên đoạn \\([1,3]\\): \\(V=\\pi\\int_1^3(5-(x+3)^2)^2dx\\). Đổi biến \\(u=x+3\\), ta được \\(V=\\pi\\int_4^6(5-u^2)^2du=\\frac{13406\\pi}{15}\\). Sai vì đỉnh đã cho là \\((3;5)\\), không phải \\((-3;5)\\).",
+        "D": "Học sinh dùng công thức thể tích khối tròn xoay nhưng quên hệ số \\(\\pi\\). Từ parabol \\(f(x)=5-(x-3)^2\\), tính sai thành \\(V=\\int_1^3(f(x))^2dx=\\int_1^3(5-(x-3)^2)^2dx=\\frac{446}{15}\\). Sai vì công thức đúng phải là \\(V=\\pi\\int_1^3(f(x))^2dx\\)."
+      },
+      "hint": "Từ dữ kiện đỉnh và điểm đi qua, xác định được phương trình parabol rồi dùng công thức thể tích khối tròn xoay",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Quay D quanh trục Ox ta được một hình khối gọi là khối tròn xoay.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": false,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 93.41002156673652",
+        "verified_at": "2026-07-23T16:56:08.712309Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9416666666666665,
+        "bloom_alignment": 0.95,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài nêu đầy đủ miền quay, trục quay, dữ kiện parabol và yêu cầu tính thể tích nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.9,
+            "rationale": "Bài yêu cầu kết hợp xác định parabol từ đỉnh và điểm thuộc đồ thị rồi áp dụng tích phân tính thể tích, phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.95,
+            "rationale": "Thao tác chính là vận dụng công thức và quy trình đã học vào dữ kiện mới, đúng với mức Bloom Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đại diện cho các lỗi phổ biến như quên pi, sai đỉnh và sai cận tích phân."
+          },
+          "answer_uniqueness": {
+            "score": 0.95,
+            "rationale": "Chỉ phương án chứa hệ số pi và được tính trên đúng đoạn [1,3] với đúng parabol có đỉnh (3;5) cho kết quả phù hợp."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Các chuỗi lỗi mô tả đều dẫn đúng tới giá trị distractor tương ứng và phần giải thích không mâu thuẫn với đáp án."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9416666666666665,
+        "verifier_pass": false,
+        "critic_score": 0.9416666666666665,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "needs_revision",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "verifier_numeric_mismatch"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ dữ kiện đỉnh và điểm đi qua, xác định được phương trình parabol rồi dùng công thức thể tích khối tròn xoay \\(V=\\pi\\int_a^b(f(x))^2dx\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì parabol có đỉnh \\(I(3;5)\\), đặt \\(f(x)=a(x-3)^2+5\\). Do đi qua \\(A(1;1)\\) nên \\(1=4a+5\\), suy ra \\(a=-1\\). Vậy \\(f(x)=5-(x-3)^2\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Miền phẳng quay quanh trục \\(Ox\\) trên đoạn \\(1\\le x\\le3\\), nên thể tích được tính bởi \\(V=\\pi\\int_1^3\\left(5-(x-3)^2\\right)^2dx\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Khai triển biểu thức dưới dấu tích phân: \\(\\left(5-(x-3)^2\\right)^2=(x-3)^4-10(x-3)^2+25\\). Đặt \\(u=x-3\\), khi \\(x=1\\) thì \\(u=-2\\), khi \\(x=3\\) thì \\(u=0\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Tính tích phân: \\(\\int_{-2}^{0}(u^4-10u^2+25)du=\\left[\\frac{u^5}{5}-\\frac{10u^3}{3}+25u\\right]_{-2}^{0}=\\frac{446}{15}\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Suy ra thể tích bể là \\(V=\\pi\\cdot\\frac{446}{15}=\\frac{446\\pi}{15}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{446\\pi}{15}\\)"
+      },
+      "why_correct": "Phương trình parabol được xác định duy nhất từ đỉnh và một điểm thuộc đồ thị; công thức thể tích khối tròn xoay quanh trục \\(Ox\\) áp dụng đúng cho miền đã cho nên chỉ cho một kết quả duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Học sinh xác định đúng hàm số \\(f(x)=5-(x-3)^2\\) nhưng lấy sai cận tích phân, dùng \\([0,3]\\) thay vì \\([1,3]\\). Khi đó tính \\(V=\\pi\\int_0^3(5-(x-3)^2)^2dx\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Học sinh nhầm dấu của hoành độ đỉnh, lấy đỉnh là \\((-3;5)\\) nên lập sai parabol \\(y=5-(x+3)^2\\). Sau đó vẫn áp dụng công thức thể tích trên đoạn \\([1,3]\\): \\(V=\\pi\\int_1^3(5-(x+3)^2)^2dx\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Học sinh dùng công thức thể tích khối tròn xoay nhưng quên hệ số \\(\\pi\\). Từ parabol \\(f(x)=5-(x-3)^2\\), tính sai thành \\(V=\\int_1^3(f(x))^2dx=\\int_1^3(5-(x-3)^2)^2dx=\\frac{446}{15}\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_c6c9b06f",
+      "blueprint_slot_id": "direct_pdf_7",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 325,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một chiếc trống gỗ có dạng khối tròn xoay. Hai đáy của trống là hai hình tròn bán kính \\(25\\) cm, chiều dài trống là \\(80\\) cm. Mặt phẳng chứa trục cắt mặt xung quanh của trống theo hai đường parabol. Biết thiết diện vuông góc với trục tại trung điểm của trống có diện tích \\(900\\pi\\) cm\\(^2\\). Tính thể tích của chiếc trống.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(64400\\pi\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(64400\\)",
+          "error_type": "volume_missing_pi"
+        },
+        {
+          "key": "C",
+          "text": "\\(80400\\pi\\)",
+          "error_type": "parabola_coefficient_sign_error"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{218000\\pi}{3}\\)",
+          "error_type": "parabolic_model_replaced_by_linear_model"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Từ diện tích thiết diện giữa trống suy ra bán kính lớn nhất là \\(30\\) cm, sau đó lập phương trình parabol biểu diễn bán kính theo trục và dùng công thức thể tích khối tròn xoay.",
+      "explanation_per_distractor": {
+        "B": "Sai lầm là dùng công thức thể tích khối tròn xoay nhưng quên hệ số \\(\\pi\\). Học sinh vẫn lập đúng bán kính parabol \\(r(x)=30-\\frac{x^2}{320}\\) trên đoạn \\([-40,40]\\), tính \\(\\int_{-40}^{40}\\left(30-\\frac{x^2}{320}\\right)^2dx=64400\\), rồi kết luận thể tích bằng \\(64400\\) thay vì phải nhân thêm \\(\\pi\\).",
+        "C": "Sai lầm là xác định sai chiều mở của parabol. Học sinh lấy đỉnh ở giữa có bán kính \\(30\\) cm nhưng viết nhầm \\(r(x)=30+\\frac{x^2}{320}\\) thay vì \\(r(x)=30-\\frac{x^2}{320}\\). Sau đó tính \\(V=\\pi\\int_{-40}^{40}\\left(30+\\frac{x^2}{320}\\right)^2dx=80400\\pi\\). Sai vì bán kính phải giảm từ \\(30\\) cm ở giữa về \\(25\\) cm ở hai đáy.",
+        "D": "Sai lầm là cho rằng đường sinh của mặt cắt trống là đoạn thẳng thay vì parabol. Học sinh nối hai điểm \\((0,30)\\) và \\((40,25)\\), lấy bán kính biến thiên tuyến tính \\(r(x)=30-\\frac{x}{8}\\) với \\(x\\in[0,40]\\), rồi nhân đôi do tính hai nửa trống: \\(V=2\\pi\\int_0^{40}\\left(30-\\frac{x}{8}\\right)^2dx=\\frac{218000\\pi}{3}\\)."
+      },
+      "hint": "Từ diện tích thiết diện giữa trống suy ra bán kính lớn nhất là \\(30\\) cm, sau đó lập phương trình parabol biểu diễn bán k",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Thiết diện vuông góc với trục và cách đều hai đáy là hình tròn có bán kính r có diện tích là \\(1600\\pi\\) cm², nên",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": false,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 202318.56689118268",
+        "verified_at": "2026-07-23T16:56:16.818378Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.875,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề nêu đầy đủ hình dạng, kích thước, điều kiện parabol và yêu cầu tính thể tích nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.9,
+            "rationale": "Bài yêu cầu mô hình hóa parabol rồi dùng tích phân tính thể tích, phù hợp mức vận dụng thay vì chỉ áp dụng công thức trực tiếp."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác cần thực hiện là suy luận từ dữ kiện hình học để lập mô hình và giải quyết bài toán tích phân, đúng mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai tương ứng với những lỗi phổ biến như quên pi, thay parabol bằng đường thẳng và sai dấu hệ số parabol."
+          },
+          "answer_uniqueness": {
+            "score": 0.95,
+            "rationale": "Chỉ có đáp án \\(64400\\pi\\) phù hợp với mô hình parabol và tích phân thể tích; các đáp án còn lại đều xuất phát từ lỗi tính toán xác định."
+          },
+          "error_distractor_consistency": {
+            "score": 0.65,
+            "rationale": "Hai distractor đầu có chuỗi lỗi khớp giá trị đưa ra, nhưng distractor \\(80400\\pi\\) không nhất quán vì với \\(r(x)=30+\\frac{x^2}{320}\\) tích phân không cho đúng giá trị này."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.875,
+        "verifier_pass": false,
+        "critic_score": 0.875,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "needs_revision",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "verifier_numeric_mismatch"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ diện tích thiết diện giữa trống suy ra bán kính lớn nhất là \\(30\\) cm, sau đó lập phương trình parabol biểu diễn bán kính theo trục và dùng công thức thể tích khối tròn xoay.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Đặt trục \\(Ox\\) trùng với trục của trống, gốc tại trung điểm của trống. Vì thiết diện ở giữa có diện tích \\(900\\pi\\) cm\\(^2\\) nên bán kính tại đó là \\(r=\\sqrt{900}=30\\) cm."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Gọi bán kính mặt cắt tại vị trí \\(x\\) là \\(y\\). Do mặt cắt là parabol có đỉnh tại trung điểm trống nên đặt \\(y=ax^2+30\\). Ở hai đầu trống ta có \\(x=\\pm40\\), \\(y=25\\), suy ra \\(25=1600a+30\\), nên \\(a=-\\frac{1}{320}\\). Vậy \\(y=30-\\frac{x^2}{320}\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thể tích trống được tính bằng phương pháp tích phân đĩa: \\(V=\\pi\\int_{-40}^{40}y^2dx=\\pi\\int_{-40}^{40}\\left(30-\\frac{x^2}{320}\\right)^2dx\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Khai triển biểu thức dưới dấu tích phân: \\(\\left(30-\\frac{x^2}{320}\\right)^2=900-\\frac{3x^2}{16}+\\frac{x^4}{102400}\\). Do hàm số đối xứng, ta tính trên đoạn \\([0;40]\\): \\(V=2\\pi\\left[900x-\\frac{x^3}{16\\cdot3}+\\frac{x^5}{102400\\cdot5}\\right]_0^{40}\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Thay cận: \\(V=2\\pi\\left(36000-\\frac{64000}{48}+\\frac{102400000}{512000}\\right)=2\\pi(32200)=64400\\pi\\)."
+          }
+        ],
+        "final_answer": "\\(64400\\pi\\)"
+      },
+      "why_correct": "Bán kính của mọi thiết diện vuông góc với trục được xác định duy nhất bởi parabol đã tìm từ hai điều kiện: bán kính cực đại ở giữa và bán kính tại hai đáy. Vì vậy tích phân thể tích cho kết quả duy nhất là \\(64400\\pi\\).",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Sai lầm là dùng công thức thể tích khối tròn xoay nhưng quên hệ số \\(\\pi\\). Học sinh vẫn lập đúng bán kính parabol \\(r(x)=30-\\frac{x^2}{320}\\) trên đoạn \\([-40,40]\\), tính"
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm là xác định sai chiều mở của parabol. Học sinh lấy đỉnh ở giữa có bán kính \\(30\\) cm nhưng viết nhầm \\(r(x)=30+\\frac{x^2}{320}\\) thay vì \\(r(x)=30-\\frac{x^2}{320}\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm là cho rằng đường sinh của mặt cắt trống là đoạn thẳng thay vì parabol. Học sinh nối hai điểm \\((0,30)\\) và \\((40,25)\\), lấy bán kính biến thiên tuyến tính \\(r(x)=30-\\frac{x}{8}\\) với \\(x\\in[0,40]\\), rồi nhân đôi"
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_e6318e7a",
+      "blueprint_slot_id": "direct_pdf_8",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 272,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một bồn chứa nước có dạng khối tròn xoay. Mặt cắt qua trục của bồn là miền phẳng giới hạn bởi đồ thị hàm số bậc hai \\(y=f(x)\\), trục hoành và hai đường thẳng \\(x=1\\), \\(x=5\\). Biết đồ thị \\(y=f(x)\\) có đỉnh \\(I(3;6)\\) và đi qua điểm \\(A(1;2)\\). Tính thể tích của bồn chứa.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{464\\pi}{5}\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{1104\\pi}{5}\\)",
+          "error_type": "parabola_vertex_sign_error"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{56\\pi}{3}\\)",
+          "error_type": "volume_forget_radius_square"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{464}{5}\\)",
+          "error_type": "volume_missing_pi"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Ta xác định hàm số parabol từ đỉnh và điểm đi qua, sau đó dùng công thức thể tích khối tròn xoay quanh trục Ox để tính tích phân.",
+      "explanation_per_distractor": {
+        "B": "Từ đỉnh \\(I(3;6)\\) và điểm \\(A(1;2)\\), học sinh có thể nhầm dấu của hệ số bậc hai và lấy \\(f(x)=(x-3)^2+6\\) thay vì \\(f(x)=-(x-3)^2+6\\). Khi đó tính \\(V=\\pi\\int_1^5((x-3)^2+6)^2dx\\). Đặt \\(t=x-3\\), ta được \\(\\pi\\int_{-2}^{2}(t^2+6)^2dt=\\pi\\left(\\frac{64}{5}+64+144\\right)=\\frac{1104\\pi}{5}\\). Sai vì parabol phải quay xuống do hệ số \\(a<0\\).",
+        "C": "Học sinh nhớ công thức thể tích tròn xoay nhưng nhầm diện tích mặt cắt là \\(S(x)=\\pi f(x)\\) thay vì \\(S(x)=\\pi f(x)^2\\). Khi đó tính \\(V=\\pi\\int_1^5(6-(x-3)^2)dx\\). Đặt \\(t=x-3\\), kết quả là \\(\\pi\\int_{-2}^{2}(6-t^2)dt=\\pi\\left(24-\\frac{16}{3}\\right)=\\frac{56\\pi}{3}\\). Sai vì bán kính mặt cắt là \\(f(x)\\), nên diện tích phải là \\(\\pi f(x)^2\\).",
+        "D": "Tính đúng hàm parabol \\(f(x)=6-(x-3)^2\\), lập tích phân thể tích nhưng dùng sai công thức \\(V=\\int_1^5 f(x)^2dx\\) mà bỏ mất hệ số \\(\\pi\\). Do đó nhận được \\(\\int_1^5(6-(x-3)^2)^2dx=\\frac{464}{5}\\). Sai vì thể tích khối tròn xoay quanh trục Ox phải là \\(V=\\pi\\int_1^5 f(x)^2dx\\)."
+      },
+      "hint": "Ta xác định hàm số parabol từ đỉnh và điểm đi qua, sau đó dùng công thức thể tích khối tròn xoay quanh trục Ox để tính tí",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Quay D quanh trục Ox ta được một hình khối gọi là khối tròn xoay.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": false,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 291.5397982531328",
+        "verified_at": "2026-07-23T16:56:16.829879Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9416666666666665,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề nêu rõ miền quay, dữ kiện xác định parabol và yêu cầu tính thể tích nên không có mơ hồ đáng kể."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu kết hợp xác định hàm parabol và áp dụng tích phân thể tích, phù hợp mức vận dụng thay vì chỉ ghi nhớ công thức."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác cần thực hiện là mô hình hóa, lập công thức và tính toán theo phương pháp đã học, đúng với mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.95,
+            "rationale": "Các phương án sai đại diện cho những lỗi phổ biến như quên \\(\\pi\\), sai dấu parabol và quên bình phương bán kính."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(\\frac{464\\pi}{5}\\) thu được từ hàm \\(f(x)=6-(x-3)^2\\) và công thức thể tích khối tròn xoay, các phương án còn lại đều sai do lỗi tính toán."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Chuỗi lỗi mô tả cho cả ba distractor đều dẫn đúng đến các giá trị đã cho và phần giải thích đáp án nhất quán với đáp án đúng."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9416666666666665,
+        "verifier_pass": false,
+        "critic_score": 0.9416666666666665,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "needs_revision",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "verifier_numeric_mismatch"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Ta xác định hàm số parabol từ đỉnh và điểm đi qua, sau đó dùng công thức thể tích khối tròn xoay quanh trục Ox để tính tích phân.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì parabol có đỉnh \\(I(3;6)\\), đặt \\(f(x)=a(x-3)^2+6\\). Do đi qua \\(A(1;2)\\) nên \\(2=4a+6\\), suy ra \\(a=-1\\). Vậy \\(f(x)=6-(x-3)^2\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Khi quay miền phẳng quanh trục Ox, thể tích được tính bởi \\(V=\\pi\\int_1^5[f(x)]^2dx\\). Thay hàm số vừa tìm được, ta có \\(V=\\pi\\int_1^5(6-(x-3)^2)^2dx\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Đặt \\(t=x-3\\), khi \\(x=1\\) thì \\(t=-2\\), khi \\(x=5\\) thì \\(t=2\\). Khi đó \\(V=\\pi\\int_{-2}^{2}(6-t^2)^2dt=\\pi\\int_{-2}^{2}(36-12t^2+t^4)dt\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Tính tích phân: \\(\\int_{-2}^{2}(36-12t^2+t^4)dt=2\\left(36\\cdot2-12\\cdot\\frac{2^3}{3}+\\frac{2^5}{5}\\right)=\\frac{464}{5}\\). Do đó \\(V=\\frac{464\\pi}{5}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{464\\pi}{5}\\)"
+      },
+      "why_correct": "Đồ thị parabol được xác định duy nhất bởi đỉnh và một điểm đi qua, sau đó công thức thể tích khối tròn xoay quanh trục Ox cho đúng một giá trị thể tích nên chỉ có kết quả \\(\\frac{464\\pi}{5}\\).",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Từ đỉnh \\(I(3;6)\\) và điểm \\(A(1;2)\\), học sinh có thể nhầm dấu của hệ số bậc hai và lấy \\(f(x)=(x-3)^2+6\\) thay vì \\(f(x)=-(x-3)^2+6\\). Khi đó tính \\(V=\\pi\\int_1^5((x-3)^2+6)^2dx\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Học sinh nhớ công thức thể tích tròn xoay nhưng nhầm diện tích mặt cắt là \\(S(x)=\\pi f(x)\\) thay vì \\(S(x)=\\pi f(x)^2\\). Khi đó tính \\(V=\\pi\\int_1^5(6-(x-3)^2)dx\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Tính đúng hàm parabol \\(f(x)=6-(x-3)^2\\), lập tích phân thể tích nhưng dùng sai công thức \\(V=\\int_1^5 f(x)^2dx\\) mà bỏ mất hệ số \\(\\pi\\). Do đó nhận được \\(\\int_1^5(6-(x-3)^2)^2dx=\\frac{464}{5}\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_ad069084",
+      "blueprint_slot_id": "direct_pdf_9",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 294,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một bình trang trí dạng khối tròn xoay được tạo thành khi quay miền phẳng giới hạn bởi đồ thị hàm số \\(y=f(x)\\), trục hoành và hai đường thẳng đi qua hai giao điểm của đồ thị với trục hoành quanh trục \\(Ox\\). Biết đồ thị có dạng \\(f(x)=a-x^2\\) và đi qua điểm \\(M(2;5)\\). Tính thể tích của bình.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(486\\pi\\)",
+          "error_type": "rotation_interval_missing_negative_side"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{864}{5}\\)",
+          "error_type": "volume_missing_pi"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{864\\pi}{5}\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{1728\\pi}{5}\\)",
+          "error_type": "double_count_symmetric_region"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Từ điều kiện đi qua \\(M(2;5)\\) tìm được tham số \\(a\\), sau đó xác định cận tích phân là các giao điểm với trục hoành và áp dụng công thức thể tích khối tròn xoay.",
+      "explanation_per_distractor": {
+        "A": "Chỉ lấy một phía của miền quay do nhầm rằng khoảng giới hạn chỉ từ \\(0\\) đến giao điểm dương. Học sinh tìm đúng \\(a=9\\), giao điểm \\(x=3\\) nhưng tính \\(V=\\pi\\int_{0}^{3}(9-x^2)^2dx\\), rồi nhân đôi sai bằng cách lấy thể tích nửa phải nhân với 2 sau khi đã bỏ hệ số đối xứng không đúng: \\(2\\pi\\int_{0}^{3}(9-x^2)^2dx=\\frac{864\\pi}{5}\\) là đúng,",
+        "B": "Bỏ quên hệ số \\(\\pi\\) trong công thức thể tích khối tròn xoay. Học sinh tính \\(V=\\int_{-3}^{3}(9-x^2)^2dx\\) thay vì \\(V=\\pi\\int_{-3}^{3}(9-x^2)^2dx\\), nên nhận được \\(\\frac{864}{5}\\). Sai vì thể tích khi quay quanh trục \\(Ox\\) phải có nhân \\(\\pi\\).",
+        "D": "Học sinh nhận ra hàm số đối xứng qua trục \\(Oy\\) nhưng nhân đôi sai hai lần. Sau khi tính \\(\\pi\\int_{0}^{3}(9-x^2)^2dx=\\frac{864\\pi}{5}\\), lại tiếp tục nhân đôi vì nghĩ cần cộng thêm hai nửa miền, dẫn tới \\(2\\cdot\\frac{864\\pi}{5}=\\frac{1728\\pi}{5}\\). Sai vì tích phân trên đoạn \\([-3,3]\\) đã bao gồm cả hai phía của đồ thị."
+      },
+      "hint": "Từ điều kiện đi qua \\(M(2;5)\\) tìm được tham số \\(a\\), sau đó xác định cận tích phân là các giao điểm với trục hoành và á",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Cho hàm số \\(y=f(x)\\) là hàm số liên tục, không âm trên \\([a;b]\\). Quay D quanh trục Ox ta được một hình khối gọi là khối tròn xoay.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 542.8672105403163",
+        "verified_at": "2026-07-23T16:57:16.961403Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.8266666666666667,
+        "bloom_alignment": 0.92,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.88,
+            "rationale": "Đề nêu rõ hàm số, điểm đi qua, trục quay và yêu cầu tính thể tích nhưng chưa cho trực tiếp giao điểm nên người học phải suy luận thêm."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu kết hợp xác định tham số, tìm cận tích phân và tính thể tích thay vì chỉ áp dụng công thức đơn lẻ."
+          },
+          "bloom_alignment": {
+            "score": 0.92,
+            "rationale": "Thao tác giải đúng là vận dụng kiến thức tích phân vào tình huống mới nên phù hợp mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.78,
+            "rationale": "Các phương án sai đều gắn với lỗi thường gặp như quên \\(\\pi\\), sai cận và đếm đối xứng, dù một lỗi được mô tả chưa thật tự nhiên."
+          },
+          "answer_uniqueness": {
+            "score": 0.98,
+            "rationale": "Chỉ có \\(\\frac{864\\pi}{5}\\) phù hợp với phép tính thể tích khối tròn xoay; các phương án còn lại đều sai do sai công thức hoặc cận."
+          },
+          "error_distractor_consistency": {
+            "score": 0.55,
+            "rationale": "Distractor quên \\(\\pi\\) và nhân đôi đối xứng khớp giá trị nêu ra, nhưng distractor \\(486\\pi\\) không suy ra rõ ràng từ chuỗi lỗi mô tả nên tính nhất quán giảm."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8266666666666667,
+        "verifier_pass": true,
+        "critic_score": 0.8266666666666667,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ điều kiện đi qua \\(M(2;5)\\) tìm được tham số \\(a\\), sau đó xác định cận tích phân là các giao điểm với trục hoành và áp dụng công thức thể tích khối tròn xoay.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì đồ thị có dạng \\(f(x)=a-x^2\\) và đi qua \\(M(2;5)\\) nên \\(5=a-2^2\\), suy ra \\(a=9\\). Do đó \\(f(x)=9-x^2\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Tìm giao điểm của đồ thị với trục hoành: \\(9-x^2=0\\), suy ra \\(x=\\pm3\\). Miền phẳng cần quay được giới hạn trên đoạn \\([-3;3]\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thể tích khối tròn xoay quanh trục \\(Ox\\) là \\(V=\\pi\\int_{-3}^{3}(9-x^2)^2dx\\). Khai triển biểu thức dưới dấu tích phân: \\((9-x^2)^2=81-18x^2+x^4\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Do hàm dưới dấu tích phân là hàm chẵn nên \\(V=2\\pi\\int_0^3(81-18x^2+x^4)dx=2\\pi\\left(81x-6x^3+\\frac{x^5}{5}\\right)\\Big|_0^3\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Thay cận được \\(V=2\\pi(243-162+\\frac{243}{5})=2\\pi\\cdot\\frac{432}{5}=\\frac{864\\pi}{5}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{864\\pi}{5}\\)"
+      },
+      "why_correct": "Kết quả được suy ra từ việc xác định đúng hàm số, tìm đúng khoảng quay qua giao điểm với trục hoành và tính đúng tích phân thể tích khối tròn xoay nên là giá trị duy nhất thỏa mãn yêu cầu.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Chỉ lấy một phía của miền quay do nhầm rằng khoảng giới hạn chỉ từ \\(0\\) đến giao điểm dương. Học sinh tìm đúng \\(a=9\\), giao điểm \\(x=3\\) nhưng tính \\(V=\\pi\\int_{0}^{3}(9-x^2)^2dx\\), rồi nhân đôi sai bằng cách lấy thể tí"
+        },
+        {
+          "option": "B",
+          "reason": "Bỏ quên hệ số \\(\\pi\\) trong công thức thể tích khối tròn xoay. Học sinh tính \\(V=\\int_{-3}^{3}(9-x^2)^2dx\\) thay vì \\(V=\\pi\\int_{-3}^{3}(9-x^2)^2dx\\), nên nhận được \\(\\frac{864}{5}\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Học sinh nhận ra hàm số đối xứng qua trục \\(Oy\\) nhưng nhân đôi sai hai lần. Sau khi tính \\(\\pi\\int_{0}^{3}(9-x^2)^2dx=\\frac{864\\pi}{5}\\), lại tiếp tục nhân đôi vì nghĩ cần cộng thêm hai nửa miền, dẫn tới"
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_b47c42ea",
+      "blueprint_slot_id": "direct_pdf_11",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.88,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 308,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Một bồn chứa dạng khối tròn xoay được tạo thành khi quay quanh trục \\(Ox\\) miền phẳng \\(D\\) giới hạn bởi đồ thị hàm số \\(y=m-x^2\\), trục hoành và hai điểm giao của đồ thị với trục hoành, trong đó \\(m>0\\). Biết thể tích của bồn chứa là \\(\\frac{81\\pi}{10}\\) (đơn vị thể tích). Giá trị của \\(m\\) bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{9}{4}\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(\\left(\\frac{243}{40}\\right)^{\\frac{2}{3}}\\)",
+          "error_type": "radius_not_squared"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{81}{10}\\)",
+          "error_type": "ignore_radius_change"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\left(\\frac{243\\pi}{32}\\right)^{\\frac{2}{5}}\\)",
+          "error_type": "volume_missing_pi"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Đặt cận theo tham số \\(m\\), dùng công thức thể tích khối tròn xoay để lập phương trình theo \\(m\\), sau đó giải phương trình ngược từ thể tích đã biết.",
+      "explanation_per_distractor": {
+        "B": "Sai lầm: lấy bán kính thiết diện là \\(m-x^2\\) nhưng quên bình phương bán kính khi tính diện tích hình tròn. Học sinh dùng \\(V=\\pi\\int_{-\\sqrt m}^{\\sqrt m}(m-x^2)dx\\). Tính được \\(\\int_{-\\sqrt m}^{\\sqrt m}(m-x^2)dx=\\frac{4}{3}m^{\\frac32}\\), nên \\(\\frac{4\\pi}{3}m^{\\frac32}=\\frac{81\\pi}{10}\\), suy ra \\(m^{\\frac32}=\\frac{243}{40}\\) và nhận giá trị trên.",
+        "C": "Sai lầm: xem bán kính của thiết diện luôn bằng giá trị cực đại \\(m\\), không phụ thuộc vào biến \\(x\\). Học sinh lập gần đúng sai rằng thể tích tỉ lệ trực tiếp với \\(m\\) và lấy \\(m=\\frac{81}{10}\\) từ hệ thức \\(V=\\pi m\\) (bỏ qua phần tích phân theo chiều dài miền). Sai vì bán kính thực tế thay đổi theo \\(x\\) với \\(r=m-x^2\\), nên phải dùng công thức tích phân.",
+        "D": "Sai lầm: quên hệ số \\(\\pi\\) trong công thức thể tích khối tròn xoay. Học sinh lập \\(V=\\int_{-\\sqrt m}^{\\sqrt m}(m-x^2)^2dx\\) thay vì \\(V=\\pi\\int_{-\\sqrt m}^{\\sqrt m}(m-x^2)^2dx\\). Khi đó \\(\\frac{16}{15}m^{\\frac52}=\\frac{81\\pi}{10}\\), suy ra \\(m^{\\frac52}=\\frac{243\\pi}{32}\\) và nhận được giá trị trên. Sai vì đã bỏ qua hệ số \\(\\pi\\) trong công thức nhưng vẫn giữ thể tích đề bài."
+      },
+      "hint": "Đặt cận theo tham số \\(m\\), dùng công thức thể tích khối tròn xoay để lập phương trình theo \\(m\\), sau đó giải phương trì",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Quay D quanh trục Ox ta được một hình khối gọi là khối tròn xoay.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 2.25",
+        "verified_at": "2026-07-23T16:57:16.975169Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9083333333333332,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề nêu rõ miền quay, trục quay, điều kiện \\(m>0\\), thể tích và yêu cầu tìm duy nhất một giá trị \\(m\\)."
+          },
+          "cognitive_depth": {
+            "score": 0.9,
+            "rationale": "Bài yêu cầu thiết lập tích phân thể tích theo tham số rồi giải ngược tham số, phù hợp mức vận dụng cao."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là vận dụng công thức tích phân vào tình huống mới và biến đổi phương trình, đúng định hướng Vận dụng cao."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đại diện cho ba lỗi phổ biến khi tính thể tích khối tròn xoay: quên \\(\\pi\\), quên bình phương bán kính, coi bán kính không đổi."
+          },
+          "answer_uniqueness": {
+            "score": 0.95,
+            "rationale": "Chỉ có \\(m=\\frac{9}{4}\\) thỏa phương trình thể tích của khối tròn xoay với \\(m>0\\), các phương án nhiễu không trùng đáp án."
+          },
+          "error_distractor_consistency": {
+            "score": 0.85,
+            "rationale": "Các chuỗi lỗi mô tả nhìn chung tạo đúng dạng phương trình dẫn tới distractor, và phần giải thích đáp án không mâu thuẫn với đáp án đã chọn."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9083333333333332,
+        "verifier_pass": true,
+        "critic_score": 0.9083333333333332,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Đặt cận theo tham số \\(m\\), dùng công thức thể tích khối tròn xoay để lập phương trình theo \\(m\\), sau đó giải phương trình ngược từ thể tích đã biết.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Đồ thị \\(y=m-x^2\\) cắt trục hoành khi \\(m-x^2=0\\), suy ra hai giao điểm có hoành độ \\(x=\\pm\\sqrt{m}\\). Miền phẳng cần quay nằm trên đoạn \\([-\\sqrt{m}\\);\\(\\sqrt{m}\\)]\\\\."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Khi quay quanh trục \\(Ox\\), thể tích khối tròn xoay là \\(V=\\pi\\int_{-\\sqrt{m}}^{\\sqrt{m}}(m-x^2)^2dx\\). Do hàm dưới dấu tích phân là hàm chẵn nên \\(V=2\\pi\\int_0^{\\sqrt{m}}(m^2-2mx^2+x^4)dx\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tính tích phân trung gian: \\(\\int_0^{\\sqrt{m}}(m^2-2mx^2+x^4)dx=m^2\\sqrt{m}-\\frac{2m(\\sqrt{m})^3}{3}+\\frac{(\\sqrt{m})^5}{5}\\). Suy ra biểu thức bằng \\(m^{5/2}\\left(1-\\frac{2}{3}+\\frac{1}{5}\\right)=\\frac{8}{15}m^{5/2}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Thay vào công thức thể tích được \\(V=2\\pi\\cdot\\frac{8}{15}m^{5/2}=\\frac{16\\pi}{15}m^{5/2}\\). Theo đề bài, \\(\\frac{16\\pi}{15}m^{5/2}=\\frac{81\\pi}{10}\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Rút gọn phương trình: \\(m^{5/2}=\\frac{81\\cdot15}{10\\cdot16}=\\frac{243}{32}\\). Vì \\(m>0\\), suy ra \\(m=\\left(\\frac{243}{32}\\right)^{2/5}=\\frac{9}{4}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{9}{4}\\)"
+      },
+      "why_correct": "Giá trị \\(m=\\frac{9}{4}\\) là nghiệm dương duy nhất của phương trình thể tích vì thể tích tăng theo \\(m^{5/2}\\) với \\(m>0\\), nên không có giá trị nào khác thỏa mãn điều kiện đề bài.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Sai lầm: lấy bán kính thiết diện là \\(m-x^2\\) nhưng quên bình phương bán kính khi tính diện tích hình tròn. Học sinh dùng \\(V=\\pi\\int_{-\\sqrt m}^{\\sqrt m}(m-x^2)dx\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: xem bán kính của thiết diện luôn bằng giá trị cực đại \\(m\\), không phụ thuộc vào biến \\(x\\). Học sinh lập gần đúng sai rằng thể tích tỉ lệ trực tiếp với \\(m\\) và lấy \\(m=\\frac{81}{10}\\) từ hệ thức \\(V=\\pi m\\) (bỏ"
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: quên hệ số \\(\\pi\\) trong công thức thể tích khối tròn xoay. Học sinh lập \\(V=\\int_{-\\sqrt m}^{\\sqrt m}(m-x^2)^2dx\\) thay vì \\(V=\\pi\\int_{-\\sqrt m}^{\\sqrt m}(m-x^2)^2dx\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_573ce400",
+      "blueprint_slot_id": "direct_pdf_13",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Nhận biết",
+      "difficulty_target": 0.3,
+      "difficulty_estimated": 0.38,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.3,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": 0.0,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 257,
+        "verifier_type": "none",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 67,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(y=f(x)\\) liên tục, không âm trên đoạn \\([a;b]\\). Miền phẳng giới hạn bởi đồ thị hàm số \\(y=f(x)\\), trục hoành và hai đường thẳng \\(x=a, x=b\\) quay quanh trục \\(Ox\\) tạo thành một khối tròn xoay. Công thức tính thể tích của khối tròn xoay là gì?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(V=\\int_a^b(f(x))^2dx\\)",
+          "error_type": "volume_missing_pi"
+        },
+        {
+          "key": "B",
+          "text": "\\(V=\\pi\\int_a^b f(x)dx\\)",
+          "error_type": "volume_missing_square"
+        },
+        {
+          "key": "C",
+          "text": "\\(V=\\pi\\int_a^b(f(x))^2dx+C\\)",
+          "error_type": "missing_constant_C"
+        },
+        {
+          "key": "D",
+          "text": "\\(V=\\pi\\int_a^b(f(x))^2dx\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Khối tròn xoay được tạo bởi miền phẳng quay quanh trục \\(Ox\\), nên mỗi thiết diện vuông góc với \\(Ox\\) là hình tròn bán kính \\(f(x)\\). Vì vậy thể tích được tính theo công thức tích phân của diện tích thiết diện.",
+      "explanation_per_distractor": {
+        "A": "Làm sai bằng cách lấy diện tích thiết diện của khối tròn xoay là \\(S(x)=(f(x))^2\\) thay vì \\(S(x)=\\pi(f(x))^2\\). Sau đó tích phân theo khoảng \\([a;b]\\) được \\(V=\\int_a^b(f(x))^2dx\\). Sai vì khi quay quanh trục \\(Ox\\), thiết diện là hình tròn bán kính \\(f(x)\\), nên diện tích phải có thừa số \\(\\pi\\).",
+        "B": "Làm sai bằng cách dùng trực tiếp bán kính \\(f(x)\\) làm diện tích thiết diện, tức coi diện tích mặt cắt là \\(S(x)=\\pi f(x)\\) thay vì \\(S(x)=\\pi(f(x))^2\\). Vì vậy suy ra \\(V=\\pi\\int_a^b f(x)dx\\). Sai do diện tích hình tròn phải tính bằng \\(\\pi r^2\\), với \\(r=f(x)\\).",
+        "C": "Làm sai bằng cách áp dụng quy tắc thêm hằng số tự do \\(C\\) của nguyên hàm vào công thức tính thể tích tích phân xác định, nên viết thêm \\(C\\) vào kết quả: \\(V=\\pi\\int_a^b(f(x))^2dx+C\\). Sai vì đây là tích phân xác định để tính một đại lượng thể tích cụ thể, không xuất hiện hằng số tích phân \\(C\\)."
+      },
+      "hint": "Khối tròn xoay được tạo bởi miền phẳng quay quanh trục \\(Ox\\), nên mỗi thiết diện vuông góc với \\(Ox\\) là hình tròn bán k",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Quay D quanh trục Ox ta được một hình khối gọi là khối tròn xoay. Cắt khối tròn xoay trên bởi mặt phẳng vuông góc với trục Ox",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "none",
+        "method": "none",
+        "verified": null,
+        "numeric_crosscheck_points": 0,
+        "detail": "không có verifier",
+        "verified_at": "2026-07-23T16:58:38.534671Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.98,
+        "quality": 0.9583333333333334,
+        "bloom_alignment": 1.0,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 1.0,
+            "rationale": "Đề bài nêu đầy đủ điều kiện, miền quay và yêu cầu chọn công thức nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Câu hỏi chỉ yêu cầu nhận diện công thức đã học, phù hợp mức nhận biết nhưng không đòi hỏi suy luận sâu."
+          },
+          "bloom_alignment": {
+            "score": 1.0,
+            "rationale": "Thao tác chính là nhớ và nhận dạng công thức thể tích khối tròn xoay, đúng với mức Nhận biết."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều mô phỏng lỗi phổ biến như thiếu \\(\\\\pi\\), thiếu bình phương bán kính hoặc thêm hằng số nguyên hàm."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ phương án \\(V=\\\\pi\\\\int_a^b(f(x))^2dx\\) phù hợp với công thức trong tài liệu, các phương án còn lại đều sai bản chất."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Chuỗi lỗi mô tả cho từng distractor tạo đúng biểu thức sai tương ứng và phần giải thích không mâu thuẫn với đáp án đúng."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9583333333333334,
+        "verifier_pass": null,
+        "critic_score": 0.9583333333333334,
+        "grounding_score": 0.98,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Khối tròn xoay được tạo bởi miền phẳng quay quanh trục \\(Ox\\), nên mỗi thiết diện vuông góc với \\(Ox\\) là hình tròn bán kính \\(f(x)\\). Vì vậy thể tích được tính theo công thức tích phân của diện tích thiết diện.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Khi cắt khối tròn xoay bởi mặt phẳng vuông góc với trục \\(Ox\\) tại hoành độ \\(x\\), bán kính của thiết diện là \\(f(x)\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Diện tích thiết diện là \\(S(x)=\\pi(f(x))^2\\). Lấy tích phân diện tích thiết diện trên đoạn \\([a;b]\\), ta được \\(V=\\int_a^bS(x)dx=\\pi\\int_a^b(f(x))^2dx\\)."
+          }
+        ],
+        "final_answer": "\\(V=\\pi\\int_a^b(f(x))^2dx\\)"
+      },
+      "why_correct": "Đây là công thức tổng quát trong tài liệu cho thể tích khối tròn xoay tạo bởi miền phẳng quay quanh trục \\(Ox\\), nên biểu thức trên là duy nhất phù hợp.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Làm sai bằng cách lấy diện tích thiết diện của khối tròn xoay là \\(S(x)=(f(x))^2\\) thay vì \\(S(x)=\\pi(f(x))^2\\). Sau đó tích phân theo khoảng \\([a;b]\\) được \\(V=\\int_a^b(f(x))^2dx\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Làm sai bằng cách dùng trực tiếp bán kính \\(f(x)\\) làm diện tích thiết diện, tức coi diện tích mặt cắt là \\(S(x)=\\pi f(x)\\) thay vì \\(S(x)=\\pi(f(x))^2\\). Vì vậy suy ra \\(V=\\pi\\int_a^b f(x)dx\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Làm sai bằng cách áp dụng quy tắc thêm hằng số tự do \\(C\\) của nguyên hàm vào công thức tính thể tích tích phân xác định, nên viết thêm \\(C\\) vào kết quả: \\(V=\\pi\\int_a^b(f(x))^2dx+C\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_23e57960",
+      "blueprint_slot_id": "direct_pdf_14",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Nhận biết",
+      "difficulty_target": 0.3,
+      "difficulty_estimated": 0.3,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.3,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 193,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 40,
+      "question_type": "single_choice",
+      "stem": "Cho miền phẳng giới hạn bởi đồ thị hàm số \\(y=3x^2\\), trục hoành và hai đường thẳng \\(x=1\\), \\(x=3\\). Khi quay miền phẳng đó quanh trục \\(Ox\\), thể tích khối tròn xoay tạo thành bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(180\\pi\\)",
+          "error_type": "wrong_power_integral"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{2178\\pi}{5}\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{2187\\pi}{5}\\)",
+          "error_type": "wrong_integration_interval"
+        },
+        {
+          "key": "D",
+          "text": "\\(26\\pi\\)",
+          "error_type": "forget_radius_square"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Khối tròn xoay được tính bằng tích phân diện tích mặt cắt vuông góc với trục \\(Ox\\). Với bán kính mặt cắt là \\(3x^2\\), ta tính tích phân từ \\(1\\) đến \\(3\\) và thu được kết quả trên.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là tính sai nguyên hàm của \\(x^4\\), lấy \\(\\int x^4dx=\\frac{x^4}{4}\\) thay vì \\(\\frac{x^5}{5}\\). Học sinh vẫn lập đúng tích phân \\(V=9\\pi\\int_1^3x^4dx\\), nhưng tính thành \\(V=9\\pi\\left[\\frac{x^4}{4}\\right]_1^3=9\\pi\\frac{81-1}{4}=180\\pi\\), nên kết quả sai.",
+        "C": "Sai lầm là chọn cận tích phân từ \\(0\\) đến \\(3\\) thay vì từ \\(1\\) đến \\(3\\), do bỏ qua đường thẳng biên \\(x=1\\). Khi đó tính \\(V=9\\pi\\int_0^3x^4dx=9\\pi\\left[\\frac{x^5}{5}\\right]_0^3=\\frac{2187\\pi}{5}\\). Kết quả sai vì miền quay không bắt đầu từ \\(x=0\\).",
+        "D": "Sai lầm là quên bình phương bán kính khi dùng công thức thể tích khối tròn xoay. Học sinh lấy \\(V=\\pi\\int_1^3 3x^2\\,dx\\) thay vì \\(V=\\pi\\int_1^3(3x^2)^2\\,dx\\). Khi đó tính được \\(V=3\\pi\\left[\\frac{x^3}{3}\\right]_1^3=\\pi(27-1)=26\\pi\\), nhưng sai vì diện tích mặt cắt phải dùng bán kính bình phương."
+      },
+      "hint": "Khối tròn xoay được tính bằng tích phân diện tích mặt cắt vuông góc với trục \\(Ox\\).",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Cho hàm số y fx    là hàm số liên tục, không âm trên   a b; . Gọi D là hình phẳng giới hạn",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": false,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 1368.4777599037138",
+        "verified_at": "2026-07-23T16:59:27.269520Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.5,
+        "quality": 0.5,
+        "bloom_alignment": 0.55,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài xác định rõ miền phẳng, trục quay và yêu cầu tính thể tích nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.65,
+            "rationale": "Bài yêu cầu nhận diện công thức và thực hiện phép tính tích phân cơ bản, phù hợp mức vận dụng thấp hơn là tư duy sâu."
+          },
+          "bloom_alignment": {
+            "score": 0.55,
+            "rationale": "Mức Nhận biết chưa thật phù hợp vì học sinh phải lập tích phân và tính toán chứ không chỉ nhớ công thức."
+          },
+          "distractor_plausibility": {
+            "score": 0.95,
+            "rationale": "Các phương án sai đều gắn với lỗi thường gặp như quên bình phương bán kính, sai nguyên hàm và sai cận tích phân."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(\\frac{2178\\pi}{5}\\) đúng vì công thức cho kết quả \\(9\\pi\\int_1^3x^4dx=\\frac{2178\\pi}{5}\\), các phương án còn lại đều sai."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Cả ba chuỗi lỗi đều dẫn đúng tới giá trị distractor tương ứng và phần giải thích đáp án nhất quán với đáp án đã cho."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.855,
+        "verifier_pass": false,
+        "critic_score": 0.855,
+        "grounding_score": 0.5,
+        "reject_reasons": []
+      },
+      "review_status": "needs_revision",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "bloom_alignment=0.55",
+          "verifier_numeric_mismatch"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Khối tròn xoay được tính bằng tích phân diện tích mặt cắt vuông góc với trục \\(Ox\\). Với bán kính mặt cắt là \\(3x^2\\), ta tính tích phân từ \\(1\\) đến \\(3\\) và thu được kết quả trên.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Áp dụng công thức thể tích khối tròn xoay quanh trục \\(Ox\\): \\(V=\\pi\\int_a^b(f(x))^2dx\\). Ở đây \\(f(x)=3x^2\\), \\(a=1\\), \\(b=3\\), nên \\(V=\\pi\\int_1^3(3x^2)^2dx\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Ta có \\(V=9\\pi\\int_1^3x^4dx=9\\pi\\left[\\frac{x^5}{5}\\right]_1^3=9\\pi\\frac{3^5-1^5}{5}=\\frac{2178\\pi}{5}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{2178\\pi}{5}\\)"
+      },
+      "why_correct": "Đáp án duy nhất đúng vì thể tích được xác định trực tiếp bởi công thức khối tròn xoay quanh \\(Ox\\) và phép tính tích phân cho đúng giá trị \\(\\frac{2178\\pi}{5}\\).",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm là tính sai nguyên hàm của \\(x^4\\), lấy \\(\\int x^4dx=\\frac{x^4}{4}\\) thay vì \\(\\frac{x^5}{5}\\). Học sinh vẫn lập đúng tích phân \\(V=9\\pi\\int_1^3x^4dx\\), nhưng tính thành"
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm là chọn cận tích phân từ \\(0\\) đến \\(3\\) thay vì từ \\(1\\) đến \\(3\\), do bỏ qua đường thẳng biên \\(x=1\\). Khi đó tính \\(V=9\\pi\\int_0^3x^4dx=9\\pi\\left[\\frac{x^5}{5}\\right]_0^3=\\frac{2187\\pi}{5}\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm là quên bình phương bán kính khi dùng công thức thể tích khối tròn xoay. Học sinh lấy \\(V=\\pi\\int_1^3 3x^2\\,dx\\) thay vì \\(V=\\pi\\int_1^3(3x^2)^2\\,dx\\)."
+        }
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_0_writer",
+      "blueprint_slot_id": "direct_pdf_0",
+      "cognitive_level": "Nhận biết",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['Invalid \\\\escape: line 2 column 60 (char 61)'])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=['Invalid \\\\escape: line 2 column 60 (char 61)'])",
+          "slot_id": "direct_pdf_0"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_2_critic",
+      "blueprint_slot_id": "direct_pdf_2",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 227,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Một khinh khí cầu có vận tốc bay theo thời gian \\(t\\) (tính bằng phút) là \\(v(t)=-0,12t^2+1,2t\\) (mét/phút). Biết tại thời điểm xuất phát \\(t=0\\), khinh khí cầu ở độ cao \\(520\\) m. Tính độ cao của khinh khí cầu sau \\(10\\) phút.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(20\\text{ m}\\)",
+          "error_type": "missing_constant_C"
+        },
+        {
+          "key": "B",
+          "text": "\\(540\\text{ m}\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(460\\text{ m}\\)",
+          "error_type": "wrong_power_integration"
+        },
+        {
+          "key": "D",
+          "text": "\\(600\\text{ m}\\)",
+          "error_type": "wrong_velocity_accumulation"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Cần tìm hàm độ cao bằng cách lấy nguyên hàm của vận tốc rồi dùng điều kiện ban đầu để xác định hằng số. Sau đó thay thời điểm \\(t=10\\) để tính độ cao.",
+      "explanation_per_distractor": {
+        "A": "Lấy nguyên hàm vận tốc nhưng quên thêm hằng số tự do, tính sai thành \\(h(t)=\\int(-0,12t^2+1,2t)dt=-0,04t^3+0,6t^2\\). Thay \\(t=10\\) được \\(h(10)=-0,04\\cdot10^3+0,6\\cdot10^2=-40+60=20\\), nên thu được giá trị sai này.",
+        "C": "Sai khi lấy nguyên hàm của hạng tử \\(-0,12t^2\\), cho rằng \\(\\int -0,12t^2dt=-0,06t^3\\) thay vì \\(-0,04t^3\\). Khi đó lập hàm độ cao sai \\(h(t)=-0,06t^3+0,6t^2+520\\). Thay \\(t=10\\) được \\(h(10)=-0,06\\cdot10^3+0,6\\cdot10^2+520=-60+60+520=520\\text{ m}\\), không khớp với distractor này.",
+        "D": "Sai lầm là cộng trực tiếp độ tăng độ cao bằng giá trị vận tốc tại thời điểm cuối nhân với thời gian, thay vì lấy tích phân. Tính \\(v(10)=-0,12\\cdot10^2+1,2\\cdot10=0\\), sau đó dùng nhầm tổng quãng tăng xấp xỉ bằng cách lấy vận tốc trung bình sai là \\(8\\text{ m/phút}\\), được độ tăng \\(8\\cdot10=80\\text{ m}\\). Cộng với độ cao ban đầu: \\(520+80=600\\text{ m}\\), tạo ra kết quả sai này."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Tại thời điểm xuất phát t = 0, khinh khí cầu ở độ cao 520 m",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "numeric_crosscheck_points": 0,
+        "detail": "expr = 540.0",
+        "verified_at": "2026-07-23T16:53:04.524390Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.7999999999999998,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ vận tốc, thời điểm ban đầu, độ cao ban đầu và yêu cầu tính độ cao tại một thời điểm xác định."
+          },
+          "cognitive_depth": {
+            "score": 0.82,
+            "rationale": "Học sinh cần vận dụng nguyên hàm và điều kiện đầu để lập hàm độ cao thay vì chỉ nhớ công thức."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác giải là áp dụng phương pháp đã học vào tình huống cụ thể, phù hợp mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.75,
+            "rationale": "Các phương án sai đều gắn với lỗi thường gặp như quên hằng số, sai nguyên hàm hoặc không dùng tích phân, nhưng một lỗi được mô tả chưa tự nhiên."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(540\\\\text{ m}\\) thỏa mãn khi tính đúng hàm độ cao từ nguyên hàm vận tốc và điều kiện \\(h(0)=520\\)."
+          },
+          "error_distractor_consistency": {
+            "score": 0.35,
+            "rationale": "Phương án \\(20\\\\text{ m}\\) nhất quán với lỗi quên hằng số, nhưng mô tả tạo \\(460\\\\text{ m}\\) và \\(600\\\\text{ m}\\) có chuỗi tính sai/mâu thuẫn nên tiêu chí bị giảm mạnh."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.7999999999999998,
+        "verifier_pass": true,
+        "critic_score": 0.7999999999999998,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Phương án \\(20\\\\text{ m}\\) nhất quán với lỗi quên hằng số, nhưng mô tả tạo \\(460\\\\text{ m}\\) và \\(600\\\\text{ m}\\) có chuỗi tính sai/mâu thuẫn nên tiêu chí bị gi)",
+      "reject_reason_code": "quality_low",
+      "reject_reason_stage": "critic",
+      "reject_log": [
+        {
+          "reason_code": "quality_low",
+          "stage": "critic",
+          "attempt": 0,
+          "message": "error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Phương án \\(20\\\\text{ m}\\) nhất quán với lỗi quên hằng số, nhưng mô tả tạo \\(460\\\\text{ m}\\) và \\(600\\\\text{ m}\\) có chuỗi tính sai/mâu thuẫn nên tiêu chí bị gi)",
+          "slot_id": "direct_pdf_2"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_3_writer",
+      "blueprint_slot_id": "direct_pdf_3",
+      "cognitive_level": "Thông hiểu",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['Invalid \\\\escape: line 2 column 33 (char 34)'])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=['Invalid \\\\escape: line 2 column 33 (char 34)'])",
+          "slot_id": "direct_pdf_3"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_10_writer",
+      "blueprint_slot_id": "direct_pdf_10",
+      "cognitive_level": "Vận dụng cao",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['Invalid \\\\escape: line 2 column 116 (char 117)'])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=['Invalid \\\\escape: line 2 column 116 (char 117)'])",
+          "slot_id": "direct_pdf_10"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_12_verifier",
+      "blueprint_slot_id": "direct_pdf_12",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.88,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 296,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Cho họ đường cong \\(C_m: y=x^2-2mx+3m\\) với \\(m\\in\\mathbb{R}\\). Gọi \\(S(m)\\) là diện tích hình phẳng giới hạn bởi \\(C_m\\), trục hoành và hai đường thẳng \\(x=1\\), \\(x=3\\). Tìm giá trị của \\(m\\) để \\(S(m)=\\frac{32}{3}\\), biết rằng trong khoảng \\([1;3]\\) đường cong \\(C_m\\) nằm phía trên trục hoành.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(m=-\\frac{1}{4}\\)",
+          "error_type": "forget_constant_term_in_function"
+        },
+        {
+          "key": "B",
+          "text": "\\(m=\\frac{29}{3}\\)",
+          "error_type": "area_no_absolute"
+        },
+        {
+          "key": "C",
+          "text": "\\(m=\\frac{3+\\sqrt{5}}{2}\\)",
+          "error_type": "forget_change_bounds"
+        },
+        {
+          "key": "D",
+          "text": "\\(m=2\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Cần biến đổi điều kiện diện tích thành phương trình theo tham số \\(m\\). Vì đồ thị nằm trên trục hoành nên diện tích được tính bằng tích phân của hàm số trên đoạn \\([1;3]\\). Giải phương trình thu được giá trị tham số thỏa mãn.",
+      "explanation_per_distractor": {
+        "A": "Học sinh bỏ sót hạng tử \\(3m\\) trong hàm số và tính diện tích với hàm sai \\(y=x^2-2mx\\). Khi đó \\(\\int_1^3(x^2-2mx)\\,dx=\\frac{26}{3}-8m\\). Giải \\(\\frac{26}{3}-8m=\\frac{32}{3}\\) được \\(-8m=2\\), suy ra \\(m=-\\frac{1}{4}\\). Sai vì đã bỏ mất thành phần \\(3m\\) của phương trình đường cong ban đầu.",
+        "B": "Học sinh cho rằng khi tính diện tích phải lấy giá trị tuyệt đối của toàn bộ tích phân và không kiểm tra điều kiện vị trí của đồ thị. Từ \\(\\int_1^3(x^2-2mx+3m)\\,dx=\\frac{26}{3}-2m\\), học sinh đặt \\(\\left|\\frac{26}{3}-2m\\right|=\\frac{32}{3}\\). Nhánh \\(\\frac{26}{3}-2m=-\\frac{32}{3}\\) cho \\(m=\\frac{29}{3}\\).",
+        "C": "Đặt phép đổi biến \\(u=x-m\\), khi đó \\(x=u+m\\) và biểu thức dưới dấu tích phân trở thành \\(u^2-m^2+3m\\). Lỗi sai là giữ nguyên cận \\(u=1\\) đến \\(u=3\\) thay vì đổi thành \\(u=1-m\\) đến \\(u=3-m\\). Khi đó học sinh lập phương trình \\(\\int_1^3(u^2-m^2+3m)\\,du=\\frac{32}{3}\\), suy ra \\(\\frac{26}{3}+2(-m^2+3m)=\\frac{32}{3}\\), hay \\(m^2-3m+1=0\\)."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Diện tích S của hình phẳng giới hạn bởi đồ thị hàm số y=f(x), y=g(x) liên tục trên đoạn [a;b] và hai đường thẳng x=a, x=b được tính bởi công thức",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-23T16:58:38.526515Z",
+        "answer_key_repaired": false,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "verifier=False (answer_text_mismatch: \\(m=2\\) vs -1.0)",
+      "reject_reason_code": "verifier_failed",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "verifier_failed",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "verifier=False (answer_text_mismatch: \\(m=2\\) vs -1.0)",
+          "slot_id": "direct_pdf_12"
+        }
+      ],
+      "attempts": 1
+    }
+  ]
+}

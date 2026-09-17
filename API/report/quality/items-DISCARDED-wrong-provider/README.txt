@@ -1,0 +1,1 @@
+﻿Phieu ghi trong lan chay bi loi provider: configure_judge_provider goi load_dotenv, ma .env khai AQG_LLM_PROVIDER hai lan -> lay dong cuoi = openrouter. Cham qua OpenRouter thay vi chat2api. Loai bo CA CAU neu bat ky luot nao cua no bi anh huong, de moi cau deu duoc cham boi cung mot duong.

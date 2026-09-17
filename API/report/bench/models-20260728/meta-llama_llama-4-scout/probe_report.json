@@ -1,0 +1,34 @@
+{
+ "model": "meta-llama/llama-4-scout",
+ "pdf": "pdftest/file_3_trang_61-90.pdf",
+ "requested": 20,
+ "delivered": 1,
+ "rejected": 8,
+ "error_code": null,
+ "duration_seconds": 279.8,
+ "cost": {
+  "tokens": 1674855,
+  "calls": 31
+ },
+ "issue_counts": {},
+ "status_counts": {
+  "mismatch": 1
+ },
+ "bloom_counts": {
+  "Vận dụng cao": 1
+ },
+ "per_question": [
+  {
+   "id": "q_2026_f503742e",
+   "bloom": "Vận dụng cao",
+   "status": "mismatch",
+   "machine_checked": false,
+   "independent": false,
+   "derivation": false,
+   "review": "needs_revision",
+   "issues": [],
+   "stem_len": 163,
+   "stem_tail": "thị vận tốc của vật như hình vẽ bên. Tính quãng đường \\(S\\) mà vật đi được trong 4 giờ đó."
+  }
+ ]
+}

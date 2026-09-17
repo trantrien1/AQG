@@ -1,0 +1,60 @@
+{
+ "model": "openai/gpt-4.1-nano",
+ "pdf": "pdftest/file_3_trang_61-90.pdf",
+ "requested": 20,
+ "delivered": 3,
+ "rejected": 43,
+ "attempted": 46,
+ "error_code": null,
+ "duration_seconds": 1024.5,
+ "cost": {
+  "tokens": 9050854,
+  "calls": 125
+ },
+ "issue_counts": {},
+ "status_counts": {
+  "non_verifiable": 3
+ },
+ "bloom_counts": {
+  "Vận dụng": 2,
+  "Nhận biết": 1
+ },
+ "per_question": [
+  {
+   "id": "q_2026_c4d9d6dc",
+   "bloom": "Vận dụng",
+   "status": "non_verifiable",
+   "machine_checked": false,
+   "independent": false,
+   "derivation": false,
+   "review": "pending_review",
+   "issues": [],
+   "stem_len": 271,
+   "stem_tail": "h gì? Phần còn lại của hình vẽ là trang trí, thể tích của vật trang trí đó bằng bao nhiêu?"
+  },
+  {
+   "id": "q_2026_97ec44c5",
+   "bloom": "Vận dụng",
+   "status": "non_verifiable",
+   "machine_checked": false,
+   "independent": false,
+   "derivation": false,
+   "review": "pending_review",
+   "issues": [],
+   "stem_len": 186,
+   "stem_tail": "a đường tròn nhận các cạnh của hình vuông làm đường kính. Phần còn lại của quỹ tích là gì?"
+  },
+  {
+   "id": "q_2026_c1a00147",
+   "bloom": "Nhận biết",
+   "status": "non_verifiable",
+   "machine_checked": false,
+   "independent": false,
+   "derivation": false,
+   "review": "pending_review",
+   "issues": [],
+   "stem_len": 471,
+   "stem_tail": " rằng các đoạn thẳng nối các điểm M, N, P, Q lần lượt cắt nhau tại trung điểm của cạnh AD."
+  }
+ ]
+}

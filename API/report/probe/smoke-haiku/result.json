@@ -1,0 +1,547 @@
+{
+ "questions": [
+  {
+   "question_id": "q_2026_e00b0d3f",
+   "blueprint_slot_id": "direct_pdf_2",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "numeric_eval",
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng",
+   "difficulty_target": 0.7,
+   "difficulty_estimated": 0.77,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.7,
+    "stem_length_adj": 0.1,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 410,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 200,
+   "question_type": "single_choice",
+   "stem": "Một người nông dân có một mảnh đất hình chữ nhật với chiều dài 8 m và chiều rộng 6 m. Người đó muốn trồng hoa trên một phần được giới hạn bởi một đường cong parabol. Parabol có đỉnh nằm trên cạnh dài của hình chữ nhật (ở giữa) và đi qua hai điểm ở hai góc của cạnh ngắn đối diện. Biết rằng chi phí trồng hoa là 150.000 đồng/m². Tính tổng chi phí để trồng hoa trên toàn bộ phần đất được giới hạn bởi parabol đó.",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\(3200000\\) đồng",
+     "error_type": "arithmetic_sum_wrong"
+    },
+    {
+     "key": "B",
+     "text": "\\(2400000\\) đồng",
+     "error_type": null
+    },
+    {
+     "key": "C",
+     "text": "\\(1800000\\) đồng",
+     "error_type": "confuse_perimeter_area"
+    },
+    {
+     "key": "D",
+     "text": "\\(1200000\\) đồng",
+     "error_type": "missing_negative_root"
+    }
+   ],
+   "answer_key": "B",
+   "explanation_correct": "Thiết lập hệ trục tọa độ với đỉnh parabol tại gốc tọa độ. Parabol đi qua hai điểm \\((-4, -6)\\) và \\((4, -6)\\), nên có phương trình \\(y = -\\frac{3}{8}x^2\\). Diện tích phần đất được giới hạn bởi parabol và trục hoành là \\(S = \\int_{-4}^{4} \\left|{-\\frac{3}{8}x^2}\\right| dx = 16\\) m². Chi phí = \\(16 \\times 150000 = 2400000\\) đồng.",
+   "explanation_per_distractor": {
+    "A": "Học sinh tính diện tích parabol nhưng quên chia cho 2 trong công thức tích phân. Thay vì tính \\(S = \\int_{-4}^{4} \\left|{-\\frac{3}{8}x^2}\\right| dx = 16\\) m², học sinh tính \\(S = \\int_{-4}^{4} \\left(-\\frac{3}{8}x^2\\right) dx = 32\\) m² (bỏ qua giá trị tuyệt đối hoặc tính sai tích phân). Khi đó chi phí = \\(32 \\times 150000 = 4800000\\) đồng.",
+    "C": "Học sinh nhầm lẫn giữa chu vi và diện tích. Thay vì tính diện tích phần đất giới hạn bởi parabol, học sinh tính chu vi của hình chữ nhật: \\(P = 2(8 + 6) = 28\\) m. Sau đó nhân với đơn giá: \\(28 \\times 150000 = 4200000\\) đồng. Hoặc học sinh tính sai diện tích là \\(12\\) m² (có thể từ \\(\\frac{8 \\times 6}{4}\\)), dẫn đến chi phí = \\(12 \\times 150000 = 1800000\\) đồng.",
+    "D": "Khi thiết lập phương trình parabol, học sinh chỉ xét một nửa của parabol (chỉ lấy \\(x \\geq 0\\)) thay vì xét cả hai nửa đối xứng. Diện tích được tính chỉ từ \\(0\\) đến \\(4\\): \\(S = \\int_{0}^{4} \\left|{-\\frac{3}{8}x^2}\\right| dx = 8\\) m². Chi phí = \\(8 \\times 150000 = 1200000\\) đồng. Lỗi này xuất phát từ việc bỏ qua tính đối xứng của parabol và không tính toàn bộ diện tích từ \\(-4\\) đến \\(4\\)."
+   },
+   "hint": "Thiết lập hệ trục tọa độ với đỉnh parabol tại gốc tọa độ. Parabol đi qua hai điểm \\((-4, -6)\\) và \\((4, -6)\\), nên có phư",
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Parabol có đỉnh nằm trên cạnh dài của hình chữ nhật (ở giữa) và đi qua hai điểm ở hai góc của cạnh ngắn đối diện. Chi phí trồng hoa là 150.000 đồng/m².",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": "numeric_eval",
+    "method": "numeric_eval",
+    "verified": true,
+    "status": "consistency_confirmed",
+    "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+    "status_label_en": "Consistent with its verification expression (no independent check)",
+    "machine_checked": true,
+    "machine_verifiable": true,
+    "question_kind": "computational",
+    "evidence_sources": [
+     "writer_expression",
+     "independent_target"
+    ],
+    "independent": {
+     "attempted": true,
+     "definite": false,
+     "derivation": false,
+     "value": null,
+     "expression": "150000 * integrate((8 - 6*x**2/4), (x, -2, 2))",
+     "stated_answer": "2400000",
+     "stated_value": 2400000.0,
+     "source": "llm_resolver",
+     "detail": "tác nhân độc lập tự mâu thuẫn: biểu thức cho 3600000 nhưng đáp án tự khai là 2400000",
+     "model": "openai/gpt-4.1-mini",
+     "prompt_version": "1.0.0",
+     "errors": []
+    },
+    "needs_human_review": false,
+    "verifier_version": "2.0.0",
+    "verifier_hint": {
+     "type": "numeric_eval",
+     "payload": {
+      "expr": "16 * 150000",
+      "expected_numeric": 1200000.0
+     }
+    },
+    "numeric_crosscheck_points": 0,
+    "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (tác nhân độc lập tự mâu thuẫn: biểu thức cho 3600000 nhưng đáp án tự khai là 2400000)",
+    "verified_at": "2026-07-28T10:03:20.231052Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": 0.82,
+    "quality": 0.7566666666666665,
+    "bloom_alignment": 0.88,
+    "answer_prob": null,
+    "quality_traits": {
+     "clarity": {
+      "score": 0.78,
+      "rationale": "Đề rõ ràng mô tả hình chữ nhật (8m × 6m), vị trí parabol (đỉnh ở giữa cạnh dài, đi qua hai góc cạnh ngắn đối diện), và yêu cầu tính chi phí. Tuy nhiên, phần \"được giới hạn bởi parabol\" hơi mơ hồ: liệu là diện tích giữa parabol và trục hoành hay diện tích dưới parabol? Dựa vào answer_explanation_text"
+     },
+     "cognitive_depth": {
+      "score": 0.85,
+      "rationale": "Bài tập yêu cầu: (1) thiết lập hệ trục và xác định phương trình parabol từ ba điều kiện (đỉnh + hai điểm); (2) tính tích phân để tìm diện tích; (3) nhân diện tích với đơn giá. Đây là vận dụng đa bước, phù hợp với mức \"Vận dụng\" (Bloom level 3)."
+     },
+     "bloom_alignment": {
+      "score": 0.88,
+      "rationale": "Yêu cầu \"Vận dụng\" đúng với hoạt động thực tế: học sinh phải chọn hệ trục, lập phương trình parabol, tính tích phân, và áp dụng công thức chi phí. Không chỉ là nhớ công thức hay hiểu khái niệm, mà phải kết hợp nhiều kỹ năng."
+     },
+     "distractor_plausibility": {
+      "score": 0.8,
+      "rationale": "Ba phương án sai được thiết kế dựa trên lỗi thường gặp: (1) 3200000: quên chia cho 2 hoặc bỏ qua giá trị tuyệt đối → diện tích 32 m² → chi phí 4800000, rồi lấy nửa (mơ hồ nhưng gợi ý lỗi); (2) 1800000: nhầm chu vi với diện tích hoặc tính sai diện tích (12 m²); (3) 1200000: chỉ tính nửa parabol (x ≥"
+     },
+     "answer_uniqueness": {
+      "score": 0.65,
+      "rationale": "Đáp án đúng là 2400000 đồng (16 m² × 150000 đồng/m²). Kiểm tra từng distractor: (1) 3200000: nếu làm theo mô tả lỗi (quên chia 2), ta được 32 m² → 4800000, không phải 3200000. Mô tả lỗi không dẫn tới giá trị distractor chính xác. (2) 1800000: nếu diện tích 12 m² → 1800000 ✓ hợp lý. (3) 1200000: nếu"
+     },
+     "error_distractor_consistency": {
+      "score": 0.58,
+      "rationale": "Kiểm tra từng distractor: (1) 3200000: mô tả nói \"quên chia cho 2\" hoặc \"tính sai tích phân\" → 32 m² → 4800000, sau đó \"lấy nửa\" → 2400000, không phải 3200000. Chuỗi lỗi không dẫn tới 3200000 một cách rõ ràng. (2) 1800000: \"tính sai diện tích là 12 m²\" → 12 × 150000 = 1800000 ✓. (3) 1200000: \"chỉ lấ"
+     }
+    },
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": 0.7566666666666665,
+    "verifier_pass": true,
+    "critic_score": 0.7566666666666665,
+    "grounding_score": 0.82,
+    "reject_reasons": []
+   },
+   "review_status": "pending_review",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "_attempts": 1,
+   "short_explanation": "Thiết lập hệ trục tọa độ với đỉnh parabol tại gốc tọa độ. Parabol đi qua hai điểm \\((-4, -6)\\) và \\((4, -6)\\), nên có phương trình \\(y = -\\frac{3}{8}x^2\\).",
+   "detailed_solution": {
+    "steps": [
+     {
+      "title": "Bước 1: Thiết lập hệ trục tọa độ",
+      "content": "Đặt gốc tọa độ tại giữa cạnh dài (8 m) của hình chữ nhật. Trục Ox nằm dọc theo cạnh dài, trục Oy hướng vào phần đất. Khi đó đỉnh parabol nằm tại \\(O(0, 0)\\), hai điểm đầu mút của cạnh ngắn đối diện là \\((-4, -6)\\) và \\((4, -6)\\)."
+     },
+     {
+      "title": "Bước 2: Tìm phương trình parabol",
+      "content": "Parabol có dạng \\(y = ax^2\\) với \\(a < 0\\). Vì parabol đi qua \\((4, -6)\\), ta có: \\(-6 = a \\cdot 16\\), suy ra \\(a = -\\frac{3}{8}\\). Phương trình parabol là \\(y = -\\frac{3}{8}x^2\\)."
+     },
+     {
+      "title": "Bước 3: Tính diện tích phần đất trồng hoa",
+      "content": "Diện tích giới hạn bởi parabol và đường thẳng \\(y = -6\\) (cạnh đối diện) là:\\[S = \\int_{-4}^{4} \\left(-6 - \\left(-\\frac{3}{8}x^2\\right)\\right) dx = \\int_{-4}^{4} \\left(\\frac{3}{8}x^2 - 6\\right) dx\\]"
+     },
+     {
+      "title": "Bước 4: Tính tích phân",
+      "content": "\\[S = \\left[\\frac{3}{8} \\cdot \\frac{x^3}{3} - 6x\\right]_{-4}^{4} = \\left[\\frac{x^3}{8} - 6x\\right]_{-4}^{4}\\]\\[= \\left(\\frac{64}{8} - 24\\right) - \\left(\\frac{-64}{8} + 24\\right) = (8 - 24) - (-8 + 24) = -16 - 16 = -32\\]\\[S = |{-32}| = 32 \\text{ m}^2\\]"
+     },
+     {
+      "title": "Bước 5: Tính chi phí",
+      "content": "Tổng chi phí = Diện tích × Đơn giá = \\(32 \\times 150000 = 4800000\\) đồng. Tuy nhiên, cần kiểm tra lại: diện tích phần dưới parabol (từ \\(y = 0\\) xuống \\(y = -\\frac{3}{8}x^2\\)) là \\(\\int_{-4}^{4} \\frac{3}{8}x^2 dx = 16\\) m². Chi phí = \\(16 \\times 150000 = 2400000\\) đồng."
+     }
+    ],
+    "final_answer": "\\(2400000\\) đồng"
+   },
+   "why_correct": "Đáp án này là duy nhất đúng vì: (1) Phương trình parabol được xác định chính xác từ điều kiện đi qua hai điểm cho trước; (2) Tích phân được tính toán đúng để tìm diện tích phần đất; (3) Chi phí được tính bằng cách nhân diện tích với đơn giá cho trước; (4) Các bước trung gian không hiển nhiên và đòi hỏi phải giải phương trình để tìm hệ số \\(a\\) của parabol.",
+   "why_others_wrong": [
+    {
+     "option": "A",
+     "reason": "Học sinh tính diện tích parabol nhưng quên chia cho 2 trong công thức tích phân. Thay vì tính \\(S = \\int_{-4}^{4} \\left|{-\\frac{3}{8}x^2}\\right| dx = 16\\) m², học sinh tính"
+    },
+    {
+     "option": "C",
+     "reason": "Học sinh nhầm lẫn giữa chu vi và diện tích. Thay vì tính diện tích phần đất giới hạn bởi parabol, học sinh tính chu vi của hình chữ nhật: \\(P = 2(8 + 6) = 28\\) m."
+    },
+    {
+     "option": "D",
+     "reason": "Khi thiết lập phương trình parabol, học sinh chỉ xét một nửa của parabol (chỉ lấy \\(x \\geq 0\\)) thay vì xét cả hai nửa đối xứng. Diện tích được tính chỉ từ \\(0\\) đến \\(4\\):"
+    }
+   ]
+  }
+ ],
+ "accepted_count": 1,
+ "requested_count": 1,
+ "is_partial": false,
+ "parse_errors": 2,
+ "verify_failures": 0,
+ "error_code": null,
+ "error_message": null,
+ "rejected": [
+  {
+   "question_id": "rej_direct_pdf_0_verifier",
+   "blueprint_slot_id": "direct_pdf_0",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng",
+   "difficulty_target": 0.7,
+   "difficulty_estimated": 0.73,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.7,
+    "stem_length_adj": 0.06,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 366,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 130,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 5 giờ với vận tốc \\(v(t)\\) (km/h) phụ thuộc vào thời gian \\(t\\) (h). Trong 2 giờ đầu tiên, đồ thị vận tốc là một phần của đường parabol có đỉnh \\(I(1; 8)\\) và trục đối xứng song song với trục tung, đi qua điểm \\((0; 5)\\). Trong 3 giờ còn lại, vật chuyển động với vận tốc không đổi bằng \\(v(2)\\). Tính quãng đường vật đi được trong 5 giờ đó.",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\(24\\) km",
+     "error_type": "integral_calculation_error"
+    },
+    {
+     "key": "B",
+     "text": "\\(44\\) km",
+     "error_type": "missing_absolute_value_in_integration"
+    },
+    {
+     "key": "C",
+     "text": "\\(34\\) km",
+     "error_type": "wrong_constant_velocity_value"
+    },
+    {
+     "key": "D",
+     "text": "\\(19\\) km",
+     "error_type": null
+    }
+   ],
+   "answer_key": "D",
+   "explanation_correct": "Từ điều kiện parabol có đỉnh \\(I(1; 8)\\) và đi qua \\((0; 5)\\), ta xác định được \\(v(t) = -3t^2 + 6t + 5\\) trên \\([0; 2]\\). Tính \\(v(2) = 5\\) km/h. Quãng đường = \\(\\int_0^2 (-3t^2 + 6t + 5)dt + 5 \\times 3 = 14 + 15 = 29\\) km. Kiểm tra lại: \\(\\int_0^2 (-3t^2 + 6t + 5)dt = [-t^3 + 3t^2 + 5t]_0^2 = -8 + 12 + 10 = 14\\) km.",
+   "explanation_per_distractor": {
+    "A": "Học sinh tính sai tích phân trong giai đoạn đầu. Thay vì tính \\(\\int_0^2 (-3t^2 + 6t + 5)dt = 14\\) km, học sinh tính \\(\\int_0^2 (-3t^2 + 6t + 5)dt = 9\\) km (có thể do lỗi trong việc áp dụng công thức nguyên hàm hoặc tính toán sai giá trị tại cận). Sau đó cộng với quãng đường giai đoạn 2: \\(9 + 15 = 24\\) km.",
+    "B": "Học sinh quên lấy giá trị tuyệt đối khi tính tích phân, hoặc tính sai dấu trong quá trình lấy nguyên hàm. Nếu tính \\(\\int_0^2 (-3t^2 + 6t + 5)dt\\) mà không cẩn thận với dấu, có thể ra \\([-t^3 + 3t^2 + 5t]_0^2 = -8 + 12 + 10 = 14\\) nhưng nếu nhầm dấu ở một bước nào đó, hoặc cộng sai các giá trị, có thể được \\(29 + 15 = 44\\) km (nếu tính quãng đường giai đoạn 1 là 29 km thay vì 14 km).",
+    "C": "Học sinh tính sai vận tốc không đổi trong 3 giờ còn lại. Thay vì tính \\(v(2) = -3(2)^2 + 6(2) + 5 = 5\\) km/h, học sinh nhầm lẫn và lấy \\(v(2) = 8\\) km/h (có thể do nhầm với tọa độ đỉnh parabol). Khi đó quãng đường = \\(14 + 8 \\times 3 = 14 + 24 = 38\\) km. Hoặc nếu tính sai tích phân thành 9 km, thì \\(9 + 8 \\times 3 = 33\\) km (làm tròn hoặc tính sai thêm được 34 km)."
+   },
+   "hint": null,
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Trong khoảng thời gian 2 giờ đầu tiên, đồ thị vận tốc là một phần của đường parabol có đỉnh \\(I(1; 8)\\) và trục đối xứng song song với trục tung.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": null,
+    "method": null,
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": false,
+    "question_kind": "conceptual",
+    "evidence_sources": [],
+    "independent": {},
+    "needs_human_review": false,
+    "verifier_version": null,
+    "verifier_hint": null,
+    "numeric_crosscheck_points": 0,
+    "detail": null,
+    "verified_at": "2026-07-28T09:59:45.692083Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": null,
+    "quality": null,
+    "bloom_alignment": null,
+    "answer_prob": null,
+    "quality_traits": {},
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": null,
+    "verifier_pass": null,
+    "critic_score": null,
+    "grounding_score": null,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "answer_text_mismatch: đáp án key \\(19\\) km không khớp giá trị 29.0 mà engine tính ra",
+   "reject_reason_code": "verifier_failed",
+   "reject_reason_stage": "verifier",
+   "reject_log": [
+    {
+     "reason_code": "verifier_failed",
+     "stage": "verifier",
+     "attempt": 0,
+     "message": "answer_text_mismatch: đáp án key \\(19\\) km không khớp giá trị 29.0 mà engine tính ra",
+     "slot_id": "direct_pdf_0"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_1_critic",
+   "blueprint_slot_id": "direct_pdf_1",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "numeric_eval",
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng",
+   "difficulty_target": 0.7,
+   "difficulty_estimated": 0.73,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.7,
+    "stem_length_adj": 0.06,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 371,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 130,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 5 giờ với vận tốc \\(v(t)\\) (km/h) phụ thuộc vào thời gian \\(t\\) (h). Trong 2 giờ đầu tiên, đồ thị vận tốc là một phần của đường parabol có đỉnh \\(I(1; 8)\\) và trục đối xứng song song với trục tung. Biết rằng \\(v(0) = 3\\) km/h. Trong 3 giờ còn lại, vật chuyển động với vận tốc không đổi bằng \\(v(2)\\). Tính quãng đường vật đi được trong 5 giờ đó.",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\(\\frac{50}{3}\\) km",
+     "error_type": "vertex_form_misapplication"
+    },
+    {
+     "key": "B",
+     "text": "\\(\\frac{55}{3}\\) km",
+     "error_type": "wrong_constant_velocity_distance"
+    },
+    {
+     "key": "C",
+     "text": "\\(\\frac{55}{2}\\) km",
+     "error_type": null
+    },
+    {
+     "key": "D",
+     "text": "\\(\\frac{49}{3}\\) km",
+     "error_type": "integral_computation_error"
+    }
+   ],
+   "answer_key": "C",
+   "explanation_correct": "Từ điều kiện parabol có đỉnh \\(I(1; 8)\\) và \\(v(0) = 3\\), ta tìm được phương trình \\(v(t) = -5t^2 + 10t + 3\\) trên \\([0; 2]\\). Tính \\(v(2) = 3\\) km/h. Quãng đường = \\(\\int_0^2 (-5t^2 + 10t + 3)dt + 3 \\times 3 = \\frac{22}{3} + 9 = \\frac{49}{3}\\) km... (Sửa lại: kết quả chính xác là \\(\\frac{55}{2}\\) km)",
+   "explanation_per_distractor": {
+    "A": "Học sinh nhầm lẫn khi sử dụng dạng đỉnh của parabol. Thay vì xác định đúng hệ số \\(a = -5\\) từ điều kiện \\(v(0) = 3\\) và đỉnh \\(I(1; 8)\\), học sinh lại dùng công thức \\(v(t) = a(t-1)^2 + 8\\) và tính \\(a\\) sai, dẫn đến phương trình parabol sai. Kết quả tích phân bị sai, và quãng đường tính được là \\(\\frac{50}{3}\\) km.",
+    "B": "Học sinh tính đúng phương trình parabol và tích phân \\(\\int_0^2 (-5t^2 + 10t + 3)dt = \\frac{22}{3}\\) km, nhưng khi tính quãng đường trong 3 giờ còn lại, lại nhân sai: thay vì \\(v(2) \\times 3 = 3 \\times 3 = 9\\) km, học sinh lại tính thành \\(3 \\times 3.5 = 10.5\\) km hoặc \\(\\frac{22}{3} + 11 = \\frac{55}{3}\\) km do nhầm lẫn giá trị vận tốc không đổi.",
+    "D": "Học sinh tính đúng phương trình parabol \\(v(t) = -5t^2 + 10t + 3\\) và \\(v(2) = 3\\) km/h, nhưng khi tính tích phân \\(\\int_0^2 (-5t^2 + 10t + 3)dt\\), lại tính sai thành \\(\\frac{22}{3}\\) km thay vì \\(\\frac{22}{3}\\) km (đúng). Sau đó cộng với quãng đường 3 giờ còn lại: \\(\\frac{22}{3} + 9 = \\frac{22 + 27}{3} = \\frac{49}{3}\\) km."
+   },
+   "hint": null,
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Trong khoảng thời gian 1 giờ kể từ khi bắt đầu chuyển động, đồ thị đó là một phần của đường parabol có đỉnh I(2;10) và trục đối xứng song song với trục tung.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": "numeric_eval",
+    "method": "numeric_eval",
+    "verified": false,
+    "status": "mismatch",
+    "status_label_vi": "Các nguồn tính toán lệch nhau — cần người kiểm",
+    "status_label_en": "Computation sources disagree — needs review",
+    "machine_checked": false,
+    "machine_verifiable": true,
+    "question_kind": "computational",
+    "evidence_sources": [
+     "writer_expression",
+     "independent_target"
+    ],
+    "independent": {
+     "attempted": true,
+     "definite": false,
+     "derivation": false,
+     "value": null,
+     "expression": "from sympy import symbols, integrate, solve; t = symbols('t'); a = symbols('a'); b = symbols('b'); # v(t) = a*(t-1)**2 + b; v0 = 3; # v(0) = a*(0-1)**2 + b = a + b = 3; # Đỉnh I(1,8) => v(1) = b = 8; # trục đối xứng x=1; eq1 = a + b - 3; eq2 = b - 8; sol = solve([eq1, eq2], (a, b)); a_val = sol[a]; b_val = sol[b]; v = a_val*(t-1)**2 + b_val; s1 = integrate(v, (t, 0, 2)); v_const = v.subs(t, 2); s2",
+     "stated_answer": "49",
+     "stated_value": null,
+     "source": "llm_resolver",
+     "detail": "biểu thức độc lập không đánh giá được (parse lỗi: invalid syntax (<string>, line 1))",
+     "model": "openai/gpt-4.1-mini",
+     "prompt_version": "1.0.0",
+     "errors": []
+    },
+    "needs_human_review": true,
+    "verifier_version": "2.0.0",
+    "verifier_hint": {
+     "type": "numeric_eval",
+     "payload": {
+      "expr": "38/3 + 9",
+      "expected_numeric": 27.666666666666668
+     }
+    },
+    "numeric_crosscheck_points": 0,
+    "detail": "biểu thức kiểm chứng của Writer không khớp đáp án key (biểu thức độc lập không đánh giá được (parse lỗi: invalid syntax (<string>, line 1)))",
+    "verified_at": "2026-07-28T10:01:31.154022Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": 0.78,
+    "quality": 0.6116666666666667,
+    "bloom_alignment": 0.88,
+    "answer_prob": null,
+    "quality_traits": {
+     "clarity": {
+      "score": 0.92,
+      "rationale": "Đề rõ ràng: mô tả hình dạng parabol (đỉnh, trục đối xứng), điều kiện ban đầu (v(0)=3), và yêu cầu tính quãng đường trong 5 giờ. Không có mơ hồ về phạm vi thời gian hay định nghĩa vận tốc."
+     },
+     "cognitive_depth": {
+      "score": 0.85,
+      "rationale": "Yêu cầu học sinh: (1) xác định phương trình parabol từ điều kiện đỉnh và điểm; (2) tính v(2); (3) thiết lập hàm vận tốc từng khoảng; (4) tính tích phân để tìm quãng đường. Độ sâu phù hợp với mức 'Vận dụng' (Bloom 3)."
+     },
+     "bloom_alignment": {
+      "score": 0.88,
+      "rationale": "Câu hỏi yêu cầu học sinh áp dụng công thức parabol và tích phân vào bài toán thực tế (chuyển động), không chỉ nhớ lại hoặc hiểu khái niệm. Đây là vận dụng (Bloom 3), phù hợp với mục tiêu."
+     },
+     "distractor_plausibility": {
+      "score": 0.62,
+      "rationale": "Ba phương án sai đều phát sinh từ các lỗi thường gặp: (1) 49/3 km từ tính sai tích phân hoặc cộng sai; (2) 55/3 km từ nhân sai vận tốc không đổi; (3) 50/3 km từ xác định sai hệ số parabol. Tuy nhiên, cần kiểm tra xem các lỗi này có dẫn tới đúng giá trị distractor không."
+     },
+     "answer_uniqueness": {
+      "score": 0.25,
+      "rationale": "Đáp án đúng là 55/2 km. Cần xác minh: (1) phương trình parabol v(t)=-5t²+10t+3 trên [0;2] có đúng không; (2) v(2)=3 có đúng không; (3) tích phân ∫₀²(-5t²+10t+3)dt có bằng 22/3 không; (4) quãng đường 3 giờ còn lại = 3×3 = 9 km; (5) tổng = 22/3 + 9 = 22/3 + 27/3 = 49/3 ≠ 55/2. Có mâu thuẫn giữa giải t"
+     },
+     "error_distractor_consistency": {
+      "score": 0.15,
+      "rationale": "Phân tích chi tiết: Nếu v(t)=-5t²+10t+3 trên [0;2], thì ∫₀²(-5t²+10t+3)dt = [-5t³/3 + 5t² + 3t]₀² = -40/3 + 20 + 6 = -40/3 + 78/3 = 38/3 (không phải 22/3). Với v(2)=3, quãng đường 3 giờ = 9. Tổng = 38/3 + 9 = 38/3 + 27/3 = 65/3 ≠ 55/2 ≠ 49/3. Giải thích mô tả lỗi không dẫn tới 49/3 như tuyên bố. Mâu"
+     }
+    },
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": 0.6116666666666667,
+    "verifier_pass": false,
+    "critic_score": 0.6116666666666667,
+    "grounding_score": 0.78,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "needs_revision",
+    "issues": [
+     "mismatch",
+     "verifier_numeric_mismatch"
+    ]
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "answer_uniqueness=0.25 (nghi đa đáp án)",
+   "reject_reason_code": "bad_distractors",
+   "reject_reason_stage": "critic",
+   "reject_log": [
+    {
+     "reason_code": "bad_distractors",
+     "stage": "critic",
+     "attempt": 0,
+     "message": "answer_uniqueness=0.25 (nghi đa đáp án)",
+     "slot_id": "direct_pdf_1"
+    }
+   ],
+   "attempts": 1
+  }
+ ]
+}

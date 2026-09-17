@@ -1,0 +1,8 @@
+    [pdf-slot direct_pdf_0] verifier reject: quality_low: rule validator failed: ['question_too_trivial:bare_one_step_integral']
+    [pdf-slot direct_pdf_2] critic reject: error_distractor_consistency=0.25 (lỗi mô tả không khớp giá trị distractor/đáp án) (Giải thích của distractor \(108\\text{ m}\) nhất quán nhưng các chuỗi lỗi của \(72\\text{ m}\) và \(36\\text{ m}\) không thực sự dẫn đúng đến các giá trị đã nêu)
+    [pdf-slot direct_pdf_4] critic reject: answer_uniqueness=0.10 (nghi đa đáp án)
+    [pdf-slot direct_pdf_7] verifier reject: verifier=False (answer_text_mismatch: \(21\) vs 21.081851067789195)
+    [pdf-slot direct_pdf_10] verifier reject: verifier=False (answer_text_mismatch: \(324m^3\) vs 270.0)
+    [pdf-slot direct_pdf_9] verifier mismatch (giữ lại): numeric_eval: expr = 56.666666666666664
+    [pdf-slot direct_pdf_15] writer 0 candidates; errors=['Invalid \\escape: line 2 column 42 (char 43)']
+[B1-single] file_2_trang_31-61.pdf: accepted=10/10 rejected=7 tokens=177688 calls=45 duration=406s

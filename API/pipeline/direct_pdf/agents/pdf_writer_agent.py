@@ -14,6 +14,7 @@ from typing import Any, Dict, List
 
 from .pdf_base import PdfAwareAgent
 from .messages import PdfWriteRequest, PdfWriteResponse
+from ... import ablation
 from ... import config as cfg
 from ...agents.writer_agent import (
     _parse_writer_response,
@@ -43,7 +44,7 @@ class PdfWriterAgent(PdfAwareAgent):
         if no_explanation:
             # Không sinh detailed_solution/why_correct nên output ngắn hơn hẳn
             # — giảm trần token để model không lan man, phản hồi nhanh hơn.
-            max_tokens = 1100
+            max_tokens = cfg.WRITER_NO_EXPLANATION_MAX_TOKENS
         else:
             max_tokens = max(int(cfg.GEN_MAX_TOKENS),
                              int(getattr(cfg, 'DIRECT_PDF_TOKENS_PER_QUESTION', 2600)))
@@ -83,6 +84,24 @@ class PdfWriterAgent(PdfAwareAgent):
         avoid = _feedback_block(slot.get('_feedback_guidance')) \
             + _avoid_block(request.avoid_stems)
         no_explanation = bool(slot.get('_no_explanation'))
+        # Ablation: khi tắt tác nhân sinh phương án nhiễu, chính Writer phải tự
+        # sinh 3 phương án trong cùng một lượt (đây là điều kiện đối chứng cho
+        # cơ chế distractor riêng biệt).
+        own_distractors = not ablation.is_enabled(ablation.DISTRACTOR_AGENT)
+        if own_distractors:
+            distractors_field = (
+                '"distractors": [{"distractor_text":"...", '
+                '"distractor_category_text":"tên lỗi", '
+                '"distractor_explanation_text":"làm sai thế nào để ra giá trị này"}, '
+                '... đúng 3 phần tử ...]')
+            distractors_note = (
+                'Sinh ĐÚNG 3 phương án nhiễu ngay trong JSON này. Mỗi phương án '
+                'phải SAI về mặt toán, cùng dạng với đáp án đúng, và kèm mô tả '
+                'lỗi dẫn tới đúng giá trị đó.')
+        else:
+            distractors_field = '"distractors": []'
+            distractors_note = (
+                'Để mảng distractors RỖNG [] — bước sau lo phương án sai.')
         if no_explanation:
             steps_rule = ''
             schema_block = """{
@@ -92,11 +111,11 @@ class PdfWriterAgent(PdfAwareAgent):
   "source_quote": "15-250 ký tự trích NGUYÊN VĂN từ tài liệu",
   "visual": {"type":"none","spec":{},"alt_text":""},
   "verifier_payload": {"type":"none","payload":{}},
-  "distractors": []
+  __DISTRACTORS__
 }
 
 LƯU Ý: KHÔNG viết lời giải từng bước hay giải thích dài — chỉ cần question,
-answer, explanation ngắn, source_quote, verifier. Để mảng distractors RỖNG []."""
+answer, explanation ngắn, source_quote, verifier. __DISTRACTORS_NOTE__"""
         else:
             steps_rule = ('- Số bước tối thiểu trong detailed_solution: '
                           'Nhận biết >=2, Thông hiểu >=3, Vận dụng >=4, Vận dụng cao >=5.\n')
@@ -109,11 +128,19 @@ answer, explanation ngắn, source_quote, verifier. Để mảng distractors R�
   "source_quote": "15-250 ký tự trích NGUYÊN VĂN từ tài liệu",
   "visual": {"type":"none","spec":{},"alt_text":""},
   "verifier_payload": {"type":"none","payload":{}},
-  "distractors": []
+  __DISTRACTORS__
 }
 
-LƯU Ý: bước này CHỈ cần phần lõi (question, answer, explanation, detailed_solution,
-source_quote, verifier). Để mảng distractors RỖNG [] — bước sau lo phương án sai."""
+LƯU Ý: bước này cần phần lõi (question, answer, explanation, detailed_solution,
+source_quote, verifier). __DISTRACTORS_NOTE__"""
+        schema_block = (schema_block
+                        .replace('__DISTRACTORS__', distractors_field)
+                        .replace('__DISTRACTORS_NOTE__', distractors_note))
+        distractor_rule = (
+            '- Sinh ĐÚNG 3 phương án nhiễu trong cùng JSON này.'
+            if own_distractors else
+            '- KHÔNG sinh distractor ở bước này. Trả `distractors` là danh sách rỗng [].'
+        )
         return f"""
 Tài liệu Toán được đính kèm ở trên dưới dạng các trang (ảnh/PDF). ĐỌC TRỰC TIẾP
 nội dung (công thức, bảng, hình) và soạn ĐÚNG MỘT câu hỏi trắc nghiệm mới.
@@ -134,7 +161,7 @@ Ràng buộc:
 - ĐƯỢC PHÉP và ĐƯỢC KHUYẾN KHÍCH tạo câu MỚI dựa trên cùng phương pháp/khái niệm/
   dạng bài trong tài liệu nhưng THAY số liệu/tình huống khác đi — KHÔNG chép nguyên
   văn bài tập/ví dụ có sẵn. Đây là yêu cầu HỢP LỆ, tuyệt đối KHÔNG từ chối.
-- KHÔNG sinh distractor ở bước này. Trả `distractors` là danh sách rỗng [].
+{distractor_rule}
 - Toán hiển thị cho học sinh dùng LaTeX inline. Vì output là JSON nên mọi dấu \\\\
   của LaTeX phải escape: viết "\\\\(x^2+1\\\\)", "\\\\frac{{a}}{{b}}".
 - Đáp án (answer) ghi ở DẠNG ĐÓNG đẹp như sách giáo khoa: phân số, căn, bội của
@@ -163,6 +190,9 @@ def _computation_rule(difficulty_target: Any) -> str:
     CHUNG (tham số, bài ngược, xét trường hợp...) áp được cho mọi chủ đề Toán —
     không khoá vào một dạng bài cụ thể (yêu cầu của user 2026-07-11).
     """
+    if not ablation.is_enabled(ablation.DIFFICULTY_CONTROL):
+        # Ablation: bỏ ràng buộc độ nặng phép tính, chỉ còn mức Bloom.
+        return ''
     try:
         d = float(difficulty_target)
     except (TypeError, ValueError):
@@ -214,6 +244,8 @@ def _outcome_rule(outcome: Any) -> str:
     Orchestrator rải CĐR round-robin vào slot (key `_learning_outcome` =
     {'code','description'}); không có CĐR -> chuỗi rỗng, prompt như cũ.
     """
+    if not ablation.is_enabled(ablation.OUTCOME_SCHEDULER):
+        return ''
     if not isinstance(outcome, dict):
         return ''
     desc = str(outcome.get('description') or '').strip()
@@ -231,6 +263,8 @@ def _outcome_rule(outcome: Any) -> str:
 
 def _feedback_block(feedback_guidance: Any) -> str:
     """Hồ sơ sở thích từ feedback người dùng (RLHF-style) — chèn trước avoid."""
+    if not ablation.is_enabled(ablation.FEEDBACK_STEERING):
+        return ''
     g = str(feedback_guidance or '').strip()
     if not g:
         return ''
@@ -242,6 +276,8 @@ def _feedback_block(feedback_guidance: Any) -> str:
 
 def _avoid_block(avoid_stems: List[str]) -> str:
     """Tái dùng ý tưởng _avoid_block của generator: nhắc model không lặp câu cũ."""
+    if not ablation.is_enabled(ablation.SEMANTIC_DEDUP):
+        return ''
     if not avoid_stems:
         return ''
     lines = []

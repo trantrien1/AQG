@@ -1,0 +1,7 @@
+    [pdf-slot direct_pdf_1] writer 0 candidates; errors=["Expecting ',' delimiter: line 4 column 374 (char 696)"]
+    [pdf-slot direct_pdf_2] verifier reject: multi_answer: distractor "\(3\)" cũng được verifier xác nhận đúng
+    [pdf-slot direct_pdf_0] verifier reject: duplicate_question: rule validator failed: ['duplicate_question:source_quote_is_existing_exercise']
+    [pdf-slot direct_pdf_3] verifier reject: answer_text_mismatch: đáp án key \(\frac{625}{2}\) triệu đồng không khớp giá trị 312.5 mà engine tính ra
+    [pdf-slot direct_pdf_4] verifier reject: answer_text_mismatch: đáp án key \(\frac{375}{4}\) triệu đồng không khớp giá trị 93.75 mà engine tính ra
+    [pdf-slot direct_pdf_5] verifier reject: duplicate: rule validator failed: ['d3:duplicate_option']
+[cell] arm=full_system seed=42 t12-daoham-p2.pdf: delivered=0/12 rejected=6 tokens=42700 145s

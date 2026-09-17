@@ -1,0 +1,11 @@
+    [pdf-slot direct_pdf_2] verifier reject: answer_text_mismatch: đáp án key \(16\) không khớp giá trị 8.0 mà engine tính ra
+    [pdf-slot direct_pdf_3] verifier reject: duplicate: rule validator failed: ['d3:duplicate_option']
+    [pdf-slot direct_pdf_5] critic reject: answer_uniqueness=0.00 (nghi đa đáp án)
+    [pdf-slot direct_pdf_6] critic reject: error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Một số chuỗi lỗi không tạo đúng giá trị distractor mô tả, đặc biệt ở phương án 132 và 248, dù giải thích đáp án đúng không mâu thuẫn.)
+    [pdf-slot direct_pdf_10] refuted: tính toán độc lập cho 5, trùng phương án nhiễu #2 chứ không phải key (6)
+    [pdf-slot direct_pdf_11] verifier reject: answer_text_mismatch: đáp án key \(4\) không khớp giá trị 6.0 mà engine tính ra
+    [pdf-slot direct_pdf_12] writer 0 candidates; errors=["Error code: 429 - {'detail': 'Request limit exceeded. You can continue with the default model now, or try again after 2026-07-26 02:35:35'}"]
+    [pdf-slot direct_pdf_13] distractor drop: error=Error code: 429 - {'detail': 'Request limit exceeded. You can continue with the default model now, or try again after 2026-07-26 02:35:35'} n=0
+    [pdf-slot direct_pdf_15] writer 0 candidates; errors=["Error code: 429 - {'detail': 'Request limit exceeded. You can continue with the default model now, or try again after 2026-07-26 02:35:35'}"]
+    [pdf-slot direct_pdf_14] writer 0 candidates; errors=["Error code: 429 - {'detail': 'Request limit exceeded. You can continue with the default model now, or try again after 2026-07-26 02:35:35'}"]
+[cell] arm=full_system seed=42 discrete_math_p1.pdf: delivered=6/8 rejected=10 tokens=100558 443s

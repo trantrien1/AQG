@@ -1,0 +1,257 @@
+[
+ {
+  "model": "openai/gpt-4o-mini",
+  "pdf": "pdftest/file_3_trang_61-90.pdf",
+  "requested": 20,
+  "delivered": 8,
+  "rejected": 38,
+  "attempted": 46,
+  "error_code": null,
+  "duration_seconds": 2785.8,
+  "cost": {
+   "tokens": 17407222,
+   "calls": 170
+  },
+  "issue_counts": {},
+  "status_counts": {
+   "consistency_confirmed": 3,
+   "non_verifiable": 2,
+   "mismatch": 3
+  },
+  "bloom_counts": {
+   "Vận dụng": 2,
+   "Thông hiểu": 4,
+   "Vận dụng cao": 1,
+   "Nhận biết": 1
+  },
+  "per_question": [
+   {
+    "id": "q_2026_caa28171",
+    "bloom": "Vận dụng",
+    "status": "consistency_confirmed",
+    "machine_checked": true,
+    "independent": false,
+    "derivation": false,
+    "review": "pending_review",
+    "issues": [],
+    "stem_len": 258,
+    "stem_tail": ") người đó chạy được trong khoảng thời gian này (kết quả làm tròn đến 2 chữ số thập phân)."
+   },
+   {
+    "id": "q_2026_ce2ccad5",
+    "bloom": "Thông hiểu",
+    "status": "consistency_confirmed",
+    "machine_checked": true,
+    "independent": false,
+    "derivation": false,
+    "review": "pending_review",
+    "issues": [],
+    "stem_len": 183,
+    "stem_tail": "bên dưới. Trong khoảng thời gian 0 giây đến 5 giây, tính quãng đường \\(S\\) mà vật đi được."
+   },
+   {
+    "id": "q_2026_975de72f",
+    "bloom": "Vận dụng cao",
+    "status": "non_verifiable",
+    "machine_checked": false,
+    "independent": false,
+    "derivation": false,
+    "review": "pending_review",
+    "issues": [],
+    "stem_len": 463,
+    "stem_tail": "ng \\(S\\) mà vật di chuyển được trong 6 giờ và tìm giá trị của \\(a - b\\) nếu \\(S = a + b\\)."
+   },
+   {
+    "id": "q_2026_d383a19e",
+    "bloom": "Nhận biết",
+    "status": "mismatch",
+    "machine_checked": false,
+    "independent": false,
+    "derivation": false,
+    "review": "needs_revision",
+    "issues": [],
+    "stem_len": 322,
+    "stem_tail": "ốc là một parabol đi qua gốc tọa độ. Tính quãng đường \\(S\\) mà vật đi được trong 4 giờ đó."
+   },
+   {
+    "id": "q_2026_3e4c620c",
+    "bloom": "Thông hiểu",
+    "status": "mismatch",
+    "machine_checked": false,
+    "independent": false,
+    "derivation": false,
+    "review": "needs_revision",
+    "issues": [],
+    "stem_len": 429,
+    "stem_tail": " hệ số góc bằng \\(\\frac{1}{4}\\). Tính quãng đường \\(S\\) mà vật di chuyển được trong 5 giờ."
+   },
+   {
+    "id": "q_2026_f1110067",
+    "bloom": "Thông hiểu",
+    "status": "non_verifiable",
+    "machine_checked": false,
+    "independent": false,
+    "derivation": false,
+    "review": "needs_revision",
+    "issues": [],
+    "stem_len": 223,
+    "stem_tail": "nh \\(I(1;6)\\). Trong khoảng thời gian từ 2 giờ đến 6 giờ, tính quãng đường mà vật đi được."
+   },
+   {
+    "id": "q_2026_db587292",
+    "bloom": "Vận dụng",
+    "status": "consistency_confirmed",
+    "machine_checked": true,
+    "independent": false,
+    "derivation": false,
+    "review": "pending_review",
+    "issues": [],
+    "stem_len": 360,
+    "stem_tail": "góc bằng \\( \\frac{1}{4} \\). Tính quãng đường \\( S \\) mà vật di chuyển được trong 6 giờ đó."
+   },
+   {
+    "id": "q_2026_f45d2f91",
+    "bloom": "Thông hiểu",
+    "status": "mismatch",
+    "machine_checked": false,
+    "independent": false,
+    "derivation": false,
+    "review": "needs_revision",
+    "issues": [],
+    "stem_len": 310,
+    "stem_tail": " 2 giờ từ khi bắt đầu chuyển động, tính quãng đường \\( S \\) mà vật đi được trong 5 giờ đó."
+   }
+  ],
+  "wall_seconds": 2788.0,
+  "failed": false
+ },
+ {
+  "model": "openai/gpt-4.1-mini",
+  "pdf": "pdftest/file_3_trang_61-90.pdf",
+  "requested": 20,
+  "delivered": 7,
+  "rejected": 39,
+  "attempted": 46,
+  "error_code": null,
+  "duration_seconds": 2131.1,
+  "cost": {
+   "tokens": 4611660,
+   "calls": 145
+  },
+  "issue_counts": {
+   "source_quote_len": 7
+  },
+  "status_counts": {
+   "mismatch": 2,
+   "consistency_confirmed": 5
+  },
+  "bloom_counts": {
+   "Vận dụng": 2,
+   "Thông hiểu": 3,
+   "Nhận biết": 1,
+   "Vận dụng cao": 1
+  },
+  "per_question": [
+   {
+    "id": "q_2026_ce17d408",
+    "bloom": "Vận dụng",
+    "status": "mismatch",
+    "machine_checked": false,
+    "independent": false,
+    "derivation": false,
+    "review": "needs_revision",
+    "issues": [
+     "source_quote_len=342"
+    ],
+    "stem_len": 506,
+    "stem_tail": "ỏi chi phí mua cây giống cho cả khu vườn là bao nhiêu đồng? (Làm tròn đến hàng nghìn đồng)"
+   },
+   {
+    "id": "q_2026_2dfbc79a",
+    "bloom": "Thông hiểu",
+    "status": "consistency_confirmed",
+    "machine_checked": true,
+    "independent": false,
+    "derivation": false,
+    "review": "pending_review",
+    "issues": [
+     "source_quote_len=277"
+    ],
+    "stem_len": 356,
+    "stem_tail": "t đầu (kết quả làm tròn đến hai chữ số thập phân). Biết rằng \\(v(1) = 5\\) và \\(v(0) = 0\\)."
+   },
+   {
+    "id": "q_2026_85654efb",
+    "bloom": "Nhận biết",
+    "status": "consistency_confirmed",
+    "machine_checked": true,
+    "independent": false,
+    "derivation": false,
+    "review": "pending_review",
+    "issues": [
+     "source_quote_len=302"
+    ],
+    "stem_len": 392,
+    "stem_tail": "đó chạy được trong 1 giờ 30 phút kể từ lúc bắt đầu chạy (làm tròn đến 2 chữ số thập phân)."
+   },
+   {
+    "id": "q_2026_0712c112",
+    "bloom": "Thông hiểu",
+    "status": "mismatch",
+    "machine_checked": false,
+    "independent": false,
+    "derivation": false,
+    "review": "needs_revision",
+    "issues": [
+     "source_quote_len=340"
+    ],
+    "stem_len": 369,
+    "stem_tail": "i \\(t=2\\) là 7 km/h và tại \\(t=5\\) là 1 km/h. Tính quãng đường vật đi được trong 5 giờ đó."
+   },
+   {
+    "id": "q_2026_ca841d61",
+    "bloom": "Thông hiểu",
+    "status": "consistency_confirmed",
+    "machine_checked": true,
+    "independent": false,
+    "derivation": false,
+    "review": "pending_review",
+    "issues": [
+     "source_quote_len=327"
+    ],
+    "stem_len": 376,
+    "stem_tail": ". Hỏi quãng đường ô tô đi được từ lúc bắt đầu đạp phanh đến khi dừng hẳn là bao nhiêu mét?"
+   },
+   {
+    "id": "q_2026_6b7ad3c9",
+    "bloom": "Vận dụng",
+    "status": "consistency_confirmed",
+    "machine_checked": true,
+    "independent": false,
+    "derivation": false,
+    "review": "pending_review",
+    "issues": [
+     "source_quote_len=292"
+    ],
+    "stem_len": 517,
+    "stem_tail": " = at^2 + bt + c\\) với \\(c=0\\) và vận tốc trong 4 giờ sau là \\(v(t) = -\\frac{1}{4}t + m\\)."
+   },
+   {
+    "id": "q_2026_6b32ffe0",
+    "bloom": "Vận dụng cao",
+    "status": "consistency_confirmed",
+    "machine_checked": true,
+    "independent": false,
+    "derivation": false,
+    "review": "pending_review",
+    "issues": [
+     "source_quote_len=349"
+    ],
+    "stem_len": 425,
+    "stem_tail": "àm bậc hai \\(v(t) = at^2 + bt + c\\) trong 2 giờ đầu. Tính giá trị của biểu thức \\(a - b\\)."
+   }
+  ],
+  "wall_seconds": 2133.3,
+  "failed": false
+ }
+]

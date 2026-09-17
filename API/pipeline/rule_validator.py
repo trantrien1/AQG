@@ -43,9 +43,43 @@ _QUESTION_MARKERS = (
 )
 
 
+#: Dấu hiệu hỏi TỰ NÓ đủ mạnh, xuất hiện ở đâu cũng tính.
+_STRONG_QUESTION_MARKERS = (
+    '?', 'bao nhiêu', 'là gì', 'nào sau đây', 'khẳng định nào', 'mệnh đề nào',
+    'phương án nào', 'kết quả nào', 'giá trị nào', 'đáp án nào', 'khi nào',
+)
+
+#: Động từ ra lệnh — CHỈ tính khi đứng đầu một mệnh đề (đầu đề, sau dấu câu),
+#: nếu không thì "máy tính", "Chọn hệ trục toạ độ", "tìm được" đều khớp nhầm.
+_IMPERATIVE_RE = re.compile(
+    r'(?:^|[.;,:]\s+|\)\s+)(?:hãy\s+)?'
+    r'(?:tính|tìm|xác định|cho biết|hỏi|nêu|viết)\b'
+    # "tìm được", "tìm thấy" là thể hoàn thành trong câu kể, không phải mệnh lệnh.
+    r'(?!\s*(?:được|thấy)\b)',
+    re.IGNORECASE,
+)
+
+#: Kiểu đề "hoàn thành câu": kết thúc bằng "... bằng", "... là", "... bằng bao".
+_COMPLETION_RE = re.compile(r'(?:bằng|là|có giá trị)\s*[.]?\s*$', re.IGNORECASE)
+
+
 def _stem_asks_question(stem: str) -> bool:
-    low = re.sub(r'\s+', ' ', str(stem or '')).lower()
-    return any(marker in low for marker in _QUESTION_MARKERS)
+    """Đề có thực sự hỏi gì không.
+
+    Bản trước chỉ dò chuỗi con, nên "máy tính" khớp dấu hiệu 'tính ', "Chọn hệ
+    trục toạ độ" khớp 'chọn ', và "bit bằng 0" khớp 'bằng'. Kết quả: đề chỉ mô
+    tả dữ kiện rồi dừng vẫn được coi là có hỏi. Run 2026-07-25 có 5 câu như vậy
+    lọt tới người dùng.
+    """
+    text = re.sub(r'\s+', ' ', str(stem or '')).strip()
+    if not text:
+        return False
+    low = text.lower()
+    if any(marker in low for marker in _STRONG_QUESTION_MARKERS):
+        return True
+    if _IMPERATIVE_RE.search(text):
+        return True
+    return bool(_COMPLETION_RE.search(text))
 
 
 def candidate_options(candidate: Dict[str, Any]) -> List[str]:

@@ -8,6 +8,7 @@ import uuid
 from typing import Any, Dict, List
 
 from . import difficulty as diff_mod
+from . import verification_status as vstatus
 from .parsing import _sympy_to_natural, trim_unclosed_math
 
 
@@ -226,8 +227,39 @@ def record_option_text_issues(record: Dict[str, Any]) -> List[str]:
 
 
 def _clean_stem_text(text: str) -> str:
-    """Cleaner cho stem: cho phép dài hơn (≤ 400 chars)."""
-    return _clean_display_text(text, max_len=400)
+    """Cleaner cho stem.
+
+    Trần độ dài đặt bằng đúng trần của rule validator (700) chứ không phải 400.
+    Với 400, một đề dài bị cắt ở dấu câu cuối cùng TRƯỚC mốc 400 — và mệnh đề
+    hỏi luôn nằm ở CUỐI đề, nên nó là thứ bị cắt mất đầu tiên. Rule validator
+    kiểm bản gốc (có câu hỏi) và cho qua, còn bản giao tới người dùng thì không
+    còn hỏi gì; run 2026-07-25 có 6/89 câu hỏng đúng kiểu này, có câu kết thúc
+    bằng dấu phẩy. Không cổng nào bắt được vì hai bên kiểm hai chuỗi khác nhau.
+
+    Thêm một chốt chặn cuối: nếu việc cắt làm mất dấu hiệu hỏi, giữ nguyên đề.
+    """
+    cleaned = _clean_display_text(text, max_len=700)
+    if _stem_lost_its_question(text, cleaned):
+        return _clean_display_text(text, max_len=len(str(text)) + 1)
+    return cleaned
+
+
+def _stem_lost_its_question(original: str, cleaned: str) -> bool:
+    """True khi bản gốc có hỏi mà bản đã cắt thì không còn."""
+    try:
+        from .rule_validator import _stem_asks_question
+    except Exception:
+        return False
+    return bool(_stem_asks_question(str(original or ''))
+                and not _stem_asks_question(str(cleaned or '')))
+
+
+def _review_issues(status: str, verification: Dict[str, Any]) -> List[str]:
+    """Mã vấn đề cho hàng duyệt tay: trạng thái mới + mã cũ để UI không vỡ."""
+    issues = [status]
+    if verification.get('verified') is False:
+        issues.append('verifier_numeric_mismatch')
+    return issues
 
 
 def to_question_record(slot: Dict[str, Any],
@@ -272,6 +304,28 @@ def to_question_record(slot: Dict[str, Any],
             explanation_per_distractor[k] = o['rationale']
 
     verification = candidate.get('_verification', {})
+    # Trạng thái kiểm chứng. Record cũ (và đường monolith) không có `status` —
+    # suy ra từ nhãn `verified` cũ để mọi record đều đọc được bằng cùng một từ
+    # vựng, nhưng KHÔNG bao giờ suy ra INDEPENDENTLY_VERIFIED từ nhãn cũ: nhãn
+    # đó chỉ chứng minh sự nhất quán nội bộ.
+    status = verification.get('status')
+    if status not in vstatus.VerificationStatus.ALL:
+        legacy = verification.get('verified')
+        if not verification.get('engine') or verification.get('engine') == 'none':
+            status = vstatus.VerificationStatus.NON_VERIFIABLE
+        elif legacy is True:
+            status = vstatus.VerificationStatus.CONSISTENCY_CONFIRMED
+        elif legacy is False:
+            status = vstatus.VerificationStatus.MISMATCH
+        else:
+            status = vstatus.VerificationStatus.NON_VERIFIABLE
+    # Câu tính toán (có dạng kiểm chứng được bằng máy) vs câu khái niệm. Câu
+    # khái niệm KHÔNG được hiển thị bất kỳ nhãn nào hàm ý đã kiểm bằng máy.
+    question_kind = (
+        'computational' if verification.get('machine_verifiable')
+        or (verification.get('engine') not in (None, '', 'none'))
+        else 'conceptual'
+    )
 
     # KC ids: ưu tiên verifier type (mô tả thao tác toán học thực tế của câu hỏi)
     # rồi đến question_pattern (planner gán). Tránh kc=compute_limit cho câu logic.
@@ -329,10 +383,32 @@ def to_question_record(slot: Dict[str, Any],
         'verification': {
             'engine': verification.get('engine'),
             'method': verification.get('engine'),
+            # `verified` giữ nguyên nghĩa hẹp: biểu thức kiểm chứng do Writer
+            # khai có khớp đáp án key hay không. KHÔNG được đọc là "đáp án
+            # đúng" — kết luận nằm ở `status`.
             'verified': verification.get('verified'),
+            'status': status,
+            'status_label_vi': vstatus.STATUS_LABELS_VI.get(status, status),
+            'status_label_en': vstatus.STATUS_LABELS_EN.get(status, status),
+            'machine_checked': vstatus.is_machine_checked(status),
+            'machine_verifiable': bool(verification.get('machine_verifiable')),
+            'question_kind': question_kind,
+            'evidence_sources': verification.get('sources') or [],
+            'independent': verification.get('independent') or {},
+            'needs_human_review': bool(verification.get('needs_human_review')),
+            'verifier_version': verification.get('verifier_version'),
+            # Nguyên văn hint đã chạy — cần để audit lại một câu sai sau này.
+            'verifier_hint': verification.get('verifier_hint'),
             'numeric_crosscheck_points': verification.get('numeric_crosscheck_points', 0),
             'detail': verification.get('detail'),
             'verified_at': dt.datetime.utcnow().isoformat() + 'Z',
+            # Cờ sự kiện của tầng deterministic — cần cho benchmark/đo đạc:
+            # answer_key_repaired (đổi key theo distractor được verify),
+            # verifier_errored (hint parse lỗi, fallback), source_quote_repaired.
+            'answer_key_repaired': bool(candidate.get('_answer_key_repaired')),
+            'answer_key_repair_evidence': candidate.get('_answer_key_repair_evidence'),
+            'verifier_errored': bool(candidate.get('_verifier_errored')),
+            'source_quote_repaired': bool(candidate.get('_source_quote_repaired')),
         },
 
         'judging': {
@@ -354,21 +430,16 @@ def to_question_record(slot: Dict[str, Any],
             'reject_reasons': [],
         },
 
-        # verified=False không loại câu nhưng phải vào hàng duyệt tay: đa số
-        # là verifier_hint viết lệch (câu vẫn đúng), song một tỉ lệ nhỏ là LLM
-        # tính sai thật -> người dùng cần nhìn lại trước khi dùng.
-        'review_status': ('needs_revision'
-                          if verification.get('verified') is False
-                          else 'pending_review'),
+        # MISMATCH/REFUTED không loại câu nhưng bắt buộc vào hàng duyệt tay:
+        # nguồn tính toán lệch nhau nghĩa là chưa ai biết đáp án nào đúng.
+        'review_status': vstatus.review_status_for(status),
         'review': {
             'human_reviewed': False,
             'reviewed_by': None,
             'review_notes': None,
-            'status': ('needs_revision'
-                       if verification.get('verified') is False
-                       else 'pending_review'),
-            **({'issues': ['verifier_numeric_mismatch']}
-               if verification.get('verified') is False else {}),
+            'status': vstatus.review_status_for(status),
+            **({'issues': _review_issues(status, verification)}
+               if status in vstatus.VerificationStatus.NEEDS_HUMAN else {}),
         },
 
         'tags': [slot.get('topic', ''), slot['question_pattern']],

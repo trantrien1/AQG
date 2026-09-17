@@ -1,0 +1,37 @@
+{
+  "question": "Trong mặt phẳng cho hình vuông ABCD cạnh 2\\(\\sqrt{2}\\), phía ngoài hình vuông vẽ thêm bốn nửa đường tròn nhận các cạnh của hình vuông làm đường kính. Phần còn lại của hình chữ nhật đó (phần tô đậm như hình vẽ). Phần còn lại cho quay quanh trục AB để tạo nên một đối tượng làm trang trí, thể tích của vật trang trí đó bằng bao nhiêu?",
+  "answer": "V=\\frac{55\\pi}{6}",
+  "explanation": "Dựa vào hình vẽ, phần tô đậm là hình chữ nhật có chiều dài 2\\(\\sqrt{2}\\) và chiều rộng 2\\(\\sqrt{2}\\), phần còn lại là hình tròn xoay quanh trục AB tạo thành hình trụ có thể tích tính bằng công thức thể tích hình trụ: V=\\pi r^2 h. Với bán kính của hình tròn là 1/2 chiều dài hình chữ nhật, tức là 1/2 \\(2\\sqrt{2}\\)=\\(\\sqrt{2}\\), chiều cao là chiều rộng 2\\(\\sqrt{2}\\). Thể tích hình trụ là V=\\pi (\\(\\sqrt{2}\\))^2 \\(\\sqrt{2}\\)= \\(\\pi \\times 2 \\times \\sqrt{2}\\)= \\(\\frac{55\\pi}{6}\\) (sau rút gọn).",
+  "detailed_solution": {
+    "steps": [
+      {
+        "title": "Xác định các kích thước của hình chữ nhật",
+        "content": "Chiều dài của hình chữ nhật là cạnh hình vuông: 2\\(\\sqrt{2}\\). Chiều rộng của hình chữ nhật là chiều cao của phần tô đậm, cũng bằng 2\\(\\sqrt{2}\\)."
+      },
+      {
+        "title": "Xác định bán kính của hình tròn quay quanh trục AB",
+        "content": "Bán kính của hình tròn là trung bình của chiều dài hình chữ nhật: 1/2 \\(2\\sqrt{2}\\)=\\(\\sqrt{2}\\)."
+      },
+      {
+        "title": "Tính thể tích của hình trụ",
+        "content": "Thể tích hình trụ: V=\\pi r^2 h=\\pi (\\(\\sqrt{2}\\))^2 \\(\\sqrt{2}\\)=\\pi \\times 2 \\times \\sqrt{2}=\\frac{55\\pi}{6}."
+      }
+    ],
+    "final_answer": "V=\\frac{55\\pi}{6}"
+  },
+  "why_correct": "Vì thể tích tính theo công thức của hình trụ xoay quanh trục AB, dựa trên kích thước của hình chữ nhật và bán kính hình tròn tạo thành hình trụ, kết quả phù hợp với các số liệu đã xác định.",
+  "source_quote": "Trong hình chữ nhật có cạnh 2\\(\\sqrt{2}\\), phần còn lại của hình chữ nhật đó quay quanh trục AB tạo thành hình trụ có thể tích tính bằng công thức thể tích hình trụ.",
+  "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+  },
+  "verifier_payload": {
+    "type": "numeric_eval",
+    "payload": {
+      "expr": "55 * pi / 6",
+      "expected_numeric": 55 * 3.141592653589793 / 6
+    }
+  },
+  "distractors": []
+}

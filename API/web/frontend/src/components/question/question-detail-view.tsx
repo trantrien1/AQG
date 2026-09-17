@@ -17,6 +17,9 @@ import { QuestionTypeBadge } from "./question-type-badge"
 import { QuestionStatusBadge } from "./question-status-badge"
 import { ScorePill } from "./score-pill"
 import { cn } from "@/lib/utils"
+import {
+  STATUS_BADGE_CLASS, STATUS_HELP, STATUS_LABEL, verificationStatus,
+} from "@/lib/verification"
 import type { Question } from "@/lib/api"
 
 const TRAIT_LABELS: Record<string, string> = {
@@ -50,37 +53,52 @@ function ScoreBar({ score }: { score: number }) {
   )
 }
 
+/**
+ * Nhãn kiểm chứng.
+ *
+ * Chỉ trạng thái `independently_verified` được hiển thị như một xác nhận mạnh.
+ * `consistency_confirmed` nói rõ đây mới là sự nhất quán nội bộ, còn câu khái
+ * niệm hiện "Không kiểm được bằng máy" chứ không được để trống cho người dùng
+ * tự suy ra là đã kiểm.
+ */
 function VerifierBadge({ q }: { q: Question }) {
-  const v = q.verification?.verified
+  const status = verificationStatus(q)
   const engine = q.verification?.engine ?? "none"
-  if (v === true) {
+  const label = STATUS_LABEL[status]
+  const title = STATUS_HELP[status]
+  const suffix = engine && engine !== "none" ? ` · ${engine}` : ""
+
+  if (status === "independently_verified") {
     return (
-      <Badge className="bg-emerald-100 text-emerald-700 border-emerald-300 dark:bg-emerald-950 dark:text-emerald-300 dark:border-emerald-800">
+      <Badge
+        title={title}
+        className="bg-emerald-100 text-emerald-700 border-emerald-300 dark:bg-emerald-950 dark:text-emerald-300 dark:border-emerald-800"
+      >
         <ShieldCheckIcon className="size-3 mr-1" />
-        Verified · {engine}
+        {label}{suffix}
       </Badge>
     )
   }
-  if (v === false) {
+  if (status === "consistency_confirmed") {
     return (
-      <Badge variant="destructive">
+      <Badge variant="outline" title={title} className={STATUS_BADGE_CLASS[status]}>
+        <ShieldCheckIcon className="size-3 mr-1" />
+        {label}{suffix}
+      </Badge>
+    )
+  }
+  if (status === "refuted") {
+    return (
+      <Badge variant="destructive" title={title}>
         <ShieldXIcon className="size-3 mr-1" />
-        Verifier failed
-      </Badge>
-    )
-  }
-  if (engine === "none") {
-    return (
-      <Badge variant="outline">
-        <AlertTriangleIcon className="size-3 mr-1" />
-        Không có verifier
+        {label}
       </Badge>
     )
   }
   return (
-    <Badge variant="outline" className="text-amber-600 border-amber-400/60">
+    <Badge variant="outline" title={title} className={STATUS_BADGE_CLASS[status]}>
       <AlertTriangleIcon className="size-3 mr-1" />
-      Verifier lỗi
+      {label}
     </Badge>
   )
 }

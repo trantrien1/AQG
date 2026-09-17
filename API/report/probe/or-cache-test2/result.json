@@ -1,0 +1,602 @@
+{
+ "questions": [],
+ "accepted_count": 0,
+ "requested_count": 5,
+ "is_partial": true,
+ "parse_errors": 6,
+ "verify_failures": 0,
+ "error_code": null,
+ "error_message": null,
+ "rejected": [
+  {
+   "stem": "",
+   "question_id": "rej_direct_pdf_0_writer",
+   "blueprint_slot_id": "direct_pdf_0",
+   "cognitive_level": "Vận dụng",
+   "review_status": "rejected",
+   "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 13 column 11544 (char 12955)\"])",
+   "reject_reason_code": "writer_empty",
+   "reject_reason_stage": "writer",
+   "reject_log": [
+    {
+     "reason_code": "writer_empty",
+     "stage": "writer",
+     "attempt": 0,
+     "message": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 13 column 11544 (char 12955)\"])",
+     "slot_id": "direct_pdf_0"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_1_distractor",
+   "blueprint_slot_id": "direct_pdf_1",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "conceptual"
+   ],
+   "cognitive_level": "Thông hiểu",
+   "difficulty_target": 0.5,
+   "difficulty_estimated": 0.53,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.5,
+    "stem_length_adj": 0.06,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 382,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 0
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 75,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 4 giờ với vận tốc phụ thuộc vào thời gian \\(t(h)\\) có đồ thị vận tốc như hình vẽ bên. Trong khoảng thời gian 1 giờ kể từ khi bắt đầu chuyển động, đồ thị đó là một phần của đường parabol có đỉnh \\(I(2;10)\\) và trục đối xứng song song với trục tung. Khoảng thời gian còn lại vật chuyển động chậm dần đều. Tính quãng đường \\(S\\) mà vật đi được trong 4 giờ đó.",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\(\\frac{151}{6}\\)",
+     "error_type": null
+    }
+   ],
+   "answer_key": "A",
+   "explanation_correct": "Tính quãng đường bằng cách tính tích phân của hàm vận tốc \\(v(t)\\) trên các khoảng thời gian khác nhau.",
+   "explanation_per_distractor": {},
+   "hint": null,
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Một vật chuyển động trong 4 giờ với vận tốc.. phụ thuộc vào thời gian t(h) có đồ thị vận tốc\nnhư hình vẽ bên. Trong khoảng thời gian 1 giờ kể từ khi bắt đầu chuyển động, đồ thị đó là một\nphần của đường parabol có đỉnh 1(2;10) và trục đối xứng song song với trục tung. Khoảng thời\ngian còn lại vật chuyển động chậm dần đều. Tính quãng đường S mà vật đi được trong 4 giờ đó.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": null,
+    "method": null,
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": false,
+    "question_kind": "conceptual",
+    "evidence_sources": [],
+    "independent": {},
+    "needs_human_review": false,
+    "verifier_version": null,
+    "verifier_hint": null,
+    "numeric_crosscheck_points": 0,
+    "detail": null,
+    "verified_at": "2026-07-28T06:06:15.999417Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": null,
+    "quality": null,
+    "bloom_alignment": null,
+    "answer_prob": null,
+    "quality_traits": {},
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": null,
+    "verifier_pass": null,
+    "critic_score": null,
+    "grounding_score": null,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "Không tạo đủ 3 phương án nhiễu đạt chuẩn (error=Unterminated string starting at: line 11 column 38 (char 1190), n=0)",
+   "reject_reason_code": "bad_distractors",
+   "reject_reason_stage": "distractor",
+   "reject_log": [
+    {
+     "reason_code": "bad_distractors",
+     "stage": "distractor",
+     "attempt": 0,
+     "message": "Không tạo đủ 3 phương án nhiễu đạt chuẩn (error=Unterminated string starting at: line 11 column 38 (char 1190), n=0)",
+     "slot_id": "direct_pdf_1"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_2_critic",
+   "blueprint_slot_id": "direct_pdf_2",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "numeric_eval",
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng cao",
+   "difficulty_target": 0.85,
+   "difficulty_estimated": 0.92,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.85,
+    "stem_length_adj": 0.1,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 464,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 322,
+   "question_type": "single_choice",
+   "stem": "Một người nông dân có một mảnh đất hình vuông ABCD cạnh 8m. Ông ta định chia mảnh đất thành ba phần, bởi các parabol đi qua các đỉnh của hình vuông như hình vẽ, biết rằng đỉnh của parabol cách cạnh hình vuông 2m. Ông dự định trồng hoa trên phần diện tích giới hạn bởi các parabol và cạnh hình vuông, trồng cỏ trên phần diện tích còn lại. Nếu chi phí mua cây giống hoa là 120.000 đồng/m², cỏ là 80.000 đồng/m² thì chi phí mua cây giống cho cả khu vườn là bao nhiêu?",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\(4.900.000\\) đồng",
+     "error_type": "area_no_absolute"
+    },
+    {
+     "key": "B",
+     "text": "\\(5.840.000\\) đồng",
+     "error_type": null
+    },
+    {
+     "key": "C",
+     "text": "\\(6.400.000\\) đồng",
+     "error_type": "confuse_perimeter_area"
+    },
+    {
+     "key": "D",
+     "text": "\\(5.360.000\\) đồng",
+     "error_type": "calculation_error"
+    }
+   ],
+   "answer_key": "B",
+   "explanation_correct": "Tính diện tích trồng hoa và diện tích trồng cỏ, sau đó nhân với chi phí tương ứng và cộng lại.",
+   "explanation_per_distractor": {
+    "A": "Học sinh tính diện tích trồng hoa bằng cách lấy tích phân của hàm parabol mà không lấy giá trị tuyệt đối, dẫn đến kết quả sai. Cụ thể, diện tích trồng hoa được tính là \\(S_h = \\int_{-4}^{4} (4 - (\\frac{x^2}{8} + 2)) dx = \\int_{-4}^{4} (2 - \\frac{x^2}{8}) dx = [2x - \\frac{x^3}{24}]_{-4}^{4} = (8 - \\frac{64}{24}) - (-8 + \\frac{64}{24}) = 16 - \\frac{128}{24} = 16 - \\frac{16}{3} = \\frac{32}{3}\\) m².",
+    "C": "Học sinh có thể nhầm lẫn giữa chu vi và diện tích hoặc tính toán sai các kích thước liên quan. Ví dụ, nếu học sinh tính diện tích trồng hoa là \\(44/3\\) m² (đúng) nhưng lại tính diện tích trồng cỏ là \\(44/3\\) m² (sai) hoặc một giá trị nào đó không chính xác, dẫn đến tổng chi phí sai. Hoặc, học sinh có thể tính diện tích trồng hoa là \\(64 - 44/3 = 148/3\\) m² và diện tích trồng cỏ là \\(44/3\\) m².",
+    "D": "Học sinh có thể mắc lỗi tính toán khi xác định diện tích trồng hoa hoặc diện tích trồng cỏ. Ví dụ, nếu học sinh tính diện tích trồng hoa là \\(44/3\\) m² (đúng), nhưng lại tính diện tích trồng cỏ là \\(64 - 44/3 = 148/3\\) m². Sau đó, học sinh có thể nhân nhầm chi phí hoặc cộng sai. Giả sử chi phí hoa là \\(44/3 * 120000 = 1.760.000\\) và chi phí cỏ là \\(148/3 * 80000 = 3.946.666,67\\). Tổng cộng là"
+   },
+   "hint": null,
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Một người nông dân có một mảnh đất hình vuông ABCD cạnh 8m. Ông ta định chia mảnh đất thành ba phần, bởi các parabol đi qua các đỉnh của hình vuông như hình vẽ, biết rằng đỉnh của parabol cách cạnh hình vuông 2m. Ông dự định trồng hoa trên phần diện tích giới hạn bởi các parabol và cạnh hình vuông, trồng cỏ trên phần diện tích còn lại.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": "numeric_eval",
+    "method": "numeric_eval",
+    "verified": true,
+    "status": "consistency_confirmed",
+    "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+    "status_label_en": "Consistent with its verification expression (no independent check)",
+    "machine_checked": true,
+    "machine_verifiable": true,
+    "question_kind": "computational",
+    "evidence_sources": [
+     "writer_expression",
+     "independent_target"
+    ],
+    "independent": {
+     "attempted": true,
+     "definite": false,
+     "derivation": false,
+     "value": null,
+     "expression": "",
+     "stated_answer": "",
+     "stated_value": null,
+     "source": "unavailable",
+     "detail": "không đọc được JSON từ tác nhân độc lập",
+     "model": "deepseek/deepseek-r1",
+     "prompt_version": "1.0.0",
+     "errors": []
+    },
+    "needs_human_review": false,
+    "verifier_version": "2.0.0",
+    "verifier_hint": {
+     "type": "numeric_eval",
+     "payload": {
+      "expr": "5840000",
+      "expected_numeric": 5360000.0
+     }
+    },
+    "numeric_crosscheck_points": 0,
+    "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (không đọc được JSON từ tác nhân độc lập)",
+    "verified_at": "2026-07-28T06:06:56.362167Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": 0.9,
+    "quality": 0.8166666666666665,
+    "bloom_alignment": 0.9,
+    "answer_prob": null,
+    "quality_traits": {
+     "clarity": {
+      "score": 1.0,
+      "rationale": "Câu hỏi rõ ràng, dễ hiểu, mô tả đầy đủ ngữ cảnh và các thông số cần thiết để giải quyết bài toán."
+     },
+     "cognitive_depth": {
+      "score": 0.9,
+      "rationale": "Bài toán yêu cầu học sinh phải xác định phương trình parabol dựa trên các điểm cho trước, tính toán diện tích bằng tích phân, sau đó sử dụng các diện tích này để tính tổng chi phí. Đây là một chuỗi các bước phức tạp, đòi hỏi sự vận dụng kiến thức về hàm số, tích phân và giải quyết vấn đề thực tế."
+     },
+     "bloom_alignment": {
+      "score": 0.9,
+      "rationale": "Để giải quyết bài toán này, học sinh cần áp dụng kiến thức về phương trình parabol, tích phân để tính diện tích và sau đó là tính toán chi phí. Đây là một quá trình vận dụng kiến thức vào tình huống cụ thể, phù hợp với mức độ \"Vận dụng cao\"."
+     },
+     "distractor_plausibility": {
+      "score": 0.8,
+      "rationale": "Các phương án nhiễu được thiết kế dựa trên các lỗi tính toán phổ biến như quên lấy giá trị tuyệt đối khi tính tích phân diện tích, nhầm lẫn giữa các khái niệm hoặc lỗi tính toán số học, làm cho chúng trở nên hợp lý và có khả năng đánh lừa học sinh."
+     },
+     "answer_uniqueness": {
+      "score": 1.0,
+      "rationale": "Chỉ có một đáp án đúng duy nhất là 5.840.000 đồng, các phương án nhiễu khác đều dẫn đến các giá trị khác biệt do lỗi tính toán cụ thể."
+     },
+     "error_distractor_consistency": {
+      "score": 0.3,
+      "rationale": "Phần \"cách ra giá trị này\" của mỗi distractor đều mô tả một chuỗi lỗi tính toán cụ thể và nhất quán, tuy nhiên, các giá trị cuối cùng được tính ra từ chuỗi lỗi đó không hoàn toàn khớp với giá trị của distractor. Ví dụ, distractor 1 tính ra 5.546.666,67 đồng nhưng distractor là 4.900.000 đồng. Distra"
+     }
+    },
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": 0.8166666666666665,
+    "verifier_pass": true,
+    "critic_score": 0.8166666666666665,
+    "grounding_score": 0.9,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "error_distractor_consistency=0.30 (lỗi mô tả không khớp giá trị distractor/đáp án) (Phần \"cách ra giá trị này\" của mỗi distractor đều mô tả một chuỗi lỗi tính toán cụ thể và nhất quán, tuy nhiên, các giá trị cuối cùng được tính ra từ chuỗi lỗi )",
+   "reject_reason_code": "quality_low",
+   "reject_reason_stage": "critic",
+   "reject_log": [
+    {
+     "reason_code": "quality_low",
+     "stage": "critic",
+     "attempt": 0,
+     "message": "error_distractor_consistency=0.30 (lỗi mô tả không khớp giá trị distractor/đáp án) (Phần \"cách ra giá trị này\" của mỗi distractor đều mô tả một chuỗi lỗi tính toán cụ thể và nhất quán, tuy nhiên, các giá trị cuối cùng được tính ra từ chuỗi lỗi )",
+     "slot_id": "direct_pdf_2"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_3_verifier",
+   "blueprint_slot_id": "direct_pdf_3",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng",
+   "difficulty_target": 0.7,
+   "difficulty_estimated": 0.77,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.7,
+    "stem_length_adj": 0.1,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 473,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 3
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 200,
+   "question_type": "single_choice",
+   "stem": "Một vật chuyển động trong 6 giờ với vận tốc \\(v(km/h)\\) phụ thuộc vào thời gian \\(t(h)\\) có đồ thị như hình vẽ bên dưới. Trong khoảng thời gian 2 giờ từ khi bắt đầu chuyển động, đồ thị là một phần đường Parabol có đỉnh \\(I(3;9)\\) và có trục đối xứng song song với trục tung. Khoảng thời gian còn lại, đồ thị vận tốc là một đường thẳng có hệ số góc bằng \\(-\\frac{1}{4}\\). Quãng đường \\(S\\) mà vật di chuyển được trong 6 giờ là \\(\\frac{a}{b}\\). Khi đó \\(a-b\\) bằng bao nhiêu?",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\(120\\)",
+     "error_type": "geometric_sum_wrong"
+    },
+    {
+     "key": "B",
+     "text": "\\(130\\)",
+     "error_type": "area_no_absolute"
+    },
+    {
+     "key": "C",
+     "text": "\\(115\\)",
+     "error_type": "missing_constant_C"
+    },
+    {
+     "key": "D",
+     "text": "\\(127\\)",
+     "error_type": null
+    }
+   ],
+   "answer_key": "D",
+   "explanation_correct": "Cần xác định hàm vận tốc \\(v(t)\\) cho từng khoảng thời gian, sau đó tính tích phân của \\(v(t)\\) trên khoảng \\([0;6]\\) để tìm quãng đường \\(S\\). Từ đó suy ra \\(a, b\\) và tính \\(a-b\\).",
+   "explanation_per_distractor": {
+    "A": "Học sinh có thể mắc lỗi trong việc xác định các tham số của parabol hoặc đường thẳng, dẫn đến việc tính toán sai hàm vận tốc. Ví dụ, nếu học sinh xác định sai đỉnh parabol, hoặc sai hệ số góc của đường thẳng, hoặc sai điểm mà đường thẳng đi qua, sẽ dẫn đến hàm vận tốc \\(v(t)\\) không chính xác. Khi đó, việc tính tích phân của hàm \\(v(t)\\) sẽ cho ra kết quả sai.",
+    "B": "Học sinh có thể nhầm lẫn trong việc tính tích phân của hàm vận tốc khi hàm này có thể âm (mặc dù vận tốc thường không âm trong ngữ cảnh này, nhưng nếu có sự nhầm lẫn trong việc xác định hàm hoặc hiểu sai ý nghĩa của tích phân). Hoặc,",
+    "C": "Học sinh có thể bỏ qua hằng số tự do C khi tính quãng đường, dẫn đến kết quả sai. Cụ thể, khi tính quãng đường S, nếu không cộng hằng số tự do C vào hàm vận tốc, hoặc không xét đến điều kiện ban đầu để xác định C, sẽ dẫn đến kết quả sai. Trong bài toán này, việc xác định hàm vận tốc \\(v(t)\\) cho từng khoảng thời gian là rất quan trọng."
+   },
+   "hint": null,
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "Một vật chuyển động trong 6 giờ với vận tốc v(km/h) phụ thuộc vào thời gian t(h) có đồ thị như hình bên dưới. Trong khoảng thời gian 2 giờ từ khi bắt đầu chuyển động, đồ thị là một phần đường Parabol có đỉnh I (3;9) và có trục đối xứng song song với trục tung. Khoảng thời gian còn lại, đồ thị vận tốc là một đường thẳng có hệ số góc bằng -1/4. Quảng đường S mà vật di chuyển được trong 6 giờ là a/b. Khi đó a−b bằng bao nhiêu?",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": null,
+    "method": null,
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": false,
+    "question_kind": "conceptual",
+    "evidence_sources": [],
+    "independent": {},
+    "needs_human_review": false,
+    "verifier_version": null,
+    "verifier_hint": null,
+    "numeric_crosscheck_points": 0,
+    "detail": null,
+    "verified_at": "2026-07-28T06:07:57.393420Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": null,
+    "quality": null,
+    "bloom_alignment": null,
+    "answer_prob": null,
+    "quality_traits": {},
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": null,
+    "verifier_pass": null,
+    "critic_score": null,
+    "grounding_score": null,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "duplicate_question: rule validator failed: ['source_quote_too_long:427', 'duplicate_question:source_quote_is_existing_exercise']",
+   "reject_reason_code": "quote_mismatch",
+   "reject_reason_stage": "verifier",
+   "reject_log": [
+    {
+     "reason_code": "quote_mismatch",
+     "stage": "verifier",
+     "attempt": 0,
+     "message": "duplicate_question: rule validator failed: ['source_quote_too_long:427', 'duplicate_question:source_quote_is_existing_exercise']",
+     "slot_id": "direct_pdf_3"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "stem": "",
+   "question_id": "rej_direct_pdf_4_writer",
+   "blueprint_slot_id": "direct_pdf_4",
+   "cognitive_level": "Thông hiểu",
+   "review_status": "rejected",
+   "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['Invalid control character at: line 21 column 2177 (char 4147)'])",
+   "reject_reason_code": "writer_empty",
+   "reject_reason_stage": "writer",
+   "reject_log": [
+    {
+     "reason_code": "writer_empty",
+     "stage": "writer",
+     "attempt": 0,
+     "message": "Writer không sinh được câu hỏi hợp lệ (errors=['Invalid control character at: line 21 column 2177 (char 4147)'])",
+     "slot_id": "direct_pdf_4"
+    }
+   ],
+   "attempts": 1
+  },
+  {
+   "question_id": "rej_direct_pdf_5_distractor",
+   "blueprint_slot_id": "direct_pdf_5",
+   "subject": "Toán",
+   "topic": "",
+   "kc_ids": [
+    "conceptual"
+   ],
+   "cognitive_level": "Vận dụng cao",
+   "difficulty_target": 0.85,
+   "difficulty_estimated": 0.92,
+   "difficulty_alignment": true,
+   "difficulty_features": {
+    "cognitive_base": 0.85,
+    "stem_length_adj": 0.1,
+    "verifier_complexity_adj": -0.05,
+    "visual_adj": 0.02,
+    "distractor_closeness_adj": 0.0,
+    "stem_length": 469,
+    "verifier_type": "numeric_eval",
+    "visual_type": "none",
+    "num_distractors": 0
+   },
+   "discrimination": null,
+   "estimated_time_seconds": 322,
+   "question_type": "single_choice",
+   "stem": "Một người nông dân có một mảnh đất hình vuông ABCD cạnh 8m. Ông ta định chia mảnh đất thành ba phần, bởi các parabol đi qua các đỉnh của hình vuông như hình vẽ, biết rằng đỉnh của parabol cách cạnh hình vuông 2m. Ông dự định trồng hoa trên phần diện tích giới hạn bởi các parabol và cạnh hình vuông, trồng cỏ trên phần diện tích còn lại. Nếu chi phí mua cây giống hoa là 120.000 đồng/m², cỏ là 75.000 đồng/m² thì tổng chi phí để hoàn thành việc trồng trọt là bao nhiêu?",
+   "options": [
+    {
+     "key": "A",
+     "text": "\\(5.820.000\\) đồng",
+     "error_type": null
+    }
+   ],
+   "answer_key": "A",
+   "explanation_correct": "Tính diện tích trồng hoa và trồng cỏ dựa trên các phương trình parabol và hình vuông, sau đó nhân với chi phí tương ứng để tìm tổng chi phí.",
+   "explanation_per_distractor": {},
+   "hint": null,
+   "visual": {
+    "type": "none",
+    "spec": {},
+    "alt_text": ""
+   },
+   "source": {
+    "doc_id": null,
+    "chunk_ids": [],
+    "pages": [],
+    "quote": "a) Phương trình của hai parabol là y = \\frac{x^2}{8} + 2 và y = -\\frac{x^2}{8} - 2.\\nb) Diện tích trồng hoa bằng \\frac{44}{3}m^2.\\nc) Tỉ số diện tích đất trồng hoa và trồng cỏ bằng \\frac{11}{37}.\\nd) Nếu chi phí mua cây giống hoa là 100.000 đồng/m², cỏ là 70.000 đồng/m² thì chi phí mua cây giống cho cả khu vườn là 4900000 đồng.",
+    "quote_in_context": null
+   },
+   "verification": {
+    "engine": null,
+    "method": null,
+    "verified": null,
+    "status": "non_verifiable",
+    "status_label_vi": "Không kiểm chứng được bằng máy",
+    "status_label_en": "Not machine-checkable",
+    "machine_checked": false,
+    "machine_verifiable": false,
+    "question_kind": "conceptual",
+    "evidence_sources": [],
+    "independent": {},
+    "needs_human_review": false,
+    "verifier_version": null,
+    "verifier_hint": null,
+    "numeric_crosscheck_points": 0,
+    "detail": null,
+    "verified_at": "2026-07-28T06:07:33.803423Z",
+    "answer_key_repaired": false,
+    "answer_key_repair_evidence": null,
+    "verifier_errored": false,
+    "source_quote_repaired": false
+   },
+   "judging": {
+    "grounding": null,
+    "quality": null,
+    "bloom_alignment": null,
+    "answer_prob": null,
+    "quality_traits": {},
+    "critic_skipped": null
+   },
+   "agent_trace": [],
+   "quality_trace": {
+    "before_refiner": null,
+    "after_refiner": null,
+    "verifier_pass": null,
+    "critic_score": null,
+    "grounding_score": null,
+    "reject_reasons": []
+   },
+   "review_status": "rejected",
+   "review": {
+    "human_reviewed": false,
+    "reviewed_by": null,
+    "review_notes": null,
+    "status": "pending_review"
+   },
+   "tags": [
+    "",
+    "conceptual"
+   ],
+   "version": 1,
+   "reject_reason": "Không tạo đủ 3 phương án nhiễu đạt chuẩn (error=Unterminated string starting at: line 16 column 38 (char 2682), n=0)",
+   "reject_reason_code": "bad_distractors",
+   "reject_reason_stage": "distractor",
+   "reject_log": [
+    {
+     "reason_code": "bad_distractors",
+     "stage": "distractor",
+     "attempt": 0,
+     "message": "Không tạo đủ 3 phương án nhiễu đạt chuẩn (error=Unterminated string starting at: line 16 column 38 (char 2682), n=0)",
+     "slot_id": "direct_pdf_5"
+    }
+   ],
+   "attempts": 1
+  }
+ ]
+}

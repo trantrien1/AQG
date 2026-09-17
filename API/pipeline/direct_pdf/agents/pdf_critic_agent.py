@@ -67,7 +67,7 @@ class PdfCriticAgent(PdfAwareAgent):
                 request.attachment_parts,
                 # 7 khối rationale+score (grounding + 6 traits); 700 từng gây
                 # JSON cụt ~40% lượt chấm -> traits rơi hết về trung tính.
-                max_tokens=1100,
+                max_tokens=cfg.CRITIC_MAX_TOKENS,
             )
             grounding, grounding_rationale, traits, quality = _parse_critic(raw)
         except (BudgetExceeded, NonRetryableLLMError, PdfUnsupportedError):
@@ -96,13 +96,13 @@ class PdfCriticAgent(PdfAwareAgent):
                 reject_reason=f'grounding={grounding:.2f} < {cfg.GROUNDING_THRESHOLD}{suffix}',
             )
         uniq = traits.get('answer_uniqueness', {}).get('score', 1.0)
-        if uniq < 0.5:
+        if uniq < cfg.ANSWER_UNIQUENESS_THRESHOLD:
             return PdfCriticResponse(
                 annotations=annotations, rejected=True,
                 reject_reason=f'answer_uniqueness={uniq:.2f} (nghi đa đáp án)',
             )
         cons = traits.get('error_distractor_consistency', {}).get('score', 1.0)
-        if cons < 0.4:
+        if cons < cfg.ERROR_VALUE_CONSISTENCY_THRESHOLD:
             detail = traits.get('error_distractor_consistency', {}).get('rationale', '')[:160]
             suffix = f' ({detail})' if detail else ''
             return PdfCriticResponse(

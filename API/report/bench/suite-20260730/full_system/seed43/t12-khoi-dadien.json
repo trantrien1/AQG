@@ -1,0 +1,2004 @@
+{
+  "metadata": {
+    "bench": "suite",
+    "arm": "full_system",
+    "seed": 43,
+    "source_pdf": "pdftest/corpus2/t12-khoi-dadien.pdf",
+    "source_pdf_name": "t12-khoi-dadien.pdf",
+    "requested_questions": 12,
+    "accepted_questions": 6,
+    "is_partial": true,
+    "parse_errors": 6,
+    "verify_failures": 0,
+    "error_code": null,
+    "error_message": null,
+    "cost": {
+      "tokens": 150612,
+      "calls": 41
+    },
+    "duration_seconds": 313.0705769062042,
+    "generated_at": "2026-07-30T08:50:27.757240+00:00"
+  },
+  "questions": [
+    {
+      "question_id": "q_2026_cc8df349",
+      "blueprint_slot_id": "direct_pdf_2",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.88,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 271,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Một xưởng thiết kế một bể chứa dạng khối nón tròn xoay không có nắp. Để tiết kiệm vật liệu, người ta cố định đường sinh của hình nón bằng \\(7\\) dm và muốn thể tích bể lớn nhất. Biết bể có bán kính đáy \\(r\\) và chiều cao \\(h\\), thể tích lớn nhất của bể bằng bao nhiêu dm³?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(0\\)",
+          "error_type": "extremum_endpoint_missing"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{686\\pi}{9\\sqrt{3}}\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{1372\\pi}{81}\\)",
+          "error_type": "wrong_cone_constraint_linearized"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{343\\pi}{6\\sqrt{2}}\\)",
+          "error_type": "wrong_height_radius_relation"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Từ điều kiện đường sinh không đổi suy ra \\(r^2+h^2=49\\). Cần tối ưu hóa thể tích \\(V=\\frac{1}{3}\\pi r^2h\\), nên đưa về bài toán tìm giá trị lớn nhất của một hàm một biến. Kết quả đạt được khi \\(h=\\frac{7}{\\sqrt{3}}\\), từ đó tính được thể tích cực đại.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là chỉ xét các đầu mút của miền biến thiên thay vì xét điểm cực trị. Từ điều kiện \\(0\\le h\\le 7\\), người làm sai chỉ tính \\(V(0)=\\frac{1}{3}\\pi(49-0^2)0=0\\) và \\(V(7)=\\frac{1}{3}\\pi(49-7^2)7=0\\), sau đó chọn giá trị lớn nhất là \\(0\\). Sai vì phải so sánh thêm giá trị tại điểm cực trị \\(h=\\frac{7}{\\sqrt{3}}\\).",
+        "C": "Sai lầm là biến điều kiện đường sinh \\(r^2+h^2=49\\) thành điều kiện tuyến tính sai \\(r+h=7\\). Khi đó \\(r=7-h\\) và \\(V=\\frac{1}{3}\\pi(7-h)^2h\\). Lấy đạo hàm: \\(V'\\) tỉ lệ với \\((7-h)(7-3h)\\), suy ra \\(h=\\frac{7}{3}\\), \\(r=\\frac{14}{3}\\). Thay vào thể tích được \\(V=\\frac{1}{3}\\pi\\cdot\\frac{196}{9}\\cdot\\frac{7}{3}=\\frac{1372\\pi}{81}\\). Sai vì đã dùng sai ràng buộc hình học.",
+        "D": "Sai lầm là cho rằng hình nón đạt thể tích lớn nhất khi bán kính bằng chiều cao, tức \\(r=h\\), thay vì tìm điều kiện cực trị. Kết hợp với \\(r^2+h^2=49\\) được \\(2h^2=49\\), nên \\(h=r=\\frac{7}{\\sqrt{2}}\\). Khi đó \\(V=\\frac{1}{3}\\pi r^2h=\\frac{1}{3}\\pi\\cdot\\frac{49}{2}\\cdot\\frac{7}{\\sqrt{2}}=\\frac{343\\pi}{6\\sqrt{2}}\\). Sai vì điều kiện \\(r=h\\) không phải điều kiện cực đại của bài toán."
+      },
+      "hint": "Từ điều kiện đường sinh không đổi suy ra \\(r^2+h^2=49\\). Cần tối ưu hóa thể tích \\(V=\\frac{1}{3}\\pi r^2h\\), nên đưa về bà",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Thể tích khối nón: 1 1 2 3 3 V B h r h   . .",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 138.25181820718595,
+          "expression": "686*pi*sqrt(3)/27",
+          "stated_answer": "686*sqrt(3)*pi/27",
+          "stated_value": 138.25181820718595,
+          "source": "llm_resolver",
+          "detail": "686*pi*sqrt(3)/27 = 138.252",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "686*pi/(9*sqrt(3))",
+            "expected_numeric": 126.99240398235997
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 138.252, khớp đáp án key",
+        "verified_at": "2026-07-30T08:46:42.094457Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.9333333333333332,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề nêu rõ dạng hình nón, điều kiện đường sinh cố định, đại lượng cần tối ưu và yêu cầu tính thể tích cực đại."
+          },
+          "cognitive_depth": {
+            "score": 0.9,
+            "rationale": "Bài yêu cầu thiết lập ràng buộc hình học, biến đổi hàm một biến và tìm cực trị chứ không chỉ áp dụng công thức trực tiếp."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác tối ưu hóa mô hình hình học phù hợp với mức vận dụng cao đã gắn nhãn."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đại diện cho ba lỗi thường gặp: bỏ qua điểm cực trị, sai điều kiện ràng buộc và áp đặt quan hệ \\(r=h\\)."
+          },
+          "answer_uniqueness": {
+            "score": 0.95,
+            "rationale": "Chỉ có đáp án cho kết quả từ điều kiện cực trị đúng, các distractor đều xuất phát từ giả thiết sai hoặc xét thiếu trường hợp."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Các chuỗi lỗi mô tả đều dẫn đúng tới giá trị distractor tương ứng và phần giải thích nhất quán với đáp án đã cho."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9333333333333332,
+        "verifier_pass": true,
+        "critic_score": 0.9333333333333332,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ điều kiện đường sinh không đổi suy ra \\(r^2+h^2=49\\). Cần tối ưu hóa thể tích \\(V=\\frac{1}{3}\\pi r^2h\\), nên đưa về bài toán tìm giá trị lớn nhất của một hàm một biến.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Theo công thức thể tích khối nón, ta có \\(V=\\frac{1}{3}\\pi r^2h\\). Vì đường sinh bằng \\(7\\) dm nên từ tam giác vuông tạo bởi bán kính, chiều cao và đường sinh suy ra \\(r^2+h^2=49\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Biến đổi điều kiện để biểu diễn bán kính theo chiều cao: \\(r^2=49-h^2\\). Khi đó \\(V=\\frac{1}{3}\\pi(49-h^2)h=\\frac{\\pi}{3}(49h-h^3)\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Xét hàm \\(f(h)=49h-h^3\\) với \\(0<h<7\\). Ta có \\(f'(h)=49-3h^2\\). Điều kiện cực trị là \\(49-3h^2=0\\), suy ra \\(h^2=\\frac{49}{3}\\) và \\(h=\\frac{7}{\\sqrt{3}}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Từ \\(r^2+h^2=49\\), thay \\(h^2=\\frac{49}{3}\\) được \\(r^2=49-\\frac{49}{3}=\\frac{98}{3}\\). Đây là giá trị thỏa mãn điều kiện và cho thể tích lớn nhất."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Thay các giá trị vào công thức thể tích: \\(V_{max}=\\frac{1}{3}\\pi\\cdot\\frac{98}{3}\\cdot\\frac{7}{\\sqrt{3}}=\\frac{686\\pi}{9\\sqrt{3}}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{686\\pi}{9\\sqrt{3}}\\)"
+      },
+      "why_correct": "Điều kiện đường sinh cố định tạo ra ràng buộc \\(r^2+h^2=49\\). Việc tối ưu hàm \\(49h-h^3\\) cho nghiệm duy nhất trong miền hình học là \\(h=\\frac{7}{\\sqrt{3}}\\), nên thể tích tính được là giá trị cực đại duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm là chỉ xét các đầu mút của miền biến thiên thay vì xét điểm cực trị. Từ điều kiện \\(0\\le h\\le 7\\), người làm sai chỉ tính \\(V(0)=\\frac{1}{3}\\pi(49-0^2)0=0\\) và \\(V(7)=\\frac{1}{3}\\pi(49-7^2)7=0\\), sau đó chọn giá t"
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm là biến điều kiện đường sinh \\(r^2+h^2=49\\) thành điều kiện tuyến tính sai \\(r+h=7\\). Khi đó \\(r=7-h\\) và \\(V=\\frac{1}{3}\\pi(7-h)^2h\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm là cho rằng hình nón đạt thể tích lớn nhất khi bán kính bằng chiều cao, tức \\(r=h\\), thay vì tìm điều kiện cực trị. Kết hợp với \\(r^2+h^2=49\\) được \\(2h^2=49\\), nên \\(h=r=\\frac{7}{\\sqrt{2}}\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_a98818df",
+      "blueprint_slot_id": "direct_pdf_3",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.47,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 139,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Một hình trụ tròn xoay có đường sinh bằng \\(5\\) cm. Biết diện tích xung quanh của hình trụ là \\(30\\pi\\) cm². Tính thể tích của khối trụ đó.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(15\\pi\\)",
+          "error_type": "cylinder_volume_missing_radius_square"
+        },
+        {
+          "key": "B",
+          "text": "\\(1125\\pi\\)",
+          "error_type": "confuse_perimeter_area"
+        },
+        {
+          "key": "C",
+          "text": "\\(45\\)",
+          "error_type": "volume_missing_pi"
+        },
+        {
+          "key": "D",
+          "text": "\\(45\\pi\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Từ diện tích xung quanh suy ra bán kính đáy, sau đó dùng công thức thể tích khối trụ để tính được kết quả.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là dùng bán kính đáy không được bình phương trong công thức thể tích khối trụ. Từ \\(2\\pi rl=30\\pi\\) với \\(l=5\\), suy ra \\(r=3\\). Học sinh áp dụng sai công thức thành \\(V=\\pi rh\\), rồi tính \\(V=\\pi\\cdot3\\cdot5=15\\pi\\). Sai vì công thức đúng phải là \\(V=\\pi r^2h\\).",
+        "B": "Sai lầm là nhầm diện tích xung quanh với chu vi đường tròn đáy. Học sinh lấy \\(30\\pi\\) làm chu vi đáy nên viết \\(2\\pi r=30\\pi\\), suy ra \\(r=15\\). Sau đó dùng công thức đúng của thể tích khối trụ với \\(h=5\\): \\(V=\\pi r^2h=\\pi\\cdot15^2\\cdot5=1125\\pi\\). Sai vì \\(30\\pi\\) là diện tích xung quanh, không phải chu vi đáy.",
+        "C": "Sai lầm là quên hệ số \\(\\pi\\) trong công thức thể tích khối trụ. Từ \\(S_{xq}=2\\pi rl=30\\pi\\) với \\(l=5\\), suy ra \\(r=3\\). Làm sai công thức thành \\(V=r^2h\\) nên tính \\(V=3^2\\cdot5=45\\). Kết quả này sai vì thể tích khối trụ phải có thêm thừa số \\(\\pi\\)."
+      },
+      "hint": "Từ diện tích xung quanh suy ra bán kính đáy, sau đó dùng công thức thể tích khối trụ để tính được kết quả.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Diện tích xung quanh: 2 . . xq S r l  .",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 141.3716694115407,
+          "expression": "pi*(30*pi/(2*pi*5))**2*5",
+          "stated_answer": "45*pi",
+          "stated_value": 141.3716694115407,
+          "source": "llm_resolver",
+          "detail": "pi*(30*pi/(2*pi*5))**2*5 = 141.372",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "45*pi",
+            "expected_numeric": 47.1238898038469
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 141.372, khớp đáp án key",
+        "verified_at": "2026-07-30T08:47:50.129407Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.93,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu đủ dữ kiện đường sinh, diện tích xung quanh và yêu cầu tính thể tích, không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.75,
+            "rationale": "Bài yêu cầu suy luận từ diện tích xung quanh để tìm bán kính rồi áp dụng công thức thể tích, phù hợp mức vận dụng cơ bản/thông hiểu."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là hiểu và áp dụng công thức đã học, phù hợp với mức Thông hiểu được gán."
+          },
+          "distractor_plausibility": {
+            "score": 0.95,
+            "rationale": "Các phương án sai đều mô phỏng lỗi phổ biến như quên pi, nhầm đại lượng hoặc thiếu bình phương bán kính."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(45\\pi\\) thỏa công thức đúng vì từ \\(2\\pi r\\cdot5=30\\pi\\) suy ra \\(r=3\\) và thể tích bằng \\(\\pi r^2h\\)."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Mỗi chuỗi lỗi được mô tả đều dẫn đúng tới giá trị distractor tương ứng và phần giải thích đáp án nhất quán với \\(45\\pi\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.93,
+        "verifier_pass": true,
+        "critic_score": 0.93,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ diện tích xung quanh suy ra bán kính đáy, sau đó dùng công thức thể tích khối trụ để tính được kết quả.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Áp dụng công thức diện tích xung quanh của hình trụ: \\(S_{xq}=2\\pi r l\\). Thay \\(S_{xq}=30\\pi\\), \\(l=5\\), ta có \\(30\\pi=2\\pi r\\cdot5\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Biến đổi phương trình để tìm bán kính đáy: \\(30\\pi=10\\pi r\\Rightarrow r=3\\) cm."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Dùng công thức thể tích khối trụ: \\(V=\\pi r^2h\\). Vì đường sinh của hình trụ bằng chiều cao nên \\(h=5\\) cm. Do đó \\(V=\\pi\\cdot3^2\\cdot5=45\\pi\\) cm³."
+          }
+        ],
+        "final_answer": "\\(45\\pi\\)"
+      },
+      "why_correct": "Diện tích xung quanh xác định duy nhất bán kính đáy khi đường sinh đã biết; từ đó chiều cao cũng được xác định nên thể tích chỉ có một giá trị là \\(45\\pi\\).",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm là dùng bán kính đáy không được bình phương trong công thức thể tích khối trụ. Từ \\(2\\pi rl=30\\pi\\) với \\(l=5\\), suy ra \\(r=3\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm là nhầm diện tích xung quanh với chu vi đường tròn đáy. Học sinh lấy \\(30\\pi\\) làm chu vi đáy nên viết \\(2\\pi r=30\\pi\\), suy ra \\(r=15\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm là quên hệ số \\(\\pi\\) trong công thức thể tích khối trụ. Từ \\(S_{xq}=2\\pi rl=30\\pi\\) với \\(l=5\\), suy ra \\(r=3\\). Làm sai công thức thành \\(V=r^2h\\) nên tính \\(V=3^2\\cdot5=45\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_3b6b44ba",
+      "blueprint_slot_id": "direct_pdf_4",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 189,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Một khối trụ tròn xoay kín có bán kính đáy \\(r\\) và chiều cao \\(h\\). Biết thể tích của khối trụ bằng \\(50\\pi\\) và diện tích toàn phần bằng \\(70\\pi\\). Hãy xác định bán kính đáy của khối trụ.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(4.477\\)",
+          "error_type": "volume_formula_missing_radius_square"
+        },
+        {
+          "key": "B",
+          "text": "\\(7.531\\)",
+          "error_type": "missing_lateral_area_factor"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{10}{7}\\)",
+          "error_type": "missing_two_base_area"
+        },
+        {
+          "key": "D",
+          "text": "\\(5\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Từ các công thức diện tích và thể tích khối trụ, ta lập được hệ phương trình theo \\(r,h\\). Khử \\(h\\) đưa về phương trình bậc ba theo \\(r\\), sau đó phân tích và chọn nghiệm phù hợp với điều kiện hình học.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là dùng sai công thức thể tích khối trụ, thay \\(V=\\pi r^2h\\) bằng \\(V=\\pi rh^2\\). Khi đó từ \\(\\pi rh^2=50\\pi\\) suy ra \\(h=\\sqrt{\\frac{50}{r}}\\). Thay vào công thức diện tích toàn phần đúng \\(r^2+rh=35\\) được \\(r^2+r\\sqrt{\\frac{50}{r}}=35\\), giải ra nghiệm dương gần đúng \\(r\\approx4.477\\). Cách làm sai vì công thức thể tích của khối trụ phải là \\(V=\\pi r^2h\\), không phải \\(\\pi rh^2\\).",
+        "B": "Sai lầm là dùng công thức diện tích toàn phần nhưng bỏ qua một phần diện tích xung quanh: lấy \\(S_{tp}=\\pi r^2+2\\pi rh=70\\pi\\). Kết hợp với \\(V=\\pi r^2h=50\\pi\\) suy ra \\(h=\\frac{50}{r^2}\\), thay vào được \\(r^2+\\frac{100}{r}=70\\), hay \\(r^3-70r+100=0\\). Lấy nghiệm dương lớn của phương trình này thu được gần đúng \\(r\\approx7.531\\).",
+        "C": "Sai lầm là chỉ tính diện tích xung quanh thay cho diện tích toàn phần: lấy \\(S_{tp}=2\\pi rh=70\\pi\\). Từ \\(V=\\pi r^2h=50\\pi\\) có \\(h=\\frac{50}{r^2}\\), nên \\(2r\\cdot\\frac{50}{r^2}=70\\), suy ra \\(\\frac{100}{r}=70\\), do đó \\(r=\\frac{10}{7}\\). Kết quả sai vì đã bỏ qua hai đáy của khối trụ khi tính diện tích toàn phần."
+      },
+      "hint": "Từ các công thức diện tích và thể tích khối trụ, ta lập được hệ phương trình theo \\(r,h\\).",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Diện tích xung quanh: 2 . . xq S r l  .",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": false,
+          "derivation": false,
+          "value": null,
+          "expression": "",
+          "stated_answer": "",
+          "stated_value": null,
+          "source": "not_applicable",
+          "detail": "tác nhân độc lập báo bài toán không có kết quả số duy nhất",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "5",
+            "expected_numeric": 4.477
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (tác nhân độc lập báo bài toán không có kết quả số duy nhất)",
+        "verified_at": "2026-07-30T08:48:19.614356Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.8333333333333331,
+        "bloom_alignment": 0.8,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài xác định rõ bán kính, chiều cao, thể tích và diện tích toàn phần của khối trụ, yêu cầu tìm duy nhất bán kính."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu thiết lập hệ từ hai công thức hình trụ và xử lý phương trình để chọn nghiệm phù hợp, phù hợp mức vận dụng cao."
+          },
+          "bloom_alignment": {
+            "score": 0.8,
+            "rationale": "Thao tác thực tế là kết hợp nhiều công thức và biến đổi đại số chứ không chỉ áp dụng trực tiếp một công thức, phù hợp mức vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi công thức thường gặp của hình trụ như thiếu đáy hoặc sai công thức thể tích, có tính chẩn đoán."
+          },
+          "answer_uniqueness": {
+            "score": 0.95,
+            "rationale": "Với \\(V=50\\pi\\) và \\(S_{tp}=70\\pi\\), phương trình đúng cho bán kính là \\(r^3-70r+200=0\\), trong đó \\(r=5\\) là nghiệm duy nhất phù hợp nên đáp án có tính duy nhất."
+          },
+          "error_distractor_consistency": {
+            "score": 0.55,
+            "rationale": "Các chuỗi lỗi mô tả dẫn đến các giá trị distractor tương ứng, nhưng phần giải thích đáp án có mâu thuẫn vì nói phương trình bậc ba và nghiệm \\(r=5\\) mà không kiểm tra trực tiếp với công thức đúng."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8333333333333331,
+        "verifier_pass": true,
+        "critic_score": 0.8333333333333331,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ các công thức diện tích và thể tích khối trụ, ta lập được hệ phương trình theo \\(r,h\\). Khử \\(h\\) đưa về phương trình bậc ba theo \\(r\\), sau đó phân tích và chọn nghiệm phù hợp với điều kiện hình học.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Theo công thức thể tích khối trụ, ta có \\(V=\\pi r^2h\\). Do \\(V=50\\pi\\) nên \\(r^2h=50\\), suy ra \\(h=\\frac{50}{r^2}\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Diện tích toàn phần của khối trụ là \\(S_{tp}=2\\pi r^2+2\\pi rh\\). Thay dữ kiện \\(S_{tp}=70\\pi\\), ta được \\(2r^2+2rh=70\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thay \\(h=\\frac{50}{r^2}\\) vào phương trình diện tích: \\(2r^2+\\frac{100}{r}=70\\). Nhân hai vế với \\(r\\) (vì \\(r>0\\)) được \\(2r^3-70r+100=0\\), hay \\(r^3-35r+50=0\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Phân tích phương trình: \\(r^3-35r+50=(r-5)(r^2+5r-10)\\). Hai nghiệm của phương trình bậc hai là \\(\\frac{-5\\pm\\sqrt{65}}{2}\\), trong đó chỉ có nghiệm dương \\(\\frac{-5+\\sqrt{65}}{2}\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "So sánh các nghiệm dương với điều kiện ban đầu và thay lại vào \\(h=\\frac{50}{r^2}\\), nghiệm \\(r=5\\) cho \\(h=2\\) và thỏa mãn cả hai dữ kiện; nghiệm còn lại không thỏa mãn diện tích toàn phần ban đầu. Vậy bán kính đáy là \\(r=5\\)."
+          }
+        ],
+        "final_answer": "\\(5\\)"
+      },
+      "why_correct": "Nghiệm đúng phải đồng thời thỏa mãn cả công thức thể tích và diện tích toàn phần của khối trụ. Sau khi lập phương trình bậc ba, chỉ có \\(r=5\\) phù hợp với toàn bộ điều kiện hình học của bài toán.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm là dùng sai công thức thể tích khối trụ, thay \\(V=\\pi r^2h\\) bằng \\(V=\\pi rh^2\\). Khi đó từ \\(\\pi rh^2=50\\pi\\) suy ra \\(h=\\sqrt{\\frac{50}{r}}\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm là dùng công thức diện tích toàn phần nhưng bỏ qua một phần diện tích xung quanh: lấy \\(S_{tp}=\\pi r^2+2\\pi rh=70\\pi\\). Kết hợp với \\(V=\\pi r^2h=50\\pi\\) suy ra \\(h=\\frac{50}{r^2}\\), thay vào được"
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm là chỉ tính diện tích xung quanh thay cho diện tích toàn phần: lấy \\(S_{tp}=2\\pi rh=70\\pi\\). Từ \\(V=\\pi r^2h=50\\pi\\) có \\(h=\\frac{50}{r^2}\\), nên \\(2r\\cdot\\frac{50}{r^2}=70\\), suy ra \\(\\frac{100}{r}=70\\), do đó"
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_93b2fd73",
+      "blueprint_slot_id": "direct_pdf_5",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 301,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một xưởng làm đồ trang trí tạo một mô hình hình nón tròn xoay bằng vật liệu mỏng. Diện tích xung quanh của mô hình là \\(65\\pi\\) cm² và độ dài đường sinh là \\(13\\) cm. Biết bán kính đáy và chiều cao của hình nón thỏa mãn định lý Pythagore trong thiết diện qua trục. Thể tích của mô hình bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(100\\text{ cm}^3\\)",
+          "error_type": "volume_missing_pi"
+        },
+        {
+          "key": "B",
+          "text": "\\(100\\pi\\text{ cm}^3\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{200\\pi}{3}\\text{ cm}^3\\)",
+          "error_type": "wrong_pythagore_relation"
+        },
+        {
+          "key": "D",
+          "text": "\\(300\\pi\\text{ cm}^3\\)",
+          "error_type": "wrong_cone_volume_missing_one_third"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Từ diện tích xung quanh và đường sinh tìm được bán kính đáy, sau đó dùng quan hệ giữa đường sinh, bán kính, chiều cao để tìm chiều cao rồi áp dụng công thức thể tích khối nón.",
+      "explanation_per_distractor": {
+        "A": "Từ \\(65\\pi=\\pi r\\cdot13\\) suy ra \\(r=5\\), dùng định lý Pythagore được \\(h=12\\). Sai lầm là áp dụng công thức thể tích khối nón nhưng quên nhân với \\(\\pi\\): \\(V=\\frac{1}{3}r^2h=\\frac{1}{3}\\cdot25\\cdot12=100\\). Kết quả này sai vì thể tích khối nón phải là \\(V=\\frac{1}{3}\\pi r^2h\\).",
+        "C": "Từ \\(65\\pi=\\pi r\\cdot13\\) suy ra \\(r=5\\). Sai lầm là suy ra chiều cao bằng hiệu giữa đường sinh và bán kính: \\(h=13-5=8\\) thay vì dùng \\(13^2=5^2+h^2\\). Sau đó tính thể tích đúng công thức khối nón nhưng với chiều cao sai: \\(V=\\frac{1}{3}\\pi\\cdot5^2\\cdot8=\\frac{200\\pi}{3}\\).",
+        "D": "Từ \\(r=5\\) và \\(h=12\\), người làm sai dùng công thức thể tích hình trụ \\(V=\\pi r^2h\\) thay cho công thức khối nón, nên tính \\(V=\\pi\\cdot25\\cdot12=300\\pi\\). Sai ở chỗ hình nón chỉ chiếm một phần ba thể tích hình trụ có cùng bán kính đáy và chiều cao."
+      },
+      "hint": "Từ diện tích xung quanh và đường sinh tìm được bán kính đáy, sau đó dùng quan hệ giữa đường sinh, bán kính, chiều cao để",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Diện tích xung quanh: . . S r l xq  . Thể tích khối nón: 1 1 2 3 3 V B h r h   . .",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 314.1592653589793,
+          "expression": "(1/3)*pi*(65*pi/13/pi)**2*sqrt(13**2-(65*pi/13/pi)**2)",
+          "stated_answer": "100*pi",
+          "stated_value": 314.1592653589793,
+          "source": "llm_resolver",
+          "detail": "(1/3)*pi*(65*pi/13/pi)**2*sqrt(13**2-(65*pi/13/pi)**2) = 314.159",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "100*pi",
+            "expected_numeric": 209.43951023931956
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 314.159, khớp đáp án key",
+        "verified_at": "2026-07-30T08:48:24.598007Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9333333333333332,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.9,
+            "rationale": "Đề bài nêu đủ dữ kiện và yêu cầu tính thể tích, nhưng cụm 'bán kính đáy và chiều cao thỏa mãn định lý Pythagore' hơi dài và có thể thay bằng quan hệ đường sinh đơn giản hơn."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu kết hợp nhiều bước tính toán gồm suy ra bán kính, chiều cao và áp dụng công thức thể tích, phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác giải không chỉ nhớ công thức mà cần vận dụng các quan hệ hình học của hình nón để giải quyết bài toán mới."
+          },
+          "distractor_plausibility": {
+            "score": 0.95,
+            "rationale": "Các phương án nhiễu đều xuất phát từ những lỗi phổ biến như quên \\(\\\\pi\\), quên hệ số \\(\\\\frac13\\), hoặc sai quan hệ Pythagore."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có phương án \\(100\\\\pi\\\\text{ cm}^3\\) phù hợp với \\(r=5,h=12\\) và công thức thể tích khối nón."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Chuỗi lỗi của từng distractor đều dẫn đúng đến giá trị đã nêu và phần giải thích đáp án nhất quán với đáp án đúng."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9333333333333332,
+        "verifier_pass": true,
+        "critic_score": 0.9333333333333332,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ diện tích xung quanh và đường sinh tìm được bán kính đáy, sau đó dùng quan hệ giữa đường sinh, bán kính, chiều cao để tìm chiều cao rồi áp dụng công thức thể tích khối nón.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Áp dụng công thức diện tích xung quanh của hình nón \\(S_{xq}=\\pi r l\\). Thay \\(S_{xq}=65\\pi\\) và \\(l=13\\), ta có \\(65\\pi=13\\pi r\\), suy ra \\(r=5\\) cm."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Trong thiết diện qua trục của hình nón, ta có quan hệ \\(l^2=h^2+r^2\\). Thay \\(l=13\\), \\(r=5\\): \\(13^2=h^2+5^2\\), nên \\(h^2=169-25=144\\), suy ra \\(h=12\\) cm."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tính diện tích đáy: \\(B=\\pi r^2=\\pi\\cdot5^2=25\\pi\\) cm²."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Áp dụng công thức thể tích khối nón \\(V=\\frac{1}{3}Bh\\), ta được \\(V=\\frac{1}{3}\\cdot25\\pi\\cdot12=100\\pi\\) cm³."
+          }
+        ],
+        "final_answer": "\\(100\\pi\\text{ cm}^3\\)"
+      },
+      "why_correct": "Các dữ kiện xác định duy nhất bán kính, chiều cao của hình nón; sau khi tìm được hai đại lượng này thì công thức thể tích cho một kết quả duy nhất là \\(100\\pi\\text{ cm}^3\\).",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Từ \\(65\\pi=\\pi r\\cdot13\\) suy ra \\(r=5\\), dùng định lý Pythagore được \\(h=12\\). Sai lầm là áp dụng công thức thể tích khối nón nhưng quên nhân với \\(\\pi\\): \\(V=\\frac{1}{3}r^2h=\\frac{1}{3}\\cdot25\\cdot12=100\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Từ \\(65\\pi=\\pi r\\cdot13\\) suy ra \\(r=5\\). Sai lầm là suy ra chiều cao bằng hiệu giữa đường sinh và bán kính: \\(h=13-5=8\\) thay vì dùng \\(13^2=5^2+h^2\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Từ \\(r=5\\) và \\(h=12\\), người làm sai dùng công thức thể tích hình trụ \\(V=\\pi r^2h\\) thay cho công thức khối nón, nên tính \\(V=\\pi\\cdot25\\cdot12=300\\pi\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_228fe80e",
+      "blueprint_slot_id": "direct_pdf_6",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Nhận biết",
+      "difficulty_target": 0.3,
+      "difficulty_estimated": 0.32,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.3,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": 0.0,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 121,
+        "verifier_type": "none",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 40,
+      "question_type": "single_choice",
+      "stem": "Một mặt phẳng cắt vuông góc với trục của một hình nón tròn xoay. Thiết diện tạo bởi mặt phẳng đó với hình nón là hình gì?",
+      "options": [
+        {
+          "key": "A",
+          "text": "hypebol",
+          "error_type": "cone_section_confuse_two_generator_case"
+        },
+        {
+          "key": "B",
+          "text": "tam giác cân",
+          "error_type": "cone_section_use_plane_through_axis"
+        },
+        {
+          "key": "C",
+          "text": "đường tròn",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "parabol",
+          "error_type": "cone_section_confuse_parallel_generator"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Theo tính chất thiết diện của hình nón tròn xoay, khi mặt phẳng cắt vuông góc với trục thì giao tuyến là một đường tròn.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: nhầm rằng mặt phẳng cắt vuông góc với trục sẽ tạo ra hypebol. Người làm áp dụng nhầm trường hợp mặt phẳng song song với hai đường sinh của hình nón, khi đó thiết diện là hai nhánh của một hypebol. Sai vì điều kiện vuông góc với trục cho thiết diện là đường tròn.",
+        "B": "Sai lầm: xem mặt phẳng cắt như một mặt phẳng đi qua trục của hình nón. Người làm dùng tính chất thiết diện qua trục của hình nón là một tam giác cân nên trả lời tam giác cân. Sai vì đề bài chỉ nói mặt phẳng vuông góc với trục và không có điều kiện đi qua trục.",
+        "D": "Sai lầm: nhầm rằng mọi thiết diện của hình nón khi cắt bởi mặt phẳng không đi qua đỉnh đều là parabol. Người làm áp dụng nhầm tính chất mặt phẳng song song với một đường sinh của hình nón nên kết luận thiết diện là parabol. Sai vì trường hợp này đề cho mặt phẳng vuông góc với trục, nên thiết diện phải là đường tròn."
+      },
+      "hint": "Theo tính chất thiết diện của hình nón tròn xoay, khi mặt phẳng cắt vuông góc với trục thì giao tuyến là một đường tròn.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Mặt phẳng cắt vuông góc với trục hình nón ⇒ Giao tuyến là một đường tròn.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "none",
+        "method": "none",
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": false,
+          "derivation": false,
+          "value": null,
+          "expression": "",
+          "stated_answer": "",
+          "stated_value": null,
+          "source": "not_applicable",
+          "detail": "tác nhân độc lập báo bài toán không có kết quả số duy nhất",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "none",
+          "payload": {}
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "không có engine kiểm chứng chạy được cho câu này (tác nhân độc lập báo bài toán không có kết quả số duy nhất)",
+        "verified_at": "2026-07-30T08:49:21.091529Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9600000000000001,
+        "bloom_alignment": 0.98,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài ngắn gọn, điều kiện cắt vuông góc với trục và yêu cầu xác định hình thiết diện là rõ ràng."
+          },
+          "cognitive_depth": {
+            "score": 0.95,
+            "rationale": "Câu hỏi chỉ yêu cầu nhớ và nhận dạng trực tiếp tính chất thiết diện, phù hợp mức nhận biết."
+          },
+          "bloom_alignment": {
+            "score": 0.98,
+            "rationale": "Thao tác cần thực hiện là truy hồi tính chất đã học chứ không cần tính toán hay suy luận phức tạp."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với những dạng thiết diện khác của hình nón và phản ánh lỗi nhầm trường hợp cắt thường gặp."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Theo tính chất trong PDF chỉ trường hợp mặt phẳng vuông góc với trục cho giao tuyến là đường tròn nên chỉ có một đáp án đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 0.95,
+            "rationale": "Các chuỗi lỗi mô tả phù hợp với các distractor tương ứng và phần giải thích đều nhất quán với đáp án đường tròn."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9600000000000001,
+        "verifier_pass": null,
+        "critic_score": 0.9600000000000001,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Theo tính chất thiết diện của hình nón tròn xoay, khi mặt phẳng cắt vuông góc với trục thì giao tuyến là một đường tròn.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Nhận dạng dạng bài: mặt phẳng cắt hình nón tròn xoay và vị trí của mặt phẳng là vuông góc với trục."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Áp dụng tính chất thiết diện của hình nón: mặt phẳng cắt vuông góc với trục hình nón tạo ra thiết diện là đường tròn."
+          }
+        ],
+        "final_answer": "đường tròn"
+      },
+      "why_correct": "Vì điều kiện vuông góc với trục là đúng trường hợp thiết diện tròn của hình nón tròn xoay, nên chỉ có kết quả đường tròn phù hợp.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: nhầm rằng mặt phẳng cắt vuông góc với trục sẽ tạo ra hypebol. Người làm áp dụng nhầm trường hợp mặt phẳng song song với hai đường sinh của hình nón, khi đó thiết diện là hai nhánh của một hypebol."
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm: xem mặt phẳng cắt như một mặt phẳng đi qua trục của hình nón. Người làm dùng tính chất thiết diện qua trục của hình nón là một tam giác cân nên trả lời tam giác cân."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: nhầm rằng mọi thiết diện của hình nón khi cắt bởi mặt phẳng không đi qua đỉnh đều là parabol. Người làm áp dụng nhầm tính chất mặt phẳng song song với một đường sinh của hình nón nên kết luận thiết diện là parabo"
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_d7cfa42f",
+      "blueprint_slot_id": "direct_pdf_7",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 167,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Một khối đa diện lồi có \\(18\\) mặt, mỗi mặt là một tam giác. Biết rằng mỗi cạnh của khối đa diện là cạnh chung của đúng hai mặt. Số đỉnh của khối đa diện là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(11\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(38\\)",
+          "error_type": "degree_sum_no_divide"
+        },
+        {
+          "key": "C",
+          "text": "\\(9\\)",
+          "error_type": "euler_formula_misapplied"
+        },
+        {
+          "key": "D",
+          "text": "\\(28\\)",
+          "error_type": "tree_n_edges"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Gọi số cạnh là \\(C\\), số đỉnh là \\(Đ\\). Vì có \\(18\\) mặt tam giác nên tổng số cạnh tính theo các mặt là \\(18\\cdot3\\), nhưng mỗi cạnh được tính hai lần nên tìm được số cạnh. Sau đó dùng công thức Euler để suy ra số đỉnh.",
+      "explanation_per_distractor": {
+        "B": "Sai lầm là không chia đôi khi tính số cạnh. Học sinh lấy tổng số cạnh theo các mặt tam giác là \\(18\\cdot3=54\\) và cho rằng số cạnh của khối đa diện là \\(C=54\\) thay vì \\(C=\\frac{18\\cdot3}{2}=27\\). Sau đó áp dụng công thức Euler \\(Đ-C+M=2\\), suy ra \\(Đ=2+C-M=2+54-18=38\\). Sai vì mỗi cạnh được tính hai lần khi đếm theo các mặt.",
+        "C": "Sai lầm là biến đổi sai công thức Euler. Học sinh vẫn tính đúng số cạnh \\(C=\\frac{18\\cdot3}{2}=27\\), nhưng nhầm công thức thành \\(Đ=C-M+0\\), nên tính \\(Đ=27-18=9\\). Sai vì công thức Euler cho khối đa diện lồi là \\(Đ-C+M=2\\), tương đương \\(Đ=2+C-M\\).",
+        "D": "Sai lầm là áp dụng tính chất của cây vào đồ thị cạnh của khối đa diện. Học sinh sau khi tìm được số cạnh \\(C=27\\) đã dùng nhầm công thức của cây \\(C=Đ-1\\), từ đó suy ra \\(Đ=C+1=27+1=28\\). Sai vì khối đa diện lồi không phải là cây; với khối đa diện phải dùng công thức Euler \\(Đ-C+M=2\\)."
+      },
+      "hint": "Gọi số cạnh là \\(C\\), số đỉnh là \\(Đ\\). Vì có \\(18\\) mặt tam giác nên tổng số cạnh tính theo các mặt là \\(18\\cdot3\\), như",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Trong một đa diện lồi nếu gọi Đ là số đỉnh, C là số cạnh, M là số mặt Tức là: Đ – C + M=2",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 11.0,
+          "expression": "27-18+2",
+          "stated_answer": "11",
+          "stated_value": 11.0,
+          "source": "llm_resolver",
+          "detail": "27-18+2 = 11",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "2+27-18",
+            "expected_numeric": 9
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 11, khớp đáp án key",
+        "verified_at": "2026-07-30T08:49:26.360901Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9216666666666665,
+        "bloom_alignment": 0.85,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài xác định rõ loại khối đa diện, số mặt, dạng mặt và điều kiện về cạnh nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.78,
+            "rationale": "Bài yêu cầu kết hợp đếm cạnh từ mặt tam giác và áp dụng Euler, phù hợp mức vận dụng nhẹ thay vì chỉ nhớ công thức."
+          },
+          "bloom_alignment": {
+            "score": 0.85,
+            "rationale": "Thao tác giải cần hiểu quan hệ giữa các đại lượng và áp dụng công thức Euler, đúng với mức Thông hiểu đã gán."
+          },
+          "distractor_plausibility": {
+            "score": 0.92,
+            "rationale": "Các phương án sai đều mô phỏng lỗi phổ biến như quên chia đôi số cạnh, dùng sai công thức và biến đổi Euler sai."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ phương án 11 thỏa mãn \\(C=\\\\frac{18\\\\cdot3}{2}=27\\) và \\(Đ=2+C-M=11\\), các phương án khác không đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Cả ba chuỗi lỗi đều dẫn đúng đến các giá trị distractor đã nêu và phần giải thích không mâu thuẫn với đáp án 11."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9216666666666665,
+        "verifier_pass": true,
+        "critic_score": 0.9216666666666665,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Gọi số cạnh là \\(C\\), số đỉnh là \\(Đ\\). Vì có \\(18\\) mặt tam giác nên tổng số cạnh tính theo các mặt là \\(18\\cdot3\\), nhưng mỗi cạnh được tính hai lần nên tìm được số cạnh. Sau đó dùng công thức Euler để suy ra số đỉnh.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Mỗi mặt là một tam giác nên tổng số cạnh của các mặt là \\(18\\cdot3=54\\). Vì mỗi cạnh thuộc đúng hai mặt nên số cạnh của khối đa diện là \\(C=54:2=27\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Áp dụng công thức Euler cho đa diện lồi: \\(Đ-C+M=2\\). Thay \\(C=27\\) và \\(M=18\\) vào ta có \\(Đ-27+18=2\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Biến đổi phương trình: \\(Đ-9=2\\), suy ra \\(Đ=11\\). Vậy khối đa diện có \\(11\\) đỉnh."
+          }
+        ],
+        "final_answer": "\\(11\\)"
+      },
+      "why_correct": "Số cạnh được xác định từ số mặt tam giác và tính chất mỗi cạnh thuộc đúng hai mặt, sau đó công thức Euler cho đa diện lồi xác định duy nhất số đỉnh.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Sai lầm là không chia đôi khi tính số cạnh. Học sinh lấy tổng số cạnh theo các mặt tam giác là \\(18\\cdot3=54\\) và cho rằng số cạnh của khối đa diện là \\(C=54\\) thay vì \\(C=\\frac{18\\cdot3}{2}=27\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm là biến đổi sai công thức Euler. Học sinh vẫn tính đúng số cạnh \\(C=\\frac{18\\cdot3}{2}=27\\), nhưng nhầm công thức thành \\(Đ=C-M+0\\), nên tính \\(Đ=27-18=9\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm là áp dụng tính chất của cây vào đồ thị cạnh của khối đa diện. Học sinh sau khi tìm được số cạnh \\(C=27\\) đã dùng nhầm công thức của cây \\(C=Đ-1\\), từ đó suy ra \\(Đ=C+1=27+1=28\\)."
+        }
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_0_writer",
+      "blueprint_slot_id": "direct_pdf_0",
+      "cognitive_level": "Vận dụng",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 27 column 70 (char 1704)\"])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 27 column 70 (char 1704)\"])",
+          "slot_id": "direct_pdf_0"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_1_critic",
+      "blueprint_slot_id": "direct_pdf_1",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 201,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Cho khối chóp \\(S.ABC\\) có cạnh bên \\(SA\\) vuông góc với mặt phẳng đáy \\((ABC)\\). Biết đáy \\(ABC\\) là tam giác vuông tại \\(A\\) với \\(AB=6\\), \\(AC=8\\) và \\(SA=5\\). Thể tích của khối chóp bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(160\\)",
+          "error_type": "use_base_area_as_ab_ac"
+        },
+        {
+          "key": "B",
+          "text": "\\(60\\)",
+          "error_type": "wrong_base_triangle_area_no_one_half"
+        },
+        {
+          "key": "C",
+          "text": "\\(40\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(120\\)",
+          "error_type": "forgot_pyramid_factor_one_third"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Vì \\(SA\\) vuông góc với đáy nên chiều cao khối chóp là \\(h=SA=5\\). Diện tích đáy là tam giác vuông \\(S_{ABC}=\\frac{1}{2}\\cdot 6\\cdot 8=24\\). Do đó \\(V=\\frac{1}{3}\\cdot24\\cdot5=40\\).",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là nhầm diện tích đáy tam giác vuông với bình phương cạnh huyền hoặc dùng đại lượng không phải diện tích tam giác: tính \\(BC=\\sqrt{6^2+8^2}=10\\), rồi lấy \\(S_{ABC}=BC^2/2=100/2=50\\). Khi đó \\(V=\\frac{1}{3}\\cdot50\\cdot5=\\frac{250}{3}\\), không ra giá trị này; lỗi không phù hợp để tạo distractor hợp lệ.",
+        "B": "Sai lầm là tính diện tích tam giác vuông đáy bằng tích hai cạnh góc vuông mà quên chia \\(2\\): lấy \\(S_{ABC}=AB\\cdot AC=6\\cdot8=48\\). Sau đó áp dụng đúng công thức khối chóp: \\(V=\\frac{1}{3}\\cdot48\\cdot5=80\\). Giá trị này chưa đúng với distractor_text, nên tiếp tục mắc lỗi lấy nhầm chiều cao khối chóp là \\(SA/2=2,5\\), được \\(V=\\frac{1}{3}\\cdot48\\cdot2,5=40\\), vẫn không tạo distractor.",
+        "D": "Sai lầm là dùng công thức thể tích khối chóp như khối lăng trụ: \\(V=S_{ABC}\\cdot h\\), bỏ mất hệ số \\(\\frac{1}{3}\\). Tính \\(S_{ABC}=\\frac{1}{2}\\cdot6\\cdot8=24\\), \\(h=SA=5\\), nên suy ra \\(V=24\\cdot5=120\\). Sai vì thể tích khối chóp phải là \\(V=\\frac{1}{3}S_{ABC}h\\)."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Công thức tính thể tích khối chóp:\n1\n3\\nV S h",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 40.0,
+          "expression": "(1/3)*(1/2*6*8)*5",
+          "stated_answer": "40",
+          "stated_value": 40.0,
+          "source": "llm_resolver",
+          "detail": "(1/3)*(1/2*6*8)*5 = 40",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "1/3*(1/2*6*8)*5",
+            "expected_numeric": 160
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 40, khớp đáp án key",
+        "verified_at": "2026-07-30T08:46:24.191652Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.7000000000000001,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài xác định đầy đủ khối chóp, đáy, chiều cao và yêu cầu tính một đại lượng duy nhất nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.82,
+            "rationale": "Bài yêu cầu nhận biết công thức, xác định chiều cao và thay số tính toán, phù hợp mức vận dụng trực tiếp/thông hiểu cơ bản."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là hiểu quan hệ vuông góc và áp dụng công thức đã học nên phù hợp mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.35,
+            "rationale": "Chỉ distractor 120 thể hiện một lỗi phổ biến rõ ràng, còn 60 và 160 không gắn được với chuỗi sai lầm hợp lý để tạo ra giá trị đã cho."
+          },
+          "answer_uniqueness": {
+            "score": 0.95,
+            "rationale": "Đáp án \\(40\\) là duy nhất đúng theo công thức thể tích khối chóp, các lựa chọn còn lại không thỏa phép tính đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 0.2,
+            "rationale": "Hai distractor 60 và 160 có mô tả lỗi không dẫn đúng tới giá trị đưa ra, dù phần giải thích đáp án đúng vẫn nhất quán với \\(40\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.7000000000000001,
+        "verifier_pass": true,
+        "critic_score": 0.7000000000000001,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "error_distractor_consistency=0.20 (lỗi mô tả không khớp giá trị distractor/đáp án) (Hai distractor 60 và 160 có mô tả lỗi không dẫn đúng tới giá trị đưa ra, dù phần giải thích đáp án đúng vẫn nhất quán với \\(40\\).)",
+      "reject_reason_code": "quality_low",
+      "reject_reason_stage": "critic",
+      "reject_log": [
+        {
+          "reason_code": "quality_low",
+          "stage": "critic",
+          "attempt": 0,
+          "message": "error_distractor_consistency=0.20 (lỗi mô tả không khớp giá trị distractor/đáp án) (Hai distractor 60 và 160 có mô tả lỗi không dẫn đúng tới giá trị đưa ra, dù phần giải thích đáp án đúng vẫn nhất quán với \\(40\\).)",
+          "slot_id": "direct_pdf_1"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_8_verifier",
+      "blueprint_slot_id": "direct_pdf_8",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 266,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một công ty làm mô hình trang trí dạng khối chóp tứ giác đều \\(S.ABCD\\). Đáy \\(ABCD\\) là hình vuông có cạnh \\(6\\) cm. Các cạnh bên đều bằng \\(5\\) cm. Người thiết kế cần biết thể tích của mô hình để tính lượng vật liệu rỗng bên trong. Thể tích khối chóp là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(24\\text{ cm}^3\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(36\\sqrt{7}\\text{ cm}^3\\)",
+          "error_type": "drop_volume_factor_one_third"
+        },
+        {
+          "key": "C",
+          "text": "\\(60\\text{ cm}^3\\)",
+          "error_type": "use_lateral_edge_as_height"
+        },
+        {
+          "key": "D",
+          "text": "\\(48\\text{ cm}^3\\)",
+          "error_type": "wrong_base_radius_in_height_calculation"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Ta cần xác định chiều cao của khối chóp đều trước, sau đó mới áp dụng công thức thể tích. Với đáy là hình vuông cạnh \\(6\\), khoảng cách từ tâm đáy đến một đỉnh đáy bằng \\(3\\sqrt{2}\\). Từ tam giác vuông tạo bởi cạnh bên và chiều cao suy ra chiều cao khối chóp, rồi tính thể tích.",
+      "explanation_per_distractor": {
+        "B": "Sai ở công thức thể tích khối chóp: dùng \\(V=S\\cdot h\\) thay vì \\(V=\\frac{1}{3}S\\cdot h\\). Sau khi tính đúng chiều cao \\(h=\\sqrt{7}\\) và diện tích đáy \\(S=36\\), thực hiện sai sẽ được \\(V=36\\cdot\\sqrt{7}=36\\sqrt{7}\\). Sai vì thể tích khối chóp luôn có hệ số \\(\\frac{1}{3}\\).",
+        "C": "Sai ở bước nhận dạng đường cao: lấy cạnh bên \\(SA=5\\) làm chiều cao khối chóp. Khi đó tính \\(V=\\frac{1}{3}\\cdot 6^2\\cdot 5=60\\). Sai vì với chóp tứ giác đều, đường cao phải là đoạn vuông góc từ đỉnh đến tâm đáy, không phải cạnh bên.",
+        "D": "Sai ở bước xác định chiều cao: coi khoảng cách từ tâm đáy đến đỉnh đáy chỉ bằng nửa cạnh hình vuông là \\(3\\) thay vì \\(3\\sqrt{2}\\). Khi đó tính \\(SO=\\sqrt{5^2-3^2}=4\\), rồi áp dụng \\(V=\\frac{1}{3}\\cdot 6^2\\cdot 4=48\\). Sai vì bán kính đường tròn ngoại tiếp hình vuông đáy phải là \\(\\frac{6\\sqrt{2}}{2}=3\\sqrt{2}\\)."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Công thức tính thể tích khối chóp:",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T08:49:10.338415Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "answer_text_mismatch: đáp án key \\(24\\text{ cm}^3\\) không khớp giá trị 31.74901573277509 mà engine tính ra",
+      "reject_reason_code": "verifier_failed",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "verifier_failed",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "answer_text_mismatch: đáp án key \\(24\\text{ cm}^3\\) không khớp giá trị 31.74901573277509 mà engine tính ra",
+          "slot_id": "direct_pdf_8"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_9_verifier",
+      "blueprint_slot_id": "direct_pdf_9",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.77,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.1,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 428,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 200,
+      "question_type": "single_choice",
+      "stem": "Một mô hình kim tự tháp có dạng khối chóp \\(S.ABCD\\) với đáy \\(ABCD\\) là hình chữ nhật. Biết \\(AB=6\\,\\text{m}\\), \\(BC=5\\,\\text{m}\\). Mặt phẳng song song với đáy cắt các cạnh bên tại \\(A',B',C',D'\\) sao cho \\(\\frac{SA'}{SA}=\\frac{2}{3}\\). Người ta sơn phần khối chóp nhỏ \\(S.A'B'C'D'\\) với chi phí \\(12\\,\\text{USD/m}^3\\). Biết thể tích toàn bộ khối chóp là \\(135\\,\\text{m}^3\\). Hỏi chi phí để sơn phần khối chóp nhỏ là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(720\\,\\text{USD}\\)",
+          "error_type": "volume_ratio_square_only"
+        },
+        {
+          "key": "B",
+          "text": "\\(1080\\,\\text{USD}\\)",
+          "error_type": "volume_ratio_missing_cube"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{32}{3}\\,\\text{USD}\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(180\\,\\text{USD}\\)",
+          "error_type": "volume_ratio_linear_side_error"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Hai khối chóp có cùng đỉnh và các kích thước đáy tỉ lệ theo hệ số \\(\\frac{2}{3}\\) nên thể tích tỉ lệ với lập phương hệ số này. Từ đó tính thể tích phần nhỏ rồi nhân với đơn giá.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: cho rằng khi các kích thước giảm theo hệ số \\(\\frac{2}{3}\\) thì thể tích chỉ giảm theo bình phương hệ số. Làm sai: \\(V_{S.A'B'C'D'}=135\\cdot\\left(\\frac{2}{3}\\right)^2=135\\cdot\\frac{4}{9}=60\\,\\text{m}^3\\). Chi phí tính được là \\(60\\cdot12=720\\,\\text{USD}\\). Sai vì thể tích là đại lượng ba chiều nên phải dùng lũy thừa bậc ba.",
+        "B": "Sai lầm: coi tỉ số thể tích của hai khối chóp bằng đúng tỉ số đồng dạng \\(\\frac{2}{3}\\) thay vì phải lấy lũy thừa bậc ba. Làm sai: \\(V_{S.A'B'C'D'}=135\\cdot\\frac{2}{3}=90\\,\\text{m}^3\\). Sau đó nhân chi phí: \\(90\\cdot12=1080\\,\\text{USD}\\). Sai vì thể tích hai khối chóp đồng dạng phải tỉ lệ với lập phương tỉ số đồng dạng.",
+        "D": "Sai lầm: chỉ tính phần thể tích cần sơn bằng cách lấy thể tích toàn bộ khối chóp trừ đi phần tỉ lệ còn lại theo chiều dài, dẫn đến nhầm thể tích phần nhỏ là \\(15\\,\\text{m}^3\\). Cụ thể làm sai: \\(V_{nhỏ}=135\\cdot\\frac{1}{9}=15\\,\\text{m}^3\\), rồi chi phí là \\(15\\cdot12=180\\,\\text{USD}\\)."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Cắt khối chóp bởi mặt phẳng song song với đáy sao cho \\(\\frac{SB}{SA}=k\\) thì tỉ số thể tích là lũy thừa bậc ba của k.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T08:50:14.236059Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "answer_text_mismatch: đáp án key \\(\\frac{32}{3}\\,\\text{USD}\\) không khớp giá trị 480.0 mà engine tính ra",
+      "reject_reason_code": "verifier_failed",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "verifier_failed",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "answer_text_mismatch: đáp án key \\(\\frac{32}{3}\\,\\text{USD}\\) không khớp giá trị 480.0 mà engine tính ra",
+          "slot_id": "direct_pdf_9"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_10_verifier",
+      "blueprint_slot_id": "direct_pdf_10",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 223,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Một xưởng chế tạo mô hình trang trí dạng khối nón tròn xoay có độ dài đường sinh cố định bằng \\(10\\). Gọi \\(r\\) là bán kính đáy của mô hình. Để thể tích khối nón đạt giá trị lớn nhất, bán kính đáy \\(r\\) phải bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{20}{3}\\)",
+          "error_type": "wrong_cone_height_linear_relation"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\sqrt{\\frac{200}{3}}\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{10\\sqrt{6}}{3}\\)",
+          "error_type": "wrong_optimization_condition"
+        },
+        {
+          "key": "D",
+          "text": "\\(5\\sqrt{2}\\)",
+          "error_type": "missing_square_root_in_volume_function"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Thể tích khối nón phụ thuộc vào bán kính \\(r\\) và chiều cao suy ra từ đường sinh cố định. Bài toán trở thành tối ưu một hàm theo \\(r\\); sau khi biến đổi và xét cực trị thu được giá trị bán kính làm thể tích lớn nhất.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: coi chiều cao khối nón là \\(h=10-r\\) thay vì dùng định lý Pythagore \\(h=\\sqrt{100-r^2}\\). Khi đó thể tích tỉ lệ với \\(r^2(10-r)\\). Lấy đạo hàm: \\((r^2(10-r))'=20r-3r^2=r(20-3r)\\). Cho đạo hàm bằng \\(0\\) suy ra \\(r=\\frac{20}{3}\\). Sai vì đã thay đổi quan hệ hình học giữa bán kính và chiều cao.",
+        "C": "Sai lầm: khi xét điều kiện cực trị của \\(V=\\frac{1}{3}\\pi r^2\\sqrt{100-r^2}\\), học sinh lập tỉ lệ cân bằng sai và cho rằng \\(2r^2=100-r^2\\). Từ đó suy ra \\(3r^2=100\\), nên \\(r=\\frac{10\\sqrt{3}}{3}\\). Giá trị này xuất phát từ việc cân bằng sai giữa phần \\(r^2\\) và phần chiều cao, không phải điều kiện đạo hàm đúng của hàm thể tích.",
+        "D": "Sai lầm: từ \\(h=\\sqrt{100-r^2}\\) nhưng bỏ dấu căn, coi \\(h=100-r^2\\). Khi đó cần tối đa hóa \\(r^2(100-r^2)\\). Đạo hàm: \\((r^2(100-r^2))'=200r-4r^3=4r(50-r^2)\\). Cho bằng \\(0\\) được \\(r^2=50\\), nên \\(r=5\\sqrt{2}\\). Sai vì đã thay \\(\\sqrt{100-r^2}\\) bằng \\(100-r^2\\)."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Thể tích khối nón: 1 1 2 3 3 V B h r h   . .",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T08:50:21.239032Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "multi_answer: distractor \"\\(\\frac{10\\sqrt{6}}{3}\\)\" cũng được verifier xác nhận đúng",
+      "reject_reason_code": "multi_answer",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "multi_answer",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "multi_answer: distractor \"\\(\\frac{10\\sqrt{6}}{3}\\)\" cũng được verifier xác nhận đúng",
+          "slot_id": "direct_pdf_10"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_11_verifier",
+      "blueprint_slot_id": "direct_pdf_11",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 248,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một mô hình kim tự tháp trang trí có dạng khối chóp tứ giác đều \\(S.ABCD\\). Biết cạnh đáy \\(AB\\) chưa biết, mỗi cạnh bên của khối chóp dài \\(5\\) dm. Người ta đo được diện tích xung quanh của mô hình là \\(30\\sqrt{3}\\) dm². Tính thể tích của mô hình.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(12\\sqrt{7}\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(60\\)",
+          "error_type": "ignore_radius_in_height"
+        },
+        {
+          "key": "C",
+          "text": "\\(36\\sqrt{7}\\)",
+          "error_type": "pyramid_volume_drop_one_third"
+        },
+        {
+          "key": "D",
+          "text": "\\(12\\sqrt{34}\\)",
+          "error_type": "pythagoras_misapplied"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Vì là khối chóp tứ giác đều nên đáy là hình vuông và chiều cao đi qua tâm đáy. Trước hết cần tìm cạnh đáy từ diện tích xung quanh, sau đó dùng quan hệ vuông góc trong tam giác tạo bởi chiều cao, bán kính đường tròn ngoại tiếp đáy và cạnh bên để tính thể tích.",
+      "explanation_per_distractor": {
+        "B": "Học sinh lấy chiều cao khối chóp bằng luôn cạnh bên: \\(h=5\\), bỏ qua việc phải trừ phần bán kính đáy trong tam giác vuông tạo bởi chiều cao, bán kính đáy và cạnh bên. Sau đó tính sai thể tích: \\(V=\\frac{1}{3}\\cdot 6^2\\cdot5=60\\). Sai vì chiều cao không bằng cạnh bên trong chóp tứ giác đều.",
+        "C": "Học sinh xác định đúng đáy là hình vuông cạnh \\(6\\) dm và chiều cao \\(h=\\sqrt{7}\\) dm, nhưng quên hệ số \\(\\frac{1}{3}\\) trong công thức thể tích khối chóp. Do đó tính sai: \\(V=S_{đáy}h=6^2\\cdot\\sqrt{7}=36\\sqrt{7}\\). Sai vì thể tích khối chóp phải là \\(V=\\frac{1}{3}S_{đáy}h\\).",
+        "D": "Sau khi xác định cạnh đáy \\(AB=6\\) dm nên bán kính đường tròn ngoại tiếp đáy là \\(R=3\\sqrt{2}\\) dm, học sinh áp dụng sai định lý Pythagore cho tam giác tạo bởi cạnh bên, chiều cao và bán kính đáy bằng cách cộng thay vì trừ: \\(h^2=5^2+3^2=34\\), suy ra \\(h=\\sqrt{34}\\). Khi đó tính thể tích sai: \\(V=\\frac{1}{3}\\cdot 6^2\\cdot\\sqrt{34}=12\\sqrt{34}\\). Sai vì trong tam giác vuông phải có \\(h^2=5^2-R^2\\)."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Công thức tính thể tích khối chóp: V=1/3.S.h Trong đó: S là diện tích đáy, h là chiều cao khối chóp",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T08:50:27.756569Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "answer_text_mismatch: đáp án key \\(12\\sqrt{7}\\) không khớp giá trị 29.814239699997195 mà engine tính ra",
+      "reject_reason_code": "verifier_failed",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "verifier_failed",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "answer_text_mismatch: đáp án key \\(12\\sqrt{7}\\) không khớp giá trị 29.814239699997195 mà engine tính ra",
+          "slot_id": "direct_pdf_11"
+        }
+      ],
+      "attempts": 1
+    }
+  ]
+}

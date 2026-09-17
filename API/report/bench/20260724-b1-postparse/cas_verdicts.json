@@ -1,0 +1,13 @@
+{
+  "source": "cas_audit",
+  "note": "Tái tính độc lập bằng SymPy từ dữ kiện của từng đề (không dùng biểu thức kiểm chứng của Writer). Audit thực hiện 2026-07-24, chạy lại 2026-07-25 cho cùng kết quả. Năm câu không tái tính được (1, 8, 10, 30, 31) để trống thay vì mặc định là đúng.",
+  "default_key_correct": true,
+  "unlabelled": [1, 8, 10, 30, 31],
+  "verdicts": {
+    "3": {"key_correct": false, "note": "CAS cho 165, key ghi 204; verifier gắn cờ (verified=False) nên đã vào hàng duyệt"},
+    "6": {"key_correct": false, "note": "CAS cho 43/3, key ghi 47/3; verifier báo verified=True — lọt lưới"},
+    "26": {"key_correct": false, "note": "CAS cho 768/5 = 153.6, key ghi 48; verifier gắn cờ (verified=False)"},
+    "34": {"key_correct": false, "note": "CAS cho 576*sqrt(2)*pi/5, key ghi 468*sqrt(2)*pi/5; verifier báo verified=True — lọt lưới"},
+    "39": {"key_correct": true, "note": "Giá trị khớp phép tính ngây thơ int_1^3 (5-x^2) = 4/3 mà đề ngụ ý, NHƯNG đề đặt sai: y=5 và y=x^2 cắt nhau tại x=sqrt(5) trong đoạn [1;3]. Lỗi phát biểu đề, không phải lỗi đáp án — đếm riêng, không tính vào 'key sai'."}
+  }
+}

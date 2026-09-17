@@ -1,0 +1,2901 @@
+{
+  "metadata": {
+    "bench": "suite",
+    "arm": "full_system",
+    "seed": 44,
+    "source_pdf": "pdftest/corpus2/t12-khoi-dadien.pdf",
+    "source_pdf_name": "t12-khoi-dadien.pdf",
+    "requested_questions": 12,
+    "accepted_questions": 12,
+    "is_partial": false,
+    "parse_errors": 3,
+    "verify_failures": 0,
+    "error_code": null,
+    "error_message": null,
+    "cost": {
+      "tokens": 217601,
+      "calls": 57
+    },
+    "duration_seconds": 684.9639554023743,
+    "generated_at": "2026-07-30T14:43:39.405031+00:00"
+  },
+  "questions": [
+    {
+      "question_id": "q_2026_b4b7b8f9",
+      "blueprint_slot_id": "direct_pdf_0",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 218,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một xưởng sản xuất làm một chiếc phễu đựng nguyên liệu có dạng hình nón tròn xoay. Phần miệng phễu có bán kính \\(r=6\\) cm và độ dài đường sinh là \\(l=10\\) cm. Hỏi thể tích phần chứa nguyên liệu của phễu bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(288\\pi\\text{ cm}^3\\)",
+          "error_type": "forget_cone_volume_factor_one_third"
+        },
+        {
+          "key": "B",
+          "text": "\\(96\\text{ cm}^3\\)",
+          "error_type": "volume_missing_pi"
+        },
+        {
+          "key": "C",
+          "text": "\\(120\\pi\\text{ cm}^3\\)",
+          "error_type": "use_slant_height_as_cone_height"
+        },
+        {
+          "key": "D",
+          "text": "\\(96\\pi\\text{ cm}^3\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Cần tìm chiều cao của phễu trước khi tính thể tích. Từ tam giác vuông tạo bởi bán kính, chiều cao và đường sinh suy ra chiều cao, sau đó áp dụng công thức thể tích khối nón.",
+      "explanation_per_distractor": {
+        "A": "Làm sai khi dùng công thức thể tích khối nón nhưng quên hệ số \\(\\frac{1}{3}\\), lấy \\(V=\\pi r^2h\\). Tính đúng chiều cao \\(h=\\sqrt{l^2-r^2}=\\sqrt{10^2-6^2}=8\\), sau đó suy ra \\(V=\\pi\\cdot6^2\\cdot8=288\\pi\\text{ cm}^3\\). Sai vì thể tích khối nón phải là \\(V=\\frac{1}{3}\\pi r^2h\\).",
+        "B": "Làm sai khi quên hệ số \\(\\pi\\) trong công thức thể tích khối nón. Sau khi tính đúng chiều cao \\(h=8\\), thực hiện \\(V=\\frac{1}{3}r^2h=\\frac{1}{3}\\cdot6^2\\cdot8=96\\text{ cm}^3\\). Sai vì thể tích khối nón tròn xoay phải có dạng \\(V=\\frac{1}{3}\\pi r^2h\\).",
+        "C": "Làm sai khi nhầm độ dài đường sinh \\(l=10\\) cm với chiều cao \\(h\\) của phễu. Thay trực tiếp \\(h=10\\) vào công thức thể tích khối nón được \\(V=\\frac{1}{3}\\pi r^2h=\\frac{1}{3}\\pi\\cdot6^2\\cdot10=120\\pi\\text{ cm}^3\\). Sai vì chiều cao phải suy ra từ tam giác vuông tạo bởi bán kính, chiều cao và đường sinh."
+      },
+      "hint": "Cần tìm chiều cao của phễu trước khi tính thể tích. Từ tam giác vuông tạo bởi bán kính, chiều cao và đường sinh suy ra ch",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Thể tích khối nón: 1 1 2 3 3 V B h r h   . .",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 301.59289474462014,
+          "expression": "(1/3)*pi*6**2*sqrt(10**2-6**2)",
+          "stated_answer": "96*pi",
+          "stated_value": 301.59289474462014,
+          "source": "llm_resolver",
+          "detail": "(1/3)*pi*6**2*sqrt(10**2-6**2) = 301.593",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "96*pi",
+            "expected_numeric": 96
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 301.593, khớp đáp án key",
+        "verified_at": "2026-07-30T14:33:23.022777Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9333333333333332,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề nêu rõ hình dạng, bán kính, đường sinh và yêu cầu tính thể tích nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.8,
+            "rationale": "Bài yêu cầu kết hợp suy ra chiều cao từ dữ kiện hình nón rồi áp dụng công thức thể tích, phù hợp mức vận dụng cơ bản."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác cần thực hiện là áp dụng công thức và biến đổi từ dữ kiện đã cho, đúng với mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.95,
+            "rationale": "Các phương án sai đều mô phỏng lỗi thường gặp như quên hệ số \\(\\frac{1}{3}\\), nhầm đường sinh với chiều cao, hoặc thiếu \\(\\pi\\)."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ \\(96\\pi\\text{ cm}^3\\) đúng vì \\(h=8\\) và \\(V=\\frac{1}{3}\\pi\\cdot6^2\\cdot8\\), các phương án còn lại đều sai do lỗi tính toán xác định."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Mỗi chuỗi lỗi được mô tả đều dẫn đúng tới giá trị distractor tương ứng và phần giải thích đáp án nhất quán với đáp án đúng."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9333333333333332,
+        "verifier_pass": true,
+        "critic_score": 0.9333333333333332,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Cần tìm chiều cao của phễu trước khi tính thể tích. Từ tam giác vuông tạo bởi bán kính, chiều cao và đường sinh suy ra chiều cao, sau đó áp dụng công thức thể tích khối nón.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì thiết diện qua trục của hình nón tạo thành tam giác vuông nên có hệ thức \\(l^2=h^2+r^2\\). Thay \\(l=10\\), \\(r=6\\) vào được \\(10^2=h^2+6^2\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Biến đổi phương trình tìm chiều cao: \\(h^2=100-36=64\\), do \\(h>0\\) nên \\(h=8\\) cm."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Diện tích đáy của phễu là \\(B=\\pi r^2=\\pi\\cdot6^2=36\\pi\\) cm\\(^2\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Áp dụng công thức thể tích khối nón \\(V=\\frac{1}{3}Bh\\), ta có \\(V=\\frac{1}{3}\\cdot36\\pi\\cdot8=96\\pi\\) cm\\(^3\\)."
+          }
+        ],
+        "final_answer": "\\(96\\pi\\text{ cm}^3\\)"
+      },
+      "why_correct": "Chiều cao của hình nón không được cho trực tiếp nên phải suy ra từ đường sinh và bán kính. Sau khi xác định đúng chiều cao, công thức thể tích khối nón cho kết quả duy nhất là \\(96\\pi\\text{ cm}^3\\).",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Làm sai khi dùng công thức thể tích khối nón nhưng quên hệ số \\(\\frac{1}{3}\\), lấy \\(V=\\pi r^2h\\). Tính đúng chiều cao \\(h=\\sqrt{l^2-r^2}=\\sqrt{10^2-6^2}=8\\), sau đó suy ra \\(V=\\pi\\cdot6^2\\cdot8=288\\pi\\text{ cm}^3\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Làm sai khi quên hệ số \\(\\pi\\) trong công thức thể tích khối nón. Sau khi tính đúng chiều cao \\(h=8\\), thực hiện \\(V=\\frac{1}{3}r^2h=\\frac{1}{3}\\cdot6^2\\cdot8=96\\text{ cm}^3\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Làm sai khi nhầm độ dài đường sinh \\(l=10\\) cm với chiều cao \\(h\\) của phễu. Thay trực tiếp \\(h=10\\) vào công thức thể tích khối nón được \\(V=\\frac{1}{3}\\pi r^2h=\\frac{1}{3}\\pi\\cdot6^2\\cdot10=120\\pi\\text{ cm}^3\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_75d6a805",
+      "blueprint_slot_id": "direct_pdf_3",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.47,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 133,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Một hình trụ tròn xoay có chiều cao \\(h=5\\) cm. Biết diện tích xung quanh của hình trụ bằng \\(60\\pi\\) cm². Tính thể tích khối trụ đó.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(30\\pi\\)",
+          "error_type": "cylinder_volume_missing_radius_power"
+        },
+        {
+          "key": "B",
+          "text": "\\(300\\pi\\)",
+          "error_type": "confuse_perimeter_area"
+        },
+        {
+          "key": "C",
+          "text": "\\(180\\)",
+          "error_type": "volume_missing_pi"
+        },
+        {
+          "key": "D",
+          "text": "\\(180\\pi\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Từ diện tích xung quanh suy ra bán kính đáy của hình trụ, sau đó áp dụng công thức thể tích để tính kết quả.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: dùng sai công thức thể tích khối trụ, lấy \\(V=\\pi rh\\) thay vì \\(V=\\pi r^2h\\). Từ \\(2\\pi rh=60\\pi\\) với \\(h=5\\) suy ra \\(r=6\\), rồi tính sai \\(V=\\pi\\cdot6\\cdot5=30\\pi\\).",
+        "B": "Sai lầm: nhầm diện tích xung quanh với diện tích đáy. Người làm sai cho rằng \\(S_{đáy}=60\\pi\\), nên có \\(\\pi r^2=60\\pi\\Rightarrow r^2=60\\). Sau đó áp dụng công thức thể tích đúng \\(V=\\pi r^2h\\) nhưng với bán kính sai, được \\(V=\\pi\\cdot60\\cdot5=300\\pi\\).",
+        "C": "Sai lầm: quên hệ số \\(\\pi\\) trong công thức thể tích khối trụ. Từ \\(S_{xq}=2\\pi rh=60\\pi\\) và \\(h=5\\), suy ra \\(r=6\\). Người làm sai dùng \\(V=r^2h\\) thay vì \\(V=\\pi r^2h\\), nên tính \\(V=6^2\\cdot5=180\\)."
+      },
+      "hint": "Từ diện tích xung quanh suy ra bán kính đáy của hình trụ, sau đó áp dụng công thức thể tích để tính kết quả.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Cho hình trụ có chiều cao là h, bán kính đáy r và đường sinh là ℓ thì có:",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 565.4866776461628,
+          "expression": "pi*(60*pi/(2*pi*5))**2*5",
+          "stated_answer": "180*pi",
+          "stated_value": 565.4866776461628,
+          "source": "llm_resolver",
+          "detail": "pi*(60*pi/(2*pi*5))**2*5 = 565.487",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "180*pi",
+            "expected_numeric": 94.2477796076938
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 565.487, khớp đáp án key",
+        "verified_at": "2026-07-30T14:34:44.834487Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9500000000000001,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 1.0,
+            "rationale": "Đề bài nêu đủ chiều cao, diện tích xung quanh và yêu cầu tính thể tích nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu suy luận từ diện tích xung quanh để tìm bán kính rồi áp dụng công thức thể tích, phù hợp mức thông hiểu."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là hiểu và vận dụng công thức quen thuộc trong một tình huống số liệu mới, đúng mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.95,
+            "rationale": "Các phương án sai đều mô phỏng lỗi phổ biến như thiếu \\(\\pi\\), nhầm diện tích đáy và sai số mũ bán kính."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(180\\pi\\) thỏa mãn \\(S_{xq}=2\\pi rh\\) và \\(V=\\pi r^2h\\), các đáp án còn lại đều sai."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Chuỗi lỗi mô tả dẫn đúng tới từng distractor và phần giải thích đáp án nhất quán với đáp án \\(180\\pi\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9500000000000001,
+        "verifier_pass": true,
+        "critic_score": 0.9500000000000001,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ diện tích xung quanh suy ra bán kính đáy của hình trụ, sau đó áp dụng công thức thể tích để tính kết quả.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Áp dụng công thức diện tích xung quanh của hình trụ: \\(S_{xq}=2\\pi r h\\). Thay \\(S_{xq}=60\\pi\\) và \\(h=5\\) ta được \\(60\\pi=2\\pi r\\cdot5\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Biến đổi phương trình trên: \\(60\\pi=10\\pi r\\), suy ra \\(r=6\\) cm."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tính thể tích khối trụ theo công thức \\(V=\\pi r^2h\\). Thay \\(r=6\\), \\(h=5\\), ta có \\(V=\\pi\\cdot6^2\\cdot5=180\\pi\\) cm³."
+          }
+        ],
+        "final_answer": "\\(180\\pi\\)"
+      },
+      "why_correct": "Bán kính đáy không được cho trực tiếp mà phải suy ra từ diện tích xung quanh, sau đó thể tích được tính duy nhất theo công thức khối trụ nên kết quả \\(180\\pi\\) là đáp án đúng.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: dùng sai công thức thể tích khối trụ, lấy \\(V=\\pi rh\\) thay vì \\(V=\\pi r^2h\\). Từ \\(2\\pi rh=60\\pi\\) với \\(h=5\\) suy ra \\(r=6\\), rồi tính sai \\(V=\\pi\\cdot6\\cdot5=30\\pi\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm: nhầm diện tích xung quanh với diện tích đáy. Người làm sai cho rằng \\(S_{đáy}=60\\pi\\), nên có \\(\\pi r^2=60\\pi\\Rightarrow r^2=60\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: quên hệ số \\(\\pi\\) trong công thức thể tích khối trụ. Từ \\(S_{xq}=2\\pi rh=60\\pi\\) và \\(h=5\\), suy ra \\(r=6\\). Người làm sai dùng \\(V=r^2h\\) thay vì \\(V=\\pi r^2h\\), nên tính \\(V=6^2\\cdot5=180\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_057af8c9",
+      "blueprint_slot_id": "direct_pdf_4",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 243,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Một xưởng sản xuất cần chế tạo một bồn chứa dạng khối nón tròn xoay không có nắp. Biết đường sinh của bồn luôn bằng \\(5\\) m. Gọi \\(r\\) là bán kính đáy và \\(h\\) là chiều cao của bồn. Hỏi thể tích lớn nhất của bồn có thể đạt được bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{500\\pi\\sqrt{3}}{27}\\)",
+          "error_type": "cone_volume_wrong_coefficient"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{250\\sqrt{3}}{27}\\)",
+          "error_type": "volume_missing_pi"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{125\\pi\\sqrt{3}}{27}\\)",
+          "error_type": "cone_volume_missing_factor_2"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{250\\pi\\sqrt{3}}{27}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Ta biểu diễn thể tích theo một biến bằng quan hệ giữa đường sinh, bán kính và chiều cao của hình nón, sau đó tìm giá trị cực đại của hàm thể tích.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là dùng nhầm công thức thể tích khối nón thành \\(V=\\frac{2}{3}\\pi r^2h\\), tức nhân đôi hệ số đúng. Với giá trị cực đại \\(r^2=\\frac{50}{3}, h=\\frac{5}{\\sqrt{3}}\\), ta tính sai \\(V=\\frac{2}{3}\\pi\\cdot\\frac{50}{3}\\cdot\\frac{5}{\\sqrt{3}}=\\frac{500\\pi\\sqrt{3}}{27}\\). Sai vì công thức đúng chỉ có hệ số \\(\\frac{1}{3}\\).",
+        "B": "Sai lầm là dùng công thức thể tích khối nón \\(V=\\frac{1}{3}r^2h\\) và quên nhân với \\(\\pi\\). Từ điều kiện \\(r^2+h^2=25\\), vẫn tìm được \\(h=\\frac{5}{\\sqrt{3}}, r^2=\\frac{50}{3}\\), rồi tính sai \\(V=\\frac{1}{3}\\cdot\\frac{50}{3}\\cdot\\frac{5}{\\sqrt{3}}=\\frac{250\\sqrt{3}}{27}\\). Sai ở chỗ thể tích khối nón phải là \\(V=\\frac{1}{3}\\pi r^2h\\).",
+        "C": "Sai lầm là khi biến đổi điều kiện đường sinh cố định đã tính nhầm \\(r^2=\\frac{25}{3}\\) thay vì \\(r^2=25-\\frac{25}{3}=\\frac{50}{3}\\). Sau đó vẫn dùng đúng công thức thể tích tại \\(h=\\frac{5}{\\sqrt{3}}\\): \\(V=\\frac{1}{3}\\pi\\cdot\\frac{25}{3}\\cdot\\frac{5}{\\sqrt{3}}=\\frac{125\\pi\\sqrt{3}}{27}\\). Sai do bỏ mất một phần giá trị của \\(r^2\\)."
+      },
+      "hint": "Ta biểu diễn thể tích theo một biến bằng quan hệ giữa đường sinh, bán kính và chiều cao của hình nón, sau đó tìm giá trị",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Thể tích khối nón: 1 1 2 3 3 V B h r h   . .",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": false,
+        "status": "refuted",
+        "status_label_vi": "Tính toán độc lập bác bỏ đáp án — cần người kiểm",
+        "status_label_en": "Independent computation refutes the key",
+        "machine_checked": false,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 50.38331567317272,
+          "expression": "250*sqrt(3)*pi/27",
+          "stated_answer": "250*sqrt(3)*pi/27",
+          "stated_value": 50.38331567317272,
+          "source": "llm_resolver",
+          "detail": "250*sqrt(3)*pi/27 = 50.3833",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": true,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "250*pi*sqrt(3)/27",
+            "expected_numeric": 50.34718143113137
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "cả biểu thức của Writer lẫn tính toán độc lập (50.3833) đều không khớp đáp án key (250)",
+        "verified_at": "2026-07-30T14:34:52.874339Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.92,
+        "quality": 0.9216666666666665,
+        "bloom_alignment": 0.88,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề nêu rõ dạng bồn chứa, ràng buộc đường sinh, biến số và yêu cầu tìm thể tích lớn nhất nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu mô hình hóa, thiết lập hàm thể tích một biến và tối ưu hóa chứ không chỉ thay công thức trực tiếp."
+          },
+          "bloom_alignment": {
+            "score": 0.88,
+            "rationale": "Thao tác cần thực hiện là vận dụng tổng hợp kiến thức hình nón và cực trị, phù hợp mức Vận dụng cao."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều xuất phát từ lỗi thường gặp như quên \\(\\\\pi\\), sai \\(r^2\\), sai hệ số thể tích nên có tính chẩn đoán tốt."
+          },
+          "answer_uniqueness": {
+            "score": 0.98,
+            "rationale": "Chỉ có \\(\\\\frac{250\\\\pi\\\\sqrt{3}}{27}\\) là kết quả đúng khi dùng đúng công thức và điều kiện cực trị, các phương án còn lại đều sai."
+          },
+          "error_distractor_consistency": {
+            "score": 0.97,
+            "rationale": "Các chuỗi lỗi mô tả đều dẫn đúng tới giá trị distractor tương ứng và phần giải thích không mâu thuẫn với đáp án đúng."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9216666666666665,
+        "verifier_pass": false,
+        "critic_score": 0.9216666666666665,
+        "grounding_score": 0.92,
+        "reject_reasons": []
+      },
+      "review_status": "needs_revision",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "refuted",
+          "verifier_numeric_mismatch"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Ta biểu diễn thể tích theo một biến bằng quan hệ giữa đường sinh, bán kính và chiều cao của hình nón, sau đó tìm giá trị cực đại của hàm thể tích.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Theo tính chất thiết diện qua trục của hình nón, ta có tam giác vuông với cạnh huyền là đường sinh nên \\(r^2+h^2=25\\). Suy ra \\(h=\\sqrt{25-r^2}\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Thể tích khối nón là \\(V=\\frac{1}{3}\\pi r^2h\\), do đó \\(V(r)=\\frac{1}{3}\\pi r^2\\sqrt{25-r^2}\\), với \\(0<r<5\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Đặt \\(x=r^2\\), ta cần tìm giá trị lớn nhất của \\(f(x)=x\\sqrt{25-x}\\) trên khoảng \\(0<x<25\\). Lấy đạo hàm: \\(f'(x)=\\sqrt{25-x}-\\frac{x}{2\\sqrt{25-x}}=\\frac{50-3x}{2\\sqrt{25-x}}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Cho \\(f'(x)=0\\), ta được \\(50-3x=0\\), suy ra \\(x=\\frac{50}{3}\\), tức là \\(r^2=\\frac{50}{3}\\). Vì đạo hàm đổi dấu từ dương sang âm tại giá trị này nên đây là điểm đạt cực đại."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Khi \\(r^2=\\frac{50}{3}\\), ta có \\(h=\\sqrt{25-\\frac{50}{3}}=\\frac{5\\sqrt{3}}{3}\\). Thay vào công thức thể tích: \\(V_{max}=\\frac{1}{3}\\pi\\cdot\\frac{50}{3}\\cdot\\frac{5\\sqrt{3}}{3}=\\frac{250\\pi\\sqrt{3}}{27}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{250\\pi\\sqrt{3}}{27}\\)"
+      },
+      "why_correct": "Điều kiện đường sinh cố định tạo ra ràng buộc giữa bán kính và chiều cao, nên thể tích chỉ còn phụ thuộc vào một biến. Giá trị tìm được là nghiệm duy nhất làm hàm thể tích đạt cực đại trên miền xác định.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm là dùng nhầm công thức thể tích khối nón thành \\(V=\\frac{2}{3}\\pi r^2h\\), tức nhân đôi hệ số đúng. Với giá trị cực đại \\(r^2=\\frac{50}{3}, h=\\frac{5}{\\sqrt{3}}\\), ta tính sai"
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm là dùng công thức thể tích khối nón \\(V=\\frac{1}{3}r^2h\\) và quên nhân với \\(\\pi\\). Từ điều kiện \\(r^2+h^2=25\\), vẫn tìm được \\(h=\\frac{5}{\\sqrt{3}}, r^2=\\frac{50}{3}\\), rồi tính sai"
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm là khi biến đổi điều kiện đường sinh cố định đã tính nhầm \\(r^2=\\frac{25}{3}\\) thay vì \\(r^2=25-\\frac{25}{3}=\\frac{50}{3}\\). Sau đó vẫn dùng đúng công thức thể tích tại \\(h=\\frac{5}{\\sqrt{3}}\\):"
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_61012ec9",
+      "blueprint_slot_id": "direct_pdf_5",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 174,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một hộp đựng nước dạng hình trụ tròn xoay có thiết diện qua trục là hình vuông. Biết diện tích toàn phần của hộp bằng \\(54\\pi\\) cm². Tính thể tích khối trụ chứa nước của hộp.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(54\\) cm³",
+          "error_type": "volume_missing_pi"
+        },
+        {
+          "key": "B",
+          "text": "\\(54\\pi\\) cm³",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(216\\pi\\) cm³",
+          "error_type": "diameter_radius_confusion"
+        },
+        {
+          "key": "D",
+          "text": "\\(27\\pi\\) cm³",
+          "error_type": "volume_missing_height"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Thiết diện qua trục là hình vuông nên chiều cao bằng đường kính đáy, tức là \\(h=2r\\). Từ diện tích toàn phần suy ra bán kính, sau đó tính thể tích khối trụ.",
+      "explanation_per_distractor": {
+        "A": "Tính đúng bán kính: từ \\(6\\pi r^2=54\\pi\\) suy ra \\(r=3\\), \\(h=6\\). Sau đó áp dụng sai công thức thể tích khối trụ \\(V=\\int f(x)^2dx\\) tương đương với việc dùng \\(V=r^2h\\) và quên hệ số \\(\\pi\\): \\(V=3^2\\cdot6=54\\). Sai vì thể tích khối trụ phải là \\(V=\\pi r^2h\\).",
+        "C": "Tính đúng được \\(r=3\\), \\(h=6\\). Người làm sai nhầm đường kính \\(d=2r=6\\) là bán kính đáy rồi thay vào công thức thể tích: \\(V=\\pi d^2h=\\pi\\cdot6^2\\cdot6=216\\pi\\). Sai vì công thức \\(V=\\pi r^2h\\) phải dùng bán kính đáy, không dùng đường kính.",
+        "D": "Từ điều kiện thiết diện qua trục là hình vuông vẫn suy ra \\(r=3\\). Người làm sai dùng công thức thể tích chỉ lấy diện tích đáy \\(V=\\pi r^2\\), bỏ quên chiều cao của khối trụ: \\(V=\\pi\\cdot3^2=9\\pi\\) (không đúng). Để tạo ra giá trị này, lỗi thường gặp là lấy \\(V=\\pi r^3\\): \\(V=\\pi\\cdot3^3=27\\pi\\). Sai vì thể tích khối trụ phải nhân thêm chiều cao \\(h\\), không phải bán kính."
+      },
+      "hint": "Thiết diện qua trục là hình vuông nên chiều cao bằng đường kính đáy, tức là \\(h=2r\\).",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Cho hình trụ có chiều cao là h, bán kính đáy r và đường sinh là ℓ thì có:",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 169.64600329384882,
+          "expression": "pi*(solve(6*pi*x**2-54*pi,x)[1]**2)*(2*solve(6*pi*x**2-54*pi,x)[1])",
+          "stated_answer": "54*pi",
+          "stated_value": 169.64600329384882,
+          "source": "llm_resolver",
+          "detail": "pi*(solve(6*pi*x**2-54*pi,x)[1]**2)*(2*solve(6*pi*x**2-54*pi,x)[1]) = 169.646",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "54*pi",
+            "expected_numeric": 678.5840131753953
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 169.646, khớp đáp án key",
+        "verified_at": "2026-07-30T14:35:08.075065Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9050000000000001,
+        "bloom_alignment": 0.95,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu đầy đủ dạng hình, điều kiện thiết diện qua trục, diện tích toàn phần và yêu cầu tính thể tích nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.82,
+            "rationale": "Bài yêu cầu kết hợp nhận biết quan hệ \\(h=2r\\) với áp dụng công thức thể tích, phù hợp mức vận dụng cơ bản."
+          },
+          "bloom_alignment": {
+            "score": 0.95,
+            "rationale": "Học sinh phải áp dụng công thức và biến đổi từ dữ kiện hình học để tìm đại lượng cần thiết, đúng với mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến như quên \\(\\pi\\), quên chiều cao hoặc nhầm đường kính với bán kính."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(54\\pi\\) cm³ là kết quả đúng sau khi suy ra \\(r=3\\), \\(h=6\\); các phương án còn lại đều sai công thức."
+          },
+          "error_distractor_consistency": {
+            "score": 0.78,
+            "rationale": "Chuỗi lỗi của distractor đầu và thứ ba dẫn đúng tới giá trị nêu ra, nhưng distractor \\(27\\pi\\) mô tả lỗi \\(V=\\pi r^3\\) không khớp với giải thích trước đó về bỏ chiều cao."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9050000000000001,
+        "verifier_pass": true,
+        "critic_score": 0.9050000000000001,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Thiết diện qua trục là hình vuông nên chiều cao bằng đường kính đáy, tức là \\(h=2r\\). Từ diện tích toàn phần suy ra bán kính, sau đó tính thể tích khối trụ.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì thiết diện qua trục của hình trụ là hình vuông nên cạnh hình vuông chính là chiều cao và đường kính đáy. Do đó \\(h=2r\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Diện tích toàn phần của hình trụ là \\(S_{tp}=2\\pi rh+2\\pi r^2\\). Thay \\(h=2r\\) ta được \\(S_{tp}=2\\pi r(2r)+2\\pi r^2=6\\pi r^2\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Theo giả thiết \\(6\\pi r^2=54\\pi\\), suy ra \\(r^2=9\\), nên \\(r=3\\) cm và \\(h=2r=6\\) cm."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Thể tích khối trụ là \\(V=\\pi r^2h=\\pi\\cdot 3^2\\cdot 6=54\\pi\\) cm³."
+          }
+        ],
+        "final_answer": "\\(54\\pi\\) cm³"
+      },
+      "why_correct": "Các bước suy ra bán kính và chiều cao đều bắt buộc từ điều kiện thiết diện qua trục là hình vuông và diện tích toàn phần đã cho, nên thể tích thu được là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Tính đúng bán kính: từ \\(6\\pi r^2=54\\pi\\) suy ra \\(r=3\\), \\(h=6\\). Sau đó áp dụng sai công thức thể tích khối trụ \\(V=\\int f(x)^2dx\\) tương đương với việc dùng \\(V=r^2h\\) và quên hệ số \\(\\pi\\): \\(V=3^2\\cdot6=54\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Tính đúng được \\(r=3\\), \\(h=6\\). Người làm sai nhầm đường kính \\(d=2r=6\\) là bán kính đáy rồi thay vào công thức thể tích: \\(V=\\pi d^2h=\\pi\\cdot6^2\\cdot6=216\\pi\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Từ điều kiện thiết diện qua trục là hình vuông vẫn suy ra \\(r=3\\). Người làm sai dùng công thức thể tích chỉ lấy diện tích đáy \\(V=\\pi r^2\\), bỏ quên chiều cao của khối trụ: \\(V=\\pi\\cdot3^2=9\\pi\\) (không đúng)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_1f934d40",
+      "blueprint_slot_id": "direct_pdf_6",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Nhận biết",
+      "difficulty_target": 0.3,
+      "difficulty_estimated": 0.27,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.3,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 100,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 40,
+      "question_type": "single_choice",
+      "stem": "Theo bảng tóm tắt năm loại khối đa diện đều trong tài liệu, khối lập phương có số cạnh là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(16\\)",
+          "error_type": "degree_sum_no_divide"
+        },
+        {
+          "key": "B",
+          "text": "\\(8\\)",
+          "error_type": "kn_edges_wrong"
+        },
+        {
+          "key": "C",
+          "text": "\\(12\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(6\\)",
+          "error_type": "tree_n_edges"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Trong bảng tóm tắt của các khối đa diện đều, khối lập phương được ghi có số đỉnh, số cạnh, số mặt lần lượt là \\(8\\), \\(12\\), \\(6\\). Vì vậy số cạnh của khối lập phương là \\(12\\).",
+      "explanation_per_distractor": {
+        "A": "Dùng sai định lý bắt tay bằng cách lấy tổng bậc các đỉnh làm số cạnh mà không chia đôi. Khối lập phương có \\(8\\) đỉnh, mỗi đỉnh gặp đúng \\(3\\) cạnh nên tổng bậc là \\(8\\cdot3=24\\). Nếu không chia cho \\(2\\) sẽ được \\(24\\), không phải giá trị này; để tạo lỗi hợp lý hơn, học sinh có thể chỉ tính một nửa số đỉnh theo từng cặp đối diện rồi nhân đôi: \\(2\\cdot(8)=16\\).",
+        "B": "Áp dụng sai công thức của khối đa diện đều tương tự như nhầm với số cạnh của một đồ thị đầy đủ: lấy số đỉnh \\(8\\) của khối lập phương và cho rằng số cạnh bằng số đỉnh, nên suy ra \\(8\\) cạnh. Sai vì bảng tóm tắt trong tài liệu ghi khối lập phương có \\(8\\) đỉnh, \\(12\\) cạnh, \\(6\\) mặt.",
+        "D": "Áp dụng sai ý tưởng rằng một hình có tính chất liên kết giống dạng 'cây' thì số cạnh bằng số đỉnh trừ đi 2: lấy số đỉnh của khối lập phương là \\(8\\), rồi tính sai \\(8-2=6\\). Kết quả này trùng với số mặt của khối lập phương chứ không phải số cạnh, nên sai."
+      },
+      "hint": "Trong bảng tóm tắt của các khối đa diện đều, khối lập phương được ghi có số đỉnh, số cạnh, số mặt lần lượt là \\(8\\),",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Khối Lập Phương 8 12 6 \\{4;3\\}",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": false,
+          "value": 12.0,
+          "expression": "12",
+          "stated_answer": "12",
+          "stated_value": 12.0,
+          "source": "llm_resolver",
+          "detail": "12 = 12; nhưng biểu thức chỉ là hằng số trần — không có phép tính nào được máy kiểm, nên không đủ để gọi là xác nhận độc lập",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "12",
+            "expected_numeric": 16
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (nguồn độc lập cũng cho 12 nhưng chỉ khẳng định một hằng số, không suy dẫn)",
+        "verified_at": "2026-07-30T14:36:07.463751Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.98,
+        "quality": 0.8666666666666667,
+        "bloom_alignment": 1.0,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Câu hỏi yêu cầu xác định một đại lượng duy nhất trong bảng và không có cách hiểu khác."
+          },
+          "cognitive_depth": {
+            "score": 0.95,
+            "rationale": "Bài chỉ yêu cầu đọc và nhận biết thông tin từ bảng tóm tắt, phù hợp mức nhận biết."
+          },
+          "bloom_alignment": {
+            "score": 1.0,
+            "rationale": "Thao tác cần thực hiện là truy xuất thông tin đã cho trong tài liệu, đúng với Bloom Nhận biết."
+          },
+          "distractor_plausibility": {
+            "score": 0.82,
+            "rationale": "Các phương án sai đều dựa trên việc nhầm giữa số đỉnh, số mặt hoặc tính sai số cạnh, tạo được lỗi nhận thức phổ biến."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ phương án 12 phù hợp với bảng tài liệu, các phương án còn lại không thể là số cạnh của khối lập phương trong ngữ cảnh này."
+          },
+          "error_distractor_consistency": {
+            "score": 0.45,
+            "rationale": "Giải thích đáp án đúng nhất quán, nhưng một số mô tả cách tạo distractor không thực sự dẫn chính xác tới giá trị nêu ra như phương án 16."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8666666666666667,
+        "verifier_pass": true,
+        "critic_score": 0.8666666666666667,
+        "grounding_score": 0.98,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Trong bảng tóm tắt của các khối đa diện đều, khối lập phương được ghi có số đỉnh, số cạnh, số mặt lần lượt là \\(8\\), \\(12\\), \\(6\\). Vì vậy số cạnh của khối lập phương là \\(12\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Xác định đối tượng cần tìm là số cạnh của khối lập phương trong bảng tóm tắt khối đa diện đều."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Đọc hàng tương ứng với khối lập phương: số cạnh được ghi là \\(12\\)."
+          }
+        ],
+        "final_answer": "\\(12\\)"
+      },
+      "why_correct": "Khối lập phương là một trong năm loại khối đa diện đều và trong bảng của tài liệu số cạnh của nó được xác định duy nhất là \\(12\\).",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Dùng sai định lý bắt tay bằng cách lấy tổng bậc các đỉnh làm số cạnh mà không chia đôi. Khối lập phương có \\(8\\) đỉnh, mỗi đỉnh gặp đúng \\(3\\) cạnh nên tổng bậc là \\(8\\cdot3=24\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Áp dụng sai công thức của khối đa diện đều tương tự như nhầm với số cạnh của một đồ thị đầy đủ: lấy số đỉnh \\(8\\) của khối lập phương và cho rằng số cạnh bằng số đỉnh, nên suy ra \\(8\\) cạnh."
+        },
+        {
+          "option": "D",
+          "reason": "Áp dụng sai ý tưởng rằng một hình có tính chất liên kết giống dạng 'cây' thì số cạnh bằng số đỉnh trừ đi 2: lấy số đỉnh của khối lập phương là \\(8\\), rồi tính sai \\(8-2=6\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_15d8720c",
+      "blueprint_slot_id": "direct_pdf_7",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.47,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 138,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Một khối nón tròn xoay có đường sinh \\(l=5\\) cm. Biết diện tích xung quanh của khối nón bằng \\(15\\pi\\) cm². Tính thể tích của khối nón đó.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(12\\pi\\) cm³",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(36\\) cm³",
+          "error_type": "volume_missing_pi"
+        },
+        {
+          "key": "C",
+          "text": "\\(15\\pi\\) cm³",
+          "error_type": "wrong_surface_area_as_volume"
+        },
+        {
+          "key": "D",
+          "text": "\\(9\\pi\\) cm³",
+          "error_type": "cone_volume_missing_one_third_factor"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Từ diện tích xung quanh tìm được bán kính đáy, sau đó dùng định lý Pythagore trong thiết diện qua trục để tìm chiều cao rồi áp dụng công thức thể tích khối nón.",
+      "explanation_per_distractor": {
+        "B": "Áp dụng sai công thức thể tích khối nón bằng cách quên hệ số \\(\\pi\\): sau khi tính được \\(r=\\frac{15\\pi}{5\\pi}=3\\) và \\(h=\\sqrt{5^2-3^2}=4\\), học sinh dùng sai \\(V=r^2h=3^2\\cdot4=36\\) thay vì \\(V=\\frac{1}{3}\\pi r^2h\\). Sai vì công thức thể tích khối nón phải có hệ số \\(\\pi\\) và hệ số \\(\\frac{1}{3}\\).",
+        "C": "Áp dụng sai bằng cách nhầm diện tích xung quanh đã cho chính là thể tích cần tìm: từ dữ kiện \\(S_{xq}=15\\pi\\) cm², học sinh ghi ngay \\(V=15\\pi\\) cm³ mà không tìm bán kính và chiều cao. Sai vì diện tích xung quanh và thể tích là hai đại lượng khác nhau, có đơn vị và công thức khác nhau.",
+        "D": "Áp dụng sai công thức thể tích khối nón bằng cách bỏ hệ số \\(\\frac{1}{3}\\) nhưng đồng thời chỉ lấy phần diện tích đáy: tính được \\(r=3\\), sau đó dùng nhầm \\(V=\\pi r^2=\\pi\\cdot3^2=9\\pi\\). Sai vì thể tích khối nón phải phụ thuộc thêm chiều cao và có công thức \\(V=\\frac{1}{3}\\pi r^2h\\)."
+      },
+      "hint": "Từ diện tích xung quanh tìm được bán kính đáy, sau đó dùng định lý Pythagore trong thiết diện qua trục để tìm chiều cao r",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Diện tích xung quanh: \\(S_{xq}=\\pi r l\\). Thể tích khối nón: \\(V=\\frac{1}{3}\\pi r^2h\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 37.69911184307752,
+          "expression": "1/3*pi*3**2*sqrt(5**2-3**2)",
+          "stated_answer": "12*pi",
+          "stated_value": 37.69911184307752,
+          "source": "llm_resolver",
+          "detail": "1/3*pi*3**2*sqrt(5**2-3**2) = 37.6991",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "12*pi",
+            "expected_numeric": 47.1238898038469
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 37.6991, khớp đáp án key",
+        "verified_at": "2026-07-30T14:36:08.421989Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.98,
+        "quality": 0.8249999999999998,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.5,
+            "rationale": ""
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu kết hợp nhiều công thức và suy luận trung gian thay vì chỉ nhớ công thức, phù hợp mức vận dụng nhẹ/thông hiểu."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác cần thực hiện là hiểu mối liên hệ giữa các công thức khối nón và áp dụng theo quy trình quen thuộc, phù hợp mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.85,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến như quên \\(\\pi\\), quên hệ số \\(\\frac{1}{3}\\), hoặc nhầm diện tích với thể tích, nhưng một số lỗi hơi trực tiếp."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Từ \\(S_{xq}=15\\pi\\) và \\(l=5\\) suy ra \\(r=3\\), \\(h=4\\), thể tích duy nhất là \\(12\\pi\\), không có distractor nào trùng đáp án."
+          },
+          "error_distractor_consistency": {
+            "score": 0.85,
+            "rationale": "Hai distractor đầu mô tả chuỗi tính sai phù hợp với kết quả tương ứng, nhưng distractor \\(9\\pi\\) diễn giải hơi thiếu nhất quán vì bỏ cả chiều cao; phần giải thích đáp án chính vẫn khớp với \\(12\\pi\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8249999999999998,
+        "verifier_pass": true,
+        "critic_score": 0.8249999999999998,
+        "grounding_score": 0.98,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ diện tích xung quanh tìm được bán kính đáy, sau đó dùng định lý Pythagore trong thiết diện qua trục để tìm chiều cao rồi áp dụng công thức thể tích khối nón.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Áp dụng công thức diện tích xung quanh \\(S_{xq}=\\pi r l\\), ta có \\(15\\pi=\\pi r\\cdot 5\\), suy ra \\(r=3\\) cm."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Trong thiết diện qua trục của hình nón, ta có \\(l^2=h^2+r^2\\). Thay \\(l=5\\), \\(r=3\\) được \\(25=h^2+9\\), suy ra \\(h=4\\) cm."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thể tích khối nón là \\(V=\\frac{1}{3}\\pi r^2h=\\frac{1}{3}\\pi\\cdot3^2\\cdot4=12\\pi\\) cm³."
+          }
+        ],
+        "final_answer": "\\(12\\pi\\) cm³"
+      },
+      "why_correct": "Bán kính đáy và chiều cao được xác định duy nhất từ các dữ kiện đã cho, nên thể tích khối nón chỉ nhận một giá trị duy nhất là \\(12\\pi\\) cm³.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Áp dụng sai công thức thể tích khối nón bằng cách quên hệ số \\(\\pi\\): sau khi tính được \\(r=\\frac{15\\pi}{5\\pi}=3\\) và \\(h=\\sqrt{5^2-3^2}=4\\), học sinh dùng sai \\(V=r^2h=3^2\\cdot4=36\\) thay vì \\(V=\\frac{1}{3}\\pi r^2h\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Áp dụng sai bằng cách nhầm diện tích xung quanh đã cho chính là thể tích cần tìm: từ dữ kiện \\(S_{xq}=15\\pi\\) cm², học sinh ghi ngay \\(V=15\\pi\\) cm³ mà không tìm bán kính và chiều cao."
+        },
+        {
+          "option": "D",
+          "reason": "Áp dụng sai công thức thể tích khối nón bằng cách bỏ hệ số \\(\\frac{1}{3}\\) nhưng đồng thời chỉ lấy phần diện tích đáy: tính được \\(r=3\\), sau đó dùng nhầm \\(V=\\pi r^2=\\pi\\cdot3^2=9\\pi\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_0a54912d",
+      "blueprint_slot_id": "direct_pdf_8",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 257,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một cơ sở sản xuất làm các phễu dạng hình nón tròn xoay không có nắp. Để tiết kiệm vật liệu, mỗi phễu được thiết kế có độ dài đường sinh cố định bằng \\(15\\) cm. Gọi \\(V\\) là thể tích của phễu. Hỏi thể tích lớn nhất có thể đạt được của một phễu là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(250\\sqrt{3}\\pi\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(225\\sqrt{3}\\pi\\)",
+          "error_type": "wrong_derivative_condition"
+        },
+        {
+          "key": "C",
+          "text": "\\(375\\sqrt{3}\\pi\\)",
+          "error_type": "wrong_volume_factor"
+        },
+        {
+          "key": "D",
+          "text": "\\(1125\\pi\\)",
+          "error_type": "wrong_constraint_balance"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Gọi bán kính đáy là \\(r\\), chiều cao là \\(h\\). Từ điều kiện đường sinh cố định suy ra \\(r^2+h^2=225\\). Cần tối ưu hóa \\(V=\\frac{1}{3}\\pi r^2h\\), sau đó tìm điều kiện cực đại bằng biến đổi đại số.",
+      "explanation_per_distractor": {
+        "B": "Khi biến đổi \\(V=\\frac{1}{3}\\pi(225-h^2)h\\), người giải lấy điều kiện cực trị sai là \\(225-h^2=0\\), suy ra \\(h=15\\), rồi thay vào biểu thức bán kính theo một bước nhầm dẫn đến \\(V=225\\sqrt{3}\\pi\\). Sai vì phải giải đúng điều kiện \\(225-3h^2=0\\) khi tìm cực đại của \\(h(225-h^2)\\).",
+        "C": "Người giải tìm được quan hệ tối ưu \\(h=5\\sqrt{3}\\), \\(r^2=300\\) nhưng quên hệ số thể tích của hình nón và dùng \\(V=\\pi r^2h/4\\) thay cho \\(V=\\frac{1}{3}\\pi r^2h\\). Khi đó tính sai được \\(V=\\frac{1}{4}\\pi\\cdot300\\cdot5\\sqrt{3}=375\\sqrt{3}\\pi\\). Sai vì công thức thể tích khối nón phải có hệ số \\(\\frac{1}{3}\\).",
+        "D": "Áp dụng sai điều kiện tối ưu bằng cách cho bán kính đáy và chiều cao bằng đường sinh: \\(r=h=15\\). Khi đó tính thể tích \\(V=\\frac{1}{3}\\pi r^2h=\\frac{1}{3}\\pi\\cdot15^2\\cdot15=1125\\pi\\). Sai vì \\(r^2+h^2=15^2+15^2\\ne15^2\\), không thỏa điều kiện đường sinh cố định."
+      },
+      "hint": "Gọi bán kính đáy là \\(r\\), chiều cao là \\(h\\). Từ điều kiện đường sinh cố định suy ra \\(r^2+h^2=225\\).",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Dạng 1.5. Min – max liên quan khối nón\\nXây dựng công thức cần tìm min – max.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 1360.3495231756633,
+          "expression": "250*sqrt(3)*pi",
+          "stated_answer": "250*sqrt(3)*pi",
+          "stated_value": 1360.3495231756633,
+          "source": "llm_resolver",
+          "detail": "250*sqrt(3)*pi = 1360.35",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "250*sqrt(3)*pi",
+            "expected_numeric": 2040.524284763495
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 1360.35, khớp đáp án key",
+        "verified_at": "2026-07-30T14:36:20.217554Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.5,
+        "bloom_alignment": 0.5,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.5,
+            "rationale": ""
+          },
+          "cognitive_depth": {
+            "score": 0.5,
+            "rationale": ""
+          },
+          "bloom_alignment": {
+            "score": 0.5,
+            "rationale": ""
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai mô phỏng những lỗi phổ biến như sai điều kiện ràng buộc, sai điều kiện cực trị và sai hệ số thể tích."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ đáp án \\(250\\\\sqrt{3}\\\\pi\\) thỏa điều kiện tối ưu của bài toán, các phương án còn lại đều xuất phát từ lỗi tính toán."
+          },
+          "error_distractor_consistency": {
+            "score": 0.95,
+            "rationale": "Chuỗi lỗi của các distractor nhìn chung dẫn tới đúng các giá trị nêu ra và phần giải thích đáp án nhất quán với đáp án đúng."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.725,
+        "verifier_pass": true,
+        "critic_score": 0.725,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "needs_revision",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "bloom_alignment=0.50"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Gọi bán kính đáy là \\(r\\), chiều cao là \\(h\\). Từ điều kiện đường sinh cố định suy ra \\(r^2+h^2=225\\). Cần tối ưu hóa \\(V=\\frac{1}{3}\\pi r^2h\\), sau đó tìm điều kiện cực đại bằng biến đổi đại số.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Đặt bán kính đáy của phễu là \\(r\\) và chiều cao là \\(h\\). Theo định lý Pitago trong thiết diện qua trục của hình nón, ta có \\(r^2+h^2=15^2=225\\), nên \\(r^2=225-h^2\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Thể tích khối nón là \\(V=\\frac{1}{3}\\pi r^2h\\). Thay \\(r^2=225-h^2\\) vào ta được \\(V=\\frac{1}{3}\\pi h(225-h^2)=\\frac{\\pi}{3}(225h-h^3)\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Xét hàm \\(f(h)=225h-h^3\\). Ta có \\(f'(h)=225-3h^2\\). Cho \\(f'(h)=0\\) suy ra \\(225-3h^2=0\\), do đó \\(h^2=75\\) và \\(h=5\\sqrt{3}\\) (vì chiều cao dương)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Từ \\(r^2+h^2=225\\), suy ra \\(r^2=225-75=150\\). Khi đó \\(V_{max}=\\frac{1}{3}\\pi\\cdot150\\cdot5\\sqrt{3}=250\\sqrt{3}\\pi\\)."
+          }
+        ],
+        "final_answer": "\\(250\\sqrt{3}\\pi\\)"
+      },
+      "why_correct": "Điều kiện đường sinh cố định tạo ra ràng buộc \\(r^2+h^2=225\\). Việc biến đổi thể tích về một hàm một biến và tìm điểm cực trị cho giá trị duy nhất đạt cực đại, nên kết quả trên là đáp án đúng.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Khi biến đổi \\(V=\\frac{1}{3}\\pi(225-h^2)h\\), người giải lấy điều kiện cực trị sai là \\(225-h^2=0\\), suy ra \\(h=15\\), rồi thay vào biểu thức bán kính theo một bước nhầm dẫn đến \\(V=225\\sqrt{3}\\pi\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Người giải tìm được quan hệ tối ưu \\(h=5\\sqrt{3}\\), \\(r^2=300\\) nhưng quên hệ số thể tích của hình nón và dùng \\(V=\\pi r^2h/4\\) thay cho \\(V=\\frac{1}{3}\\pi r^2h\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Áp dụng sai điều kiện tối ưu bằng cách cho bán kính đáy và chiều cao bằng đường sinh: \\(r=h=15\\). Khi đó tính thể tích \\(V=\\frac{1}{3}\\pi r^2h=\\frac{1}{3}\\pi\\cdot15^2\\cdot15=1125\\pi\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_7c66ff36",
+      "blueprint_slot_id": "direct_pdf_9",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.88,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 268,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Một cơ sở sản xuất thiết kế một bồn chứa dạng khối nón tròn xoay kín đáy, biết độ dài đường sinh luôn cố định bằng \\(13\\) dm. Gọi \\(V\\) là thể tích bồn chứa. Bán kính đáy và chiều cao được thay đổi sao cho thể tích đạt giá trị lớn nhất. Giá trị lớn nhất của \\(V\\) bằng",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{2197\\pi}{3}\\)",
+          "error_type": "wrong_domain"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{4394\\sqrt{3}}{27}\\)",
+          "error_type": "volume_missing_pi"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{4394\\sqrt{3}\\pi}{27}\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(0\\)",
+          "error_type": "extremum_endpoint_missing"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Đặt chiều cao là biến \\(h\\), từ điều kiện đường sinh không đổi suy ra quan hệ giữa bán kính và chiều cao. Sau đó biểu diễn thể tích theo \\(h\\) và dùng điều kiện cực trị để tìm giá trị lớn nhất.",
+      "explanation_per_distractor": {
+        "A": "Học sinh bỏ qua điều kiện ràng buộc đường sinh cố định \\(r^2+h^2=169\\), coi bán kính và chiều cao đều có thể nhận giá trị lớn nhất bằng \\(13\\). Khi đó thay nhầm \\(r=13, h=13\\) vào công thức thể tích được \\(V=\\frac{1}{3}\\pi\\cdot13^2\\cdot13=\\frac{2197\\pi}{3}\\). Sai vì cặp giá trị này không thỏa điều kiện \\(r^2+h^2=169\\).",
+        "B": "Học sinh lập đúng công thức tối ưu thể tích khối nón nhưng dùng sai công thức thể tích, lấy \\(V=\\frac{1}{3}r^2h\\) thay vì \\(V=\\frac{1}{3}\\pi r^2h\\). Sau khi tối ưu với điều kiện \\(r^2+h^2=169\\), thu được \\(\\frac{1}{3}\\cdot\\frac{338}{3}\\cdot\\frac{13}{\\sqrt{3}}=\\frac{4394\\sqrt{3}}{27}\\), nên bỏ mất thừa số \\(\\pi\\).",
+        "D": "Học sinh chỉ xét các đầu mút của miền biến thiên chiều cao \\(h\\in[0,13]\\) mà bỏ qua điểm tới hạn. Tại hai đầu mút có \\(h=0\\) hoặc \\(h=13\\) (tương ứng thể tích suy biến trong quá trình khảo sát sai), học sinh chọn giá trị biên cho kết quả nhỏ nhất là \\(V=0\\) và nhầm đó là giá trị lớn nhất. Sai vì cần so sánh cả điểm tới hạn \\(h=\\frac{13}{\\sqrt{3}}\\) với các đầu mút."
+      },
+      "hint": "Đặt chiều cao là biến \\(h\\), từ điều kiện đường sinh không đổi suy ra quan hệ giữa bán kính và chiều cao.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Thể tích khối nón: 1 1 2 3 3 V B h r h   . .",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 885.5371562716837,
+          "expression": "4394*pi/(9*sqrt(3))",
+          "stated_answer": "4394*sqrt(3)*pi/27",
+          "stated_value": 885.5371562716837,
+          "source": "llm_resolver",
+          "detail": "4394*pi/(9*sqrt(3)) = 885.537",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "4394*sqrt(3)*pi/27",
+            "expected_numeric": 0
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 885.537, khớp đáp án key",
+        "verified_at": "2026-07-30T14:37:23.736835Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9333333333333335,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài nêu rõ vật thể, ràng buộc đường sinh cố định và yêu cầu tìm thể tích lớn nhất nên mục tiêu toán học xác định."
+          },
+          "cognitive_depth": {
+            "score": 0.9,
+            "rationale": "Bài yêu cầu mô hình hóa ràng buộc, biến đổi công thức và tối ưu hóa chứ không chỉ áp dụng công thức trực tiếp."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác thực tế gồm thiết lập hàm thể tích và tìm cực trị phù hợp với mức vận dụng cao."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đại diện cho các lỗi phổ biến như quên \\(\\\\pi\\), bỏ ràng buộc và bỏ qua điểm tới hạn."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ phương án chứa thừa số \\(\\\\pi\\) và kết quả tối ưu đúng là đáp án hợp lệ, các distractor đều sai điều kiện hoặc công thức."
+          },
+          "error_distractor_consistency": {
+            "score": 0.95,
+            "rationale": "Các chuỗi lỗi đều dẫn đúng đến giá trị distractor tương ứng và phần giải thích không mâu thuẫn với đáp án đã cho."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9333333333333335,
+        "verifier_pass": true,
+        "critic_score": 0.9333333333333335,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Đặt chiều cao là biến \\(h\\), từ điều kiện đường sinh không đổi suy ra quan hệ giữa bán kính và chiều cao. Sau đó biểu diễn thể tích theo \\(h\\) và dùng điều kiện cực trị để tìm giá trị lớn nhất.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Gọi \\(r\\) là bán kính đáy, \\(h\\) là chiều cao của khối nón. Do đường sinh bằng \\(13\\), ta có \\(r^2+h^2=169\\), suy ra \\(r^2=169-h^2\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Thể tích khối nón là \\(V=\\frac{1}{3}\\pi r^2h\\). Thay \\(r^2=169-h^2\\), được \\(V(h)=\\frac{1}{3}\\pi h(169-h^2)\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Xét hàm \\(f(h)=h(169-h^2)=169h-h^3\\). Ta có \\(f'(h)=169-3h^2\\). Cho \\(f'(h)=0\\), suy ra \\(h^2=\\frac{169}{3}\\), nên \\(h=\\frac{13\\sqrt{3}}{3}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Với \\(h=\\frac{13\\sqrt{3}}{3}\\), ta tính \\(r^2=169-\\frac{169}{3}=\\frac{338}{3}\\). Đây là giá trị thỏa điều kiện bán kính dương và cho cực đại vì hàm tăng trước điểm tới hạn và giảm sau điểm tới hạn."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Thay vào công thức thể tích: \\(V_{max}=\\frac{1}{3}\\pi\\cdot\\frac{338}{3}\\cdot\\frac{13\\sqrt{3}}{3}=\\frac{4394\\sqrt{3}\\pi}{27}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{4394\\sqrt{3}\\pi}{27}\\)"
+      },
+      "why_correct": "Giá trị này thu được sau khi tối ưu hóa thể tích theo biến chiều cao dưới ràng buộc đường sinh cố định; các giá trị khác của \\(h\\) đều cho thể tích nhỏ hơn.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Học sinh bỏ qua điều kiện ràng buộc đường sinh cố định \\(r^2+h^2=169\\), coi bán kính và chiều cao đều có thể nhận giá trị lớn nhất bằng \\(13\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Học sinh lập đúng công thức tối ưu thể tích khối nón nhưng dùng sai công thức thể tích, lấy \\(V=\\frac{1}{3}r^2h\\) thay vì \\(V=\\frac{1}{3}\\pi r^2h\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Học sinh chỉ xét các đầu mút của miền biến thiên chiều cao \\(h\\in[0,13]\\) mà bỏ qua điểm tới hạn. Tại hai đầu mút có \\(h=0\\) hoặc \\(h=13\\) (tương ứng thể tích suy biến trong quá trình khảo sát sai), học sinh chọn giá trị"
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_7941edfb",
+      "blueprint_slot_id": "direct_pdf_10",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 351,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một xưởng chế tạo một bồn chứa dạng khối trụ tròn xoay để chứa một khối hộp chữ nhật đứng nằm khít bên trong. Đáy của khối hộp là hình vuông cạnh \\(a\\) và chiều cao là \\(h\\). Biết đường chéo không gian của khối hộp bằng \\(15\\) cm và chiều cao khối hộp lớn hơn cạnh đáy \\(3\\) cm. Bồn chứa là hình trụ ngoại tiếp khối hộp đó. Tính thể tích của bồn chứa.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{125\\pi}{2}\\text{ cm}^3\\)",
+          "error_type": "wrong_domain"
+        },
+        {
+          "key": "B",
+          "text": "\\(352\\pi\\text{ cm}^3\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(704\\pi\\text{ cm}^3\\)",
+          "error_type": "cylinder_radius_equal_base_side"
+        },
+        {
+          "key": "D",
+          "text": "\\(486\\pi\\text{ cm}^3\\)",
+          "error_type": "pythagoras_misapplied"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Khối hộp đứng nội tiếp hình trụ nên chiều cao hình trụ bằng chiều cao khối hộp và bán kính đáy hình trụ bằng nửa đường chéo đáy hình vuông. Trước hết cần tìm cạnh đáy và chiều cao khối hộp từ điều kiện đường chéo không gian, sau đó mới tính thể tích hình trụ.",
+      "explanation_per_distractor": {
+        "A": "Bỏ qua dữ kiện chiều cao lớn hơn cạnh đáy \\(3\\) cm, người giải cho \\(h=a\\). Khi đó đường chéo không gian được tính sai thành \\(\\sqrt{a^2+a^2+a^2}=15\\), suy ra \\(a=5\\), \\(h=5\\). Bán kính hình trụ bị tính đúng theo đường chéo đáy là \\(R=\\frac{a\\sqrt{2}}{2}\\), nên \\(V=\\pi R^2h=\\pi\\cdot\\frac{25}{2}\\cdot5=\\frac{125\\pi}{2}\\text{ cm}^3\\).",
+        "C": "Người giải tìm đúng kích thước khối hộp: từ \\(3a^2+6a+9=225\\) suy ra \\(a=8\\), \\(h=11\\). Tuy nhiên sai ở bước xác định bán kính hình trụ ngoại tiếp, lấy bán kính bằng cạnh đáy hình vuông \\(R=a=8\\) thay vì bằng nửa đường chéo đáy \\(R=\\frac{a\\sqrt{2}}{2}\\). Do đó tính \\(V=\\pi R^2h=\\pi\\cdot8^2\\cdot11=704\\pi\\text{ cm}^3\\). Sai vì bán kính đường tròn ngoại tiếp hình vuông đáy không bằng cạnh hình vuông.",
+        "D": "Người giải áp dụng định lý Pythagoras thiếu một chiều của khối hộp, coi đường chéo không gian chỉ thỏa \\(15^2=a^2+h^2\\). Thay \\(h=a+3\\) được \\(a^2+(a+3)^2=225\\), suy ra \\(2a^2+6a-216=0\\) nên \\(a=9\\), \\(h=12\\). Khi đó bán kính hình trụ được lấy là \\(R=\\frac{9\\sqrt{2}}{2}\\), thể tích là \\(V=\\pi\\cdot\\frac{81}{2}\\cdot12=486\\pi\\text{ cm}^3\\)."
+      },
+      "hint": "Khối hộp đứng nội tiếp hình trụ nên chiều cao hình trụ bằng chiều cao khối hộp và bán kính đáy hình trụ bằng nửa đường ch",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Ngoại tiếp hình hộp đứng → \\(h=cạnh; R=\\frac{c_{đáy}\\sqrt2}{2}\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 1105.8406140636073,
+          "expression": "352*pi",
+          "stated_answer": "352*pi",
+          "stated_value": 1105.8406140636073,
+          "source": "llm_resolver",
+          "detail": "352*pi = 1105.84",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "352*pi",
+            "expected_numeric": 2211.6812281272146
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 1105.84, khớp đáp án key",
+        "verified_at": "2026-07-30T14:37:36.501925Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.9333333333333332,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài xác định đầy đủ các kích thước, quan hệ hình học và yêu cầu tính một đại lượng duy nhất nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu kết hợp thiết lập phương trình từ đường chéo không gian, suy luận nội ngoại tiếp và tính thể tích, phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là áp dụng công thức và phối hợp nhiều bước giải quen thuộc chứ không chỉ nhớ công thức, đúng với mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến như bỏ điều kiện, dùng sai định lý Pythagoras hoặc nhầm bán kính ngoại tiếp."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ phương án đã cho phù hợp với việc giải đúng \\(3a^2+(a+3)^2=225\\) và công thức hình trụ ngoại tiếp, các phương án khác xuất phát từ lỗi xác định."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Các chuỗi lỗi mô tả đều dẫn đúng đến từng giá trị distractor và phần giải thích không mâu thuẫn với đáp án chính."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9333333333333332,
+        "verifier_pass": true,
+        "critic_score": 0.9333333333333332,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Khối hộp đứng nội tiếp hình trụ nên chiều cao hình trụ bằng chiều cao khối hộp và bán kính đáy hình trụ bằng nửa đường chéo đáy hình vuông.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Với khối hộp có đáy là hình vuông cạnh \\(a\\), đường chéo không gian thỏa mãn \\(d^2=a^2+a^2+h^2\\). Theo đề bài \\(h=a+3\\) và \\(d=15\\), nên \\(2a^2+(a+3)^2=225\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Khai triển phương trình ta được \\(2a^2+a^2+6a+9=225\\), suy ra \\(3a^2+6a-216=0\\), hay \\(a^2+2a-72=0\\). Giải phương trình được \\(a=8\\) (loại nghiệm âm)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Từ \\(h=a+3\\) suy ra \\(h=11\\). Đường chéo đáy hình vuông là \\(a\\sqrt{2}=8\\sqrt{2}\\), nên bán kính đáy của hình trụ ngoại tiếp là \\(R=\\frac{8\\sqrt{2}}{2}=4\\sqrt{2}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Thể tích bồn chứa là \\(V=\\pi R^2h=\\pi(4\\sqrt{2})^2\\cdot11=\\pi\\cdot32\\cdot11=352\\pi\\)."
+          }
+        ],
+        "final_answer": "\\(352\\pi\\text{ cm}^3\\)"
+      },
+      "why_correct": "Các bước xác định kích thước khối hộp đều xuất phát từ dữ kiện đã cho, sau đó công thức ngoại tiếp hình hộp đứng cho hình trụ xác định duy nhất bán kính và chiều cao nên thể tích nhận được là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Bỏ qua dữ kiện chiều cao lớn hơn cạnh đáy \\(3\\) cm, người giải cho \\(h=a\\). Khi đó đường chéo không gian được tính sai thành \\(\\sqrt{a^2+a^2+a^2}=15\\), suy ra \\(a=5\\), \\(h=5\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Người giải tìm đúng kích thước khối hộp: từ \\(3a^2+6a+9=225\\) suy ra \\(a=8\\), \\(h=11\\). Tuy nhiên sai ở bước xác định bán kính hình trụ ngoại tiếp, lấy bán kính bằng cạnh đáy hình vuông \\(R=a=8\\) thay vì bằng nửa đường ch"
+        },
+        {
+          "option": "D",
+          "reason": "Người giải áp dụng định lý Pythagoras thiếu một chiều của khối hộp, coi đường chéo không gian chỉ thỏa \\(15^2=a^2+h^2\\). Thay \\(h=a+3\\) được \\(a^2+(a+3)^2=225\\), suy ra \\(2a^2+6a-216=0\\) nên \\(a=9\\), \\(h=12\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_4881a1fa",
+      "blueprint_slot_id": "direct_pdf_11",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.47,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 89,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Một khối đa diện lồi có \\(10\\) đỉnh và \\(15\\) cạnh. Hỏi khối đa diện đó có bao nhiêu mặt?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(7\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(6\\)",
+          "error_type": "euler_wrong_constant_one"
+        },
+        {
+          "key": "C",
+          "text": "\\(5\\)",
+          "error_type": "euler_omit_constant"
+        },
+        {
+          "key": "D",
+          "text": "\\(23\\)",
+          "error_type": "euler_change_sign_of_edges"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Áp dụng công thức Ơ-le cho khối đa diện lồi: \\(Đ-C+M=2\\). Thay các giá trị đã biết rồi biến đổi để tìm số mặt.",
+      "explanation_per_distractor": {
+        "B": "Sai lầm: nhớ nhầm hằng số trong công thức Ơ-le thành \\(Đ-C+M=1\\). Thay số: \\(10-15+M=1\\Rightarrow M=6\\). Sai vì với khối đa diện lồi, vế phải của công thức Ơ-le phải là \\(2\\).",
+        "C": "Sai lầm: bỏ qua hằng số trong công thức Ơ-le và dùng \\(Đ-C+M=0\\). Thay số: \\(10-15+M=0\\Rightarrow M=5\\). Kết quả sai vì công thức đúng cho khối đa diện lồi là \\(Đ-C+M=2\\).",
+        "D": "Sai lầm: đổi dấu số cạnh trong công thức Ơ-le, dùng \\(Đ+C-M=2\\) thay vì \\(Đ-C+M=2\\). Thay số: \\(10+15-M=2\\Rightarrow M=23\\). Kết quả này sai vì công thức Ơ-le phải trừ số cạnh."
+      },
+      "hint": "Áp dụng công thức Ơ-le cho khối đa diện lồi: \\(Đ-C+M=2\\). Thay các giá trị đã biết rồi biến đổi để tìm số mặt.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Trong một đa diện lồi nếu gọi Đ là số đỉnh, C là số cạnh, M là số mặt Tức là: Đ – C + M=2",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": false,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 7.0,
+          "expression": "2-10+15",
+          "stated_answer": "7",
+          "stated_value": 7.0,
+          "source": "llm_resolver",
+          "detail": "2-10+15 = 7",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "10-15+7",
+            "expected_numeric": 7
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 7, khớp đáp án key",
+        "verified_at": "2026-07-30T14:37:36.504551Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9083333333333333,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 1.0,
+            "rationale": "Đề bài nêu rõ loại khối đa diện, các đại lượng đã biết và yêu cầu tìm số mặt nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.75,
+            "rationale": "Bài yêu cầu nhận biết công thức và thay số biến đổi tìm kết quả, phù hợp mức thông hiểu nhưng chưa đòi hỏi suy luận sâu."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác áp dụng công thức Ơ-le vào tình huống cụ thể phù hợp với mức Thông hiểu đã khai báo."
+          },
+          "distractor_plausibility": {
+            "score": 0.8,
+            "rationale": "Các phương án sai đều mô phỏng những lỗi nhớ sai dấu hoặc hằng số trong công thức, nhưng một số lỗi khá cơ học."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(7\\) thỏa mãn \\(10-15+M=2\\), các phương án còn lại không thỏa công thức Ơ-le."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Mỗi chuỗi lỗi được mô tả đều dẫn đúng đến giá trị distractor tương ứng và phần giải thích đáp án nhất quán với đáp án \\(7\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9083333333333333,
+        "verifier_pass": false,
+        "critic_score": 0.9083333333333333,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "needs_revision",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "verifier_numeric_mismatch"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Áp dụng công thức Ơ-le cho khối đa diện lồi: \\(Đ-C+M=2\\). Thay các giá trị đã biết rồi biến đổi để tìm số mặt.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Gọi \\(M\\) là số mặt của khối đa diện. Theo công thức Ơ-le của khối đa diện lồi: \\(Đ-C+M=2\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Thay \\(Đ=10\\), \\(C=15\\) vào công thức ta được \\(10-15+M=2\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Biến đổi phương trình: \\(M-5=2\\), suy ra \\(M=7\\)."
+          }
+        ],
+        "final_answer": "\\(7\\)"
+      },
+      "why_correct": "Công thức Ơ-le áp dụng cho mọi khối đa diện lồi nên khi biết số đỉnh và số cạnh thì số mặt được xác định duy nhất. Kết quả thỏa mãn \\(10-15+7=2\\).",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Sai lầm: nhớ nhầm hằng số trong công thức Ơ-le thành \\(Đ-C+M=1\\). Thay số: \\(10-15+M=1\\Rightarrow M=6\\). Sai vì với khối đa diện lồi, vế phải của công thức Ơ-le phải là \\(2\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: bỏ qua hằng số trong công thức Ơ-le và dùng \\(Đ-C+M=0\\). Thay số: \\(10-15+M=0\\Rightarrow M=5\\). Kết quả sai vì công thức đúng cho khối đa diện lồi là \\(Đ-C+M=2\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: đổi dấu số cạnh trong công thức Ơ-le, dùng \\(Đ+C-M=2\\) thay vì \\(Đ-C+M=2\\). Thay số: \\(10+15-M=2\\Rightarrow M=23\\). Kết quả này sai vì công thức Ơ-le phải trừ số cạnh."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_6da2912e",
+      "blueprint_slot_id": "direct_pdf_13",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 261,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một xưởng gia công chế tạo một khối nhựa dạng lăng trụ đứng tam giác để làm khuôn. Thiết diện đáy của khối nhựa là một tam giác vuông có một cạnh góc vuông dài \\(8\\) cm và cạnh huyền dài \\(17\\) cm. Chiều cao của lăng trụ là \\(9\\) cm. Tính thể tích khối nhựa đó.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(612\\text{ cm}^3\\)",
+          "error_type": "pythagoras_misapplied"
+        },
+        {
+          "key": "B",
+          "text": "\\(480\\text{ cm}^3\\)",
+          "error_type": "prism_height_as_base_side"
+        },
+        {
+          "key": "C",
+          "text": "\\(1080\\text{ cm}^3\\)",
+          "error_type": "triangle_area_drop_half"
+        },
+        {
+          "key": "D",
+          "text": "\\(540\\text{ cm}^3\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Đây là bài toán thể tích khối lăng trụ, cần xác định diện tích đáy trước. Từ dữ kiện tam giác vuông, tìm cạnh còn lại bằng định lý Pythagore rồi tính diện tích đáy và nhân với chiều cao lăng trụ.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là xem cạnh huyền \\(17\\) cm như một cạnh góc vuông của tam giác đáy. Khi đó tính diện tích đáy sai thành \\(S=\\frac{1}{2}\\cdot 8\\cdot 17=68\\text{ cm}^2\\), rồi nhân với chiều cao lăng trụ \\(9\\) cm được \\(V=68\\cdot 9=612\\text{ cm}^3\\). Sai vì trong tam giác vuông, cạnh huyền không thể dùng làm cạnh góc vuông để tính diện tích.",
+        "B": "Sai lầm là lấy nhầm chiều cao lăng trụ bằng cạnh góc vuông \\(8\\) cm thay vì chiều cao đã cho là \\(9\\) cm. Tính đúng diện tích đáy là \\(S=\\frac{1}{2}\\cdot 8\\cdot 15=60\\text{ cm}^2\\), nhưng dùng nhầm chiều cao nên được \\(V=60\\cdot 8=480\\text{ cm}^3\\). Sai vì chiều cao của lăng trụ phải là khoảng cách giữa hai đáy, bằng \\(9\\) cm.",
+        "C": "Sai lầm là tính diện tích tam giác vuông đáy theo công thức sai \\(S=ab\\) thay vì \\(S=\\frac{1}{2}ab\\). Với hai cạnh góc vuông \\(8\\) cm và \\(15\\) cm, tính sai được \\(S=8\\cdot 15=120\\text{ cm}^2\\), sau đó tính thể tích \\(V=120\\cdot 9=1080\\text{ cm}^3\\). Sai vì diện tích tam giác vuông phải có hệ số \\(\\frac{1}{2}\\)."
+      },
+      "hint": "Đây là bài toán thể tích khối lăng trụ, cần xác định diện tích đáy trước.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Hình lăng trụ là hình có hai đáy là hai đa giác bằng nhau nằm trên hai mặt phẳng song song với nhau và các mặt bên đều là các hình bình hành.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 540.0,
+          "expression": "(8*sqrt(17**2-8**2)/2)*9",
+          "stated_answer": "540",
+          "stated_value": 540.0,
+          "source": "llm_resolver",
+          "detail": "(8*sqrt(17**2-8**2)/2)*9 = 540",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "1/2*8*15*9",
+            "expected_numeric": 1080
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 540, khớp đáp án key",
+        "verified_at": "2026-07-30T14:41:47.363590Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9500000000000001,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 1.0,
+            "rationale": "Đề bài nêu đầy đủ dạng khối, dữ kiện cạnh đáy, chiều cao và yêu cầu tính thể tích nên không có mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Câu hỏi yêu cầu kết hợp định lý Pythagore, diện tích tam giác vuông và công thức thể tích lăng trụ, phù hợp mức vận dụng cơ bản."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác giải không chỉ nhớ công thức mà phải lựa chọn và phối hợp nhiều công thức đã học để xử lý dữ kiện mới."
+          },
+          "distractor_plausibility": {
+            "score": 0.95,
+            "rationale": "Các phương án sai đại diện cho những lỗi phổ biến như dùng sai cạnh trong tam giác vuông, nhầm chiều cao lăng trụ và bỏ hệ số một phần hai."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Tính đúng cho cạnh còn lại là \\(15\\) cm, diện tích đáy \\(60\\text{ cm}^2\\), thể tích \\(540\\text{ cm}^3\\), chỉ có một phương án phù hợp."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Ba chuỗi lỗi được mô tả đều dẫn đúng đến các giá trị distractor tương ứng và phần giải thích đáp án nhất quán với đáp án \\(540\\text{ cm}^3\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9500000000000001,
+        "verifier_pass": true,
+        "critic_score": 0.9500000000000001,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Đây là bài toán thể tích khối lăng trụ, cần xác định diện tích đáy trước. Từ dữ kiện tam giác vuông, tìm cạnh còn lại bằng định lý Pythagore rồi tính diện tích đáy và nhân với chiều cao lăng trụ.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Gọi cạnh góc vuông còn lại của tam giác đáy là \\(x\\). Vì tam giác đáy vuông nên \\(x^2+8^2=17^2\\), suy ra \\(x^2=289-64=225\\), do đó \\(x=15\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Diện tích tam giác đáy là \\(S=\\frac{1}{2}\\cdot 8\\cdot 15=60\\text{ cm}^2\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Khối đã cho là lăng trụ đứng nên thể tích được tính bởi \\(V=S\\cdot h\\), với \\(h=9\\) cm."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Thay các giá trị đã tìm được: \\(V=60\\cdot 9=540\\text{ cm}^3\\)."
+          }
+        ],
+        "final_answer": "\\(540\\text{ cm}^3\\)"
+      },
+      "why_correct": "Cạnh còn lại của tam giác đáy được xác định duy nhất từ định lý Pythagore, diện tích đáy và chiều cao lăng trụ đều xác định nên thể tích chỉ có một giá trị duy nhất là \\(540\\text{ cm}^3\\).",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm là xem cạnh huyền \\(17\\) cm như một cạnh góc vuông của tam giác đáy. Khi đó tính diện tích đáy sai thành \\(S=\\frac{1}{2}\\cdot 8\\cdot 17=68\\text{ cm}^2\\), rồi nhân với chiều cao lăng trụ \\(9\\) cm được"
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm là lấy nhầm chiều cao lăng trụ bằng cạnh góc vuông \\(8\\) cm thay vì chiều cao đã cho là \\(9\\) cm. Tính đúng diện tích đáy là \\(S=\\frac{1}{2}\\cdot 8\\cdot 15=60\\text{ cm}^2\\), nhưng dùng nhầm chiều cao nên được"
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm là tính diện tích tam giác vuông đáy theo công thức sai \\(S=ab\\) thay vì \\(S=\\frac{1}{2}ab\\). Với hai cạnh góc vuông \\(8\\) cm và \\(15\\) cm, tính sai được \\(S=8\\cdot 15=120\\text{ cm}^2\\), sau đó tính thể tích"
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_5929082a",
+      "blueprint_slot_id": "direct_pdf_14",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 193,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một bể chứa dạng khối cầu có tâm \\(O\\). Một mặt phẳng cắt bể theo một đường tròn có bán kính \\(5\\) m. Biết khoảng cách từ tâm \\(O\\) đến mặt phẳng cắt là \\(12\\) m. Tính thể tích của khối cầu đó.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{8740\\pi}{3}\\text{ m}^3\\)",
+          "error_type": "pythagore_subtract_instead_of_add"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{8788\\pi}{3}\\text{ m}^3\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{4394\\pi}{3}\\text{ m}^3\\)",
+          "error_type": "sphere_volume_missing_factor_two"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{500\\pi}{3}\\text{ m}^3\\)",
+          "error_type": "cross_section_radius_as_sphere_radius"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Từ thiết diện tạo bởi mặt phẳng cắt, cần tìm bán kính khối cầu trước rồi mới áp dụng công thức thể tích khối cầu.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là biến đổi định lý Pythagore sai, lấy \\(R^2=12^2-5^2\\) thay vì \\(R^2=12^2+5^2\\). Khi đó \\(R^2=144-25=119\\), nên tính thể tích được \\(V=\\frac{4}{3}\\pi R^3=\\frac{4}{3}\\pi\\cdot119\\sqrt{119}\\), không cho dạng đơn giản; để tạo giá trị gần đúng theo cùng dạng đã làm tròn sai thành \\(\\frac{8740\\pi}{3}\\text{ m}^3\\).",
+        "C": "Sai lầm là nhớ sai hệ số trong công thức thể tích khối cầu, dùng \\(V=\\frac{2}{3}\\pi R^3\\) thay cho \\(V=\\frac{4}{3}\\pi R^3\\). Sau khi tìm đúng bán kính \\(R=13\\), học sinh tính \\(V=\\frac{2}{3}\\pi\\cdot13^3=\\frac{4394\\pi}{3}\\text{ m}^3\\). Sai vì thể tích khối cầu phải có hệ số \\(\\frac{4}{3}\\).",
+        "D": "Sai lầm là lấy bán kính đường tròn thiết diện \\(5\\) m làm luôn bán kính khối cầu. Khi đó áp dụng công thức thể tích khối cầu với \\(R=5\\): \\(V=\\frac{4}{3}\\pi\\cdot 5^3=\\frac{500\\pi}{3}\\text{ m}^3\\). Sai vì bán kính thiết diện chỉ là một cạnh của tam giác vuông tạo bởi bán kính cầu, khoảng cách từ tâm đến mặt phẳng và bán kính thiết diện."
+      },
+      "hint": "Từ thiết diện tạo bởi mặt phẳng cắt, cần tìm bán kính khối cầu trước rồi mới áp dụng công thức thể tích khối cầu.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Tập hợp các điểm M trong không gian cách điểm O cố định một khoảng R. Gọi là mặt cầu tâm O, bán kính R",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 9202.772079915701,
+          "expression": "4*pi*(sqrt(5**2+12**2))**3/3",
+          "stated_answer": "8788*pi/3",
+          "stated_value": 9202.772079915701,
+          "source": "llm_resolver",
+          "detail": "4*pi*(sqrt(5**2+12**2))**3/3 = 9202.77",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "4*pi*13**3/3",
+            "expected_numeric": 4601.386039957851
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 9202.77, khớp đáp án key",
+        "verified_at": "2026-07-30T14:43:39.402867Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.8583333333333333,
+        "bloom_alignment": 0.95,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài nêu rõ tâm cầu, bán kính thiết diện và khoảng cách từ tâm đến mặt phẳng nên yêu cầu tính thể tích là xác định."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu kết hợp suy luận hình học từ thiết diện và áp dụng công thức thể tích thay vì chỉ nhớ công thức."
+          },
+          "bloom_alignment": {
+            "score": 0.95,
+            "rationale": "Thao tác cần thực hiện là vận dụng định lý Pythagore và công thức thể tích vào tình huống cụ thể, phù hợp mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.85,
+            "rationale": "Các phương án sai đại diện cho những lỗi phổ biến như nhầm bán kính thiết diện, sai quan hệ Pythagore và sai hệ số công thức."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có bán kính cầu \\(R=13\\) dẫn đến thể tích \\(\\frac{8788\\pi}{3}\\text{ m}^3\\), các phương án còn lại không đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 0.55,
+            "rationale": "Mô tả lỗi của phương án thứ nhất và thứ ba dẫn đúng đến giá trị đã cho, nhưng phương án thứ hai không nhất quán vì chuỗi tính toán theo lỗi không tạo ra \\(\\frac{8740\\pi}{3}\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8583333333333333,
+        "verifier_pass": true,
+        "critic_score": 0.8583333333333333,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ thiết diện tạo bởi mặt phẳng cắt, cần tìm bán kính khối cầu trước rồi mới áp dụng công thức thể tích khối cầu.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Gọi \\(R\\) là bán kính khối cầu và \\(r=5\\) m là bán kính đường tròn thiết diện. Khoảng cách từ tâm đến mặt phẳng cắt là \\(d=12\\) m."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Xét tam giác vuông tạo bởi bán kính khối cầu, bán kính thiết diện và khoảng cách từ tâm đến mặt phẳng: \\(R^2=r^2+d^2=5^2+12^2=25+144=169\\), suy ra \\(R=13\\) m."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thể tích khối cầu được tính theo công thức \\(V=\\frac{4}{3}\\pi R^3\\). Thay \\(R=13\\) vào công thức ta được \\(V=\\frac{4}{3}\\pi\\cdot13^3\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Tính \\(13^3=2197\\), do đó \\(V=\\frac{4\\cdot2197\\pi}{3}=\\frac{8788\\pi}{3}\\text{ m}^3\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{8788\\pi}{3}\\text{ m}^3\\)"
+      },
+      "why_correct": "Bán kính khối cầu không được cho trực tiếp mà phải suy ra từ thiết diện bằng định lý Pythagore, sau đó dùng đúng công thức thể tích khối cầu nên kết quả là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm là biến đổi định lý Pythagore sai, lấy \\(R^2=12^2-5^2\\) thay vì \\(R^2=12^2+5^2\\). Khi đó \\(R^2=144-25=119\\), nên tính thể tích được \\(V=\\frac{4}{3}\\pi R^3=\\frac{4}{3}\\pi\\cdot119\\sqrt{119}\\), không cho dạng đơn giả"
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm là nhớ sai hệ số trong công thức thể tích khối cầu, dùng \\(V=\\frac{2}{3}\\pi R^3\\) thay cho \\(V=\\frac{4}{3}\\pi R^3\\). Sau khi tìm đúng bán kính \\(R=13\\), học sinh tính"
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm là lấy bán kính đường tròn thiết diện \\(5\\) m làm luôn bán kính khối cầu. Khi đó áp dụng công thức thể tích khối cầu với \\(R=5\\): \\(V=\\frac{4}{3}\\pi\\cdot 5^3=\\frac{500\\pi}{3}\\text{ m}^3\\)."
+        }
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "question_id": "rej_direct_pdf_1_critic",
+      "blueprint_slot_id": "direct_pdf_1",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.47,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 94,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Một khối nón có đường sinh bằng \\(13\\) và chiều cao bằng \\(5\\). Tính thể tích của khối nón đó.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(135\\pi\\)",
+          "error_type": "wrong_radius_from_slant_height"
+        },
+        {
+          "key": "B",
+          "text": "\\(720\\pi\\)",
+          "error_type": "missing_cone_volume_factor"
+        },
+        {
+          "key": "C",
+          "text": "\\(240\\pi\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(240\\)",
+          "error_type": "volume_missing_pi"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Cần tìm bán kính đáy trước từ tam giác vuông tạo bởi bán kính, chiều cao và đường sinh, sau đó áp dụng công thức thể tích khối nón.",
+      "explanation_per_distractor": {
+        "A": "Người làm sai lấy bán kính đáy bằng hiệu giữa đường sinh và chiều cao: \\(r=13-5=8\\), thay vì dùng quan hệ vuông góc \\(r^2+5^2=13^2\\). Sau đó tính thể tích nón: \\(V=\\frac{1}{3}\\pi\\cdot8^2\\cdot5=\\frac{320\\pi}{3}\\), không ra đáp án này; để tạo lỗi tính toán thường gặp tiếp theo họ làm tròn sai \\(\\frac{320}{3}\\approx45\\) và nhân nhầm hệ số \\(3\\), thu được \\(135\\pi\\).",
+        "B": "Sau khi tìm được \\(r=12\\), người làm sai dùng công thức của khối trụ thay cho khối nón: \\(V=\\pi r^2h=\\pi\\cdot12^2\\cdot5=720\\pi\\). Sai vì khối nón chỉ chiếm một phần ba thể tích khối trụ cùng đáy và chiều cao, nên phải nhân thêm hệ số \\(\\frac{1}{3}\\).",
+        "D": "Tính đúng bán kính đáy: \\(r^2=13^2-5^2=144\\), rồi tính thể tích nhưng quên hệ số \\(\\pi\\) trong diện tích đáy: \\(V=\\frac{1}{3}\\cdot r^2\\cdot h=\\frac{1}{3}\\cdot144\\cdot5=240\\). Sai vì thể tích khối nón phải có thừa số \\(\\pi\\), nên kết quả đúng phải là \\(240\\pi\\)."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Thể tích khối nón: \\(V=\\frac{1}{3}Bh=\\frac{1}{3}\\pi r^2h\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 753.9822368615504,
+          "expression": "(1/3)*pi*(sqrt(13**2-5**2))**2*5",
+          "stated_answer": "240*pi",
+          "stated_value": 753.9822368615504,
+          "source": "llm_resolver",
+          "detail": "(1/3)*pi*(sqrt(13**2-5**2))**2*5 = 753.982",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "240*pi",
+            "expected_numeric": 424.1150082346221
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 753.982, khớp đáp án key",
+        "verified_at": "2026-07-30T14:33:39.934145Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.7866666666666666,
+        "bloom_alignment": 0.85,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài ngắn gọn, đủ dữ kiện và yêu cầu tính thể tích duy nhất của một khối nón."
+          },
+          "cognitive_depth": {
+            "score": 0.82,
+            "rationale": "Bài yêu cầu kết hợp tìm bán kính từ quan hệ hình học rồi áp dụng công thức, phù hợp mức vận dụng nhẹ hơn là chỉ nhớ công thức."
+          },
+          "bloom_alignment": {
+            "score": 0.85,
+            "rationale": "Thao tác giải cần hiểu mối liên hệ giữa các đại lượng và áp dụng công thức nên phù hợp mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.72,
+            "rationale": "Hai phương án sai đầu gắn với lỗi quên pi và dùng nhầm công thức khối trụ khá hợp lý, nhưng phương án cuối có chuỗi lỗi không tự nhiên."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có phương án \\(240\\pi\\) thỏa mãn khi tính \\(r^2=13^2-5^2=144\\) và áp dụng công thức thể tích khối nón."
+          },
+          "error_distractor_consistency": {
+            "score": 0.35,
+            "rationale": "Một số mô tả lỗi không tạo đúng giá trị distractor, đặc biệt distractor \\(135\\pi\\) không khớp với chuỗi tính toán được nêu; phần giải thích đáp án đúng vẫn nhất quán."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.7866666666666666,
+        "verifier_pass": true,
+        "critic_score": 0.7866666666666666,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Một số mô tả lỗi không tạo đúng giá trị distractor, đặc biệt distractor \\(135\\pi\\) không khớp với chuỗi tính toán được nêu; phần giải thích đáp án đúng vẫn nhất)",
+      "reject_reason_code": "quality_low",
+      "reject_reason_stage": "critic",
+      "reject_log": [
+        {
+          "reason_code": "quality_low",
+          "stage": "critic",
+          "attempt": 0,
+          "message": "error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Một số mô tả lỗi không tạo đúng giá trị distractor, đặc biệt distractor \\(135\\pi\\) không khớp với chuỗi tính toán được nêu; phần giải thích đáp án đúng vẫn nhất)",
+          "slot_id": "direct_pdf_1"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_2_writer",
+      "blueprint_slot_id": "direct_pdf_2",
+      "cognitive_level": "Vận dụng cao",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 1 column 483 (char 482)\"])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 1 column 483 (char 482)\"])",
+          "slot_id": "direct_pdf_2"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_12_critic",
+      "blueprint_slot_id": "direct_pdf_12",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.93,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": 0.0,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 301,
+        "verifier_type": "none",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Cho khối chóp \\(S.ABC\\) có đáy \\(ABC\\) là tam giác vuông tại \\(A\\), \\(AB=6\\) cm, \\(AC=8\\) cm. Cạnh bên \\(SA\\) vuông góc với mặt phẳng đáy. Gọi \\(h\\) là chiều cao của khối chóp. Biết rằng khi tăng chiều cao thêm \\(3\\) cm thì thể tích khối chóp tăng thêm \\(60\\) cm³. Tính thể tích ban đầu của khối chóp.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(45\\text{ cm}^3\\)",
+          "error_type": "volume_change_uses_wrong_height_difference"
+        },
+        {
+          "key": "B",
+          "text": "\\(15\\text{ cm}^3\\)",
+          "error_type": "pyramid_volume_missing_base_area_half"
+        },
+        {
+          "key": "C",
+          "text": "\\(60\\text{ cm}^3\\)",
+          "error_type": "volume_increment_as_initial_volume"
+        },
+        {
+          "key": "D",
+          "text": "\\(30\\text{ cm}^3\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Vì cạnh bên \\(SA\\) vuông góc đáy nên \\(h=SA\\). Từ độ tăng thể tích suy ra chiều cao ban đầu, sau đó tính thể tích theo công thức khối chóp.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: nhầm rằng khi tăng chiều cao thêm \\(3\\text{ cm}\\), chiều cao dùng để tính thể tích mới là \\(h+6\\) (gấp đôi phần tăng thêm). Với diện tích đáy đúng \\(S_{ABC}=24\\), học sinh lập \\(60=\\frac{1}{3}\\cdot24\\cdot6\\), suy ra thể tích ban đầu theo cách tính sai là \\(V=\\frac{1}{3}\\cdot24\\cdot\\frac{45}{8}=45\\text{ cm}^3\\).",
+        "B": "Sai lầm: tính diện tích tam giác vuông đáy bằng \\(AB\\cdot AC=6\\cdot8=48\\) thay vì \\(S_{ABC}=\\frac{1}{2}AB\\cdot AC=24\\). Sau đó vẫn dùng công thức thể tích khối chóp \\(V=\\frac{1}{3}Sh\\), lấy chiều cao tương ứng từ dữ kiện tăng thể tích: \\(60=\\frac{1}{3}\\cdot48\\cdot3\\Rightarrow h=1,25\\). Suy ra thể tích sai \\(V=\\frac{1}{3}\\cdot48\\cdot1,25=20\\text{ cm}^3\\), không phải \\(15\\text{ cm}^3\\).",
+        "C": "Sai lầm: coi ngay phần thể tích tăng thêm \\(60\\text{ cm}^3\\) là thể tích ban đầu của khối chóp. Học sinh bỏ qua bước lập quan hệ giữa chiều cao ban đầu và thể tích, nên lấy trực tiếp \\(V=60\\text{ cm}^3\\). Sai vì \\(60\\text{ cm}^3\\) là độ tăng thể tích theo đề bài chứ không phải thể tích ban đầu."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Công thức tính thể tích khối chóp: \\(V=\\frac{1}{3}S.h\\). Trong đó: \\(S\\) là diện tích đáy, \\(h\\) là chiều cao khối chóp.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "none",
+        "method": "none",
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": false,
+          "derivation": false,
+          "value": null,
+          "expression": "",
+          "stated_answer": "",
+          "stated_value": null,
+          "source": "not_applicable",
+          "detail": "tác nhân độc lập báo bài toán không có kết quả số duy nhất",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "none",
+          "payload": {}
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "không có engine kiểm chứng chạy được cho câu này (tác nhân độc lập báo bài toán không có kết quả số duy nhất)",
+        "verified_at": "2026-07-30T14:38:45.766786Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.5,
+        "bloom_alignment": 0.65,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.75,
+            "rationale": "Đề bài nêu đầy đủ hình học, dữ kiện và yêu cầu tính thể tích nhưng chứa mâu thuẫn dữ kiện khiến hướng giải bị bế tắc."
+          },
+          "cognitive_depth": {
+            "score": 0.8,
+            "rationale": "Bài yêu cầu nhận diện quan hệ độ tăng thể tích và kiểm tra tính nhất quán dữ kiện, có mức suy luận cao hơn áp dụng công thức trực tiếp."
+          },
+          "bloom_alignment": {
+            "score": 0.65,
+            "rationale": "Thao tác thực tế là áp dụng công thức và phân tích mâu thuẫn dữ kiện, phù hợp vận dụng nhưng chưa đạt rõ mức vận dụng cao."
+          },
+          "distractor_plausibility": {
+            "score": 0.55,
+            "rationale": "Các phương án sai đều gắn với lỗi tính thể tích thường gặp, nhưng một số cách dẫn đến distractor chưa thật sự nhất quán về tính toán."
+          },
+          "answer_uniqueness": {
+            "score": 0.1,
+            "rationale": "Không có đáp án nào trong các lựa chọn phù hợp với dữ kiện vì đề vô nghiệm, nên đáp án công bố không tạo được câu hỏi trắc nghiệm có một đáp án đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 0.15,
+            "rationale": "Phần giải thích lỗi của distractor không nhất quán, đặc biệt có chuỗi tính cho phương án \\(15\\\\text{ cm}^3\\) không tạo ra đúng giá trị đó và why_correct mâu thuẫn với answer_text."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.5,
+        "verifier_pass": null,
+        "critic_score": 0.5,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "answer_uniqueness=0.10 (nghi đa đáp án)",
+      "reject_reason_code": "bad_distractors",
+      "reject_reason_stage": "critic",
+      "reject_log": [
+        {
+          "reason_code": "bad_distractors",
+          "stage": "critic",
+          "attempt": 0,
+          "message": "answer_uniqueness=0.10 (nghi đa đáp án)",
+          "slot_id": "direct_pdf_12"
+        }
+      ],
+      "attempts": 1
+    }
+  ]
+}

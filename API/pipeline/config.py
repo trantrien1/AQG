@@ -181,13 +181,74 @@ USE_SKILLS_DEFAULT = DEFAULT_SKILL_MODE == 'skills'
 NUM_SAMPLES_PER_SLOT = 5
 FAST_NUM_SAMPLES_PER_SLOT = int(os.getenv('AQG_FAST_NUM_SAMPLES_PER_SLOT', '1'))
 NUM_REPAIR_ATTEMPTS = 2
-QUALITY_THRESHOLD = 0.55
 NLI_PROB_MARGIN = 0.1
-DISTRACTOR_SIMILARITY_THRESHOLD = 0.7
-QUESTION_DEDUP_THRESHOLD = 0.8
-GROUNDING_THRESHOLD = 0.4
-NUMERIC_TOLERANCE = 1e-6
 NUMERIC_CROSSCHECK_POINTS = 5
+
+
+# ==== CALIBRATABLE THRESHOLDS ====
+# Mọi ngưỡng quyết định chấp nhận/loại một câu hỏi đều nằm ở đây và đọc được từ
+# biến môi trường, để `pipeline.calibration` dò lại chúng trên một tập validation
+# do người gán nhãn thay vì để giá trị chọn tay nằm rải rác trong code.
+# Giá trị mặc định dưới đây là giá trị đã dùng trong toàn bộ số liệu đã chạy —
+# đổi mặc định sẽ làm mọi kết quả cũ không so sánh được.
+QUALITY_THRESHOLD = float(os.getenv('AQG_QUALITY_THRESHOLD', '0.55'))
+GROUNDING_THRESHOLD = float(os.getenv('AQG_GROUNDING_THRESHOLD', '0.4'))
+ANSWER_UNIQUENESS_THRESHOLD = float(
+    os.getenv('AQG_ANSWER_UNIQUENESS_THRESHOLD', '0.5'))
+ERROR_VALUE_CONSISTENCY_THRESHOLD = float(
+    os.getenv('AQG_ERROR_VALUE_CONSISTENCY_THRESHOLD', '0.4'))
+DISTRACTOR_SIMILARITY_THRESHOLD = float(
+    os.getenv('AQG_DISTRACTOR_SIMILARITY_THRESHOLD', '0.7'))
+QUESTION_DEDUP_THRESHOLD = float(os.getenv('AQG_QUESTION_DEDUP_THRESHOLD', '0.8'))
+# Chống trùng theo TỪ NGỮ giữa các câu trong cùng một lượt sinh. 1.0 = chỉ loại
+# khi phần đầu stem trùng khít (hành vi mặc định từ trước); hạ xuống <1 để loại
+# thêm các câu chỉ khác nhau vài từ. Calibration có thể dò lại giá trị này.
+LEXICAL_DEDUP_THRESHOLD = float(os.getenv('AQG_LEXICAL_DEDUP_THRESHOLD', '1.0'))
+NUMERIC_TOLERANCE = float(os.getenv('AQG_NUMERIC_TOLERANCE', '1e-6'))
+# Dung sai TƯƠNG ĐỐI khi đối chiếu hai giá trị số giữa các nguồn tính toán
+# (đáp án key ↔ biểu thức Writer ↔ mục tiêu độc lập).
+VERIFICATION_REL_TOLERANCE = float(
+    os.getenv('AQG_VERIFICATION_REL_TOLERANCE', '1e-4'))
+
+#: Tên → (giá trị hiện tại, mô tả). `pipeline.calibration` đọc bảng này.
+CALIBRATABLE_THRESHOLDS = {
+    'QUALITY_THRESHOLD': 'Điểm chất lượng tối thiểu của Critic',
+    'GROUNDING_THRESHOLD': 'Điểm bám nguồn tối thiểu',
+    'ANSWER_UNIQUENESS_THRESHOLD': 'Điểm duy-nhất-đáp-án tối thiểu',
+    'ERROR_VALUE_CONSISTENCY_THRESHOLD':
+        'Mức khớp tối thiểu giữa mô tả lỗi và giá trị phương án nhiễu',
+    'DISTRACTOR_SIMILARITY_THRESHOLD':
+        'Ngưỡng cosine coi hai phương án nhiễu là trùng',
+    'QUESTION_DEDUP_THRESHOLD': 'Ngưỡng cosine coi hai câu hỏi là trùng ngữ nghĩa',
+    'LEXICAL_DEDUP_THRESHOLD': 'Ngưỡng trùng lặp theo từ ngữ giữa các stem',
+    'VERIFICATION_REL_TOLERANCE': 'Dung sai tương đối khi đối chiếu giá trị số',
+}
+
+
+# ==== VERIFICATION ====
+# Mục tiêu kiểm chứng ĐỘC LẬP: một tác nhân khác giải lại bài toán chỉ từ đề bài
+# (không thấy đáp án, lời giải hay biểu thức kiểm chứng của Writer) rồi nộp một
+# biểu thức máy đọc được; SymPy tính lại và đối chiếu với đáp án key. Đây là thứ
+# duy nhất trong pipeline có thể bác bỏ một lỗi mô hình hoá sai-nhất-quán.
+INDEPENDENT_VERIFICATION = os.getenv(
+    'AQG_INDEPENDENT_VERIFICATION', '1') in ('1', 'true', 'yes')
+# Mặc định dùng JUDGE_MODEL để mục tiêu độc lập không đến từ đúng model đã viết
+# câu hỏi. Đặt AQG_INDEPENDENT_VERIFIER_MODEL để chỉ định model khác họ.
+INDEPENDENT_VERIFIER_MODEL = os.getenv('AQG_INDEPENDENT_VERIFIER_MODEL', '') or JUDGE_MODEL
+INDEPENDENT_VERIFIER_MAX_TOKENS = int(
+    os.getenv('AQG_INDEPENDENT_VERIFIER_MAX_TOKENS', '1200'))
+# Nhiệt độ 0: bước này phải tái lập được, không cần đa dạng.
+INDEPENDENT_VERIFIER_TEMPERATURE = float(
+    os.getenv('AQG_INDEPENDENT_VERIFIER_TEMPERATURE', '0'))
+# Tác nhân độc lập có được xem các trang tài liệu không. Xem thì bám dữ kiện gốc
+# tốt hơn nhưng tốn token; đề bài vốn đã tự chứa nên mặc định KHÔNG gửi.
+INDEPENDENT_VERIFIER_SEES_DOCUMENT = os.getenv(
+    'AQG_INDEPENDENT_VERIFIER_SEES_DOCUMENT', '0') in ('1', 'true', 'yes')
+# Xử lý câu bị tính toán độc lập bác bỏ:
+#   'review' — giữ lại nhưng bắt buộc chuyển sang duyệt tay (mặc định),
+#   'reject' — loại khỏi kết quả trả về.
+REFUTED_POLICY = (os.getenv('AQG_REFUTED_POLICY', 'review').strip().lower()
+                  or 'review')
 
 # ==== QUOTE / GROUNDING STRICTNESS ====
 # When strict (legacy), the rule validator hard-rejects a candidate whenever the
@@ -242,6 +303,13 @@ FAST_PLAN_SLOT_MULTIPLIER = GENERATION_SLOT_POOL_MULTIPLIER
 # when enough questions are accepted, all slots exhaust MAX_SLOT_ATTEMPTS, or
 # the user cancels the job.
 MAX_SLOT_ATTEMPTS = int(os.getenv('AQG_MAX_SLOT_ATTEMPTS', '2'))
+# Số slot hỏng LIÊN TIẾP trước khi bỏ cuộc. 0 = tự tính theo số câu yêu cầu
+# (hành vi mặc định: dừng sớm để không đốt token khi tài liệu không sinh được).
+# Phải chỉnh được vì khi QUÉT NHIỀU MÔ HÌNH, cơ chế bỏ cuộc sớm cấp cho mỗi mô
+# hình một số lượt thử KHÁC nhau — mô hình yếu bị dừng sau vài lượt, mô hình
+# khoẻ chạy hết — nên tỉ lệ "giao ra / số câu yêu cầu" của hai ô không so được
+# với nhau. Đặt cố định để mọi ô có cùng ngân sách lượt thử.
+MAX_EMPTY_STREAK = int(os.getenv('AQG_MAX_EMPTY_STREAK', '0'))
 MAX_JOB_ATTEMPT_MULTIPLIER = int(os.getenv('AQG_MAX_JOB_ATTEMPT_MULTIPLIER', '0'))
 
 
@@ -263,6 +331,21 @@ PDF_SIZE_LIMIT = int(os.getenv('AQG_PDF_SIZE_LIMIT', str(20 * 1024 * 1024)))  # 
 #                Dùng cho gateway chỉ hỗ trợ ảnh (vd 9router local chặn file PDF).
 PDF_ATTACH_MODE = os.getenv('AQG_PDF_ATTACH_MODE', 'image').strip().lower() or 'image'
 PDF_IMAGE_DPI = int(os.getenv('AQG_PDF_IMAGE_DPI', '120'))
+
+# ---- Cách OpenRouter được phép XỬ LÝ file PDF đính kèm ----
+# OpenRouter tự chọn engine nếu ta không ghim: model nào nhận file thì dùng
+# 'native' (mô hình tự đọc trang), model nào KHÔNG nhận thì tụt xuống
+# 'pdf-text' — tức TRÍCH XUẤT TEXT. Đó đúng là thứ kiến trúc này dựng lên để
+# tránh: trích text phá bố cục, ký hiệu toán, bảng và hình. Tệ hơn, nó xảy ra
+# ÂM THẦM: run vẫn chạy, câu hỏi vẫn ra, chỉ có điều cơ chế bám tài liệu không
+# còn là cái ta mô tả. Vì vậy ghim 'native' và kiểm năng lực model TRƯỚC khi
+# chạy (xem llm_client.assert_pdf_native_support).
+OPENROUTER_PDF_ENGINE = os.getenv(
+    'AQG_OPENROUTER_PDF_ENGINE', 'native').strip().lower() or 'native'
+# Đặt '0' để bỏ qua bước kiểm năng lực (chỉ dùng khi cố ý chạy nhánh dự phòng
+# và đã ý thức rằng tài liệu sẽ bị trích text).
+OPENROUTER_REQUIRE_NATIVE_PDF = os.getenv(
+    'AQG_OPENROUTER_REQUIRE_NATIVE_PDF', '1') in ('1', 'true', 'yes')
 # Số trang tối đa render thành ảnh và gửi trong MỘT request (tách khỏi
 # PDF_PAGE_LIMIT dùng cho ingestion). Provider vision giới hạn số ảnh/request
 # (Claude ~100). Với tài liệu dài, ~30 trang đầu đủ để sinh & kiểm 20 câu.
@@ -270,6 +353,16 @@ PDF_IMAGE_MAX_PAGES = int(os.getenv('AQG_PDF_IMAGE_MAX_PAGES', '30'))
 # Ngân sách token cho mỗi MCQ khi sinh trực tiếp từ PDF (stem + 4 options +
 # explanation + detailed_solution). Dùng để scale max_tokens theo số câu yêu cầu.
 DIRECT_PDF_TOKENS_PER_QUESTION = int(os.getenv('AQG_DIRECT_PDF_TOKENS_PER_QUESTION', '2600'))
+# Ngân sách output của hai tác nhân con. Trước đây cắm cứng 1300/1100 — đủ cho
+# model trả lời thẳng, nhưng model CÓ REASONING tiêu token suy luận vào chính
+# ngân sách này, nên JSON bị cắt giữa chừng ("Unterminated string") và slot mất
+# trắng. Khi quét nhiều mô hình, cái đó bị tính nhầm thành model sinh kém.
+DISTRACTOR_MAX_TOKENS = int(os.getenv('AQG_DISTRACTOR_MAX_TOKENS', '1300'))
+CRITIC_MAX_TOKENS = int(os.getenv('AQG_CRITIC_MAX_TOKENS', '1100'))
+# Nhánh Writer bỏ phần giải thích: output ngắn hơn hẳn nên trần thấp hơn. Vẫn
+# phải chỉnh được vì cùng lý do trên.
+WRITER_NO_EXPLANATION_MAX_TOKENS = int(
+    os.getenv('AQG_WRITER_NO_EXPLANATION_MAX_TOKENS', '1100'))
 # Two-pass self-review: sau khi sinh nháp, cho model tự rà soát & sửa (số học,
 # đáp án đúng nằm trong options, source_quote khớp đề) trước khi parse cuối.
 DIRECT_PDF_SELF_REVIEW = os.getenv('AQG_DIRECT_PDF_SELF_REVIEW', '1') in ('1', 'true', 'yes')
@@ -325,6 +418,10 @@ def get_pattern_ids() -> list:
 
 
 # ==== PROMPTS ====
+# Tăng khi bất kỳ prompt nào dưới đây (hoặc prompt của agent) đổi nội dung —
+# ghi vào run manifest để một run cũ truy được đúng bản prompt đã sinh ra nó.
+PROMPT_VERSION = os.getenv('AQG_PROMPT_VERSION', '2026.07.25')
+
 SYSTEM_PROMPT = (
     'Bạn là một chuyên gia ra đề Toán nhiều cấp độ (phổ thông và đại học). '
     'Bạn sinh đề trắc nghiệm bám sát ngữ cảnh được cung cấp, không bịa kiến thức ngoài. '

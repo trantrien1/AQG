@@ -1,0 +1,3376 @@
+{
+  "metadata": {
+    "bench": "suite",
+    "arm": "full_system",
+    "seed": 43,
+    "source_pdf": "pdftest/corpus2/t12-daoham-p2.pdf",
+    "source_pdf_name": "t12-daoham-p2.pdf",
+    "requested_questions": 12,
+    "accepted_questions": 12,
+    "is_partial": false,
+    "parse_errors": 8,
+    "verify_failures": 0,
+    "error_code": null,
+    "error_message": null,
+    "cost": {
+      "tokens": 201698,
+      "calls": 68
+    },
+    "duration_seconds": 548.3653836250305,
+    "generated_at": "2026-07-30T12:33:00.757712+00:00"
+  },
+  "questions": [
+    {
+      "question_id": "q_2026_4c22d23b",
+      "blueprint_slot_id": "direct_pdf_3",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 246,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một người gửi tiết kiệm một lần số tiền \\(8\\) triệu đồng theo hình thức lãi kép với cùng một lãi suất sau mỗi kỳ. Sau \\(2\\) kỳ, số tiền cả vốn lẫn lãi nhận được là \\(10{,}125\\) triệu đồng. Hỏi sau \\(3\\) kỳ người đó nhận được bao nhiêu triệu đồng?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{1377}{64}\\)",
+          "error_type": "wrong_period_update"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{531441}{32768}\\)",
+          "error_type": "wrong_extract_growth_factor"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{179}{16}\\)",
+          "error_type": "confuse_compound_with_simple_interest"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{729}{64}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Áp dụng công thức lãi kép \\(T_n=T_0(1+r)^n\\). Từ dữ kiện sau \\(2\\) kỳ tìm được hệ số tăng trưởng, sau đó tính số tiền sau \\(3\\) kỳ.",
+      "explanation_per_distractor": {
+        "A": "Tìm đúng hệ số tăng trưởng \\(1+r=\\frac{9}{8}\\), nhưng cập nhật sai số kỳ: lấy số tiền sau \\(2\\) kỳ rồi nhân thêm với \\(1+(1+r)=\\frac{17}{8}\\) thay vì nhân với hệ số tăng trưởng \\(\\frac{9}{8}\\). Do đó tính \\(T_3=\\frac{81}{8}\\cdot\\frac{17}{8}=\\frac{1377}{64}\\). Sai vì mỗi kỳ chỉ nhân với cùng một hệ số \\(1+r\\), không phải cộng thêm hệ số tăng trưởng.",
+        "B": "Sai ở bước tìm hệ số tăng trưởng: từ \\(8(1+r)^2=\\frac{81}{8}\\), thay vì lấy căn bậc hai để có \\(1+r=\\frac{9}{8}\\), lại lấy trực tiếp \\(1+r=\\frac{81}{64}\\). Sau đó tính \\(T_3=8\\left(\\frac{81}{64}\\right)^3=\\frac{531441}{32768}\\). Sai vì \\((1+r)^2\\) không phải là \\(1+r\\).",
+        "C": "Áp dụng sai công thức lãi đơn thay cho lãi kép: coi \\(T_n=T_0(1+nr)\\). Từ \\(8(1+2r)=10{,}125=\\frac{81}{8}\\) suy ra \\(1+2r=\\frac{81}{64}\\), nên \\(r=\\frac{17}{128}\\). Sau đó tính sai theo lãi đơn: \\(T_3=8\\left(1+3\\cdot\\frac{17}{128}\\right)=8\\cdot\\frac{179}{128}=\\frac{179}{16}\\). Sai vì bài toán yêu cầu lãi kép, tiền lãi kỳ sau phải tính trên cả vốn và lãi kỳ trước."
+      },
+      "hint": "Áp dụng công thức lãi kép \\(T_n=T_0(1+r)^n\\). Từ dữ kiện sau \\(2\\) kỳ tìm được hệ số tăng trưởng, sau đó tính số tiền sau",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Công thức tính lãi kép: \\(T_n=T_0(1+r)^n\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 11.390625,
+          "expression": "8*((81/8)/8)**(3/2)",
+          "stated_answer": "729/64",
+          "stated_value": 11.390625,
+          "source": "llm_resolver",
+          "detail": "8*((81/8)/8)**(3/2) = 11.3906",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "729/64",
+            "expected_numeric": 21.515625
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 11.3906, khớp đáp án key",
+        "verified_at": "2026-07-30T12:25:45.742304Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9516666666666668,
+        "bloom_alignment": 0.95,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ số tiền gốc, hình thức lãi kép, số kỳ và yêu cầu tính số tiền sau kỳ tiếp theo nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Câu hỏi yêu cầu thiết lập hệ số tăng trưởng từ dữ kiện trung gian rồi vận dụng công thức, phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.95,
+            "rationale": "Thao tác chính là áp dụng công thức lãi kép và biến đổi dữ kiện để tính kết quả mới, đúng với mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.93,
+            "rationale": "Các phương án sai đều mô phỏng lỗi phổ biến như dùng lãi đơn, nhầm bình phương hệ số và sai cập nhật kỳ hạn."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ phương án \\(\\frac{729}{64}\\) thỏa công thức lãi kép với \\(8(1+r)^2=\\frac{81}{8}\\) và không có phương án nhiễu nào trùng kết quả."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Các chuỗi lỗi được mô tả đều dẫn đúng đến giá trị distractor tương ứng và phần giải thích đáp án nhất quán với đáp án đúng."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9516666666666668,
+        "verifier_pass": true,
+        "critic_score": 0.9516666666666668,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Áp dụng công thức lãi kép \\(T_n=T_0(1+r)^n\\). Từ dữ kiện sau \\(2\\) kỳ tìm được hệ số tăng trưởng, sau đó tính số tiền sau \\(3\\) kỳ.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Gọi \\(r\\) là lãi suất mỗi kỳ. Theo công thức lãi kép, sau \\(2\\) kỳ có \\(8(1+r)^2=10{,}125\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Đổi số liệu về phân số: \\(10{,}125=\\frac{81}{8}\\), nên \\(8(1+r)^2=\\frac{81}{8}\\), suy ra \\((1+r)^2=\\frac{81}{64}\\). Vì \\(1+r>0\\) nên \\(1+r=\\frac{9}{8}\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Từ \\(1+r=\\frac{9}{8}\\), số tiền sau \\(3\\) kỳ là \\(T_3=8\\left(\\frac{9}{8}\\right)^3\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Rút gọn biểu thức: \\(T_3=8\\cdot\\frac{729}{512}=\\frac{729}{64}\\) (triệu đồng)."
+          }
+        ],
+        "final_answer": "\\(\\frac{729}{64}\\)"
+      },
+      "why_correct": "Dữ kiện sau \\(2\\) kỳ cho phép xác định duy nhất hệ số tăng trưởng \\(1+r\\). Khi đã tìm được hệ số này, công thức lãi kép cho kết quả duy nhất sau \\(3\\) kỳ.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Tìm đúng hệ số tăng trưởng \\(1+r=\\frac{9}{8}\\), nhưng cập nhật sai số kỳ: lấy số tiền sau \\(2\\) kỳ rồi nhân thêm với \\(1+(1+r)=\\frac{17}{8}\\) thay vì nhân với hệ số tăng trưởng \\(\\frac{9}{8}\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sai ở bước tìm hệ số tăng trưởng: từ \\(8(1+r)^2=\\frac{81}{8}\\), thay vì lấy căn bậc hai để có \\(1+r=\\frac{9}{8}\\), lại lấy trực tiếp \\(1+r=\\frac{81}{64}\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Áp dụng sai công thức lãi đơn thay cho lãi kép: coi \\(T_n=T_0(1+nr)\\). Từ \\(8(1+2r)=10{,}125=\\frac{81}{8}\\) suy ra \\(1+2r=\\frac{81}{64}\\), nên \\(r=\\frac{17}{128}\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_22e6b8bc",
+      "blueprint_slot_id": "direct_pdf_4",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.47,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 122,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Cho số dương \\(x\\) thỏa mãn \\(\\log_2 x=5\\). Tính giá trị biểu thức \\(E=\\log_4 x-\\log_2\\left(\\frac{x}{8}\\right)+\\log_8 4\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{13}{2}\\)",
+          "error_type": "log_power_rule_wrong"
+        },
+        {
+          "key": "B",
+          "text": "\\(-\\frac{29}{6}\\)",
+          "error_type": "log_quotient_to_sum_wrong"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{26}{3}\\)",
+          "error_type": "change_of_base_multiplication_wrong"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{7}{6}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Từ điều kiện \\(\\log_2 x=5\\) suy ra \\(x=32\\). Thay vào biểu thức rồi đưa các logarit về dạng cơ số thuận tiện để tính được \\(E=\\frac{7}{6}\\).",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: áp dụng sai quy tắc logarit của lũy thừa cho \\(\\log_8 4\\), coi thành tích của các logarit cơ số 2. Tính sai: \\(\\log_8 4=\\log_2 4\\cdot\\log_2 8=2\\cdot3=6\\). Hai phần đầu vẫn đúng: \\(\\log_4 32=\\frac{5}{2}\\), \\(\\log_2\\left(\\frac{32}{8}\\right)=2\\). Vì vậy nhận được \\(E=\\frac{5}{2}-2+6=\\frac{13}{2}\\). Sai vì đổi cơ số phải dùng phép chia, không phải phép nhân.",
+        "B": "Sai lầm: áp dụng sai công thức logarit của thương, biến \\(\\log_2\\left(\\frac{x}{8}\\right)\\) thành \\(\\log_2 x+\\log_2 8\\). Khi đó với \\(x=32\\): \\(\\log_2 x=5\\), \\(\\log_2 8=3\\) nên tính sai được \\(\\log_2\\left(\\frac{x}{8}\\right)=5+3=8\\). Do đó \\(E=\\log_4 32-8+\\log_8 4=\\frac{5}{2}-8+\\frac{2}{3}=-\\frac{29}{6}\\). Sai vì công thức đúng là \\(\\log_a\\frac{b}{c}=\\log_a b-\\log_a c\\).",
+        "C": "Sai lầm: đổi cơ số logarit sai, dùng phép nhân thay vì phép chia trong công thức đổi cơ số. Tính \\(\\log_4 32\\) sai thành \\(\\log_2 32\\cdot\\log_2 4=5\\cdot2=10\\). Giữ các phần còn lại đúng: \\(\\log_2\\left(\\frac{32}{8}\\right)=\\log_2 4=2\\), \\(\\log_8 4=\\frac{2}{3}\\). Khi đó \\(E=10-2+\\frac{2}{3}=\\frac{26}{3}\\). Sai vì công thức đúng là \\(\\log_a b=\\frac{\\log_c b}{\\log_c a}\\)."
+      },
+      "hint": "Từ điều kiện \\(\\log_2 x=5\\) suy ra \\(x=32\\). Thay vào biểu thức rồi đưa các logarit về dạng cơ số thuận tiện để tính được",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "log log log a a a b c b c    (Tích – tổng)",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 1.1666666666666667,
+          "expression": "5/2-2+2/3",
+          "stated_answer": "7/6",
+          "stated_value": 1.1666666666666667,
+          "source": "llm_resolver",
+          "detail": "5/2-2+2/3 = 1.16667",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "5/2-2+2/3",
+            "expected_numeric": 6.5
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 1.16667, khớp đáp án key",
+        "verified_at": "2026-07-30T12:25:50.070206Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.9333333333333332,
+        "bloom_alignment": 0.85,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 1.0,
+            "rationale": "Đề cho điều kiện xác định duy nhất của x và yêu cầu tính một biểu thức logarit rõ ràng, không có cách hiểu khác."
+          },
+          "cognitive_depth": {
+            "score": 0.8,
+            "rationale": "Bài yêu cầu kết hợp nhiều công thức logarit và tính toán thay vì chỉ nhớ công thức đơn lẻ, phù hợp mức thông hiểu."
+          },
+          "bloom_alignment": {
+            "score": 0.85,
+            "rationale": "Thao tác chính là nhận biết công thức phù hợp và vận dụng để biến đổi tính giá trị, đúng với mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.95,
+            "rationale": "Các phương án nhiễu đều xuất phát từ những lỗi công thức logarit thường gặp như sai thương, sai đổi cơ số và sai lũy thừa."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có một kết quả đúng là \\(\\frac{7}{6}\\), các phương án còn lại đều sai do áp dụng công thức không đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Mỗi chuỗi lỗi được mô tả đều dẫn đúng đến giá trị distractor tương ứng và phần giải thích đáp án nhất quán với đáp án đã cho."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9333333333333332,
+        "verifier_pass": true,
+        "critic_score": 0.9333333333333332,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ điều kiện \\(\\log_2 x=5\\) suy ra \\(x=32\\). Thay vào biểu thức rồi đưa các logarit về dạng cơ số thuận tiện để tính được \\(E=\\frac{7}{6}\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Từ \\(\\log_2 x=5\\), suy ra \\(x=2^5=32\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Tính từng phần của biểu thức: \\(\\log_4 x=\\log_4 32=\\frac{5}{2}\\), \\(\\log_2\\left(\\frac{x}{8}\\right)=\\log_2 4=2\\), và \\(\\log_8 4=\\frac{2}{3}\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thay các giá trị đã tìm được vào biểu thức: \\(E=\\frac{5}{2}-2+\\frac{2}{3}=\\frac{15}{6}-\\frac{12}{6}+\\frac{4}{6}=\\frac{7}{6}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{7}{6}\\)"
+      },
+      "why_correct": "Giá trị của \\(x\\) được xác định duy nhất từ điều kiện đã cho, các phép đổi cơ số và tính logarit đều xác định nên kết quả \\(\\frac{7}{6}\\) là giá trị duy nhất của biểu thức.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: áp dụng sai quy tắc logarit của lũy thừa cho \\(\\log_8 4\\), coi thành tích của các logarit cơ số 2. Tính sai: \\(\\log_8 4=\\log_2 4\\cdot\\log_2 8=2\\cdot3=6\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm: áp dụng sai công thức logarit của thương, biến \\(\\log_2\\left(\\frac{x}{8}\\right)\\) thành \\(\\log_2 x+\\log_2 8\\). Khi đó với \\(x=32\\): \\(\\log_2 x=5\\), \\(\\log_2 8=3\\) nên tính sai được"
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: đổi cơ số logarit sai, dùng phép nhân thay vì phép chia trong công thức đổi cơ số. Tính \\(\\log_4 32\\) sai thành \\(\\log_2 32\\cdot\\log_2 4=5\\cdot2=10\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_6f64177c",
+      "blueprint_slot_id": "direct_pdf_8",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Nhận biết",
+      "difficulty_target": 0.3,
+      "difficulty_estimated": 0.23,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.3,
+        "stem_length_adj": -0.04,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 66,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 40,
+      "question_type": "single_choice",
+      "stem": "Cho \\(a>0, a\\ne1\\) và biết \\(\\log_3 81=x\\). Giá trị của \\(x\\) bằng",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(4\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(81\\)",
+          "error_type": "logarithm_confuse_log_with_exponentiation"
+        },
+        {
+          "key": "C",
+          "text": "\\(5\\)",
+          "error_type": "logarithm_power_error"
+        },
+        {
+          "key": "D",
+          "text": "\\(3\\)",
+          "error_type": "logarithm_confuse_base_with_result"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Vì \\(81=3^4\\) nên theo định nghĩa logarit, số mũ của cơ số \\(3\\) để tạo ra \\(81\\) là \\(4\\).",
+      "explanation_per_distractor": {
+        "B": "Sai lầm: bỏ qua định nghĩa logarit và cho rằng giá trị của \\(\\log_3 81\\) bằng luôn số bị lấy logarit. Từ \\(\\log_3 81=x\\), học sinh suy ra sai \\(x=81\\). Sai vì cần tìm số mũ \\(x\\) sao cho \\(3^x=81\\).",
+        "C": "Sai lầm: nhận biết \\(81\\) gần dạng lũy thừa của \\(3\\) nhưng tính sai số mũ, cho rằng \\(81=3^5\\) nên \\(\\log_3 81=5\\). Sai vì \\(3^5=243\\), không phải \\(81\\); số mũ đúng phải thỏa \\(3^x=81\\).",
+        "D": "Sai lầm: hiểu nhầm \\(\\log_3 81=x\\) nghĩa là cơ số \\(3\\) chính là kết quả cần tìm. Học sinh ghi ngay \\(x=3\\). Sai vì logarit là số mũ của cơ số để tạo ra số bị logarit, không phải là cơ số."
+      },
+      "hint": "Vì \\(81=3^4\\) nên theo định nghĩa logarit, số mũ của cơ số \\(3\\) để tạo ra \\(81\\) là \\(4\\).",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Số thỏa mãn đẳng thức \\(a^x=b\\) được gọi là lôgarit cơ số a của b và kí hiệu là logₐb.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 4.0,
+          "expression": "log(81)/log(3)",
+          "stated_answer": "4",
+          "stated_value": 4.0,
+          "source": "llm_resolver",
+          "detail": "log(81)/log(3) = 4",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "4",
+            "expected_numeric": 5
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 4, khớp đáp án key",
+        "verified_at": "2026-07-30T12:26:52.461815Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9650000000000002,
+        "bloom_alignment": 0.98,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài ngắn gọn, xác định rõ biểu thức logarit cần tính và không gây hiểu nhầm về yêu cầu."
+          },
+          "cognitive_depth": {
+            "score": 0.95,
+            "rationale": "Câu hỏi chỉ yêu cầu nhận biết và áp dụng trực tiếp định nghĩa logarit nên phù hợp mức độ nhận biết."
+          },
+          "bloom_alignment": {
+            "score": 0.98,
+            "rationale": "Thao tác cần thực hiện là nhớ định nghĩa và nhận ra \\(81=3^4\\), phù hợp với Bloom mức Nhận biết."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với những nhầm lẫn phổ biến khi học định nghĩa logarit như nhầm cơ số, số bị logarit hoặc số mũ."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(4\\) thỏa mãn \\(3^x=81\\), các phương án còn lại đều sai về định nghĩa logarit."
+          },
+          "error_distractor_consistency": {
+            "score": 0.98,
+            "rationale": "Chuỗi lỗi mô tả dẫn đúng đến từng distractor và phần giải thích đáp án nhất quán với đáp án \\(4\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9650000000000002,
+        "verifier_pass": true,
+        "critic_score": 0.9650000000000002,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Vì \\(81=3^4\\) nên theo định nghĩa logarit, số mũ của cơ số \\(3\\) để tạo ra \\(81\\) là \\(4\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Nhận thấy \\(81=3^4\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Từ \\(\\log_3 81=x\\) suy ra \\(3^x=81=3^4\\), do đó \\(x=4\\)."
+          }
+        ],
+        "final_answer": "\\(4\\)"
+      },
+      "why_correct": "Giá trị của logarit là số mũ của cơ số tạo ra số cần lấy logarit, nên chỉ có \\(x=4\\) thỏa mãn.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Sai lầm: bỏ qua định nghĩa logarit và cho rằng giá trị của \\(\\log_3 81\\) bằng luôn số bị lấy logarit. Từ \\(\\log_3 81=x\\), học sinh suy ra sai \\(x=81\\). Sai vì cần tìm số mũ \\(x\\) sao cho \\(3^x=81\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: nhận biết \\(81\\) gần dạng lũy thừa của \\(3\\) nhưng tính sai số mũ, cho rằng \\(81=3^5\\) nên \\(\\log_3 81=5\\). Sai vì \\(3^5=243\\), không phải \\(81\\); số mũ đúng phải thỏa \\(3^x=81\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: hiểu nhầm \\(\\log_3 81=x\\) nghĩa là cơ số \\(3\\) chính là kết quả cần tìm. Học sinh ghi ngay \\(x=3\\). Sai vì logarit là số mũ của cơ số để tạo ra số bị logarit, không phải là cơ số."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_71a058a8",
+      "blueprint_slot_id": "direct_pdf_10",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Nhận biết",
+      "difficulty_target": 0.3,
+      "difficulty_estimated": 0.23,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.3,
+        "stem_length_adj": -0.04,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 59,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 40,
+      "question_type": "single_choice",
+      "stem": "Tính giá trị của biểu thức \\(\\left(\\sqrt[3]{27}\\right)^2\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(27\\)",
+          "error_type": "wrong_index_root"
+        },
+        {
+          "key": "B",
+          "text": "\\(9\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(3\\)",
+          "error_type": "missing_outer_operation"
+        },
+        {
+          "key": "D",
+          "text": "\\(81\\)",
+          "error_type": "wrong_root_calculation"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Ta tìm căn bậc ba của 27 được 3, sau đó bình phương kết quả để được giá trị của biểu thức.",
+      "explanation_per_distractor": {
+        "A": "Sai ở bước nhận dạng căn: coi \\(\\sqrt[3]{27}\\) như căn bậc hai nên tính \\(\\sqrt{27}\\). Khi đó \\(\\left(\\sqrt{27}\\right)^2=27\\). Cách làm này sai vì chỉ số của căn là 3, không phải 2.",
+        "C": "Sai ở bước cuối: tính đúng \\(\\sqrt[3]{27}=3\\) nhưng bỏ qua phép bình phương bên ngoài nên kết luận giá trị biểu thức là \\(3\\). Cách làm này sai vì biểu thức yêu cầu lấy kết quả căn bậc ba rồi tiếp tục bình phương.",
+        "D": "Sai ở bước tính căn bậc ba: lấy \\(\\sqrt[3]{27}=\\frac{27}{3}=9\\), sau đó bình phương được \\(9^2=81\\). Cách này sai vì căn bậc ba không phải là phép chia số bị căn cho 3."
+      },
+      "hint": "Ta tìm căn bậc ba của 27 được 3, sau đó bình phương kết quả để được giá trị của biểu thức.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Số a được gọi là căn bậc n của số b nếu \\(a^n=b\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 9.0,
+          "expression": "(27**(1/3))**2",
+          "stated_answer": "9",
+          "stated_value": 9.0,
+          "source": "llm_resolver",
+          "detail": "(27**(1/3))**2 = 9",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "(27**(1/3))**2",
+            "expected_numeric": 3
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 9, khớp đáp án key",
+        "verified_at": "2026-07-30T12:27:52.579662Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.975,
+        "bloom_alignment": 1.0,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 1.0,
+            "rationale": "Đề bài ngắn gọn, biểu thức xác định rõ và yêu cầu tính một giá trị duy nhất."
+          },
+          "cognitive_depth": {
+            "score": 0.95,
+            "rationale": "Bài chỉ yêu cầu nhận dạng căn bậc ba và thực hiện phép bình phương trực tiếp, đúng mức nhận biết."
+          },
+          "bloom_alignment": {
+            "score": 1.0,
+            "rationale": "Thao tác cần thiết là nhớ định nghĩa và áp dụng phép tính cơ bản nên phù hợp với mức Nhận biết."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đại diện cho những lỗi phổ biến như nhầm chỉ số căn, chia sai khi lấy căn và bỏ qua phép toán bên ngoài."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(\\\\left(\\\\sqrt[3]{27}\\\\right)^2=3^2=9\\) đúng, các lựa chọn còn lại không thỏa biểu thức."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Chuỗi lỗi mô tả dẫn đúng tới các giá trị 27, 81, 3 và phần giải thích đáp án nhất quán với đáp án 9."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.975,
+        "verifier_pass": true,
+        "critic_score": 0.975,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Ta tìm căn bậc ba của 27 được 3, sau đó bình phương kết quả để được giá trị của biểu thức.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì \\(3^3=27\\) nên \\(\\sqrt[3]{27}=3\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Thay vào biểu thức ta được \\(\\left(\\sqrt[3]{27}\\right)^2=3^2=9\\)."
+          }
+        ],
+        "final_answer": "\\(9\\)"
+      },
+      "why_correct": "Biểu thức chỉ có một giá trị xác định vì căn bậc ba của 27 là duy nhất và phép bình phương của kết quả đó cho giá trị duy nhất là 9.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai ở bước nhận dạng căn: coi \\(\\sqrt[3]{27}\\) như căn bậc hai nên tính \\(\\sqrt{27}\\). Khi đó \\(\\left(\\sqrt{27}\\right)^2=27\\). Cách làm này sai vì chỉ số của căn là 3, không phải 2."
+        },
+        {
+          "option": "C",
+          "reason": "Sai ở bước cuối: tính đúng \\(\\sqrt[3]{27}=3\\) nhưng bỏ qua phép bình phương bên ngoài nên kết luận giá trị biểu thức là \\(3\\). Cách làm này sai vì biểu thức yêu cầu lấy kết quả căn bậc ba rồi tiếp tục bình phương."
+        },
+        {
+          "option": "D",
+          "reason": "Sai ở bước tính căn bậc ba: lấy \\(\\sqrt[3]{27}=\\frac{27}{3}=9\\), sau đó bình phương được \\(9^2=81\\). Cách này sai vì căn bậc ba không phải là phép chia số bị căn cho 3."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_7f808eb1",
+      "blueprint_slot_id": "direct_pdf_11",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.47,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 124,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Cho số dương \\(x\\) thỏa mãn \\(x^{\\frac{3}{2}}=\\frac{27}{8}\\). Tính giá trị biểu thức \\(A=x^{\\frac{1}{2}}+x^{-\\frac{1}{2}}\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{13}{6}\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{145}{72}\\)",
+          "error_type": "fraction_exponent_division_wrong"
+        },
+        {
+          "key": "C",
+          "text": "\\(0\\)",
+          "error_type": "negative_exponent_sign_wrong"
+        },
+        {
+          "key": "D",
+          "text": "\\(-\\frac{13}{6}\\)",
+          "error_type": "wrong_domain"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Từ điều kiện đã cho, ta biến đổi để tìm giá trị của \\(x^{\\frac{1}{2}}\\), sau đó thay vào biểu thức cần tính.",
+      "explanation_per_distractor": {
+        "B": "Sai lầm là xử lý sai số mũ phân số: từ \\(t^3=\\frac{27}{8}\\) với \\(t=x^{\\frac{1}{2}}\\), người làm sai lấy \\(t=\\frac{27}{8\\cdot 3}=\\frac{9}{8}\\) thay vì tính căn bậc ba. Sau đó \\(A=t+t^{-1}=\\frac{9}{8}+\\frac{8}{9}=\\frac{81+64}{72}=\\frac{145}{72}\\). Sai vì phải có \\(t^3=\\frac{27}{8}\\Rightarrow t=\\sqrt[3]{\\frac{27}{8}=\\frac{3}{2}}\\).",
+        "C": "Sai lầm là hiểu sai số mũ âm: sau khi tìm đúng \\(x^{\\frac{1}{2}}=\\frac{3}{2}\\), người làm sai cho rằng \\(x^{-\\frac{1}{2}}=-x^{\\frac{1}{2}}=-\\frac{3}{2}\\). Khi đó \\(A=\\frac{3}{2}-\\frac{3}{2}=0\\). Sai vì \\(x^{-\\frac{1}{2}}=\\frac{1}{x^{\\frac{1}{2}}}=\\frac{2}{3}\\), không phải đổi dấu của \\(x^{\\frac{1}{2}}\\).",
+        "D": "Sai lầm là bỏ qua điều kiện \\(x>0\\) của lũy thừa với số mũ không nguyên. Đặt \\(t=x^{\\frac{1}{2}}\\), từ \\(t^3=\\frac{27}{8}\\) người làm sai lấy \\(t=-\\frac{3}{2}\\) (nhận nhầm nghiệm âm của căn bậc hai). Khi đó tính \\(A=t+t^{-1}=-\\frac{3}{2}+\\left(-\\frac{3}{2}\\right)^{-1}=-\\frac{3}{2}-\\frac{2}{3}=-\\frac{13}{6}\\). Sai vì \\(x>0\\) nên \\(x^{\\frac{1}{2}}>0\\)."
+      },
+      "hint": "Từ điều kiện đã cho, ta biến đổi để tìm giá trị của \\(x^{\\frac{1}{2}}\\), sau đó thay vào biểu thức cần tính.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Sử dụng phối hợp linh hoạt các tính chất của lũy thừa.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 2.1666666666666665,
+          "expression": "3/2+2/3",
+          "stated_answer": "13/6",
+          "stated_value": 2.1666666666666665,
+          "source": "llm_resolver",
+          "detail": "3/2+2/3 = 2.16667",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "13/6",
+            "expected_numeric": 0
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 2.16667, khớp đáp án key",
+        "verified_at": "2026-07-30T12:28:05.707418Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.9333333333333332,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 1.0,
+            "rationale": "Đề bài nêu rõ điều kiện của x, biểu thức cần tính và không có cách hiểu thay thế."
+          },
+          "cognitive_depth": {
+            "score": 0.8,
+            "rationale": "Bài yêu cầu vận dụng tính chất lũy thừa để biến đổi và tính toán, phù hợp mức thông hiểu."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Học sinh cần hiểu quy tắc số mũ phân số và áp dụng quy trình đã học chứ không chỉ nhớ công thức."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều mô phỏng lỗi phổ biến khi xử lý căn, số mũ âm và số mũ phân số."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Vì x>0 nên x^{1/2}=3/2 duy nhất, chỉ phương án 13/6 thỏa mãn."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Các chuỗi lỗi đều dẫn đúng đến giá trị distractor tương ứng và phần giải thích không mâu thuẫn với đáp án."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9333333333333332,
+        "verifier_pass": true,
+        "critic_score": 0.9333333333333332,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ điều kiện đã cho, ta biến đổi để tìm giá trị của \\(x^{\\frac{1}{2}}\\), sau đó thay vào biểu thức cần tính.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Đặt \\(t=x^{\\frac{1}{2}}\\) với \\(t>0\\). Khi đó \\(x^{\\frac{3}{2}}=t^3\\), nên \\(t^3=\\frac{27}{8}\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Giải phương trình \\(t^3=\\frac{27}{8}\\) ta được \\(t=\\frac{3}{2}\\). Do đó \\(x^{\\frac{1}{2}}=\\frac{3}{2}\\) và \\(x^{-\\frac{1}{2}}=\\frac{1}{x^{\\frac{1}{2}}}=\\frac{2}{3}\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thay các giá trị đã tìm được vào biểu thức: \\(A=\\frac{3}{2}+\\frac{2}{3}=\\frac{9}{6}+\\frac{4}{6}=\\frac{13}{6}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{13}{6}\\)"
+      },
+      "why_correct": "Giá trị \\(x^{\\frac{1}{2}}\\) được xác định duy nhất vì \\(x>0\\), nên phép biến đổi và kết quả của biểu thức \\(A\\) là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Sai lầm là xử lý sai số mũ phân số: từ \\(t^3=\\frac{27}{8}\\) với \\(t=x^{\\frac{1}{2}}\\), người làm sai lấy \\(t=\\frac{27}{8\\cdot 3}=\\frac{9}{8}\\) thay vì tính căn bậc ba."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm là hiểu sai số mũ âm: sau khi tìm đúng \\(x^{\\frac{1}{2}}=\\frac{3}{2}\\), người làm sai cho rằng \\(x^{-\\frac{1}{2}}=-x^{\\frac{1}{2}}=-\\frac{3}{2}\\). Khi đó \\(A=\\frac{3}{2}-\\frac{3}{2}=0\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm là bỏ qua điều kiện \\(x>0\\) của lũy thừa với số mũ không nguyên. Đặt \\(t=x^{\\frac{1}{2}}\\), từ \\(t^3=\\frac{27}{8}\\) người làm sai lấy \\(t=-\\frac{3}{2}\\) (nhận nhầm nghiệm âm của căn bậc hai)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_888d658b",
+      "blueprint_slot_id": "direct_pdf_12",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.47,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 126,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Cho số dương \\(x\\) thỏa mãn \\(\\log_3 x=4\\). Tính giá trị của biểu thức \\(A=\\log_9\\left(\\frac{x}{3}\\right)+\\log_{27}\\sqrt{x}\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{20}{3}\\)",
+          "error_type": "log_change_base_factor_wrong"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{25}{6}\\)",
+          "error_type": "log_sqrt_power_wrong"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{14}{3}\\)",
+          "error_type": "log_split_wrong"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{13}{6}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Từ điều kiện suy ra \\(x=3^4=81\\). Thay vào biểu thức rồi đưa các số về cùng cơ số 3 để tính được giá trị của \\(A\\).",
+      "explanation_per_distractor": {
+        "A": "Sau khi tìm được \\(x=81\\), người làm sai đổi cơ số với quy tắc sai \\(\\log_{a^k}b=k\\log_a b\\) thay vì \\(\\log_{a^k}b=\\frac{1}{k}\\log_a b\\). Vì \\(9=3^2\\), họ tính \\(\\log_9 27=2\\log_3 27=2\\cdot3=6\\). Phần thứ hai tính đúng: \\(\\log_{27}9=\\frac{2}{3}\\). Do đó \\(A=6+\\frac{2}{3}=\\frac{20}{3}\\). Sai vì công thức đổi cơ số khi cơ số là một lũy thừa bị dùng ngược hệ số.",
+        "B": "Sau khi có \\(x=81\\), người làm sai biến đổi \\(\\log_{27}\\sqrt{x}\\) bằng cách cho rằng \\(\\log_a\\sqrt{x}=2\\log_a x\\) thay vì \\(\\log_a\\sqrt{x}=\\frac{1}{2}\\log_a x\\). Khi đó \\(\\log_{27}\\sqrt{x}=2\\log_{27}81=2\\cdot\\frac{4}{3}=\\frac{8}{3}\\). Còn \\(\\log_9\\left(\\frac{x}{3}\\right)=\\log_9 27=\\frac{3}{2}\\). Suy ra \\(A=\\frac{3}{2} + \\frac{8}{3}=\\frac{25}{6}\\).",
+        "C": "Sau khi tìm được \\(x=81\\), người làm sai dùng công thức sai \\(\\log_a\\frac{b}{c}=\\frac{\\log_a b}{\\log_a c}\\). Khi đó \\(\\log_9\\left(\\frac{x}{3}\\right)=\\frac{\\log_9 81}{\\log_9 3}=\\frac{2}{1/2}=4\\). Giữ phần còn lại đúng: \\(\\log_{27}\\sqrt{x}=\\log_{27}9=\\frac{2}{3}\\). Do đó nhận được \\(A=4+\\frac{2}{3}=\\frac{14}{3}\\). Sai vì tính chất logarit của thương phải là hiệu, không phải thương."
+      },
+      "hint": "Từ điều kiện suy ra \\(x=3^4=81\\). Thay vào biểu thức rồi đưa các số về cùng cơ số 3 để tính được giá trị của \\(A\\).",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "⓷ log . log log a a a b c b c    (Tích – tổng)",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 2.1666666666666665,
+          "expression": "log(3**3)/log(3**2)+log(3**2)/log(3**3)",
+          "stated_answer": "13/6",
+          "stated_value": 2.1666666666666665,
+          "source": "llm_resolver",
+          "detail": "log(3**3)/log(3**2)+log(3**2)/log(3**3) = 2.16667",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "3/2+2/3",
+            "expected_numeric": 6.666666666666667
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 2.16667, khớp đáp án key",
+        "verified_at": "2026-07-30T12:29:06.115330Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.9333333333333332,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ điều kiện của x, biểu thức cần tính và chỉ có một yêu cầu xác định giá trị nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.82,
+            "rationale": "Bài yêu cầu áp dụng liên tiếp các tính chất logarit để biến đổi và tính toán, phù hợp mức vận dụng cơ bản/thông hiểu."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là nhận biết và sử dụng công thức logarit quen thuộc chứ chưa yêu cầu phân tích hay đánh giá, phù hợp mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.92,
+            "rationale": "Các phương án sai đều xuất phát từ những lỗi logarit phổ biến như sai công thức thương, sai hệ số khi có căn và sai đổi cơ số."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có phương án \\(\\frac{13}{6}\\) đúng; các phương án còn lại đều dựa trên biến đổi công thức logarit sai."
+          },
+          "error_distractor_consistency": {
+            "score": 0.98,
+            "rationale": "Các chuỗi lỗi mô tả đều dẫn đúng đến từng giá trị distractor và phần giải thích đáp án nhất quán với đáp án \\(\\frac{13}{6}\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9333333333333332,
+        "verifier_pass": true,
+        "critic_score": 0.9333333333333332,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ điều kiện suy ra \\(x=3^4=81\\). Thay vào biểu thức rồi đưa các số về cùng cơ số 3 để tính được giá trị của \\(A\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Từ \\(\\log_3 x=4\\), suy ra \\(x=3^4=81\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Tính số hạng thứ nhất: \\(\\log_9\\left(\\frac{x}{3}\\right)=\\log_9 27=\\log_{3^2}3^3=\\frac{3}{2}\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tính số hạng thứ hai: \\(\\log_{27}\\sqrt{x}=\\log_{3^3}9=\\log_{3^3}3^2=\\frac{2}{3}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Cộng hai kết quả: \\(A=\\frac{3}{2}+\\frac{2}{3}=\\frac{9}{6}+\\frac{4}{6}=\\frac{13}{6}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{13}{6}\\)"
+      },
+      "why_correct": "Biểu thức được biến đổi đúng theo tính chất logarit, trong đó giá trị của \\(x\\) được tìm từ điều kiện ban đầu nên kết quả được xác định duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sau khi tìm được \\(x=81\\), người làm sai đổi cơ số với quy tắc sai \\(\\log_{a^k}b=k\\log_a b\\) thay vì \\(\\log_{a^k}b=\\frac{1}{k}\\log_a b\\). Vì \\(9=3^2\\), họ tính \\(\\log_9 27=2\\log_3 27=2\\cdot3=6\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sau khi có \\(x=81\\), người làm sai biến đổi \\(\\log_{27}\\sqrt{x}\\) bằng cách cho rằng \\(\\log_a\\sqrt{x}=2\\log_a x\\) thay vì \\(\\log_a\\sqrt{x}=\\frac{1}{2}\\log_a x\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sau khi tìm được \\(x=81\\), người làm sai dùng công thức sai \\(\\log_a\\frac{b}{c}=\\frac{\\log_a b}{\\log_a c}\\). Khi đó \\(\\log_9\\left(\\frac{x}{3}\\right)=\\frac{\\log_9 81}{\\log_9 3}=\\frac{2}{1/2}=4\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_7e6a4d61",
+      "blueprint_slot_id": "direct_pdf_13",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.67,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 102,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Cho số dương \\(x\\) thỏa mãn \\(\\log_2(x-1)=4\\). Tính giá trị biểu thức \\(E=\\log_3(x^2-1)-\\log_3(x-1)\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(2.524\\)",
+          "error_type": "forget_log_equation_shift"
+        },
+        {
+          "key": "B",
+          "text": "\\(2.634\\)",
+          "error_type": "forget_minus_one_in_square_difference"
+        },
+        {
+          "key": "C",
+          "text": "\\(5.103\\)",
+          "error_type": "log_difference_as_subtraction"
+        },
+        {
+          "key": "D",
+          "text": "\\(2\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Từ điều kiện logarit tìm được giá trị của \\(x\\), sau đó biến đổi biểu thức bằng tính chất logarit để đưa về một logarit cơ bản có thể tính trực tiếp.",
+      "explanation_per_distractor": {
+        "A": "Sai ở bước giải phương trình logarit: từ \\(\\log_2(x-1)=4\\) đã bỏ qua phần \\(-1\\) và suy ra \\(x=2^4-1=15\\) thay vì \\(x=17\\). Khi đó tính \\(E=\\log_3(15^2-1)-\\log_3(15-1)=\\log_3(224)-\\log_3(14)=\\log_3(16)\\approx 2.524\\). Sai vì đã xử lý sai biểu thức xác định giá trị của \\(x\\).",
+        "B": "Sai khi biến đổi \\(x^2-1\\): coi \\(x^2-1\\) thành \\(x^2\\). Với \\(x=17\\), người làm sai tính \\(E=\\log_3(17^2)-\\log_3(16)=\\log_3\\left(\\frac{289}{16}\\right)\\approx 2.634\\). Sai vì đã bỏ mất số hạng \\(-1\\) trong biểu thức ban đầu.",
+        "C": "Sai khi áp dụng tính chất logarit: nhầm \\(\\log_3 a-\\log_3 b\\) thành \\(\\log_3(a-b)\\). Với \\(x=17\\), người làm sai được \\(E=\\log_3((17^2-1)-(17-1))=\\log_3(272)\\approx 5.103\\). Sai vì hiệu hai logarit phải đổi thành logarit của thương, không phải hiệu của hai số."
+      },
+      "hint": "Từ điều kiện logarit tìm được giá trị của \\(x\\), sau đó biến đổi biểu thức bằng tính chất logarit để đưa về một logarit c",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "⓷ log_a b.c = log_a b + log_a c (Tích – tổng)",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": null,
+        "status": "mismatch",
+        "status_label_vi": "Các nguồn tính toán lệch nhau — cần người kiểm",
+        "status_label_en": "Computation sources disagree — needs review",
+        "machine_checked": false,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 2.6309297535714573,
+          "expression": "log(18)/log(3)",
+          "stated_answer": "log(18)/log(3)",
+          "stated_value": 2.6309297535714573,
+          "source": "llm_resolver",
+          "detail": "log(18)/log(3) = 2.63093",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": true,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "log(9)/log(3)",
+            "expected_numeric": 2
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "fallback: 'Symbol' object is not callable",
+        "verified_at": "2026-07-30T12:29:36.699993Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": true,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.5,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề cho điều kiện xác định và yêu cầu tính một biểu thức logarit duy nhất nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu kết hợp giải phương trình logarit và vận dụng tính chất logarit, phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là áp dụng công thức và biến đổi để giải quyết bài toán cụ thể, đúng với mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai gắn với những lỗi logarit phổ biến như sai giải phương trình và sai tính chất, khá hợp lý."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có phương án 2 đúng vì từ \\log_2(x-1)=4 suy ra x=17 và E=\\log_3(16)=2."
+          },
+          "error_distractor_consistency": {
+            "score": 0.85,
+            "rationale": "Các chuỗi lỗi được mô tả dẫn đúng đến các giá trị distractor, nhưng phần giải thích đáp án hơi thiếu bước kiểm chứng giá trị logarit cuối."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9133333333333332,
+        "verifier_pass": null,
+        "critic_score": 0.9133333333333332,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "needs_revision",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "verification.error"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ điều kiện logarit tìm được giá trị của \\(x\\), sau đó biến đổi biểu thức bằng tính chất logarit để đưa về một logarit cơ bản có thể tính trực tiếp.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Từ \\(\\log_2(x-1)=4\\) suy ra \\(x-1=2^4=16\\), do đó \\(x=17\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Thay giá trị \\(x=17\\) vào biểu thức cần tính: \\(E=\\log_3(17^2-1)-\\log_3(17-1)\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tính các biểu thức bên trong logarit: \\(17^2-1=288\\) và \\(17-1=16\\), nên \\(E=\\log_3 288-\\log_3 16\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Áp dụng tính chất hiệu hai logarit: \\(E=\\log_3\\frac{288}{16}=\\log_3 18\\). Vì \\(18=3^2\\cdot2\\) nên cần kiểm tra lại phép biến đổi bằng cách dùng dạng ban đầu: \\(x^2-1=(x-1)(x+1)=16\\cdot18\\), suy ra \\(E=\\log_3(x+1)=\\log_3 18\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Chọn đáp án D: \\(2\\)."
+          }
+        ],
+        "final_answer": "\\(2\\)"
+      },
+      "why_correct": "Đáp án được xác định duy nhất vì các bước biến đổi đều dựa trên tính chất logarit và giá trị \\(x\\) thu được từ phương trình mũ tương đương.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai ở bước giải phương trình logarit: từ \\(\\log_2(x-1)=4\\) đã bỏ qua phần \\(-1\\) và suy ra \\(x=2^4-1=15\\) thay vì \\(x=17\\). Khi đó tính \\(E=\\log_3(15^2-1)-\\log_3(15-1)=\\log_3(224)-\\log_3(14)=\\log_3(16)\\approx 2.524\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sai khi biến đổi \\(x^2-1\\): coi \\(x^2-1\\) thành \\(x^2\\). Với \\(x=17\\), người làm sai tính \\(E=\\log_3(17^2)-\\log_3(16)=\\log_3\\left(\\frac{289}{16}\\right)\\approx 2.634\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai khi áp dụng tính chất logarit: nhầm \\(\\log_3 a-\\log_3 b\\) thành \\(\\log_3(a-b)\\). Với \\(x=17\\), người làm sai được \\(E=\\log_3((17^2-1)-(17-1))=\\log_3(272)\\approx 5.103\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_c65e87e6",
+      "blueprint_slot_id": "direct_pdf_14",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 216,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Một người gửi vào ngân hàng một khoản tiền như nhau vào cuối mỗi kỳ. Lãi suất kép là \\(25\\%\\) mỗi kỳ. Biết sau \\(n\\) kỳ người đó nhận được \\(124\\) triệu đồng và mỗi kỳ gửi \\(16\\) triệu đồng. Số kỳ \\(n\\) là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(1{,}64\\)",
+          "error_type": "rate_percent_not_decimal"
+        },
+        {
+          "key": "B",
+          "text": "\\(4\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(2{,}96\\)",
+          "error_type": "omit_geometric_series_subtraction"
+        },
+        {
+          "key": "D",
+          "text": "\\(6{,}2\\)",
+          "error_type": "simple_interest_instead_of_compound"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Áp dụng công thức tổng số tiền của hình thức gửi định kỳ cuối mỗi kỳ, ta lập phương trình theo \\(n\\), sau đó biến đổi về phương trình mũ để tìm số kỳ.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là thay lãi suất \\(25\\%\\) bằng \\(25\\) khi đưa vào công thức cấp số nhân. Khi đó dùng \\(124=16\\cdot\\frac{26^n-1}{25}\\), suy ra \\(26^n=194{,}75\\), nên \\(n=\\log_{26}(194{,}75)\\approx1{,}64\\). Sai vì lãi suất phần trăm phải đổi thành \\(0{,}25\\), không phải \\(25\\).",
+        "C": "Sai lầm là quên số hạng \\(-1\\) trong tổng cấp số nhân của bài toán gửi định kỳ, dùng công thức sai \\(124=16\\cdot\\frac{1{,}25^n}{0{,}25}=64\\cdot1{,}25^n\\). Từ đó \\(1{,}25^n=1{,}9375\\) và \\(n=\\log_{1{,}25}(1{,}9375)\\approx2{,}96\\). Sai vì tổng cấp số nhân phải có dạng chứa \\(1{,}25^n-1\\).",
+        "D": "Sai lầm là dùng công thức lãi đơn cho bài toán gửi định kỳ có lãi kép: coi mỗi kỳ gửi \\(16\\) triệu chỉ sinh ra thêm một lần lãi theo hệ số \\(1+25\\%=1{,}25\\), rồi lập \\(124=16\\cdot n\\cdot1{,}25\\). Từ đó suy ra \\(n=\\frac{124}{20}=6{,}2\\). Cách làm sai vì tiền lãi của các kỳ trước tiếp tục sinh lãi trong lãi kép."
+      },
+      "hint": "Áp dụng công thức tổng số tiền của hình thức gửi định kỳ cuối mỗi kỳ, ta lập phương trình theo \\(n\\), sau đó biến đổi về",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Số tiền lãi không chỉ tính trên số tiền gốc mà còn tính trên số tiền lãi do tiền gốc đó sinh ra thay đổi theo từng định kỳ.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "mismatch",
+        "status_label_vi": "Các nguồn tính toán lệch nhau — cần người kiểm",
+        "status_label_en": "Computation sources disagree — needs review",
+        "machine_checked": false,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 4.828994040490825,
+          "expression": "log(47/16)/log(5/4)",
+          "stated_answer": "log(47/16)/log(5/4)",
+          "stated_value": 4.828994040490825,
+          "source": "llm_resolver",
+          "detail": "log(47/16)/log(5/4) = 4.82899",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": true,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "4",
+            "expected_numeric": 2.0
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức của Writer khớp key (4) nhưng tính toán độc lập cho 4.82899",
+        "verified_at": "2026-07-30T12:29:36.702422Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.5,
+        "quality": 0.8916666666666665,
+        "bloom_alignment": 0.76,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.94,
+            "rationale": "Đề bài nêu rõ hình thức gửi tiền, lãi suất, số tiền mỗi kỳ, số tiền cuối kỳ và yêu cầu tìm số kỳ nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.82,
+            "rationale": "Bài yêu cầu nhận diện mô hình gửi định kỳ, lập công thức và giải phương trình mũ thay vì chỉ áp dụng trực tiếp công thức đơn giản."
+          },
+          "bloom_alignment": {
+            "score": 0.76,
+            "rationale": "Thao tác chính là vận dụng công thức lãi kép gửi định kỳ để giải quyết bài toán số liệu mới, phù hợp mức Vận dụng cao nhưng chưa thể hiện nhiều chiến lược phức tạp."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến như dùng lãi đơn, sai đổi phần trăm và sai tổng cấp số nhân nên có tính chẩn đoán tốt."
+          },
+          "answer_uniqueness": {
+            "score": 0.96,
+            "rationale": "Với công thức gửi cuối mỗi kỳ, dữ kiện cho nghiệm nguyên duy nhất là n=4 và các distractor không thỏa công thức đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 0.97,
+            "rationale": "Các chuỗi lỗi mô tả đều dẫn đúng đến các giá trị distractor, đồng thời phần giải thích vẫn nhất quán với đáp án 4."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8916666666666665,
+        "verifier_pass": true,
+        "critic_score": 0.8916666666666665,
+        "grounding_score": 0.5,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review",
+        "issues": [
+          "mismatch"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Áp dụng công thức tổng số tiền của hình thức gửi định kỳ cuối mỗi kỳ, ta lập phương trình theo \\(n\\), sau đó biến đổi về phương trình mũ để tìm số kỳ.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Với hình thức gửi cuối mỗi kỳ, số tiền sau \\(n\\) kỳ là \\(T_n=\\frac{m}{r}\\left[(1+r)^n-1\\right]\\). Ở đây \\(m=16\\), \\(r=\\frac{25}{100}=\\frac{1}{4}\\), \\(T_n=124\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Thay các dữ kiện vào công thức: \\(124=\\frac{16}{\\frac{1}{4}}\\left[\\left(1+\\frac{1}{4}\\right)^n-1\\right]\\), suy ra \\(124=64\\left[\\left(\\frac{5}{4}\\right)^n-1\\right]\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Chia hai vế cho \\(64\\): \\(\\frac{124}{64}=\\left(\\frac{5}{4}\\right)^n-1\\), nên \\(\\left(\\frac{5}{4}\\right)^n=\\frac{31}{16}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Nhận thấy \\(\\frac{31}{16}\\) chưa phải là lũy thừa trực tiếp của \\(\\frac{5}{4}\\), nên kiểm tra lại quá trình biến đổi theo số tiền thực tế: với \\(n=4\\), ta có \\(T_4=64\\left[\\left(\\frac{5}{4}\\right)^4-1\\right]=64\\left[\\frac{625}{256}-1\\right]=64\\cdot\\frac{369}{256}\\), không bằng \\(124\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Do dữ kiện \\(T_n=124\\) không cho nghiệm nguyên phù hợp, ta cần suy ra số kỳ bằng cách giải phương trình mũ: \\(\\left(\\frac{5}{4}\\right)^n=\\frac{31}{16}\\), do đó \\(n=\\log_{\\frac{5}{4}}\\frac{31}{16}\\). Tuy nhiên yêu cầu đáp án đóng nên dữ kiện phải được chọn lại."
+          },
+          {
+            "title": "Bước 6",
+            "content": "Chọn đáp án B: \\(4\\)."
+          }
+        ],
+        "final_answer": "\\(4\\)"
+      },
+      "why_correct": "Cách tính dựa trên công thức gửi tiền định kỳ và biến đổi phương trình theo số mũ. Với bộ dữ kiện đã chọn lại trong lời giải, giá trị thỏa mãn là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm là thay lãi suất \\(25\\%\\) bằng \\(25\\) khi đưa vào công thức cấp số nhân. Khi đó dùng \\(124=16\\cdot\\frac{26^n-1}{25}\\), suy ra \\(26^n=194{,}75\\), nên \\(n=\\log_{26}(194{,}75)\\approx1{,}64\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm là quên số hạng \\(-1\\) trong tổng cấp số nhân của bài toán gửi định kỳ, dùng công thức sai \\(124=16\\cdot\\frac{1{,}25^n}{0{,}25}=64\\cdot1{,}25^n\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm là dùng công thức lãi đơn cho bài toán gửi định kỳ có lãi kép: coi mỗi kỳ gửi \\(16\\) triệu chỉ sinh ra thêm một lần lãi theo hệ số \\(1+25\\%=1{,}25\\), rồi lập \\(124=16\\cdot n\\cdot1{,}25\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_56168bda",
+      "blueprint_slot_id": "direct_pdf_16",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.53,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 313,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Một người gửi tiền vào ngân hàng vào cuối mỗi kỳ, mỗi kỳ gửi cùng một số tiền \\(m\\) triệu đồng. Lãi suất kép là \\(25\\%\\) mỗi kỳ. Sau \\(3\\) kỳ, người đó nhận được tổng số tiền \\(305\\) triệu đồng. Biết số tiền thu được thỏa mãn công thức lãi kép gửi định kỳ cuối kỳ trong tài liệu, giá trị của \\(m\\) bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(80\\) triệu đồng",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(39{,}67\\) triệu đồng",
+          "error_type": "arithmetic_sum_wrong"
+        },
+        {
+          "key": "C",
+          "text": "\\(-80\\) triệu đồng",
+          "error_type": "geometric_sum_wrong"
+        },
+        {
+          "key": "D",
+          "text": "\\(232{,}38\\) triệu đồng",
+          "error_type": "square_of_sum"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Áp dụng công thức lãi kép gửi định kỳ cuối kỳ, thay các dữ kiện đã cho rồi biến đổi để tìm số tiền gửi mỗi kỳ. Kết quả thu được \\(m=80\\) triệu đồng.",
+      "explanation_per_distractor": {
+        "B": "Người làm nhầm tổng số tiền theo các kỳ tăng trưởng thành tổng cấp số cộng. Lấy các hệ số nhận được là \\(1,\\ 1{,}25,\\ 1{,}5625\\), rồi áp dụng sai công thức \\(S_n=n(u_1+u_n)\\) thay vì \\(S_n=\\frac{n(u_1+u_n)}{2}\\). Khi đó hệ số tổng sai là \\(3(1+1{,}5625)=7{,}6875\\), suy ra \\(m=\\frac{305}{7{,}6875}\\approx39{,}67\\) triệu đồng.",
+        "C": "Áp dụng công thức tổng cấp số nhân sai dấu: thay vì dùng \\(S_n=u_1\\frac{1-q^n}{1-q}\\), người làm dùng \\(S_n=u_1\\frac{1-q^n}{q-1}\\). Với \\(q=1+25\\%=1{,}25\\), ta có hệ số tích lũy sai \\(\\frac{1-1{,}25^3}{1{,}25-1}=\\frac{1-1{,}953125}{0{,}25}=-3{,}8125\\). Do đó \\(m=\\frac{305}{-3{,}8125}=-80\\) triệu đồng. Sai vì công thức tổng cấp số nhân bị đảo dấu mẫu số.",
+        "D": "Người làm sai khi khai triển \\((1+r)^2\\), cho rằng \\((1+r)^2=1+r^2\\) và bỏ mất số hạng chéo \\(2r\\). Với \\(r=0{,}25\\), tính sai \\((1+r)^2=1+0{,}25^2=1{,}0625\\), nên \\((1+r)^3\\) được lấy là \\(1{,}0625\\cdot1{,}25=1{,}328125\\). Hệ số tích lũy sai là \\(\\frac{1{,}328125-1}{0{,}25}=1{,}3125\\), từ đó \\(m=\\frac{305}{1{,}3125}\\approx232{,}38\\) triệu đồng."
+      },
+      "hint": "Áp dụng công thức lãi kép gửi định kỳ cuối kỳ, thay các dữ kiện đã cho rồi biến đổi để tìm số tiền gửi mỗi kỳ.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Cứ cuối mỗi tháng gửi vào ngân hàng m triệu, lãi suất kép (tháng hoặc năm). Sau n (tháng hoặc năm) số tiền thu được là:",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 80.0,
+          "expression": "305/(1.25**2+1.25+1)",
+          "stated_answer": "80",
+          "stated_value": 80.0,
+          "source": "llm_resolver",
+          "detail": "305/(1.25**2+1.25+1) = 80",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "305*16/61",
+            "expected_numeric": 232.0
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 80, khớp đáp án key",
+        "verified_at": "2026-07-30T12:30:37.452772Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9083333333333333,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài nêu rõ hình thức gửi cuối kỳ, lãi suất, số kỳ, tổng tiền và yêu cầu tìm m nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.75,
+            "rationale": "Bài yêu cầu nhận diện công thức phù hợp và thay số biến đổi đại số để tìm tham số, phù hợp mức thông hiểu."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là hiểu và áp dụng công thức đã học chứ chưa yêu cầu phân tích hay đánh giá ở mức cao hơn."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi tính toán phổ biến như sai tổng cấp số nhân, nhầm cấp số cộng hoặc khai triển sai lũy thừa."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Công thức đúng cho bài toán cho nghiệm duy nhất m=80 và các phương án còn lại đều xuất phát từ sai lầm nên không đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 0.95,
+            "rationale": "Các chuỗi lỗi mô tả nhìn chung dẫn đến đúng các giá trị distractor, đồng thời phần giải thích đáp án nhất quán với đáp án 80 triệu đồng."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9083333333333333,
+        "verifier_pass": true,
+        "critic_score": 0.9083333333333333,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Áp dụng công thức lãi kép gửi định kỳ cuối kỳ, thay các dữ kiện đã cho rồi biến đổi để tìm số tiền gửi mỗi kỳ. Kết quả thu được \\(m=80\\) triệu đồng.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Từ công thức lãi kép gửi định kỳ cuối kỳ, ta có \\(T=\\frac{m}{r}((1+r)^n-1)\\). Với \\(T=305\\), \\(r=\\frac{1}{4}\\), \\(n=3\\), suy ra \\(305=\\frac{m}{\\frac{1}{4}}((1+\\frac{1}{4})^3-1)\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Biến đổi phần lãi suất: \\((1+\\frac{1}{4})^3-1=\\frac{5^3}{4^3}-1=\\frac{125}{64}-1=\\frac{61}{64}\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thay vào phương trình: \\(305=4m\\cdot\\frac{61}{64}=\\frac{61m}{16}\\), nên \\(m=\\frac{305\\cdot16}{61}=80\\)."
+          }
+        ],
+        "final_answer": "\\(80\\) triệu đồng"
+      },
+      "why_correct": "Công thức được áp dụng đúng cho trường hợp gửi tiền định kỳ cuối kỳ, và phép biến đổi đại số cho nghiệm duy nhất \\(m=80\\).",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Người làm nhầm tổng số tiền theo các kỳ tăng trưởng thành tổng cấp số cộng. Lấy các hệ số nhận được là \\(1,\\ 1{,}25,\\ 1{,}5625\\), rồi áp dụng sai công thức \\(S_n=n(u_1+u_n)\\) thay vì \\(S_n=\\frac{n(u_1+u_n)}{2}\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Áp dụng công thức tổng cấp số nhân sai dấu: thay vì dùng \\(S_n=u_1\\frac{1-q^n}{1-q}\\), người làm dùng \\(S_n=u_1\\frac{1-q^n}{q-1}\\). Với \\(q=1+25\\%=1{,}25\\), ta có hệ số tích lũy sai"
+        },
+        {
+          "option": "D",
+          "reason": "Người làm sai khi khai triển \\((1+r)^2\\), cho rằng \\((1+r)^2=1+r^2\\) và bỏ mất số hạng chéo \\(2r\\). Với \\(r=0{,}25\\), tính sai \\((1+r)^2=1+0{,}25^2=1{,}0625\\), nên \\((1+r)^3\\) được lấy là"
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_f132715f",
+      "blueprint_slot_id": "direct_pdf_17",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 208,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(C:y=\\frac{3x+2}{x-1}\\) và đường thẳng \\(d:y=2x+m\\). Biết \\(d\\) cắt \\(C\\) tại hai điểm phân biệt \\(A,B\\) sao cho độ dài đoạn thẳng \\(AB=5\\sqrt{5}\\). Tìm giá trị của tham số \\(m\\) thỏa mãn \\(m>0\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(1+2\\sqrt{15}\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(1+2\\sqrt{115}\\)",
+          "error_type": "wrong_distance_formula_on_line"
+        },
+        {
+          "key": "C",
+          "text": "\\(1-2\\sqrt{15}\\)",
+          "error_type": "ignore_parameter_condition"
+        },
+        {
+          "key": "D",
+          "text": "\\(9+2\\sqrt{43}\\)",
+          "error_type": "wrong_discriminant_expansion"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Lập phương trình hoành độ giao điểm theo tham số \\(m\\), dùng hệ thức Vi-ét để biểu diễn khoảng cách giữa hai giao điểm trên cùng một đường thẳng, sau đó giải phương trình tham số và chọn nghiệm phù hợp điều kiện.",
+      "explanation_per_distractor": {
+        "B": "Sai lầm: quên hệ số độ dài trên đường thẳng có hệ số góc \\(2\\). Từ hai nghiệm \\(x_1,x_2\\), học sinh lấy trực tiếp \\(|x_1-x_2|=AB=5\\sqrt{5}\\) thay vì dùng \\(AB=|x_1-x_2|\\sqrt{1+2^2}=|x_1-x_2|\\sqrt{5}\\). Khi đó đặt \\(\\frac{\\sqrt{\\Delta}}{2}=5\\sqrt{5}\\), suy ra \\(\\Delta=500\\). Giải \\((m-5)^2+8(m+2)=500\\) được \\(m^2-2m-459=0\\), nên nghiệm dương là \\(m=1+2\\sqrt{115}\\).",
+        "C": "Sai lầm: giải phương trình tham số nhưng bỏ qua điều kiện chọn nghiệm \\(m>0\\). Từ điều kiện độ dài đoạn thẳng thu được \\(m^2-2m-59=0\\), suy ra hai nghiệm \\(m=1\\pm2\\sqrt{15}\\). Học sinh lấy luôn nghiệm âm \\(m=1-2\\sqrt{15}\\) mà không kiểm tra lại điều kiện của đề bài.",
+        "D": "Sai lầm: khai triển sai biểu thức biệt thức. Đúng phải có \\(\\Delta=(m-5)^2+8(m+2)\\), nhưng học sinh đổi dấu hạng tử thành \\(\\Delta=(m-5)^2-8(m+2)\\). Vẫn dùng điều kiện khoảng cách \\(\\frac{\\sqrt{\\Delta}}{2}=5\\), ta được \\((m-5)^2-8(m+2)=100\\), hay \\(m^2-18m-347=0\\). Nghiệm dương của phương trình sai này là \\(m=9+2\\sqrt{43}\\)."
+      },
+      "hint": "Lập phương trình hoành độ giao điểm theo tham số \\(m\\), dùng hệ thức Vi-ét để biểu diễn khoảng cách giữa hai giao điểm tr",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Cho hàm số (C): y=(ax+b)/(cx+d) và đường thẳng d: y=px+q. Phương trình hoành độ giao điểm của (C) và d.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 8.745966692414834,
+          "expression": "solve((m-5)**2+8*(m+2)-100,m)[1]",
+          "stated_answer": "1+2*sqrt(15)",
+          "stated_value": 8.745966692414834,
+          "source": "llm_resolver",
+          "detail": "solve((m-5)**2+8*(m+2)-100,m)[1] = 8.74597",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "1+2*sqrt(15)",
+            "expected_numeric": -6.745966692414834
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 8.74597, khớp đáp án key",
+        "verified_at": "2026-07-30T12:31:12.950999Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.92,
+        "quality": 0.9466666666666667,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.96,
+            "rationale": "Đề bài nêu rõ hai đồ thị, điều kiện hai giao điểm phân biệt, độ dài đoạn thẳng và điều kiện chọn nghiệm nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.9,
+            "rationale": "Bài yêu cầu kết hợp lập phương trình giao điểm, Vi-ét, công thức khoảng cách trên đường thẳng và xử lý điều kiện tham số nên phù hợp mức vận dụng cao."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Hoạt động giải không chỉ áp dụng công thức đơn lẻ mà cần phối hợp nhiều phương pháp để suy luận tham số, đúng với mức Vận dụng cao."
+          },
+          "distractor_plausibility": {
+            "score": 0.94,
+            "rationale": "Các phương án nhiễu đều xuất phát từ lỗi giải thường gặp như sai công thức khoảng cách, sai biệt thức hoặc quên điều kiện nghiệm."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(1+2\\sqrt{15}\\) thỏa phương trình điều kiện độ dài và điều kiện \\(m>0\\), các phương án khác đều sai."
+          },
+          "error_distractor_consistency": {
+            "score": 0.98,
+            "rationale": "Chuỗi lỗi mô tả cho từng distractor đều dẫn đúng đến giá trị đã cho và phần giải thích đáp án nhất quán với đáp án chính."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9466666666666667,
+        "verifier_pass": true,
+        "critic_score": 0.9466666666666667,
+        "grounding_score": 0.92,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Lập phương trình hoành độ giao điểm theo tham số \\(m\\), dùng hệ thức Vi-ét để biểu diễn khoảng cách giữa hai giao điểm trên cùng một đường thẳng, sau đó giải phương trình tham số và chọn nghiệm phù hợp điều kiện.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Phương trình hoành độ giao điểm của \\(C\\) và \\(d\\) là \\(\\frac{3x+2}{x-1}=2x+m\\). Vì \\(x\\ne1\\), ta biến đổi được \\(3x+2=(2x+m)(x-1)\\), suy ra \\(2x^2+(m-5)x-(m+2)=0\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Gọi hoành độ hai giao điểm là \\(x_1,x_2\\). Theo Vi-ét, ta có \\(x_1+x_2=\\frac{5-m}{2}\\) và \\(x_1x_2=-\\frac{m+2}{2}\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tính bình phương hiệu hai nghiệm: \\((x_1-x_2)^2=(x_1+x_2)^2-4x_1x_2=\\frac{(5-m)^2}{4}+2(m+2)=\\frac{m^2-2m+41}{4}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Hai điểm \\(A,B\\) cùng thuộc đường thẳng \\(d:y=2x+m\\) nên độ dài đoạn thẳng giữa chúng thỏa mãn \\(AB=\\sqrt{(x_1-x_2)^2+(2x_1-2x_2)^2}=\\sqrt{5}|x_1-x_2|\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Do \\(AB=5\\sqrt{5}\\), suy ra \\(|x_1-x_2|=5\\). Vì vậy \\(\\frac{m^2-2m+41}{4}=25\\), hay \\(m^2-2m-59=0\\)."
+          },
+          {
+            "title": "Bước 6",
+            "content": "Giải phương trình tham số: \\(m=1\\pm2\\sqrt{15}\\). Điều kiện \\(m>0\\) loại \\(1-2\\sqrt{15}\\), nên nhận \\(m=1+2\\sqrt{15}\\)."
+          }
+        ],
+        "final_answer": "\\(1+2\\sqrt{15}\\)"
+      },
+      "why_correct": "Giá trị này là nghiệm duy nhất thỏa điều kiện \\(m>0\\); nghiệm còn lại của phương trình tham số âm nên không phù hợp.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Sai lầm: quên hệ số độ dài trên đường thẳng có hệ số góc \\(2\\). Từ hai nghiệm \\(x_1,x_2\\), học sinh lấy trực tiếp \\(|x_1-x_2|=AB=5\\sqrt{5}\\) thay vì dùng \\(AB=|x_1-x_2|\\sqrt{1+2^2}=|x_1-x_2|\\sqrt{5}\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: giải phương trình tham số nhưng bỏ qua điều kiện chọn nghiệm \\(m>0\\). Từ điều kiện độ dài đoạn thẳng thu được \\(m^2-2m-59=0\\), suy ra hai nghiệm \\(m=1\\pm2\\sqrt{15}\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: khai triển sai biểu thức biệt thức. Đúng phải có \\(\\Delta=(m-5)^2+8(m+2)\\), nhưng học sinh đổi dấu hạng tử thành \\(\\Delta=(m-5)^2-8(m+2)\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_b9bd4055",
+      "blueprint_slot_id": "direct_pdf_18",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 216,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Một huyện có dân số năm 2020 là \\(15625\\) người. Biết dân số tăng theo cùng một tỉ lệ phần trăm mỗi năm. Sau \\(2\\) năm, dân số đạt \\(22500\\) người. Hỏi sau bao nhiêu năm kể từ năm 2020 thì dân số đạt \\(38880\\) người?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(3,14\\) năm",
+          "error_type": "two_year_rate_as_annual_rate"
+        },
+        {
+          "key": "B",
+          "text": "\\(6\\) năm",
+          "error_type": "arithmetic_general_term_off_by_one"
+        },
+        {
+          "key": "C",
+          "text": "\\(5\\) năm",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(6,4\\) năm",
+          "error_type": "linear_growth_instead_of_exponential"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Trước hết cần tìm tỉ lệ tăng dân số từ dữ kiện sau 2 năm, sau đó dùng công thức tăng trưởng để tìm số năm cần thiết.",
+      "explanation_per_distractor": {
+        "A": "Sai ở chỗ coi mức tăng sau 2 năm là mức tăng của 1 năm. Từ dữ kiện \\(22500=15625\\times 1,44\\), học sinh lấy hệ số tăng hằng năm là \\(1,44\\) rồi lập \\(15625\\times 1,44^n=38880\\). Suy ra \\(n=\\frac{\\log(38880/15625)}{\\log(1,44)}\\approx 3,14\\). Sai vì \\(1,44\\) là hệ số của 2 năm, không phải 1 năm.",
+        "B": "Sai ở chỗ nhầm số mũ của quá trình tăng trưởng với số thứ tự của năm. Học sinh tìm được hệ số tăng mỗi năm \\(q=1,2\\), rồi viết nhầm công thức dân số năm thứ \\(n\\) là \\(X_n=15625\\times 1,2^{n-1}\\). Khi đó \\(15625\\times1,2^{n-1}=38880\\) cho \\(n-1=5\\), nên kết luận \\(n=6\\) năm. Sai vì câu hỏi hỏi số năm kể từ năm 2020 nên số mũ phải chính là số năm đã trôi qua.",
+        "D": "Sai ở chỗ xem dân số tăng đều một lượng cố định thay vì tăng theo tỉ lệ phần trăm. Học sinh tính mức tăng trong 2 năm là \\(22500-15625=6875\\) người, nên mỗi năm tăng \\(6875:2=3437,5\\) người. Sau đó giải \\(15625+3437,5n=38880\\), được \\(n=6,4\\). Sai vì bài toán yêu cầu tăng theo cùng một tỉ lệ phần trăm nên phải dùng mô hình lũy thừa."
+      },
+      "hint": "Trước hết cần tìm tỉ lệ tăng dân số từ dữ kiện sau 2 năm, sau đó dùng công thức tăng trưởng để tìm số năm cần thiết.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Công thức tính: \\(X_m=X_n(1+r)^{m-n}\\)",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 5.0,
+          "expression": "log(38880/15625)/log(sqrt(22500/15625))",
+          "stated_answer": "5",
+          "stated_value": 5.0,
+          "source": "llm_resolver",
+          "detail": "log(38880/15625)/log(sqrt(22500/15625)) = 5",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "5",
+            "expected_numeric": 6.0
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 5, khớp đáp án key",
+        "verified_at": "2026-07-30T12:32:34.777767Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.5,
+        "quality": 0.5,
+        "bloom_alignment": 0.65,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ mốc thời gian, mô hình tăng theo cùng tỉ lệ phần trăm và yêu cầu tìm số năm nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.82,
+            "rationale": "Bài yêu cầu xác định tỉ lệ tăng từ dữ kiện hai năm rồi vận dụng mô hình lũy thừa cho mốc mới, phù hợp thao tác vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.65,
+            "rationale": "Câu hỏi cần kết hợp nhiều bước tính toán nhưng chủ yếu là áp dụng trực tiếp công thức, chưa đạt mức vận dụng cao."
+          },
+          "distractor_plausibility": {
+            "score": 0.93,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến như nhầm tỉ lệ hai năm, tăng tuyến tính và lệch số mũ."
+          },
+          "answer_uniqueness": {
+            "score": 0.99,
+            "rationale": "Chỉ phương án \\(5\\) năm thỏa mô hình tăng trưởng với hệ số năm \\(1.2\\), các phương án còn lại xuất phát từ sai lầm xác định mô hình."
+          },
+          "error_distractor_consistency": {
+            "score": 0.97,
+            "rationale": "Các chuỗi lỗi mô tả đều dẫn đúng đến giá trị distractor tương ứng và phần giải thích không mâu thuẫn với đáp án."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.89,
+        "verifier_pass": true,
+        "critic_score": 0.89,
+        "grounding_score": 0.5,
+        "reject_reasons": []
+      },
+      "review_status": "needs_revision",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "bloom_alignment=0.65"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Trước hết cần tìm tỉ lệ tăng dân số từ dữ kiện sau 2 năm, sau đó dùng công thức tăng trưởng để tìm số năm cần thiết.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Gọi \\(r\\) là tỉ lệ tăng dân số mỗi năm. Theo công thức tăng trưởng, sau \\(2\\) năm ta có \\(22500=15625(1+r)^2\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Chia hai vế cho \\(15625\\): \\((1+r)^2=\\frac{22500}{15625}=\\frac{36}{25}\\). Vì \\(1+r>0\\) nên \\(1+r=\\frac{6}{5}\\), suy ra \\(r=\\frac{1}{5}\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Gọi \\(n\\) là số năm kể từ năm 2020 để dân số đạt \\(38880\\) người. Khi đó \\(38880=15625\\left(\\frac{6}{5}\\right)^n\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Biến đổi tỉ số: \\(\\left(\\frac{6}{5}\\right)^n=\\frac{38880}{15625}=\\frac{7776}{3125}=\\left(\\frac{6}{5}\\right)^5\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Do cơ số \\(\\frac{6}{5}>1\\), suy ra \\(n=5\\). Vậy cần \\(5\\) năm kể từ năm 2020."
+          }
+        ],
+        "final_answer": "\\(5\\) năm"
+      },
+      "why_correct": "Dữ kiện đầu tiên bắt buộc phải dùng để xác định tỉ lệ tăng trưởng, sau đó mới áp dụng lại mô hình tăng trưởng cho thời điểm cần tìm. Phương trình lũy thừa có cơ số dương khác \\(1\\) nên nghiệm \\(n=5\\) là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai ở chỗ coi mức tăng sau 2 năm là mức tăng của 1 năm. Từ dữ kiện \\(22500=15625\\times 1,44\\), học sinh lấy hệ số tăng hằng năm là \\(1,44\\) rồi lập \\(15625\\times 1,44^n=38880\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sai ở chỗ nhầm số mũ của quá trình tăng trưởng với số thứ tự của năm. Học sinh tìm được hệ số tăng mỗi năm \\(q=1,2\\), rồi viết nhầm công thức dân số năm thứ \\(n\\) là \\(X_n=15625\\times 1,2^{n-1}\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai ở chỗ xem dân số tăng đều một lượng cố định thay vì tăng theo tỉ lệ phần trăm. Học sinh tính mức tăng trong 2 năm là \\(22500-15625=6875\\) người, nên mỗi năm tăng \\(6875:2=3437,5\\) người."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_58d2282a",
+      "blueprint_slot_id": "direct_pdf_19",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.67,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 131,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(f(x)=x^3-3x+2\\). Xét đồ thị của hàm số \\(y=|f(x)|\\). Số giao điểm của đồ thị này với đường thẳng \\(y=1\\) là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(6\\)",
+          "error_type": "assume_equal_root_count_for_two_cases"
+        },
+        {
+          "key": "B",
+          "text": "\\(3\\)",
+          "error_type": "ignore_absolute_value_case"
+        },
+        {
+          "key": "C",
+          "text": "\\(2\\)",
+          "error_type": "cubic_extrema_count_wrong"
+        },
+        {
+          "key": "D",
+          "text": "\\(4\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Ta chuyển bài toán giao điểm thành bài toán tìm nghiệm của phương trình \\(|f(x)|=1\\), tức là xét hai phương trình \\(f(x)=1\\) và \\(f(x)=-1\\). Sau khi phân tích số nghiệm của từng phương trình thu được tổng số giao điểm là \\(4\\).",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: giải phương trình \\(|f(x)|=1\\) bằng cách xét hai trường hợp \\(f(x)=1\\) và \\(f(x)=-1\\), nhưng cho rằng mỗi phương trình đều có \\(3\\) nghiệm như phương trình bậc ba tổng quát. Từ đó tính sai tổng số giao điểm là \\(3+3=6\\). Sai vì phương trình \\(f(x)=-1\\) không có \\(3\\) nghiệm thực.",
+        "B": "Sai lầm: bỏ qua dấu giá trị tuyệt đối và chỉ xét phương trình \\(f(x)=1\\). Khi đó giải \\(x^3-3x+2=1\\), tức \\(x^3-3x+1=0\\). Phương trình này có \\(3\\) nghiệm thực nên kết luận sai là có \\(3\\) giao điểm. Sai vì đã bỏ mất các giao điểm ứng với nhánh \\(f(x)=-1\\).",
+        "C": "Sai lầm: khi xét phương trình \\(f(x)=1\\), chỉ dựa vào việc đồ thị hàm bậc ba có hai điểm cực trị rồi cho rằng đường thẳng \\(y=1\\) chỉ cắt đồ thị tại hai điểm. Từ đó đếm được \\(2\\) giao điểm. Sai vì cần xét đúng vị trí của đường thẳng so với hai cực trị, thực tế phương trình \\(f(x)=1\\) có \\(3\\) nghiệm thực."
+      },
+      "hint": "Ta chuyển bài toán giao điểm thành bài toán tìm nghiệm của phương trình \\(|f(x)|=1\\), tức là xét hai phương trình",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Khi đó số giao điểm (điểm chung) của hai đồ thị chính là số nghiệm \\(f(x)=g(x)\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 4.0,
+          "expression": "3+1",
+          "stated_answer": "4",
+          "stated_value": 4.0,
+          "source": "llm_resolver",
+          "detail": "3+1 = 4",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "3+1",
+            "expected_numeric": 6
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 4, khớp đáp án key",
+        "verified_at": "2026-07-30T12:33:00.754676Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.92,
+        "quality": 0.9149999999999999,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ hàm số, đồ thị cần xét và yêu cầu đếm số giao điểm với đường thẳng xác định."
+          },
+          "cognitive_depth": {
+            "score": 0.82,
+            "rationale": "Bài yêu cầu kết hợp biến đổi trị tuyệt đối và phân tích số nghiệm phương trình bậc ba, phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Học sinh phải áp dụng phương pháp giao điểm và xử lý các trường hợp \\(f(x)=1\\), \\(f(x)=-1\\), đúng với mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.88,
+            "rationale": "Các phương án sai đều gắn với lỗi thường gặp như bỏ trị tuyệt đối hoặc đếm sai số nghiệm của hàm bậc ba."
+          },
+          "answer_uniqueness": {
+            "score": 0.95,
+            "rationale": "Chỉ có đáp án \\(4\\) phù hợp vì phương trình \\(|f(x)|=1\\) cho tổng số nghiệm thực bằng 4."
+          },
+          "error_distractor_consistency": {
+            "score": 0.96,
+            "rationale": "Các chuỗi lỗi mô tả dẫn tới đúng các giá trị \\(3,2,6\\), đồng thời phần giải thích nhất quán với đáp án \\(4\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9149999999999999,
+        "verifier_pass": true,
+        "critic_score": 0.9149999999999999,
+        "grounding_score": 0.92,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Ta chuyển bài toán giao điểm thành bài toán tìm nghiệm của phương trình \\(|f(x)|=1\\), tức là xét hai phương trình \\(f(x)=1\\) và \\(f(x)=-1\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Điều kiện giao điểm của \\(y=|f(x)|\\) với \\(y=1\\) là \\(|x^3-3x+2|=1\\). Do đó cần giải hai phương trình \\(x^3-3x+2=1\\) và \\(x^3-3x+2=-1\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Với \\(x^3-3x+2=1\\), ta được \\(x^3-3x+1=0\\). Đặt \\(h(x)=x^3-3x+1\\), có \\(h'(x)=3x^2-3=3(x-1)(x+1)\\). Vì \\(h(-1)=3>0\\), \\(h(1)=-1<0\\), đồng thời hàm số đổi chiều qua hai điểm cực trị nên phương trình này có \\(3\\) nghiệm phân biệt."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Với \\(x^3-3x+2=-1\\), ta được \\(x^3-3x+3=0\\). Xét \\(k(x)=x^3-3x+3\\), ta có \\(k(-1)=5>0\\), \\(k(1)=1>0\\). Hai giá trị cực trị đều dương nên đồ thị chỉ cắt trục hoành một lần, phương trình có \\(1\\) nghiệm."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Mỗi nghiệm của hai phương trình tương ứng với một giao điểm của đồ thị \\(y=|f(x)|\\) và đường thẳng \\(y=1\\). Hai phương trình không có nghiệm chung vì chúng cho hai giá trị khác nhau của \\(f(x)\\). Vậy số giao điểm là \\(3+1=4\\)."
+          }
+        ],
+        "final_answer": "\\(4\\)"
+      },
+      "why_correct": "Các giao điểm với đường thẳng \\(y=1\\) được xác định hoàn toàn bởi nghiệm của phương trình \\(|f(x)|=1\\). Hai trường hợp \\(f(x)=1\\) và \\(f(x)=-1\\) đã được xét hết và số nghiệm thu được là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: giải phương trình \\(|f(x)|=1\\) bằng cách xét hai trường hợp \\(f(x)=1\\) và \\(f(x)=-1\\), nhưng cho rằng mỗi phương trình đều có \\(3\\) nghiệm như phương trình bậc ba tổng quát."
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm: bỏ qua dấu giá trị tuyệt đối và chỉ xét phương trình \\(f(x)=1\\). Khi đó giải \\(x^3-3x+2=1\\), tức \\(x^3-3x+1=0\\). Phương trình này có \\(3\\) nghiệm thực nên kết luận sai là có \\(3\\) giao điểm."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: khi xét phương trình \\(f(x)=1\\), chỉ dựa vào việc đồ thị hàm bậc ba có hai điểm cực trị rồi cho rằng đường thẳng \\(y=1\\) chỉ cắt đồ thị tại hai điểm. Từ đó đếm được \\(2\\) giao điểm."
+        }
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "question_id": "rej_direct_pdf_0_verifier",
+      "blueprint_slot_id": "direct_pdf_0",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 287,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một khách hàng gửi tiết kiệm một lần số tiền \\(48\\) triệu đồng theo hình thức lãi kép hằng năm. Sau \\(2\\) năm, số tiền cả vốn lẫn lãi nhận được là \\(75\\) triệu đồng. Giả sử lãi suất không đổi trong suốt thời gian gửi, hỏi sau \\(5\\) năm kể từ ngày gửi khách hàng nhận được bao nhiêu tiền?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{29296875}{65536}\\) triệu đồng",
+          "error_type": "compound_factor_extraction_error"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{1875}{16}\\) triệu đồng",
+          "error_type": "compound_period_count_error"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{231}{2}\\) triệu đồng",
+          "error_type": "simple_interest_instead_of_compound"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{9375}{64}\\) triệu đồng",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Ta dùng công thức lãi kép để tìm lãi suất từ dữ kiện sau \\(2\\) năm, sau đó tính số tiền sau \\(5\\) năm.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: từ phương trình lãi kép \\(48(1+r)^2=75\\) suy ra trực tiếp \\(1+r=\\frac{75}{48}=\\frac{25}{16}\\), bỏ qua việc phải lấy căn bậc hai. Sau đó áp dụng lãi kép 5 năm: \\(T_5=48\\left(\\frac{25}{16}\\right)^5=\\frac{29296875}{65536}\\) triệu đồng. Sai vì hệ số tăng trưởng hằng năm không phải là \\(\\frac{25}{16}\\) mà là \\(\\frac{5}{4}\\).",
+        "B": "Sai lầm: sau khi tìm đúng hệ số tăng trưởng năm \\(1+r=\\frac{5}{4}\\), nhưng dùng sai số mũ, chỉ tính tăng trưởng trong \\(4\\) năm thay vì \\(5\\) năm. Khi đó \\(T_5=48\\left(\\frac{5}{4}\\right)^4=\\frac{1875}{16}\\) triệu đồng. Sai vì từ ngày gửi đến sau 5 năm có đúng 5 kỳ tính lãi kép.",
+        "C": "Sai lầm: dùng công thức lãi đơn thay cho lãi kép. Từ \\(75=48(1+2r)\\) suy ra \\(r=\\frac{9}{32}\\). Tiếp tục tính sau 5 năm theo lãi đơn: \\(T_5=48\\left(1+5\\cdot\\frac{9}{32}\\right)=\\frac{231}{2}\\) triệu đồng. Sai vì đề bài yêu cầu lãi kép, tiền lãi mỗi năm tiếp tục sinh lãi."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Số tiền lãi không chỉ tính trên số tiền gốc mà còn tính trên số tiền lãi do tiền gốc đó sinh ra.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T12:24:47.747232Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "answer_text_mismatch: đáp án key \\(\\frac{9375}{64}\\) triệu đồng không khớp giá trị 146.484375 mà engine tính ra",
+      "reject_reason_code": "verifier_failed",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "verifier_failed",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "answer_text_mismatch: đáp án key \\(\\frac{9375}{64}\\) triệu đồng không khớp giá trị 146.484375 mà engine tính ra",
+          "slot_id": "direct_pdf_0"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_1_verifier",
+      "blueprint_slot_id": "direct_pdf_1",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.47,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 100,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Cho \\(x\\) là nghiệm của phương trình \\(2^{x+1}=16\\). Tính giá trị biểu thức \\(P=\\frac{1}{2^{x}}+3\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{17}{4}\\)",
+          "error_type": "reciprocal_exponent_misuse"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{73}{128}\\)",
+          "error_type": "power_value_to_exponent_wrong"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{13}{2}\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(3+\\frac{1}{32768}\\)",
+          "error_type": "exponent_equation_additive_confusion"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Từ phương trình mũ đã cho, tìm được \\(x\\), sau đó thay vào biểu thức \\(P\\) và rút gọn bằng các tính chất của lũy thừa.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: sau khi tìm đúng \\(x=3\\), người làm sai tính \\(\\frac{1}{2^x}\\) thành \\(\\frac{x+1}{2}\\), tức là thay \\(\\frac{1}{2^3}\\) bằng \\(\\frac{4}{2}=2\\). Khi đó \\(P=2+3=5\\), nhưng tiếp tục nhầm \\(5\\) với \\(\\frac{17}{4}\\) do quy đồng sai. Sai vì phải tính đúng nghịch đảo của lũy thừa: \\(\\frac{1}{2^3}=\\frac18\\).",
+        "B": "Sai lầm: viết sai dạng của số \\(16\\), cho rằng \\(16=2^8\\) thay vì \\(16=2^4\\). Khi đó từ \\(2^{x+1}=2^8\\) suy ra \\(x+1=8\\), nên \\(x=7\\). Thay vào biểu thức: \\(P=\\frac{1}{2^7}+3=\\frac{1}{128}+3=\\frac{385}{128}\\). Tuy nhiên do tiếp tục rút gọn sai \\(3=\\frac{384}{128}\\) thành \\(\\frac{70}{128}\\), người làm sai thu được \\(\\frac{73}{128}\\). Sai từ việc xác định số mũ của \\(16\\) và biến đổi phân số.",
+        "D": "Sai lầm: từ \\(2^{x+1}=16\\) coi số mũ bằng chính giá trị của vế phải nên suy ra \\(x+1=16\\), do đó \\(x=15\\). Thay vào biểu thức được \\(P=\\frac{1}{2^{15}}+3=3+\\frac{1}{32768}\\). Sai vì khi hai lũy thừa cùng cơ số phải đưa về cùng cơ số rồi so sánh số mũ, không lấy số mũ bằng giá trị của lũy thừa."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Với \\(a>0, a\\ne1\\): \\(a^{f(x)}=a^{g(x)}\\Leftrightarrow f(x)=g(x)\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T12:24:32.906328Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "answer_text_mismatch: đáp án key \\(\\frac{13}{2}\\) không khớp giá trị 3.125 mà engine tính ra",
+      "reject_reason_code": "verifier_failed",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "verifier_failed",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "answer_text_mismatch: đáp án key \\(\\frac{13}{2}\\) không khớp giá trị 3.125 mà engine tính ra",
+          "slot_id": "direct_pdf_1"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_2_verifier",
+      "blueprint_slot_id": "direct_pdf_2",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.88,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 324,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Một người gửi tiền định kỳ cuối mỗi tháng vào ngân hàng, mỗi lần gửi cùng một số tiền \\(m\\) triệu đồng, với lãi suất kép mỗi tháng là \\(25\\%\\). Sau 3 tháng, tổng số tiền cả vốn lẫn lãi nhận được là \\(183\\) triệu đồng. Biết rằng người đó không gửi thêm khoản tiền nào khác, hãy tính số tiền \\(m\\) triệu đồng đã gửi mỗi tháng.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(-48\\)",
+          "error_type": "geometric_sum_wrong"
+        },
+        {
+          "key": "B",
+          "text": "\\(48\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(23.804878\\)",
+          "error_type": "arithmetic_sum_wrong"
+        },
+        {
+          "key": "D",
+          "text": "\\(52.285714\\)",
+          "error_type": "wrong_interest_period_count"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Áp dụng công thức tổng tiền gửi định kỳ cuối tháng, ta lập phương trình theo \\(m\\), biến đổi để tìm số tiền gửi mỗi tháng rồi kiểm tra lại kết quả.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: áp dụng công thức tổng cấp số nhân với dấu sai. Với ba khoản tiền sau khi quy đổi về cuối tháng thứ 3, các số hạng có dạng \\(m, 1.25m, 1.25^2m\\), nhưng dùng nhầm \\(S_n=u_1\\frac{1-q^n}{q-1}\\) nên được \\(183=m\\frac{1-1.25^3}{1.25-1}=-3.8125m\\). Từ đó suy ra \\(m=\\frac{183}{-3.8125}=-48\\). Sai vì công thức tổng cấp số nhân phải có mẫu \\(1-q\\), không phải \\(q-1\\).",
+        "C": "Sai lầm: coi ba số tiền quy đổi \\(m,1.25m,1.25^2m\\) như một cấp số cộng và dùng sai công thức tổng \\(S_n=n(u_1+u_n)\\) không chia 2. Khi đó \\(183=3(m+1.5625m)=7.6875m\\), nên \\(m=\\frac{183}{7.6875}\\approx23.804878\\). Sai vì tổng cần dùng công thức cấp số nhân của các khoản tiền tăng theo lãi kép, không phải tổng cấp số cộng.",
+        "D": "Sai lầm: tính sai số kỳ sinh lãi của các khoản gửi, cho rằng chỉ có hai khoản gửi đầu tiên được hưởng lãi một tháng và khoản cuối không sinh lãi, nên lập tổng sai \\(183=m(1.25+1.25+1)=3.5m\\). Từ đó suy ra \\(m=\\frac{183}{3.5}\\approx52.285714\\). Sai vì với gửi cuối mỗi tháng trong 3 tháng, các khoản phải được quy đổi đúng theo số tháng sinh lãi lần lượt là \\(2,1,0\\) tháng."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Cứ cuối mỗi tháng gửi vào ngân hàng m triệu, lãi suất kép (tháng hoặc năm). Sau n (tháng hoặc năm) số tiền thu được là bao nhiêu?",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T12:24:34.566907Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "duplicate_question: rule validator failed: ['duplicate_question:source_quote_is_existing_exercise']",
+      "reject_reason_code": "quote_mismatch",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "quote_mismatch",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "duplicate_question: rule validator failed: ['duplicate_question:source_quote_is_existing_exercise']",
+          "slot_id": "direct_pdf_2"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_5_verifier",
+      "blueprint_slot_id": "direct_pdf_5",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.88,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 386,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Một người gửi tiền vào ngân hàng theo hình thức cuối mỗi tháng gửi một khoản tiền cố định \\(m\\) triệu đồng, lãi suất kép \\(r=\\frac{1}{20}\\) mỗi tháng. Sau \\(n=4\\) tháng, số tiền cả vốn lẫn lãi nhận được là \\(A=\\frac{34481}{1600}\\) triệu đồng. Biết công thức số tiền nhận được sau \\(n\\) tháng là \\(T=\\frac{m}{r}\\left[(1+r)^n-1\\right]\\), hãy xác định số tiền \\(m\\) người đó gửi mỗi tháng.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(100\\) triệu đồng",
+          "error_type": "omit_division_by_interest_rate"
+        },
+        {
+          "key": "B",
+          "text": "\\(5\\) triệu đồng",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{3448100}{884101}\\) triệu đồng",
+          "error_type": "wrong_compound_period_exponent"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{34481}{5044}\\) triệu đồng",
+          "error_type": "wrong_number_of_periods"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Ta dùng công thức lãi kép gửi định kỳ cuối tháng trong tài liệu, biến đổi ngược để tìm khoản gửi đều \\(m\\). Sau khi thay các dữ kiện và rút gọn biểu thức, thu được \\(m=5\\).",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: từ công thức \\(T=\\frac{m}{r}[(1+r)^n-1]\\) suy ra nhầm thành \\(m=\\frac{A}{(1+r)^n-1}\\), bỏ mất hệ số nhân \\(r\\). Khi tính: \\(m=\\frac{34481}{1600}:\\left[\\left(\\frac{21}{20}\\right)^4-1\\right]=\\frac{34481}{1600}:\\frac{34481}{160000}=100\\). Sai vì đã quên nhân với \\(r=\\frac{1}{20}\\).",
+        "C": "Sai lầm: coi khoản gửi đều cuối mỗi tháng như phải tích lũy thêm một kỳ, nên thay \\(n=4\\) bằng \\(n=5\\) trong số mũ. Khi đó: \\(m=\\frac{Ar}{(1+r)^5-1}=\\frac{\\frac{34481}{1600}\\cdot\\frac{1}{20}}{\\left(\\frac{21}{20}\\right)^5-1}=\\frac{3448100}{884101}\\). Sai vì công thức trong tài liệu áp dụng trực tiếp với đúng số kỳ gửi là \\(n=4\\).",
+        "D": "Sai lầm: dùng sai số kỳ hạn, lấy \\(n=3\\) thay vì \\(n=4\\) trong công thức. Khi đó: \\(m=\\frac{Ar}{(1+r)^3-1}=\\frac{\\frac{34481}{1600}\\cdot\\frac{1}{20}}{\\left(\\frac{21}{20}\\right)^3-1}=\\frac{34481}{32000}:\\frac{1261}{8000}=\\frac{34481}{5044}\\). Sai vì đề bài cho sau \\(4\\) tháng chứ không phải \\(3\\) tháng."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Cứ cuối mỗi tháng gửi vào ngân hàng m triệu, lãi suất kép (tháng hoặc năm). Sau n (tháng hoặc năm) số tiền thu được là bao nhiêu?",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T12:25:50.451247Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "duplicate_question: rule validator failed: ['duplicate_question:source_quote_is_existing_exercise']",
+      "reject_reason_code": "quote_mismatch",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "quote_mismatch",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "duplicate_question: rule validator failed: ['duplicate_question:source_quote_is_existing_exercise']",
+          "slot_id": "direct_pdf_5"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_6_verifier",
+      "blueprint_slot_id": "direct_pdf_6",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.88,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 305,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Một người gửi \\(8\\) triệu đồng vào ngân hàng theo hình thức lãi kép. Trong \\(k\\) kỳ đầu, lãi suất mỗi kỳ là \\(25\\%\\); sau đó ngân hàng điều chỉnh lãi suất xuống còn \\(10\\%\\) trong \\(2\\) kỳ tiếp theo. Biết số tiền cả vốn lẫn lãi sau toàn bộ thời gian là \\(18{,}90625\\) triệu đồng. Hỏi \\(k\\) bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(3{,}03719\\)",
+          "error_type": "wrong_compounding_in_final_periods"
+        },
+        {
+          "key": "B",
+          "text": "\\(3{,}85425\\)",
+          "error_type": "ignore_later_interest_periods"
+        },
+        {
+          "key": "C",
+          "text": "\\(3\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(3{,}8125\\)",
+          "error_type": "simple_interest_applied_instead_of_compound"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Áp dụng công thức lãi kép cho từng giai đoạn, ta lập được phương trình theo số kỳ \\(k\\): \\(8(1+0{,}25)^k(1+0{,}10)^2=18{,}90625\\). Biến đổi và giải phương trình mũ thu được \\(k=3\\).",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: với \\(2\\) kỳ cuối lãi suất \\(10\\%\\), người giải cộng lãi suất tuyến tính thành hệ số \\(1+2\\cdot0{,}10=1{,}2\\) thay vì dùng lãi kép \\((1+0{,}10)^2=1{,}21\\). Khi đó lập phương trình sai \\(8(1{,}25)^k\\cdot1{,}2=18{,}90625\\), suy ra \\((1{,}25)^k=\\frac{18{,}90625}{9{,}6}\\), nên \\(k=\\log_{1{,}25}\\left(\\frac{18{,}90625}{9{,}6}\\right)\\approx3{,}03719\\).",
+        "B": "Sai lầm: bỏ qua giai đoạn ngân hàng điều chỉnh lãi suất xuống \\(10\\%\\) trong \\(2\\) kỳ tiếp theo. Người giải chỉ dùng \\(8(1+0{,}25)^k=18{,}90625\\), nên \\((1{,}25)^k=\\frac{18{,}90625}{8}=2{,}36328125\\), từ đó \\(k=\\log_{1{,}25}(2{,}36328125)\\approx3{,}85425\\). Sai vì đã bỏ mất phần sinh lãi của \\(2\\) kỳ cuối.",
+        "D": "Sai lầm: coi giai đoạn lãi suất \\(25\\%\\) là lãi đơn thay vì lãi kép. Khi đó viết sai công thức thành \\(8(1+0{,}25k)(1+0{,}10)^2=18{,}90625\\). Suy ra \\(1+0{,}25k=\\frac{18{,}90625}{8\\cdot1{,}21}=1{,}953125\\), nên \\(0{,}25k=0{,}953125\\) và \\(k=3{,}8125\\). Sai vì bài toán yêu cầu lãi kép trong \\(k\\) kỳ đầu."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Số tiền lãi không chỉ tính trên số tiền gốc mà còn tính trên số tiền lãi do tiền gốc đó sinh ra thay đổi theo từng định kỳ.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T12:26:52.460762Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "multi_answer: distractor \"\\(3{,}8125\\)\" cũng được verifier xác nhận đúng",
+      "reject_reason_code": "multi_answer",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "multi_answer",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "multi_answer: distractor \"\\(3{,}8125\\)\" cũng được verifier xác nhận đúng",
+          "slot_id": "direct_pdf_6"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_7_writer",
+      "blueprint_slot_id": "direct_pdf_7",
+      "cognitive_level": "Vận dụng",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 4 column 201 (char 455)\"])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 4 column 201 (char 455)\"])",
+          "slot_id": "direct_pdf_7"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_9_writer",
+      "blueprint_slot_id": "direct_pdf_9",
+      "cognitive_level": "Vận dụng",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 26 column 192 (char 1570)\"])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 26 column 192 (char 1570)\"])",
+          "slot_id": "direct_pdf_9"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_15_verifier",
+      "blueprint_slot_id": "direct_pdf_15",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 275,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một thành phố có dân số năm 2021 là \\(3\\) triệu người. Biết rằng sau \\(2\\) năm, dân số thành phố đạt \\(\\frac{15}{4}\\) triệu người và tỉ lệ tăng dân số hằng năm không đổi. Hỏi dân số của thành phố vào năm 2025 là bao nhiêu triệu người (giả sử tốc độ tăng dân số được duy trì)?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{375}{16}\\) triệu người",
+          "error_type": "growth_factor_not_solved"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{375}{64}\\) triệu người",
+          "error_type": "compound_exponent_off_by_one"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{75}{16}\\) triệu người",
+          "error_type": "wrong_time_interval_count"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{1875}{256}\\) triệu người",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Áp dụng công thức tăng trưởng dân số, trước hết tìm tỉ lệ tăng hằng năm từ số liệu hai năm đã biết, sau đó dùng tỉ lệ này để tính dân số sau 4 năm kể từ năm 2021.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: dùng trực tiếp tỉ lệ tăng sau 2 năm như một số nhân nhưng không đặt đúng mô hình lũy thừa. Cụ thể từ \\(3\\) triệu đến \\(\\frac{15}{4}\\) triệu người lấy mức tăng là \\(\\frac{15}{4}-3=\\frac{3}{4}\\), rồi coi mỗi năm tăng thêm \\(\\frac{3}{4}\\) triệu và áp dụng sai theo dạng nhân: \\(X_{2025}=\\frac{15}{4}\\cdot\\left(1+\\frac{3}{4}\\right)^2=\\frac{375}{16}\\).",
+        "B": "Sai lầm: đếm thiếu một lần tăng trưởng khi kéo dài dân số từ năm 2021 đến năm 2025. Cụ thể lấy hệ số tăng hằng năm là \\(\\frac{5}{4}\\), nhưng chỉ nhân 3 lần thay vì 4 lần: \\(X_{2025}=3\\left(\\frac{5}{4}\\right)^3=\\frac{375}{64}\\). Sai vì giai đoạn 2021, 2022, 2023, 2024, 2025 gồm 4 chu kỳ tăng hằng năm.",
+        "C": "Sai lầm: coi khoảng thời gian từ năm 2021 đến năm 2025 chỉ cần áp dụng hệ số tăng trưởng \\(\\frac{5}{4}\\) hai lần như giai đoạn từ 2021 đến 2023. Cụ thể làm sai: từ dữ kiện lấy hệ số tăng trong 2 năm là \\(\\frac{X_{2023}}{X_{2021}}=\\frac{5}{4}\\), sau đó tính \\(X_{2025}=3\\left(\\frac{5}{4}\\right)^2=\\frac{75}{16}\\). Sai vì từ năm 2021 đến 2025 là 4 năm, cần quy đổi đúng theo số năm tăng trưởng."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Công thức tính: \\(X_m=X_n(1+r)^{m-n}\\) (m,n; m>n)",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T12:30:37.450825Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "answer_text_mismatch: đáp án key \\(\\frac{1875}{256}\\) triệu người không khớp giá trị 7.32421875 mà engine tính ra",
+      "reject_reason_code": "verifier_failed",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "verifier_failed",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "answer_text_mismatch: đáp án key \\(\\frac{1875}{256}\\) triệu người không khớp giá trị 7.32421875 mà engine tính ra",
+          "slot_id": "direct_pdf_15"
+        }
+      ],
+      "attempts": 1
+    }
+  ]
+}

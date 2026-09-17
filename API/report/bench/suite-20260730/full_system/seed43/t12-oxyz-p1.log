@@ -1,0 +1,9 @@
+    [pdf-slot direct_pdf_0] critic reject: answer_uniqueness=0.10 (nghi đa đáp án)
+    [pdf-slot direct_pdf_2] refuted: tính toán độc lập cho 48.5, trùng phương án nhiễu #3 chứ không phải key (43)
+    [pdf-slot direct_pdf_2] critic reject: answer_uniqueness=0.10 (nghi đa đáp án)
+    [pdf-slot direct_pdf_5] writer 0 candidates; errors=["Expecting ',' delimiter: line 1 column 412 (char 411)"]
+    [pdf-slot direct_pdf_9] critic reject: error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Chuỗi lỗi của các distractor cần kiểm tra lại; phương án \(54\) và \(0\) phù hợp, nhưng mô tả distractor \(13\) có dấu hiệu không nhất quán với phép tính sai đư)
+    [pdf-slot direct_pdf_12] verifier reject: answer_text_mismatch: đáp án key \(\sqrt{5}\) không khớp giá trị 3.0 mà engine tính ra
+    [pdf-slot direct_pdf_13] mismatch: biểu thức kiểm chứng của Writer không khớp đáp án key (biểu thức độc lập không đánh giá được (parse 
+    [pdf-slot direct_pdf_15] critic reject: error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Một số chuỗi lỗi không tạo đúng giá trị distractor như mô tả (đặc biệt lỗi bỏ hệ số 6), dù giải thích đáp án đúng không mâu thuẫn.)
+[cell] arm=full_system seed=43 t12-oxyz-p1.pdf: delivered=12/12 rejected=6 tokens=238138 688s

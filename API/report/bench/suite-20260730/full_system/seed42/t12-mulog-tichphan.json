@@ -1,0 +1,3477 @@
+{
+  "metadata": {
+    "bench": "suite",
+    "arm": "full_system",
+    "seed": 42,
+    "source_pdf": "pdftest/corpus2/t12-mulog-tichphan.pdf",
+    "source_pdf_name": "t12-mulog-tichphan.pdf",
+    "requested_questions": 12,
+    "accepted_questions": 12,
+    "is_partial": false,
+    "parse_errors": 7,
+    "verify_failures": 0,
+    "error_code": null,
+    "error_message": null,
+    "cost": {
+      "tokens": 248455,
+      "calls": 69
+    },
+    "duration_seconds": 520.4733657836914,
+    "generated_at": "2026-07-30T02:10:53.187719+00:00"
+  },
+  "questions": [
+    {
+      "question_id": "q_2026_23658a18",
+      "blueprint_slot_id": "direct_pdf_0",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 213,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một tấm biển quảng cáo có mặt cắt là hình phẳng giới hạn bởi hai đường cong \\(y=x^2-4x+5\\) và \\(y=x+1\\). Biết hai mép đứng của tấm biển nằm tại các vị trí giao nhau của hai đường cong. Tính diện tích mặt tấm biển.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(-\\frac{9}{2}\\)",
+          "error_type": "area_no_absolute"
+        },
+        {
+          "key": "B",
+          "text": "\\(18\\)",
+          "error_type": "power_rule_error"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{8}{3}\\)",
+          "error_type": "intersection_wrong_equation"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{9}{2}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Hai đường cong cắt nhau tại \\(x=1\\) và \\(x=4\\), trên khoảng này đường thẳng \\(y=x+1\\) nằm phía trên parabol. Do đó diện tích cần tìm là tích phân của hiệu hai hàm trên đoạn \\([1;4]\\), cho kết quả \\(\\frac{9}{2}\\).",
+      "explanation_per_distractor": {
+        "A": "Làm sai bằng cách lấy trực tiếp hiệu hàm dưới trừ hàm trên mà không xét giá trị tuyệt đối. Tính \\(S=\\int_1^4\\left((x^2-4x+5)-(x+1) ight)dx=\\int_1^4(x^2-5x+4)dx\\). Nguyên hàm được lấy là \\(\\frac{x^3}{3}-\\frac{5x^2}{2}+4x\\), thay cận \\([1;4]\\) cho kết quả \\(-\\frac{9}{2}\\). Sai vì diện tích phải không âm và phải lấy khoảng cách giữa hai đường cong.",
+        "B": "Làm sai khi tính nguyên hàm: với hàm hiệu \\(-x^2+5x-4\\), học sinh lấy sai nguyên hàm của \\(-x^2\\) thành \\(-\\frac{x^2}{2}\\) thay vì \\(-\\frac{x^3}{3}\\). Khi đó dùng nguyên hàm sai \\(-\\frac{x^2}{2}+\\frac{5x^2}{2}-4x=2x^2-4x\\), rồi tính \\((2\\cdot4^2-4\\cdot4)-(2\\cdot1^2-4\\cdot1)=16-(-2)=18\\). Sai vì quy tắc nguyên hàm lũy thừa bị áp dụng nhầm.",
+        "C": "Làm sai ở bước tìm giao điểm: từ \\(x^2-4x+5=x+1\\) biến đổi sai thành phương trình có nghiệm \\(x=1\\) và \\(x=5\\) thay vì \\(x=1\\) và \\(x=4\\). Sau đó tính diện tích trên đoạn sai \\([1;5]\\): \\(S=\\int_1^5\\left(-x^2+5x-4\\right)dx=\\frac{8}{3}\\). Sai vì cận tích phân phải là các hoành độ giao nhau đúng của hai đường cong."
+      },
+      "hint": "Hai đường cong cắt nhau tại \\(x=1\\) và \\(x=4\\), trên khoảng này đường thẳng \\(y=x+1\\) nằm phía trên parabol.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Diện tích của hình phẳng giới hạn bởi đồ thị hàm số \\(f(x)\\) và \\(g(x)\\) và hai đường thẳng \\(x=a, x=b\\) được tính: \\(S=\\int_a^b|f(x)-g(x)|dx\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 4.5,
+          "expression": "integrate((x+1-(x**2-4*x+5)), (x, 1, 4))",
+          "stated_answer": "9/2",
+          "stated_value": 4.5,
+          "source": "llm_resolver",
+          "detail": "integrate((x+1-(x**2-4*x+5)), (x, 1, 4)) = 4.5",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "9/2",
+            "expected_numeric": 18
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 4.5, khớp đáp án key",
+        "verified_at": "2026-07-30T02:03:15.976548Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9249999999999999,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài nêu rõ hai đường cong, các mép đứng tại giao điểm và yêu cầu tính diện tích nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu xác định giao điểm, xét vị trí hai hàm và lập tích phân diện tích, phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác giải cần áp dụng công thức diện tích hình phẳng vào tình huống mới thay vì chỉ nhớ công thức."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đại diện cho lỗi lấy dấu, tìm sai cận và sai nguyên hàm, đều là lỗi thường gặp khi tính tích phân diện tích."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có phương án \\(\\frac{9}{2}\\) đúng vì diện tích phải không âm và được tính trên đúng đoạn giao điểm \\([1,4]\\)."
+          },
+          "error_distractor_consistency": {
+            "score": 0.95,
+            "rationale": "Chuỗi lỗi mô tả tạo ra đúng các giá trị distractor và phần giải thích đáp án nhất quán với đáp án \\(\\frac{9}{2}\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9249999999999999,
+        "verifier_pass": true,
+        "critic_score": 0.9249999999999999,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Hai đường cong cắt nhau tại \\(x=1\\) và \\(x=4\\), trên khoảng này đường thẳng \\(y=x+1\\) nằm phía trên parabol. Do đó diện tích cần tìm là tích phân của hiệu hai hàm trên đoạn \\([1;4]\\), cho kết quả \\(\\frac{9}{2}\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Tìm vị trí giao nhau của hai đường cong bằng cách giải \\(x^2-4x+5=x+1\\), suy ra \\(x^2-5x+4=0\\), nên \\(x=1\\) hoặc \\(x=4\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Xét hiệu hai hàm: \\((x+1)-(x^2-4x+5)=-x^2+5x-4=-(x-1)(x-4)\\). Trên đoạn \\([1;4]\\), hiệu này không âm nên đường thẳng nằm trên parabol."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Lập công thức diện tích hình phẳng: \\(S=\\int_1^4\\left[(x+1)-(x^2-4x+5)\\right]dx=\\int_1^4(-x^2+5x-4)dx\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Tính tích phân: \\(S=\\left[-\\frac{x^3}{3}+\\frac{5x^2}{2}-4x\\right]_1^4=\\left(\\frac{8}{3}\\right)-\\left(-\\frac{11}{6}\\right)=\\frac{9}{2}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{9}{2}\\)"
+      },
+      "why_correct": "Diện tích hình phẳng được xác định bởi tích phân của khoảng cách theo phương thẳng đứng giữa hai đường cong trên các giao điểm của chúng. Việc xét dấu hiệu hai hàm đảm bảo chọn đúng hàm trên trừ hàm dưới nên kết quả là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Làm sai bằng cách lấy trực tiếp hiệu hàm dưới trừ hàm trên mà không xét giá trị tuyệt đối. Tính \\(S=\\int_1^4\\left((x^2-4x+5)-(x+1) ight)dx=\\int_1^4(x^2-5x+4)dx\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Làm sai khi tính nguyên hàm: với hàm hiệu \\(-x^2+5x-4\\), học sinh lấy sai nguyên hàm của \\(-x^2\\) thành \\(-\\frac{x^2}{2}\\) thay vì \\(-\\frac{x^3}{3}\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Làm sai ở bước tìm giao điểm: từ \\(x^2-4x+5=x+1\\) biến đổi sai thành phương trình có nghiệm \\(x=1\\) và \\(x=5\\) thay vì \\(x=1\\) và \\(x=4\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_724cfcec",
+      "blueprint_slot_id": "direct_pdf_1",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.47,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 97,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(f(x)=ax^2+5\\) là hàm chẵn và thỏa mãn \\(f(3)=32\\). Tính \\(I=\\int_{-3}^{3}f(x)\\,dx\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(30\\)",
+          "error_type": "wrong_antiderivative_power_rule"
+        },
+        {
+          "key": "B",
+          "text": "\\(94\\)",
+          "error_type": "wrong_coefficient_from_condition"
+        },
+        {
+          "key": "C",
+          "text": "\\(84\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(42\\)",
+          "error_type": "forget_even_symmetry"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Từ điều kiện \\(f(3)=32\\) tìm được hệ số \\(a\\), sau đó dùng tính chất hàm chẵn để rút gọn tích phân đối xứng và tính giá trị.",
+      "explanation_per_distractor": {
+        "A": "Học sinh tìm đúng \\(a=3\\) nhưng lấy nguyên hàm sai: coi nguyên hàm của \\(3x^2+5\\) là \\(3x^2+5x\\) thay vì \\(x^3+5x\\). Khi đó tính \\([3x^2+5x]_{-3}^{3}=(27+15)-(27-15)=30\\). Sai vì đã không áp dụng đúng quy tắc nguyên hàm của lũy thừa.",
+        "B": "Học sinh biến đổi sai điều kiện \\(f(3)=32\\): từ \\(9a+5=32\\) bỏ qua việc chuyển số hạng \\(5\\) sang vế phải và lấy \\(9a=32\\), suy ra \\(a=\\frac{32}{9}\\). Khi đó dùng \\(f(x)=\\frac{32}{9}x^2+5\\), tính được \\(I=2\\left(\\frac{32}{9}\\cdot9+15\\right)=94\\). Sai vì hệ số \\(a\\) thực tế phải là \\(3\\).",
+        "D": "Học sinh xác định đúng \\(a=3\\), nên \\(f(x)=3x^2+5\\). Sai lầm là bỏ qua tính chất hàm chẵn và chỉ tính một nửa tích phân: \\(∫_0^3(3x^2+5)dx=[x^3+5x]_0^3=42\\), rồi lấy luôn kết quả này thay vì nhân đôi do khoảng lấy tích phân là \\([-3,3]\\)."
+      },
+      "hint": "Từ điều kiện \\(f(3)=32\\) tìm được hệ số \\(a\\), sau đó dùng tính chất hàm chẵn để rút gọn tích phân đối xứng và tính giá t",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Nếu \\(f(x)\\) là hàm chẵn \\((f(-x)=f(x))\\) thì \\(\\int_{-a}^{a} f(x)dx=2\\int_{0}^{a}f(x)dx\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 84.0,
+          "expression": "integrate(3*x**2+5, (x, -3, 3))",
+          "stated_answer": "84",
+          "stated_value": 84.0,
+          "source": "llm_resolver",
+          "detail": "integrate(3*x**2+5, (x, -3, 3)) = 84",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "2*(3**3+5*3)",
+            "expected_numeric": 30
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 84, khớp đáp án key",
+        "verified_at": "2026-07-30T02:03:15.981946Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9266666666666666,
+        "bloom_alignment": 0.85,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ hàm số, điều kiện xác định hệ số và yêu cầu tính một tích phân duy nhất."
+          },
+          "cognitive_depth": {
+            "score": 0.78,
+            "rationale": "Bài yêu cầu kết hợp xác định tham số với vận dụng tính chất tích phân hàm chẵn, phù hợp mức vận dụng cơ bản/thông hiểu."
+          },
+          "bloom_alignment": {
+            "score": 0.85,
+            "rationale": "Học sinh cần hiểu mối liên hệ giữa tính chẵn của hàm và tích phân đối xứng thay vì chỉ nhớ công thức đơn lẻ."
+          },
+          "distractor_plausibility": {
+            "score": 0.95,
+            "rationale": "Các phương án sai mô phỏng đúng những lỗi phổ biến như quên nhân đôi, tìm sai hệ số và sai nguyên hàm."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(84\\) là kết quả đúng khi tính \\(a=3\\) và áp dụng đúng tích phân hàm chẵn."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Các chuỗi lỗi mô tả đều dẫn đúng đến các giá trị distractor và phần giải thích đáp án nhất quán với \\(84\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9266666666666666,
+        "verifier_pass": true,
+        "critic_score": 0.9266666666666666,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ điều kiện \\(f(3)=32\\) tìm được hệ số \\(a\\), sau đó dùng tính chất hàm chẵn để rút gọn tích phân đối xứng và tính giá trị.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Thay \\(x=3\\) vào điều kiện \\(f(3)=32\\), ta có \\(9a+5=32\\), suy ra \\(a=3\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Khi đó \\(f(x)=3x^2+5\\). Vì hàm số chẵn nên \\(I=2\\int_{0}^{3}(3x^2+5)\\,dx\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tính tích phân: \\(\\int_{0}^{3}(3x^2+5)\\,dx=\\left(x^3+5x\\right)\\big|_{0}^{3}=27+15=42\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Suy ra \\(I=2\\cdot42=84\\)."
+          }
+        ],
+        "final_answer": "\\(84\\)"
+      },
+      "why_correct": "Hệ số \\(a\\) được xác định duy nhất từ điều kiện đã cho, sau đó tính chất đối xứng của tích phân hàm chẵn và phép tính nguyên hàm cho kết quả duy nhất là \\(84\\).",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Học sinh tìm đúng \\(a=3\\) nhưng lấy nguyên hàm sai: coi nguyên hàm của \\(3x^2+5\\) là \\(3x^2+5x\\) thay vì \\(x^3+5x\\). Khi đó tính \\([3x^2+5x]_{-3}^{3}=(27+15)-(27-15)=30\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Học sinh biến đổi sai điều kiện \\(f(3)=32\\): từ \\(9a+5=32\\) bỏ qua việc chuyển số hạng \\(5\\) sang vế phải và lấy \\(9a=32\\), suy ra \\(a=\\frac{32}{9}\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Học sinh xác định đúng \\(a=3\\), nên \\(f(x)=3x^2+5\\). Sai lầm là bỏ qua tính chất hàm chẵn và chỉ tính một nửa tích phân: \\(∫_0^3(3x^2+5)dx=[x^3+5x]_0^3=42\\), rồi lấy luôn kết quả này thay vì nhân đôi do khoảng lấy tích ph"
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_b6bb5274",
+      "blueprint_slot_id": "direct_pdf_2",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 239,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Cho miền phẳng \\(D\\) giới hạn bởi đồ thị hàm số \\(y=mx^2\\), trục \\(Ox\\), hai đường thẳng \\(x=1\\), \\(x=3\\). Biết \\(m>0\\) và khi quay \\(D\\) quanh trục \\(Ox\\) ta được khối tròn xoay có thể tích bằng \\(108\\pi\\). Giá trị của \\(m\\) là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{3\\sqrt{30\\pi}}{11}\\)",
+          "error_type": "volume_missing_pi"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{3}{2}\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(-\\frac{3}{2}\\)",
+          "error_type": "missing_negative_root"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{9\\sqrt{26}}{13}\\)",
+          "error_type": "volume_integrand_power_error"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Áp dụng công thức thể tích khối tròn xoay quanh trục \\(Ox\\), lập phương trình theo tham số \\(m\\), sau đó giải điều kiện thể tích để tìm \\(m\\).",
+      "explanation_per_distractor": {
+        "A": "Sai ở bước lập công thức thể tích: bỏ qua hệ số \\(\\pi\\) nhưng vẫn giữ \\(108\\pi\\) ở vế phải. Khi đó viết \\(m^2\\int_1^3 x^4dx=108\\pi\\), suy ra \\(m^2\\cdot\\frac{242}{5}=108\\pi\\), nên \\(m^2=\\frac{270\\pi}{121}\\) và nhận được \\(m=\\frac{3\\sqrt{30\\pi}}{11}\\). Sai vì thể tích khối tròn xoay quanh \\(Ox\\) phải có dạng \\(V=\\pi\\int_1^3 f(x)^2dx\\), không được bỏ \\(\\pi\\).",
+        "C": "Sai ở bước giải phương trình sau khi biến đổi điều kiện thể tích thành dạng \\(m^2=\\frac{9}{4}\\). Người làm chỉ lấy nghiệm âm của phương trình căn bậc hai và kết luận \\(m=-\\sqrt{\\frac{9}{4}}=-\\frac{3}{2}\\). Sai vì phương trình \\(m^2=k\\) có hai nghiệm \\(m=\\pm\\sqrt{k}\\), đồng thời bài toán còn có điều kiện \\(m>0\\) nên nghiệm âm bị loại.",
+        "D": "Sai ở bước lập tích phân thể tích: thay vì bình phương bán kính \\(f(x)=mx^2\\) thành \\(m^2x^4\\), người làm dùng nhầm \\(f(x)=mx^2\\) trực tiếp nên tính \\(V=\\pi\\int_1^3 m^2x^2dx\\). Khi đó \\(m^2\\cdot\\left[\\frac{x^3}{3}\\right]_1^3=108\\), tức \\(m^2\\cdot\\frac{26}{3}=108\\), suy ra \\(m^2=\\frac{162}{13}\\) và \\(m=\\frac{9\\sqrt{26}}{13}\\)."
+      },
+      "hint": "Áp dụng công thức thể tích khối tròn xoay quanh trục \\(Ox\\), lập phương trình theo tham số \\(m\\), sau đó giải điều kiện t",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Thể tích khối tròn xoay được sinh ra khi quay hình phẳng giới hạn bởi các đường \\(y=f(x)\\), trục hoành và hai đường thẳng \\(x=a,x=b\\) quanh trục \\(Ox\\): \\(V=\\pi\\int_a^b(f(x))^2dx\\)",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": false,
+        "status": "refuted",
+        "status_label_vi": "Tính toán độc lập bác bỏ đáp án — cần người kiểm",
+        "status_label_en": "Independent computation refutes the key",
+        "machine_checked": false,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 1.4937887931959075,
+          "expression": "sqrt(270)/11",
+          "stated_answer": "3*sqrt(30)/11",
+          "stated_value": 1.4937887931959075,
+          "source": "llm_resolver",
+          "detail": "sqrt(270)/11 = 1.49379",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": true,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "3*sqrt(30)/11",
+            "expected_numeric": 1.493715838134534
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "cả biểu thức của Writer lẫn tính toán độc lập (1.49379) đều không khớp đáp án key (1.5)",
+        "verified_at": "2026-07-30T02:03:15.984129Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9249999999999999,
+        "bloom_alignment": 0.85,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài xác định rõ miền giới hạn, trục quay, điều kiện tham số và yêu cầu tìm một giá trị duy nhất của \\(m\\)."
+          },
+          "cognitive_depth": {
+            "score": 0.82,
+            "rationale": "Bài yêu cầu thiết lập tích phân thể tích, biến đổi phương trình và xử lý điều kiện tham số nên phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.85,
+            "rationale": "Thao tác chính là áp dụng công thức đã học vào tình huống mới và giải tham số, phù hợp hơn với Vận dụng/Vận dụng cao."
+          },
+          "distractor_plausibility": {
+            "score": 0.94,
+            "rationale": "Các phương án sai mô phỏng đúng các lỗi phổ biến như quên \\(\\pi\\), lấy sai nghiệm, và không bình phương bán kính."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(\\frac{3}{2}\\) thỏa mãn phương trình thể tích và điều kiện \\(m>0\\), các phương án còn lại đều sai."
+          },
+          "error_distractor_consistency": {
+            "score": 0.96,
+            "rationale": "Các chuỗi lỗi mô tả đều dẫn đúng đến các giá trị distractor tương ứng và phần giải thích đáp án không mâu thuẫn với đáp án đã cho."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9249999999999999,
+        "verifier_pass": false,
+        "critic_score": 0.9249999999999999,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "needs_revision",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "refuted",
+          "verifier_numeric_mismatch"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Áp dụng công thức thể tích khối tròn xoay quanh trục \\(Ox\\), lập phương trình theo tham số \\(m\\), sau đó giải điều kiện thể tích để tìm \\(m\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Từ công thức thể tích khối tròn xoay quanh trục \\(Ox\\), ta có \\(V=\\pi\\int_a^b(f(x))^2dx\\). Với \\(f(x)=mx^2\\), \\(a=1\\), \\(b=3\\), suy ra \\(V=\\pi\\int_1^3(m x^2)^2dx\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Biến đổi biểu thức dưới dấu tích phân: \\(V=\\pi m^2\\int_1^3x^4dx\\). Cần tính tích phân trung gian này thay vì thay số trực tiếp."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Ta có \\(\\int_1^3x^4dx=\\left.\\frac{x^5}{5}\\right|_1^3=\\frac{3^5-1^5}{5}=\\frac{242}{5}\\). Do đó \\(V=\\frac{242\\pi m^2}{5}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Theo giả thiết \\(\\frac{242\\pi m^2}{5}=108\\pi\\). Chia hai vế cho \\(\\pi\\) và nhân với \\(5\\), ta được \\(242m^2=540\\), suy ra \\(m^2=\\frac{270}{121}\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Vì \\(m>0\\) nên \\(m=\\sqrt{\\frac{270}{121}}=\\frac{3\\sqrt{30}}{11}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{3}{2}\\)"
+      },
+      "why_correct": "Giá trị tìm được thỏa mãn điều kiện \\(m>0\\) và khi thay vào công thức thể tích khối tròn xoay cho đúng thể tích đã cho. Nghiệm âm bị loại do điều kiện tham số.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai ở bước lập công thức thể tích: bỏ qua hệ số \\(\\pi\\) nhưng vẫn giữ \\(108\\pi\\) ở vế phải. Khi đó viết \\(m^2\\int_1^3 x^4dx=108\\pi\\), suy ra \\(m^2\\cdot\\frac{242}{5}=108\\pi\\), nên \\(m^2=\\frac{270\\pi}{121}\\) và nhận được"
+        },
+        {
+          "option": "C",
+          "reason": "Sai ở bước giải phương trình sau khi biến đổi điều kiện thể tích thành dạng \\(m^2=\\frac{9}{4}\\). Người làm chỉ lấy nghiệm âm của phương trình căn bậc hai và kết luận \\(m=-\\sqrt{\\frac{9}{4}}=-\\frac{3}{2}\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai ở bước lập tích phân thể tích: thay vì bình phương bán kính \\(f(x)=mx^2\\) thành \\(m^2x^4\\), người làm dùng nhầm \\(f(x)=mx^2\\) trực tiếp nên tính \\(V=\\pi\\int_1^3 m^2x^2dx\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_03a5ff04",
+      "blueprint_slot_id": "direct_pdf_4",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Nhận biết",
+      "difficulty_target": 0.3,
+      "difficulty_estimated": 0.3,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.3,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 192,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 40,
+      "question_type": "single_choice",
+      "stem": "Cho hình phẳng giới hạn bởi đồ thị hàm số \\(y=3x^2\\), trục \\(Ox\\) và hai đường thẳng \\(x=1\\), \\(x=3\\). Khi quay hình phẳng đó quanh trục \\(Ox\\), thể tích khối tròn xoay tạo thành là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{1089}{2}\\)",
+          "error_type": "power_rule_error_in_integration"
+        },
+        {
+          "key": "B",
+          "text": "\\(26\\)",
+          "error_type": "omit_square_in_volume_formula"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{2187}{5}\\)",
+          "error_type": "wrong_bounds_ignore_lower_limit"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{2178}{5}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Áp dụng công thức thể tích khối tròn xoay quanh trục \\(Ox\\): \\(V=\\int_a^b(f(x))^2dx\\). Với \\(f(x)=3x^2\\), ta tính được tích phân và thu được kết quả \\(\\frac{2178}{5}\\).",
+      "explanation_per_distractor": {
+        "A": "Học sinh tính đúng biểu thức dưới dấu tích phân \\(9x^4\\) nhưng sai quy tắc nguyên hàm, lấy \\(\\int 9x^4dx=\\frac{9x^5}{4}\\) thay vì \\(\\frac{9x^5}{5}\\). Khi đó thu được \\(V=\\frac{9x^5}{4}\\Big|_1^3=\\frac{9(3^5-1^5)}{4}=\\frac{9\\cdot242}{4}=\\frac{1089}{2}\\). Sai vì nguyên hàm của \\(x^4\\) phải chia cho \\(5\\), không phải \\(4\\).",
+        "B": "Học sinh áp dụng sai công thức thể tích khối tròn xoay, lấy \\(V=\\int_1^3 f(x)dx\\) thay vì \\(V=\\int_1^3(f(x))^2dx\\). Với \\(f(x)=3x^2\\), tính sai \\(V=\\int_1^3 3x^2dx=[x^3]_1^3=27-1=26\\). Sai vì thể tích khối tròn xoay quanh trục \\(Ox\\) phải dùng bình phương bán kính.",
+        "C": "Học sinh bỏ qua đường thẳng \\(x=1\\) và lấy cận tích phân từ \\(0\\) đến \\(3\\). Khi đó tính sai \\(V=\\int_0^3(3x^2)^2dx=\\int_0^3 9x^4dx=\\frac{9x^5}{5}\\Big|_0^3=\\frac{9\\cdot3^5}{5}=\\frac{2187}{5}\\). Sai vì miền quay được giới hạn bởi \\(x=1\\) và \\(x=3\\), không phải từ \\(0\\) đến \\(3\\)."
+      },
+      "hint": "Áp dụng công thức thể tích khối tròn xoay quanh trục \\(Ox\\): \\(V=\\int_a^b(f(x))^2dx\\).",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Thể tích khối tròn xoay được sinh ra khi quay hình phẳng giới hạn bởi các đường \\(y=f(x)\\), trục hoành và hai đường thẳng \\(x=a x=b\\), quanh trục \\(Ox\\)",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "mismatch",
+        "status_label_vi": "Các nguồn tính toán lệch nhau — cần người kiểm",
+        "status_label_en": "Computation sources disagree — needs review",
+        "machine_checked": false,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 1368.4777599037138,
+          "expression": "pi*integrate((3*x**2)**2, (x, 1, 3))",
+          "stated_answer": "2178*pi/5",
+          "stated_value": 1368.4777599037138,
+          "source": "llm_resolver",
+          "detail": "pi*integrate((3*x**2)**2, (x, 1, 3)) = 1368.48",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": true,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "9*(3**5-1**5)/5",
+            "expected_numeric": 544.5
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức của Writer khớp key (435.6) nhưng tính toán độc lập cho 1368.48",
+        "verified_at": "2026-07-30T02:04:14.259251Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9500000000000001,
+        "bloom_alignment": 0.95,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài xác định rõ miền phẳng, trục quay và yêu cầu tính thể tích nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài toán chủ yếu yêu cầu nhận dạng công thức và thay thế tính toán đơn giản, phù hợp mức nhận biết."
+          },
+          "bloom_alignment": {
+            "score": 0.95,
+            "rationale": "Thao tác cần thiết là nhớ công thức và áp dụng trực tiếp nên phù hợp với Bloom mức Nhận biết."
+          },
+          "distractor_plausibility": {
+            "score": 0.92,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến như quên bình phương, sai cận, sai nguyên hàm và có tính phân biệt."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(\\frac{2178}{5}\\) đúng khi tính \\(V=\\int_1^3(3x^2)^2dx\\), các phương án còn lại đều sai."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Các chuỗi lỗi mô tả đều tạo đúng giá trị distractor và phần giải thích khẳng định nhất quán với đáp án \\(\\frac{2178}{5}\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9500000000000001,
+        "verifier_pass": true,
+        "critic_score": 0.9500000000000001,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review",
+        "issues": [
+          "mismatch"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Áp dụng công thức thể tích khối tròn xoay quanh trục \\(Ox\\): \\(V=\\int_a^b(f(x))^2dx\\). Với \\(f(x)=3x^2\\), ta tính được tích phân và thu được kết quả \\(\\frac{2178}{5}\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Theo công thức thể tích khối tròn xoay quanh trục \\(Ox\\), ta có \\(V=\\int_1^3(3x^2)^2dx\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Biến đổi biểu thức dưới dấu tích phân: \\((3x^2)^2=9x^4\\), nên \\(V=9\\int_1^3x^4dx\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tính tích phân: \\(V=9\\left[\\frac{x^5}{5}\\right]_1^3=9\\cdot\\frac{3^5-1^5}{5}=9\\cdot\\frac{242}{5}=\\frac{2178}{5}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{2178}{5}\\)"
+      },
+      "why_correct": "Công thức được áp dụng đúng cho khối tròn xoay sinh bởi hình phẳng quay quanh trục \\(Ox\\), các cận tích phân đúng là từ \\(1\\) đến \\(3\\), nên kết quả tính được là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Học sinh tính đúng biểu thức dưới dấu tích phân \\(9x^4\\) nhưng sai quy tắc nguyên hàm, lấy \\(\\int 9x^4dx=\\frac{9x^5}{4}\\) thay vì \\(\\frac{9x^5}{5}\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Học sinh áp dụng sai công thức thể tích khối tròn xoay, lấy \\(V=\\int_1^3 f(x)dx\\) thay vì \\(V=\\int_1^3(f(x))^2dx\\). Với \\(f(x)=3x^2\\), tính sai \\(V=\\int_1^3 3x^2dx=[x^3]_1^3=27-1=26\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Học sinh bỏ qua đường thẳng \\(x=1\\) và lấy cận tích phân từ \\(0\\) đến \\(3\\). Khi đó tính sai \\(V=\\int_0^3(3x^2)^2dx=\\int_0^3 9x^4dx=\\frac{9x^5}{5}\\Big|_0^3=\\frac{9\\cdot3^5}{5}=\\frac{2187}{5}\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_6952be2b",
+      "blueprint_slot_id": "direct_pdf_8",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 296,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một bể chứa được mô hình hóa bằng khối tròn xoay quanh trục \\(Ox\\). Mặt cắt của phần thành bể là hình phẳng giới hạn bởi hai đồ thị \\(y=x^2+3\\), \\(y=3x+3\\) và hai đường thẳng đứng đi qua các giao điểm của hai đồ thị. Tính thể tích khối tròn xoay thu được khi quay hình phẳng đó quanh trục \\(Ox\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{297\\pi}{5}\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{81\\pi}{10}\\)",
+          "error_type": "square_height_instead_of_radii"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{9\\pi}{2}\\)",
+          "error_type": "use_height_as_cross_section"
+        },
+        {
+          "key": "D",
+          "text": "\\(189\\pi\\)",
+          "error_type": "forget_inner_radius_square"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Hai đồ thị cắt nhau tại các điểm có hoành độ tìm được từ phương trình \\(x^2+3=3x+3\\). Sau khi xác định khoảng quay, áp dụng công thức thể tích khối tròn xoay quanh trục \\(Ox\\): \\(V=\\pi\\int_a^b(f^2(x)-g^2(x))dx\\).",
+      "explanation_per_distractor": {
+        "B": "Sai lầm: coi khoảng cách giữa hai đồ thị \\((3x+3)-(x^2+3)=3x-x^2\\) như bán kính duy nhất của khối tròn xoay và áp dụng \\(V=\\pi\\int_0^3(3x-x^2)^2dx\\). Khi đó \\(\\int_0^3(3x-x^2)^2dx=\\int_0^3(x^4-6x^3+9x^2)dx=\\frac{243}{5}-\\frac{243}{2}+81=\\frac{81}{10}\\), nên ra \\(\\frac{81\\pi}{10}\\).",
+        "C": "Sai lầm: nhầm công thức thể tích khối tròn xoay và tính như diện tích hình phẳng giữa hai đồ thị. Học sinh lấy hiệu hai hàm \\((3x+3)-(x^2+3)=3x-x^2\\) rồi tính \\(S=\\int_0^3(3x-x^2)dx\\). Kết quả là \\(\\left[\\frac{3x^2}{2}-\\frac{x^3}{3}\\right]_0^3=\\frac{27}{2}-9=\\frac{9}{2}\\), sau đó gắn thêm hệ số \\(\\pi\\) và được \\(\\frac{9\\pi}{2}\\).",
+        "D": "Sai lầm: khi quay miền phẳng giới hạn bởi hai đồ thị quanh trục \\(Ox\\), chỉ lấy thể tích do đường ngoài tạo ra mà quên trừ phần rỗng do đường trong tạo ra. Học sinh tính \\(V=\\pi\\int_0^3(3x+3)^2dx\\). Ta có \\(\\int_0^3(3x+3)^2dx=\\int_0^3(9x^2+18x+9)dx=81+81+27=189\\), nên thu được \\(189\\pi\\). Cách làm sai vì phải dùng hiệu hai bình phương bán kính \\((3x+3)^2-(x^2+3)^2\\)."
+      },
+      "hint": "Hai đồ thị cắt nhau tại các điểm có hoành độ tìm được từ phương trình \\(x^2+3=3x+3\\).",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Thể tích khối tròn xoay được sinh ra khi quay hình phẳng giới hạn bởi các đường \\(y=f(x)\\), trục hoành và hai đường thẳng \\(x=a,x=b\\), quanh trục \\(Ox\\):",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "consistency_confirmed",
+        "status_label_vi": "Nhất quán với biểu thức kiểm chứng (chưa có kiểm chứng độc lập)",
+        "status_label_en": "Consistent with its verification expression (no independent check)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": false,
+          "derivation": false,
+          "value": null,
+          "expression": "pi*integrate((3*x+3)**2-(x**2+3)**2,(x,0,3))",
+          "stated_answer": "369*pi/5",
+          "stated_value": 231.84953783492674,
+          "source": "llm_resolver",
+          "detail": "tác nhân độc lập tự mâu thuẫn: biểu thức cho 186.611 nhưng đáp án tự khai là 231.85",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "297*pi/5",
+            "expected_numeric": 14.137166941154069
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức kiểm chứng của Writer khớp đáp án key; chưa có nguồn độc lập (tác nhân độc lập tự mâu thuẫn: biểu thức cho 186.611 nhưng đáp án tự khai là 231.85)",
+        "verified_at": "2026-07-30T02:05:23.072090Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9166666666666666,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.92,
+            "rationale": "Đề nêu rõ miền giới hạn, trục quay và yêu cầu tính thể tích nên không gây nhầm mục tiêu."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu xác định giao điểm, chọn công thức và thực hiện tích phân, phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác áp dụng công thức thể tích khối tròn xoay vào tình huống mới đúng với mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến khi quên bán kính trong, nhầm chiều cao hoặc nhầm diện tích với thể tích."
+          },
+          "answer_uniqueness": {
+            "score": 0.95,
+            "rationale": "Chỉ có đáp án tính theo tích phân hiệu hai bình phương bán kính cho kết quả đúng, các distractor đều sai bản chất."
+          },
+          "error_distractor_consistency": {
+            "score": 0.98,
+            "rationale": "Chuỗi tính toán của ba distractor cho đúng các giá trị đã nêu và phần giải thích thống nhất với đáp án đúng."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9166666666666666,
+        "verifier_pass": true,
+        "critic_score": 0.9166666666666666,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Hai đồ thị cắt nhau tại các điểm có hoành độ tìm được từ phương trình \\(x^2+3=3x+3\\). Sau khi xác định khoảng quay, áp dụng công thức thể tích khối tròn xoay quanh trục \\(Ox\\): \\(V=\\pi\\int_a^b(f^2(x)-g^2(x))dx\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Tìm giới hạn của miền phẳng bằng cách giải phương trình giao điểm: \\(x^2+3=3x+3\\), suy ra \\(x^2-3x=0\\), nên \\(x=0\\) hoặc \\(x=3\\). Vậy miền xét trên đoạn \\([0;3]\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Trên đoạn \\([0;3]\\), ta có \\(3x+3\\ge x^2+3\\), nên khi quay quanh trục \\(Ox\\), bán kính ngoài là \\(3x+3\\) và bán kính trong là \\(x^2+3\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Dùng công thức thể tích khối tròn xoay quanh trục \\(Ox\\): \\(V=\\pi\\int_0^3\\left((3x+3)^2-(x^2+3)^2\\right)dx\\). Khai triển biểu thức trong dấu tích phân: \\((3x+3)^2-(x^2+3)^2=-x^4-3x^2+18x+0\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Tính tích phân: \\(\\int_0^3(-x^4-3x^2+18x)dx=\\left[-\\frac{x^5}{5}-x^3+9x^2\\right]_0^3=-\\frac{243}{5}-27+81=\\frac{297}{5}\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Suy ra thể tích khối tròn xoay là \\(V=\\pi\\cdot\\frac{297}{5}=\\frac{297\\pi}{5}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{297\\pi}{5}\\)"
+      },
+      "why_correct": "Miền phẳng được xác định đúng bằng hai giao điểm \\(x=0,x=3\\); vì hai đường cong cùng nằm phía trên trục \\(Ox\\) nên công thức hiệu hai bình phương bán kính được áp dụng. Kết quả tích phân cho đúng thể tích cần tìm.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Sai lầm: coi khoảng cách giữa hai đồ thị \\((3x+3)-(x^2+3)=3x-x^2\\) như bán kính duy nhất của khối tròn xoay và áp dụng \\(V=\\pi\\int_0^3(3x-x^2)^2dx\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: nhầm công thức thể tích khối tròn xoay và tính như diện tích hình phẳng giữa hai đồ thị. Học sinh lấy hiệu hai hàm \\((3x+3)-(x^2+3)=3x-x^2\\) rồi tính \\(S=\\int_0^3(3x-x^2)dx\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: khi quay miền phẳng giới hạn bởi hai đồ thị quanh trục \\(Ox\\), chỉ lấy thể tích do đường ngoài tạo ra mà quên trừ phần rỗng do đường trong tạo ra. Học sinh tính \\(V=\\pi\\int_0^3(3x+3)^2dx\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_4d4c0300",
+      "blueprint_slot_id": "direct_pdf_9",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.47,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 102,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Cho hình phẳng giới hạn bởi hai đồ thị \\(y=x^2+3x+2\\) và \\(y=5x+2\\). Tính diện tích của hình phẳng đó.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{2}{3}\\)",
+          "error_type": "wrong_intersection_range"
+        },
+        {
+          "key": "B",
+          "text": "\\(-\\frac{4}{3}\\)",
+          "error_type": "area_no_absolute"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{4}{3}\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{80}{3}\\)",
+          "error_type": "area_use_sum_of_functions"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Hai đồ thị cắt nhau tại các điểm có hoành độ tìm được từ phương trình \\(x^2+3x+2=5x+2\\), sau đó áp dụng công thức diện tích giữa hai đường cong.",
+      "explanation_per_distractor": {
+        "A": "Học sinh giải phương trình giao điểm sai và cho rằng hai đồ thị cắt nhau tại \\(x=0\\) và \\(x=1\\), nên lấy sai khoảng tính diện tích: \\(S=\\int_0^1\\left[(5x+2)-(x^2+3x+2)\\right]dx=\\int_0^1(2x-x^2)dx=\\left(x^2-\\frac{x^3}{3}\\right)_0^1=\\frac{2}{3}\\). Sai vì phương trình giao điểm đúng là \\(x^2-2x=0\\), cho \\(x=0\\) và \\(x=2\\).",
+        "B": "Học sinh lấy diện tích bằng tích phân trực tiếp của hiệu hai hàm mà không xét giá trị dương của diện tích: tính \\(S=\\int_0^2\\left[(x^2+3x+2)-(5x+2)\\right]dx=\\int_0^2(x^2-2x)dx=\\left(\\frac{x^3}{3}-x^2\\right)_0^2=-\\frac{4}{3}\\). Sai vì diện tích hình phẳng phải lấy giá trị tuyệt đối của hiệu hai đồ thị.",
+        "D": "Học sinh nhầm công thức diện tích giữa hai đường cong thành tích phân tổng hai hàm: \\(S=\\int_0^2\\left[(x^2+3x+2)+(5x+2)\\right]dx=\\int_0^2(x^2+8x+4)dx=\\left(\\frac{x^3}{3}+4x^2+4x\\right)_0^2=\\frac{80}{3}\\). Sai vì diện tích giữa hai đồ thị phải dùng hiệu giữa hàm trên và hàm dưới, không phải tổng hai hàm."
+      },
+      "hint": "Hai đồ thị cắt nhau tại các điểm có hoành độ tìm được từ phương trình \\(x^2+3x+2=5x+2\\), sau đó áp dụng công thức diện tí",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Diện tích của hình phẳng giới hạn bởi đồ thị hàm số f x và g x và hai đường thẳng x = a, x = b được tính: S = ∫|f(x)-g(x)|dx",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 1.3333333333333333,
+          "expression": "integrate((5*x+2)-(x**2+3*x+2), (x, 0, 2))",
+          "stated_answer": "4/3",
+          "stated_value": 1.3333333333333333,
+          "source": "llm_resolver",
+          "detail": "integrate((5*x+2)-(x**2+3*x+2), (x, 0, 2)) = 1.33333",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "4/3",
+            "expected_numeric": 26.666666666666668
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 1.33333, khớp đáp án key",
+        "verified_at": "2026-07-30T02:06:15.393958Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9249999999999999,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ hai đồ thị cần xét và yêu cầu tính diện tích hình phẳng nên mục tiêu giải không mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.72,
+            "rationale": "Câu hỏi yêu cầu xác định giao điểm và áp dụng công thức diện tích giữa hai đường cong, phù hợp mức vận dụng đơn giản hơn là chỉ nhớ công thức."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là hiểu và áp dụng công thức diện tích tích phân vào một tình huống cụ thể, phù hợp mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.95,
+            "rationale": "Các phương án sai đều mô phỏng lỗi phổ biến như quên trị tuyệt đối, sai cận giao điểm và dùng tổng hàm thay hiệu hàm."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(\\frac{4}{3}\\) đúng khi tính diện tích trên khoảng giao điểm \\([0,2]\\), các phương án còn lại đều xuất phát từ sai sót xác định."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Ba chuỗi lỗi đều dẫn đúng tới giá trị distractor đã nêu và phần giải thích khẳng định nhất quán với đáp án \\(\\frac{4}{3}\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9249999999999999,
+        "verifier_pass": true,
+        "critic_score": 0.9249999999999999,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Hai đồ thị cắt nhau tại các điểm có hoành độ tìm được từ phương trình \\(x^2+3x+2=5x+2\\), sau đó áp dụng công thức diện tích giữa hai đường cong.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Tìm giao điểm của hai đồ thị bằng cách giải \\(x^2+3x+2=5x+2\\), suy ra \\(x^2-2x=0\\), nên \\(x=0\\) hoặc \\(x=2\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Trên đoạn \\([0;2]\\), ta có \\(5x+2-(x^2+3x+2)=2x-x^2\\geq0\\), nên đường thẳng \\(y=5x+2\\) nằm phía trên parabol."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Diện tích hình phẳng là \\(S=\\int_0^2\\left(2x-x^2\\right)dx\\). Tính được \\(S=\\left(x^2-\\frac{x^3}{3}\\right)\\big|_0^2=4-\\frac{8}{3}=\\frac{4}{3}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{4}{3}\\)"
+      },
+      "why_correct": "Khoảng giới hạn của hình phẳng phải lấy từ hai giao điểm \\(x=0\\) và \\(x=2\\), đồng thời phải lấy hiệu giữa hàm trên và hàm dưới nên chỉ có kết quả \\(\\frac{4}{3}\\) là phù hợp.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Học sinh giải phương trình giao điểm sai và cho rằng hai đồ thị cắt nhau tại \\(x=0\\) và \\(x=1\\), nên lấy sai khoảng tính diện tích:"
+        },
+        {
+          "option": "B",
+          "reason": "Học sinh lấy diện tích bằng tích phân trực tiếp của hiệu hai hàm mà không xét giá trị dương của diện tích: tính"
+        },
+        {
+          "option": "D",
+          "reason": "Học sinh nhầm công thức diện tích giữa hai đường cong thành tích phân tổng hai hàm: \\(S=\\int_0^2\\left[(x^2+3x+2)+(5x+2)\\right]dx=\\int_0^2(x^2+8x+4)dx=\\left(\\frac{x^3}{3}+4x^2+4x\\right)_0^2=\\frac{80}{3}\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_9009e3ec",
+      "blueprint_slot_id": "direct_pdf_10",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 209,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một nhà thiết kế cần tính giá trị tích lũy của một đại lượng biến thiên trên đoạn thời gian \\(x\\in[0;5]\\). Đại lượng thực tế được mô hình hóa bởi hàm số \\(h(x)=\\min\\{x^2,6x-5\\}\\). Tính \\(I=\\int_0^5 h(x)\\,dx\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{125}{3}\\)",
+          "error_type": "min_ignore_branch_x2"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{118}{3}\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(41\\)",
+          "error_type": "wrong_intersection_point"
+        },
+        {
+          "key": "D",
+          "text": "\\(50\\)",
+          "error_type": "min_ignore_branch_linear"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Ta phải xác định đoạn nào hàm \\(x^2\\) hoặc \\(6x-5\\) nhỏ hơn trước khi tính tích phân. Giải phương trình giao điểm cho thấy điểm đổi biểu thức tại \\(x=1\\), từ đó tách tích phân và tính được kết quả.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: bỏ qua phép lấy giá trị nhỏ nhất và cho rằng \\(h(x)=x^2\\) trên toàn bộ đoạn \\([0;5]\\). Khi đó tính \\(I=\\int_0^5 x^2\\,dx=\\left.\\frac{x^3}{3}\\right|_0^5=\\frac{125}{3}\\). Kết quả này sai vì trên đoạn \\([0;1]\\), hàm \\(6x-5\\) mới là giá trị nhỏ hơn.",
+        "C": "Sai lầm: giải sai phương trình giao điểm và lấy điểm đổi biểu thức là \\(x=2\\) thay vì \\(x=1\\). Làm theo lỗi này sẽ tách \\(I=\\int_0^2(6x-5)\\,dx+\\int_2^5x^2\\,dx\\). Tính được \\(\\int_0^2(6x-5)\\,dx=\\left.(3x^2-5x)\\right|_0^2=2\\) và \\(\\int_2^5x^2\\,dx=\\left.\\frac{x^3}{3}\\right|_2^5=\\frac{117}{3}=39\\), nên \\(I=2+39=41\\).",
+        "D": "Sai lầm: chọn nhầm nhánh của hàm min và dùng \\(h(x)=6x-5\\) trên toàn bộ đoạn \\([0;5]\\). Khi đó \\(I=\\int_0^5(6x-5)\\,dx=\\left.(3x^2-5x)\\right|_0^5=75-25=50\\). Kết quả sai vì sau điểm giao nhau \\(x=1\\), giá trị nhỏ hơn phải là \\(x^2\\), không phải \\(6x-5\\)."
+      },
+      "hint": "Ta phải xác định đoạn nào hàm \\(x^2\\) hoặc \\(6x-5\\) nhỏ hơn trước khi tính tích phân.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Bước 1. Giải phương trình \\(f x g x x a b          ;\n \n thì nhận nghiệm đó.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 39.333333333333336,
+          "expression": "integrate(6*x-5,(x,0,1))+integrate(x**2,(x,1,5))",
+          "stated_answer": "118/3",
+          "stated_value": 39.333333333333336,
+          "source": "llm_resolver",
+          "detail": "integrate(6*x-5,(x,0,1))+integrate(x**2,(x,1,5)) = 39.3333",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "integrate(6*t-5,(t,0,1))+integrate(t**2,(t,1,5))",
+            "expected_numeric": 41
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 39.3333, khớp đáp án key",
+        "verified_at": "2026-07-30T02:06:15.395898Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.92,
+        "quality": 0.955,
+        "bloom_alignment": 0.95,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài xác định rõ hàm min, đoạn lấy tích phân và yêu cầu tính một giá trị duy nhất nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.88,
+            "rationale": "Bài yêu cầu kết hợp nhận dạng hàm min, tìm điểm đổi nhánh và tính tích phân nên phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.95,
+            "rationale": "Thao tác thực tế cần áp dụng quy trình đã học để giải quyết bài toán mới với số liệu thay đổi, đúng mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.92,
+            "rationale": "Các phương án sai đều mô phỏng lỗi phổ biến như bỏ qua min, chọn sai nhánh hoặc sai giao điểm và dùng cùng ngữ cảnh tích phân."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có một cách phân hoạch đúng tại giao điểm \\(x=1\\) cho kết quả \\(\\frac{118}{3}\\), các phương án còn lại xuất phát từ lỗi giải."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Ba chuỗi lỗi được mô tả đều dẫn đúng đến các giá trị distractor và phần giải thích đáp án nhất quán với đáp án đã cho."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.955,
+        "verifier_pass": true,
+        "critic_score": 0.955,
+        "grounding_score": 0.92,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Ta phải xác định đoạn nào hàm \\(x^2\\) hoặc \\(6x-5\\) nhỏ hơn trước khi tính tích phân. Giải phương trình giao điểm cho thấy điểm đổi biểu thức tại \\(x=1\\), từ đó tách tích phân và tính được kết quả.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Tìm các điểm đổi biểu thức bằng cách giải \\(x^2=6x-5\\). Ta có \\(x^2-6x+5=0\\Rightarrow (x-1)(x-5)=0\\), nên các nghiệm trên đoạn \\([0;5]\\) là \\(x=1\\) và \\(x=5\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Xét hiệu \\(x^2-(6x-5)=(x-1)(x-5)\\). Trên \\([0;1]\\), tích này không âm nên \\(x^2\\ge 6x-5\\), do đó hàm nhỏ hơn là \\(6x-5\\). Trên \\([1;5]\\), tích này không dương nên hàm nhỏ hơn là \\(x^2\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tách tích phân theo điểm đổi biểu thức: \\(I=\\int_0^1(6x-5)\\,dx+\\int_1^5x^2\\,dx\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Tính từng phần: \\(\\int_0^1(6x-5)\\,dx=\\left(3x^2-5x\\right)_0^1=-2\\), và \\(\\int_1^5x^2\\,dx=\\left(\\frac{x^3}{3}\\right)_1^5=\\frac{124}{3}\\). Vì vậy \\(I=-2+\\frac{124}{3}=\\frac{118}{3}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{118}{3}\\)"
+      },
+      "why_correct": "Giá trị của hàm min thay đổi tại các nghiệm giao nhau của hai biểu thức. Việc xét dấu hiệu \\(x^2-(6x-5)\\) xác định đúng hàm cần lấy trên từng khoảng nên kết quả tích phân là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: bỏ qua phép lấy giá trị nhỏ nhất và cho rằng \\(h(x)=x^2\\) trên toàn bộ đoạn \\([0;5]\\). Khi đó tính \\(I=\\int_0^5 x^2\\,dx=\\left.\\frac{x^3}{3}\\right|_0^5=\\frac{125}{3}\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: giải sai phương trình giao điểm và lấy điểm đổi biểu thức là \\(x=2\\) thay vì \\(x=1\\). Làm theo lỗi này sẽ tách \\(I=\\int_0^2(6x-5)\\,dx+\\int_2^5x^2\\,dx\\). Tính được"
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: chọn nhầm nhánh của hàm min và dùng \\(h(x)=6x-5\\) trên toàn bộ đoạn \\([0;5]\\). Khi đó \\(I=\\int_0^5(6x-5)\\,dx=\\left.(3x^2-5x)\\right|_0^5=75-25=50\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_3ee39053",
+      "blueprint_slot_id": "direct_pdf_11",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 239,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Cho hai đồ thị \\(y=x^2-mx+7\\) và \\(y=2x+2\\). Biết miền phẳng giới hạn bởi hai đồ thị này có hai điểm giao nhau với hoành độ lần lượt là \\(x=1\\) và \\(x=5\\). Tìm giá trị của \\(m\\), sau đó tính diện tích miền phẳng giới hạn bởi hai đồ thị đó.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{32}{3}\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{832}{15}\\)",
+          "error_type": "square_difference_instead_of_difference"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{4}{3}\\)",
+          "error_type": "wrong_root_relation_for_parameter"
+        },
+        {
+          "key": "D",
+          "text": "\\(-\\frac{32}{3}\\)",
+          "error_type": "area_no_absolute"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Từ điều kiện giao điểm suy ra phương trình hoành độ giao điểm có hai nghiệm đã biết, nhờ đó tìm được tham số \\(m\\). Sau đó xác định thứ tự hai đồ thị trên đoạn giao nhau và tính diện tích bằng tích phân hiệu hai hàm số.",
+      "explanation_per_distractor": {
+        "B": "Học sinh nhầm công thức diện tích giữa hai đồ thị thành tích phân bình phương khoảng cách theo phương thẳng đứng, nên dùng \\(S=\\int_1^5\\left((x^2-6x+5)^2\\right)dx\\). Khai triển \\( (x^2-6x+5)^2=((x-3)^2-4)^2\\), đặt \\(u=x-3\\) trên đoạn \\([-2,2]\\), ta được \\(\\int_{-2}^{2}(u^4-8u^2+16)du=\\frac{832}{15}\\).",
+        "C": "Học sinh dùng sai quan hệ giữa hai nghiệm \\(1,5\\) của phương trình hoành độ giao điểm, lấy tích hai nghiệm \\(1\\cdot5=5\\) thay cho tổng hai nghiệm để suy ra \\(m+2=5\\), do đó \\(m=3\\). Sau đó thay \\(m=3\\) vào hiệu hai hàm được \\(x^2-5x+5\\) và tính sai diện tích bằng \\(\\int_1^5(x^2-5x+5)dx=\\left[\\frac{x^3}{3}-\\frac{5x^2}{2}+5x\\right]_1^5=\\frac{4}{3}\\).",
+        "D": "Sau khi tìm được \\(m=4\\), học sinh lập hiệu hai hàm là \\(x^2-6x+5\\) rồi tính diện tích bằng \\(∫_1^5(x^2-6x+5)dx\\) mà không xét dấu. Vì \\(x^2-6x+5\\le0\\) trên \\([1,5]\\), phép tính sai này cho \\(\\left[\\frac{x^3}{3}-3x^2+5x\\right]_1^5=-\\frac{32}{3}\\), nhưng đây là tích phân có dấu chứ không phải diện tích."
+      },
+      "hint": "Từ điều kiện giao điểm suy ra phương trình hoành độ giao điểm có hai nghiệm đã biết, nhờ đó tìm được tham số \\(m\\).",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Diện tích của hình phẳng giới hạn bởi đồ thị hàm số \\(f(x)\\) và \\(g(x)\\) và hai đường thẳng \\(x=a, x=b\\) được tính: \\(S=\\int_a^b|f(x)-g(x)|dx\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 10.666666666666666,
+          "expression": "integrate(-x**2+6*x-5, (x, 1, 5))",
+          "stated_answer": "32/3",
+          "stated_value": 10.666666666666666,
+          "source": "llm_resolver",
+          "detail": "integrate(-x**2+6*x-5, (x, 1, 5)) = 10.6667",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "32/3",
+            "expected_numeric": 1.3333333333333333
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 10.6667, khớp đáp án key",
+        "verified_at": "2026-07-30T02:06:31.260095Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.5,
+        "quality": 0.9333333333333332,
+        "bloom_alignment": 0.85,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài nêu rõ hai đồ thị, giao điểm, yêu cầu tìm tham số và diện tích nên mục tiêu giải không mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.9,
+            "rationale": "Bài yêu cầu kết hợp lập phương trình giao điểm, xác định tham số và xử lý tích phân diện tích nên phù hợp mức vận dụng cao."
+          },
+          "bloom_alignment": {
+            "score": 0.85,
+            "rationale": "Thao tác chính là vận dụng nhiều kiến thức đã học để giải quyết bài toán mới chứ không chỉ áp dụng công thức trực tiếp."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai tương ứng với lỗi bỏ dấu giá trị tuyệt đối, dùng bình phương hiệu và sai hệ thức nghiệm đều là lỗi thường gặp."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có kết quả diện tích dương duy nhất phù hợp với công thức diện tích, các phương án còn lại không thể là đáp án đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Các chuỗi lỗi mô tả đều dẫn đúng đến từng giá trị distractor và phần giải thích đáp án nhất quán với kết quả đã cho."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9333333333333332,
+        "verifier_pass": true,
+        "critic_score": 0.9333333333333332,
+        "grounding_score": 0.5,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Từ điều kiện giao điểm suy ra phương trình hoành độ giao điểm có hai nghiệm đã biết, nhờ đó tìm được tham số \\(m\\). Sau đó xác định thứ tự hai đồ thị trên đoạn giao nhau và tính diện tích bằng tích phân hiệu hai hàm số.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Hoành độ giao điểm thỏa mãn \\(x^2-mx+7=2x+2\\), nên có phương trình \\(x^2-(m+2)x+5=0\\). Hai nghiệm của phương trình này là \\(1\\) và \\(5\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Theo hệ thức Viète, tổng hai nghiệm bằng \\(m+2\\), do đó \\(1+5=m+2\\), suy ra \\(m=4\\). Khi đó hiệu hai hàm số là \\(x^2-4x+7-(2x+2)=x^2-6x+5=(x-1)(x-5)\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Trên đoạn \\([1;5]\\), ta có \\((x-1)(x-5)\\le 0\\), nên \\(y=2x+2\\) nằm phía trên \\(y=x^2-4x+7\\). Diện tích cần tìm là \\(S=\\int_1^5\\left[(2x+2)-(x^2-4x+7)\\right]dx\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Rút gọn biểu thức dưới dấu tích phân: \\(S=\\int_1^5(-x^2+6x-5)dx\\). Nguyên hàm là \\(-\\frac{x^3}{3}+3x^2-5x\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Tính giá trị tại hai cận: \\(S=\\left(-\\frac{5^3}{3}+3\\cdot5^2-5\\cdot5\\right)-\\left(-\\frac{1^3}{3}+3\\cdot1^2-5\\cdot1\\right)=\\frac{25}{3}-\\left(-\\frac{7}{3}\\right)=\\frac{32}{3}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{32}{3}\\)"
+      },
+      "why_correct": "Điều kiện hai hoành độ giao điểm xác định duy nhất tham số \\(m\\). Sau khi thay \\(m\\), dấu của hiệu hai hàm số trên đoạn giao nhau được xét đầy đủ nên tích phân tính diện tích không bị sai dấu.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Học sinh nhầm công thức diện tích giữa hai đồ thị thành tích phân bình phương khoảng cách theo phương thẳng đứng, nên dùng \\(S=\\int_1^5\\left((x^2-6x+5)^2\\right)dx\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Học sinh dùng sai quan hệ giữa hai nghiệm \\(1,5\\) của phương trình hoành độ giao điểm, lấy tích hai nghiệm \\(1\\cdot5=5\\) thay cho tổng hai nghiệm để suy ra \\(m+2=5\\), do đó \\(m=3\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sau khi tìm được \\(m=4\\), học sinh lập hiệu hai hàm là \\(x^2-6x+5\\) rồi tính diện tích bằng \\(∫_1^5(x^2-6x+5)dx\\) mà không xét dấu. Vì \\(x^2-6x+5\\le0\\) trên \\([1,5]\\), phép tính sai này cho"
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_e0438eca",
+      "blueprint_slot_id": "direct_pdf_13",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 159,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(f(x)\\) liên tục trên đoạn \\([1;5]\\) và thỏa mãn \\(f(x)+f(6-x)=2x+1\\) với mọi \\(x\\in[1;5]\\). Tính giá trị của tích phân \\(I=\\int_{1}^{5}f(x)\\,dx\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(28\\)",
+          "error_type": "forget_symmetry_factor"
+        },
+        {
+          "key": "B",
+          "text": "\\(-14\\)",
+          "error_type": "forget_substitution_sign"
+        },
+        {
+          "key": "C",
+          "text": "\\(15\\)",
+          "error_type": "forget_lower_limit_evaluation"
+        },
+        {
+          "key": "D",
+          "text": "\\(14\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Đổi biến \\(x\\) thành \\(6-x\\) trong tích phân để tạo biểu thức đối xứng. Khi cộng hai biểu thức tích phân thu được \\(2I=\\int_{1}^{5}(2x+1)\\,dx\\), từ đó tính được \\(I=14\\).",
+      "explanation_per_distractor": {
+        "A": "Từ \\(I=\\int_{1}^{5}f(x)\\,dx\\), người làm sai cộng hai biểu thức nhưng quên hệ số của vế trái, viết nhầm \\(I=\\int_{1}^{5}(2x+1)\\,dx\\). Tính \\(\\int_{1}^{5}(2x+1)\\,dx=[x^2+x]_{1}^{5}=28\\), nên suy ra sai \\(I=28\\). Sai vì thực tế phải có \\(2I=28\\).",
+        "B": "Khi đổi biến trong biểu thức đối xứng, người làm đặt \\(t=6-x\\) nên \\(dx=-dt\\), nhưng quên dấu âm của vi phân. Họ tính nhầm tích phân tổng thành \\(2I=\\int_{5}^{1}(2x+1)\\,dx\\). Do \\([x^2+x]_{5}^{1}=2-30=-28\\), suy ra sai \\(I=-14\\). Sai vì khi đổi biến phải xử lý đúng dấu của \\(dx=-dt\\).",
+        "C": "Người làm tính đúng dạng \\(2I=\\int_{1}^{5}(2x+1)\\,dx\\) nhưng khi thế cận vào nguyên hàm \\(x^2+x\\) lại quên trừ giá trị tại cận dưới, chỉ lấy \\(5^2+5=30\\). Khi đó họ có \\(2I=30\\) và suy ra sai \\(I=15\\). Sai vì phải tính đầy đủ \\([x^2+x]_{1}^{5}=(25+5)-(1+1)=28\\)."
+      },
+      "hint": "Đổi biến \\(x\\) thành \\(6-x\\) trong tích phân để tạo biểu thức đối xứng. Khi cộng hai biểu thức tích phân thu được",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Nếu f(x) liên tục trên đoạn [a;b] thì tích phân",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 14.0,
+          "expression": "integrate(2*x+1, (x, 1, 5))/2",
+          "stated_answer": "14",
+          "stated_value": 14.0,
+          "source": "llm_resolver",
+          "detail": "integrate(2*x+1, (x, 1, 5))/2 = 14",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "14",
+            "expected_numeric": 15
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 14, khớp đáp án key",
+        "verified_at": "2026-07-30T02:07:38.770044Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.82,
+        "quality": 0.9183333333333333,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.96,
+            "rationale": "Đề cho đủ điều kiện xác định và yêu cầu tính một giá trị tích phân duy nhất, không có cách hiểu mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.78,
+            "rationale": "Bài yêu cầu nhận ra đối xứng và vận dụng biến đổi tích phân chứ không chỉ áp dụng công thức trực tiếp."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là hiểu mối liên hệ giữa điều kiện hàm và tính chất tích phân để suy ra kết quả, phù hợp mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với những lỗi tính toán phổ biến khi dùng đối xứng, đổi biến và tính nguyên hàm."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(14\\) thỏa mãn vì từ điều kiện suy ra \\(2I=\\int_1^5(2x+1)dx=28\\), các đáp án khác đều sai."
+          },
+          "error_distractor_consistency": {
+            "score": 0.97,
+            "rationale": "Ba chuỗi lỗi được mô tả lần lượt cho ra đúng \\(28\\), \\(-14\\), \\(15\\), đồng thời phần giải thích nhất quán với đáp án \\(14\\)."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9183333333333333,
+        "verifier_pass": true,
+        "critic_score": 0.9183333333333333,
+        "grounding_score": 0.82,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Đổi biến \\(x\\) thành \\(6-x\\) trong tích phân để tạo biểu thức đối xứng. Khi cộng hai biểu thức tích phân thu được \\(2I=\\int_{1}^{5}(2x+1)\\,dx\\), từ đó tính được \\(I=14\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Đặt \\(I=\\int_{1}^{5}f(x)\\,dx\\). Đổi biến \\(t=6-x\\), khi đó tích phân không đổi cận nên \\(I=\\int_{1}^{5}f(6-x)\\,dx\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Cộng hai biểu thức của \\(I\\): \\(2I=\\int_{1}^{5}[f(x)+f(6-x)]\\,dx\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thay điều kiện \\(f(x)+f(6-x)=2x+1\\), ta được \\(2I=\\int_{1}^{5}(2x+1)\\,dx\\). Tính tích phân: \\(\\int_{1}^{5}(2x+1)\\,dx=[x^2+x]_{1}^{5}=30-2=28\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Suy ra \\(2I=28\\), do đó \\(I=14\\)."
+          }
+        ],
+        "final_answer": "\\(14\\)"
+      },
+      "why_correct": "Vì phép đổi biến tạo được quan hệ đối xứng giữa \\(f(x)\\) và \\(f(6-x)\\), nên tích phân ban đầu được xác định duy nhất từ điều kiện đã cho.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Từ \\(I=\\int_{1}^{5}f(x)\\,dx\\), người làm sai cộng hai biểu thức nhưng quên hệ số của vế trái, viết nhầm \\(I=\\int_{1}^{5}(2x+1)\\,dx\\). Tính \\(\\int_{1}^{5}(2x+1)\\,dx=[x^2+x]_{1}^{5}=28\\), nên suy ra sai \\(I=28\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Khi đổi biến trong biểu thức đối xứng, người làm đặt \\(t=6-x\\) nên \\(dx=-dt\\), nhưng quên dấu âm của vi phân. Họ tính nhầm tích phân tổng thành \\(2I=\\int_{5}^{1}(2x+1)\\,dx\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Người làm tính đúng dạng \\(2I=\\int_{1}^{5}(2x+1)\\,dx\\) nhưng khi thế cận vào nguyên hàm \\(x^2+x\\) lại quên trừ giá trị tại cận dưới, chỉ lấy \\(5^2+5=30\\). Khi đó họ có \\(2I=30\\) và suy ra sai \\(I=15\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_c05deb3f",
+      "blueprint_slot_id": "direct_pdf_14",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.88,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 269,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Một bồn chứa dạng khối tròn xoay được tạo bởi việc quay hình phẳng giới hạn bởi đồ thị \\(y=m(x^2+1)\\), trục \\(Ox\\) và hai đường thẳng \\(x=1\\), \\(x=3\\) quanh trục \\(Ox\\), trong đó \\(m>0\\). Biết thể tích của bồn là \\(\\frac{254\\pi}{15}\\). Giá trị của \\(m\\) bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{1}{4}\\)",
+          "error_type": "forget_square_parameter"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{1}{2}\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{3}{2}\\)",
+          "error_type": "integration_bounds_error"
+        },
+        {
+          "key": "D",
+          "text": "\\(-\\frac{1}{2}\\)",
+          "error_type": "missing_positive_condition"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Áp dụng công thức thể tích khối tròn xoay quanh trục \\(Ox\\), ta lập được phương trình theo tham số \\(m\\). Sau khi tính tích phân và giải phương trình tham số, thu được \\(m=\\frac{1}{2}\\).",
+      "explanation_per_distractor": {
+        "A": "Sai ở bước lập thể tích: thay vì dùng \\(V=\\pi\\int_1^3\\left(m(x^2+1)\\right)^2dx=m^2\\pi\\int_1^3(x^2+1)^2dx\\), người làm quên bình phương hệ số \\(m\\), lấy \\(V=m\\pi\\cdot\\frac{1016}{15}\\). Từ đó giải \\(m\\cdot\\frac{1016}{15}=\\frac{254}{15}\\) được \\(m=\\frac{1}{4}\\). Sai vì bán kính khi quay phải được bình phương.",
+        "C": "Sai do tính tích phân với cận bị giữ/đổi nhầm: người làm tính \\(\\int_0^3(x^2+1)^2dx\\) thay vì \\(\\int_1^3(x^2+1)^2dx\\). Khi đó tích phân bằng \\(\\frac{348}{5}\\), lập \\(m^2\\frac{348}{5}=\\frac{254}{15}\\) rồi suy ra \\(m=\\sqrt{\\frac{127}{522}}\\), không cho đáp án này; sau khi làm tròn hoặc biến đổi sai tiếp tục lấy nhầm giá trị gần \\(\\frac{3}{2}\\).",
+        "D": "Giải sai bằng cách chỉ dùng phương trình sau khi tính thể tích: \\(m^2=\\frac{1}{4}\\) rồi lấy nghiệm âm \\(m=-\\sqrt{\\frac{1}{4}}=-\\frac{1}{2}\\), mà bỏ qua điều kiện \\(m>0\\). Sai vì điều kiện của đề loại nghiệm âm."
+      },
+      "hint": "Áp dụng công thức thể tích khối tròn xoay quanh trục \\(Ox\\), ta lập được phương trình theo tham số \\(m\\).",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Thể tích khối tròn xoay được sinh ra khi quay hình phẳng giới hạn bởi các đường \\(y=f(x)\\), trục hoành và hai đường thẳng \\(x=a,x=b\\) quanh trục \\(Ox\\): \\(V=\\int_a^b(f(x))^2dx\\)",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 0.5,
+          "expression": "sqrt(254/1016)",
+          "stated_answer": "1/2",
+          "stated_value": 0.5,
+          "source": "llm_resolver",
+          "detail": "sqrt(254/1016) = 0.5",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "1/2",
+            "expected_numeric": 1.5
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 0.5, khớp đáp án key",
+        "verified_at": "2026-07-30T02:07:38.770044Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.8416666666666667,
+        "bloom_alignment": 0.8,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài nêu đầy đủ hình phẳng, trục quay, điều kiện tham số và thể tích nên yêu cầu tìm m là rõ ràng."
+          },
+          "cognitive_depth": {
+            "score": 0.9,
+            "rationale": "Bài yêu cầu kết hợp nhận dạng công thức, lập tích phân, tính toán và xử lý điều kiện tham số nên phù hợp mức vận dụng cao."
+          },
+          "bloom_alignment": {
+            "score": 0.8,
+            "rationale": "Hoạt động chính là áp dụng công thức thể tích khối tròn xoay vào tình huống mới, có tính toán suy luận nhưng chưa vượt quá vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.85,
+            "rationale": "Các phương án sai gắn với lỗi thường gặp như quên điều kiện, quên bình phương tham số và sai cận tích phân."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Từ công thức trong nguồn suy ra \\(m^2=\\frac{1}{4}\\), kết hợp \\(m>0\\) chỉ còn một đáp án đúng là \\(\\frac{1}{2}\\)."
+          },
+          "error_distractor_consistency": {
+            "score": 0.55,
+            "rationale": "Giải thích của distractor đầu và thứ hai dẫn đúng đến giá trị nêu ra, nhưng distractor thứ ba mô tả phép tính không tạo ra \\(\\frac{3}{2}\\) nên thiếu nhất quán."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8416666666666667,
+        "verifier_pass": true,
+        "critic_score": 0.8416666666666667,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Áp dụng công thức thể tích khối tròn xoay quanh trục \\(Ox\\), ta lập được phương trình theo tham số \\(m\\). Sau khi tính tích phân và giải phương trình tham số, thu được \\(m=\\frac{1}{2}\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Vì hình phẳng được quay quanh trục \\(Ox\\) với bán kính tại vị trí \\(x\\) là \\(y=m(x^2+1)\\), thể tích được tính bởi \\(V=\\pi\\int_1^3[m(x^2+1)]^2dx\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Đưa tham số \\(m\\) ra ngoài tích phân ta có \\(V=\\pi m^2\\int_1^3(x^2+1)^2dx\\). Cần tính tích phân phụ để tìm hệ số của \\(m^2\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Khai triển biểu thức trong tích phân: \\((x^2+1)^2=x^4+2x^2+1\\), nên \\(\\int_1^3(x^2+1)^2dx=\\left[\\frac{x^5}{5}+\\frac{2x^3}{3}+x\\right]_1^3=\\frac{1016}{15}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Thay kết quả vào công thức thể tích: \\(V=\\frac{1016\\pi}{15}m^2\\). Theo đề bài, \\(\\frac{1016\\pi}{15}m^2=\\frac{254\\pi}{15}\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Rút gọn phương trình tham số: \\(1016m^2=254\\), suy ra \\(m^2=\\frac{1}{4}\\). Do \\(m>0\\) nên \\(m=\\frac{1}{2}\\)."
+          }
+        ],
+        "final_answer": "\\(\\frac{1}{2}\\)"
+      },
+      "why_correct": "Điều kiện \\(m>0\\) loại nghiệm âm của phương trình tham số, vì vậy chỉ còn duy nhất \\(m=\\frac{1}{2}\\) thỏa mãn thể tích đã cho.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai ở bước lập thể tích: thay vì dùng \\(V=\\pi\\int_1^3\\left(m(x^2+1)\\right)^2dx=m^2\\pi\\int_1^3(x^2+1)^2dx\\), người làm quên bình phương hệ số \\(m\\), lấy \\(V=m\\pi\\cdot\\frac{1016}{15}\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai do tính tích phân với cận bị giữ/đổi nhầm: người làm tính \\(\\int_0^3(x^2+1)^2dx\\) thay vì \\(\\int_1^3(x^2+1)^2dx\\). Khi đó tích phân bằng \\(\\frac{348}{5}\\), lập \\(m^2\\frac{348}{5}=\\frac{254}{15}\\) rồi suy ra"
+        },
+        {
+          "option": "D",
+          "reason": "Giải sai bằng cách chỉ dùng phương trình sau khi tính thể tích: \\(m^2=\\frac{1}{4}\\) rồi lấy nghiệm âm \\(m=-\\sqrt{\\frac{1}{4}}=-\\frac{1}{2}\\), mà bỏ qua điều kiện \\(m>0\\). Sai vì điều kiện của đề loại nghiệm âm."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_2e0b6969",
+      "blueprint_slot_id": "direct_pdf_16",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 209,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một đơn vị thiết kế làm một tấm kính cong có mặt cắt là hình phẳng giới hạn bởi hai đường cong \\(y=x^2-8x+18\\) và \\(y=2x+2\\). Để đặt khung viền, cần tính diện tích mặt cắt của tấm kính. Hãy tính diện tích này.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(36\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(18\\)",
+          "error_type": "wrong_intersection_interval"
+        },
+        {
+          "key": "C",
+          "text": "\\(-36\\)",
+          "error_type": "area_no_absolute"
+        },
+        {
+          "key": "D",
+          "text": "\\(72\\)",
+          "error_type": "double_area_from_symmetry"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Cần tìm giao điểm của hai đường cong để xác định miền tích phân, sau đó xét vị trí tương đối của hai đồ thị và tính diện tích bằng tích phân hiệu tuyệt đối.",
+      "explanation_per_distractor": {
+        "B": "Làm sai bằng cách tìm miền tích phân không đúng: chỉ lấy một nửa khoảng giữa hai giao điểm và tính \\(S=\\int_2^5\\left(2x+2-(x^2-8x+18)\\right)dx\\). Kết quả là \\(\\int_2^5(-x^2+10x-16)dx=18\\). Sai vì miền kín của hình phẳng kéo dài từ \\(x=2\\) đến \\(x=8\\), không phải chỉ từ \\(x=2\\) đến \\(x=5\\).",
+        "C": "Làm sai bằng cách tính diện tích theo công thức \\(S=\\int_2^8\\left((x^2-8x+18)-(2x+2)\\right)dx\\) mà không xét giá trị tuyệt đối khi hai đồ thị đổi vị trí. Ta có \\(x^2-10x+16=(x-2)(x-8)\\) âm trên khoảng \\((2,8)\\), nên tích phân này cho \\(\\int_2^8(x^2-10x+16)dx=-36\\). Sai vì diện tích phải lấy giá trị dương.",
+        "D": "Làm sai bằng cách nhận thấy đồ thị tạo miền đối xứng quanh \\(x=5\\) rồi tính diện tích nửa bên trái \\(\\int_2^5(2x+2-(x^2-8x+18))dx=18\\), sau đó nhân đôi nhầm thêm một lần nữa thành \\(2\\times36=72\\). Sai vì diện tích toàn miền đã là \\(36\\), không được nhân đôi sau khi đã tính cả hai phía."
+      },
+      "hint": "Cần tìm giao điểm của hai đường cong để xác định miền tích phân, sau đó xét vị trí tương đối của hai đồ thị và tính diện",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Diện tích của hình phẳng giới hạn bởi đồ thị hàm số \\(f(x)\\) và \\(g(x)\\) và hai đường thẳng \\(x=a, x=b\\) được tính: \\(S=\\int_a^b |f(x)-g(x)|dx\\)",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 36.0,
+          "expression": "integrate((2*x+2)-(x**2-8*x+18), (x, 2, 8))",
+          "stated_answer": "36",
+          "stated_value": 36.0,
+          "source": "llm_resolver",
+          "detail": "integrate((2*x+2)-(x**2-8*x+18), (x, 2, 8)) = 36",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "36",
+            "expected_numeric": 72
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 36, khớp đáp án key",
+        "verified_at": "2026-07-30T02:08:57.572732Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9333333333333332,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài xác định rõ hai đường cong, yêu cầu tính diện tích mặt cắt và không có thông tin gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu giải giao điểm, xét vị trí tương đối và thiết lập tích phân nên phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác cần thực hiện là áp dụng công thức diện tích tích phân vào tình huống mới, đúng với mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đại diện cho lỗi bỏ trị tuyệt đối, sai cận và sai hệ số đối xứng, đều là lỗi thường gặp."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có một giá trị diện tích dương đúng là 36, các phương án còn lại đều xuất phát từ sai sót tính toán."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Chuỗi lỗi mô tả dẫn đúng đến các giá trị -36, 18, 72 và phần giải thích nhất quán với đáp án 36."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9333333333333332,
+        "verifier_pass": true,
+        "critic_score": 0.9333333333333332,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Cần tìm giao điểm của hai đường cong để xác định miền tích phân, sau đó xét vị trí tương đối của hai đồ thị và tính diện tích bằng tích phân hiệu tuyệt đối.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Tìm các hoành độ giao điểm bằng cách giải phương trình \\(x^2-8x+18=2x+2\\), suy ra \\(x^2-10x+16=0\\), do đó \\(x=2\\) hoặc \\(x=8\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Xét hiệu hai hàm số: \\(x^2-8x+18-(2x+2)=x^2-10x+16=(x-2)(x-8)\\). Trên khoảng \\([2;8]\\), hiệu này không dương nên đường thẳng \\(y=2x+2\\) nằm trên đường cong \\(y=x^2-8x+18\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Áp dụng công thức diện tích hình phẳng giới hạn bởi hai đường cong, ta có \\(S=\\int_{2}^{8}((2x+2)-(x^2-8x+18))dx=\\int_{2}^{8}(-x^2+10x-16)dx\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Biến đổi biểu thức dưới dấu tích phân: \\(-x^2+10x-16=9-(x-5)^2\\). Đặt \\(u=x-5\\), khi đó cận đổi từ \\(x=2,8\\) thành \\(u=-3,3\\), nên \\(S=\\int_{-3}^{3}(9-u^2)du\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Tính tích phân: \\(S=\\left[9u-\\frac{u^3}{3}\\right]_{-3}^{3}=\\left(27-9\\right)-\\left(-27+9\\right)=36\\)."
+          }
+        ],
+        "final_answer": "\\(36\\)"
+      },
+      "why_correct": "Diện tích phải lấy hiệu giữa hàm nằm trên và hàm nằm dưới trong khoảng hai giao điểm. Việc giải phương trình giao điểm và xét dấu hiệu hai hàm xác định đúng miền cần tính, nên kết quả duy nhất là \\(36\\).",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Làm sai bằng cách tìm miền tích phân không đúng: chỉ lấy một nửa khoảng giữa hai giao điểm và tính \\(S=\\int_2^5\\left(2x+2-(x^2-8x+18)\\right)dx\\). Kết quả là \\(\\int_2^5(-x^2+10x-16)dx=18\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Làm sai bằng cách tính diện tích theo công thức \\(S=\\int_2^8\\left((x^2-8x+18)-(2x+2)\\right)dx\\) mà không xét giá trị tuyệt đối khi hai đồ thị đổi vị trí."
+        },
+        {
+          "option": "D",
+          "reason": "Làm sai bằng cách nhận thấy đồ thị tạo miền đối xứng quanh \\(x=5\\) rồi tính diện tích nửa bên trái \\(\\int_2^5(2x+2-(x^2-8x+18))dx=18\\), sau đó nhân đôi nhầm thêm một lần nữa thành \\(2\\times36=72\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_25611970",
+      "blueprint_slot_id": "direct_pdf_18",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 341,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một cảm biến ghi nhận tốc độ thay đổi của một đại lượng theo thời gian được mô hình hóa bởi hàm số \\(r(t)=a t\\sin t\\) trên khoảng thời gian \\(0\\le t\\le \\pi\\). Biết trong khoảng thời gian \\(0\\le t\\le \\frac{\\pi}{2}\\), đại lượng này tăng thêm \\(5\\) đơn vị. Hỏi trong khoảng thời gian \\(0\\le t\\le \\pi\\), đại lượng thay đổi thêm bao nhiêu đơn vị?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(5\\)",
+          "error_type": "wrong_domain"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{5\\pi}{2}\\)",
+          "error_type": "mix_radian_degree"
+        },
+        {
+          "key": "C",
+          "text": "\\(5\\pi\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(10\\)",
+          "error_type": "missing_chain_rule_factor"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Ta dùng tích phân xác định để biểu diễn lượng thay đổi, trước hết tìm hệ số \\(a\\) từ điều kiện đã cho rồi tính tích phân trên khoảng cần tìm.",
+      "explanation_per_distractor": {
+        "A": "Học sinh dùng nhầm khoảng tính tích phân. Sau khi tìm được hệ số \\(a=5\\) từ điều kiện trên \\(0\\le t\\le \\frac{\\pi}{2}\\), thay vì tính trên khoảng yêu cầu \\(0\\le t\\le\\pi\\), học sinh giữ nguyên cận \\(0\\) đến \\(\\frac{\\pi}{2}\\) và tính \\(\\int_0^{\\frac{\\pi}{2}}5t\\sin t\\,dt=5\\). Sai vì đề hỏi lượng thay đổi trong toàn khoảng \\(0\\le t\\le\\pi\\).",
+        "B": "Học sinh lẫn lộn đơn vị góc khi tính tích phân chứa \\(\\sin t\\), xem khoảng \\(0\\le t\\le\\pi\\) như nửa chu kỳ theo độ thay vì theo radian. Do đó học sinh lấy giá trị trung bình sai của phần lượng giác và kết luận lượng thay đổi bằng một nửa kết quả đúng: \\(\\frac{1}{2}\\cdot5\\pi=\\frac{5\\pi}{2}\\). Sai vì trong tích phân này biến \\(t\\) được tính theo radian với \\(\\pi\\) là độ dài góc chuẩn.",
+        "D": "Học sinh áp dụng sai quy tắc đạo hàm/nguyên hàm lượng giác, coi hệ số của biểu thức bên trong lượng giác không cần xuất hiện khi xử lý tích phân. Khi tính tích phân \\(\\int_0^\\pi 5t\\sin t\\,dt\\), học sinh nhầm thành \\(2\\) lần giá trị trên nửa khoảng do bỏ qua hệ số biến đổi trong quá trình xử lý đối xứng, dẫn tới \\(2\\cdot5=10\\)."
+      },
+      "hint": "Ta dùng tích phân xác định để biểu diễn lượng thay đổi, trước hết tìm hệ số \\(a\\) từ điều kiện đã cho rồi tính tích phân",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Bước 4: Ta có kết quả tính theo tính chất từng cột.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 15.707963267948966,
+          "expression": "5*integrate(t*sin(t),(t,0,pi))/integrate(t*sin(t),(t,0,pi/2))",
+          "stated_answer": "5*pi",
+          "stated_value": 15.707963267948966,
+          "source": "llm_resolver",
+          "detail": "5*integrate(t*sin(t),(t,0,pi))/integrate(t*sin(t),(t,0,pi/2)) = 15.708",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "5*pi",
+            "expected_numeric": 7.853981633974483
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 15.708, khớp đáp án key",
+        "verified_at": "2026-07-30T02:10:53.184846Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.9,
+        "quality": 0.8166666666666665,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề nêu rõ hàm tốc độ thay đổi, khoảng thời gian, điều kiện xác định hệ số và yêu cầu lượng thay đổi toàn khoảng."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu kết hợp lập tích phân, tìm tham số và tính toán kết quả thay vì chỉ áp dụng công thức trực tiếp."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác giải cần vận dụng kiến thức tích phân xác định vào tình huống mới nên phù hợp mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.75,
+            "rationale": "Các phương án sai đều gắn với lỗi thường gặp về cận tích phân, xử lý tích phân và lượng giác, nhưng một số mô tả lỗi chưa thật tự nhiên."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(5\\pi\\) đúng vì tính đúng tích phân trên đoạn \\(0\\le t\\le\\pi\\) cho kết quả duy nhất."
+          },
+          "error_distractor_consistency": {
+            "score": 0.45,
+            "rationale": "Mô tả lỗi của distractor \\(5\\) phù hợp, nhưng các chuỗi lỗi của \\(10\\) và \\(\\frac{5\\pi}{2}\\) không thực sự dẫn ra đúng các giá trị đó một cách nhất quán; phần giải thích đáp án vẫn nhất quán."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8166666666666665,
+        "verifier_pass": true,
+        "critic_score": 0.8166666666666665,
+        "grounding_score": 0.9,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Ta dùng tích phân xác định để biểu diễn lượng thay đổi, trước hết tìm hệ số \\(a\\) từ điều kiện đã cho rồi tính tích phân trên khoảng cần tìm.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Lượng thay đổi trong khoảng \\(0\\le t\\le \\frac{\\pi}{2}\\) là \\(\\int_0^{\\frac{\\pi}{2}} a t\\sin t\\,dt=5\\). Cần tính tích phân này để tìm \\(a\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Áp dụng phương pháp tích phân từng phần cho \\(\\int t\\sin t\\,dt\\), chọn \\(u=t,\\ dv=\\sin t\\,dt\\), ta được \\(\\int t\\sin t\\,dt=-t\\cos t+\\sin t+C\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thay cận: \\(\\int_0^{\\frac{\\pi}{2}} t\\sin t\\,dt=\\left(-t\\cos t+\\sin t\\right)\\big|_0^{\\frac{\\pi}{2}}=1\\). Do đó \\(a\\cdot1=5\\), suy ra \\(a=5\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Lượng thay đổi trong khoảng \\(0\\le t\\le\\pi\\) là \\(I=\\int_0^\\pi 5t\\sin t\\,dt=5\\left(-t\\cos t+\\sin t\\right)\\big|_0^\\pi\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Tính giá trị biên: \\(\\left(-t\\cos t+\\sin t\\right)\\big|_0^\\pi=\\pi\\), nên \\(I=5\\pi\\)."
+          }
+        ],
+        "final_answer": "\\(5\\pi\\)"
+      },
+      "why_correct": "Điều kiện ban đầu xác định duy nhất hệ số \\(a\\), sau đó tích phân xác định trên khoảng \\(0\\le t\\le\\pi\\) cho đúng lượng thay đổi cần tìm.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Học sinh dùng nhầm khoảng tính tích phân. Sau khi tìm được hệ số \\(a=5\\) từ điều kiện trên \\(0\\le t\\le \\frac{\\pi}{2}\\), thay vì tính trên khoảng yêu cầu \\(0\\le t\\le\\pi\\), học sinh giữ nguyên cận \\(0\\) đến"
+        },
+        {
+          "option": "B",
+          "reason": "Học sinh lẫn lộn đơn vị góc khi tính tích phân chứa \\(\\sin t\\), xem khoảng \\(0\\le t\\le\\pi\\) như nửa chu kỳ theo độ thay vì theo radian."
+        },
+        {
+          "option": "D",
+          "reason": "Học sinh áp dụng sai quy tắc đạo hàm/nguyên hàm lượng giác, coi hệ số của biểu thức bên trong lượng giác không cần xuất hiện khi xử lý tích phân."
+        }
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "question_id": "rej_direct_pdf_3_critic",
+      "blueprint_slot_id": "direct_pdf_3",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 191,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một bồn chứa được tạo thành bằng cách quay quanh trục \\(Ox\\) miền phẳng giới hạn bởi hai đồ thị \\(y=x^2+3\\), \\(y=2x+6\\) và các đường cong cắt nhau tại hai điểm. Tính thể tích của bồn chứa đó.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{512\\pi}{15}\\)",
+          "error_type": "radius_difference_squared"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{832\\pi}{3}\\)",
+          "error_type": "ignore_inner_radius"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{788\\pi}{15}\\)",
+          "error_type": "forget_change_bounds"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{2033\\pi}{15}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Hai đồ thị cắt nhau tạo ra cận tích phân cần tìm. Trên khoảng giữa hai giao điểm, đường thẳng nằm trên parabol nên thể tích khối tròn xoay được tính bằng hiệu hai bình phương bán kính rồi lấy tích phân.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là nhầm công thức thể tích khối tròn xoay giữa hai đường cong thành bình phương hiệu hai bán kính: \\(V=\\pi\\int_{-1}^{3}((2x+6)-(x^2+3))^2dx\\). Ta có \\(((2x+6)-(x^2+3))^2=(-x^2+2x+3)^2=x^4-4x^3-2x^2+12x+9\\). Tích phân cho kết quả \\(\\pi\\left[\\frac{x^5}{5}-x^4-\\frac{2x^3}{3}+6x^2+9x\\right]_{-1}^{3}=\\frac{512\\pi}{15}\\).",
+        "B": "Sai lầm là chỉ lấy thể tích tạo bởi bán kính ngoài mà quên trừ phần rỗng bên trong. Học sinh tính \\(V=\\pi\\int_{-1}^{3}(2x+6)^2dx\\), bỏ mất hạng tử \\((x^2+3)^2\\). Tính được \\(\\pi\\left[\\frac{4x^3}{3}+12x^2+36x\\right]_{-1}^{3}=\\frac{832\\pi}{3}\\). Sai vì miền quay được giới hạn bởi hai đường cong nên phải dùng hiệu hai bình phương bán kính.",
+        "C": "Đặt biến đổi \\(t=x-1\\) để đưa tích phân về biến \\(t\\), nhưng mắc lỗi giữ nguyên cận cũ \\(x=-1, x=3\\) thay vì đổi thành cận theo \\(t\\). Khi đó tính sai \\(V=\\pi\\int_{-1}^{3}\\left((2(t+1)+6)^2-((t+1)^2+3)^2\\right)dt\\). Lấy nguyên hàm theo \\(t\\) tương đương với dùng biểu thức theo \\(x=t+1\\), được giá trị \\(\\frac{788\\pi}{15}\\). Sai vì khi đổi biến trong tích phân xác định phải đổi cả cận tích phân."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Thể tích khối tròn xoay được sinh ra khi quay hình phẳng giới hạn bởi các đường \\(y=f(x)\\), \\(y=g(x)\\) quanh trục \\(Ox\\):",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "mismatch",
+        "status_label_vi": "Các nguồn tính toán lệch nhau — cần người kiểm",
+        "status_label_en": "Computation sources disagree — needs review",
+        "machine_checked": false,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 428.93211697012646,
+          "expression": "pi*integrate((2*x+6)**2-(x**2+3)**2,(x,-1,3))",
+          "stated_answer": "2048*pi/15",
+          "stated_value": 428.93211697012646,
+          "source": "llm_resolver",
+          "detail": "pi*integrate((2*x+6)**2-(x**2+3)**2,(x,-1,3)) = 428.932",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": true,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "2033*pi/15",
+            "expected_numeric": 107.23302924253161
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức của Writer khớp key (425.791) nhưng tính toán độc lập cho 428.932",
+        "verified_at": "2026-07-30T02:04:14.257123Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.93,
+        "quality": 0.7966666666666665,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.82,
+            "rationale": "Đề bài nêu rõ miền giới hạn bởi hai đồ thị và yêu cầu tính thể tích nhưng chưa ghi rõ hai đường cong nằm cùng phía trục Ox, dù điều này có thể suy ra từ biểu thức."
+          },
+          "cognitive_depth": {
+            "score": 0.86,
+            "rationale": "Bài yêu cầu xác định giao điểm, lập cận và áp dụng công thức thể tích nên phù hợp mức vận dụng thay vì chỉ ghi nhớ công thức."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác giải cần vận dụng kiến thức tích phân và mô hình hóa khối tròn xoay đúng với mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến khi tính thể tích và sử dụng đúng ngữ cảnh bán kính, cận tích phân."
+          },
+          "answer_uniqueness": {
+            "score": 0.95,
+            "rationale": "Công thức đúng là hiệu hai bình phương bán kính trên khoảng giao điểm nên chỉ cho một kết quả, các distractor đều xuất phát từ sai lầm."
+          },
+          "error_distractor_consistency": {
+            "score": 0.35,
+            "rationale": "Các chuỗi lỗi mô tả không hoàn toàn khớp với giá trị distractor: ví dụ lỗi đổi biến với cận không đổi thực tế không tạo ra giá trị được nêu, và đáp án đúng cũng không được kiểm chứng nhất quán."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.7966666666666665,
+        "verifier_pass": true,
+        "critic_score": 0.7966666666666665,
+        "grounding_score": 0.93,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "mismatch"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Các chuỗi lỗi mô tả không hoàn toàn khớp với giá trị distractor: ví dụ lỗi đổi biến với cận không đổi thực tế không tạo ra giá trị được nêu, và đáp án đúng cũng)",
+      "reject_reason_code": "quality_low",
+      "reject_reason_stage": "critic",
+      "reject_log": [
+        {
+          "reason_code": "quality_low",
+          "stage": "critic",
+          "attempt": 0,
+          "message": "error_distractor_consistency=0.35 (lỗi mô tả không khớp giá trị distractor/đáp án) (Các chuỗi lỗi mô tả không hoàn toàn khớp với giá trị distractor: ví dụ lỗi đổi biến với cận không đổi thực tế không tạo ra giá trị được nêu, và đáp án đúng cũng)",
+          "slot_id": "direct_pdf_3"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_5_writer",
+      "blueprint_slot_id": "direct_pdf_5",
+      "cognitive_level": "Thông hiểu",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 27 column 181 (char 1772)\"])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 27 column 181 (char 1772)\"])",
+          "slot_id": "direct_pdf_5"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_6_verifier",
+      "blueprint_slot_id": "direct_pdf_6",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Nhận biết",
+      "difficulty_target": 0.3,
+      "difficulty_estimated": 0.27,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.3,
+        "stem_length_adj": 0.0,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 119,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 40,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(f(x)\\) liên tục trên đoạn \\([-6;6]\\) và là hàm lẻ. Tính giá trị của tích phân \\(I=\\int_{-6}^{6}f(x)\\,dx\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(-\\int_{0}^{6}f(x)\\,dx\\)",
+          "error_type": "odd_symmetry_sign_error"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\int_{0}^{6}f(x)\\,dx\\)",
+          "error_type": "ignore_negative_half_interval"
+        },
+        {
+          "key": "C",
+          "text": "\\(0\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(2\\int_{0}^{6}f(x)\\,dx\\)",
+          "error_type": "odd_function_misread_as_even"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Vì \\(f(x)\\) là hàm lẻ trên đoạn đối xứng qua gốc tọa độ nên tích phân trên đoạn \\([-6;6]\\) bằng 0.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: cho rằng phần tích phân trên \\([-6;0]\\) có độ lớn bằng phần trên \\([0;6]\\) nhưng giữ lại dấu âm của phía trái. Từ đó suy luận sai \\(I=\\int_{-6}^{0}f(x)\\,dx=-\\int_{0}^{6}f(x)\\,dx\\). Sai vì còn phải cộng thêm phần \\([0;6]\\), và với hàm lẻ hai phần này triệt tiêu nhau.",
+        "B": "Sai lầm: bỏ qua nửa đoạn bên trái và chỉ tính phần từ \\(0\\) đến \\(6\\). Cách làm sai là coi tích phân trên \\([-6;6]\\) giống như tích phân trên nửa đoạn đối xứng nên lấy kết quả \\(I=\\int_{0}^{6}f(x)\\,dx\\). Sai vì tích phân ban đầu bao gồm cả khoảng \\([-6;0]\\), nơi phần diện tích có dấu phải được tính đến.",
+        "D": "Sai lầm: nhận nhầm tính chất của hàm lẻ thành hàm chẵn nên cho rằng hai phần trên đoạn đối xứng có cùng dấu. Khi đó biến đổi sai thành \\(\\int_{-6}^{6}f(x)\\,dx=\\int_{0}^{6}f(x)\\,dx+\\int_{0}^{6}f(x)\\,dx=2\\int_{0}^{6}f(x)\\,dx\\). Sai vì với hàm lẻ ta có \\(f(-x)=-f(x)\\), hai phần phải triệt tiêu nhau."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Nếu \\(f(x)\\) là hàm lẻ\n\\(( f(-x)=-f(x))\\) thì\n\\(\\int_{-a}^{a} f(x)dx=0\\).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T02:04:51.641069Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "multi_answer: distractor \"\\(\\int_{0}^{6}f(x)\\,dx\\)\" cũng được verifier xác nhận đúng",
+      "reject_reason_code": "multi_answer",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "multi_answer",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "multi_answer: distractor \"\\(\\int_{0}^{6}f(x)\\,dx\\)\" cũng được verifier xác nhận đúng",
+          "slot_id": "direct_pdf_6"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_7_verifier",
+      "blueprint_slot_id": "direct_pdf_7",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.43,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": -0.04,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 56,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Tính giá trị của tích phân \\(I=\\int_0^6|x^2-5x+6|\\,dx\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(16\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(18\\)",
+          "error_type": "area_no_absolute"
+        },
+        {
+          "key": "C",
+          "text": "\\(31\\)",
+          "error_type": "factorization_wrong_roots"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{163}{3}\\)",
+          "error_type": "forget_change_bounds"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Ta cần tìm các điểm đổi dấu của biểu thức trong dấu giá trị tuyệt đối, sau đó chia tích phân trên các khoảng thích hợp và tính từng phần.",
+      "explanation_per_distractor": {
+        "B": "Làm sai bằng cách bỏ qua dấu giá trị tuyệt đối, lấy trực tiếp tích phân của biểu thức \\(x^2-5x+6\\) trên \\([0,6]\\): \\(\\int_0^6(x^2-5x+6)\\,dx=\\left[\\frac{x^3}{3}-\\frac{5x^2}{2}+6x\\right]_0^6=72-90+36=18\\). Sai vì biểu thức trong dấu giá trị tuyệt đối đổi dấu tại \\(x=2\\) và \\(x=3\\), nên phải xét dấu trên từng khoảng.",
+        "C": "Làm sai bằng cách phân tích nhầm \\(x^2-5x+6\\) thành \\((x-1)(x-2)\\) nên lấy các điểm đổi dấu sai là \\(x=1,2\\). Khi đó tính \\(\\int_0^6|(x-1)(x-2)|\\,dx\\). Với nguyên hàm \\(F(x)=\\frac{x^3}{3}-\\frac{3x^2}{2}+2x\\), ta có \\(F(1)=\\frac{5}{6}\\), \\(F(2)=\\frac{2}{3}\\), \\(F(6)=30\\), nên giá trị nhận được là \\(\\frac{5}{6}-\\left(\\frac{2}{3}-\\frac{5}{6}\\right)+30-\\frac{2}{3}=31\\).",
+        "D": "Làm sai bằng cách đặt \\(t=x-2\\) để đưa biểu thức thành \\(|t(t-1)|\\) nhưng giữ nguyên cận cũ \\(0\\) và \\(6\\) thay vì đổi thành \\(-2\\) và \\(4\\). Khi đó tính nhầm \\(\\int_0^6|t(t-1)|\\,dt\\). Vì \\(t(t-1)<0\\) trên \\((0,1)\\) nên kết quả sai là \\(\\int_0^1(t-t^2)\\,dt+\\int_1^6(t^2-t)\\,dt=\\frac{1}{6}+\\frac{325}{6}=\\frac{163}{3}\\). Sai vì đổi biến trong tích phân xác định phải đổi cả cận."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Cho f x   0 tìm nghiệm \\(\\in\\left[a;b\\right]\\). Khi đó tính mỗi tích phân thành phần",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T02:04:59.399104Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "quality_low: rule validator failed: ['question_too_trivial:bare_one_step_integral']",
+      "reject_reason_code": "quality_low",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "quality_low",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "quality_low: rule validator failed: ['question_too_trivial:bare_one_step_integral']",
+          "slot_id": "direct_pdf_7"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_12_verifier",
+      "blueprint_slot_id": "direct_pdf_12",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 259,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một kỹ sư mô phỏng quãng đường tích lũy của một chuyển động trong khoảng thời gian \\(x\\in\\left[0;a\\right]\\) bởi tích phân \\(I=\\int_0^a x\\sin x\\,dx\\). Biết thời điểm kết thúc \\(a\\) được xác định từ điều kiện \\(\\cos a=0\\) và \\(0<a<\\pi\\). Tính giá trị của \\(I\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(-1\\)",
+          "error_type": "wrong_condition_range"
+        },
+        {
+          "key": "B",
+          "text": "\\(-1\\)",
+          "error_type": "wrong_trig_derivative_sign"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{\\pi^2}{8}\\)",
+          "error_type": "integration_by_parts_wrong_choice"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{\\pi}{2}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Từ điều kiện \\(\\cos a=0\\) và \\(0<a<\\pi\\) suy ra cần tự tìm cận trên \\(a=\\frac{\\pi}{2}\\). Sau đó áp dụng phương pháp tích phân từng phần để tính tích phân chứa tích của hai hàm.",
+      "explanation_per_distractor": {
+        "A": "Học sinh bỏ qua điều kiện \\(0<a<\\pi\\) và chọn một nghiệm khác của \\(\\cos a=0\\), chẳng hạn \\(a=\\frac{3\\pi}{2}\\). Khi đó tính sai tích phân \\(I=\\int_0^{\\frac{3\\pi}{2}}x\\sin x\\,dx\\) bằng từng phần: \\(I=\\left[-x\\cos x+\\sin x\\right]_0^{\\frac{3\\pi}{2}}=\\left(0-1\\right)-0=-1\\). Sai vì điều kiện khoảng giá trị của \\(a\\) chỉ nhận \\(a=\\frac{\\pi}{2}\\).",
+        "B": "Học sinh dùng sai dấu đạo hàm lượng giác, coi \\( (\\sin x)'=-\\cos x \\) nên lấy nguyên hàm của \\(\\sin x\\) là \\(\\cos x\\). Khi đó với \\(u=x\\), \\(dv=\\sin x\\,dx\\) thì \\(v=\\cos x\\), suy ra \\(I=\\left.x\\cos x\\right|_0^{\\frac{\\pi}{2}}-\\int_0^{\\frac{\\pi}{2}}\\cos x\\,dx=0-\\left.\\sin x\\right|_0^{\\frac{\\pi}{2}}=-1\\). Sai vì công thức đúng là \\( (\\sin x)'=\\cos x \\).",
+        "C": "Chọn sai theo từng phần: đặt \\(u=\\sin x\\), \\(dv=x\\,dx\\) nên \\(v=\\frac{x^2}{2}\\). Thay vì tiếp tục xử lý tích phân còn lại, học sinh chỉ lấy hạng tử biên \\(\\left.uv\\right|_0^{\\frac{\\pi}{2}}=\\left.\\frac{x^2}{2}\\sin x\\right|_0^{\\frac{\\pi}{2}}=\\frac{\\pi^2}{8}\\). Sai vì đã bỏ qua phần tích phân còn lại trong công thức từng phần."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Tính \\(I=\\int uvd\\) bằng cách kẻ bảng:",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T02:07:18.467543Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "duplicate: rule validator failed: ['d3:duplicate_option']",
+      "reject_reason_code": "verifier_failed",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "verifier_failed",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "duplicate: rule validator failed: ['d3:duplicate_option']",
+          "slot_id": "direct_pdf_12"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_15_critic",
+      "blueprint_slot_id": "direct_pdf_15",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.85,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 222,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Cho hình phẳng giới hạn bởi các đường \\(y=m(x^2+1)\\), \\(y=6x+8\\), \\(x=1\\), \\(x=3\\) với \\(m>0\\). Khi quay hình phẳng đó quanh trục \\(Ox\\), thể tích khối tròn xoay thu được là \\(V=\\frac{6496\\pi}{15}\\). Tìm giá trị của \\(m\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(\\frac{1838}{127}\\)",
+          "error_type": "constant_term_arithmetic_error"
+        },
+        {
+          "key": "B",
+          "text": "\\(\\frac{1840}{129}\\)",
+          "error_type": "algebra_denominator_error"
+        },
+        {
+          "key": "C",
+          "text": "\\(\\frac{1840}{127\\pi}\\)",
+          "error_type": "volume_missing_pi"
+        },
+        {
+          "key": "D",
+          "text": "\\(\\frac{1840}{127}\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Áp dụng công thức thể tích khối tròn xoay quanh trục \\(Ox\\), lập phương trình theo tham số \\(m\\) rồi giải để tìm giá trị dương phù hợp.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là tính sai hằng số khi rút gọn phương trình thể tích. Người giải vẫn lập đúng công thức nhưng trong bước chuyển vế và thu gọn số hạng tự do đã tính nhầm tử số: thay vì thu được \\(1840\\) ở phương trình \\(127m=1840\\), lại ghi \\(127m=1838\\), từ đó suy ra \\(m=\\frac{1838}{127}\\). Sai vì lỗi cộng trừ số học ở bước cuối.",
+        "B": "Sai lầm là sau khi lập phương trình thể tích theo \\(m\\), người giải biến đổi đại số sai ở bước quy đồng và cộng trừ các hệ số, thay mẫu số \\(127\\) của nghiệm đúng bằng \\(129\\). Cụ thể, từ phương trình cuối dạng \\(127m=1840\\), người giải ghi nhầm thành \\(129m=1840\\), nên suy ra \\(m=\\frac{1840}{129}\\). Sai vì hệ số của \\(m\\) trong phương trình không phải là \\(129\\).",
+        "C": "Sai lầm là quên hệ số \\(\\pi\\) trong công thức thể tích khối tròn xoay quanh \\(Ox\\). Người giải thay vì lập \\(V=\\pi\\int_{1}^{3}S(x)\\,dx\\) lại dùng \\(V=\\int_{1}^{3}S(x)\\,dx\\), nên khi giải phương trình theo \\(m\\) sẽ bị thiếu một hệ số \\(\\pi\\), dẫn tới chia giá trị đúng cho \\(\\pi\\) và nhận \\(m=\\frac{1840}{127\\pi}\\). Sai vì công thức thể tích phải có nhân tử \\(\\pi\\)."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Thể tích khối tròn xoay được sinh ra khi quay hình phẳng giới hạn bởi các đường \\(y=f(x)\\), trục hoành và hai đường thẳng \\(x=a,x=b\\), quanh trục \\(Ox\\):",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "mismatch",
+        "status_label_vi": "Các nguồn tính toán lệch nhau — cần người kiểm",
+        "status_label_en": "Computation sources disagree — needs review",
+        "machine_checked": false,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "derivation": true,
+          "value": 2.402426594780179,
+          "expression": "sqrt(733/127)",
+          "stated_answer": "sqrt(733/127)",
+          "stated_value": 2.402426594780179,
+          "source": "llm_resolver",
+          "detail": "sqrt(733/127) = 2.40243",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": true,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "1840/127",
+            "expected_numeric": 14.472440944881889
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức của Writer khớp key (14.4882) nhưng tính toán độc lập cho 2.40243",
+        "verified_at": "2026-07-30T02:08:57.571052Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.82,
+        "quality": 0.5933333333333333,
+        "bloom_alignment": 0.72,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.93,
+            "rationale": "Đề nêu rõ miền giới hạn, trục quay, thể tích và yêu cầu tìm tham số m nên không gây mơ hồ về nhiệm vụ."
+          },
+          "cognitive_depth": {
+            "score": 0.86,
+            "rationale": "Bài yêu cầu lập tích phân thể tích theo tham số rồi giải phương trình nên phù hợp mức vận dụng cao."
+          },
+          "bloom_alignment": {
+            "score": 0.72,
+            "rationale": "Thao tác chính là áp dụng công thức và xử lý đại số trong một tình huống mới, phù hợp vận dụng nhưng chưa thể hiện rõ mức phân tích cao."
+          },
+          "distractor_plausibility": {
+            "score": 0.65,
+            "rationale": "Các phương án sai mô phỏng những lỗi thường gặp về hệ số pi và biến đổi đại số, nhưng đều dựa trên một nghiệm đúng chưa được xác thực."
+          },
+          "answer_uniqueness": {
+            "score": 0.15,
+            "rationale": "Tính theo công thức thể tích chuẩn từ PDF cho thấy đáp án m=1840/127 không thỏa mãn thể tích đã cho nên không thể khẳng định có đúng một đáp án đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 0.25,
+            "rationale": "Chuỗi lỗi mô tả chỉ nhất quán nội bộ với giả định phương trình cuối là 127m=1840, nhưng vì answer_text và why_correct dựa trên nghiệm sai nên toàn bộ diễn giải lỗi không đáng tin."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.5933333333333333,
+        "verifier_pass": true,
+        "critic_score": 0.5933333333333333,
+        "grounding_score": 0.82,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "mismatch"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "answer_uniqueness=0.15 (nghi đa đáp án)",
+      "reject_reason_code": "bad_distractors",
+      "reject_reason_stage": "critic",
+      "reject_log": [
+        {
+          "reason_code": "bad_distractors",
+          "stage": "critic",
+          "attempt": 0,
+          "message": "answer_uniqueness=0.15 (nghi đa đáp án)",
+          "slot_id": "direct_pdf_15"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_17_verifier",
+      "blueprint_slot_id": "direct_pdf_17",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.7,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 157,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Cho hàm số \\(f(x)\\) liên tục trên đoạn \\([2;8]\\) và thỏa mãn \\(f(x)+f(10-x)=3x-2\\) với mọi \\(x\\in[2;8]\\). Tính giá trị của tích phân \\(I=\\int_2^8 f(x)\\,dx\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(39\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(78\\)",
+          "error_type": "forget_dividing_by_two_after_symmetry"
+        },
+        {
+          "key": "C",
+          "text": "\\(39\\)",
+          "error_type": "incorrect_function_value_from_symmetry"
+        },
+        {
+          "key": "D",
+          "text": "\\(45\\)",
+          "error_type": "wrong_polynomial_integration"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Dùng tính chất đổi biến đối xứng của tích phân trên đoạn \\([2;8]\\), ta biến đổi tích phân của \\(f(10-x)\\) về cùng \\(I\\), từ đó lập phương trình để tìm \\(I\\).",
+      "explanation_per_distractor": {
+        "B": "Từ điều kiện tích phân suy ra \\(I+I=78\\), nhưng sai lầm là bỏ qua bước chia hai vế cho \\(2\\) và kết luận trực tiếp \\(I=78\\). Cách làm này giữ nguyên tổng của hai tích phân thay vì giá trị của một tích phân nên cho kết quả sai.",
+        "C": "Người làm sai có thể suy luận rằng từ \\(f(x)+f(10-x)=3x-2\\) suy ra trực tiếp \\(f(x)=\\frac{3x-2}{2}\\) với mọi \\(x\\), sau đó tính \\(\\int_2^8\\frac{3x-2}{2}\\,dx=39\\). Kết quả này trùng với giá trị đúng nhưng cách suy luận sai vì điều kiện chỉ cho tổng của hai giá trị đối xứng, không xác định riêng từng giá trị \\(f(x)\\).",
+        "D": "Sau khi lấy tích phân hai vế, người làm sai tính \\(\\int_2^8(3x-2)\\,dx\\) bằng cách chỉ lấy phần \\(\\int_2^8 3x\\,dx\\), bỏ mất hạng tử \\(-2\\). Khi đó tính được \\(\\int_2^8 3x\\,dx=\\frac{3}{2}(8^2-2^2)=90\\), rồi từ \\(2I=90\\) suy ra \\(I=45\\). Sai vì đã bỏ qua đóng góp của thành phần \\(-2\\) trong hàm dưới dấu tích phân."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Nếu \\(f(x)\\) liên tục trên \\([a;b]\\) thì \\(∫_a^b f(a+b-x)dx=∫_a^b f(x)dx\\)",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-30T02:09:51.615282Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "duplicate: rule validator failed: ['d3:duplicate_option']",
+      "reject_reason_code": "verifier_failed",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "verifier_failed",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "duplicate: rule validator failed: ['d3:duplicate_option']",
+          "slot_id": "direct_pdf_17"
+        }
+      ],
+      "attempts": 1
+    }
+  ]
+}

@@ -1,0 +1,2049 @@
+{
+  "metadata": {
+    "bench": "suite",
+    "arm": "full_system",
+    "seed": 43,
+    "source_pdf": "pdftest/discrete_math_p1.pdf",
+    "source_pdf_name": "discrete_math_p1.pdf",
+    "requested_questions": 8,
+    "accepted_questions": 8,
+    "is_partial": false,
+    "parse_errors": 4,
+    "verify_failures": 0,
+    "error_code": null,
+    "error_message": null,
+    "cost": {
+      "tokens": 95676,
+      "calls": 41
+    },
+    "duration_seconds": 376.80836510658264,
+    "generated_at": "2026-07-26T04:40:14.936329+00:00"
+  },
+  "questions": [
+    {
+      "question_id": "q_2026_a0625f86",
+      "blueprint_slot_id": "direct_pdf_2",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 189,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Cho tập vũ trụ \\(U=\\{1,2,3,4,5,6,7,8,9,10,11,12\\}\\). Gọi \\(A\\) là tập các số lẻ thuộc \\(U\\), và \\(B=\\{x\\in U\\mid x+3\\) là bội của \\(4\\}\\). Số phần tử của tập hợp \\(A\\cup B\\) bằng bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(9\\)",
+          "error_type": "add_when_not_disjoint"
+        },
+        {
+          "key": "B",
+          "text": "\\(6\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(5\\)",
+          "error_type": "wrong_domain"
+        },
+        {
+          "key": "D",
+          "text": "\\(3\\)",
+          "error_type": "use_intersection_instead_of_union"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Cần xác định tập \\(B\\) từ điều kiện \\(x+3\\) là bội của \\(4\\), sau đó dùng phép hợp và loại bỏ các phần tử trùng nhau giữa \\(A\\) và \\(B\\).",
+      "explanation_per_distractor": {
+        "A": "Làm sai bằng cách dùng công thức cộng xác suất/số phần tử như trường hợp không giao nhau: tính \\(|A\\cup B|=|A|+|B|\\). Ta có \\(|A|=6\\), \\(|B|=3\\), nên suy ra \\(|A\\cup B|=6+3=9\\). Sai vì \\(A\\) và \\(B\\) không xung khắc, các phần tử \\(\\{1,5,9\\}\\) bị đếm hai lần nên phải trừ phần giao.",
+        "C": "Làm sai bằng cách bỏ qua miền xác định đã cho \\(U=\\{1,2,\\ldots,12\\}\\) và tự giới hạn tập vũ trụ thành các số từ \\(1\\) đến \\(10\\). Khi đó lấy \\(A=\\{1,3,5,7,9\\}\\), \\(B=\\{1,5,9\\}\\), nên \\(A\\cup B=\\{1,3,5,7,9\\}\\) có \\(5\\) phần tử. Sai vì đã loại bỏ phần tử \\(11\\) thuộc tập vũ trụ ban đầu.",
+        "D": "Làm sai bằng cách nhầm phép hợp thành phép giao. Từ \\(A=\\{1,3,5,7,9,11\\}\\) và \\(B=\\{1,5,9\\}\\), chỉ giữ các phần tử xuất hiện đồng thời trong hai tập nên lấy \\(A\\cap B=\\{1,5,9\\}\\), suy ra số phần tử là \\(3\\). Sai vì đề bài yêu cầu tập hợp \\(A\\cup B\\), phải lấy tất cả phần tử thuộc ít nhất một trong hai tập."
+      },
+      "hint": "Cần xác định tập \\(B\\) từ điều kiện \\(x+3\\) là bội của \\(4\\), sau đó dùng phép hợp và loại bỏ các phần tử trùng nhau giữa",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Hợp của A và B được ký hiệu là AB, là tập chứa tất cả các phần tử hoặc thuộc tập hợp A hoặc thuộc tập hợp B.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "value": 6.0,
+          "expression": "6",
+          "stated_answer": "6",
+          "stated_value": 6.0,
+          "source": "llm_resolver",
+          "detail": "6 = 6",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "6",
+            "expected_numeric": 3
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 6, khớp đáp án key",
+        "verified_at": "2026-07-26T04:34:56.878013Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9049999999999999,
+        "bloom_alignment": 0.85,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ tập vũ trụ, hai tập hợp và yêu cầu đếm số phần tử của phép hợp nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.75,
+            "rationale": "Bài yêu cầu vận dụng định nghĩa tập hợp, điều kiện phần tử và phép hợp ở mức tính toán cơ bản."
+          },
+          "bloom_alignment": {
+            "score": 0.85,
+            "rationale": "Thao tác xác định tập B rồi thực hiện phép hợp phù hợp với mức Thông hiểu hơn là chỉ ghi nhớ định nghĩa."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đại diện cho những lỗi phổ biến như cộng sai bản số, sai miền xác định và nhầm giao với hợp."
+          },
+          "answer_uniqueness": {
+            "score": 0.95,
+            "rationale": "Chỉ có giá trị 9? không đúng vì phải trừ giao, và phép tính đúng cho hợp là 6 nên đáp án duy nhất."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Chuỗi lỗi mô tả cho từng distractor tạo đúng giá trị tương ứng và phần giải thích vẫn nhất quán với đáp án 6."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9049999999999999,
+        "verifier_pass": true,
+        "critic_score": 0.9049999999999999,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Cần xác định tập \\(B\\) từ điều kiện \\(x+3\\) là bội của \\(4\\), sau đó dùng phép hợp và loại bỏ các phần tử trùng nhau giữa \\(A\\) và \\(B\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Xác định tập \\(A\\): các số lẻ trong \\(U\\) là \\(A=\\{1,3,5,7,9,11\\}\\), nên \\(|A|=6\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Tìm các phần tử của \\(B\\) bằng cách giải điều kiện \\(x+3\\equiv0\\pmod 4\\). Suy ra \\(x\\equiv1\\pmod4\\), với \\(x\\in U\\) nên \\(B=\\{1,5,9\\}\\), do đó \\(|B|=3\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Xác định phần giao: \\(A\\cap B=\\{1,5,9\\}\\), nên \\(|A\\cap B|=3\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Áp dụng công thức đếm hợp hai tập hợp: \\(|A\\cup B|=|A|+|B|-|A\\cap B|=6+3-3=6\\)."
+          }
+        ],
+        "final_answer": "\\(6\\)"
+      },
+      "why_correct": "Kết quả được tính từ đúng các phần tử của hai tập hợp và đã trừ phần giao bị đếm hai lần, nên chỉ có giá trị \\(6\\) thỏa mãn.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Làm sai bằng cách dùng công thức cộng xác suất/số phần tử như trường hợp không giao nhau: tính \\(|A\\cup B|=|A|+|B|\\). Ta có \\(|A|=6\\), \\(|B|=3\\), nên suy ra \\(|A\\cup B|=6+3=9\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Làm sai bằng cách bỏ qua miền xác định đã cho \\(U=\\{1,2,\\ldots,12\\}\\) và tự giới hạn tập vũ trụ thành các số từ \\(1\\) đến \\(10\\). Khi đó lấy \\(A=\\{1,3,5,7,9\\}\\), \\(B=\\{1,5,9\\}\\), nên \\(A\\cup B=\\{1,3,5,7,9\\}\\) có \\(5\\) phầ"
+        },
+        {
+          "option": "D",
+          "reason": "Làm sai bằng cách nhầm phép hợp thành phép giao. Từ \\(A=\\{1,3,5,7,9,11\\}\\) và \\(B=\\{1,5,9\\}\\), chỉ giữ các phần tử xuất hiện đồng thời trong hai tập nên lấy \\(A\\cap B=\\{1,5,9\\}\\), suy ra số phần tử là \\(3\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_ff4da4a2",
+      "blueprint_slot_id": "direct_pdf_3",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 187,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Cho ba tập hợp \\(A,B,C\\) với \\(A=\\{x\\in\\mathbb{Z}\\mid x^2-7x+10=0\\}\\), tập \\(B\\) có 3 phần tử và tập \\(C\\) có 5 phần tử. Hỏi số phần tử của tích Đề các \\(A\\times B\\times C\\) là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "45",
+          "error_type": "quadratic_degree_as_number_of_roots"
+        },
+        {
+          "key": "B",
+          "text": "10",
+          "error_type": "cartesian_product_add_cardinalities"
+        },
+        {
+          "key": "C",
+          "text": "15",
+          "error_type": "missing_negative_root"
+        },
+        {
+          "key": "D",
+          "text": "30",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Trước hết cần tìm số phần tử của tập \\(A\\) bằng cách giải phương trình, sau đó áp dụng quy tắc đếm số phần tử của tích Đề các.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm là cho rằng phương trình bậc hai \\(x^2-7x+10=0\\) luôn có số nghiệm bằng bậc của phương trình nên lấy \\(|A|=3\\) (nhầm số nghiệm của tập với một giá trị không đúng). Từ đó tính tích Đề các là \\(3\\cdot3\\cdot5=45\\). Sai vì tập nghiệm thực tế chỉ có hai phần tử \\(A=\\{2,5\\}\\).",
+        "B": "Sai lầm là áp dụng phép cộng thay vì quy tắc nhân cho tích Đề các. Sau khi tìm \\(|A|=2\\), học sinh tính số phần tử là \\(|A|+|B|+|C|=2+3+5=10\\). Sai vì tích Đề các yêu cầu chọn đồng thời một phần tử từ mỗi tập nên phải nhân các số lượng lựa chọn.",
+        "C": "Giải phương trình \\(x^2-7x+10=0\\) được \\((x-5)(x-2)=0\\). Sai lầm là chỉ giữ một nghiệm (ví dụ chọn \\(x=2\\)) nên cho \\(|A|=1\\). Sau đó tính số phần tử tích Đề các là \\(1\\cdot3\\cdot5=15\\). Sai vì đã bỏ mất phần tử \\(5\\) của tập \\(A\\)."
+      },
+      "hint": "Trước hết cần tìm số phần tử của tập \\(A\\) bằng cách giải phương trình, sau đó áp dụng quy tắc đếm số phần tử của tích Đề",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Tích đề các của các tập A1, A2, . ., An được ký hiệu là A1×A2×..×An là tập hợp của dãy sắp thứ tự (a1, a2,.., an) trong đó ai∈Ai",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "value": 30.0,
+          "expression": "2*3*5",
+          "stated_answer": "30",
+          "stated_value": 30.0,
+          "source": "llm_resolver",
+          "detail": "2*3*5 = 30",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "2*3*5",
+            "expected_numeric": 45
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 30, khớp đáp án key",
+        "verified_at": "2026-07-26T04:35:43.933241Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.91,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ các tập hợp, yêu cầu tính số phần tử của tích Đề các và không có dữ kiện gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.75,
+            "rationale": "Câu hỏi yêu cầu kết hợp giải phương trình đơn giản với áp dụng quy tắc đếm tích Đề các ở mức vận dụng trực tiếp."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Học sinh cần hiểu định nghĩa và áp dụng công thức số phần tử của tích Đề các nên phù hợp mức Thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.88,
+            "rationale": "Các phương án sai tương ứng với những lỗi phổ biến như bỏ nghiệm, cộng số lượng phần tử và nhầm số nghiệm phương trình."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có đáp án 30 đúng vì \\(A=\\\\{2,5\\\\}\\) có 2 phần tử và tích số phần tử bằng \\(2\\\\cdot3\\\\cdot5\\)."
+          },
+          "error_distractor_consistency": {
+            "score": 0.95,
+            "rationale": "Mỗi chuỗi lỗi được mô tả đều dẫn đúng tới giá trị distractor tương ứng và phần giải thích nhất quán với đáp án 30."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.91,
+        "verifier_pass": true,
+        "critic_score": 0.91,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Trước hết cần tìm số phần tử của tập \\(A\\) bằng cách giải phương trình, sau đó áp dụng quy tắc đếm số phần tử của tích Đề các.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Giải phương trình xác định tập \\(A\\): \\(x^2-7x+10=0\\). Ta có \\(x^2-7x+10=(x-2)(x-5)\\), nên \\(x=2\\) hoặc \\(x=5\\). Vì vậy \\(A=\\{2,5\\}\\) và ​\\(|A|=2\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Từ giả thiết, tập \\(B\\) có 3 phần tử và tập \\(C\\) có 5 phần tử nên \\(|B|=3\\), \\(|C|=5\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Mỗi phần tử của \\(A\\times B\\times C\\) là một bộ có thứ tự gồm một phần tử của \\(A\\), một phần tử của \\(B\\) và một phần tử của \\(C\\). Do đó số phần tử là \\(|A\\times B\\times C|=|A|\\cdot|B|\\cdot|C|=2\\cdot3\\cdot5=30\\)."
+          }
+        ],
+        "final_answer": "30"
+      },
+      "why_correct": "Số phần tử của tích Đề các được quyết định bởi số cách chọn độc lập một phần tử từ mỗi tập thành phần. Sau khi tìm đúng \\(|A|=2\\), phép tính \\(2\\cdot3\\cdot5\\) cho kết quả duy nhất là 30.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm là cho rằng phương trình bậc hai \\(x^2-7x+10=0\\) luôn có số nghiệm bằng bậc của phương trình nên lấy \\(|A|=3\\) (nhầm số nghiệm của tập với một giá trị không đúng). Từ đó tính tích Đề các là \\(3\\cdot3\\cdot5=45\\)."
+        },
+        {
+          "option": "B",
+          "reason": "Sai lầm là áp dụng phép cộng thay vì quy tắc nhân cho tích Đề các. Sau khi tìm \\(|A|=2\\), học sinh tính số phần tử là \\(|A|+|B|+|C|=2+3+5=10\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Giải phương trình \\(x^2-7x+10=0\\) được \\((x-5)(x-2)=0\\). Sai lầm là chỉ giữ một nghiệm (ví dụ chọn \\(x=2\\)) nên cho \\(|A|=1\\). Sau đó tính số phần tử tích Đề các là \\(1\\cdot3\\cdot5=15\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_677212b7",
+      "blueprint_slot_id": "direct_pdf_4",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 197,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Một bộ xử lý lưu hai số nguyên dưới dạng nhị phân là \\(a=(101101)_2\\) và \\(b=(1110)_2\\). Sau khi thực hiện phép cộng hai số theo cách cộng nhị phân, giá trị thập phân của tổng \\(a+b\\) là bao nhiêu?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(48\\)",
+          "error_type": "drop_final_carry_bit"
+        },
+        {
+          "key": "B",
+          "text": "\\(35\\)",
+          "error_type": "ignore_carry_in_binary_addition"
+        },
+        {
+          "key": "C",
+          "text": "\\(52\\)",
+          "error_type": "reverse_binary_place_values"
+        },
+        {
+          "key": "D",
+          "text": "\\(59\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Ta đổi các số nhị phân về hệ thập phân rồi cộng để kiểm tra kết quả của phép cộng nhị phân. Cụ thể, \\(a=(101101)_2=45\\) và \\(b=(1110)_2=14\\), nên tổng bằng \\(45+14=59\\).",
+      "explanation_per_distractor": {
+        "A": "Làm sai bằng cách thực hiện cộng nhị phân đúng nhưng bỏ mất bit nhớ cuối cùng sau khi cộng bit cao nhất. Kết quả cộng đúng là \\((101101)_2+(001110)_2=(111011)_2\\), nhưng bỏ bit nhớ đầu tiên của kết quả sẽ coi tổng là \\((101111)_2\\). Đổi sang thập phân được \\(32+8+4+2+2=48\\). Sai vì bit nhớ cuối cùng phải được giữ lại trong khai triển nhị phân của tổng.",
+        "B": "Làm sai bằng cách cộng từng bit nhưng bỏ qua bit nhớ: \\((101101)_2+(001110)_2\\) được xem như phép XOR từng vị trí, nên \\(101101\\oplus001110=100011_2\\). Đổi \\((100011)_2\\) sang thập phân được \\(32+2+1=35\\). Sai vì phép cộng nhị phân bắt buộc phải truyền số nhớ khi có trường hợp \\(1+1\\) hoặc \\(1+1+1\\).",
+        "C": "Làm sai bằng cách gán trọng số bit từ trái sang phải thay vì từ phải sang trái. Khi đó \\((1110)_2\\) bị tính thành \\(1\\cdot2^0+1\\cdot2^1+1\\cdot2^2+0\\cdot2^3=7\\), còn \\((101101)_2\\) vẫn ra \\(45\\). Do đó tổng sai được tính là \\(45+7=52\\). Sai vì trong biểu diễn nhị phân, bit ngoài cùng bên phải mới có trọng số \\(2^0\\)."
+      },
+      "hint": "Ta đổi các số nhị phân về hệ thập phân rồi cộng để kiểm tra kết quả của phép cộng nhị phân.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Xét bài toán cộng hai số nguyên viết ở dạng nhị phân. Thủ tục thực hiện việc cộng cũng giống như làm trên giấy thông thường.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "value": 59.0,
+          "expression": "(2**5+2**3+2**2+2**0)+(2**3+2**2+2**1)",
+          "stated_answer": "59",
+          "stated_value": 59.0,
+          "source": "llm_resolver",
+          "detail": "(2**5+2**3+2**2+2**0)+(2**3+2**2+2**1) = 59",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "45+14",
+            "expected_numeric": 48
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 59, khớp đáp án key",
+        "verified_at": "2026-07-26T04:35:46.354278Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.8716666666666666,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài nêu rõ hai số nhị phân, phép toán cần thực hiện và yêu cầu đổi sang giá trị thập phân nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.75,
+            "rationale": "Bài yêu cầu áp dụng quy trình cộng nhị phân và kiểm tra kết quả, phù hợp mức hiểu và vận dụng cơ bản."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chuyển đổi và thực hiện phép cộng theo phương pháp đã học phù hợp với mức Thông hiểu hơn là phân tích hay đánh giá."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi thường gặp khi cộng nhị phân như bỏ nhớ, sai trọng số hoặc bỏ bit nhớ cuối."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có \\(59\\) là kết quả đúng của \\( (101101)_2+(1110)_2=45+14 \\), các phương án còn lại đều sai."
+          },
+          "error_distractor_consistency": {
+            "score": 0.7,
+            "rationale": "Giải thích đáp án đúng nhất quán với kết quả, nhưng mô tả distractor \\(48\\) có sai sót khi khai triển nhị phân sau khi bỏ bit nhớ nên chuỗi lỗi không hoàn toàn khớp."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.8716666666666666,
+        "verifier_pass": true,
+        "critic_score": 0.8716666666666666,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Ta đổi các số nhị phân về hệ thập phân rồi cộng để kiểm tra kết quả của phép cộng nhị phân. Cụ thể, \\(a=(101101)_2=45\\) và \\(b=(1110)_2=14\\), nên tổng bằng \\(45+14=59\\).",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Đổi \\(a=(101101)_2\\) sang hệ thập phân: \\(a=1\\cdot2^5+0\\cdot2^4+1\\cdot2^3+1\\cdot2^2+0\\cdot2^1+1\\cdot2^0=32+8+4+1=45\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Đổi \\(b=(1110)_2\\) sang hệ thập phân: \\(b=1\\cdot2^3+1\\cdot2^2+1\\cdot2^1+0\\cdot2^0=8+4+2=14\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Thực hiện phép cộng các giá trị đã tìm được: \\(a+b=45+14=59\\). Do đó tổng ở dạng thập phân là \\(59\\)."
+          }
+        ],
+        "final_answer": "\\(59\\)"
+      },
+      "why_correct": "Kết quả đúng vì hai số nhị phân đã được chuyển đổi chính xác sang hệ thập phân và phép cộng \\(45+14\\) cho duy nhất giá trị \\(59\\).",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Làm sai bằng cách thực hiện cộng nhị phân đúng nhưng bỏ mất bit nhớ cuối cùng sau khi cộng bit cao nhất. Kết quả cộng đúng là \\((101101)_2+(001110)_2=(111011)_2\\), nhưng bỏ bit nhớ đầu tiên của kết quả sẽ coi tổng là"
+        },
+        {
+          "option": "B",
+          "reason": "Làm sai bằng cách cộng từng bit nhưng bỏ qua bit nhớ: \\((101101)_2+(001110)_2\\) được xem như phép XOR từng vị trí, nên \\(101101\\oplus001110=100011_2\\). Đổi \\((100011)_2\\) sang thập phân được \\(32+2+1=35\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Làm sai bằng cách gán trọng số bit từ trái sang phải thay vì từ phải sang trái. Khi đó \\((1110)_2\\) bị tính thành \\(1\\cdot2^0+1\\cdot2^1+1\\cdot2^2+0\\cdot2^3=7\\), còn \\((101101)_2\\) vẫn ra \\(45\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_60cc9183",
+      "blueprint_slot_id": "direct_pdf_6",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 393,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một máy tính biểu diễn các tập con của tập vũ trụ \\(U=\\{1,2,3,4,5,6,7,8,9,10,11,12\\}\\) bằng xâu bit độ dài 12 theo thứ tự tăng dần của các phần tử. Tập \\(A\\) được lưu bởi xâu bit \\(101101001110\\). Tập \\(B\\) gồm các phần tử của \\(U\\) là số nguyên tố. Hãy xác định số phần tử của tập \\(A\\oplus B\\), trong đó \\(\\oplus\\) là phép tuyển loại (XOR) giữa hai tập: phần tử thuộc đúng một trong hai tập.",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(7\\)",
+          "error_type": "misidentify_prime_numbers"
+        },
+        {
+          "key": "B",
+          "text": "\\(6\\)",
+          "error_type": "reverse_bit_order"
+        },
+        {
+          "key": "C",
+          "text": "\\(8\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(12\\)",
+          "error_type": "forget_overlap_in_xor"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Đổi xâu bit thành tập phần tử của \\(U\\), xác định tập số nguyên tố \\(B\\), sau đó thực hiện phép tuyển loại để đếm các phần tử chỉ xuất hiện ở một trong hai tập.",
+      "explanation_per_distractor": {
+        "A": "Làm sai khi xác định tập số nguyên tố bằng cách coi \\(1\\) cũng là số nguyên tố. Khi đó dùng sai \\(B'=\\{1,2,3,5,7,11\\}\\). Tập \\(A\\) vẫn là \\(\\{1,3,4,6,9,10,11\\}\\), phần giao sai là \\(\\{1,3,11\\}\\), nên suy ra \\(|A\\oplus B'|=7+6-2\\cdot3=7\\). Sai vì \\(1\\) không phải là số nguyên tố.",
+        "B": "Làm sai khi đọc xâu bit theo thứ tự ngược lại: coi bit đầu tiên ứng với phần tử \\(12\\) và bit cuối ứng với phần tử \\(1\\). Khi đó xâu \\(101101001110\\) bị đọc thành tập \\(A'=\\{2,3,4,7,9,10,12\\}\\). Với \\(B=\\{2,3,5,7,11\\}\\), phần giao là \\(\\{2,3,7\\}\\), nên tính sai \\(|A'\\oplus B|=7+5-2\\cdot3=6\\).",
+        "D": "Làm sai ở bước áp dụng phép tuyển loại: đếm số phần tử của \\(A\\) là \\(7\\), số phần tử của \\(B\\) là \\(5\\), rồi cộng trực tiếp \\(7+5=12\\) mà không loại các phần tử xuất hiện đồng thời trong hai tập. Cách làm này sai vì phép XOR chỉ lấy phần tử thuộc đúng một tập, cần loại bỏ phần giao."
+      },
+      "hint": "Đổi xâu bit thành tập phần tử của \\(U\\), xác định tập số nguyên tố \\(B\\), sau đó thực hiện phép tuyển loại để đếm các phầ",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Các phép toán với bít được xây dựng trên các xâu bít có cùng độ dài, bao gồm : AND bít, OR bít, XOR bít.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "value": 8.0,
+          "expression": "8",
+          "stated_answer": "8",
+          "stated_value": 8.0,
+          "source": "llm_resolver",
+          "detail": "8 = 8",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "8",
+            "expected_numeric": 7
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 8, khớp đáp án key",
+        "verified_at": "2026-07-26T04:36:45.572357Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.92,
+        "quality": 0.9283333333333333,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề nêu rõ thứ tự mã hóa bit, tập vũ trụ, phép XOR và yêu cầu cần tìm nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.82,
+            "rationale": "Câu hỏi yêu cầu kết hợp giải mã biểu diễn bit, xác định tập và thực hiện phép toán thay vì chỉ nhớ định nghĩa."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Người học phải áp dụng quy tắc biểu diễn và XOR vào dữ liệu mới nên phù hợp mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi thường gặp khi đọc bit, xác định số nguyên tố hoặc xử lý giao của hai tập."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có kết quả XOR đúng là 8 và các phương án còn lại xuất phát từ các sai sót cụ thể."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Các chuỗi lỗi mô tả đều dẫn đúng đến giá trị distractor tương ứng và phần giải thích thống nhất với đáp án 8."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9283333333333333,
+        "verifier_pass": true,
+        "critic_score": 0.9283333333333333,
+        "grounding_score": 0.92,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Đổi xâu bit thành tập phần tử của \\(U\\), xác định tập số nguyên tố \\(B\\), sau đó thực hiện phép tuyển loại để đếm các phần tử chỉ xuất hiện ở một trong hai tập.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Theo thứ tự \\(1,2,\\ldots,12\\), các vị trí có bit 1 trong xâu \\(101101001110\\) là \\(1,3,4,6,9,10,11\\). Do đó \\(A=\\{1,3,4,6,9,10,11\\}\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Tìm các số nguyên tố không vượt quá 12 để lập \\(B\\). Ta có \\(B=\\{2,3,5,7,11\\}\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Phép tuyển loại giữ các phần tử chỉ thuộc một tập. Tính phần giao trước: \\(A\\cap B=\\{3,11\\}\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Tính hợp của hai tập: \\(A\\cup B=\\{1,2,3,4,5,6,7,9,10,11\\}\\), có 10 phần tử. Loại bỏ 2 phần tử thuộc cả hai tập nên \\(A\\oplus B=(A\\cup B)\\setminus(A\\cap B)\\) có \\(10-2=8\\) phần tử."
+          }
+        ],
+        "final_answer": "\\(8\\)"
+      },
+      "why_correct": "Phép tuyển loại chỉ lấy các phần tử xuất hiện đúng một lần trong hai tập. Việc chuyển xâu bit sang tập hợp và xác định tập số nguyên tố cho kết quả duy nhất là 8 phần tử.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Làm sai khi xác định tập số nguyên tố bằng cách coi \\(1\\) cũng là số nguyên tố. Khi đó dùng sai \\(B'=\\{1,2,3,5,7,11\\}\\). Tập \\(A\\) vẫn là \\(\\{1,3,4,6,9,10,11\\}\\), phần giao sai là \\(\\{1,3,11\\}\\), nên suy ra"
+        },
+        {
+          "option": "B",
+          "reason": "Làm sai khi đọc xâu bit theo thứ tự ngược lại: coi bit đầu tiên ứng với phần tử \\(12\\) và bit cuối ứng với phần tử \\(1\\). Khi đó xâu \\(101101001110\\) bị đọc thành tập \\(A'=\\{2,3,4,7,9,10,12\\}\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Làm sai ở bước áp dụng phép tuyển loại: đếm số phần tử của \\(A\\) là \\(7\\), số phần tử của \\(B\\) là \\(5\\), rồi cộng trực tiếp \\(7+5=12\\) mà không loại các phần tử xuất hiện đồng thời trong hai tập."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_b27613f8",
+      "blueprint_slot_id": "direct_pdf_7",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 375,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Cho tập vũ trụ \\(U=\\{2,3,5,7,8,10,12,15\\}\\) được sắp theo đúng thứ tự đã cho. Một tập con được biểu diễn bởi xâu bit độ dài 8, trong đó bit thứ \\(i\\) bằng 1 khi phần tử thứ \\(i\\) của \\(U\\) thuộc tập đó. Gọi tập \\(A\\) gồm các phần tử \\(x\\in U\\) thỏa mãn \\(x+1\\) là bội của \\(4\\). Một tập \\(B\\) có xâu bit biểu diễn là \\(11100101\\). Hãy xác định số phần tử của tập \\(A\\cap B\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "2",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "1",
+          "error_type": "wrong_bit_order"
+        },
+        {
+          "key": "C",
+          "text": "6",
+          "error_type": "use_union_instead_of_intersection"
+        },
+        {
+          "key": "D",
+          "text": "0",
+          "error_type": "wrong_condition_divisibility"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Trước hết cần xác định các phần tử của \\(A\\) bằng cách giải điều kiện chia hết, sau đó đổi sang vị trí bit và thực hiện phép giao với xâu bit của \\(B\\). Kết quả giao có 2 bit bằng 1.",
+      "explanation_per_distractor": {
+        "B": "Làm sai ở bước đọc xâu bit của tập B: thay vì giữ thứ tự vị trí từ trái sang phải, đảo xâu bit \\(11100101\\) thành \\(10100111\\). Khi đó các vị trí có bit 1 là \\(1,3,6,7,8\\), tương ứng với các phần tử \\(\\{2,5,10,12,15\\}\\). Tập A đúng là \\(\\{3,7,15\\}\\), nên giao sai tính được là \\(\\{15\\}\\) và có số phần tử bằng \\(1\\). Sai vì biểu diễn bit phải theo đúng thứ tự các phần tử của U đã cho.",
+        "C": "Làm sai phép toán tập hợp: thay vì lấy giao \\(A\\cap B\\), lại lấy hợp \\(A\\cup B\\). Từ điều kiện đúng có \\(A=\\{3,7,15\\}\\), còn \\(B=\\{2,3,5,10,15\\}\\). Hợp của hai tập là \\(\\{2,3,5,7,10,15\\}\\), có \\(6\\) phần tử. Sai vì phép giao chỉ giữ các phần tử xuất hiện đồng thời trong cả hai tập.",
+        "D": "Làm sai khi giải điều kiện của tập A: hiểu nhầm \\(x+1\\) là bội của \\(4\\) thành \\(x\\) là bội của \\(4\\). Từ đó lấy các phần tử trong U có dạng bội của 4 là \\(A=\\{8,12\\}\\). Tập B từ xâu bit \\(11100101\\) là \\(\\{2,3,5,10,15\\}\\), nên giao sai là tập rỗng và cho kết quả \\(0\\). Sai vì điều kiện phải áp dụng cho biểu thức \\(x+1\\), không phải cho \\(x\\)."
+      },
+      "hint": "Trước hết cần xác định các phần tử của \\(A\\) bằng cách giải điều kiện chia hết, sau đó đổi sang vị trí bit và thực hiện p",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Một xâu bít (hoặc xâu nhị phân) là dãy không hoặc nhiều bít.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "value": 2.0,
+          "expression": "2",
+          "stated_answer": "2",
+          "stated_value": 2.0,
+          "source": "llm_resolver",
+          "detail": "2 = 2",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "2",
+            "expected_numeric": 6
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 2, khớp đáp án key",
+        "verified_at": "2026-07-26T04:36:47.169727Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.92,
+        "quality": 0.9266666666666667,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề nêu rõ tập vũ trụ, thứ tự phần tử, quy ước bit, điều kiện tạo tập A và yêu cầu tính số phần tử giao nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.78,
+            "rationale": "Bài yêu cầu kết hợp nhiều thao tác: xác định tập theo điều kiện, mã hóa bằng bit và thực hiện giao, phù hợp mức vận dụng."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác chính là áp dụng quy tắc đã học vào một dữ liệu mới thay vì chỉ nhớ định nghĩa, đúng với mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai tương ứng với các lỗi phổ biến khi xử lý thứ tự bit, điều kiện tập hợp và nhầm giao với hợp."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Tính đúng cho thấy A={3,7,15}, B={2,3,5,10,15} nên chỉ có giao {3,15} với 2 phần tử và không có phương án khác đúng."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Ba chuỗi lỗi được mô tả đều dẫn đúng đến các giá trị 1, 0, 6 tương ứng và phần giải thích nhất quán với đáp án 2."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9266666666666667,
+        "verifier_pass": true,
+        "critic_score": 0.9266666666666667,
+        "grounding_score": 0.92,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Trước hết cần xác định các phần tử của \\(A\\) bằng cách giải điều kiện chia hết, sau đó đổi sang vị trí bit và thực hiện phép giao với xâu bit của \\(B\\). Kết quả giao có 2 bit bằng 1.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Xét từng phần tử của \\(U\\): điều kiện \\(x+1\\) là bội của \\(4\\) tương đương với \\(x+1\\equiv0\\pmod{4}\\). Ta được các phần tử thỏa mãn là \\(3,7,15\\), nên \\(A=\\{3,7,15\\}\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Theo thứ tự của \\(U=\\{2,3,5,7,8,10,12,15\\}\\), các phần tử \\(3,7,15\\) nằm ở vị trí thứ \\(2,4,8\\). Vì vậy xâu bit của \\(A\\) là \\(01010001\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Xâu bit của \\(B\\) là \\(11100101\\). Phép giao tập hợp tương ứng với phép AND từng bit: \\(01010001\\land11100101=01000001\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Xâu bit kết quả \\(01000001\\) có hai bit bằng 1, tương ứng với hai phần tử thuộc \\(A\\cap B\\). Do đó số phần tử của \\(A\\cap B\\) là \\(2\\)."
+          }
+        ],
+        "final_answer": "2"
+      },
+      "why_correct": "Điều kiện xác định \\(A\\) buộc phải tìm các phần tử thỏa mãn trước khi biểu diễn bit, và phép giao chỉ giữ lại các vị trí có bit 1 đồng thời trong hai xâu. Kết quả chỉ có đúng hai vị trí thỏa mãn nên đáp án là duy nhất.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Làm sai ở bước đọc xâu bit của tập B: thay vì giữ thứ tự vị trí từ trái sang phải, đảo xâu bit \\(11100101\\) thành \\(10100111\\). Khi đó các vị trí có bit 1 là \\(1,3,6,7,8\\), tương ứng với các phần tử \\(\\{2,5,10,12,15\\}\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Làm sai phép toán tập hợp: thay vì lấy giao \\(A\\cap B\\), lại lấy hợp \\(A\\cup B\\). Từ điều kiện đúng có \\(A=\\{3,7,15\\}\\), còn \\(B=\\{2,3,5,10,15\\}\\). Hợp của hai tập là \\(\\{2,3,5,7,10,15\\}\\), có \\(6\\) phần tử."
+        },
+        {
+          "option": "D",
+          "reason": "Làm sai khi giải điều kiện của tập A: hiểu nhầm \\(x+1\\) là bội của \\(4\\) thành \\(x\\) là bội của \\(4\\). Từ đó lấy các phần tử trong U có dạng bội của 4 là \\(A=\\{8,12\\}\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_7e13cff5",
+      "blueprint_slot_id": "direct_pdf_8",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng",
+      "difficulty_target": 0.7,
+      "difficulty_estimated": 0.73,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.7,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 323,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 130,
+      "question_type": "single_choice",
+      "stem": "Một hệ thống máy tính lưu trữ mã nhị phân 8 bit. Mã A có dạng \\(A=(10x10110)_2\\), trong đó \\(x\\) là một bit chưa biết. Biết giá trị thập phân của mã A là 182. Tạo mã B bằng cách đảo bit ở vị trí thứ 2 và vị trí thứ 5 của A (đánh số các bit từ trái sang phải). Tính giá trị thập phân của phép XOR giữa hai mã \\(A\\) và \\(B\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(72\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(0\\)",
+          "error_type": "unknown_bit_not_solved"
+        },
+        {
+          "key": "C",
+          "text": "\\(254\\)",
+          "error_type": "bitwise_xor_as_or"
+        },
+        {
+          "key": "D",
+          "text": "\\(18\\)",
+          "error_type": "bit_position_counting_wrong"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Trước hết cần tìm bit chưa biết trong mã A từ giá trị thập phân đã cho, sau đó xác định mã B bằng thao tác đảo bit và thực hiện phép XOR. Hai mã chỉ khác nhau ở hai vị trí bit bị đảo nên kết quả XOR có hai bit 1 tương ứng.",
+      "explanation_per_distractor": {
+        "B": "Làm sai ở bước xác định mã A: bỏ qua điều kiện giá trị thập phân của A bằng 182 và tự chọn \\(x=0\\), nên lấy \\(A=(10010110)_2\\). Khi đó đảo bit thứ 2 và thứ 5 từ trái sang phải được \\(B=(11011110)_2\\). Hai mã này không có cách biệt theo đúng thao tác giải, dẫn đến nhận định sai rằng phép XOR không tạo ra bit khác biệt và cho kết quả \\(0\\). Sai vì phải giải \\(128+32x+16+4+2=182\\) để được \\(x=1\\).",
+        "C": "Làm sai phép toán cuối: nhầm phép XOR với phép OR theo bit. Sau khi có \\(A=(10110110)_2\\) và \\(B=(11111110)_2\\), thay vì tính \\(A\\oplus B\\), thực hiện \\(A\\lor B=10110110_2\\lor11111110_2=11111110_2=254\\). Sai vì XOR chỉ cho bit 1 khi hai bit tương ứng khác nhau.",
+        "D": "Làm sai ở bước xác định vị trí bit cần đảo: thay vì đánh số từ trái sang phải, coi vị trí bit được đánh số từ phải sang trái. Với \\(A=(10110110)_2\\), đảo vị trí thứ 2 và thứ 5 tính từ phải được \\(B=(10100100)_2\\). Sau đó tính XOR: \\(10110110_2 \\oplus 10100100_2=00010010_2=18\\). Sai vì đề yêu cầu đánh số các bit từ trái sang phải."
+      },
+      "hint": "Trước hết cần tìm bit chưa biết trong mã A từ giá trị thập phân đã cho, sau đó xác định mã B bằng thao tác đảo bit và thự",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Các phép toán với bít được xây dựng trên các xâu bít có cùng độ dài, bao gồm : AND bít (phép và cấp bít), OR (phép hoặc cấp bít), XOR (phép tuyển loại trừ cấp bít).",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "refuted",
+        "status_label_vi": "Tính toán độc lập bác bỏ đáp án — cần người kiểm",
+        "status_label_en": "Independent computation refutes the key",
+        "machine_checked": false,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "value": 0.0,
+          "expression": "0",
+          "stated_answer": "0",
+          "stated_value": 0.0,
+          "source": "llm_resolver",
+          "detail": "0 = 0",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": true,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "64+8",
+            "expected_numeric": 254
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "tính toán độc lập cho 0, trùng phương án nhiễu #2 chứ không phải key (72)",
+        "verified_at": "2026-07-26T04:36:58.847904Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.92,
+        "quality": 0.92,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề nêu rõ độ dài mã, cách xác định bit chưa biết, quy ước vị trí bit từ trái sang phải và yêu cầu tính XOR nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.82,
+            "rationale": "Câu hỏi yêu cầu kết hợp giải mã nhị phân, thao tác đảo bit và thực hiện XOR thay vì chỉ nhớ định nghĩa."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác áp dụng quy tắc biểu diễn nhị phân và phép XOR vào tình huống mới phù hợp với mức Vận dụng."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đại diện cho lỗi đếm vị trí bit, bỏ qua việc tìm bit chưa biết và nhầm XOR với OR, đều là lỗi xử lý hợp lý."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có phép giải đúng cho A=(10110110)_2, B=(11111110)_2 và XOR bằng 72 nên không có đáp án cạnh tranh."
+          },
+          "error_distractor_consistency": {
+            "score": 0.95,
+            "rationale": "Mỗi chuỗi lỗi được mô tả đều dẫn đúng đến giá trị distractor tương ứng và phần giải thích đáp án không mâu thuẫn với đáp án 72."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.92,
+        "verifier_pass": true,
+        "critic_score": 0.92,
+        "grounding_score": 0.92,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review",
+        "issues": [
+          "refuted"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Trước hết cần tìm bit chưa biết trong mã A từ giá trị thập phân đã cho, sau đó xác định mã B bằng thao tác đảo bit và thực hiện phép XOR.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Đổi mã A về dạng có bit chưa biết: \\(A=(10x10110)_2\\). Ta có \\((10110110)_2=182\\) và \\((10010110)_2=150\\), nên để A có giá trị 182 thì \\(x=1\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Thay \\(x=1\\), nhận được \\(A=(10110110)_2\\). Các bit từ trái sang phải là \\(1,0,1,1,0,1,1,0\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Đảo bit thứ 2 và bit thứ 5 của A: bit thứ 2 đổi từ 0 thành 1, bit thứ 5 đổi từ 0 thành 1. Do đó \\(B=(11111110)_2\\)."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Thực hiện XOR theo từng bit: \\((10110110)_2\\oplus(11111110)_2=(01001000)_2\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Đổi kết quả sang hệ thập phân: \\((01001000)_2=0\\cdot128+1\\cdot64+0\\cdot32+0\\cdot16+1\\cdot8+0\\cdot4+0\\cdot2+0\\cdot1=72\\)."
+          }
+        ],
+        "final_answer": "\\(72\\)"
+      },
+      "why_correct": "Kết quả được xác định duy nhất vì giá trị thập phân của A xác định duy nhất bit x, thao tác đảo hai vị trí bit xác định duy nhất B, và phép XOR theo từng bit cho đúng một kết quả.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Làm sai ở bước xác định mã A: bỏ qua điều kiện giá trị thập phân của A bằng 182 và tự chọn \\(x=0\\), nên lấy \\(A=(10010110)_2\\). Khi đó đảo bit thứ 2 và thứ 5 từ trái sang phải được \\(B=(11011110)_2\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Làm sai phép toán cuối: nhầm phép XOR với phép OR theo bit. Sau khi có \\(A=(10110110)_2\\) và \\(B=(11111110)_2\\), thay vì tính \\(A\\oplus B\\), thực hiện \\(A\\lor B=10110110_2\\lor11111110_2=11111110_2=254\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Làm sai ở bước xác định vị trí bit cần đảo: thay vì đánh số từ trái sang phải, coi vị trí bit được đánh số từ phải sang trái. Với \\(A=(10110110)_2\\), đảo vị trí thứ 2 và thứ 5 tính từ phải được \\(B=(10100100)_2\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_ce132aa9",
+      "blueprint_slot_id": "direct_pdf_10",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.92,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.1,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 464,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Cho tập vũ trụ \\(U=\\{2,3,5,7,8,10,12,15\\}\\) được sắp theo đúng thứ tự đã cho. Với tham số \\(k\\in\\{2,3,4,5,6\\}\\), đặt \\(A_k=\\{x\\in U\\mid x\\) chia hết cho \\(k\\}\\). Cho \\(B=\\{3,7,10,15\\}\\). Máy tính biểu diễn các tập con bằng xâu bit theo thứ tự của \\(U\\), trong đó phép XOR bit tương ứng với phép lấy hiệu đối xứng \\(A_k\\triangle B\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(5\\)",
+          "error_type": "ignore_bit_12_condition"
+        },
+        {
+          "key": "B",
+          "text": "\\(3\\)",
+          "error_type": null
+        },
+        {
+          "key": "C",
+          "text": "\\(6\\)",
+          "error_type": "set_bitstring_misalign"
+        },
+        {
+          "key": "D",
+          "text": "\\(2\\)",
+          "error_type": "symmetric_difference_as_set_difference"
+        }
+      ],
+      "answer_key": "B",
+      "explanation_correct": "Ta kiểm tra từng giá trị tham số bằng cách lập tập \\(A_k\\), thực hiện phép XOR tương ứng với hiệu đối xứng rồi dùng điều kiện số bit 1 và vị trí bit của phần tử \\(12\\). Chỉ \\(k=3\\) thỏa mãn đồng thời hai điều kiện.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: chỉ dùng điều kiện số bit 1 bằng 3 mà bỏ qua điều kiện bit ứng với phần tử \\(12\\) phải bằng 1. Với \\(k=5\\), ta có \\(A_5=\\{5,10,15\\}\\). Lấy XOR với \\(B=\\{3,7,10,15\\}\\) được \\(A_5\\triangle B=\\{3,5,7\\}\\), có đúng 3 phần tử nên chọn nhầm \\(k=5\\). Sai vì phần tử \\(12\\) không thuộc tập này nên bit của \\(12\\) bằng 0.",
+        "C": "Sai lầm: biểu diễn tập bằng xâu bit nhưng gán nhầm vị trí phần tử khi đọc bit, cụ thể coi bit của phần tử \\(12\\) là bit của phần tử kế cận trong thứ tự \\(U\\). Với \\(k=6\\), ta có \\(A_6=\\{3,12\\}\\) và \\(A_6\\triangle B=\\{7,10,12,15\\}\\). Khi lập xâu bit sai vị trí và đếm theo cách lệch vị trí, học sinh có thể bỏ sót một bit và nhận được 3 bit 1, đồng thời đọc nhầm vị trí bit tương ứng với \\(12\\) là 1,",
+        "D": "Sai lầm: hiểu phép XOR của hai tập là phép hiệu \\(A_k\\setminus B\\) thay vì hiệu đối xứng \\(A_k\\triangle B\\). Với \\(k=2\\), ta có \\(A_2=\\{2,8,10,12\\}\\). Tính sai theo cách này: \\(A_2\\setminus B=\\{2,8,12\\}\\), có đúng 3 phần tử và chứa \\(12\\), nên suy ra nhầm \\(k=2\\). Sai vì hiệu đối xứng phải lấy cả các phần tử chỉ thuộc \\(B\\) nữa."
+      },
+      "hint": "Ta kiểm tra từng giá trị tham số bằng cách lập tập \\(A_k\\), thực hiện phép XOR tương ứng với hiệu đối xứng rồi dùng điều",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Sau đó xây dựng một xâu bít nhị phân có độ dài n, sao cho nếu bít thứ i có giá trị 1 thì phần tử ai∈A, nếu ai=0 thì ai∉A",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "value": 3.0,
+          "expression": "3",
+          "stated_answer": "3",
+          "stated_value": 3.0,
+          "source": "llm_resolver",
+          "detail": "3 = 3",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "3",
+            "expected_numeric": 6
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 3, khớp đáp án key",
+        "verified_at": "2026-07-26T04:38:24.510747Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.92,
+        "quality": 0.9,
+        "bloom_alignment": 0.85,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.95,
+            "rationale": "Đề bài nêu rõ tập vũ trụ, thứ tự biểu diễn, điều kiện trên xâu bit và yêu cầu tìm tham số duy nhất."
+          },
+          "cognitive_depth": {
+            "score": 0.82,
+            "rationale": "Bài yêu cầu kết hợp nhiều bước gồm lập tập, thực hiện hiệu đối xứng/XOR và kiểm tra điều kiện thay vì chỉ áp dụng trực tiếp một công thức."
+          },
+          "bloom_alignment": {
+            "score": 0.85,
+            "rationale": "Thao tác chính là vận dụng phương pháp đã học vào tình huống mới với nhiều ràng buộc, phù hợp mức vận dụng cao."
+          },
+          "distractor_plausibility": {
+            "score": 0.88,
+            "rationale": "Các phương án sai đại diện cho lỗi bỏ điều kiện, nhầm phép toán tập hợp và sai biểu diễn bit nên có tính chẩn đoán tốt."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Kiểm tra các giá trị k cho thấy chỉ k=3 tạo hiệu đối xứng có đúng 3 phần tử và chứa 12, không có phương án khác thỏa mãn."
+          },
+          "error_distractor_consistency": {
+            "score": 0.9,
+            "rationale": "Mô tả lỗi của các distractor nhìn chung dẫn tới giá trị đã nêu, và phần giải thích đáp án nhất quán với đáp án 3."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9,
+        "verifier_pass": true,
+        "critic_score": 0.9,
+        "grounding_score": 0.92,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Ta kiểm tra từng giá trị tham số bằng cách lập tập \\(A_k\\), thực hiện phép XOR tương ứng với hiệu đối xứng rồi dùng điều kiện số bit 1 và vị trí bit của phần tử \\(12\\). Chỉ \\(k=3\\) thỏa mãn đồng thời hai điều kiện.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Theo thứ tự \\(U=\\{2,3,5,7,8,10,12,15\\}\\), mỗi phần tử tương ứng với một vị trí bit. Cần tìm \\(k\\) sao cho \\(A_k\\triangle B\\) có đúng 3 phần tử và chứa phần tử \\(12\\)."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Với \\(k=3\\), ta có \\(A_3=\\{3,12,15\\}\\) vì đây là các phần tử của \\(U\\) chia hết cho 3."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Tính hiệu đối xứng: \\(A_3\\triangle B=\\{3,12,15\\}\\triangle\\{3,7,10,15\\}=\\{7,10,12\\}\\). Tập này có 3 phần tử và có chứa \\(12\\), nên \\(k=3\\) thỏa mãn."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Để loại các khả năng khác, xét các giá trị còn lại: \\(k=2\\) cho \\(A_2=\\{2,8,10,12\\}\\), suy ra \\(A_2\\triangle B=\\{2,3,7,8,12,15\\}\\) có 6 phần tử."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Với \\(k=4,5,6\\), lần lượt thu được \\(A_4\\triangle B=\\{3,7,8,10,12,15\\}\\), \\(A_5\\triangle B=\\{3,5,7\\}\\), \\(A_6\\triangle B=\\{3,7,10,12,15\\}\\). Trường hợp \\(k=5\\) có 3 phần tử nhưng không chứa \\(12\\), còn các trường hợp khác không có đúng 3 phần tử. Do đó chỉ còn \\(k=3\\)."
+          }
+        ],
+        "final_answer": "\\(3\\)"
+      },
+      "why_correct": "Điều kiện của đề bài là giao của hai ràng buộc: số bit 1 của xâu XOR phải bằng 3 và vị trí phần tử \\(12\\) phải có bit 1. Sau khi kiểm tra toàn bộ miền giá trị của tham số \\(k\\), chỉ \\(k=3\\) thỏa mãn.",
+      "why_others_wrong": [
+        {
+          "option": "A",
+          "reason": "Sai lầm: chỉ dùng điều kiện số bit 1 bằng 3 mà bỏ qua điều kiện bit ứng với phần tử \\(12\\) phải bằng 1. Với \\(k=5\\), ta có \\(A_5=\\{5,10,15\\}\\)."
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: biểu diễn tập bằng xâu bit nhưng gán nhầm vị trí phần tử khi đọc bit, cụ thể coi bit của phần tử \\(12\\) là bit của phần tử kế cận trong thứ tự \\(U\\)."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: hiểu phép XOR của hai tập là phép hiệu \\(A_k\\setminus B\\) thay vì hiệu đối xứng \\(A_k\\triangle B\\). Với \\(k=2\\), ta có \\(A_2=\\{2,8,10,12\\}\\)."
+        }
+      ]
+    },
+    {
+      "question_id": "q_2026_8ac8c926",
+      "blueprint_slot_id": "direct_pdf_11",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Vận dụng cao",
+      "difficulty_target": 0.85,
+      "difficulty_estimated": 0.88,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.85,
+        "stem_length_adj": 0.06,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 269,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 322,
+      "question_type": "single_choice",
+      "stem": "Cho bốn mệnh đề \\(p,q,r,s\\). Xét mệnh đề phức hợp \\(E=((p\\rightarrow q)\\land(r\\lor s))\\leftrightarrow(p\\land r)\\). Một hệ thống kiểm tra logic chỉ chấp nhận các bộ giá trị chân lý làm cho \\(E\\) đúng. Hỏi hệ thống có thể chấp nhận bao nhiêu bộ giá trị của \\((p,q,r,s)\\)?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(7\\)",
+          "error_type": null
+        },
+        {
+          "key": "B",
+          "text": "\\(3\\)",
+          "error_type": "demorgan_wrong"
+        },
+        {
+          "key": "C",
+          "text": "\\(4\\)",
+          "error_type": "tautology_wrong"
+        },
+        {
+          "key": "D",
+          "text": "\\(9\\)",
+          "error_type": "negation_of_implication_wrong"
+        }
+      ],
+      "answer_key": "A",
+      "explanation_correct": "Ta biến đổi điều kiện logic bằng cách xét phép kéo theo và phép tương đương, sau đó đếm các bộ giá trị chân lý thỏa mãn. Kết quả có 7 bộ làm cho mệnh đề \\(E\\) đúng.",
+      "explanation_per_distractor": {
+        "B": "Sai lầm: khi khai triển phép tương đương \\(A\\leftrightarrow B\\equiv(A\\land B)\\lor(\\neg A\\land\\neg B)\\), với \\(A=((p\\rightarrow q)\\land(r\\lor s))\\), người làm sai dùng \\(\\neg(A\\land B)\\equiv\\neg A\\land\\neg B\\) thay vì \\(\\neg(A\\land B)\\equiv\\neg A\\lor\\neg B\\).",
+        "C": "Sai lầm: coi mệnh đề hội \\(((p\\rightarrow q)\\land(r\\lor s))\\) là hằng đúng. Khi đó \\(E\\) bị thay thành \\((\\text{Đúng})\\leftrightarrow(p\\land r)\\), nên chỉ cần \\(p\\land r\\) đúng. Người làm sai đếm các bộ có \\(p=1,r=1\\), còn \\(q,s\\) tùy ý: \\(2\\times2=4\\) bộ. Sai vì phép hội chỉ đúng khi cả hai thành phần cùng đúng, không phải hằng đúng.",
+        "D": "Sai lầm: dùng \\(\\neg(p\\rightarrow q)\\equiv \\neg p\\rightarrow\\neg q\\). Vì \\(p\\rightarrow q\\) có thể viết là \\(\\neg\\neg(p\\rightarrow q)\\), người làm sai suy ra \\(p\\rightarrow q\\equiv \\neg(\\neg p\\rightarrow\\neg q)\\equiv \\neg(p\\lor\\neg q)\\equiv \\neg p\\land q\\). Thay vào \\(E\\), họ đếm các bộ thỏa \\((((\\neg p\\land q)\\land(r\\lor s))\\leftrightarrow(p\\land r))\\), bảng chân lý cho kết quả có \\(9\\) bộ."
+      },
+      "hint": "Ta biến đổi điều kiện logic bằng cách xét phép kéo theo và phép tương đương, sau đó đếm các bộ giá trị chân lý thỏa mãn.",
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Định nghĩa 5. Cho p và q là hai mệnh đề. Phép kéo theo giữa mệnh đề p với mệnh đề q (ký hiệu p  q) là một mệnh đề.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "independently_verified",
+        "status_label_vi": "Đã kiểm chứng độc lập bằng CAS",
+        "status_label_en": "Independently verified (CAS)",
+        "machine_checked": true,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "value": 7.0,
+          "expression": "7",
+          "stated_answer": "7",
+          "stated_value": 7.0,
+          "source": "llm_resolver",
+          "detail": "7 = 7",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": false,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "7",
+            "expected_numeric": 4
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "mục tiêu độc lập cho 7, khớp đáp án key",
+        "verified_at": "2026-07-26T04:40:14.931754Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.95,
+        "quality": 0.9383333333333334,
+        "bloom_alignment": 0.9,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.98,
+            "rationale": "Đề bài xác định rõ mệnh đề phức hợp, miền giá trị cần đếm và yêu cầu tìm số bộ giá trị chân lý nên không gây mơ hồ."
+          },
+          "cognitive_depth": {
+            "score": 0.85,
+            "rationale": "Bài yêu cầu kết hợp nhiều phép toán logic và đếm các trường hợp thỏa mãn thay vì chỉ nhớ định nghĩa."
+          },
+          "bloom_alignment": {
+            "score": 0.9,
+            "rationale": "Thao tác lập luận, biến đổi và đếm bảng chân lý phù hợp với mức Vận dụng cao hơn so với nhận biết hay thông hiểu."
+          },
+          "distractor_plausibility": {
+            "score": 0.9,
+            "rationale": "Các phương án sai đều gắn với lỗi logic phổ biến như biến đổi kéo theo sai, áp dụng De Morgan sai và nhầm hằng đúng."
+          },
+          "answer_uniqueness": {
+            "score": 1.0,
+            "rationale": "Chỉ có một giá trị đếm đúng là 7 và các phương án còn lại đều xuất phát từ biến đổi logic sai."
+          },
+          "error_distractor_consistency": {
+            "score": 1.0,
+            "rationale": "Các chuỗi lỗi được mô tả đều dẫn đúng đến các kết quả 9, 3, 4 tương ứng và phần giải thích không mâu thuẫn với đáp án 7."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.9383333333333334,
+        "verifier_pass": true,
+        "critic_score": 0.9383333333333334,
+        "grounding_score": 0.95,
+        "reject_reasons": []
+      },
+      "review_status": "pending_review",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "_attempts": 1,
+      "short_explanation": "Ta biến đổi điều kiện logic bằng cách xét phép kéo theo và phép tương đương, sau đó đếm các bộ giá trị chân lý thỏa mãn. Kết quả có 7 bộ làm cho mệnh đề \\(E\\) đúng.",
+      "detailed_solution": {
+        "steps": [
+          {
+            "title": "Bước 1",
+            "content": "Đặt \\(A=(p\\rightarrow q)\\land(r\\lor s)\\), \\(B=p\\land r\\). Khi đó \\(E=A\\leftrightarrow B\\) đúng khi \\(A\\) và \\(B\\) có cùng giá trị chân lý."
+          },
+          {
+            "title": "Bước 2",
+            "content": "Thay phép kéo theo bằng dạng tương đương \\(p\\rightarrow q\\equiv \\neg p\\lor q\\), suy ra \\(A=(\\neg p\\lor q)\\land(r\\lor s)\\)."
+          },
+          {
+            "title": "Bước 3",
+            "content": "Xét trường hợp \\(B\\) sai. Khi \\(p\\land r=0\\), cần có \\(A=0\\). Các bộ làm \\(B=0\\) nhưng \\(A=1\\) bị loại; kiểm tra theo \\(p,q,r,s\\) cho 9 bộ bị loại khỏi 16 bộ ban đầu."
+          },
+          {
+            "title": "Bước 4",
+            "content": "Xét trường hợp \\(B\\) đúng. Khi \\(p=1,r=1\\), cần \\(A=1\\). Khi đó \\(A=(\\neg1\\lor q)\\land(1\\lor s)=q\\land1=q\\), nên bắt buộc \\(q=1\\), còn \\(s\\) tùy ý. Thu được 2 bộ: \\((1,1,1,0)\\), \\((1,1,1,1)\\)."
+          },
+          {
+            "title": "Bước 5",
+            "content": "Tổng hợp các trường hợp thỏa mãn từ việc xét \\(B=0,A=0\\) và \\(B=1,A=1\\), ta thu được 7 bộ giá trị: \\((0,0,0,0),(0,1,0,0),(1,0,0,0),(1,0,0,1),(1,1,0,0),(1,1,1,0),(1,1,1,1)\\)."
+          }
+        ],
+        "final_answer": "\\(7\\)"
+      },
+      "why_correct": "Các bộ giá trị được đếm dựa trên đúng điều kiện tương đương logic của \\(E\\). Mọi bộ không nằm trong danh sách trên đều làm hai vế của phép tương đương khác giá trị, nên không được chấp nhận.",
+      "why_others_wrong": [
+        {
+          "option": "B",
+          "reason": "Sai lầm: khi khai triển phép tương đương \\(A\\leftrightarrow B\\equiv(A\\land B)\\lor(\\neg A\\land\\neg B)\\), với \\(A=((p\\rightarrow q)\\land(r\\lor s))\\), người làm sai dùng \\(\\neg(A\\land B)\\equiv\\neg A\\land\\neg B\\) thay vì"
+        },
+        {
+          "option": "C",
+          "reason": "Sai lầm: coi mệnh đề hội \\(((p\\rightarrow q)\\land(r\\lor s))\\) là hằng đúng. Khi đó \\(E\\) bị thay thành \\((\\text{Đúng})\\leftrightarrow(p\\land r)\\), nên chỉ cần \\(p\\land r\\) đúng."
+        },
+        {
+          "option": "D",
+          "reason": "Sai lầm: dùng \\(\\neg(p\\rightarrow q)\\equiv \\neg p\\rightarrow\\neg q\\). Vì \\(p\\rightarrow q\\) có thể viết là \\(\\neg\\neg(p\\rightarrow q)\\), người làm sai suy ra"
+        }
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "question_id": "rej_direct_pdf_0_verifier",
+      "blueprint_slot_id": "direct_pdf_0",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "conceptual"
+      ],
+      "cognitive_level": "Nhận biết",
+      "difficulty_target": 0.3,
+      "difficulty_estimated": 0.28,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.3,
+        "stem_length_adj": -0.04,
+        "verifier_complexity_adj": 0.0,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 52,
+        "verifier_type": "none",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 40,
+      "question_type": "single_choice",
+      "stem": "Trong logic mệnh đề, câu nào sau đây là một mệnh đề?",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(x+1=2\\)",
+          "error_type": "wrong_domain"
+        },
+        {
+          "key": "B",
+          "text": "\\(P \\lor \\neg P\\)",
+          "error_type": "contradiction_wrong"
+        },
+        {
+          "key": "C",
+          "text": "\\(P \\land Q\\)",
+          "error_type": "tautology_wrong"
+        },
+        {
+          "key": "D",
+          "text": "\\(1+1=2\\)",
+          "error_type": null
+        }
+      ],
+      "answer_key": "D",
+      "explanation_correct": "Theo định nghĩa trong tài liệu, mệnh đề là câu khẳng định có giá trị đúng hoặc sai xác định. Câu \\(1+1=2\\) là một khẳng định đúng nên là một mệnh đề.",
+      "explanation_per_distractor": {
+        "A": "Lỗi sai là bỏ qua điều kiện của biến. Người làm sai coi \\(x\\) như đã có giá trị xác định (chẳng hạn tự gán \\(x=1\\)) nên kết luận \\(x+1=2\\) là một câu khẳng định có giá trị đúng. Thực tế \\(x+1=2\\) còn phụ thuộc vào giá trị của \\(x\\), nên chưa xác định được đúng hay sai và không phải là mệnh đề.",
+        "B": "Lỗi sai là nhầm tính chất của phép tuyển. Người làm sai cho rằng \\(P \\lor \\neg P\\) là mâu thuẫn (hằng sai) nên loại hoặc xem đây là câu không có giá trị chân lý xác định. Thực tế theo luật bài trung, \\(P \\lor \\neg P\\) luôn đúng với mọi giá trị của \\(P\\), nên nó là một mệnh đề logic có giá trị chân lý xác định.",
+        "C": "Lỗi sai là coi biểu thức hội \\(P \\land Q\\) luôn đúng nên cho rằng đây là một câu có giá trị chân lý xác định và chọn nó. Thực tế \\(P \\land Q\\) chỉ đúng khi cả \\(P\\) và \\(Q\\) đều đúng, còn có thể sai trong các trường hợp khác; vì vậy cần biết giá trị của \\(P,Q\\), không thể xem nó như một mệnh đề đúng xác định trong ngữ cảnh này."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "Một mệnh đề được hiểu là một câu khẳng định hoặc đúng hoặc sai chứ không thể vừa đúng vừa sai.",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": null,
+        "method": null,
+        "verified": null,
+        "status": "non_verifiable",
+        "status_label_vi": "Không kiểm chứng được bằng máy",
+        "status_label_en": "Not machine-checkable",
+        "machine_checked": false,
+        "machine_verifiable": false,
+        "question_kind": "conceptual",
+        "evidence_sources": [],
+        "independent": {},
+        "needs_human_review": false,
+        "verifier_version": null,
+        "verifier_hint": null,
+        "numeric_crosscheck_points": 0,
+        "detail": null,
+        "verified_at": "2026-07-26T04:34:33.526770Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": null,
+        "quality": null,
+        "bloom_alignment": null,
+        "answer_prob": null,
+        "quality_traits": {},
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": null,
+        "verifier_pass": null,
+        "critic_score": null,
+        "grounding_score": null,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "pending_review"
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "duplicate_question: rule validator failed: ['duplicate_question:source_quote_is_existing_exercise']",
+      "reject_reason_code": "quote_mismatch",
+      "reject_reason_stage": "verifier",
+      "reject_log": [
+        {
+          "reason_code": "quote_mismatch",
+          "stage": "verifier",
+          "attempt": 0,
+          "message": "duplicate_question: rule validator failed: ['duplicate_question:source_quote_is_existing_exercise']",
+          "slot_id": "direct_pdf_0"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "question_id": "rej_direct_pdf_1_critic",
+      "blueprint_slot_id": "direct_pdf_1",
+      "subject": "Toán",
+      "topic": "",
+      "kc_ids": [
+        "numeric_eval",
+        "conceptual"
+      ],
+      "cognitive_level": "Thông hiểu",
+      "difficulty_target": 0.5,
+      "difficulty_estimated": 0.5,
+      "difficulty_alignment": true,
+      "difficulty_features": {
+        "cognitive_base": 0.5,
+        "stem_length_adj": 0.03,
+        "verifier_complexity_adj": -0.05,
+        "visual_adj": 0.02,
+        "distractor_closeness_adj": 0.0,
+        "stem_length": 226,
+        "verifier_type": "numeric_eval",
+        "visual_type": "none",
+        "num_distractors": 3
+      },
+      "discrimination": null,
+      "estimated_time_seconds": 75,
+      "question_type": "single_choice",
+      "stem": "Cho tập vũ trụ \\(U=\\{1,2,3,4,5,6,7,8,9,10\\}\\). Biết \\(A=\\{1,3,5,7,9\\}\\) và \\(A\\cup B=\\{1,2,3,4,5,6,7,8,9,10\\}\\). Ngoài ra, tập \\(B\\) có đúng 6 phần tử và chứa các phần tử \\(\\{2,4,6\\}\\). Hãy tính số phần tử của tập \\(A\\cap B\\).",
+      "options": [
+        {
+          "key": "A",
+          "text": "\\(6\\)",
+          "error_type": "confuse_intersection_with_set_size"
+        },
+        {
+          "key": "B",
+          "text": "\\(5\\)",
+          "error_type": "confuse_union_with_containment"
+        },
+        {
+          "key": "C",
+          "text": "\\(0\\)",
+          "error_type": null
+        },
+        {
+          "key": "D",
+          "text": "\\(2\\)",
+          "error_type": "ignore_set_size_constraint"
+        }
+      ],
+      "answer_key": "C",
+      "explanation_correct": "Từ điều kiện hợp của hai tập bằng toàn bộ \\(U\\), các phần tử còn thiếu trong \\(A\\) phải xuất hiện trong \\(B\\). Ta tìm được \\(B\\) chứa thêm \\(\\{8,10\\}\\) ngoài \\(\\{2,4,6\\}\\), nên \\(B=\\{2,4,6,8,10\\}\\) cùng một phần tử nữa ngoài \\(A\\). Vì \\(A\\) chỉ gồm các số lẻ và các phần tử bắt buộc của \\(B\\) đều là số chẵn, phần giao bằng tập rỗng.",
+      "explanation_per_distractor": {
+        "A": "Sai lầm: lấy nhầm số phần tử của tập \\(B\\) làm số phần tử của giao. Người làm sai thấy đề cho \\(B\\) có đúng 6 phần tử nên suy luận trực tiếp \\(|A\\cap B|=|B|=6\\), bỏ qua việc chỉ những phần tử vừa thuộc \\(A\\) vừa thuộc \\(B\\) mới được tính vào giao. Vì vậy thu được distractor \\(6\\), nhưng kết luận này sai do nhầm bản chất của phép giao tập hợp.",
+        "B": "Sai lầm: hiểu nhầm \\(A\\cup B=U\\) thành \\(A\\subseteq B\\), tức cho rằng mọi phần tử của \\(A\\) đều thuộc \\(B\\). Khi đó lấy toàn bộ \\(A=\\{1,3,5,7,9\\}\\) là phần giao \\(A\\cap B\\), nên tính \\(|A\\cap B|=|A|=5\\). Sai vì hợp bằng vũ trụ chỉ yêu cầu mỗi phần tử của \\(U\\) thuộc ít nhất một trong hai tập, không có nghĩa là \\(A\\) nằm trong \\(B\\).",
+        "D": "Sai lầm: chỉ dùng điều kiện \\(A\\cup B=U\\) để lấy các phần tử còn thiếu của \\(A\\) trong \\(B\\), mà quên điều kiện \\(|B|=6\\). Từ \\(A=\\{1,3,5,7,9\\}\\), người làm sai cho rằng \\(B\\) phải chứa thêm tất cả các phần tử của \\(A\\) để tạo hợp, lấy \\(B=\\{1,2,3,4,5,6,7,8,9,10\\}\\) rồi nhận xét giao có các phần tử \\(\\{1,3,5,7,9\\}\\)."
+      },
+      "hint": null,
+      "visual": {
+        "type": "none",
+        "spec": {},
+        "alt_text": ""
+      },
+      "source": {
+        "doc_id": null,
+        "chunk_ids": [],
+        "pages": [],
+        "quote": "AB = { x | x  A  x B }",
+        "quote_in_context": null
+      },
+      "verification": {
+        "engine": "numeric_eval",
+        "method": "numeric_eval",
+        "verified": true,
+        "status": "mismatch",
+        "status_label_vi": "Các nguồn tính toán lệch nhau — cần người kiểm",
+        "status_label_en": "Computation sources disagree — needs review",
+        "machine_checked": false,
+        "machine_verifiable": true,
+        "question_kind": "computational",
+        "evidence_sources": [
+          "writer_expression",
+          "independent_target"
+        ],
+        "independent": {
+          "attempted": true,
+          "definite": true,
+          "value": 1.0,
+          "expression": "1",
+          "stated_answer": "1",
+          "stated_value": 1.0,
+          "source": "llm_resolver",
+          "detail": "1 = 1",
+          "model": "gpt-4o-mini",
+          "prompt_version": "1.0.0",
+          "errors": []
+        },
+        "needs_human_review": true,
+        "verifier_version": "2.0.0",
+        "verifier_hint": {
+          "type": "numeric_eval",
+          "payload": {
+            "expr": "0",
+            "expected_numeric": 6
+          }
+        },
+        "numeric_crosscheck_points": 0,
+        "detail": "biểu thức của Writer khớp key (0) nhưng tính toán độc lập cho 1",
+        "verified_at": "2026-07-26T04:34:56.123179Z",
+        "answer_key_repaired": false,
+        "answer_key_repair_evidence": null,
+        "verifier_errored": false,
+        "source_quote_repaired": false
+      },
+      "judging": {
+        "grounding": 0.92,
+        "quality": 0.55,
+        "bloom_alignment": 0.8,
+        "answer_prob": null,
+        "quality_traits": {
+          "clarity": {
+            "score": 0.65,
+            "rationale": "Đề cho đầy đủ các tập, điều kiện về hợp và số phần tử của \\(B\\), nhưng cách suy luận trong lời giải có mâu thuẫn với điều kiện \\u007cB\\u007c=6."
+          },
+          "cognitive_depth": {
+            "score": 0.7,
+            "rationale": "Bài yêu cầu kết hợp nhiều điều kiện tập hợp để suy luận giao, phù hợp mức vận dụng nhẹ hơn là chỉ nhận biết."
+          },
+          "bloom_alignment": {
+            "score": 0.8,
+            "rationale": "Thao tác chính là hiểu và áp dụng định nghĩa hợp-giao của tập hợp nên phù hợp với mức Thông hiểu, dù có yếu tố suy luận."
+          },
+          "distractor_plausibility": {
+            "score": 0.75,
+            "rationale": "Các phương án sai đều gắn với lỗi phổ biến về hợp, giao và bản số tập hợp, nhưng chưa hoàn toàn khớp với cấu hình đề."
+          },
+          "answer_uniqueness": {
+            "score": 0.15,
+            "rationale": "Đáp án \\(0\\) không đúng vì các điều kiện cho phép \\(B\\) chứa thêm một phần tử lẻ để đủ 6 phần tử, nên giao không bị cố định."
+          },
+          "error_distractor_consistency": {
+            "score": 0.25,
+            "rationale": "Mô tả lỗi của distractor nhìn chung hợp lý, nhưng phần giải thích đáp án mâu thuẫn với ràng buộc \\u007cB\\u007c=6 và không chứng minh được giao rỗng."
+          }
+        },
+        "critic_skipped": null
+      },
+      "agent_trace": [],
+      "quality_trace": {
+        "before_refiner": null,
+        "after_refiner": 0.55,
+        "verifier_pass": true,
+        "critic_score": 0.55,
+        "grounding_score": 0.92,
+        "reject_reasons": []
+      },
+      "review_status": "rejected",
+      "review": {
+        "human_reviewed": false,
+        "reviewed_by": null,
+        "review_notes": null,
+        "status": "needs_revision",
+        "issues": [
+          "mismatch"
+        ]
+      },
+      "tags": [
+        "",
+        "conceptual"
+      ],
+      "version": 1,
+      "reject_reason": "answer_uniqueness=0.15 (nghi đa đáp án)",
+      "reject_reason_code": "bad_distractors",
+      "reject_reason_stage": "critic",
+      "reject_log": [
+        {
+          "reason_code": "bad_distractors",
+          "stage": "critic",
+          "attempt": 0,
+          "message": "answer_uniqueness=0.15 (nghi đa đáp án)",
+          "slot_id": "direct_pdf_1"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_5_writer",
+      "blueprint_slot_id": "direct_pdf_5",
+      "cognitive_level": "Vận dụng",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 4 column 88 (char 522)\"])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=[\"Expecting ',' delimiter: line 4 column 88 (char 522)\"])",
+          "slot_id": "direct_pdf_5"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "stem": "",
+      "question_id": "rej_direct_pdf_9_writer",
+      "blueprint_slot_id": "direct_pdf_9",
+      "cognitive_level": "Vận dụng",
+      "review_status": "rejected",
+      "reject_reason": "Writer không sinh được câu hỏi hợp lệ (errors=['writer empty question_text'])",
+      "reject_reason_code": "writer_empty",
+      "reject_reason_stage": "writer",
+      "reject_log": [
+        {
+          "reason_code": "writer_empty",
+          "stage": "writer",
+          "attempt": 0,
+          "message": "Writer không sinh được câu hỏi hợp lệ (errors=['writer empty question_text'])",
+          "slot_id": "direct_pdf_9"
+        }
+      ],
+      "attempts": 1
+    }
+  ]
+}

@@ -12,3 +12,11 @@ pdftest/*.json
 pdftest/*.log
 pdftest/_*.py
 .claude
+# Bản sao .env có key thật (vd .env.bak-20260728)
+.env.*
+!.env.example
+# Cache ảnh trang đã render
+.cache/
+.vscode/
+# Paper đang chờ nộp lại ARR — không đưa lên repo public
+conference-latex-template/

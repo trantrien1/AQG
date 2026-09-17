@@ -1,0 +1,495 @@
+{
+  "run": "20260724-b1-postparse (post JSON-parse fix; sqrt parser + numeric_eval key recovery active)",
+  "methodology": "Cross-family LLM-as-judge: Claude Opus 4.8 chấm câu do GPT-4o sinh (critic nội bộ GPT-4o-mini). MỖI đáp án re-derive ĐỘC LẬP bằng SymPy từ dữ kiện đề (audit_postparse.py), KHÔNG dựa expr của writer. 1 rater, automatic — KHÔNG phải human study.",
+  "criteria_pass_counts": {
+    "n": 40,
+    "a_unique_correct": 35,
+    "b_grounded": 40,
+    "c_nontrivial": 33,
+    "d_understanding": 34,
+    "all_four_pass": 28
+  },
+  "criteria_pass_rates": {
+    "a_unique_correct": 0.875,
+    "b_grounded": 1.0,
+    "c_nontrivial": 0.825,
+    "d_understanding": 0.85,
+    "all_four_pass": 0.7
+  },
+  "answer_wrong_or_ambiguous_ids": [
+    3,
+    6,
+    26,
+    34,
+    39
+  ],
+  "wrong_key_caught_verified_false": [
+    3,
+    26
+  ],
+  "blind_spot_wrong_key_passed_verified_true": [
+    6,
+    34
+  ],
+  "fix_b_recovered_ids": [
+    33,
+    34,
+    35,
+    36,
+    37
+  ],
+  "fix_b_recovered_correct": [
+    33,
+    35,
+    36,
+    37
+  ],
+  "fix_b_recovered_WRONG": [
+    34
+  ],
+  "formulation_flaw_ids": [
+    39
+  ],
+  "per_question": [
+    {
+      "gidx": 1,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 0,
+        "d_understanding": 0
+      },
+      "all4": 0,
+      "note": "Nhận biết: họ nguyên hàm F(x)+C -> D, recall định nghĩa"
+    },
+    {
+      "gidx": 2,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "a=6t+5, v0=4, quãng đường 3s = 123/2; SymPy đúng"
+    },
+    {
+      "gidx": 3,
+      "criteria": {
+        "a_unique_correct": 0,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 0,
+      "note": "SAI KEY: đúng V(5)=165, key D=204 (165 không có trong options); verifier BẮT verified=False"
+    },
+    {
+      "gidx": 4,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "h'=3t^2+at+5, tìm a=4, h(5)=204; đúng"
+    },
+    {
+      "gidx": 5,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "thể tích lớn nhất trên [0,5]=40 tại t=5 (so cực trị nội + biên); đúng"
+    },
+    {
+      "gidx": 6,
+      "criteria": {
+        "a_unique_correct": 0,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 0,
+      "note": "BLIND SPOT: đúng V(1)=43/3, key C=47/3 verified=True; expr writer tự tính 47/3 khớp key sai -> lọt"
+    },
+    {
+      "gidx": 7,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "a=1/15 để cực đại tại t=6; đúng"
+    },
+    {
+      "gidx": 8,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 0,
+        "d_understanding": 0
+      },
+      "all4": 0,
+      "note": "Nhận biết: một nguyên hàm x^6+(5/3)x^3 -> A; recall"
+    },
+    {
+      "gidx": 9,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "k=15 để cực đại tại t=3; đúng"
+    },
+    {
+      "gidx": 10,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 0,
+        "d_understanding": 0
+      },
+      "all4": 0,
+      "note": "Nhận biết: nguyên hàm e^x -> e^x+C; recall"
+    },
+    {
+      "gidx": 11,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "F cho sẵn, ∫_2^5 f=F(5)-F(2)=30; áp dụng FTC"
+    },
+    {
+      "gidx": 12,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "quãng đường phanh 54; đúng"
+    },
+    {
+      "gidx": 13,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "quãng đường phanh 54; đúng"
+    },
+    {
+      "gidx": 14,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "giải Q=28.5 -> T=3; đúng"
+    },
+    {
+      "gidx": 15,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "B(7)=2064 từ B(3)=1500; đúng"
+    },
+    {
+      "gidx": 16,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "C(120)=794 từ C(30)=236; đúng"
+    },
+    {
+      "gidx": 17,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "thể tích hầm 208/9, chiều cao tuyến tính 3->1; đúng"
+    },
+    {
+      "gidx": 18,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 0,
+        "d_understanding": 1
+      },
+      "all4": 0,
+      "note": "∫_4^4=0; tính tầm thường nhưng kiểm khái niệm cận bằng nhau"
+    },
+    {
+      "gidx": 19,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "hầm h=ax^2+3, a=1/2, V=4392/5; đúng"
+    },
+    {
+      "gidx": 20,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "F cho sẵn, ∫_1^2 f=12; áp dụng FTC"
+    },
+    {
+      "gidx": 21,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 0,
+        "d_understanding": 0
+      },
+      "all4": 0,
+      "note": "Nhận biết: diện tích parabol (2/3)dh=20; recall công thức"
+    },
+    {
+      "gidx": 22,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "giải hệ a,b rồi h(6)=396; đúng"
+    },
+    {
+      "gidx": 23,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "lều parabol V=80; đúng"
+    },
+    {
+      "gidx": 24,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "C(60)=490; đúng"
+    },
+    {
+      "gidx": 25,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "C(80)=1387/3; đúng"
+    },
+    {
+      "gidx": 26,
+      "criteria": {
+        "a_unique_correct": 0,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 0,
+      "note": "SAI KEY: đúng V=153.6, key B=48 (153.6 không có trong options; C≈152.04 gần nhưng khác); verifier BẮT verified=False"
+    },
+    {
+      "gidx": 27,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "k=29/6 từ quãng đường 57; đúng"
+    },
+    {
+      "gidx": 28,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "a=5/36 từ V=160; đúng"
+    },
+    {
+      "gidx": 29,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "k=3/2 từ V=80; đúng"
+    },
+    {
+      "gidx": 30,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 0,
+        "d_understanding": 0
+      },
+      "all4": 0,
+      "note": "Nhận biết: s'(t)=v(t)=3t+2 -> B; recall định nghĩa"
+    },
+    {
+      "gidx": 31,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 0,
+        "d_understanding": 0
+      },
+      "all4": 0,
+      "note": "Nhận biết: V=π∫f^2 dx -> D; recall công thức"
+    },
+    {
+      "gidx": 32,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "diện tích parabol-Ox 32/3; đúng"
+    },
+    {
+      "gidx": 33,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "tròn xoay k=1/2, V=243π/10; Fix B recovered — SymPy ĐÚNG"
+    },
+    {
+      "gidx": 34,
+      "criteria": {
+        "a_unique_correct": 0,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 0,
+      "note": "BLIND SPOT qua Fix B: đúng V=576√2π/5, key D=468√2π/5 verified=True; expr writer sai (415.85) khớp key sai -> Fix B nâng False->True"
+    },
+    {
+      "gidx": 35,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "tròn xoay qua 3 điểm, V=768π/5; đúng"
+    },
+    {
+      "gidx": 36,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "tròn xoay V=576π/5; đúng"
+    },
+    {
+      "gidx": 37,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "tròn xoay parabol bậc 2 qua 3 điểm, V=2012π/15; đúng"
+    },
+    {
+      "gidx": 38,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "k=√5/2 từ V=324π; đúng"
+    },
+    {
+      "gidx": 39,
+      "criteria": {
+        "a_unique_correct": 0,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 0,
+      "note": "FORMULATION: miền y=5,y=x^2 trên [1,3] CẮT NHAU tại √5; key 4/3 là ∫(5-x^2) 'ngây thơ', diện tích thật ≈4.24; câu ill-posed"
+    },
+    {
+      "gidx": 40,
+      "criteria": {
+        "a_unique_correct": 1,
+        "b_grounded": 1,
+        "c_nontrivial": 1,
+        "d_understanding": 1
+      },
+      "all4": 1,
+      "note": "tròn xoay y=3x^2, V=2187π/160; đúng (nhãn Nhận biết nhưng cần tích phân thật)"
+    }
+  ]
+}
