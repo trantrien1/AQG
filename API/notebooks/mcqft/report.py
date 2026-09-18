@@ -157,13 +157,16 @@ def main() -> None:
                          'best_eval_loss', 'train_examples')},
                      'infer': infer_summary['runs']}
         for path in sorted(glob.glob(os.path.join(preds, '*.jsonl'))):
-            system, task = os.path.basename(path)[:-len('.jsonl')].rsplit('.', 1)
+            base = os.path.basename(path)[:-len('.jsonl')]   # vd. lora.gen_ctx
+            if '.' not in base:
+                continue
+            task = base.rsplit('.', 1)[1]
             rows = read_jsonl(path)
-            name = f'{exp}.{system}'
-            if task == 'gen':
-                gen[name] = score_gen(exp, system, rows, test, novelty, judge,
+            name = f'{exp}.{base}'
+            if task in ('gen', 'gen_ctx'):
+                gen[name] = score_gen(exp, base, rows, test, novelty, judge,
                                       args.katex_modules)
-            else:
+            elif task == 'solve':
                 solve[name] = score_solve(rows, test)
 
     lines = ['# So sánh thí nghiệm', '']
@@ -186,8 +189,8 @@ def main() -> None:
               '| Jaccard gần nhất | Tự tương đồng | Bị cắt % | Token/câu | Token/s | **Dùng được %** (95% CI) |',
               '|---|---|---|---|---|---|---|---|---|---|---|---|']
     for name, g in gen.items():
-        exp, system = name.split('.', 1)
-        tps = info[exp]['infer'].get(f'{system}.gen', {}).get('output_tokens_per_second')
+        exp, base = name.split('.', 1)
+        tps = info[exp]['infer'].get(base, {}).get('output_tokens_per_second')
         lo, hi = g['usable_ci']
         lines.append(
             f"| {name} | {g['outputs']} | {fmt(g['format_valid'])} | {fmt(g['katex_ok_of_valid'])} "
@@ -211,10 +214,13 @@ def main() -> None:
     # So sánh từng cặp trên cùng các câu test
     pairs = []
     names = [e for e, _ in exps]
+    tasks = ('gen', 'gen_ctx', 'solve')
     for exp in names:
-        pairs += [(f'{exp}.base', f'{exp}.lora'), (f'{exp}.base_fs3', f'{exp}.lora')]
+        pairs += [(f'{exp}.base.{t}', f'{exp}.lora.{t}') for t in tasks]
+        pairs.append((f'{exp}.base_fs3.gen', f'{exp}.lora.gen'))
     for a, b in zip(names, names[1:]):
-        pairs += [(f'{a}.lora', f'{b}.lora'), (f'{a}.base', f'{b}.base')]
+        pairs += [(f'{a}.lora.{t}', f'{b}.lora.{t}') for t in tasks]
+        pairs += [(f'{a}.base.{t}', f'{b}.base.{t}') for t in tasks]
     lines += ['', '## So sánh cặp (bootstrap ghép cặp theo câu test, 10 000 lần)', '',
               '| Cặp (X → Y) | Tác vụ | Y − X (điểm %) | 95% CI | McNemar p |',
               '|---|---|---|---|---|']

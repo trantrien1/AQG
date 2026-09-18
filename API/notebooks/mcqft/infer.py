@@ -20,7 +20,8 @@ import time
 from typing import Dict, List, Sequence, Tuple
 
 from .data import load_split, write_jsonl
-from .prompts import gen_messages, pick_shots, solve_messages
+from .prompts import (gen_ctx_messages, gen_messages, pick_context, pick_shots,
+                      solve_messages)
 
 GEN_SAMPLING = dict(temperature=0.7, top_p=0.8, top_k=20, max_tokens=2048)
 SOLVE_SAMPLING = dict(temperature=0.0, max_tokens=2048)
@@ -50,6 +51,13 @@ def plan(splits: Dict[str, List[Dict]], task: str, shots: int,
         if task == 'gen':
             ex = pick_shots(it, splits['train'], shots, seed)
             reqs.append((it['id'], gen_messages(it, ex)))
+        elif task == 'gen_ctx':
+            # Trích đoạn lấy từ tập train nên không lộ câu test cho mô hình.
+            context = pick_context(it, splits['train'], seed)
+            if not context:
+                continue
+            reqs.append((it['id'], gen_ctx_messages(context, it['difficulty'],
+                                                    it['subtopic'])))
         else:
             reqs.append((it['id'], solve_messages(it)))
     return reqs
@@ -89,7 +97,7 @@ def main() -> None:
     ap.add_argument('--adapter', default=None)
     ap.add_argument('--out', required=True)
     ap.add_argument('--systems', default='base,base_fs3,lora')
-    ap.add_argument('--tasks', default='gen,solve')
+    ap.add_argument('--tasks', default='gen,gen_ctx,solve')
     ap.add_argument('--gen-samples', type=int, default=2,
                     help='số câu sinh cho mỗi đề bài test (nhiều hơn -> ước lượng chắc hơn)')
     ap.add_argument('--seed', type=int, default=0)
@@ -120,9 +128,11 @@ def main() -> None:
                'solve_sampling': SOLVE_SAMPLING, 'runs': {}}
     for name, shots, use_lora in systems:
         for task in tasks:
-            if task == 'solve' and shots:
-                continue  # few-shot chỉ làm baseline cho tác vụ sinh
-            if task == 'gen':
+            if shots and task != 'gen':
+                # few-shot chỉ làm baseline cho tác vụ sinh không có tài liệu;
+                # gen_ctx đã có bài mẫu ngay trong trích đoạn.
+                continue
+            if task.startswith('gen'):
                 sp = SamplingParams(n=args.gen_samples, seed=args.seed, **GEN_SAMPLING)
             else:
                 sp = SamplingParams(n=1, seed=args.seed, **SOLVE_SAMPLING)

@@ -368,6 +368,17 @@ def _source_paraphrase_issues(candidate: Dict[str, Any], slot: Optional[Dict[str
             return ['duplicate_question:source_exercise_paraphrase']
     return []
 
+def source_quote_issues(candidate: Dict[str, Any],
+                        slot: Optional[Dict[str, Any]] = None) -> List[str]:
+    """Các lỗi của riêng trích dẫn nguồn.
+
+    Dùng khi cần thử nhiều trích dẫn ứng viên trước khi chốt (vd. writer chỉ
+    sinh đề + lời giải, trích dẫn được dò lại trong tài liệu) — thay vì gọi
+    ``validate_candidate`` vốn đòi candidate đã đủ phương án nhiễu.
+    """
+    return _source_quote_issues(candidate, slot)
+
+
 def _source_quote_issues(candidate: Dict[str, Any], slot: Optional[Dict[str, Any]]) -> List[str]:
     quote = str(candidate.get('source_quote_text') or '').strip()
     if not quote:

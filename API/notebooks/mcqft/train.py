@@ -13,6 +13,7 @@ import json
 import math
 import os
 import time
+from collections import Counter
 from typing import Dict, List, Sequence
 
 from .data import load_split
@@ -76,7 +77,7 @@ def main() -> None:
     ap.add_argument('--revision', default=None, help='commit SHA của trọng số (ghim để tái lập)')
     ap.add_argument('--data', required=True, help='thư mục do mcqft.data tạo')
     ap.add_argument('--out', required=True)
-    ap.add_argument('--tasks', default='gen,solve')
+    ap.add_argument('--tasks', default='gen,gen_ctx,solve')
     ap.add_argument('--shuffle-aug', type=int, default=0,
                     help='số bản xáo phương án thêm cho mỗi câu ở tác vụ solve')
     ap.add_argument('--epochs', type=float, default=3)
@@ -109,13 +110,16 @@ def main() -> None:
 
     splits = load_split(args.data)
     train_ex = build_examples(splits['train'], tasks, args.shuffle_aug, args.seed)
-    val_ex = build_examples(splits['val'], tasks, 0, args.seed)
+    val_ex = build_examples(splits['val'], tasks, 0, args.seed,
+                            context_pool=splits['train'])
     train_rows, dropped_train = encode_all(tok, train_ex, args.max_len)
     val_rows, dropped_val = encode_all(tok, val_ex, args.max_len)
     n_tokens = sum(len(r['input_ids']) for r in train_rows)
     n_target = sum(sum(1 for x in r['labels'] if x != -100) for r in train_rows)
+    by_task = Counter(ex['task'] for ex in train_ex)
     print(f'train {len(train_rows)} mẫu ({n_tokens} token, {n_target} token tính loss), '
-          f'val {len(val_rows)} mẫu; bỏ vì quá dài: {len(dropped_train) + len(dropped_val)}')
+          f'val {len(val_rows)} mẫu; theo tác vụ {dict(by_task)}; '
+          f'bỏ vì quá dài: {len(dropped_train) + len(dropped_val)}')
 
     dtype = torch.float32 if args.no_bf16 else torch.bfloat16
     model = AutoModelForCausalLM.from_pretrained(
@@ -177,6 +181,7 @@ def main() -> None:
         'model': args.model, 'revision': args.revision, 'tasks': tasks,
         'args': vars(args),
         'train_examples': len(train_rows), 'val_examples': len(val_rows),
+        'train_examples_by_task': dict(by_task),
         'train_tokens_per_epoch': n_tokens, 'target_tokens_per_epoch': n_target,
         'dropped_too_long': dropped_train + dropped_val,
         'train_seconds': round(train_seconds, 1),

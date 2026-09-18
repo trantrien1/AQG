@@ -232,8 +232,9 @@ def test_infer_and_judge_plumbing_with_fake_vllm(tmp_path, monkeypatch, fake_vll
     infer.main()
     assert fake_vllm.calls[-1]['enable_lora'] and fake_vllm.calls[-1]['max_lora_rank'] == 32
     names = sorted(p.name for p in preds.iterdir())
-    assert names == ['base.gen.jsonl', 'base.solve.jsonl', 'base_fs3.gen.jsonl',
-                     'infer_summary.json', 'lora.gen.jsonl', 'lora.solve.jsonl']
+    assert names == ['base.gen.jsonl', 'base.gen_ctx.jsonl', 'base.solve.jsonl',
+                     'base_fs3.gen.jsonl', 'infer_summary.json', 'lora.gen.jsonl',
+                     'lora.gen_ctx.jsonl', 'lora.solve.jsonl']
     assert len(data.read_jsonl(str(preds / 'lora.gen.jsonl'))) == 6   # 3 câu x 2 mẫu
 
     out = tmp_path / 'judge'
@@ -241,7 +242,8 @@ def test_infer_and_judge_plumbing_with_fake_vllm(tmp_path, monkeypatch, fake_vll
                                       '--out', str(out)])
     judge.main()
     rows = data.read_jsonl(str(out / 'judge.jsonl'))
-    assert len(rows) == 3 + 3 * 6          # câu thật + 3 hệ gen x 6 đầu ra
+    gen_outputs = sum(len(data.read_jsonl(str(p))) for p in preds.glob('*.gen*.jsonl'))
+    assert len(rows) == 3 + gen_outputs    # câu test thật + mọi câu sinh ra
     assert all(r['pred'] == 'B' for r in rows)
     assert json.loads((out / 'judge_meta.json').read_text())['real_accuracy'] == 1.0
 
@@ -285,9 +287,9 @@ def test_report_end_to_end_without_gpu(tmp_path, monkeypatch):
     judge = tmp_path / 'judge'
     judge.mkdir()
     data.write_jsonl(str(judge / 'judge.jsonl'), [
-        {'key': f"A/lora/{test[0]['id']}/0", 'pred': 'B', 'key_answer': 'B'},
-        {'key': f"A/lora/{test[1]['id']}/0", 'pred': 'B', 'key_answer': 'B'},
-        {'key': f"A/lora/{test[3]['id']}/0", 'pred': 'C', 'key_answer': 'B'},
+        {'key': f"A/lora.gen/{test[0]['id']}/0", 'pred': 'B', 'key_answer': 'B'},
+        {'key': f"A/lora.gen/{test[1]['id']}/0", 'pred': 'B', 'key_answer': 'B'},
+        {'key': f"A/lora.gen/{test[3]['id']}/0", 'pred': 'C', 'key_answer': 'B'},
         {'key': f"real/{test[0]['id']}", 'pred': 'B', 'key_answer': 'B'},
     ])
     out = tmp_path / 'report'
@@ -295,10 +297,10 @@ def test_report_end_to_end_without_gpu(tmp_path, monkeypatch):
                                       '--judge', str(judge), '--out', str(out)])
     report.main()
     res = json.loads((out / 'report.json').read_text(encoding='utf-8'))
-    g = res['gen']['A.lora']
+    g = res['gen']['A.lora.gen']
     assert g['format_valid'] == pytest.approx(0.75)
     assert g['judge_agree_of_valid'] == pytest.approx(2 / 3)
     assert g['near_copy_rate'] == pytest.approx(1 / 3)
     assert g['usable_rate'] == pytest.approx(0.25)   # chỉ câu mới + giám khảo khớp
     assert g['truncated'] == pytest.approx(0.25)
-    assert res['solve']['A.lora']['accuracy'] == pytest.approx(0.75)
+    assert res['solve']['A.lora.solve']['accuracy'] == pytest.approx(0.75)

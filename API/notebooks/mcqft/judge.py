@@ -29,8 +29,10 @@ def collect(data_dir: str, preds: List[Tuple[str, str]]) -> List[Dict]:
     jobs = [{'key': f"real/{it['id']}", 'item': it}
             for it in load_split(data_dir)['test']]
     for exp, folder in preds:
-        for path in sorted(glob.glob(os.path.join(folder, '*.gen.jsonl'))):
-            system = os.path.basename(path)[:-len('.gen.jsonl')]
+        paths = sorted(glob.glob(os.path.join(folder, '*.gen.jsonl'))
+                       + glob.glob(os.path.join(folder, '*.gen_ctx.jsonl')))
+        for path in paths:
+            system = os.path.basename(path)[:-len('.jsonl')]
             for row in read_jsonl(path):
                 rec, errors = parse_generated(row['text'])
                 if errors or rec['answer'] is None:

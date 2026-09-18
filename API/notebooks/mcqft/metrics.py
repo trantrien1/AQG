@@ -4,7 +4,7 @@ from __future__ import annotations
 import math
 import random
 import re
-from typing import Dict, List, Optional, Sequence, Set, Tuple
+from typing import Dict, List, Optional, Sequence, Tuple
 
 from .data import jaccard, shingles
 

@@ -6,9 +6,10 @@ trên dataset `trantrien1/vi-math12-integral-mcq` (1.095 câu `usable`). Chạy 
 | Thứ tự | Notebook | Việc | GPU | Thời gian (ước tính) |
 |---|---|---|---|---|
 | 1 | `00_chuan_bi_du_lieu.ipynb` | Chia train/val/test, lưu lên Drive | không | 2 phút |
-| 2 | `01_expA_qwen3_8b_lora.ipynb` | **A**: Qwen3-8B + LoRA, sinh đầu ra test | A100 | 30–45 phút |
-| 3 | `02_expB_qwen3_14b_lora.ipynb` | **B**: Qwen3-14B + LoRA, sinh đầu ra test | A100 | 50–75 phút |
+| 2 | `01_expA_qwen3_8b_lora.ipynb` | **A**: Qwen3-8B + LoRA, sinh đầu ra test | A100 | 40–60 phút |
+| 3 | `02_expB_qwen3_14b_lora.ipynb` | **B**: Qwen3-14B + LoRA, sinh đầu ra test | A100 | 70–95 phút |
 | 4 | `03_danh_gia_so_sanh.ipynb` | Giám khảo khác họ chấm, báo cáo so sánh | A100 | 15 phút |
+| 5 | `04_pipeline_pdf_voi_model_finetune.ipynb` | Sinh câu hỏi từ PDF tải lên, Writer là model đã fine-tune | A100 | 30–60 phút |
 
 Thời gian là ước tính trước khi chạy; số đo thật (giây train, token/s, VRAM đỉnh) được ghi vào báo cáo.
 
@@ -32,9 +33,12 @@ thành nhóm, và cả nhóm nằm chung một tập, để điểm test không 
 chủ đề × mức độ, với seed cố định. Chỉ những câu có lời giải mới được dùng để train (760 câu). Mỗi câu cho ra hai mẫu:
 
 - **gen** (tác vụ chính): cho chủ đề, nội dung, dạng bài, mức độ → mô hình soạn đề, 4 phương án, lời giải và đáp án.
+- **gen_ctx**: thêm một **trích đoạn tài liệu** (1–3 bài khác cùng dạng, kèm lời giải) → soạn câu mới theo phương pháp trong
+  trích đoạn. Đây là dạng dùng khi gắn mô hình vào pipeline sinh câu từ PDF người dùng tải lên; các bài dùng làm trích đoạn
+  được loại nếu cùng một bài toán với câu đích, để mô hình không học cách chép tài liệu.
 - **solve** (tác vụ phụ): cho đề và phương án → mô hình viết lời giải và `Đáp án: X`. Tác vụ này có đáp án chuẩn nên đo được khách quan.
 
-Tổng cộng khoảng 1.520 mẫu, 0,86 triệu token mỗi epoch (0,52 triệu token tính loss).
+Tổng cộng khoảng 2.280 mẫu, 1,4 triệu token mỗi epoch.
 
 **Huấn luyện.** A và B dùng chung mọi thiết lập, chỉ khác model:
 
@@ -71,6 +75,33 @@ Thiết kế cho ra bảng 2 × 3, tách được hai tác động: kích thư�
 khoảng tin cậy của `A.lora → B.lora` nằm hẳn trên 0 và mức hơn đủ lớn so với chi phí (14B train và sinh chậm hơn khoảng 1,7–2 lần).
 Ngược lại thì chọn 8B.
 
+## Gắn vào pipeline sinh câu từ PDF (notebook 04)
+
+Pipeline chạy nguyên trạng, chỉ thay tác nhân **Writer**. Vì Qwen3-8B/14B chỉ đọc chữ và ba mô hình không cùng vừa
+trong 80GB, notebook 04 chạy ba giai đoạn, mỗi giai đoạn một tiến trình riêng:
+
+1. **prepare** — model thị giác chép từng trang PDF thành chữ (công thức sang LaTeX) và trích dàn ý (chủ đề, chuẩn đầu ra).
+2. **draft** — mô hình fine-tune soạn sẵn một kho câu nháp: mỗi câu từ một trích đoạn tài liệu + một mức độ, đúng
+   định dạng đã học ở tác vụ `gen_ctx`. Kho được soạn dư rồi lọc: sai khuôn, chép lại bài trong tài liệu, trùng nhau,
+   hoặc không qua **bộ luật soạn đề của chính pipeline** — lọc ở đây rẻ hơn nhiều so với để câu chạy hết các bước sau.
+3. **generate** — pipeline duyệt từng câu nháp: phương án nhiễu gắn lỗi, hội đồng giải độc lập, kiểm chứng, chấm bám
+   nguồn và rubric, đóng gói.
+
+Ba chỗ mô hình fine-tune **không** làm được như Writer gốc:
+
+| Việc của Writer gốc | Ở đây |
+|---|---|
+| Trích một đoạn nguyên văn trong tài liệu làm bằng chứng nguồn | Trích dẫn được **máy dò lại** trong bản chép tài liệu (đoạn khớp nhất với câu hỏi, không phải đề bài có sẵn). Critic vẫn chấm độ bám nguồn trên ảnh trang gốc. |
+| Viết kèm biểu thức để SymPy tính lại đáp án | Không có, nên nhãn kiểm chứng chỉ đến từ hội đồng giải độc lập; câu không có nhãn *đã kiểm chứng độc lập* sẽ ở mức *không kiểm được bằng máy*. |
+| Nhận ràng buộc độ nặng phép tính theo độ khó mục tiêu | Mô hình chỉ nhận mức độ, nên câu quá ngắn/quá dễ bị bộ luật của pipeline loại (`question_too_trivial`). Đây là lý do loại phổ biến nhất khi dùng dữ liệu sách. |
+
+Mặc định `DISTRACTORS='pipeline'`: 4 phương án của mô hình fine-tune bị bỏ, tác nhân nhiễu của pipeline soạn lại 3 phương
+án gắn lỗi thường gặp kèm mô tả cách ra giá trị sai — đúng cơ chế mà Critic chấm được. Chế độ `'model'` giữ phương án của
+mô hình, nhưng vì không có mô tả lỗi nên tiêu chí "lỗi khớp giá trị" bị tắt.
+
+Chế độ trực tuyến (ô cuối notebook 04) phục vụ base + adapter trên một máy chủ riêng và bỏ giai đoạn 2, nên Writer tôn
+trọng được danh sách câu cần né và phản hồi người dùng như Writer gốc; chỉ đủ bộ nhớ khi Writer là 8B.
+
 ## Đề xuất cải thiện (theo mức đáng làm)
 
 1. **Chạy 3 seed** (42, 43, 44) cho cả A và B. Kết luận "14B hơn ít" chỉ đứng được khi chiều chênh lệch giống nhau ở mọi seed.
@@ -87,8 +118,11 @@ Ngược lại thì chọn 8B.
    (script đã có cờ). Thêm xáo phương án (`SHUFFLE_AUG`) để giảm lệch vị trí đáp án ở tác vụ giải.
 7. **Độ khó** trong dataset do mô hình gán, chưa có giáo viên xác nhận. Kết quả "điều khiển mức độ" hiện chỉ đo được
    so với nhãn đó.
-8. **Đưa vào pipeline** cần một lớp chuyển đổi: writer của pipeline trả thêm trích dẫn nguồn và loại lỗi của phương án
-   nhiễu mà dataset không có. Ngoài ra Qwen3-8B/14B chỉ đọc chữ, không đọc được ảnh trang PDF.
+8. **Dạy mô hình trích dẫn nguồn và viết biểu thức kiểm chứng.** Dataset hiện không có hai trường này, nên notebook 04
+   phải dò trích dẫn bằng máy và bỏ hẳn phần SymPy. Muốn mô hình fine-tune thay Writer gốc trọn vẹn thì cần dữ liệu huấn
+   luyện có cả hai (có thể lấy từ chính các câu mà pipeline đã sinh và đã được kiểm chứng).
+9. **Thêm ràng buộc độ khó vào tác vụ `gen_ctx`** (số bước tối thiểu, cấm bộ số kinh điển) để giảm số câu bị loại vì
+   `question_too_trivial`.
 
 ## Chạy ngoài Colab
 
@@ -99,6 +133,11 @@ python -m mcqft.train --model Qwen/Qwen3-8B --data data --out exp_a
 python -m mcqft.infer --model Qwen/Qwen3-8B --data data --adapter exp_a/adapter --out exp_a/preds
 python -m mcqft.judge --data data --preds A=exp_a/preds --out judge
 python -m mcqft.report --data data --exp A=exp_a --judge judge --out report --katex-modules <node_modules>
+
+# sinh câu từ một PDF (cần máy chủ model thị giác + solver như notebook 04 dựng)
+python -m mcqft.pipeline_ft prepare  --pdf bai.pdf --out run1
+python -m mcqft.pipeline_ft draft    --prep run1 --model Qwen/Qwen3-14B --adapter exp_b/adapter --n 10
+python -m mcqft.pipeline_ft generate --prep run1 --n 10
 ```
 
-Test không cần GPU: `python -m pytest tests/test_mcqft.py` (chạy từ thư mục `API`).
+Test không cần GPU: `python -m pytest tests/test_mcqft.py tests/test_mcqft_pipeline.py` (chạy từ thư mục `API`).

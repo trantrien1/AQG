@@ -1,7 +1,10 @@
-"""Định dạng hội thoại cho hai tác vụ.
+"""Định dạng hội thoại cho ba tác vụ.
 
-- ``gen`` (tác vụ chính): cho chủ đề, dạng bài, mức độ -> soạn một câu hỏi mới
-  gồm đề, 4 phương án, lời giải, đáp án.
+- ``gen``: cho chủ đề, dạng bài, mức độ -> soạn một câu hỏi mới gồm đề,
+  4 phương án, lời giải, đáp án.
+- ``gen_ctx``: như ``gen`` nhưng kèm một trích đoạn tài liệu (vài bài mẫu cùng
+  dạng) -> soạn câu MỚI theo phương pháp trong trích đoạn. Đây là dạng dùng khi
+  gắn mô hình vào pipeline sinh câu từ PDF người dùng tải lên.
 - ``solve`` (tác vụ phụ): cho đề và phương án -> lời giải và đáp án. Tác vụ này
   có đáp án chuẩn nên đo được độ chính xác một cách khách quan.
 
@@ -90,6 +93,71 @@ def gen_messages(item: Dict, shots: Sequence[Dict] = ()) -> List[Dict]:
     return msgs
 
 
+CONTEXT_CHARS = 3000
+
+
+def doc_item_text(item: Dict, number: int) -> str:
+    """Một bài trong trích đoạn tài liệu, trình bày như file đề có lời giải."""
+    choices = '\n'.join(f'{k}. {strip_letter(c)}' for k, c in zip(LETTERS, item['choices']))
+    text = f"Câu {number}. {item['question'].strip()}\n{choices}"
+    if item['solution'].strip():
+        text += f"\nLời giải\n{item['solution'].strip()}"
+    return text
+
+
+def gen_ctx_user(context: str, level: str, topic: str = '') -> str:
+    lines = ['Trích đoạn tài liệu:', '"""', context.strip(), '"""']
+    if topic:
+        lines.append(f'Chủ đề: {topic}')
+    lines.append(f'Mức độ: {level}')
+    lines.append('Dựa vào kiến thức và phương pháp trong trích đoạn, hãy soạn một câu hỏi '
+                 'mới (không chép lại bài có sẵn).')
+    return '\n'.join(lines)
+
+
+def gen_ctx_messages(context: str, level: str, topic: str = '') -> List[Dict]:
+    return [{'role': 'system', 'content': SYSTEM_GEN},
+            {'role': 'user', 'content': gen_ctx_user(context, level, topic)}]
+
+
+def pick_context(item: Dict, pool: Sequence[Dict], seed: int = 0,
+                 max_chars: int = CONTEXT_CHARS) -> str:
+    """Trích đoạn giả lập cho ``gen_ctx``: 1–3 bài KHÁC cùng dạng với ``item``.
+
+    Bỏ các bài cùng một bài toán với ``item`` (chép lại, sửa lời) để mô hình
+    không học cách chép từ tài liệu.
+    """
+    from .data import _Signature, same_problem
+    rng = random.Random(f"ctx:{seed}:{item['id']}")
+    section = clean_section(item.get('section'))
+    target = _Signature(item)
+
+    def ok(p: Dict) -> bool:
+        return p['id'] != item['id'] and not same_problem(target, _Signature(p))
+
+    same = [p for p in pool if p['subtopic'] == item['subtopic']
+            and clean_section(p.get('section')) == section]
+    near = [p for p in pool if p['subtopic'] == item['subtopic']]
+    for group in (same, near):
+        rng.shuffle(group)
+        chosen = [p for p in group[:12] if ok(p)]
+        if chosen:
+            break
+    else:
+        return ''
+    want = 1 + rng.randrange(3)
+    parts: List[str] = []
+    header = item.get('section') or item['subtopic']
+    total = len(header)
+    for p in chosen[:want]:
+        block = doc_item_text(p, len(parts) + 1 + rng.randrange(20))
+        if parts and total + len(block) > max_chars:
+            break
+        parts.append(block[:max_chars])
+        total += len(block)
+    return header + '\n' + '\n\n'.join(parts)
+
+
 def solve_messages(item: Dict) -> List[Dict]:
     return [{'role': 'system', 'content': SYSTEM_SOLVE},
             {'role': 'user', 'content': solve_user(item)}]
@@ -132,9 +200,14 @@ def shuffled_copy(item: Dict, rng: random.Random) -> Optional[Dict]:
 
 
 def build_examples(items: Sequence[Dict], tasks: Sequence[str], shuffle_aug: int = 0,
-                   seed: int = 0) -> List[Dict]:
-    """Mẫu huấn luyện: chỉ dùng câu có lời giải (câu chỉ có đáp án dạy mô hình đoán mò)."""
+                   seed: int = 0, context_pool: Optional[Sequence[Dict]] = None) -> List[Dict]:
+    """Mẫu huấn luyện: chỉ dùng câu có lời giải (câu chỉ có đáp án dạy mô hình đoán mò).
+
+    ``context_pool``: nơi lấy bài mẫu cho trích đoạn của ``gen_ctx`` (mặc định
+    chính ``items``). Với tập val nên truyền tập train: trích đoạn chỉ là đầu vào.
+    """
     rng = random.Random(seed)
+    pool = list(context_pool) if context_pool is not None else list(items)
     out: List[Dict] = []
     for it in items:
         if not it['solution'].strip():
@@ -142,6 +215,13 @@ def build_examples(items: Sequence[Dict], tasks: Sequence[str], shuffle_aug: int
         if 'gen' in tasks:
             out.append({'id': it['id'], 'task': 'gen', 'messages': gen_messages(it),
                         'target': gen_target(it)})
+        if 'gen_ctx' in tasks:
+            context = pick_context(it, pool, seed)
+            if context:
+                out.append({'id': it['id'], 'task': 'gen_ctx',
+                            'messages': gen_ctx_messages(context, it['difficulty'],
+                                                         it['subtopic']),
+                            'target': gen_target(it)})
         if 'solve' in tasks:
             variants = [it]
             for _ in range(shuffle_aug):
