@@ -2,8 +2,10 @@
 
     python -m mcqft.data --source trantrien1/vi-math12-integral-mcq --out /content/data
 
-Ghi ra ``items.jsonl`` (chỉ câu ``usable``), ``split.json`` (id -> train/val/test)
-và ``stats.md``. Hai thí nghiệm A và B đọc cùng thư mục này nên dùng cùng tập.
+Ghi ra ``items.jsonl`` (câu trắc nghiệm ``usable`` của chương Nguyên hàm – Tích phân,
+lấy từ cả sách lẫn đề thi; ``--all-topics`` để lấy mọi chủ đề), ``split.json``
+(id -> train/val/test) và ``stats.md``. Hai thí nghiệm A và B đọc cùng thư mục này nên
+dùng cùng tập.
 """
 from __future__ import annotations
 
@@ -18,6 +20,11 @@ from typing import Dict, Iterable, List, Optional, Sequence, Set
 DATASET_REPO = 'trantrien1/vi-math12-integral-mcq'
 SPLIT_SEED = 20260917
 LEVELS = ('Nhận biết', 'Thông hiểu', 'Vận dụng', 'Vận dụng cao')
+# Chủ đề của chương Nguyên hàm – Tích phân (prompt SYSTEM_GEN viết cho chương này).
+# Dataset gộp còn có đề thi các chương khác; "Nguyên hàm, tích phân và ứng dụng" là
+# tên chủ đề cũ của phần đề kiểm tra trong sách.
+INTEGRAL_TOPICS = ('Nguyên hàm', 'Tích phân', 'Ứng dụng tích phân',
+                   'Nguyên hàm, tích phân và ứng dụng')
 
 
 def read_jsonl(path: str) -> List[Dict]:
@@ -32,15 +39,23 @@ def write_jsonl(path: str, rows: Iterable[Dict]) -> None:
             fh.write(json.dumps(row, ensure_ascii=False) + '\n')
 
 
-def load_items(source: str, token: Optional[str] = None) -> List[Dict]:
-    """``source`` là đường dẫn ``questions.jsonl`` hoặc tên repo dataset trên HF."""
+def load_items(source: str, token: Optional[str] = None,
+               topics: Optional[Sequence[str]] = INTEGRAL_TOPICS) -> List[Dict]:
+    """``source`` là đường dẫn ``questions.jsonl`` hoặc tên repo dataset trên HF.
+
+    Chỉ lấy câu trắc nghiệm A–D ``usable`` (dataset gộp có thêm câu đúng/sai và trả
+    lời ngắn; bản cũ không có trường ``type``, coi là trắc nghiệm) thuộc ``topics``
+    (``None``: mọi chủ đề).
+    """
     if os.path.exists(source):
         path = source
     else:
         from huggingface_hub import hf_hub_download
         path = hf_hub_download(source, 'questions.jsonl', repo_type='dataset',
                                token=token)
-    items = [it for it in read_jsonl(path) if it.get('usable')]
+    items = [it for it in read_jsonl(path)
+             if it.get('usable') and it.get('type', 'mcq') == 'mcq'
+             and (topics is None or it.get('topic') in topics)]
     missing = [it['id'] for it in items if it.get('difficulty') not in LEVELS]
     if missing:
         raise ValueError(f'{len(missing)} câu usable chưa có độ khó, ví dụ {missing[:5]}')
@@ -184,9 +199,13 @@ def main() -> None:
     ap.add_argument('--out', required=True)
     ap.add_argument('--seed', type=int, default=SPLIT_SEED)
     ap.add_argument('--dup-threshold', type=float, default=0.8)
+    ap.add_argument('--all-topics', action='store_true',
+                    help='lấy cả đề thi các chương khác (khi đó cần sửa SYSTEM_GEN trong prompts.py, '
+                         'vốn viết cho chương Nguyên hàm – Tích phân)')
     args = ap.parse_args()
 
-    items = load_items(args.source, token=os.environ.get('HF_TOKEN'))
+    items = load_items(args.source, token=os.environ.get('HF_TOKEN'),
+                       topics=None if args.all_topics else INTEGRAL_TOPICS)
     split = split_items(items, args.seed, args.dup_threshold)
     n_groups = len(near_duplicate_groups(items, args.dup_threshold))
     os.makedirs(args.out, exist_ok=True)

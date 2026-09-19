@@ -53,6 +53,23 @@ def test_split_is_deterministic_grouped_and_close_to_80_5_15():
     assert abs(counts['test'] - 30) <= 3 and abs(counts['val'] - 10) <= 2
 
 
+def test_load_items_keeps_only_multiple_choice(tmp_path):
+    path = tmp_path / 'q.jsonl'
+    tf = dict(_item(2), type='true_false', choices=['a) x', 'b) y', 'c) z', 'd) t'], answer='ĐSĐS')
+    short = dict(_item(3), type='short_answer', choices=[], answer='-4')
+    data.write_jsonl(str(path), [_item(1), dict(_item(4), type='mcq'), tf, short])
+    assert [it['id'] for it in data.load_items(str(path))] == ['q001', 'q004']
+
+
+def test_load_items_defaults_to_integral_chapter(tmp_path):
+    path = tmp_path / 'q.jsonl'
+    rows = [_item(1), _item(2, topic='Lũy thừa, mũ và logarit'),
+            _item(3, topic='Nguyên hàm, tích phân và ứng dụng')]
+    data.write_jsonl(str(path), rows)
+    assert [it['id'] for it in data.load_items(str(path))] == ['q001', 'q003']
+    assert len(data.load_items(str(path), topics=None)) == 3
+
+
 def test_load_items_requires_difficulty(tmp_path):
     path = tmp_path / 'q.jsonl'
     bad = _item(1, level=None)
@@ -68,6 +85,9 @@ def test_load_items_requires_difficulty(tmp_path):
 def test_clean_section():
     assert prompts.clean_section('DẠNG 2: ÁP DỤNG TRỰC TIẾP BẢNG NGUYÊN HÀM') == \
         'Áp dụng trực tiếp bảng nguyên hàm'
+    # tên phần của đề thi không phải dạng bài
+    assert prompts.clean_section('Phần I – Trắc nghiệm nhiều phương án') == ''
+    assert prompts.clean_section('Trắc nghiệm nhiều phương án (đề 50 câu)') == ''
     assert prompts.clean_section('PHƯƠNG PHÁP') == ''
     assert prompts.clean_section('DẠNG 3') == ''
     assert prompts.clean_section(None) == ''

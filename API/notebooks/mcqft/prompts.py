@@ -41,10 +41,14 @@ SYSTEM_SOLVE = (
 
 _RE_SECTION_PREFIX = re.compile(r'^\s*DẠNG\s*\d+\s*[:.]?\s*', re.I)
 _UNINFORMATIVE = {'', 'phương pháp', 'bài tập', 'ví dụ'}
+# Câu lấy từ đề thi có ``section`` là tên phần của đề, không phải dạng bài.
+_RE_EXAM_PART = re.compile(r'^\s*(?:Phần\s+[IVX]+\s*[–-]|Trắc\s*nghiệm\s+nhiều\s+phương\s+án)', re.I)
 
 
 def clean_section(section: Optional[str]) -> str:
     """"DẠNG 2: ÁP DỤNG TRỰC TIẾP BẢNG NGUYÊN HÀM" -> "Áp dụng trực tiếp bảng nguyên hàm"."""
+    if _RE_EXAM_PART.match(section or ''):
+        return ''
     s = _RE_SECTION_PREFIX.sub('', section or '').strip(' .:')
     if s.lower() in _UNINFORMATIVE:
         return ''
